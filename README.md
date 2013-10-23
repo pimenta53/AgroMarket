@@ -3,7 +3,7 @@ agrosocial
  
 UCE15 
 
-## Push para o Bitbucket  ##
+## Push para o GitHub  ##
 
 A messagem de **commit** para melhor entendimento deve seguir o template:
 
