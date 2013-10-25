@@ -1,0 +1,11 @@
+<h1>Agro Social</h1>
+
+<% if user_signed_in? %>
+	<p> Seja Bem Vindo '<%= current_user.username %>'</p>
+	<p><%= link_to "Terminar a sessão",destroy_user_session_path, method: :delete %></p>
+	<p><%= link_to "Editar perfil",edit_user_registration_path %></p>
+	<% else %>
+	<p> <%= link_to "Login",new_user_session_path %></p>
+	<p> <%= link_to "Criar uma conta",new_user_registration_path %></p>
+	<% end %>
+	<h4>Agro social</h4>
