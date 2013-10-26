@@ -38,6 +38,22 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'protected_attributes'
+
+#gem para fazer dump e load da BD
+gem 'yaml_db'
+
+#para fazer paginacao
+gem 'will_paginate', '~> 3.0.0'
+gem 'bootstrap-will_paginate'
+
+#better errors
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
