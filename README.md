@@ -22,6 +22,14 @@ A messagem de **commit** para melhor entendimento deve seguir o template:
 
 ## Configuration ##
 Alterem o vosso ficheiro `/config/database.yml` e mantenham-no localmente. 
+Atenção com os tipos, username, password e socket têm que ser strings 
+(entre '' preferivelemente), caso não fizerem terão erro de conversão de 
+Fixnum para String. Exemplo:
+  username: 'root'
+  password: 'root'
+  socket: '3306'
+Neste caso username e password não precisam de '' porque seriam imediatamente
+reconhecidos como String, mas no socket é obrigatório.
 
 ```Ruby
 # MySQL.  Versions 4.1 and 5.0 are recommended.
