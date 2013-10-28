@@ -26,7 +26,7 @@ test:
   database: agrosocial_test
   pool: 5
   username: root
-  password: nbuser
+  password: que34almeida25
   socket: /tmp/mysql.sock
 
 production:
