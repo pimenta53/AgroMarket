@@ -21,7 +21,7 @@ A messagem de **commit** para melhor entendimento deve seguir o template:
 * Config
 
 ## Configuration ##
-Alterem o vosso ficheiro /db/database.yml e mantenham-no  
+Alterem o vosso ficheiro `/db/database.yml` e mantenham-no localmente. 
 
 ```Ruby
 development:
