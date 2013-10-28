@@ -38,7 +38,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'protected_attributes'
 
 #gem para fazer dump e load da BD
 gem 'yaml_db'
