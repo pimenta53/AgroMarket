@@ -36,7 +36,7 @@ class UserTest < ActiveSupport::TestCase
         assert !@user.save
         assert @user.errors.size > 0
     end
-
+    
 
 =begin
    test "should not save user without name" do
