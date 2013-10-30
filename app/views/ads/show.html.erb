@@ -39,6 +39,9 @@
   <strong>City:</strong>
   <%= @ad.city_id %>
 </p>
+<%= @ad.ad_images[0].image(:small) %>
+
+
 <% @ad.ad_images.each do |i| %>
   <%= image_tag i.image(:small) %>
 <% end %>
