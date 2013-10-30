@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
  */
+
+#agrosocial_logo{
+	width: 45px;
+	height: 45px;
+	float: left;
+}
