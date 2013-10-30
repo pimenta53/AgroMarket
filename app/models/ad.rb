@@ -23,6 +23,19 @@ class Ad < ActiveRecord::Base
 	accepts_nested_attributes_for :ad_images
 	before_validation :create_permalink
 
+  	validates :title, presence: true
+  	validates :price, presence: true
+  	validates :expire_date, presence: true
+  	validates :is_active, presence: true
+  	validates :type_price_id, presence: true
+  	validates :city_id, presence: true
+
+  	validate :expire_date_cannot_be_in_the_past, :on => :create
+
+  	def expire_date_cannot_be_in_the_past
+    	errors.add(:expire_date, "can't be in the past") if
+      		!expire_date.blank? and expire_date < Date.today
+  	end
 
 
 	def to_param
