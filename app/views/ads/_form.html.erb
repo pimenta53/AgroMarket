@@ -41,7 +41,7 @@
   </div>
   <div class="field">
     <%= f.label :city_id %><br>
-    <%= f.number_field :city_id %>
+      <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção') %>
   </div>
 
   <div class="newPaperclipFiles">

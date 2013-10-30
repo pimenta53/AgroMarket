@@ -14,6 +14,7 @@ class AdsController < ApplicationController
 
   # GET /ads/new
   def new
+    @cities = City.all
     @ad = Ad.new
     5.times {@ad.ad_images.build}
   end
@@ -21,6 +22,7 @@ class AdsController < ApplicationController
   # GET /ads/1/edit
   def edit
     5.times {@ad.ad_images.build}
+    @cities = City.all
   end
 
   # POST /ads

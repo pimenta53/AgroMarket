@@ -27,7 +27,7 @@
         <td><%= ad.location %></td>
         <td><%= ad.is_active %></td>
         <td><%= ad.type_price_id %></td>
-        <td><%= ad.city_id %></td>
+        <td><%= ad.city.city unless ad.city.blank? %></td>
         <td><%= link_to 'Show', ad %></td>
         <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
         <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
