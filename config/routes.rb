@@ -13,7 +13,8 @@ Agrosocial::Application.routes.draw do
 
   resources :users
 
-  resources :messages
+  post "new_messages" => "messages#create"
+
 
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
