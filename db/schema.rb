@@ -11,9 +11,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131029224459) do
+ActiveRecord::Schema.define(version: 20131030110138) do
+
+  create_table "ad_images", force: true do |t|
+    t.integer  "ad_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+  end
+
+  create_table "ads", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.float    "price"
+    t.datetime "expire_date"
+    t.string   "location"
+    t.binary   "is_active"
+    t.integer  "type_price_id"
+    t.integer  "city_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cities", force: true do |t|
+    t.string   "city"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "price_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "testes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "types", force: true do |t|
+    t.string   "name"
+    t.integer  "flag"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

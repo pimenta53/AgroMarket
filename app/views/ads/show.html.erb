@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @ad.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ad.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @ad.price %>
+</p>
+
+<p>
+  <strong>Expire date:</strong>
+  <%= @ad.expire_date %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @ad.location %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @ad.is_active %>
+</p>
+
+<p>
+  <strong>Type price:</strong>
+  <%= @ad.type_price_id %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @ad.city_id %>
+</p>
+<% @ad.ad_images.each do |i| %>
+  <%= image_tag i.image(:small) %>
+<% end %>
+
+<%= link_to 'Edit', edit_ad_path(@ad) %> |
+<%= link_to 'Back', ads_path %>

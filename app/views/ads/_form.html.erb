@@ -1,0 +1,74 @@
+<%= form_for @ad,:html => {:multipart => true} do |f| %>
+  <% if @ad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
+
+      <ul>
+      <% @ad.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :expire_date %><br>
+    <%= f.datetime_select :expire_date %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :is_active %><br>
+    <%= f.text_field :is_active %>
+  </div>
+  <div class="field">
+    <%= f.label :type_price_id %><br>
+    <%= f.number_field :type_price_id %>
+  </div>
+  <div class="field">
+    <%= f.label :city_id %><br>
+    <%= f.number_field :city_id %>
+  </div>
+
+  <div class="newPaperclipFiles">
+
+        <%= f.fields_for :ad_images do |asset| %>
+           <% if asset.object.new_record? %>
+                 <%= asset.file_field :image %>
+           <% end %>
+       <% end %>
+  </div>
+
+  <div class="existingPaperclipFiles">
+          
+       <% f.fields_for :ad_images do |asset| %>
+          
+            <% unless asset.object.new_record? %>
+          
+                  <div class="thumbnail">
+                          <%= link_to( image_tag(asset.object.image.url(:thumb)), asset.object.image.url(:original) ) %>
+                          <%= asset.check_box :_delete %>
+                  </div>
+                  
+            <% end %>        
+          
+       <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

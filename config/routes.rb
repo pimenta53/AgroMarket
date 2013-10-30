@@ -1,4 +1,14 @@
 Agrosocial::Application.routes.draw do
+  resources :cities
+
+  resources :ads
+
+  resources :price_types
+
+  resources :types
+
+  resources :categories
+
   devise_for :users, controllers: {registrations: 'registrations'}
 
   resources :users
