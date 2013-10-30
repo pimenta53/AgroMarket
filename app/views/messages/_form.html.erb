@@ -1,0 +1,24 @@
+<%= form_for @message do |m| %>
+
+  <div class="field">
+    <%= m.label :text %><br>
+    <%= m.text_field :text %>
+  </div>
+  <div class="field">
+    <%= m.label :sender_id %><br>
+    <%= m.text_field :sender_id, :value => current_user.id %>
+  </div>
+  <div class="field">
+    <%= m.label :receiver_id %><br>
+    <%= m.text_field :receiver_id, :value => @ad.user_id %>
+  </div>
+  <div class="field">
+    <%= m.label :ad_id %><br>
+    <%= m.text_field :ad_id,:value => @ad.id %>
+  </div>
+  <div class="actions">
+    <%= m.submit %>
+  </div>
+
+
+<% end %>

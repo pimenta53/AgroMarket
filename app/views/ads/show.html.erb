@@ -43,8 +43,10 @@
 
 
 <% @ad.ad_images.each do |i| %>
-  <%= image_tag i.image(:small) %>
+<%= image_tag i.image(:small) %>
 <% end %>
+
+<%= render "messages/form" %>
 
 <%= link_to 'Edit', edit_ad_path(@ad) %> |
 <%= link_to 'Back', ads_path %>
