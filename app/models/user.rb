@@ -31,6 +31,9 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   
+  #Dependencies
+  has_many :ads
+
   #validates
   validates :name, presence: true
   validates :username, :uniqueness => true , presence: true
