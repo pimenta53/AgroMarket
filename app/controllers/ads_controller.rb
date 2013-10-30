@@ -31,8 +31,9 @@ class AdsController < ApplicationController
   def create
     @cities = City.all
     @ad = Ad.new(ad_params)
-    @ad.is_active = true
+
     @ad.user_id = current_user.id
+
     respond_to do |format|
       if @ad.save
         format.html { redirect_to @ad, notice: 'Ad was successfully created.' }

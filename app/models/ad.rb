@@ -14,15 +14,22 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #
-
 class Ad < ActiveRecord::Base
+	# associations
 	belongs_to :city
 	belongs_to :user
-
 	has_many :ad_images, :dependent => :destroy
+
+	#scopes
+
+	# atributes
 	accepts_nested_attributes_for :ad_images
+
+	#filters
 	before_validation :create_permalink
 
+	
+	#validates
   	validates :title, presence: true
   	validates :price, presence: true
   	validates :expire_date, presence: true
@@ -32,6 +39,10 @@ class Ad < ActiveRecord::Base
 
   	validate :expire_date_cannot_be_in_the_past, :on => :create
 
+  	# class methods
+
+  	
+  	# instance methods
   	def expire_date_cannot_be_in_the_past
     	errors.add(:expire_date, "can't be in the past") if
       		!expire_date.blank? and expire_date < Date.today
