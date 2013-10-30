@@ -29,7 +29,9 @@ class AdsController < ApplicationController
   # POST /ads
   # POST /ads.json
   def create
+    @cities = City.all
     @ad = Ad.new(ad_params)
+    @ad.is_active = true
     @ad.user_id = current_user.id
     respond_to do |format|
       if @ad.save
