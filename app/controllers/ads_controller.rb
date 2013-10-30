@@ -71,6 +71,6 @@ class AdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
-      params.require(:ad).permit(:title, :description, :price, :expire_date, :location, :is_active, :type_price_id, :city_id, ad_images_attributes: [upload: [:image_file_name,:image_content_type]])
+      params.require(:ad).permit(:title, :description, :price, :expire_date, :location, :is_active, :type_price_id, :city_id, ad_images_attributes: [ :image ])
     end
 end
