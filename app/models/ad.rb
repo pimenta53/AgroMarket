@@ -33,7 +33,6 @@ class Ad < ActiveRecord::Base
   	validates :title, presence: true
   	validates :price, presence: true
   	validates :expire_date, presence: true
-  	validates :is_active, presence: true
   	validates :type_price_id, presence: true
   	validates :city_id, presence: true
 
@@ -41,22 +40,23 @@ class Ad < ActiveRecord::Base
 
   	# class methods
 
-  	
+
   	# instance methods
-  	def expire_date_cannot_be_in_the_past
-    	errors.add(:expire_date, "can't be in the past") if
-      		!expire_date.blank? and expire_date < Date.today
-  	end
-
-
 	def to_param
-		"#{id}#{permanent_link}"
+		"#{id}-#{permanent_link}"
 	end
 
+	# private methods
 	private
+		#para criar friendly Url
 		def create_permalink
-		  self.permanent_link = "#{self.id}-#{self.title.parameterize}"
+		  self.permanent_link = "#{self.title.parameterize}"
 		end
+
+		def expire_date_cannot_be_in_the_past
+    	errors.add(:expire_date, "can't be in the past") if
+      		!expire_date.blank? and expire_date < Date.today
+  		end
 
 
 end
