@@ -39,11 +39,15 @@
   <strong>City:</strong>
   <%= @ad.city.city %>
 </p>
-<%= @ad.ad_images[0].image(:small) %>
 
+<legend> Messages </legend>
+<% @ad.messages.each do |m| %>
+  <%= render "messages/show" ,:message => m %>
+  <legend> <br> </legend>
+<% end %>
 
 <% @ad.ad_images.each do |i| %>
-<%= image_tag i.image(:small) %>
+  <%= image_tag i.image(:small) %>
 <% end %>
 
 <%= render "messages/form" %>

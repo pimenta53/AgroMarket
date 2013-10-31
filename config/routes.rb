@@ -1,7 +1,9 @@
 Agrosocial::Application.routes.draw do
   resources :cities
 
-  resources :ads
+  resources :ads do
+    post "new_messages" => "messages#create"
+  end
 
   resources :price_types
 
@@ -13,9 +15,8 @@ Agrosocial::Application.routes.draw do
 
   resources :users
 
-  post "new_messages" => "messages#create"
 
-
+  
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -19,7 +19,7 @@ class Ad < ActiveRecord::Base
 	belongs_to :city
 	belongs_to :user
 	has_many :ad_images, :dependent => :destroy
-
+	has_many :messages
 	#scopes
 
 	# atributes
