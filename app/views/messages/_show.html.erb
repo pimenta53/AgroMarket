@@ -29,6 +29,6 @@
   <%= message.created_at %>
 </p>
 
-<p>
-  <%= button_to "Responder", "javascript:addRow()" %>
+<p>  
+  <%= button_tag "Responder", :id => "sender_button", :class => "btn btn-small btn-inverse", :type => "button" ,:on_click%>
 </p>
