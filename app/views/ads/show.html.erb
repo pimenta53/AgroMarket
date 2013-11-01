@@ -40,17 +40,22 @@
   <%= @ad.city.city %>
 </p>
 
-<legend> Messages </legend>
-<% @ad.messages.each do |m| %>
-  <%= render "messages/show" ,:message => m %>
-  <legend> <br> </legend>
+ 
+  <% if user_signed_in? %>
+   <legend> Messages </legend>
+   <div id="messages">
+      <%= render "messages" %>
+  </div>
+
+    <%= render "messages/form" %>
+ 
 <% end %>
 
-<% @ad.ad_images.each do |i| %>
-  <%= image_tag i.image(:small) %>
-<% end %>
+ <% @ad.ad_images.each do |i| %>
+    <%= image_tag i.image(:small) %>
+  <% end %>
 
-<%= render "messages/form" %>
+
 
 <%= link_to 'Edit', edit_ad_path(@ad) %> |
 <%= link_to 'Back', ads_path %>

@@ -45,7 +45,7 @@ class Ad < ActiveRecord::Base
 	def to_param
 		"#{id}-#{permanent_link}"
 	end
-
+	
 	# private methods
 	private
 		#para criar friendly Url

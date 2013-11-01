@@ -18,5 +18,29 @@
 require 'spec_helper'
 
 describe Ad do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+	before(:each) do
+	    @ad = Ad.new( 
+	      :title => "Lorem Ipsum",
+	      :price => 19.99,
+	      :expire_date => "2013/12/12",
+	      :type_price_id => 1,
+	      :city_id => 1
+	    )
+	end
+
+	describe 'A new ad' do
+		  it "expiration date can´t be in the past" do
+		    @ad.expire_date = "2013/10/12"
+		    @ad.should_not be_valid
+		  end
+	end
+
+	describe 'A new ad' do
+		  it "should have a price" do
+		    @ad.price = ""
+		    @ad.should_not be_valid
+		  end
+	end
+
 end

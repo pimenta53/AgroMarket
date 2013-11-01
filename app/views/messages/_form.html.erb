@@ -1,8 +1,18 @@
-<%= form_for @message, :url => ad_new_messages_path(@ad.id) do |m| %>
+<%= form_for @message, :url => ad_new_messages_path(@ad.id),:html => {:id => "comment_ad",:ajax_path => ad_new_messages_path(@ad.id) },:remote => true do |m| %>
+  
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this ad from being saved:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+  <% end %>
 
   <div class="field">
     <%= m.label :text %><br>
-    <%= m.text_field :text %>
+    <%= m.text_field :text,:id => "text_comment" %>
   </div>
   <div class="field">
     <%= m.label :sender_id %><br>
