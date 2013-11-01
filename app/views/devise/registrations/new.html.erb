@@ -7,7 +7,10 @@
   <%= f.file_field :avatar %>
 
   <div><%= f.label :name, "Name" %><br />
-  <%= f.text_field :name %></div>
+    <%= f.text_field :name,:id =>"name_sign_up" %>
+    <span id="name_extra" class="textoextra"></span>
+  </div>
+
 
   <div><%= f.label :username, "Username" %><br />
   <%= f.text_field :username %></div>
