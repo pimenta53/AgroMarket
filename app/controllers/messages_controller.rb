@@ -15,9 +15,8 @@ class MessagesController < ApplicationController
 	        	format.html
 	        end
 	    end
-	    
 	end
-  
+	
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
