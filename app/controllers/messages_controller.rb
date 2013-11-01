@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
 	def create
       	@ad = Ad.find(params[:ad_id])
 	    @message = @ad.messages.new(ad_params)
+		
 		respond_to do |format|
 			if @message.save
 	        	format.html { redirect_to ad_path(@ad) }
