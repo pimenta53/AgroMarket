@@ -1,5 +1,6 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
+  before_action :load_cities, only: [:new,:create,:show,:edit,:update]
 
   # GET /ads
   # GET /ads.json
@@ -15,7 +16,6 @@ class AdsController < ApplicationController
 
   # GET /ads/new
   def new
-    @cities = City.all
     @ad = Ad.new
     5.times {@ad.ad_images.build}
   end
@@ -23,17 +23,13 @@ class AdsController < ApplicationController
   # GET /ads/1/edit
   def edit
     5.times {@ad.ad_images.build}
-    @cities = City.all
   end
 
   # POST /ads
   # POST /ads.json
   def create
-    @cities = City.all
     @ad = Ad.new(ad_params)
-
     @ad.user_id = current_user.id
-
     respond_to do |format|
       if @ad.save
         format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
@@ -78,5 +74,10 @@ class AdsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
       params.require(:ad).permit(:title, :description, :price, :expire_date, :location, :is_active, :type_price_id, :city_id,:user_id, ad_images_attributes: [ :image ])
+    end
+
+    # Load cities from database
+    def load_cities
+      @cities = City.all
     end
 end
