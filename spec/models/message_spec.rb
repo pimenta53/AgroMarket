@@ -30,6 +30,11 @@ describe Message do
 		    @message.receiver_id = 1
 		    @message.should_not be_valid
 		  end
+
+		  it "should have under 144 characters" do
+		    @message.text = "sdsdsdsdsdsdssdsdsdsdsdsdsdsdsdsdsjhaklsfjhalkfaldsfgaskjdfhgaskjdfhgaskjdhfgkasjdhfgkasjdhfgkajdsfgkadsjfghaksjdfghaksjhdfgakjdhsfgakjhsdfgkasdjhfgaksjdhfgkajdfghkajdhfg"
+		    @message.should_not be_valid
+		  end
 	end
 
 end

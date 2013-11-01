@@ -27,7 +27,9 @@ describe Ad do
 	      :type_price_id => 1,
 	      :city_id => 1
 	    )
+	    @user = User.new(:id => 3)
 	end
+
 
 	describe 'A new ad' do
 		  it "expiration date can´t be in the past" do
@@ -40,6 +42,13 @@ describe Ad do
 		  it "should have a price" do
 		    @ad.price = ""
 		    @ad.should_not be_valid
+		  end
+	end
+
+	describe 'A new ad' do
+		  it "should belong to the current_user" do
+		    @ad.user_id = @user.id
+		    @ad.user_id.should eq(3)
 		  end
 	end
 

@@ -6,15 +6,8 @@ class MessagesController < ApplicationController
 
 	    @message = @ad.messages.new(ad_params)
 		
-		
-
-	    respond_to do |format|
-	      if @message.save
-	        format.html { redirect_to ad_path(@ad), notice: 'Ad was successfully created.' }
-	        
-	      else
-	        format.html { redirect_to ad_path(@ad), notice: 'ERROS' }
-	      end
+		respond_to do |format|
+	        format.html { redirect_to ad_path(@ad) }
 	    end
 	    
 	end
