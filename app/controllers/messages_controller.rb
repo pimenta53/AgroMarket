@@ -5,6 +5,8 @@ class MessagesController < ApplicationController
       	@ad = Ad.find(params[:ad_id])
 
 	    @message = @ad.messages.new(ad_params)
+	    # E capaz de faltar uma verificacao
+	    @message.save
 		
 		respond_to do |format|
 	        format.html { redirect_to ad_path(@ad) }

@@ -12,8 +12,9 @@
   <div><%= f.label :username, "Username" %><br />
   <%= f.text_field :username %></div>
 
-  <div><%= f.label :city, "City" %><br />
-  <%= f.select :city, options_for_select([["Viana do Castelo", "Viana do Castelo"], ["Braga", "Braga"]]) %>
+  <div><%= f.label :city_id, "City" %><br />
+    <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção') %>
+  </div>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>

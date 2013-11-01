@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   
   #Dependencies
   has_many :ads
+  belongs_to :city
 
   #validates
   validates :name, presence: true

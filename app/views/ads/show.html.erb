@@ -40,16 +40,18 @@
   <%= @ad.city.city %>
 </p>
 
- 
+ <%-# Show messages if user logged -%>
   <% if user_signed_in? %>
    <legend> Messages </legend>
-   <div id="messages">
+    <div id="messages">
       <%= render "messages" %>
-  </div>
+    </div>
 
-    <%= render "messages/form" %>
+    <% if current_user.id != @ad.user_id %>
+      <%= render "messages/form" %>
+    <% end %>
  
-<% end %>
+  <% end %>
 
  <% @ad.ad_images.each do |i| %>
     <%= image_tag i.image(:small) %>
