@@ -18,14 +18,15 @@ ready = function() {
           success: function(data)
           {
               //alert(data)
+            $("#text_comment").val("");
+
           },
           error: function(request,error) 
           {
-           alert ( " Can't do because:" + error);
+           alert ( "Não foi possivel inserir o seu comentario!!" + error);
           }       
         });
         
-        $("#text_comment").val("");
         return false;
       });
 

@@ -9,7 +9,11 @@ class MessagesController < ApplicationController
 	    @message.save
 		
 		respond_to do |format|
-	        format.html { redirect_to ad_path(@ad) }
+			if @message.save
+	        	format.html { redirect_to ad_path(@ad) }
+	        else
+	        	format.html
+	        end
 	    end
 	    
 	end
@@ -17,6 +21,6 @@ class MessagesController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
-      params.require(:message).permit(:text, :sender_id, :receiver_id, :is_read )
+      params.require(:message).permit(:text, :sender_id, :ad_id, :receiver_id, :is_read )
     end
 end

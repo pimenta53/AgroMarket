@@ -1,0 +1,71 @@
+*{
+
+	font-family: "Oswald";
+	font-weight: normal;
+	font-size: 14px;
+	color: #293a49;
+}
+
+/********** HEADER **********/
+/* Cor do header #00ba84 #4db07a #0a9268*/
+.navbar-default{
+	background-color: #16ab84;
+
+}
+.navbar-brand{
+	text-transform: uppercase;
+	color:#fff;
+}
+
+
+.navbar-default .navbar-brand {
+  text-transform: uppercase;
+  color:#fff;
+}
+
+
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #34495e;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #fff;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+color: #16ab84;
+background-color: #fff;
+}
+
+/******SIDEBAR LEFT**********/
+#sidebar-left{
+	  background-color: #eaedf1;
+	  height: 100%;
+	  padding-top: 20px
+	  font-weight: 200;
+	  font-size: 1em;
+	  line-height: 2.5em;
+	  margin-bottom: 0px;
+	  text-shadow: none;
+	  text-transform: none;
+  /*Change the arrow direction if the item is collapsed*/
+}
+
+#container{
+	min-height: 400px;
+}
+
+#sidebar-left ul  {
+  list-style: none;
+}
+
+
+#agrosocial_logo{
+	width: 45px;
+	height: 45px;
+	float: left;
+}
+
