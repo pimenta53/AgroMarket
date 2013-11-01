@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(function () {
+    $( "button.responder" ).on( "click", function( event ) {
+      $( "div.file_description_update" ).show();
+    }); 
+)}
