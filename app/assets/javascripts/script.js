@@ -10,6 +10,8 @@ ready = function() {
          //alert($(this).val());
          $("#name_extra").html("Olá "+ $(this).val() +"!! Bem vindo!!");
    });
+
+   $(".counted").charCounter(144,{container: "#counter"});
 };
 
 //em rails 4 so funciona assim
