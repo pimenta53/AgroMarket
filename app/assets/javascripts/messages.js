@@ -4,6 +4,7 @@ function sender_button(id_sender) {
 	var form_message = document.getElementById("form_message");
 	form_message.hidden =false;
 	button_reply.value = id_sender;
+	document.getElementById("text_comment").focus();
 }
 
 function cancel_message() {

@@ -47,15 +47,18 @@
   <%= @ad.city.city %>
 </p>
 
+<p>
+  <strong>User:</strong>
+  <%= @ad.user.name %>
+</p>
+
 <legend> Messages </legend>
 <div id="messages">
   <%= render "messages" %>
 </div>
 
-
 <%= render "messages/form" %>
 
- 
 
  <% @ad.ad_images.each do |i| %>
     <%= image_tag i.image(:small) %>

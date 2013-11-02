@@ -22,15 +22,15 @@
                           </div>
                           <div class="field">
                             <%= m.label :sender_id %><br>
-                            <%= m.text_field :sender_id, :value => current_user.id %>
+                            <%= m.text_field :sender_id, :value => current_user.id,:readonly => true %>
                           </div>
                           <div class="field">
                             <%= m.label :receiver_id %><br>
-                            <%= m.text_field :receiver_id, :value => @ad.user_id %>
+                            <%= m.text_field :receiver_id, :value => @ad.user_id,:readonly => true %>
                           </div>
                           <div class="field">
                             <%= m.label :ad_id %><br>
-                            <%= m.text_field :ad_id,:value => @ad.id %>
+                            <%= m.text_field :ad_id,:value => @ad.id,:readonly => true %>
                           </div>
 
                         <button class="btn btn-info" type="submit">Post New Message</button>
