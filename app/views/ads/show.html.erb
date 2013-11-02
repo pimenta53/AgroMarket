@@ -5,8 +5,6 @@
 
 <p id="notice"><%= notice %></p>
 
-
-
 <p>
   <strong>Title:</strong>
   <%= @ad.title %>
@@ -52,18 +50,16 @@
   <%= @ad.user.name %>
 </p>
 
+<% @ad.ad_images.each do |i| %>
+  <%= image_tag i.image(:small) %>
+<% end %>
+
 <legend> Messages </legend>
 <div id="messages">
   <%= render "messages" %>
 </div>
 
 <%= render "messages/form" %>
- 
-
- <% @ad.ad_images.each do |i| %>
-    <%= image_tag i.image(:small) %>
-  <% end %>
-
 
 
 <%= link_to 'Edit', edit_ad_path(@ad) %> |

@@ -4,29 +4,18 @@ My messages*/
 #div_myMessage {
 	text-align: right;
 	background-color:#F0F8FF;
-	padding-right:50px;
-	padding-left:50px;
-	box-shadow: 3px 0px 5px #888888;
-	-moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-    border-radius: 20px;
 }
 
 /*Message from other*/
 #div_otherMessage {
 	background-color:#FFF8DC;
-	padding-right:50px;
-	padding-left:50px;
-	box-shadow: -3px 0px 5px #888888;
-	-moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-    border-radius: 20px;
 }
 
 #div_adminMessage {
 	background-color:#F9966B;
+}
+
+#div_myMessage, #div_otherMessage,#div_adminMessage {
 	padding-right:50px;
 	padding-left:50px;
 	box-shadow: -3px 0px 5px #888888;
