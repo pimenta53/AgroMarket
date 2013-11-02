@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+
+
 <p>
   <strong>Title:</strong>
   <%= @ad.title %>
@@ -40,18 +42,13 @@
   <%= @ad.city.city %>
 </p>
 
- <%-# Show messages if user logged -%>
-  <% if user_signed_in? %>
-   <legend> Messages </legend>
-    <div id="messages">
-      <%= render "messages" %>
-    </div>
+<legend> Messages </legend>
+<div id="messages">
+  <%= render "messages" %>
+</div>
 
-    <% if current_user.id != @ad.user_id %>
-      <%= render "messages/form" %>
-    <% end %>
+<%= render "messages/form" %>
  
-  <% end %>
 
  <% @ad.ad_images.each do |i| %>
     <%= image_tag i.image(:small) %>

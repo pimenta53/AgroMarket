@@ -1,4 +1,13 @@
 <% @ad.messages.each do |m| %>
+	<% if m.receiver_id == current_user.id || m.sender_id == current_user.id %>
       <%= render "messages/show" , :message => m %>
       <legend> <br> </legend>
+    <% end %>
+<% end %>
+
+<%# first contact to seller%>
+<% if @ad.user_id != current_user.id %>
+  <p>  
+    <%= button_to "Contactar anuncinate", "javascript:sender_button(#{@ad.user_id})"%>
+  </p>
 <% end %>
