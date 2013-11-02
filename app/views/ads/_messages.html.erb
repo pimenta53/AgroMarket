@@ -3,10 +3,12 @@
 	<% value.each do |m| %>
     	<%= render "messages/show" , :message => m %>
     <% end %>
-    <%# not responde to me%>
+    <%# if ad is mine%>
+    <% if @ad.user_id == current_user.id%>
 	  <p>  
 	    <%= button_to "Responder", "javascript:sender_button(#{key})"%>
 	  </p>
+	<% end %>
 <% end %>
 
 <%# first contact to seller%>
