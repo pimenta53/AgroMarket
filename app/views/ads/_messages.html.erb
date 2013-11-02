@@ -1,8 +1,12 @@
-<% @ad.messages.each do |m| %>
-	<% if m.receiver_id == current_user.id || m.sender_id == current_user.id %>
-      <%= render "messages/show" , :message => m %>
-      <legend> <br> </legend>
+<% @messageToView.each do |key, value| %>
+    <legend>Mensagens do Utilizador ID: <%= key %> <br> </legend>
+	<% value.each do |m| %>
+    	<%= render "messages/show" , :message => m %>
     <% end %>
+    <%# not responde to me%>
+	  <p>  
+	    <%= button_to "Responder", "javascript:sender_button(#{key})"%>
+	  </p>
 <% end %>
 
 <%# first contact to seller%>

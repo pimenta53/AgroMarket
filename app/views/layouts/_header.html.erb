@@ -76,7 +76,7 @@
               <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">3</span></a></li>
               <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">21</span></a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  Zé Manel<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <% if user_signed_in?%> <%= current_user.name %> <%end%><b class="caret"></b></a>
                <ul class="dropdown-menu">
                 <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                 <li><a href="#"><i class="fa fan-envelope"></i> Inbox <span class="badge">7</span></a></li>

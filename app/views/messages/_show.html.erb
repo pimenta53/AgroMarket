@@ -45,10 +45,3 @@
   <%= message.ad_id %>
 </p>
 
-
-<%# not responde to me%>
-<% if message.receiver_id == current_user.id %>
-  <p>  
-    <%= button_to "Responder", "javascript:sender_button(#{message.sender_id})"%>
-  </p>
-<% end %>
