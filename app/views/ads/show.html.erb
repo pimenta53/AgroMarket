@@ -1,3 +1,8 @@
+<ol class="breadcrumb">
+              <li ><a href="<%= ads_path %>"><i class="fa fa-dashboard"></i> Ads</a></li>
+              <li class="active"><i class="fa fa-bar-chart"></i><%= @ad.title %></li>
+</ol>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -47,7 +52,8 @@
       <%= render "messages" %>
     </div>
 
-    <% if current_user.id != @ad.user_id %>
+
+    <% if current_user.id == @ad.user_id %>
       <%= render "messages/form" %>
     <% end %>
  

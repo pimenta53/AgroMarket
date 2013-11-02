@@ -4,7 +4,7 @@
   <title>Agrosocial</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-
+  <link rel="shortcut icon" href="">
   <!--Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
@@ -19,12 +19,13 @@
 
     <%= render 'layouts/header' %>
 
-    <!-- Content row -->
-    <div class="row" id="container" >
-        <!-- SIDEBAR Open -->
-        <div id="sidebar-left" class="col-2 col-lg-2">
-            <ul>
-              <li><%= link_to "<i class='fa fa-anchor fa-border'></i> ADS".html_safe  ,  ads_path %></li>
+     <!-- Content row -->
+   <div id="wrapper">
+      
+      <!-- Sidebar -->
+      <div id="sidebar-left">
+        <ul class="sidebar-nav">
+           <li><%= link_to "<i class='fa fa-anchor fa-border'></i> ADS".html_safe  ,  ads_path %></li>
               <li><%= link_to "<i class='fa  fa-plus fa-border'></i> New Ad".html_safe  ,  new_ad_path %></li>
               <li><%= link_to '<i class="fa fa-user fa-border"></i> Users'.html_safe  ,  users_path %></li>
               <li>
@@ -32,19 +33,36 @@
                 <%= link_to "<i class='fa fa-spinner fa-spin fa-border'></i> Login".html_safe  ,  new_user_session_path %>
               </li>
               <li>Teste</li>
-            </ul>
-       </div>
+        </ul>
+      </div>
+      
    <!-- right content box -->
-     <div id="content" class="col-lg-10 container" >
-      <%= yield %>
 
-    </div>
-   </div>
-
+   <div id="page-content-wrapper">
+        <div class="content-header">
+          <h1>
+            <a id="menu-toggle" href="#" class="btn btn-default"><i class="fa fa-reorder"></i></a>
+            AgroSocial
+          </h1>
+        </div>
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset">
+          <div class="row">
+              <%= yield %>
+          </div>
+        </div>
+      </div>
+      
+</div>
 
     
 	  <%= render 'layouts/footer' %>
 	
-
+     <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
 </body>
 </html>

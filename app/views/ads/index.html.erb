@@ -1,43 +1,48 @@
-<h1>Listing ads</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Expire date</th>
-      <th>Location</th>
-      <th>Is active</th>
-      <th>Type price</th>
-      <th>City</th>
-      <th>User_ID / User_Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<ol class="breadcrumb">
+              <li class="active"><a href="<%= ads_path %>"><i class="fa fa-dashboard"></i> Ads</a></li>
+              
+</ol>
 
-  <tbody>
-    <% @ads.each do |ad| %>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= ad.title %></td>
-        <td><%= ad.description %></td>
-        <td><%= ad.price %></td>
-        <td><%= ad.expire_date %></td>
-        <td><%= ad.location %></td>
-        <td><%= ad.is_active %></td>
-        <td><%= ad.type_price_id %></td>
-        <td><%= ad.city.city unless ad.city.blank? %></td>
-        <td><%= ad.user_id %> / <%= ad.user.name %></td>
-        <td><%= link_to 'Show', ad %></td>
-        <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
-        <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Expire date</th>
+        <th>Location</th>
+        <th>Is active</th>
+        <th>Type price</th>
+        <th>City</th>
+        <th>User_ID / User_Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @ads.each do |ad| %>
+        <tr>
+          <td><%= ad.title %></td>
+          <td><%= ad.description %></td>
+          <td><%= ad.price %></td>
+          <td><%= ad.expire_date %></td>
+          <td><%= ad.location %></td>
+          <td><%= ad.is_active %></td>
+          <td><%= ad.type_price_id %></td>
+          <td><%= ad.city.city unless ad.city.blank? %></td>
+          <td><%= ad.user_id %> / <%= ad.user.name %></td>
+          <td><%= link_to 'Show', ad %></td>
+          <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
+          <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div >
 <br>
 
 <%= link_to 'New Ad', new_ad_path %>
