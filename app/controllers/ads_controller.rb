@@ -26,7 +26,6 @@ class AdsController < ApplicationController
       end
     end
     @messageToView = hashMessage
-    
   end
 
   # GET /ads/new
