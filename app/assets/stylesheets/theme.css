@@ -67,5 +67,26 @@ background-color: #fff;
 	width: 45px;
 	height: 45px;
 	float: left;
+	margin-left: 10px;
+	margin-top: 4px;
+}
+
+.fa-user, .fa-envelope-o, .fa-bell-o{
+	color: #fff;
+	vertical-align: center;
+	font-size: 22px;
+}
+
+#omni-search{
+	width: 400px;
+	margin-left: 25px;
+}
+
+footer {
+	background-color: #16ab84;
+	bottom: 0;
+	position: relative;
+	width: 100%;
+	color: #fff;
 }
 
