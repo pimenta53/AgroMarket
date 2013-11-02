@@ -29,22 +29,26 @@
  -->
     <form class="navbar-form navbar-left" role="search">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" id="omni-search" class="form-control" placeholder="Pesquisar">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" id="omni-search-btn" class="btn btn-default">Pesquisar</button>
     </form>
     <ul class="nav navbar-nav navbar-right">
+      
       <% if user_signed_in? %>
           <li>DEBUG => User: <%= current_user.name %> - ID: <%= current_user.id%> - EMAIL: <%= current_user.email%></li>
       <% end %>
-      <li><a href="#">Link</a></li>
+
+
+      <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">3</span></a></li>
+      <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">21</span></a></li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  Zé Manel<b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Separated link</a></li>
+          <li><a href="#">O Meu Perfil</a></li>
+          <li><a href="#">Definições</a></li>
+          <li><a href="#">Cenas</a></li>
+          <li><a href="#">Terminar Sessão</a></li>
         </ul>
       </li>
     </ul>
