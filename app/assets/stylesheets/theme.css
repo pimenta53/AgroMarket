@@ -1,16 +1,16 @@
 *{
 
-	font-family: "Oswald";
-	font-weight: normal;
-	font-size: 14px;
-	color: #293a49;
+  font-family: "Oswald";
+  font-weight: normal;
+  font-size: 14px;
+  color: #293a49;
 }
 
 /********** HEADER **********/
 /* Cor do header #00ba84 #4db07a #0a9268*/
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-	background-color: #16ab84;
+  background-color: #16ab84;
 }
 .navbar-inverse {
 background-color: #16ab84;
@@ -18,8 +18,8 @@ border-color: #fff;
 }
 
 .navbar-inverse .navbar-brand{
-	text-transform: uppercase;
-	color:#fff;
+  text-transform: uppercase;
+  color:#fff;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -29,7 +29,7 @@ border-color: #fff;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-	color: #fff;
+  color: #fff;
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
@@ -37,41 +37,46 @@ color: #16ab84;
 background-color: #fff;
 }
 
-/******SIDEBAR LEFT**********/
-
-
-
-
-
 
 #agrosocial_logo{
-	width: 45px;
-	height: 45px;
-	float: left;
-	margin-left: 10px;
-	margin-top: 4px;
+  width: 45px;
+  height: 45px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 4px;
 }
 
 .fa-user, .fa-envelope-o, .fa-bell-o{
-	color: #fff;
-	vertical-align: center;
-	font-size: 22px;
+  color: #fff;
+  vertical-align: center;
+  font-size: 22px;
 }
 
 #omni-search{
-	width: 400px;
-	margin-left: 25px;
+  width: 400px;
+  margin-left: 25px;
 }
+
+
+#custom-badge{
+  margin-left:-10px;
+
+}
+
+/****FOOTER****/
+
 
 footer {
-	background-color: #16ab84;
-	bottom: 0;
-	position: relative;
-	width: 100%;
-	color: #fff;
-	padding-left: 200px;
+  background-color: #16ab84;
+  bottom: 0;
+  position: relative;
+  width: 100%;
+  color: #fff;
+  padding-left: 200px;
 }
 
+
+/******SIDEBAR LEFT**********/
 
 #wrapper {
   padding-left: 200px;
@@ -202,6 +207,4 @@ color:  #293a49;
 
 .inset {
   padding: 15px;
-}
-
 }
