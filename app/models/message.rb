@@ -1,7 +1,8 @@
 class Message < ActiveRecord::Base
 	# associations
 	belongs_to :ad
-
+  has_many :receiver, :class_name => "User", :foreign_key => "id"
+  has_many :sender, :class_name => "User", :foreign_key => "id"
 	#validates
   	validate :sender_receiver_must_be_diferent
 

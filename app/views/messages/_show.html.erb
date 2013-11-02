@@ -1,34 +1,54 @@
+<% if message.receiver_id == current_user.id %>
 <p>
+<% else %>
+<p align="right">
+<% end %>
   <strong>Text:</strong>
   <%= message.text %>
 </p>
 
+<% if message.receiver_id == current_user.id %>
 <p>
+<% else %>
+<p align="right">
+<% end %>
+  <strong>is_read:</strong>
+  <%= message.is_read %>
+</p>
+
+<% if message.receiver_id == current_user.id %>
+<p>
+<% else %>
+<p align="right">
+<% end %>
+  <strong>Created_at:</strong>
+  <%= message.created_at %>
+</p>
+
+<% if message.receiver_id == current_user.id %>
+<p>
+<% else %>
+<p align="right">
+<% end %>
   <strong>Sender:</strong>
   <%= message.sender_id %>
 </p>
 
-<p>
+<p hidden="true">
   <strong>Receiver</strong>
   <%= message.receiver_id %>
 </p>
 
 
-<p>
+<p hidden="true">
   <strong>Ad_id:</strong>
   <%= message.ad_id %>
 </p>
 
-<p>
-  <strong>is_read:</strong>
-  <%= message.is_read %>
-</p>
 
-<p>
-  <strong>Created_at:</strong>
-  <%= message.created_at %>
-</p>
-
-<p>  
-  <%= button_tag "Responder", :id => "sender_button", :class => "btn btn-small btn-inverse", :type => "button" ,:on_click => ""%>
-</p>
+<%# not responde to me%>
+<% if message.receiver_id == current_user.id %>
+  <p>  
+    <%= button_to "Responder", "javascript:sender_button(#{message.sender_id})"%>
+  </p>
+<% end %>

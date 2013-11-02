@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
     <div class="col-sm-4 col-md-4">
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="form_message" hidden="true">
                 <div class="panel-body">                
                     <%= form_for @message, :url => ad_new_messages_path(@ad.id),:html => {:id => "comment_ad",:ajax_path => ad_new_messages_path(@ad.id) },:remote => true do |m| %>
   
@@ -32,11 +32,12 @@
                             <%= m.label :ad_id %><br>
                             <%= m.text_field :ad_id,:value => @ad.id %>
                           </div>
-                        
+
                         <button class="btn btn-info" type="submit">Post New Message</button>
 
-
                         <% end %>
+                        <%= button_to "Cancel", "javascript:cancel_message()" , {:class => "btn btn-cancel"}%>
+
                 </div>
             </div>
         </div>

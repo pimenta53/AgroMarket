@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   
   #Dependencies
+  has_many :messages
   has_many :ads
   belongs_to :city
 

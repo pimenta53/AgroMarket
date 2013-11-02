@@ -41,15 +41,35 @@ background-color: #fff;
 
 
 
-#sidebar-left ul  {
-  list-style: none;
-}
+
 
 
 #agrosocial_logo{
 	width: 45px;
 	height: 45px;
 	float: left;
+	margin-left: 10px;
+	margin-top: 4px;
+}
+
+.fa-user, .fa-envelope-o, .fa-bell-o{
+	color: #fff;
+	vertical-align: center;
+	font-size: 22px;
+}
+
+#omni-search{
+	width: 400px;
+	margin-left: 25px;
+}
+
+footer {
+	background-color: #16ab84;
+	bottom: 0;
+	position: relative;
+	width: 100%;
+	color: #fff;
+	padding-left: 200px;
 }
 
 
@@ -70,6 +90,10 @@ background-color: #fff;
   overflow-y: auto;
   z-index: 1000;
   transition: all 0.4s ease 0s;
+}
+
+#sidebar-left ul  {
+  list-style: none;
 }
 
 #page-content-wrapper {
