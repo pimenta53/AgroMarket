@@ -13,6 +13,7 @@
   <p>
     <strong>Text:</strong>
     <%= message.text %>
+
   </p>
 
   <p>
@@ -28,11 +29,14 @@
   <p>
     <strong>Sender:</strong>
     <%= message.sender_id %>
+    <%= message.sender.name %>
   </p>
 
   <p hidden="true">
     <strong>Receiver</strong>
     <%= message.receiver_id %>
+    <%= message.receiver.name %>
+
   </p>
 
 
