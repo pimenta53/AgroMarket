@@ -1,9 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
-  	before_action :load_cities, only: [:new]
+  	before_action :load_cities, only: [:new, :create]
 
 	def new
 		super
-		@cities = City.all
 	end
 
 	private 
