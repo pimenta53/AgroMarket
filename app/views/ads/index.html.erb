@@ -8,6 +8,7 @@
   <table class="table table-hover">
     <thead>
       <tr>
+        <th>Image</th>
         <th>Title</th>
         <th>Description</th>
         <th>Price</th>
@@ -26,6 +27,12 @@
     <tbody>
       <% @ads.each do |ad| %>
         <tr>
+          <td>
+            <div class="img_table">
+              <!--HELPER helper/ads_helper -->
+             <%= first_image( ad.ad_images.first ) %>
+            </div>
+          </td>
           <td><%= ad.title %></td>
           <td><%= ad.description %></td>
           <td><%= ad.price %></td>
@@ -44,5 +51,33 @@
   </table>
 </div >
 <br>
+
+<legend> Ads in Thumbnails </legend>
+<div class="container">
+    <div class="row">
+      <ul class="thumbnails">
+       <% @ads.each do |ad| %>
+            <li class="col-sm-3 col-md-3">
+              <div class="thumbnail" style="padding: 0">
+                <span class='price'><%= ad.price %>€</span>
+               
+                <div style="padding:4px">
+                  <%= ad_image( ad.ad_images.first ) %>
+                </div>
+                <div class="caption">
+                  <h2><%= ad.title %></h2>
+                  <p><%= ad.description %></p>
+                  <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
+                </div>
+               
+              </div>
+            </li>
+        
+        <% end %>
+      </ul>
+    </div>
+</div>
+
+
 
 <%= link_to 'New Ad', new_ad_path %>
