@@ -12,6 +12,7 @@
         <th>Title</th>
         <th>Description</th>
         <th>Price</th>
+        <th>Category</th>
         <th>Expire date</th>
         <th>Location</th>
         <th>Is active</th>
@@ -36,12 +37,24 @@
           <td><%= ad.title %></td>
           <td><%= ad.description %></td>
           <td><%= ad.price %></td>
+          <td>
+            <% if ad.category %>
+              <span class="label" style="background-color: #<%= ad.category.color %>">
+                <%= ad.category.name %>
+              </span>
+              <% else %> 
+                 <span class="label label-default" >
+                  Sem Categoria
+                </span>
+            <% end %>
+          </td>
           <td><%= ad.expire_date %></td>
           <td><%= ad.location %></td>
           <td><%= ad.is_active %></td>
           <td><%= ad.type_price_id %></td>
           <td><%= ad.city.city unless ad.city.blank? %></td>
           <td><%= ad.user_id %> / <%= ad.user.name %></td>
+
           <td><%= link_to 'Show', ad %></td>
           <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
           <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -67,6 +80,7 @@
                 <div class="caption">
                   <h2><%= ad.title %></h2>
                   <p><%= ad.description %></p>
+                   
                   <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
                 </div>
                

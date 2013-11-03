@@ -13,11 +13,13 @@
 #  city_id       :integer
 #  created_at    :datetime
 #  updated_at    :datetime
-#
+#  category_id
 class Ad < ActiveRecord::Base
 	# associations
 	belongs_to :city
 	belongs_to :user
+	belongs_to :category
+
 	has_many :ad_images, :dependent => :destroy
 	has_many :messages
 	#scopes

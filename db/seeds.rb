@@ -28,3 +28,10 @@ City.create :city => "Santerém"
 City.create :city => "Viana do Castelo"
 City.create :city => "Vila Real"
 City.create :city => "Viseu"
+
+Category.delete_all
+Category.create(name: "Agricultura", description: "Produtos Agricolas", color: "009400")
+Category.create(name: "Produtos Biologicos", description: "Produtos BIO", color: "30cf4b")
+Category.create(name: "Plantas", description: "Plantas", color: "ffff00")
+
+

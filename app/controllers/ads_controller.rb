@@ -1,6 +1,7 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
   before_action :load_cities, only: [:new,:create,:show,:edit,:update]
+  before_action :load_categories, only: [:new,:create,:show,:edit,:update]
 
   # GET /ads
   # GET /ads.json
@@ -87,11 +88,16 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
-      params.require(:ad).permit(:title, :description, :price, :expire_date, :location,:is_active, :type_price_id, :city_id,:user_id, ad_images_attributes: [ :image ])
+      params.require(:ad).permit(:title, :description, :price, :expire_date, :location,:is_active, :type_price_id, :city_id,:user_id,:category_id, ad_images_attributes: [ :image ])
     end
 
     # Load cities from database
     def load_cities
       @cities = City.all
+    end
+
+    # Load categories from database
+    def load_categories
+      @categories = Category.all
     end
 end
