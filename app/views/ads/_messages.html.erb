@@ -1,16 +1,34 @@
 <% @messageToView.each do |key, value| %>
-    <legend>Mensagens do Utilizador ID: <%= key %> <br> </legend>
-	<% value.each do |m| %>
-    	<%= render "messages/show" , :message => m %>
-    <% end %>
-    <%# if ad is mine%>
-    <% if @ad.user_id == current_user.id%>
-	  <p>  
-	    <%= button_to "Responder", "javascript:sender_button(#{key})"%>
-	  </p>
-	<% end %>
-<% end %>
+   
+    <div class="panel panel-default widget" id="accordion">
+        <div class="panel-heading">
+            <span class="fa fa-comment"></span>
+            <h4 class="panel-title">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= key %>">Mensagens do Utilizador ID: <%= key %> </a>
+            </h4>
+            <span class="label label-info" style="float: right;">
+                78</span>
+         </div>
+         
+         <div id="<%= key %>" class="panel-collapse collapse">
+             <div class="panel-body">
 
+              	<% value.each do |m| %>
+                  	<%= render "messages/show" , :message => m %>
+                  <% end %>
+                  <%# if ad is mine%>
+                  <% if @ad.user_id == current_user.id%>
+              	  <p>  
+              	    <%= button_to "Responder", "javascript:sender_button(#{key})"%>
+              	  </p>
+              	<% end %>
+                
+             </div>
+          </div>
+      </div>  
+<% end %>
+        
+   
 <%# first contact to seller%>
 <% if @ad.user_id != current_user.id %>
   <p>  
