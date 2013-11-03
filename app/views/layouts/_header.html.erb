@@ -112,7 +112,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 
                   <% if user_signed_in? %>
-                    <%= current_user.name %>
+                    <%= current_user.username %>
                   <% end %>
                   <b class="caret"></b></a>
                <ul class="dropdown-menu">
@@ -120,7 +120,7 @@
                 <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
                 <li><a href="#"><i class="fa fa-gear"></i>Definições</a></li>
                 <li class="divider"></li>
-                <li><a href="#"><i class="fa fa-power-off"></i>Terminar Sessão</a></li>
+                <li><%= link_to "Terminar Sessão",destroy_user_session_path, method: :delete %></li>
               </ul>
               </li>
               <!--END USER-->
