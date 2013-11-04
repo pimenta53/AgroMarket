@@ -1,7 +1,6 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
-  before_action :load_cities, only: [:new,:create,:show,:edit,:update]
-  before_action :load_categories, only: [:new,:create,:show,:edit,:update]
+  before_action :load_stuff, only: [:new,:create,:show,:edit,:update]
 
   # GET /ads
   # GET /ads.json
@@ -13,20 +12,7 @@ class AdsController < ApplicationController
   # GET /ads/1.json
   def show
     @message = Message.new
-    hashMessage = {}
-    @ad.messages.each do |m|
-      if m.sender_id != @ad.user_id
-        if !hashMessage.has_key?(m.sender_id)
-          hashMessage[m.sender_id] = []
-        end
-
-        hashMessage[m.sender_id].push(m)
-      else
-        # Esta clausula esta aqui pork é uma resposta tenho que a colocar no sítio certo
-        hashMessage[m.receiver_id].push(m)
-      end
-    end
-    @messageToView = hashMessage
+    @messageToView = Message.get_messages( @ad )
   end
 
   # GET /ads/new
@@ -43,6 +29,7 @@ class AdsController < ApplicationController
   # POST /ads
   # POST /ads.json
   def create
+    params[:ad][:expire_date] = DateTime.strptime(params[:ad][:expire_date],'%Y-%m-%d')
     @ad = Ad.new(ad_params)
     @ad.user_id = current_user.id
     respond_to do |format|
@@ -59,6 +46,8 @@ class AdsController < ApplicationController
   # PATCH/PUT /ads/1
   # PATCH/PUT /ads/1.json
   def update
+    params[:ad][:expire_date] = DateTime.strptime(params[:ad][:expire_date],'%Y-%m-%d')
+
     respond_to do |format|
       if @ad.update(ad_params)
         format.html { redirect_to @ad, notice: 'Ad was successfully updated.' }
@@ -92,12 +81,11 @@ private
     end
 
     # Load cities from database
-    def load_cities
+    def load_stuff
       @cities = City.all
+      @price_types = PriceType.all 
+      @categories = Category.all
+
     end
 
-    # Load categories from database
-    def load_categories
-      @categories = Category.all
-    end
 end

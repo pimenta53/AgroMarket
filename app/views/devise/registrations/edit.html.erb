@@ -3,21 +3,26 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :avatar,"Image" %><br />
-  <%= image_tag current_user.avatar %><br />
-  <%= f.file_field :avatar %>
+  <div>
+    <%= f.label :avatar,"Image" %><br />
+    <%= image_tag current_user.avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
 
   <div><%= f.label :username %><br />
   <%= f.text_field :username %></div>
 
-  <div><%= f.label :city, "City" %><br />
-  <%= f.select :city, options_for_select([["Viana do Castelo", "Viana do Castelo"], ["Braga", "Braga"]]) %>
+  <div><%= f.label :city_id, "City" %><br />
+    <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção') %>
+  </div>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :birthday, "Birthday"%><br />
-  <%= f.date_select :birthday, :order => [:day, :month, :year],:start_year => Time.now.year - 200 %>
+  <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.text_field :birthday, :label => "Date",  :class => 'datepicker' ,:value => (f.object.birthday.strftime('%Y-%m-%d'))%>
+  </div>
 
   <div><%= f.label :phone, "Phone"%><br />
   <%= f.text_field :phone %></div>

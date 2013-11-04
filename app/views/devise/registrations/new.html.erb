@@ -28,8 +28,10 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
   
-  <div><%= f.label :birthday, "Birthday"%><br />
-  <%= f.date_select :birthday, :order => [:day, :month, :year],:start_year => Time.now.year - 200 %>
+  <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.text_field :birthday, :label => "Date",  :class => 'datepicker' %>
+  </div>
 
   <div><%= f.label :phone, "Phone"%><br />
   <%= f.text_field :phone %></div>
