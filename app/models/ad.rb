@@ -42,7 +42,9 @@ class Ad < ActiveRecord::Base
   	validate :expire_date_cannot_be_in_the_past, :on => :create
 
   	# class methods
+  	def search
 
+  	end
 
   	# instance methods
 	def to_param
