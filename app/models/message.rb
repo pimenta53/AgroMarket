@@ -18,11 +18,11 @@ class Message < ActiveRecord::Base
   
   #vai buscar as mensagens trocadas entre utilizadores
   # referente ao anuncio(ad)
-  def self.get_messages( ad )
+  def self.get_messages( messages, user_id)
 
     hashMessage = {}
-    ad.messages.each do |m|
-      if m.sender_id != ad.user_id
+    messages.each do |m|
+      if m.sender_id != user_id
         if !hashMessage.has_key?(m.sender_id)
           hashMessage[m.sender_id] = []
         end

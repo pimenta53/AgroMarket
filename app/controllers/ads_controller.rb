@@ -12,7 +12,7 @@ class AdsController < ApplicationController
   # GET /ads/1.json
   def show
     @message = Message.new
-    @messageToView = Message.get_messages( @ad )
+    @messageToView = Message.get_messages( @ad.messages.where("receiver_id = ? OR sender_id = ?",current_user.id,current_user.id) , @ad.user_id )
   end
 
   # GET /ads/new
@@ -67,6 +67,12 @@ class AdsController < ApplicationController
       format.html { redirect_to ads_url }
       format.json { head :no_content }
     end
+  end
+
+  def done_message
+    @ad = Ad.find(params[:id_ad])
+
+    redirect_to @ad,notice: 'A mensagem foi terminada com sucesso' 
   end
 
 private
