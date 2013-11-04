@@ -33,17 +33,16 @@ class Ad < ActiveRecord::Base
 	
 	#validates
   	validates :title, presence: true
-  	validates :price, presence: true, :numericality => {:greater_than_or_equal_to => 0}
+  	validates :price, presence: true
   	validates :expire_date, presence: true
   	validates :type_price_id, presence: true
   	validates :city_id, presence: true
-  	validates :category_id, presence: true
 
   	validate :expire_date_cannot_be_in_the_past, :on => :create
 
   	# class methods
   	def search
-
+  		
   	end
 
   	# instance methods
