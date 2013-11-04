@@ -1,0 +1,21 @@
+<!-- Sidebar -->
+              <ul>
+                 <% if user_signed_in? %>
+                        <%= image_tag current_user.avatar.url:thumb %>
+                  <% end %>
+                 <li><%= link_to "<i class='fa fa-anchor '></i> ADS".html_safe  ,  ads_path %></li>
+                    <li><%= link_to "<i class='fa  fa-plus '></i> New Ad".html_safe  ,  new_ad_path %></li>
+                    <li><%= link_to '<i class="fa fa-user "></i> Users'.html_safe  ,  users_path %></li>
+                    <li>
+                       <% if user_signed_in? %>
+                          <%= "Tas Bom " + current_user.name + " ?" %>
+                        <% else %>
+
+                          <%= link_to "<i class='fa fa-spinner '></i> Login".html_safe  ,  new_user_session_path %>
+                        <% end %>
+
+                      
+                    </li>
+                    <li>Teste</li>
+              </ul>
+         <!-- left content box -->

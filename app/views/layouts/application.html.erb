@@ -19,34 +19,7 @@
 
     <%= render 'layouts/header' %>
 
-     <!-- Content row -->
-   <div id="wrapper">
-      
-      <!-- Sidebar -->
-      <div id="sidebar-left">
-        <ul class="sidebar-nav">
-           <% if user_signed_in? %>
-                  <%= image_tag current_user.avatar.url:thumb %>
-            <% end %>
-           <li><%= link_to "<i class='fa fa-anchor '></i> ADS".html_safe  ,  ads_path %></li>
-              <li><%= link_to "<i class='fa  fa-plus '></i> New Ad".html_safe  ,  new_ad_path %></li>
-              <li><%= link_to '<i class="fa fa-user "></i> Users'.html_safe  ,  users_path %></li>
-              <li>
-                 <% if user_signed_in? %>
-                    <%= "Tas Bom " + current_user.name + " ?" %>
-                  <% else %>
-
-                    <%= link_to "<i class='fa fa-spinner '></i> Login".html_safe  ,  new_user_session_path %>
-                  <% end %>
-
-                
-              </li>
-              <li>Teste</li>
-        </ul>
-      </div>
-      
-   <!-- right content box -->
-
+     <!-- Content row -->  
    <div id="page-content-wrapper">
         <div class="content-header">
           <h1>
@@ -57,10 +30,25 @@
         <!-- Keep all page content within the page-content inset div! -->
         <div class="page-content inset">
           <div class="row">
-              <%= yield %>
+
+            <!-- Left bar -->
+            <div class="col-md-2">
+             <%= render "layouts/sidebar_left" %>
+            </div>
+            
+            <!-- Content Page -->
+            <div class="col-md-8"><%= yield %></div>
+            
+            <!-- Right bar - Highlights and Advertising -->
+            <div class="col-md-2" style="padding-right: 0;">
+                <%= render "layouts/sidebar_right_featured" %>
+                <%= render "layouts/sidebar_right_ad" %>
+            </div>
+
           </div>
         </div>
-      </div>
+      <!--</div>-->
+
       
 </div>
 
