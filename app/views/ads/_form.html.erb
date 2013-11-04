@@ -17,13 +17,11 @@
      
   </div>
 
-
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title,:placeholder => "Title" %>
   </div>
 
-  
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_field :description,:placeholder => :description %>
@@ -42,7 +40,7 @@
   </div>
   <div class="field">
     <%= f.label :type_price_id %><br>
-    <%= f.number_field :type_price_id,:placeholder =>:type_price_id %>
+    <%= f.collection_select(:type_price_id,@price_types,:id,:name, :include_blank => 'Escolha uma opção') %>
   </div>
   <div class="field">
     <%= f.label :city_id %><br>
