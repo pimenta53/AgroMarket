@@ -2,8 +2,9 @@
    
     <div class="panel panel-default widget" id="accordion">
         <div class="panel-heading">
-            <span class="fa fa-comment"></span>
+            
             <h4 class="panel-title">
+              <span class="fa fa-comment"></span>
               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= key %>">Mensagens do Utilizador ID: <%= key %> </a>
             </h4>
             <span class="label label-info" style="float: right;">
@@ -22,7 +23,7 @@
               	    <%= button_to "Responder", "javascript:sender_button(#{key})"%>
               	  </p>
               	<% end %>
-                
+
              </div>
           </div>
       </div>  

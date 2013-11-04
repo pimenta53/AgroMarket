@@ -13,20 +13,7 @@ class AdsController < ApplicationController
   # GET /ads/1.json
   def show
     @message = Message.new
-    hashMessage = {}
-    @ad.messages.each do |m|
-      if m.sender_id != @ad.user_id
-        if !hashMessage.has_key?(m.sender_id)
-          hashMessage[m.sender_id] = []
-        end
-
-        hashMessage[m.sender_id].push(m)
-      else
-        # Esta clausula esta aqui pork é uma resposta tenho que a colocar no sítio certo
-        hashMessage[m.receiver_id].push(m)
-      end
-    end
-    @messageToView = hashMessage
+    @messageToView = Message.get_messages( @ad )
   end
 
   # GET /ads/new
