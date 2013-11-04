@@ -14,7 +14,9 @@ ready = function() {
    $(".counted").charCounter(144,{container: "#counter"});
 
    $(".pick-a-color").pickAColor();
-   
+
+   $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
+
 };
 
 //em rails 4 so funciona assim

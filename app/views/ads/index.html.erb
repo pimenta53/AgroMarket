@@ -73,14 +73,13 @@
             <li class="col-sm-3 col-md-3">
               <div class="thumbnail" style="padding: 0">
                 <span class='price'><%= ad.price %>€</span>
-               
                 <div style="padding:4px">
-                  <%= ad_image( ad.ad_images.first ) %>
-                </div>
+                  <%= link_to ad_image( ad.ad_images.first ), ad %>
+    
+                <a>
                 <div class="caption">
-                  <h2><%= ad.title %></h2>
+                  <h2><%= link_to ad.title, ad %></h2>
                   <p><%= ad.description %></p>
-                   
                   <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
                 </div>
                
