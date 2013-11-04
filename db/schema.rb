@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103163340) do
+ActiveRecord::Schema.define(version: 20131104182030) do
 
   create_table "CITIES", force: true do |t|
     t.string   "city"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20131103163340) do
     t.binary   "is_read"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "is_close",    default: 0
   end
 
   create_table "price_types", force: true do |t|

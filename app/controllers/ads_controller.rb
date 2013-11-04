@@ -12,7 +12,7 @@ class AdsController < ApplicationController
   # GET /ads/1.json
   def show
     @message = Message.new
-    @messageToView = Message.get_messages( @ad.messages.where("receiver_id = ? OR sender_id = ?",current_user.id,current_user.id) , @ad.user_id )
+    @messageToView = Message.get_messages( @ad.messages.where("(receiver_id = ? OR sender_id = ? ) and is_close = 0",current_user.id,current_user.id) , @ad.user_id )
   end
 
   # GET /ads/new
@@ -69,8 +69,11 @@ class AdsController < ApplicationController
     end
   end
 
+  # Mark message as read
   def done_message
     @ad = Ad.find(params[:id_ad])
+
+    @ad.messages.where("receiver_id = ? OR sender_id = ?",params[:user_id],params[:user_id]).update_all(:is_close => 1)
 
     redirect_to @ad,notice: 'A mensagem foi terminada com sucesso' 
   end

@@ -78,8 +78,14 @@
                 
 
                 <div class="caption">
-                                  <span class="label" style="background-color: #<%= ad.category.color %>">
-                <%= ad.category.name %>
+                  <% if ad.category.nil? %>
+                      <span class="label" style="background-color: #888888">
+
+                    <% else %>
+                      <span class="label" style="background-color: #<%= ad.category.color %>">
+                      <%= ad.category.name %>
+
+                    <% end %>
               </span>
 
                   <h2><%= link_to ad.title, ad %></h2>
