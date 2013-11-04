@@ -22,7 +22,7 @@ A messagem de **commit** para melhor entendimento deve seguir o template:
 
 ## Configuration ##
 Alterem o vosso ficheiro `/config/database.yml` e mantenham-no localmente. 
-Atenção com os tipos, username, password e socket têm que ser strings 
+Atenção com os tipos, username, password, socket e host têm que ser strings 
 (entre '' preferivelemente), caso não fizerem terão erro de conversão de 
 Fixnum para String. Exemplo:
 
@@ -32,8 +32,11 @@ Fixnum para String. Exemplo:
   
   socket: '3306'
   
+  host: '127.0.0.1' 
+  
 Neste caso username e password não precisam de '' porque seriam imediatamente
-reconhecidos como String, mas no socket é obrigatório.
+reconhecidos como String, mas no socket é obrigatório. O host foi adicionado
+porque era essencial para ubuntu 12.04
 
 ```Ruby
 # MySQL.  Versions 4.1 and 5.0 are recommended.
@@ -54,6 +57,7 @@ development:
   username: root
   password: vossa_password
   socket: vosso_caminho
+  host: '127.0.0.1' 
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -66,6 +70,7 @@ test:
   username: root
   password: vossa_password
   socket: vosso_caminho
+  host: '127.0.0.1'
 
 production:
   adapter: mysql2
@@ -75,5 +80,6 @@ production:
   username: root
   password: vossa_password
   socket: vosso_caminho
+  host: '127.0.0.1'
 
  ```

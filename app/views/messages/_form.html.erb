@@ -20,15 +20,15 @@
                             <%= m.text_area :text,:id => "text_comment",:rows=>5,:class=> "form-control counted" ,:placeholder => "Type in your message"%>
                             <h6 class="pull-right" id="counter">144 characters remaining</h6>
                           </div>
-                          <div class="field">
+                          <div class="field" hidden="true">
                             <%= m.label :sender_id %><br>
                             <%= m.text_field :sender_id, :value => current_user.id,:readonly => true %>
                           </div>
-                          <div class="field">
+                          <div class="field" hidden="true">
                             <%= m.label :receiver_id %><br>
                             <%= m.text_field :receiver_id, :value => @ad.user_id,:readonly => true %>
                           </div>
-                          <div class="field">
+                          <div class="field" hidden="true">
                             <%= m.label :ad_id %><br>
                             <%= m.text_field :ad_id,:value => @ad.id,:readonly => true %>
                           </div>

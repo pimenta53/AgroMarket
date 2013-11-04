@@ -1,7 +1,6 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
-  before_action :load_cities, only: [:new,:create,:show,:edit,:update]
-  before_action :load_categories, only: [:new,:create,:show,:edit,:update]
+  before_action :load_stuff, only: [:new,:create,:show,:edit,:update]
 
   # GET /ads
   # GET /ads.json
@@ -79,12 +78,11 @@ private
     end
 
     # Load cities from database
-    def load_cities
+    def load_stuff
       @cities = City.all
+      @price_types = PriceType.all 
+      @categories = Category.all
+
     end
 
-    # Load categories from database
-    def load_categories
-      @categories = Category.all
-    end
 end
