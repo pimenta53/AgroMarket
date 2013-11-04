@@ -30,10 +30,12 @@
     <%= f.label :price %><br>
     <%= f.text_field :price,:placeholder => :price %>
   </div>
+
   <div class="field">
-    <%= f.label :expire_date %><br>
-    <%= f.datetime_select :expire_date,:placeholder => :expire_date %>
+    <%= f.label :expire_date %><br />
+    <%= f.text_field :expire_date, :label => "Date",  :class => 'datepicker' %>
   </div>
+
   <div class="field">
     <%= f.label :location %><br>
     <%= f.text_field :location,:placeholder =>:location %>

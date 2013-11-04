@@ -42,6 +42,7 @@ class AdsController < ApplicationController
   # POST /ads
   # POST /ads.json
   def create
+    params[:ad][:expire_date] = DateTime.strptime(params[:ad][:expire_date],'%Y-%m-%d')
     @ad = Ad.new(ad_params)
     @ad.user_id = current_user.id
     respond_to do |format|
@@ -58,6 +59,8 @@ class AdsController < ApplicationController
   # PATCH/PUT /ads/1
   # PATCH/PUT /ads/1.json
   def update
+    params[:ad][:expire_date] = DateTime.strptime(params[:ad][:expire_date],'%Y-%m-%d')
+
     respond_to do |format|
       if @ad.update(ad_params)
         format.html { redirect_to @ad, notice: 'Ad was successfully updated.' }

@@ -41,3 +41,4 @@ PriceType.create(name: "Unidade")
 PriceType.create(name: "Total")
 
 
+
