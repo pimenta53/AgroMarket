@@ -75,12 +75,12 @@
                 <span class='price' ><%= ad.price %>€</span>
                 <div style="padding:4px" >
                   <%= link_to ad_image( ad.ad_images.first ), ad %>
-                
-
+                <% if !ad.category.blank? %>
                 <div class="caption">
                                   <span class="label" style="background-color: #<%= ad.category.color %>">
                 <%= ad.category.name %>
               </span>
+              <% end %>
 
                   <h2><%= link_to ad.title, ad %></h2>
                   <p><%= ad.description %></p>

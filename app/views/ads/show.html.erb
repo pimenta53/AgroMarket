@@ -8,7 +8,7 @@
 
 <p>
   <strong>Category:</strong>
-  <% if @ad.category %>
+  <% if @ad.category.blank? %>
     <span class="label" style="background-color: #<%= @ad.category.color %>">
       <%= @ad.category.name %>
     </span>

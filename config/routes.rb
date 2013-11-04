@@ -5,17 +5,21 @@ Agrosocial::Application.routes.draw do
     post "new_messages" => "messages#create"
   end
 
-  resources :price_types
-
-  resources :types
-
-  resources :categories
+  
 
   devise_for :users, controllers: {registrations: 'registrations'}
 
   resources :users
 
+  ### ADMIN ZONE ###
+  scope "/admin" do
+    resources :price_types
 
+    resources :types
+
+    resources :categories
+
+  end
   
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
