@@ -5,7 +5,7 @@
 </ol>
 
 <div class="table-responsive">
-  <table class="table table-hover">
+  <table class="table table-hover" >
     <thead>
       <tr>
         <th>Image</th>
@@ -77,8 +77,14 @@
                   <%= link_to ad_image( ad.ad_images.first ), ad %>
                 <% if !ad.category.blank? %>
                 <div class="caption">
-                                  <span class="label" style="background-color: #<%= ad.category.color %>">
-                <%= ad.category.name %>
+                  <% if ad.category.nil? %>
+                      <span class="label" style="background-color: #888888">
+
+                    <% else %>
+                      <span class="label" style="background-color: #<%= ad.category.color %>">
+                      <%= ad.category.name %>
+
+                    <% end %>
               </span>
               <% end %>
 

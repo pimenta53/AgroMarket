@@ -11,6 +11,7 @@ Agrosocial::Application.routes.draw do
 
   resources :users
 
+
   ### ADMIN ZONE ###
   scope "/admin" do
     resources :price_types
@@ -20,7 +21,9 @@ Agrosocial::Application.routes.draw do
     resources :categories
 
   end
-  
+
+  get 'done_message', to: 'ads#done_message', as: :done_message
+
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

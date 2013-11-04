@@ -6,9 +6,9 @@
             <h4 class="panel-title">
               <span class="fa fa-comment"></span>
               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= key %>">Mensagens do Utilizador ID: <%= key %> </a>
+                <%= link_to('<span style="float: right;" class="fa fa-times-circle"></span>'.html_safe, done_message_path(id_ad: @ad.id,user_id: key)) if @ad.user_id == current_user.id  %>
             </h4>
-            <span class="label label-info" style="float: right;">
-                78</span>
+            <span class="label label-info" style="float: right;"><%= value.count%></span>
          </div>
          
          <div id="<%= key %>" class="panel-collapse collapse">

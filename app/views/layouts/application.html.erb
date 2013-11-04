@@ -17,44 +17,38 @@
     <p class="alert"><%= alert %></p>
 	-->
 
-    <%= render 'layouts/header' %>
+    <%= render "layouts/header"%>
 
      <!-- Content row -->  
-   <div id="page-content-wrapper">
-        <div class="content-header">
-          <h1>
-            <a id="menu-toggle" href="#" class="btn btn-default"><i class="fa fa-reorder"></i></a>
-            AgroSocial
-          </h1>
-        </div>
-        <!-- Keep all page content within the page-content inset div! -->
-        <div class="page-content inset">
-          <div class="row">
+     <div id="wrapper">
 
-            <!-- Left bar -->
-            <div class="col-md-2">
-             <%= render "layouts/sidebar_left" %>
-            </div>
-            
-            <!-- Content Page -->
-            <div class="col-md-8"><%= yield %></div>
-            
-            <!-- Right bar - Highlights and Advertising -->
-            <div class="col-md-2" style="padding-right: 0;">
-                <%= render "layouts/sidebar_right_featured" %>
-                <%= render "layouts/sidebar_right_ad" %>
-            </div>
+            <%= render "layouts/sidebar_left" %>
 
+         <div id="page-content-wrapper">
+            <!-- Keep all page content within the page-content inset div! -->
+            
+            <div class="page-content inset">
+              <div class="row">
+                <div class="col-md-9" >
+                  <%= yield %>
+                </div>
+
+                <div class="col-md-3">
+                  <%= render "layouts/sidebar_right_featured" %>
+                  <%= render "layouts/sidebar_right_ad" %>
+                </div>
+
+              </div>
+            </div>
           </div>
-        </div>
-      <!--</div>-->
 
+          
       
-</div>
+    </div>
 
     
-	  <%= render 'layouts/footer' %>
-	
+         <%= render 'layouts/footer' %>
+        
      <script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
