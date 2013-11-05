@@ -17,6 +17,11 @@ ready = function() {
 
    $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
 
+   $('.typeahead').typeahead({                               
+          name: "cities",                
+          local: ['couves', 'cenas', 'laranjas', 'coisass', 'anuncios', 'babes','boobs','big boobs','buceta']                                              
+    });
+
 };
 
 //em rails 4 so funciona assim

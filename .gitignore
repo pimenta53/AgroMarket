@@ -20,3 +20,5 @@
 # Ignore user and ad images
 /public/system/ad_images/images/*
 /public/system/users/avatars/*
+.DS_Store
+DS_Store

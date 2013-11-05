@@ -5,15 +5,22 @@ Agrosocial::Application.routes.draw do
     post "new_messages" => "messages#create"
   end
 
-  resources :price_types
-
-  resources :types
-
-  resources :categories
+  
 
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions'}
 
   resources :users
+
+
+  ### ADMIN ZONE ###
+  scope "/admin" do
+    resources :price_types
+
+    resources :types
+
+    resources :categories
+
+  end
 
   get 'done_message', to: 'ads#done_message', as: :done_message
 
