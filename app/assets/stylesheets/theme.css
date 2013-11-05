@@ -51,13 +51,12 @@ background-color: #fff;
 
 .fa-user, .fa-envelope-o, .fa-bell-o{
   color: #fff;
-  vertical-align: center;
+  /*vertical-align: center;*/
   font-size: 22px;
 }
 
 #omni-search{
-  width: 400px;
-  margin-left: 25px;
+  width: 300px;
 }
 
 
@@ -117,7 +116,7 @@ footer {
 
 .sidebar-nav {
   position: fixed;
-  top: 10;
+  top: 10px;
   width: 200px;
   list-style: none;
   margin: 0;
@@ -275,152 +274,16 @@ border-bottom-right-radius: 4px;
   background: #F3984D;
 }
 
-/********** Login_Signup **********/
 
-.form-control { margin-bottom: 10px; }
-
-
-/********** Login**********/
-
-#login_body{
-  background-image:url('/assets/bg2.jpg'); 
-  
-  background-size: 100%;
-  min-width: 900px;
-  background-repeat: no-repeat;
-
-  
+/* AUTOCOmplete */
+.twitter-typeahead{
+width:100%;
 }
 
-.row_login_form{
-  
- 
-}
-
-.form-signin
-{
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
-}
-.form-signin .form-signin-heading, .form-signin .checkbox
-{
-    margin-bottom: 10px;
-}
-.form-signin .checkbox
-{
-    font-weight: normal;
-}
-.form-signin .form-control
-{
-    position: relative;
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-.form-signin .form-control:focus
-{
-    z-index: 2;
-}
-.form-signin input[type="text"]
-{
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-.form-signin input[type="password"]
-{
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-.account-wall
-{
-    margin-top: 20px;
-    padding: 40px 0px 20px 0px;
-    background-color: rgba(255,255,255,0.5);
-    -webkit-border-radius:10px;
-
-
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-}
-.login-title
-{
-
-    -webkit-text-shadow:1px 1px #000;
-  -moz-text-shadow:1px 1px #000;
-  text-shadow:1px 1px #000;
-    color: #fff;
-    font-size: 58px;
-    font-weight: 400;
-    display: block;
-
-}
-.login-col-slogan{
-  margin-top:15%;
-   
-  
-}
-
-.login-col-form{
-  margin-top:5%;
-
-}
-
-#login_option{
-
-  color: #EA5B0C;
-  display: block;
-}
-.login-slogan{
-
-  
-  -webkit-text-shadow:1px 1px #000;
-  -moz-text-shadow:1px 1px #000;
-  text-shadow:1px 1px #000;
-  color: #EA5B0C;
-  font-size: 28px;
-
-
-}
-.profile-img
-{
-    width: 155px;
-    height: auto;
-    margin: 0 auto 20px;
-    display: block;
-   
-}
-.need-help
-{
-    margin-top: 10px;
-}
-
-.new-account 
-{
-    color: #fff;
-
-
-    display: inline;
-    
-}
-
-.colorrender a{
-  color:#EA5B0C;
-  display: inline;
-}
-
-/* ANUNCIOS */
 .twitter-typeahead .tt-query,
 .twitter-typeahead .tt-hint {
   margin-bottom: 0;
 }
-
 .tt-dropdown-menu {
   min-width: 160px;
   margin-top: 2px;
@@ -439,6 +302,7 @@ border-bottom-right-radius: 4px;
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
+  width:100%;        
 }
 
 .tt-suggestion {

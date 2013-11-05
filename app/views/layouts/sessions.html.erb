@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>Agrosocial</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "bootstrap","sessions","select2", "data-turbolinks-track" => true %>
+
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <link rel="shortcut icon" href="">
   <!--Google Fonts -->
@@ -12,28 +13,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body id="login_body">
-	<!--
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-	-->
-
-    
-
-     <!-- Content row -->
-
-      
-      <!-- Sidebar -->
-      
-      
-   <!-- right content box -->
-
-   
+     
+  <!-- Keep all page content within the page-content inset div! -->
         
-        <!-- Keep all page content within the page-content inset div! -->
-        
-          <div class="row_login_form">
-              <%= yield %>
-          </div>
+    <div class="row_login_form">
+        <%= yield %>
+    </div>
         
 </body>
 </html>
