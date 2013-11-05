@@ -4,105 +4,112 @@
               
 </ol>
 
-<div class="table-responsive">
-  <table class="table table-hover" >
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Category</th>
-        <th>Expire date</th>
-        <th>Location</th>
-        <th>Is active</th>
-        <th>Type price</th>
-        <th>City</th>
-        <th>User_ID / User_Name</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @ads.each do |ad| %>
+<section class="panel">
+  <header class="panel-heading">
+                All Ads
+    </header>
+  <div class="table-responsive">
+    <table class="table table-hover" >
+      <thead>
         <tr>
-          <td>
-            <div class="img_table">
-              <!--HELPER helper/ads_helper -->
-             <%= first_image( ad.ad_images.first ) %>
-            </div>
-          </td>
-          <td><%= ad.title %></td>
-          <td><%= ad.description %></td>
-          <td><%= ad.price %></td>
-          <td>
-            <% if ad.category %>
-              <span class="label" style="background-color: #<%= ad.category.color %>">
-                <%= ad.category.name %>
-              </span>
-              <% else %> 
-                 <span class="label label-default" >
-                  Sem Categoria
-                </span>
-            <% end %>
-          </td>
-          <td><%= ad.expire_date %></td>
-          <td><%= ad.location %></td>
-          <td><%= ad.is_active %></td>
-          <td><%= ad.type_price_id %></td>
-          <td><%= ad.city.city unless ad.city.blank? %></td>
-          <td><%= ad.user_id %> / <%= ad.user.name %></td>
-
-          <td><%= link_to 'Show', ad %></td>
-          <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
-          <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Expire date</th>
+          <th>Location</th>
+          <th>Is active</th>
+          <th>Type price</th>
+          <th>City</th>
+          <th>User_ID / User_Name</th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div >
-<br>
+      </thead>
 
-<legend> Anúncios </legend>
-<div class="container">
-    <div class="row">
-      <ul class="thumbnails">
-       <% @ads.each do |ad| %>
-            <li class="col-sm-3 col-md-3">
-              <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
-                <span class='price' ><%= ad.price %>€</span>
-                <div style="padding:4px" >
-                  <%= link_to ad_image( ad.ad_images.first ), ad %>
-                <% if !ad.category.blank? %>
-                <div class="caption">
-                  <% if ad.category.nil? %>
-                      <span class="label" style="background-color: #888888">
-
-                    <% else %>
-                      <span class="label" style="background-color: #<%= ad.category.color %>">
-                      <%= ad.category.name %>
-
-                    <% end %>
-              </span>
-              <% end %>
-
-                  <h2><%= link_to ad.title, ad %></h2>
-                  <p><%= ad.description %></p>
-                  <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
-                </div>
-               
-
-
+      <tbody>
+        <% @ads.each do |ad| %>
+          <tr>
+            <td>
+              <div class="img_table">
+                <!--HELPER helper/ads_helper -->
+               <%= first_image( ad.ad_images.first ) %>
               </div>
-            </li>
-        
+            </td>
+            <td><%= ad.title %></td>
+            <td><%= ad.description %></td>
+            <td><%= ad.price %></td>
+            <td>
+              <% if ad.category %>
+                <span class="label" style="background-color: #<%= ad.category.color %>">
+                  <%= ad.category.name %>
+                </span>
+                <% else %> 
+                   <span class="label label-default" >
+                    Sem Categoria
+                  </span>
+              <% end %>
+            </td>
+            <td><%= ad.expire_date %></td>
+            <td><%= ad.location %></td>
+            <td><%= ad.is_active %></td>
+            <td><%= ad.type_price_id %></td>
+            <td><%= ad.city.city unless ad.city.blank? %></td>
+            <td><%= ad.user_id %> / <%= ad.user.name %></td>
+
+            <td><%= link_to 'Show', ad %></td>
+            <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
+            <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
         <% end %>
-      </ul>
-    </div>
+      </tbody>
+    </table>
+  </div >
+  <br>
+
+  <legend> Anúncios </legend>
+  <div class="container">
+      <div class="row">
+        <ul class="thumbnails">
+         <% @ads.each do |ad| %>
+              <li class="col-sm-3 col-md-3">
+                <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
+                  <span class='price' ><%= ad.price %>€</span>
+                  <div style="padding:4px" >
+                    <%= link_to ad_image( ad.ad_images.first ), ad %>
+                  <% if !ad.category.blank? %>
+                  <div class="caption">
+                    <% if ad.category.nil? %>
+                        <span class="label" style="background-color: #888888">
+
+                      <% else %>
+                        <span class="label" style="background-color: #<%= ad.category.color %>">
+                        <%= ad.category.name %>
+
+                      <% end %>
+                </span>
+                <% end %>
+
+                    <h2><%= link_to ad.title, ad %></h2>
+                    <p><%= ad.description %></p>
+                    <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
+                  </div>
+                 
+
+
+                </div>
+              </li>
+          
+          <% end %>
+        </ul>
+      </div>
 </div>
 
 
 
 <%= link_to 'New Ad', new_ad_path %>
+                          
+</section>
+
