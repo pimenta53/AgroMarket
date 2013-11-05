@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+    layout "sessions"
   	before_action :load_cities, only: [:new, :create, :edit, :update]
   	before_action :date_convert, only: [:create,:update]
 
