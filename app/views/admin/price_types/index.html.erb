@@ -1,0 +1,28 @@
+<h1>Listing price_types</h1>
+
+<div class="table-responsive">
+  <table class="table table-hover" >
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @price_types.each do |price_type| %>
+      <tr>
+        <td><%= price_type.name %></td>
+        <td><%= link_to 'Show', admin_price_type_path(price_type) %></td>
+        <td><%= link_to 'Edit', edit_admin_price_type_path(price_type) %></td>
+        <td><%= link_to 'Destroy', admin_price_type(price_type), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'New Price type', new_admin_price_type_path %>

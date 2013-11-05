@@ -12,4 +12,6 @@
  *= require_self
  *= require_tree .
  *= require bootstrap-datepicker
+ *= stub admin_theme
+ *= stub sessions
  */

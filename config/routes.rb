@@ -1,5 +1,4 @@
 Agrosocial::Application.routes.draw do
-  resources :cities
 
   resources :ads do
     post "new_messages" => "messages#create"
@@ -13,13 +12,12 @@ Agrosocial::Application.routes.draw do
 
 
   ### ADMIN ZONE ###
-  scope "/admin" do
+  namespace :admin do
     resources :price_types
-
-    resources :types
-
+    resources :types 
     resources :categories
-
+    resources :cities
+    resources :dashboard
   end
 
   get 'done_message', to: 'ads#done_message', as: :done_message

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>AgroSocial Admin</title>
+
+    <%= javascript_include_tag "application","data-turbolinks-track" => true %>
+   
+    <%= stylesheet_link_tag "application","admin_theme","data-turbolinks-track" => true  %>
+
+    <%= csrf_meta_tags %>
+
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu|Raleway' rel='stylesheet' type='text/css'>
+
+  <body class=""> 
+    <div id="wrapper">
+    <!-- Sidebar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "AgroSocial-<small>admin zone</small>".html_safe, admin_dashboard_index_path ,:class=>"navbar-brand"%>
+          
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav side-nav sidebar_nav_admin">
+        <a href="#Categorias-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-dashboard"></i>Categorias</a>
+        <ul id="Categorias-menu" class="nav nav-list collapse in">
+            <li> 
+             <%= link_to "<i class='fa fa-user'></i>Categorias".html_safe  , admin_categories_path %>
+            </li>
+            <li> 
+             <%= link_to "<i class='fa fa-plus'></i>Nova Categorias".html_safe  , new_admin_category_path %>
+            </li>
+            
+            
+        </ul>
+
+        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-briefcase"></i>Cidades<span class="label label-info">+3</span></a>
+        <ul id="accounts-menu" class="nav nav-list collapse">
+            <li> 
+             <%= link_to "<i class='fa fa-comment'></i>Cidades".html_safe  , admin_cities_path %>
+            </li>
+            <li> 
+             <%= link_to "<i class='fa fa-plus'></i>Nova Cidade".html_safe  , new_admin_city_path %>
+            </li>
+        </ul>
+
+
+        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-legal"></i>Anúncios</a>
+        <ul id="legal-menu" class="nav nav-list collapse">
+            <li ><a href="">Ultimos Anuncios</a></li>
+            <li ><a href="">Listar Anuncios</a></li>
+        </ul>
+
+        <a href="" class="nav-header" ><i class="fa fa-question-sign"></i>Help</a>
+        <a href="" class="nav-header" ><i class="fa fa-comment"></i>Faq</a>
+   </ul>
+
+          <ul class="nav navbar-nav navbar-right navbar-user">
+            
+            <li class="dropdown alerts-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> Alerts <span class="badge">3</span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Default <span class="label label-default">Default</span></a></li>
+                <li><a href="#">Primary <span class="label label-primary">Primary</span></a></li>
+                <li><a href="#">Success <span class="label label-success">Success</span></a></li>
+                <li><a href="#">Info <span class="label label-info">Info</span></a></li>
+                <li><a href="#">Warning <span class="label label-warning">Warning</span></a></li>
+                <li><a href="#">Danger <span class="label label-danger">Danger</span></a></li>
+                <li class="divider"></li>
+                <li><a href="#">View All</a></li>
+              </ul>
+            </li>
+            <li class="dropdown user-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
+                <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div id="page-wrapper">
+
+        <div class="row">
+          <div class="col-lg-12">
+            <%= yield %>
+          </div>
+        </div><!-- /.row -->
+
+      </div><!-- /#page-wrapper -->
+
+    </div><!-- /#wrapper -->
+    
+
+    
+  </body>
+</html>
+
+

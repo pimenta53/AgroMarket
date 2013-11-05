@@ -6,6 +6,7 @@ class AdsController < ApplicationController
   # GET /ads.json
   def index
     @ads = Ad.all
+    render :layout => "admin"
   end
 
   # GET /ads/1
