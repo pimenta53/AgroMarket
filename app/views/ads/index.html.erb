@@ -12,6 +12,7 @@
     <table class="table table-hover" >
       <thead>
         <tr>
+          <th></th>
           <th>Image</th>
           <th>Title</th>
           <th>Description</th>
@@ -33,6 +34,9 @@
         <% @ads.each do |ad| %>
           <tr>
             <td>
+               
+              <a href="#details<%= ad.id %>"  data-toggle="collapse"><span class="label label-info"><i class="fa fa-plus"></i></a></td>
+            <td>
               <div class="img_table">
                 <!--HELPER helper/ads_helper -->
                <%= first_image( ad.ad_images.first ) %>
@@ -46,6 +50,7 @@
                 <span class="label" style="background-color: #<%= ad.category.color %>">
                   <%= ad.category.name %>
                 </span>
+
                 <% else %> 
                    <span class="label label-default" >
                     Sem Categoria
@@ -63,6 +68,29 @@
             <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
             <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
+
+          <tr id="details<%= ad.id %>" class="collapse" data-toggle="collapse">
+             <td class="details" colspan="6">
+                <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">
+                   <tbody>
+                      <tr>
+                         <td>Detalhes:</td>
+                         <td>blabla</td>
+                      </tr>
+                      <tr>
+                         <td>Detalhes:</td>
+                         <td>blabla</td>
+                      </tr>
+                      <tr>
+                         <td>Detalhes:</td>
+                         <td>blabla</td>
+                      </tr>
+                   </tbody>
+                </table>
+             </td>
+          </tr>
+
+
         <% end %>
       </tbody>
     </table>
