@@ -49,6 +49,12 @@
       <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção') %>
   </div>
 
+	<%@ad.ad_images.each do |ad_image| %>
+		<% if !ad_image.new_record? %>
+			<%= image_tag ad_image.image %><br/>
+		<% end %>
+	<% end %>
+	
   <div class="newPaperclipFiles">
 
         <%= f.fields_for :ad_images do |asset| %>

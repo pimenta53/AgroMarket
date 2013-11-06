@@ -52,15 +52,15 @@ class Ad < ActiveRecord::Base
 	
 	# private methods
 	private
-		#para criar friendly Url
-		def create_permalink
-		  self.permanent_link = "#{self.title.parameterize}"
-		end
+	#para criar friendly Url
+	def create_permalink
+	  self.permanent_link = "#{self.title.parameterize}"
+	end
 
-		def expire_date_cannot_be_in_the_past
-    	errors.add(:expire_date, "can't be in the past") if
-      		!expire_date.blank? and expire_date < Date.today
-  		end
+	def expire_date_cannot_be_in_the_past
+ 		errors.add(:expire_date, "can't be in the past") if
+   	!expire_date.blank? and expire_date < Date.today
+  	end
 
 
 end

@@ -24,10 +24,9 @@ class AdsController < ApplicationController
 
   # GET /ads/1/edit
   def edit
-  	 $i = @ad.ad_images.count
-  	 while $i < 5 do
+  	 (5 - @ad.ad_images.count).times{
     	@ad.ad_images.build
-    end
+    }
   end
 
   # POST /ads
