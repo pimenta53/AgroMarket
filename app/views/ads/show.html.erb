@@ -9,9 +9,13 @@
 <p>
   <strong>Category:</strong>
   <% if @ad.category.blank? %>
-    <span class="label" style="background-color: #<%= @ad.category.color %>">
-      <%= @ad.category.name %>
-    </span>
+    <% if @ad.category.nil? %>
+      <span class="label" style="background-color: #888888">Sem categoria</span>
+    <% else %>
+      <span class="label" style="background-color: #<%= @ad.category.color %>">
+        <%= @ad.category.name %>
+      </span>
+    <% end %>
   <% end %>
 
 

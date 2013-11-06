@@ -10,34 +10,29 @@
   <% end %>
 <%end%>
 <div id="<%=valor%>">
-  <p>
-    <strong>Text:</strong>
-    <%= message.text %>
-  </p>
 
   <p>
+    <small>
+    Enviado por:
+      <%= message.sender_id %> - 
+      <%= message.sender.name %>
+    As:
+      <%= message.created_at %>
+    </small>
+  </p>
+  
+  <%= message.text %>
+
+  <p hidden="true">
     <strong>is_read:</strong>
     <%= message.is_read %>
-  </p>
-
-  <p>
-    <strong>Created_at:</strong>
-    <%= message.created_at %>
-  </p>
-
-  <p>
-    <strong>Sender:</strong>
-    <%= message.sender_id %>
-    <%= message.sender.name %>
   </p>
 
   <p hidden="true">
     <strong>Receiver</strong>
     <%= message.receiver_id %>
     <%= message.receiver.name %>
-
   </p>
-
 
   <p hidden="true">
     <strong>Ad_id:</strong>
