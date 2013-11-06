@@ -41,6 +41,8 @@ class User < ActiveRecord::Base
   validates :username, :uniqueness => true , presence: true
   validates :email, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
   
+  validate :birthday_cannot_be_in_the_future
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -49,5 +51,12 @@ class User < ActiveRecord::Base
   def age
     now = Time.now.utc.to_date
     now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
+  
+  def birthday_cannot_be_in_the_future
+    if (birthday != nil)
+      errors.add(:birthday, " cannot be in the future") if 
+        birthday > Date.today
+    end
   end
 end
