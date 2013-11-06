@@ -15,3 +15,20 @@
  *= stub admin_theme
  *= stub sessions
  */
+
+.icon_rating, .icon_rating-nocolor{
+	background-repeat:no-repeat;
+	background-position: center;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+}
+
+.icon_rating {
+	background-image:url('carrot-image-trim.jpg');
+}
+
+.icon_rating-nocolor{
+	background-image:url('carrot-image-nocolor-trim.jpg');
+
+}
