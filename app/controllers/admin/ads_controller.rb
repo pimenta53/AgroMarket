@@ -1,4 +1,4 @@
-class AdsController < ApplicationController
+class Admin::AdsController < Admin::ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
   before_action :load_stuff, only: [:new,:create,:show,:edit,:update]
 
@@ -6,8 +6,6 @@ class AdsController < ApplicationController
   # GET /ads.json
   def index
     @ads = Ad.all
-    @categories = Category.all
-    #render :layout => "admin"
   end
 
   # GET /ads/1
@@ -25,10 +23,11 @@ class AdsController < ApplicationController
 
   # GET /ads/1/edit
   def edit
-  	 (5 - @ad.ad_images.count).times{
+  	 $i = @ad.ad_images.count
+     
+  	 while $i < 5 do
     	@ad.ad_images.build
-    }
-
+     end
   end
 
   # POST /ads
@@ -40,7 +39,7 @@ class AdsController < ApplicationController
     @ad.is_active = true
     respond_to do |format|
       if @ad.save
-        format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
+        format.html { redirect_to [:admin,@ad], notice: 'Ad was successfully created.' }
         format.json { render action: 'show', status: :created, location: @ad }
       else
         format.html { render action: 'new' }
@@ -56,7 +55,7 @@ class AdsController < ApplicationController
 
     respond_to do |format|
       if @ad.update(ad_params)
-        format.html { redirect_to @ad, notice: 'Ad was successfully updated.' }
+        format.html { redirect_to [:admin,@ad], notice: 'Ad was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -70,7 +69,7 @@ class AdsController < ApplicationController
   def destroy
     @ad.destroy
     respond_to do |format|
-      format.html { redirect_to ads_url }
+      format.html { redirect_to admin_ads_url }
       format.json { head :no_content }
     end
   end

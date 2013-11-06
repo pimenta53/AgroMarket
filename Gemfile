@@ -67,6 +67,7 @@ end
 #trata de permissoes
 gem "cancan"
 
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
