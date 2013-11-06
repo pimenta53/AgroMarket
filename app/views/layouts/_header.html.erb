@@ -1,44 +1,37 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="width:100%;">
-      
-      <div class="navbar-header" style="width:100%; ">
-        <!--<div class="container" style="position:fixed; top=0; left:0; float:left">-->
-        
-          <img id="agrosocial_logo" src="/assets/logo_button.svg" alt="AgroSocial Logo" class="img-circle">
-          <a class="navbar-brand"  href="/">AgroSocial</a>
-            
-          <a id="menu-toggle" href="#" class="btn btn-default"><i class="fa fa-reorder"></i></a>
-          
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+         
+          <img id="agrosocial_logo" src="/assets/logo_button.svg" alt="AgroSocial Logo" class="img-circle">
+
+          <a class="navbar-brand"  href="/">AgroSocial</a>
+            
+
+
+          <a id="menu-toggle" href="#" class="btn btn-default"><i class="fa fa-reorder"></i></a>
           
-        <!--</div>-->
-        
-        <!-- <div class="container" style="width:100%; position:fixed; top=0; right:0; float:right ">-->
+        </div>
 
          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div style="width:100%; position:fixed; top=0; float:right; z-index:-1; " class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
 
-          
 
-          <div class="container" style="width:100%; float:right">
-
-            <ul class="nav navbar-nav navbar-right" >
-            <li class="col-lg-6" style="width:300px; ">
-              <div class="input-group" style="resize:horizontal; float:right;">
-                <input type="text" class="form-control">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">Pesquisar</button>
-                </span>
-              </div>
-            </li>
-
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" id="omni-search" class="form-control typeahead" placeholder="Pesquisar">
+            </div>
+            <button type="submit" id="omni-search-btn" class="btn btn-default">Pesquisar</button>
+          </form>
+            
             <!--NOTIFICACOES-->
-          <ul class="nav navbar-nav navbar-right" >
-            <li class="dropdown messages-dropdown" >
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown messages-dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i><span class="badge" id="custom-badge">3</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li class="dropdown-header">3 New </li>
@@ -76,36 +69,39 @@
 
 
             <!-- MESSAGES -->
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown messages-dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-o"></i><span class="badge" id="custom-badge">2</span> <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-header">2 New </li>
-                  <li class="preview">
-                    <a href="#">
-                      <span class="avatar"><img src="http://placehold.it/50x50"></span>
-                      <span class="name">John Smith:</span>
-                      <span class="message">Hey there, I wanted to ask you something...</span>
-                      <span class="time"><i class="icon-time"></i> 4:34 PM</span>
-                    </a>
-                  </li>
-                  <li class="divider"></li>
-                  <li class="preview">
-                    <a href="#">
-                      <span class="avatar"><img src="http://placehold.it/50x50"></span>
-                      <span class="name">John Smith:</span>
-                      <span class="message">Hey there, I wanted to ask you something...</span>
-                      <span class="time"><i class="icon-time"></i> 4:34 PM</span>
-                    </a>
-                  </li>
-                  <li class="divider"></li>
-                  <li><a href="#">Ver Mais <span class="badge">2</span></a></li>
-                </ul>
-              </li>
-              <!--END MESSAGES-->
+
+              <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown messages-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-o"></i><span class="badge" id="custom-badge">2</span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">2 New </li>
+                <li class="preview">
+                  <a href="#">
+                    <span class="avatar"><img src="http://placehold.it/50x50"></span>
+                    <span class="name">John Smith:</span>
+                    <span class="message">Hey there, I wanted to ask you something...</span>
+                    <span class="time"><i class="icon-time"></i> 4:34 PM</span>
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li class="preview">
+                  <a href="#">
+                    <span class="avatar"><img src="http://placehold.it/50x50"></span>
+                    <span class="name">John Smith:</span>
+                    <span class="message">Hey there, I wanted to ask you something...</span>
+                    <span class="time"><i class="icon-time"></i> 4:34 PM</span>
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="#">Ver Mais <span class="badge">2</span></a></li>
+              </ul>
+            </li>
 
 
-              <!--USER-->
+             <!--END MESSAGES-->
+
+
+             <!--USER-->
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
                   <% if user_signed_in? %>
@@ -124,25 +120,10 @@
               <!--END USER-->
           
 
-            </ul>
-            </ul>
-            </div>
-
-            <!--
-            <div class="col-lg-6" style="width:300px; float:right">
-              <div class="input-group" style="resize:horizontal; float:right;">
-                <input type="text" class="form-control">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">Pesquisar!</button>
-                </span>
-              </div>
-            </div>
-            -->
-
-
-
-
-          </div>
-        <!--</div>-->
-      </div>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
     </nav>
+
+
+                
