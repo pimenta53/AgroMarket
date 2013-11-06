@@ -4,8 +4,6 @@ Agrosocial::Application.routes.draw do
     post "new_messages" => "messages#create"
   end
 
-  
-
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions'}
 
   resources :users
@@ -20,6 +18,8 @@ Agrosocial::Application.routes.draw do
     resources :dashboard
     resources :ads
   end
+
+  resources :ratings
 
   get 'done_message', to: 'ads#done_message', as: :done_message
 
