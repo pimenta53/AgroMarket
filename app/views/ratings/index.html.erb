@@ -1,0 +1,11 @@
+<table class="table">
+	<tr>
+		<th>Rater ID</th>
+		<th>Rated ID</th>
+		<th>AD ID</th>
+		<th>SHOW</th>
+	</tr>
+		<% @rating.each do |r| %>
+			<%= render "show" , :rating => r %>
+		<% end %>
+</table>

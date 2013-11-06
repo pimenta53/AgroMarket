@@ -30,6 +30,8 @@ ready = function() {
         return false;
       });
 
+      
+
 };
 
 //em rails 4 so funciona assim

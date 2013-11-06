@@ -72,10 +72,21 @@ class AdsController < ApplicationController
   end
 
   # Mark message as read
+  # Close message
+  # Create rated and rater entry in db
   def done_message
     @ad = Ad.find(params[:id_ad])
 
     @ad.messages.where("receiver_id = ? OR sender_id = ?",params[:user_id],params[:user_id]).update_all(:is_close => 1)
+
+    # Create new entry, RATED current_user
+    rated_current_user = Rating.new(:ad_id => @ad.id,:rater_id => params[:user_id],:rated_id => current_user.id)
+
+    # Create new entry, RATER current_user
+    rater_current_user = Rating.new(:ad_id => @ad.id,:rater_id => current_user.id ,:rated_id => params[:user_id])
+
+    rater_current_user.save
+    rated_current_user.save
 
     redirect_to @ad,notice: 'A mensagem foi terminada com sucesso' 
   end
