@@ -1,42 +1,57 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="col-md-4 login-col-form_regist">
+    
+         <div class="well well-sm">
+            <legend><a href="http://www.jquery2dotnet.com"><i class="glyphicon glyphicon-globe"></i></a> Sign up!</legend>
+            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name) ,:html=> {:class=>"form"}) do |f| %>
+              <%= devise_error_messages! %>
 
-  <div><%= f.label :avatar,"Image" %><br />
-  <%= f.file_field :avatar %>
+            <div><%= f.label :avatar,"Image" %><br />
+                <%= f.file_field :avatar , :class=>"form-control"%>
+                </div>
+            <div class="row">
+                <div class="col-xs-6 col-md-6">
+                  <div><%= f.label :name, "Name" %><br />
+                    <%= f.text_field :name,:id =>"name_sign_up", :class=>"form-control" %>
+                     <span id="name_extra" class="textoextra"></span>
+                  </div>
+                    
+                </div>
+                <div class="col-xs-6 col-md-6">
+                  <div><%= f.label :username, "Username" %><br />
+                        <%= f.text_field :username , :class=>"form-control" %></div>
+                   
+                </div>
+            </div>
+            <div><%= f.label :city_id, "City" %><br />
+               <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção' , :htlm=>{:class=>"form-control"}) %>
+             </div>
+             <div><%= f.label :email %><br />
+              <%= f.email_field :email, :autofocus => true , :class=>"form-control" %></div>
+            
+            <div><%= f.label :password %><br />
+            <%= f.password_field :password  , :class=>"form-control" %></div>
 
-  <div><%= f.label :name, "Name" %><br />
-    <%= f.text_field :name,:id =>"name_sign_up" %>
-    <span id="name_extra" class="textoextra"></span>
-  </div>
-
-
-  <div><%= f.label :username, "Username" %><br />
-  <%= f.text_field :username %></div>
-
-  <div><%= f.label :city_id, "City" %><br />
-    <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção') %>
-  </div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-  
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.text_field :birthday, :label => "Date",  :class => 'datepicker' %>
-  </div>
-
-  <div><%= f.label :phone, "Phone"%><br />
-  <%= f.text_field :phone %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+            <div><%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation  , :class=>"form-control" %></div>
+            
+            
+            <label for="">
+                Birth Date</label>
+            <div class="row">
+               <div class="field">
+                <%= f.label :birthday %><br />
+                <%= f.text_field :birthday, :label => "Date", :class=> 'datepicker' %>
+              </div>
+            </div>
+            <div><%= f.label :phone, "Phone"%><br />
+              <%= f.text_field :phone , :class=>"form-control"  %></div>
+            <br />
+            <br />
+            <div><%= f.submit "Sign up" ,:class=>"btn btn-lg btn-primary btn-block" %></div>
+            
+            <% end %>
+            <%= render "devise/shared/links" %>
+        </div>
+      
+ </div>
