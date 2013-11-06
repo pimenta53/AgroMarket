@@ -32,7 +32,12 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   
   #Dependencies
-  has_many :messages
+  has_many :sent_messages,:class_name  => 'Message',
+                          :primary_key => 'id',
+                          :foreign_key => 'sender_id'
+  has_many :recieved_messages,:class_name  => 'Message',
+                              :primary_key => 'id',
+                              :foreign_key => 'receiver_id'
   has_many :ads
   belongs_to :city
 

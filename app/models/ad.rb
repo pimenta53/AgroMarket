@@ -19,6 +19,7 @@ class Ad < ActiveRecord::Base
 	belongs_to :city
 	belongs_to :user
 	belongs_to :category
+	belongs_to :price_type, :foreign_key  => 'type_price_id'
 
 	has_many :ad_images, :dependent => :destroy
 	has_many :messages

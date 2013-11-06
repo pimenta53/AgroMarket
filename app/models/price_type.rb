@@ -9,5 +9,7 @@
 #
 
 class PriceType < ActiveRecord::Base
+  has_many :ads, :foreign_key  => 'type_price_id'
+
   validates :name, presence: true, :uniqueness => true
 end
