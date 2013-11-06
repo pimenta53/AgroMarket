@@ -6,7 +6,8 @@ class AdsController < ApplicationController
   # GET /ads.json
   def index
     @ads = Ad.all
-    render :layout => "admin"
+    @categories = Category.all
+    #render :layout => "admin"
   end
 
   # GET /ads/1
@@ -24,11 +25,10 @@ class AdsController < ApplicationController
 
   # GET /ads/1/edit
   def edit
-  	 $i = @ad.ad_images.count
-     
-  	 while $i < 5 do
+  	 (5 - @ad.ad_images.count).times{
     	@ad.ad_images.build
-     end
+    }
+
   end
 
   # POST /ads
