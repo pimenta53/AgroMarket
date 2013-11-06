@@ -9,6 +9,10 @@ class RegistrationsController < Devise::RegistrationsController
 		end
 
 		def date_convert
-			params[:user][:birthday] = DateTime.strptime(params[:user][:birthday],'%Y-%m-%d')
+			begin
+				params[:user][:birthday] = DateTime.strptime(params[:user][:birthday],'%Y-%m-%d')
+			rescue
+				params[:user][:birthday] = nil
+			end
 		end
 end
