@@ -82,14 +82,36 @@
 
 }
 .login-col-slogan{
-  margin-top:15%;
-   
-  
+  /*width: 450px;
+  height: 150px;
+  position: absolute;
+  border: 2px solid black;
+  top:50%;
+  margin-top: -125px;
+  left: 50%;
+  margin-left: -475px;*/
+
+  margin-top: 15%;
 }
 
 .login-col-form{
-  margin-top:5%;
+  /*
+  height: 600px;
+  width: 450px;
+  border: 2px solid red;
+  position: absolute;
+  top: 50%;
+  margin-top: -300px;
+  left: 50%;*/
 
+
+  
+}
+
+.login-col-form_regist{
+  border: 2px solid black;
+  
+  margin-top: 5%;
 }
 
 #login_option{
@@ -129,8 +151,14 @@
     display: inline;
     
 }
+.colorrender{
+
+}
 
 .colorrender a{
   color:#EA5B0C;
-  display: inline;
+  border: 2px solid black;
+  position: absolute;
+  text-align: center;
+  
 }
