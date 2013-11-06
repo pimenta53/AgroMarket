@@ -29,7 +29,7 @@ class  Admin::TypesController <  Admin::ApplicationController
 
     respond_to do |format|
       if @type.save
-        format.html { redirect_to @type, notice: 'Type was successfully created.' }
+        format.html { redirect_to [:admin,@price_type], notice: 'Type was successfully created.' }
         format.json { render action: 'show', status: :created, location: @type }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class  Admin::TypesController <  Admin::ApplicationController
   def update
     respond_to do |format|
       if @type.update(type_params)
-        format.html { redirect_to @type, notice: 'Type was successfully updated.' }
+        format.html { redirect_to [:admin,@price_type], notice: 'Type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class  Admin::TypesController <  Admin::ApplicationController
   def destroy
     @type.destroy
     respond_to do |format|
-      format.html { redirect_to types_url }
+      format.html { redirect_to admin_types_url }
       format.json { head :no_content }
     end
   end

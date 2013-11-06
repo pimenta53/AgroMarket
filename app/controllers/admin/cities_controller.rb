@@ -29,7 +29,7 @@ class  Admin::CitiesController <  Admin::ApplicationController
 
     respond_to do |format|
       if @city.save
-        format.html { redirect_to @city, notice: 'City was successfully created.' }
+        format.html { redirect_to [:admin,@city], notice: 'City was successfully created.' }
         format.json { render action: 'show', status: :created, location: @city }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class  Admin::CitiesController <  Admin::ApplicationController
   def update
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to @city, notice: 'City was successfully updated.' }
+        format.html { redirect_to [:admin,@city], notice: 'City was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class  Admin::CitiesController <  Admin::ApplicationController
   def destroy
     @city.destroy
     respond_to do |format|
-      format.html { redirect_to cities_url }
+      format.html { redirect_to admin_cities_url }
       format.json { head :no_content }
     end
   end

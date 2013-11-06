@@ -18,6 +18,7 @@ Agrosocial::Application.routes.draw do
     resources :categories
     resources :cities
     resources :dashboard
+    resources :ads
   end
 
   get 'done_message', to: 'ads#done_message', as: :done_message

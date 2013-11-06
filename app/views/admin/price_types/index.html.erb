@@ -17,7 +17,7 @@
         <td><%= price_type.name %></td>
         <td><%= link_to 'Show', admin_price_type_path(price_type) %></td>
         <td><%= link_to 'Edit', edit_admin_price_type_path(price_type) %></td>
-        <td><%= link_to 'Destroy', admin_price_type(price_type), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', admin_price_type_path(price_type), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
