@@ -31,38 +31,52 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav sidebar_nav_admin">
-        <a href="#Categorias-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-dashboard"></i>Categorias</a>
-        <ul id="Categorias-menu" class="nav nav-list collapse in">
-            <li> 
-             <%= link_to "<i class='fa fa-user'></i>Categorias".html_safe  , admin_categories_path %>
-            </li>
-            <li> 
-             <%= link_to "<i class='fa fa-plus'></i>Nova Categorias".html_safe  , new_admin_category_path %>
-            </li>
-            
-            
-        </ul>
-
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-briefcase"></i>Cidades<span class="label label-info">+3</span></a>
-        <ul id="accounts-menu" class="nav nav-list collapse">
-            <li> 
-             <%= link_to "<i class='fa fa-comment'></i>Cidades".html_safe  , admin_cities_path %>
-            </li>
-            <li> 
-             <%= link_to "<i class='fa fa-plus'></i>Nova Cidade".html_safe  , new_admin_city_path %>
-            </li>
-        </ul>
 
 
-        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-legal"></i>Anúncios</a>
-        <ul id="legal-menu" class="nav nav-list collapse">
-            <li ><a href="">Ultimos Anuncios</a></li>
-            <li ><a href="">Listar Anuncios</a></li>
-        </ul>
+            <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-legal"></i>Anúncios</a>
+            <ul id="legal-menu" class="nav nav-list collapse in">
+                <li> 
+                 <%= link_to "<i class='fa fa-plus'></i>Anuncios".html_safe  , admin_ads_path %>
+                </li>
+                <li> 
+                 <%= link_to "<i class='fa fa-plus'></i>Novo Anuncio".html_safe  , new_admin_ad_path %>
+                </li>
+            </ul>
 
-        <a href="" class="nav-header" ><i class="fa fa-question-sign"></i>Help</a>
-        <a href="" class="nav-header" ><i class="fa fa-comment"></i>Faq</a>
-   </ul>
+
+            <a href="#Categorias-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-dashboard"></i>Categorias</a>
+            <ul id="Categorias-menu" class="nav nav-list collapse in">
+                <li> 
+                 <%= link_to "<i class='fa fa-user'></i>Categorias".html_safe  , admin_categories_path %>
+                </li>
+                <li> 
+                 <%= link_to "<i class='fa fa-plus'></i>Nova Categorias".html_safe  , new_admin_category_path %>
+                </li>
+                
+                
+            </ul>
+
+            <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-briefcase"></i>Cidades<span class="label label-info">+3</span></a>
+            <ul id="accounts-menu" class="nav nav-list collapse">
+                <li> 
+                 <%= link_to "<i class='fa fa-comment'></i>Cidades".html_safe  , admin_cities_path %>
+                </li>
+                <li> 
+                 <%= link_to "<i class='fa fa-plus'></i>Nova Cidade".html_safe  , new_admin_city_path %>
+                </li>
+            </ul>
+
+
+        
+
+            <a href="/" class="nav-header" >
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-user"></i>
+              </span>
+              User-zone
+            </a>
+            <a href="" class="nav-header" ><i class="fa fa-comment"></i>Faq</a>
+       </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
             

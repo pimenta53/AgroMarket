@@ -17,9 +17,9 @@
       <tr>
         <td><%= city.city %></td>
         <td><%= city.country_id %></td>
-        <td><%= link_to 'Show', admin_cities_path(city) %></td>
+        <td><%= link_to 'Show', [:admin,city] %></td>
         <td><%= link_to 'Edit', edit_admin_city_path(city) %></td>
-        <td><%= link_to 'Destroy', admin_cities_path(city), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', [:admin,city], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

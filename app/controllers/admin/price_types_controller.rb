@@ -29,7 +29,7 @@ class  Admin::PriceTypesController <  Admin::ApplicationController
 
     respond_to do |format|
       if @price_type.save
-        format.html { redirect_to @price_type, notice: 'Price type was successfully created.' }
+        format.html { redirect_to [:admin,@price_type], notice: 'Price type was successfully created.' }
         format.json { render action: 'show', status: :created, location: @price_type }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class  Admin::PriceTypesController <  Admin::ApplicationController
   def update
     respond_to do |format|
       if @price_type.update(price_type_params)
-        format.html { redirect_to @price_type, notice: 'Price type was successfully updated.' }
+        format.html { redirect_to [:admin,@price_type], notice: 'Price type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class  Admin::PriceTypesController <  Admin::ApplicationController
   def destroy
     @price_type.destroy
     respond_to do |format|
-      format.html { redirect_to price_types_url }
+      format.html { redirect_to admin_price_types_url }
       format.json { head :no_content }
     end
   end

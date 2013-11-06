@@ -22,3 +22,6 @@
 /public/system/users/avatars/*
 .DS_Store
 DS_Store
+
+/vendor/bundle/*
+vendor/bundle/*

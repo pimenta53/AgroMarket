@@ -39,11 +39,15 @@ class User < ActiveRecord::Base
   #validates
   validates :name, presence: true
   validates :username, :uniqueness => true , presence: true
-  validates :email, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-
+  validates :email, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing_photo.png"
+
+  def age
+    now = Time.now.utc.to_date
+    now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
 end

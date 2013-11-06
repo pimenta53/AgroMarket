@@ -1,0 +1,38 @@
+<% @messageToView.each do |key, value| %>
+   
+    <div class="panel panel-default widget" id="accordion">
+        <div class="panel-heading">
+            
+            <h4 class="panel-title">
+              <span class="fa fa-comment"></span>
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= key %>">Mensagens do Utilizador ID: <%= key %> </a>
+                <%= link_to('<span style="float: right;" class="fa fa-times-circle"></span>'.html_safe, done_message_path(id_ad: @ad.id,user_id: key), :data => { :confirm => "Tem a certeza que pertende fechar este negócio?" }) if @ad.user_id == current_user.id  %>
+            </h4>
+            <span class="label label-info" style="float: right;"><%= value.count%></span>
+         </div>
+         
+         <div id="<%= key %>" class="panel-collapse collapse">
+             <div class="panel-body">
+
+              	<% value.each do |m| %>
+                  	<%= render "messages/show" , :message => m %>
+                  <% end %>
+                  <%# if ad is mine%>
+                  <% if @ad.user_id == current_user.id%>
+              	  <p>  
+              	    <%= button_to "Responder", "javascript:sender_button(#{key})"%>
+              	  </p>
+              	<% end %>
+
+             </div>
+          </div>
+      </div>  
+<% end %>
+        
+   
+<%# first contact to seller%>
+<% if @ad.user_id != current_user.id %>
+  <p>  
+    <%= button_to "Contactar anuncinate", "javascript:sender_button(#{@ad.user_id})"%>
+  </p>
+<% end %>

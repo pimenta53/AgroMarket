@@ -1,0 +1,80 @@
+<ol class="breadcrumb">
+              <li ><a href="<%= ads_path %>"><i class="fa fa-dashboard"></i> Ads</a></li>
+              <li class="active"><i class="fa fa-bar-chart"></i><%= @ad.title %></li>
+</ol>
+
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Category:</strong>
+  <% if @ad.category.blank? %>
+    <% if @ad.category.nil? %>
+      <span class="label" style="background-color: #888888">Sem categoria</span>
+    <% else %>
+      <span class="label" style="background-color: #<%= @ad.category.color %>">
+        <%= @ad.category.name %>
+      </span>
+    <% end %>
+  <% end %>
+
+
+<p>
+  <strong>Title:</strong>
+  <%= @ad.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ad.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @ad.price %>
+</p>
+
+<p>
+  <strong>Expire date:</strong>
+  <%= @ad.expire_date %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @ad.location %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @ad.is_active %>
+</p>
+
+<p>
+  <strong>Type price:</strong>
+  <%= @ad.type_price_id %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @ad.city.city %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ad.user.name %>
+</p>
+
+<% @ad.ad_images.each do |i| %>
+  <%= image_tag i.image(:small) %>
+<% end %>
+
+<legend> Messages </legend>
+<div id="messages">
+  <%= render "messages" %>
+</div>
+
+<%= render "messages/form" %>
+
+
+<%= link_to 'Edit', edit_ad_path(@ad) %> |
+<%= link_to 'Back', admin_ads_path %>

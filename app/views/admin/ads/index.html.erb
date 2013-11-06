@@ -1,0 +1,104 @@
+
+<ol class="breadcrumb">
+              <li class="active"><a href="<%= ads_path %>"><i class="fa fa-dashboard"></i> Ads</a></li>
+              
+</ol>
+
+<section class="panel">
+  <header class="panel-heading">
+                All Ads
+    </header>
+  <div class="table-responsive">
+    <table class="table table-hover" >
+      <thead>
+        <tr>
+          <th></th>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Expire date</th>
+          <th>Location</th>
+          <th>Is active</th>
+          <th>Type price</th>
+          <th>City</th>
+          <th>User_ID / User_Name</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @ads.each do |ad| %>
+          <tr>
+            <td>
+               
+              <a href="#details<%= ad.id %>"  data-toggle="collapse"><span class="label label-info"><i class="fa fa-search"></i></a></td>
+            <td>
+              <div class="img_table">
+                <!--HELPER helper/ads_helper -->
+               <%= first_image( ad.ad_images.first ) %>
+              </div>
+            </td>
+            <td><%= ad.title %></td>
+            <td><%= ad.description %></td>
+            <td><%= ad.price %></td>
+            <td>
+              <% if ad.category %>
+                <span class="label" style="background-color: #<%= ad.category.color %>">
+                  <%= ad.category.name %>
+                </span>
+
+                <% else %> 
+                   <span class="label label-default" >
+                    Sem Categoria
+                  </span>
+              <% end %>
+            </td>
+            <td><%= ad.expire_date %></td>
+            <td><%= ad.location %></td>
+            <td><%= ad.is_active %></td>
+            <td><%= ad.type_price_id %></td>
+            <td><%= ad.city.city unless ad.city.blank? %></td>
+            <td><%= ad.user_id %> / <%= ad.user.name %></td>
+
+            <td><%= link_to 'Show', [:admin,ad] %></td>
+            <td><%= link_to 'Edit', edit_admin_ad_path(ad) %></td>
+            <td><%= link_to 'Destroy', [:admin,ad], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+
+          <tr id="details<%= ad.id %>" class="collapse" data-toggle="collapse">
+             <td class="details" colspan="6">
+                <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">
+                   <tbody>
+                      <tr>
+                         <td>Detalhes:</td>
+                         <td>blabla</td>
+                      </tr>
+                      <tr>
+                         <td>Detalhes:</td>
+                         <td>blabla</td>
+                      </tr>
+                      <tr>
+                         <td>Detalhes:</td>
+                         <td>blabla</td>
+                      </tr>
+                   </tbody>
+                </table>
+             </td>
+          </tr>
+
+
+        <% end %>
+      </tbody>
+    </table>
+  </div >
+  <br>
+
+
+<%= link_to 'New Ad', new_ad_path %>
+                          
+</section>
+

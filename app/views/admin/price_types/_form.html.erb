@@ -1,4 +1,4 @@
-<%= form_for admin_price_type_path(@price_type) do |f| %>
+<%= form_for ([:admin,@price_type]) do |f| %>
   <% if @price_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@price_type.errors.count, "error") %> prohibited this price_type from being saved:</h2>

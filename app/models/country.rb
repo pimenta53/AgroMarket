@@ -10,4 +10,5 @@
 
 class Country < ActiveRecord::Base
 	has_many :city
+	validates :name, presence: true
 end
