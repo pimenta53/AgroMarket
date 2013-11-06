@@ -24,7 +24,10 @@ class AdsController < ApplicationController
 
   # GET /ads/1/edit
   def edit
-    5.times {@ad.ad_images.build}
+  	 $i = @ad.ad_images.count
+  	 while $i < 5 do
+    	@ad.ad_images.build
+    end
   end
 
   # POST /ads
@@ -33,7 +36,7 @@ class AdsController < ApplicationController
     params[:ad][:expire_date] = DateTime.strptime(params[:ad][:expire_date],'%Y-%m-%d')
     @ad = Ad.new(ad_params)
     @ad.user_id = current_user.id
-    
+    @ad.is_active = true
     respond_to do |format|
       if @ad.save
         format.html { redirect_to @ad, notice: 'Ad was successfully created.' }

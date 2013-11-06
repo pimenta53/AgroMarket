@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   #validates
   validates :name, presence: true
   validates :username, :uniqueness => true , presence: true
-  validates :email, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates :email, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
 
   
   devise :database_authenticatable, :registerable,
