@@ -30,6 +30,7 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
+    bcrypt-ruby (3.1.2-x86-mingw32)
     better_errors (1.0.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -65,6 +66,7 @@ GEM
     erubis (2.7.0)
     execjs (2.0.2)
     ffi (1.9.0)
+    ffi (1.9.0-x86-mingw32)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -176,6 +178,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   annotate
