@@ -1,54 +1,47 @@
-
-
-
-
-<h2>Filtrar por Categorias?</h2>
-<ul class="filter option-set" data-filter-group="category">
-  <li><a href="#" data-filter-value="">Todos</a></li>
-<% @categories.each do |category| %>
-<li><a href="#" data-filter-value=".<%= category.name %>">
-  <%= category.name %>
-</a></li>
-<% end %>
-</ul>
-
-  <legend> Anúncios </legend>
-  <div class="container" id="things">
-      <div class="row">
-        <ul class="thumbnails">
-         <% @ads.each do |ad| %>
-              <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
-                <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
-                  <span class='price' ><%= ad.price %>€</span>
-                  <div style="padding:4px" >
-                    <%= link_to ad_image( ad.ad_images.first ), ad %>
-                  <% if !ad.category.blank? %>
-                  <div class="caption">
-                    <% if ad.category.nil? %>
-                        <span class="label" style="background-color: #888888">
-
-                      <% else %>
-                        <span class="label" style="background-color: #<%= ad.category.color %>">
-                        <%= ad.category.name %>
-
-                      <% end %>
-                </span>
-                <% end %>
-
-                    <h2><%= link_to ad.title, ad %></h2>
-                    <p><%= ad.description %></p>
-                    <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
-                  </div>
-                 
-
-
-                </div>
-              </li>
-          
-          <% end %>
-        </ul>
-      </div>
+<legend> Anúncios </legend>
+<!-- Filtro de categorias JQUERY -->
+<div class="btn-group">
+  <ul class="filter option-set" data-filter-group="category">
+        <a class="btn btn-default" data-filter-value="">Todos</a>
+    <% @categories.each do |category| %>
+          <a class="btn btn-default" data-filter-value=".<%= category.name %>" >
+        <%= category.name %>
+      </a>
+    <% end %>
+  </ul>
 </div>
-                          
-</section>
 
+<!-- Listagem de anúncios -->
+<div class="container" id="things">
+  <div class="row">
+    <ul class="thumbnails">
+     <% @ads.each do |ad| %>
+     <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
+      <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
+        <span class='price' ><%= ad.price %>€</span>
+        <div style="padding:4px" >
+          <%= link_to ad_image( ad.ad_images.first ), ad %>
+          <% if !ad.category.blank? %>
+          <div class="caption">
+            <% if ad.category.nil? %>
+            <span class="label" style="background-color: #888888">
+
+              <% else %>
+              <span class="label" style="background-color: #<%= ad.category.color %>">
+                <%= ad.category.name %>
+                <% end %>
+              </span>
+              <% end %>
+
+              <h2><%= link_to ad.title, ad %></h2>
+              <p><%= ad.description %></p>
+              <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
+            </div>
+          </div>
+        </li>
+
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</section>

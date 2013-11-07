@@ -19,6 +19,7 @@ class Ad < ActiveRecord::Base
 	belongs_to :city
 	belongs_to :user
 	belongs_to :category
+	belongs_to :price_type, :foreign_key  => 'type_price_id'
 
 	has_many :ad_images, :dependent => :destroy
 	has_many :messages
@@ -39,6 +40,7 @@ class Ad < ActiveRecord::Base
   	validates :city_id, presence: true
 
   	validate :expire_date_cannot_be_in_the_past, :on => :create
+  	validate :expire_date_cannot_exceed_limit
 
   	# class methods
   	def search
@@ -58,8 +60,13 @@ class Ad < ActiveRecord::Base
 	end
 
 	def expire_date_cannot_be_in_the_past
- 		errors.add(:expire_date, "can't be in the past") if
-   	!expire_date.blank? and expire_date < Date.today
+ 	  errors.add(:expire_date, "can't be in the past") if
+     !expire_date.blank? and expire_date < Date.today
+  	end
+
+	def expire_date_cannot_exceed_limit
+ 	  errors.add(:expire_date, "can't exceed one week from today") if
+       !expire_date.blank? and (expire_date.change({:hour => 0 , :min => 0 , :sec => 0 }) - 1.week) > Date.today
   	end
 
 
