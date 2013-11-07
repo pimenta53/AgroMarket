@@ -1,22 +1,17 @@
+<legend> Anúncios </legend>
 <!-- Filtro de categorias JQUERY -->
 <div class="btn-group">
   <ul class="filter option-set" data-filter-group="category">
-    <button type="button" class="btn btn-default">
-      <li><a href="#" data-filter-value="">Todos</a></li>
-    </button>
-
+        <a class="btn btn-default" data-filter-value="">Todos</a>
     <% @categories.each do |category| %>
-    <button type="button" class="btn btn-default">
-      <li><a data-filter-value=".<%= category.name %>">
+          <a class="btn btn-default" data-filter-value=".<%= category.name %>" >
         <%= category.name %>
-      </a></li>
-    </button>
+      </a>
     <% end %>
   </ul>
 </div>
 
 <!-- Listagem de anúncios -->
-<legend> Anúncios </legend>
 <div class="container" id="things">
   <div class="row">
     <ul class="thumbnails">
@@ -34,7 +29,6 @@
               <% else %>
               <span class="label" style="background-color: #<%= ad.category.color %>">
                 <%= ad.category.name %>
-
                 <% end %>
               </span>
               <% end %>
