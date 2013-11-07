@@ -72,7 +72,7 @@
 .login-title
 {
 
-    -webkit-text-shadow:1px 1px #000;
+  -webkit-text-shadow:1px 1px #000;
   -moz-text-shadow:1px 1px #000;
   text-shadow:1px 1px #000;
     color: #fff;
@@ -107,11 +107,26 @@
 
   
 }
+.login_form_regist_items a{
+   color:#EA5B0C;
+}
+
+.login_form_regist_items
+{
+  width: 250px;
+ 
+  
+}
 
 .login-col-form_regist{
-  border: 2px solid black;
   
-  margin-top: 5%;
+  
+  margin-bottom: 2%;
+  width: auto;
+  height: auto;
+  margin-left:auto;
+  margin-right: auto;
+  
 }
 
 #login_option{
@@ -157,7 +172,7 @@
 
 .colorrender a{
   color:#EA5B0C;
-  border: 2px solid black;
+  
   position: absolute;
   text-align: center;
   
