@@ -9,7 +9,17 @@
 #  updated_at  :datetime
 #
 
+
 class Category < ActiveRecord::Base
-  validates :name, presence: true
+
   has_many :ads
+
+  validates :name, presence: true
+  
+
+  #verifica se categoria possui ads
+  def has_ads?
+    self.ads.count == 0
+  end
+
 end

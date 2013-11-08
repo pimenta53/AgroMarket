@@ -32,33 +32,7 @@ describe Ad do
 	end
 
 	#novo anuncio com 
-	describe 'A new ad' do
-		require 'watir-webdriver'
-		b = Watir::Browser.new
-		b.goto 'localhost:3000/ads/new'
-		
-		s = b.select_list :name => 'ad[category_id]'
-		s.select 'Agricultura'
 
-		b.text_field(:name => 'ad[title]').set 'Legumes Novos'
-		b.text_field(:name => 'ad[description]').set 'conjunto de legumes'
-		b.text_field(:name => 'ad[price]').set '100'
-		b.text_field(:name => 'ad[location]').set 'Legumes Novos'
-		sleep 1
-		s = b.select_list :name => 'ad[type_price_id]'
-		s.select 'Kg'
-		
-		sleep 1
-		s = b.select_list :name => 'ad[city_id]'
-		s.select 'Braga'
-
-		btn = b.button :value => 'Submit'
-		btn.click
-		
-		sleep 5
-		
-		
-	end
 
 	describe 'A new ad' do
 		  it "expiration date cant be in the past" do
@@ -78,6 +52,12 @@ describe Ad do
 		  it "should belong to the current_user" do
 		    @ad.user_id = @user.id
 		    @ad.user_id.should eq(3)
+		  end
+	end
+
+	describe 'A new ad' do
+		  it "should belong to the a user" do
+		    @ad.should_not be_valid
 		  end
 	end
 

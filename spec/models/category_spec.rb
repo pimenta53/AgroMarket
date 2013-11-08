@@ -11,3 +11,19 @@
 
 require 'spec_helper'
 
+describe '#destroy' do
+  
+  before(:each) do
+	    @category = Category.first
+  end
+
+
+  context 'when category has ads' do
+  	it "should not destroy" do
+     expect { delete :destroy, :id => @category.id }.should_not change(Category, :count)
+    end
+
+  end
+
+  
+end
