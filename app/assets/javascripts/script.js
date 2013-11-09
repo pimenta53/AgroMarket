@@ -32,4 +32,3 @@ ready = function() {
 // por causa do turboLink
 $(document).ready(ready);
 $(document).on('page:load', ready);
-

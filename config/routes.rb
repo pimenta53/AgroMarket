@@ -4,7 +4,7 @@ Agrosocial::Application.routes.draw do
     post "new_messages" => "messages#create"
   end
 
-  devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions'}
+  devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}
 
   resources :users
 
