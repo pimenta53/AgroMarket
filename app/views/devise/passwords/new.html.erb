@@ -1,10 +1,10 @@
 
 
 
-<div class="container">
-	<div class="row">
-        <div class="span12">
-    		<div class="thumbnail center well well-small text-center">
+<div class=" col-md-8 regist_form text-center">
+	
+        
+    		  
                 <h2>Esqueceu a sua password</h2>
                 
                 <p>Escreva o seu email e siga as intrucões.</p>
@@ -18,11 +18,13 @@
                        </div>
 
 					  <div class="btn btn-large"><%= f.submit "Envia e recupera a tua password" %></div>
-					<% end %>
+				<% end %>
                 
-                
-            </div>    
-        </div>
-	</div>
-	<%= render "devise/shared/links" %>
+                <div class='regist_form_regist_items text-center'>
+              <%= render "devise/shared/links"  %>
+            </div>
+               
+        
+	
+	
 </div>
