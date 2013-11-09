@@ -83,3 +83,18 @@ production:
   host: '127.0.0.1'
 
  ```
+ 
+ 
+## Datas ##
+
+Em vez de usar o 
+
+`<%= times_ago_in_words(comment.created_at) %>`
+
+Usem desta forma para que o servidor a cada pedido não esteja a fazer novamente o calculo.
+
+
+   `<abbr class="timeago" title="<%= ad.created_at.getutc.iso8601 %>">
+            <%= ad.created_at.to_s %>
+     </abbr> `
+ 

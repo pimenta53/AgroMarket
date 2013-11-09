@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131106181024) do
 
-  create_table "CITIES", force: true do |t|
-    t.string   "city"
-    t.integer  "country_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "longitude"
-    t.string   "latitude"
-  end
-
   create_table "ad_images", force: true do |t|
     t.integer  "ad_id"
     t.datetime "created_at"
@@ -29,6 +20,20 @@ ActiveRecord::Schema.define(version: 20131106181024) do
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
+  end
+
+  create_table "admin_testes", force: true do |t|
+    t.integer  "coisas"
+    t.string   "coisas2"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "admin_tests", force: true do |t|
+    t.integer  "coisas"
+    t.string   "coisas2"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ads", force: true do |t|
@@ -53,6 +58,13 @@ ActiveRecord::Schema.define(version: 20131106181024) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "color"
+  end
+
+  create_table "cities", force: true do |t|
+    t.string   "city"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "countries", force: true do |t|

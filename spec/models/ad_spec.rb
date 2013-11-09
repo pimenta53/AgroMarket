@@ -25,14 +25,17 @@ describe Ad do
 	      :price => 19.99,
 	      :expire_date => "2013/12/12",
 	      :type_price_id => 1,
-	      :city_id => 1
+	      :city_id => 1,
+	      :category_id => 1
 	    )
 	    @user = User.new(:id => 3)
 	end
 
+	#novo anuncio com 
+
 
 	describe 'A new ad' do
-		  it "expiration date can´t be in the past" do
+		  it "expiration date cant be in the past" do
 		    @ad.expire_date = "2013/10/12"
 		    @ad.should_not be_valid
 		  end
@@ -49,6 +52,12 @@ describe Ad do
 		  it "should belong to the current_user" do
 		    @ad.user_id = @user.id
 		    @ad.user_id.should eq(3)
+		  end
+	end
+
+	describe 'A new ad' do
+		  it "should belong to the a user" do
+		    @ad.should_not be_valid
 		  end
 	end
 
