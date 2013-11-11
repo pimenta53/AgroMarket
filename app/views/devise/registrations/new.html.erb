@@ -1,31 +1,36 @@
-
-  <div class="col-md-8 login-col-form_regist">
-    
-         <div class="well center ">
+  
+  <div class="login-col-form_regist">
+     
+         <div class="well col-xs-12 col-sm-12 col-md-4 ">
             <legend><a href="http://www.jquery2dotnet.com"><i class="glyphicon glyphicon-globe"></i></a> Sign up!</legend>
             <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name) ,:html=>{:class=>"form"}) do |f| %>
               <%= devise_error_messages! %>
 
-            <div  class="login_form_regist_items"><%= f.label :avatar,"Image" %>
-                <%= f.file_field :avatar , :class=>"form-control"%>
-            </div>
-            
-                <div class="login_form_regist_items">
-                  <div><%= f.label :name, "Name" %>
+
+              <div class="row">
+                <div class="">
+                  <div class="col-xs-6 col-md-6 login_form_regist_items"><%= f.label :name, "Name" %>
                     <%= f.text_field :name,:id =>"name_sign_up", :class=>"form-control" %>
                      <span id="name_extra" class="textoextra"></span>
                   </div>
-                    
+                    <div class="col-xs-6 col-md-6 login_form_regist_items"><%= f.label :username, "Username" %>
+                         <%= f.text_field :username , :class=>"form-control" %>
+                    </div>
                 </div>
-                <div class="login_form_regist_items">
-                  <div><%= f.label :username, "Username" %>
-                        <%= f.text_field :username , :class=>"form-control" %></div>
-                   
+              </div>
+          <div class="row">
+                <div class="">
+                    <div  class="col-xs-6 col-md-6login_form_regist_items"><%= f.label :avatar,"Image" %>
+                        <%= f.file_field :avatar , :class=>"form-control"%>
+                    </div>
+                    <div class="col-xs-6 col-md-6 login_form_regist_items"><%= f.label :city_id, "City " %>
+                      <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção' , :htlm=>{:class=>"form-control"}) %>
+                    </div>
+                 </div>
+          </div>
+            
                 
-            </div>
-            <div class="login_form_regist_items"><%= f.label :city_id, "City " %>
-               <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção' , :htlm=>{:class=>"form-control"}) %>
-             </div>
+            
              <div class="login_form_regist_items"><%= f.label :email %>
               <%= f.email_field :email, :autofocus => true , :class=>"form-control" %></div>
             
@@ -35,15 +40,26 @@
             <div class="login_form_regist_items"><%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation  , :class=>"form-control" %></div>
             
+<<<<<<< HEAD
+            
+            
+             <div class="row">
+                <div class="">
+                   <div class="col-xs-6 col-md-6 field login_form_regist_items">
+                    <%= f.label :birthday %><br />
+                    <%= f.text_field :birthday, :label => "Date", :class=> 'datepicker' %>
+                  </div>
+                
+                  <div class="col-xs-6 col-md-6 login_form_regist_items"><%= f.label :phone, "Phone"%>
+                  <%= f.text_field :phone , :class=>"form-control"  %></div>
+=======
 
                <div class="field login_form_regist_items">
                 <%= f.label :birthday %><br />
                 <%= f.text_field :birthday, :label => "Date", :class=> 'datepicker' %>
+>>>>>>> 6828791880effc0a922918392d805e84ac66879b
               </div>
-            
-            <div class="login_form_regist_items"><%= f.label :phone, "Phone"%>
-              <%= f.text_field :phone , :class=>"form-control"  %></div>
-          
+          </div>
             <div class="login_form_regist_items"><%= f.submit "Entrar" ,:class=>"btn btn-lg btn-primary btn-block" %></div>
 
             <div class='login_form_regist_items'>

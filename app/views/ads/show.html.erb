@@ -7,60 +7,52 @@
 
 
 <p>
-  <strong>Category:</strong>
+  <strong>Categoria:</strong>
   <% if @ad.category.blank? %>
-    <% if @ad.category.nil? %>
-      <span class="label" style="background-color: #888888">Sem categoria</span>
-    <% else %>
-      <span class="label" style="background-color: #<%= @ad.category.color %>">
-        <%= @ad.category.name %>
-      </span>
-    <% end %>
+    <span class="label" style="background-color: #888888">Sem categoria</span>
+  <% else %>
+    <span class="label" style="background-color: #<%= @ad.category.color %>">
+      <%= @ad.category.name %>
+    </span>
   <% end %>
 
-
 <p>
-  <strong>Title:</strong>
+  <strong>Titulo do anúncio:</strong>
   <%= @ad.title %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descrição:</strong>
   <%= @ad.description %>
 </p>
 
 <p>
-  <strong>Price:</strong>
-  <%= @ad.price %>
+  <strong>Preço:</strong>
+  <%= "#{@ad.price} #{@ad.price_type.name}" %>
 </p>
 
 <p>
-  <strong>Expire date:</strong>
-  <%= @ad.expire_date %>
+  <strong>Final do Anúncio:</strong>
+  <%= @ad.expire_date.strftime("%d - %m - %Y") %>
 </p>
 
 <p>
-  <strong>Location:</strong>
+  <strong>Localização:</strong>
   <%= @ad.location %>
 </p>
 
 <p>
-  <strong>Is active:</strong>
-  <%= @ad.is_active %>
-</p>
-
-<p>
-  <strong>Type price:</strong>
+  <strong>Tipo de Preço:</strong>
   <%= @ad.type_price_id %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong>Cidade:</strong>
   <%= @ad.city.city %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Vendedor:</strong>
   <%= @ad.user.name %>
 </p>
 
