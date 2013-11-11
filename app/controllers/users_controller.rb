@@ -5,6 +5,13 @@ class UsersController < ApplicationController
   def index
   	@user = User.all
   end
+  
+  # GET /users/myads
+  # GET /users/myads.json
+  def myads
+    @ads = current_user.ads
+    @categories = Category.all
+  end
 
   def show
   end
@@ -16,5 +23,6 @@ class UsersController < ApplicationController
   	def set_user
   		@user = User.find(params[:id])
   	end
+
 
 end
