@@ -103,7 +103,9 @@
                   <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#"><i class="fa fa-user"></i> Perfil</a></li>
-                  <li><%= link_to "Rating", ratings_path %><span class="badge"><%= load_stuff %></span></li>
+                  <li><%= link_to(ratings_path) do %>
+                    <span>Rating por atribuir <span class="badge"><%= load_stuff %></span></span>
+                  <% end %></li>
                   <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
                   <li><a href="#"><i class="fa fa-gear"></i>Definições</a></li>
                   <li class="divider"></li>
