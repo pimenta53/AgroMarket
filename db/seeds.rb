@@ -35,10 +35,10 @@ Category.create(name: "Produtos Biologicos", description: "Produtos BIO", color:
 Category.create(name: "Plantas", description: "Plantas", color: "ffff00")
 
 PriceType.delete_all
-PriceType.create(name: "Kg")
-PriceType.create(name: "L")
-PriceType.create(name: "Unidade")
-PriceType.create(name: "Total")
+PriceType.create(name: "€/Kg")
+PriceType.create(name: "€/L")
+PriceType.create(name: "€/Unidade")
+PriceType.create(name: "€ Total")
 
 
 
