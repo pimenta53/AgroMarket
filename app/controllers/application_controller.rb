@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   	def load_stuff
   		if user_signed_in? 
-  			Rating.where(rated_id: current_user.id).count
+  			Rating.where(:rater_id => current_user.id,:rate => nil).count
   		end
   	end
 end

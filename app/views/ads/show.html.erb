@@ -68,13 +68,14 @@
   <%= image_tag i.image(:small) %>
 <% end %>
 
-<legend> Messages </legend>
-<div id="messages">
-  <%= render "messages" %>
-</div>
+<% if user_signed_in? %>
+  <legend> Messages </legend>
+  <div id="messages">
+    <%= render "messages" %>
+  </div>
 
-<%= render "messages/form" %>
-
+  <%= render "messages/form" %>
+<% end %>
 
 <%= link_to 'Edit', edit_ad_path(@ad) %> |
 <%= link_to 'Back', users_myads_path %>
