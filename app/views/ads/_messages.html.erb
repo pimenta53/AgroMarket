@@ -1,3 +1,6 @@
+
+<%= "Não existem mensagens neste anuncio" if @messageToView.empty? %>
+
 <% @messageToView.each do |key, value| %>
    
     <div class="panel panel-default widget" id="accordion">
