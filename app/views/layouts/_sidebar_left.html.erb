@@ -4,14 +4,22 @@
 
       <!-- Botões principais-->
       <div class="panel-group" id="accordion">
-        <div class="panel-heading">
-          <li><%= link_to "Mercado".html_safe, "#collapseAds", :class=>"btn btn-primary btn-block main-button-left", "data-toggle" =>  "collapse", "data-parent" => "#accordion" %></li>
-        </div>
-        <div id="collapseAds" class="panel-collapse collapse">      
-          <li><%= link_to "Os Meus Anúncios".html_safe , users_myads_path %></li>
-          <li><%= link_to "Novo Anúncio".html_safe , new_ad_path %></li>
-        </div>
 
+
+
+    <div class="panel-heading">
+        <%- if controller_name == 'ads' %>
+            <li><%= link_to "Mercado".html_safe, "#collapseAds", :class=>"btn btn-primary btn-block main-button-left", "data-toggle" =>  "collapse", "data-parent" => "#accordion" %></li>
+       
+            <div id="collapseAds" class="panel-collapse collapse in">      
+              <li><%= link_to "Os Meus Anúncios".html_safe , users_myads_path %></li>
+              <li><%= link_to "Novo Anúncio".html_safe , new_ad_path %></li>
+            </div>
+        
+        <% else %>
+            <li><%= link_to "Mercado".html_safe, ads_path, :class=>"btn btn-primary btn-block main-button-left"%></li>
+        <% end %>
+    </div>
 
         <div class="panel-heading">
           <li><%= link_to "Eventos".html_safe, "#collapseEvents", :class=>"btn btn-primary btn-block main-button-left", "data-toggle" =>  "collapse", "data-parent" => "#accordion" %></li>
