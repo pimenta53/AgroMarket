@@ -64,4 +64,8 @@ class User < ActiveRecord::Base
         birthday > Date.today
     end
   end
+  
+  def expired_ads
+    self.ads.where("expire_date < ?", Date.today)
+  end
 end

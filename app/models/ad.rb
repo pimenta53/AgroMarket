@@ -52,6 +52,18 @@ class Ad < ActiveRecord::Base
 		"#{id}-#{permanent_link}"
 	end
 	
+	def limited_description(limit)
+	  if (self.description.length > limit)
+	    if limit < 4 || self.description.length < 3
+	      "..."
+	    else
+	    	self.description.first(limit-3) + "..."
+	    end
+	  else
+	    self.description
+	  end
+	end
+	
 	# private methods
 	private
 	#para criar friendly Url

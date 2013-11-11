@@ -1,6 +1,5 @@
 var ready;
 ready = function() {
-
   //select inputs
   $("select").select2();
 
@@ -28,8 +27,8 @@ ready = function() {
     $("abbr.timeago").timeago();
 
 
-// Script do Isotope Example
-var things = $('#things');
+  // Script do Isotope Example
+  var things = $('#things');
   var filters = {};
   
   things.isotope({
@@ -73,6 +72,21 @@ var things = $('#things');
       things.isotope({ filter: selector });
     }
   );
+
+
+  $(".starrr").starrr();
+
+        
+    $('#stars').on('starrr:change', function(e, value){
+      $('#count').html(value);
+      $('#rating_rate').val(value);
+    });
+    
+    $('#stars-existing').on('starrr:change', function(e, value){
+      $('#count-existing').html(value);
+      $('#rating_rate').val(value);
+    });
+
 
 
 };
