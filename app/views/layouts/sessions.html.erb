@@ -4,7 +4,7 @@
   <title>Agrosocial</title>
   <%= stylesheet_link_tag "bootstrap","sessions","select2", "data-turbolinks-track" => true %>
 
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application"=> true %>
   <link rel="shortcut icon" href="">
   <!--Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
@@ -12,14 +12,14 @@
 
   <%= csrf_meta_tags %>
 </head>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<body id="login_body">
+
+<body>
      
   <!-- Keep all page content within the page-content inset div! -->
-        
+  <div id="login_body"  data-slide="1" class="bgParallax slide" data-speed="15">
 
-    <div class="row_login_form">
+    <div class="row_login_form ">
+
       <div class="col-md-6 login-col-slogan">
 
             <h1 class="text-center login-title"> AGROSOCIAL </h1>
@@ -28,6 +28,25 @@
         </div>
         <%= yield %>
     </div>
-        
+    <div class="next_section_button" data-slide="2" style="margin-bottom: 0px;"> </div>
+  </div>
+
+
+
+  <div id="login_body_regist" data-slide="2" class="bgParallax slide" data-speed="10">
+
+    
+  </div>
+
+  <div id="login_body_pocket" class="bgParallax" data-speed="15">
+
+    
+  </div>
+
+  <div id="login_body_show" class="bgParallax" data-speed="10">
+
+    
+  </div>
+
 </body>
 </html>
