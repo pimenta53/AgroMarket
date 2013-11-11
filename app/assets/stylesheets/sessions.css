@@ -21,10 +21,7 @@
   min-height:100%;
 }
 
-body{
-  height: auto;
-  width:auto;
-}
+
 
 .form-signin
 {
@@ -135,6 +132,7 @@ body{
   margin-top: 2%;
   width: auto;
   height: auto;
+ 
   margin-left:auto;
   margin-right: auto;
   
@@ -250,6 +248,7 @@ body{
   background-position: 50% 0;
   background-repeat: repeat;
   background-attachment: fixed;
+
 }
 
 
@@ -264,6 +263,7 @@ body{
   height: 52px;
   margin-left: -26px;
   z-index: 9999;
+
 }
 /*recuperar password*/
 .regist_form{
