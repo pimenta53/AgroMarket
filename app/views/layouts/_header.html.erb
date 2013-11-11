@@ -98,7 +98,11 @@
               <% if user_signed_in? %>
                 <% expired_ads=current_user.expired_ads %>
                 <li class="dropdown messages-dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-o"></i><% if expired_ads.count >0 %><span class="badge" id="custom-badge"><%= expired_ads.count %></span><% end %><b class="caret"></b></a>
+                  <% if expired_ads.count >0 %>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-open-o"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret"></b></a>
+                  <% else %>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-o"></i><b class="caret"></b></a>
+                  <% end %>
                   <ul class="dropdown-menu">
                     <% if expired_ads.count > 0 %>
                       <li class="dropdown-header"><%= expired_ads.count %> ads have expired</li>
@@ -117,7 +121,7 @@
                     <% else %>
                       <li class="dropdown-header">All active ads are in order</li>
                     <% end %>
-                    <li><a href="<%= users_myads_path %>"> Ver todos </li>
+                    <li><a href="<%= users_myads_path %>"> Ver todos </a></li>
                   </ul>
                 </li>
               <% end %>
