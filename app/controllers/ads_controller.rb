@@ -14,7 +14,7 @@ class AdsController < ApplicationController
   # GET /ads/1.json
   def show
     
-    @ads.increment_page_view
+    @ad.increment_page_view
 
     @message = Message.new
     @messageToView = Message.get_messages( @ad.messages.where("(receiver_id = ? OR sender_id = ? ) and is_close = 0",current_user.id,current_user.id) , @ad.user_id ) if user_signed_in?

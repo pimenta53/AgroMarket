@@ -69,6 +69,7 @@ class Ad < ActiveRecord::Base
 	  end
 	end
 	
+	
 	# private methods
 	private
 	#para criar friendly Url

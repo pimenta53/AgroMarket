@@ -117,7 +117,9 @@
                             <% end %>
                             <span class="name"><%= ad.title %></span>
                             <span class="message"><%= ad.limited_description(20) %></span>
-                            <span class="time"><i class="icon-time"></i> <%= ad.expire_date %></span>
+                            <span class="time"><i class="icon-time"></i>
+                            <abbr class="timeago" title="<%= ad.expire_date.getutc.iso8601 %>"> <%= ad.expire_date.to_s %> </abbr>
+                            </span>
                           </a>
                         </li>
                         <li class="divider"></li>
