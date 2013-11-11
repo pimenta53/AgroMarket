@@ -41,7 +41,8 @@ $(document).ready(function() {
  //= require jquery.stellar
 });
 */
- $(window).stellar();
+ //$(window).stellar();
+ 
  htmlbody = $('html,body');
  slide = $('.slide');
  button = $('.next_section_button');
