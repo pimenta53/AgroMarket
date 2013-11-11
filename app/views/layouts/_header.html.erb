@@ -99,9 +99,9 @@
                 <% expired_ads=current_user.expired_ads %>
                 <li class="dropdown messages-dropdown">
                   <% if expired_ads.count >0 %>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-open-o"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-open-o fa-2x" style="color:white"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret"></b></a>
                   <% else %>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-o"></i><b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-o fa-2x" style="color:white"></i><b class="caret"></b></a>
                   <% end %>
                   <ul class="dropdown-menu">
                     <% if expired_ads.count > 0 %>
@@ -110,10 +110,16 @@
                       <% first_expired_ads.each do |ad| %>
                         <li class="preview">
                           <a href="<%= ad_path(ad) %>">
-                            <span class="avatar"><%= image_tag(ad.ad_images.first.image.url(:thumb), :alt => '') %></span>
+                          	 <% if ad.ad_images.count > 0 %>
+                              <span class="avatar"><%= image_tag(ad.ad_images.first.image.url(:thumb), :alt => ad.title, :width => '50') %></span>
+                            <% else %>
+                              <span class="avatar"><img width="50" alt="50x50" src="http://placehold.it/50x50"></img></span>
+                            <% end %>
                             <span class="name"><%= ad.title %></span>
                             <span class="message"><%= ad.limited_description(20) %></span>
-                            <span class="time"><i class="icon-time"></i> <%= ad.expire_date %></span>
+                            <span class="time"><i class="icon-time"></i>
+                              <abbr class="timeago" title="<%= ad.expire_date.getutc.iso8601 %>"> <%= ad.expire_date.to_s %> </abbr>
+                            </span>
                           </a>
                         </li>
                         <li class="divider"></li>

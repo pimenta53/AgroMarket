@@ -51,6 +51,11 @@ class Ad < ActiveRecord::Base
 	def to_param
 		"#{id}-#{permanent_link}"
 	end
+
+	def increment_page_view
+		self.page_views = self.page_views + 1
+    	self.save
+	end
 	
 	def limited_description(limit)
 	  if (self.description.length > limit)
@@ -63,6 +68,7 @@ class Ad < ActiveRecord::Base
 	    self.description
 	  end
 	end
+	
 	
 	# private methods
 	private
