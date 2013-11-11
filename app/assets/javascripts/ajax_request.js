@@ -15,6 +15,7 @@ ready = function() {
           async: true,
           dataType: 'script',
           type: "POST",
+          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
           success: function(data)
           {
               //alert(data)

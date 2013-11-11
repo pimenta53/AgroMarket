@@ -1,9 +1,13 @@
 Agrosocial::Application.routes.draw do
+  get "/users/myads" => "users#myads"
 
   resources :ads do
+
     post "new_messages" => "messages#create"
   end
+ 
 
+  
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}
 
   resources :users
@@ -22,6 +26,7 @@ Agrosocial::Application.routes.draw do
   resources :ratings
 
   get 'done_message', to: 'ads#done_message', as: :done_message
+
 
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
