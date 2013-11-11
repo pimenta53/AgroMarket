@@ -16,11 +16,11 @@
           
 
          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div style="width:100%; position:fixed; top=0; float:right; z-index:-1; " class="collapse navbar-collapse navbar-ex1-collapse">
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
 
             <ul class="nav navbar-nav navbar-right" >
-              <li class="col-lg-6" style="height:50px; line-height:50px; ">
-                <div class="input-group" style="resize:horizontal; float:right;">
+              <li class="col-lg-6">
+                <div class="input-group">
                   <input type="text" class="form-control">
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Pesquisar</button>
@@ -94,6 +94,35 @@
               </li>
               <!--END MESSAGES-->
 
+              <!-- ADS -->
+              <% if user_signed_in? %>
+                <% expired_ads=current_user.expired_ads %>
+                <li class="dropdown messages-dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-o"></i><% if expired_ads.count >0 %><span class="badge" id="custom-badge"><%= expired_ads.count %></span><% end %><b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <% if expired_ads.count > 0 %>
+                      <li class="dropdown-header"><%= expired_ads.count %> ads have expired</li>
+                      <% first_expired_ads = expired_ads.limit(5) %>
+                      <% first_expired_ads.each do |ad| %>
+                        <li class="preview">
+                          <a href="<%= ad_path(ad) %>">
+                            <span class="avatar"><%= image_tag(ad.ad_images.first.image.url(:thumb), :alt => '') %></span>
+                            <span class="name"><%= ad.title %></span>
+                            <span class="message"><%= ad.limited_description(20) %></span>
+                            <span class="time"><i class="icon-time"></i> <%= ad.expire_date %></span>
+                          </a>
+                        </li>
+                        <li class="divider"></li>
+                      <% end %>
+                    <% else %>
+                      <li class="dropdown-header">All active ads are in order</li>
+                    <% end %>
+                    <li><a href="<%= users_myads_path %>"> Ver todos </li>
+                  </ul>
+                </li>
+              <% end %>
+              <!--END ADS-->
+
               <!--USER-->
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
@@ -118,4 +147,4 @@
 
           </div>
       </div>
-    </nav>
+</nav>

@@ -22,20 +22,6 @@ ActiveRecord::Schema.define(version: 20131106181024) do
     t.integer  "image_file_size"
   end
 
-  create_table "admin_testes", force: true do |t|
-    t.integer  "coisas"
-    t.string   "coisas2"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "admin_tests", force: true do |t|
-    t.integer  "coisas"
-    t.string   "coisas2"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "ads", force: true do |t|
     t.string   "title"
     t.string   "description"
@@ -96,11 +82,6 @@ ActiveRecord::Schema.define(version: 20131106181024) do
     t.integer  "rater_id"
     t.integer  "ad_id"
     t.text     "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "testes", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

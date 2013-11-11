@@ -7,8 +7,34 @@
 }
 
 /********** HEADER **********/
-/* Cor do header #00ba84 #4db07a #0a9268*/
 
+.navbar-ex1-collapse{
+  width:100%;
+  position:fixed;
+  /*top:0;*/
+  right:0;
+  z-index:-1;
+}
+
+.navbar-right{
+  resize:horizontal;
+}
+
+.col-lg-6{
+  height:50px;
+  line-height:50px;
+  width:300px;
+}
+
+
+
+
+
+
+
+
+
+/* Cor do header #00ba84 #4db07a #0a9268*/
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
   background-color: #16ab84;
 }
