@@ -107,7 +107,7 @@
                       <% first_expired_ads.each do |ad| %>
                         <li class="preview">
                           <a href="<%= ad_path(ad) %>">
-                            <span class="avatar"><%= image_tag(ad.ad_images.first.image.url(:thumb), :alt => '') %></span>
+                            
                             <span class="name"><%= ad.title %></span>
                             <span class="message"><%= ad.limited_description(20) %></span>
                             <span class="time"><i class="icon-time"></i> <%= ad.expire_date %></span>
