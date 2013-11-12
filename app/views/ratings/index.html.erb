@@ -1,3 +1,5 @@
+
+<% if @rating.count != 0 %> 
 <table class="table">
 	<tr>
 		<th>Rater ID</th>
@@ -9,3 +11,29 @@
 			<%= render "show" , :rating => r %>
 		<% end %>
 </table>
+<% else %>
+	<h3 align="center">Não existem rating's por atribuir</h3><h2 align="center" style="color:red">QUERES UM PRÉMIO?</h2>
+<% end %>
+
+<div class="container">
+	<div class="row">
+		<h2>My Rate <%= @myrate.to_f %></h2>
+	</div>
+    <div class="row lead">
+        <% (1..(@myrate.to_i)).each do |i| %>
+	        <span class="icon_rating" style="left: <%= i*30 %>px"></span>
+		<% end %>
+		<% j = 1 %>
+		<% if @rate_perc_init != 0 %>
+			<span class="icon_rating" style="left: <%= (@myrate.to_i + 1)*30 %>px;clip: rect(0px,<%= @rate_perc_init %>px,40px,0px)"></span>
+			<span class="icon_rating-nocolor" style="left: <%= (@myrate.to_i + 1)*30 %>px;clip: rect(0px,20px,40px,<%= @rate_perc_init %>px)"></span>
+			<% j = 2 %>
+		<% end %>
+		<% ((@myrate.to_i + j)..5).each do |i| %>
+	        <span class="icon_rating-nocolor" style="left: <%= i*30 %>px"></span>
+		<% end %>
+
+	</div>
+
+</div>
+
