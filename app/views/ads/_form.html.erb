@@ -14,31 +14,30 @@
 
   <div class="field ">
     <h4> Quero inserir um anúncio na categoria de  <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma opção') unless @categories.blank? %></h4>
-     
   </div>
 
-  <div class="field col-lg-7 col-sm-7">
+  <div class="field">
     <%= f.label :title, "Titulo" %><br>
-    <%= f.text_field :title,:placeholder => "Titulo" ,:data =>{ :percentage => 10},:class=>"form-control valid col-3" %>
+    <%= f.text_field :title,:placeholder => "Titulo" ,:class=>"form-control" %>
   </div>
 
   <div class="field col-lg-7 col-sm-7">
     <%= f.label :description, "Descrição" %><br>
-    <%= f.text_area :description,:placeholder => "Descrição",:data =>{ :percentage => 20},:class=>"form-control valid" %>
+    <%= f.text_area :description,:placeholder => "Descrição",:class=>"form-control valid" %>
   </div>
   <div class="field col-lg-7 col-sm-7 ">
     <%= f.label :price, "Preço" %><br>
-    <%= f.text_field :price,:placeholder => "Preço" ,:data =>{ :percentage => 30},:class=>"form-control valid"%>
+    <%= f.text_field :price,:placeholder => "Preço" ,:class=>"form-control valid"%>
   </div>
 
   <div class="field col-lg-7 col-sm-7">
     <%= f.label :expire_date %><br />
-    <%= f.text_field :expire_date, :label => "Date",  :class => 'datepicker' ,:data =>{ :percentage => 40},:class=>"form-control valid"%>
+    <%= f.text_field :expire_date, :label => "Date",  :class => 'datepicker' %>
   </div>
 
   <div class="field col-lg-7 col-sm-7">
     <%= f.label :location %><br>
-    <%= f.text_field :location,:placeholder =>:location ,:data =>{ :percentage => 50},:class=>"form-control valid"%>
+    <%= f.text_field :location,:placeholder =>:location ,:class=>"form-control valid"%>
   </div>
   <div class="field col-lg-7 col-sm-7">
     <%= f.label :type_price_id %><br>
@@ -80,6 +79,7 @@
           
        <% end %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

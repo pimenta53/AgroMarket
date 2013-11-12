@@ -11,54 +11,10 @@
  </div>
 
 
-
 <script type="text/javascript">
         $(function() {
 
-            $("input").on('blur',function () {
-            		var perc = $(this).attr("data-percentage");
-				    $(".progress-bar").css("width", +perc +"%");
-				})
-
-             $('#ad-form').validate(
-			 {
-			  rules: {
-			   	"ad[title]": {
-			      minlength: 2,
-			      required: true
-			    },
-			    "ad[description]": {
-			      required: true,
-			    },
-			    "ad[price]": {
-			      minlength: 2,
-			      required: true
-			    },
-			    "ad[expire_date]": {
-			    	 date: true,
-			      required: true
-			    },
-			    "ad[location]": {
-			      required: true
-			    },
-			    "ad[type_price_id]": {
-			    	
-			      required: true
-			    },
-			    "ad[city_id]": {
-			  
-			      required: true
-			    }
-			  },
-			  highlight: function(element) {
-			    $(element).closest('.control-group').removeClass('success').addClass('error');
-			  },
-			  success: function(element) {
-			    element
-			    .text('OK!').addClass('valid')
-			    .closest('.control-group').removeClass('error').addClass('success');
-			  }
-			 });
+            
         });
 
 </script>

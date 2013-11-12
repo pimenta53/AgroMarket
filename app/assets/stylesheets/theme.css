@@ -373,6 +373,7 @@ label.valid {
   height: 24px;
   background: url('valid.png') center center no-repeat;
   display: inline-block;
+
   text-indent: -9999px;
 }
 label.error {

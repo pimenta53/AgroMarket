@@ -94,6 +94,28 @@ ready = function() {
      });
 
 
+     /*
+     * Progress Bar Form
+     */
+     var total_percent = 0;
+     $("input").on('blur',function () {
+
+            var value = $(this).val();
+
+            if ( value !== ""){
+              var perc = $(this).attr("data-percentage");
+              total_percent += 10;
+              $(".progress-bar").css("width", + total_percent +"%");
+            }else if ( value === ""){
+              var perc = $(this).attr("data-percentage");
+              total_percent -= 10;
+              $(".progress-bar").css("width", + total_percent +"%");
+            }
+                
+        })
+
+
+
 
 };
 
