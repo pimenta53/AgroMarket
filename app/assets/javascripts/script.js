@@ -87,6 +87,12 @@ ready = function() {
       $('#rating_rate').val(value);
     });
 
+    //prettycheckable
+    //for customized checkbox
+     $('input.myClass').prettyCheckable({
+      color: 'green'
+     });
+
 
 
 };
