@@ -8,56 +8,6 @@
 
 /********** HEADER **********/
 
-.navbar-ex1-collapse{
-  width:100%;
-  position:fixed;
-  /*top:0;*/
-  right:0;
-  z-index:-1;
-}
-
-.navbar-right{
-  resize:horizontal;
-}
-
-.col-lg-6{
-  height:50px;
-  line-height:50px;
-  width:300px;
-}
-
-/* Cor do header #00ba84 #4db07a #0a9268*/
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-  background-color: #00A75D;
-}
-.navbar-inverse {
-background-color: #00A75D;
-border-color: #16ab84;
-box-shadow: 0px 3px 5px #888888;
-}
-
-.navbar-inverse .navbar-brand{
-  text-transform: uppercase;
-  color:#fff;
-}
-
-.navbar-inverse .navbar-brand:hover,
-.navbar-inverse .navbar-brand:focus {
-  color: #34495e;
-  background-color: transparent;
-}
-
-.navbar-inverse .navbar-nav > li > a {
-  color: #fff;
-}
-
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-color: #16ab84;
-background-color: #16ab88;
-}
-
-
-/******SIDEBAR LEFT**********/
 
 #agrosocial_logo{
   width: 45px;
@@ -67,14 +17,32 @@ background-color: #16ab88;
   margin-top: 4px;
 }
 
+
+#navbarAgro{
+  background-color: #00A75D;
+}
+
+#brandAgro{
+  text-transform: uppercase;
+  color: white;
+}
+
+.caret{
+  color: #fff;
+}
+
+#omnisearch{
+  width: 300px;
+}
+
+#omnisearch-btn{
+  margin-left: 0%;
+}
+
 .fa-user, .fa-envelope-o, .fa-bell-o{
   color: #fff;
   /*vertical-align: center;*/
   font-size: 22px;
-}
-
-#omni-search{
-  width: 300px;
 }
 
 
@@ -83,21 +51,27 @@ background-color: #16ab88;
 
 }
 
-/*Botões principais da sidebar-left*/
-#big-btn:hover {
-background-color: #16ab84;
-}
-
 
 /****FOOTER****/
 footer {
-  background-color: #16ab84;
+  background-color: #00A75D;
   bottom: 0;
   position: relative;
   width: 100%;
   color: #fff;
   padding-left: 200px;
 }
+
+/******SIDEBAR LEFT**********/
+
+
+/*Botões principais da sidebar-left*/
+#big-btn:hover {
+background-color: #16ab84;
+}
+
+
+
 
 /******SIDEBAR LEFT**********/
 

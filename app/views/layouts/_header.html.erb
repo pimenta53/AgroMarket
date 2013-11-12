@@ -1,35 +1,33 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="width:100%;">
-      
-      <div class="navbar-header" >
-        
-          <img id="agrosocial_logo" src="/assets/logo_button.svg" alt="AgroSocial Logo" class="img-circle">
-          <a class="navbar-brand"  href="/">AgroSocial</a>
-            
-          <a id="menu-toggle" href="#" class="btn btn-default"><i class="fa fa-reorder"></i></a>
-          
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          
+<nav class="navbar navbar-default navbar-fixed-top" id="navbarAgro" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
 
-         <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <img id="agrosocial_logo" src="/assets/logo_button.svg" alt="AgroSocial Logo" class="img-circle">
+    <a class="navbar-brand" id="brandAgro" href="/">AgroSocial</a>
+  </div>
 
-            <ul class="nav navbar-nav navbar-right" >
-              <li class="col-lg-6">
-                <div class="input-group">
-                  <input type="text" class="form-control typeahead">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Pesquisar</button>
-                  </span>
-                </div>
-              </li>
-              <li class="divider"></li>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ 
+    <!-- Barra de Pesquisa-->
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group" >
+        <input type="text" class="form-control typeahead" id="omnisearch" placeholder="Pesquisar">
+      </div>
+      <button type="submit" class="btn btn-default" id="omnisearch-btn" >Pesquisar</button>
+    </form>
+    
 
-              <!--NOTIFICACOES-->
+    <!-- Lado direito da barra de navegação-->
+    <ul class="nav navbar-nav navbar-right">      
+      <!--NOTIFICACOES-->
+            <% if user_signed_in? %>
               <li class="dropdown messages-dropdown" >
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i><span class="badge" id="custom-badge">3</span> <b class="caret"></b> </a>
                 <ul class="dropdown-menu">
@@ -66,7 +64,7 @@
               </li>
               <!--END NOTIFICACOES-->
 
-              <!-- MESSAGES -->
+               <!-- MESSAGES -->
               <li class="dropdown messages-dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-o"></i><span class="badge" id="custom-badge">2</span> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -95,7 +93,6 @@
               <!--END MESSAGES-->
 
               <!-- ADS -->
-              <% if user_signed_in? %>
                 <% expired_ads=current_user.expired_ads %>
                 <li class="dropdown messages-dropdown">
                   <% if expired_ads.count >0 %>
@@ -124,31 +121,31 @@
                     <li><a href="<%= users_myads_path %>"> Ver todos </a></li>
                   </ul>
                 </li>
-              <% end %>
+              
               <!--END ADS-->
 
-              <!--USER-->
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
-                  <% if user_signed_in? %>
-                    <%= current_user.username %>
-                  <% end %>
-                  <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#"><i class="fa fa-user"></i> Perfil</a></li>
-                  <li><%= link_to(ratings_path) do %>
+              <% else %>
+              <li><%= link_to "Login".html_safe , new_user_session_path %></li>
+              <li><%= link_to "Registo", new_user_registration_path %></li>
+              <% end %>
+
+      <!-- Dropdown do User-->
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <% if user_signed_in? %>
+            <%= current_user.username %>
+            <b class="caret"></b></a>
+          <% end %>
+         
+        <ul class="dropdown-menu">
+          <li><a href="#">Perfil</a></li>
+          <li><%= link_to(ratings_path) do %>
                     <span>Rating por atribuir <span class="badge"><%= load_stuff %></span></span>
                   <% end %></li>
-                  <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
-                  <li><a href="#"><i class="fa fa-gear"></i>Definições</a></li>
-                  <li class="divider"></li>
-                  <li><%= link_to "Terminar Sessão",destroy_user_session_path, method: :delete %></li>
-                </ul>
-              </li>
-              <!--END USER-->
-            
-            </ul>
-
-          </div>
-      </div>
+          <li><a href="#">Inbox</a></li>
+          <li class="divider"></li>
+            <li><%= link_to "Terminar Sessão",destroy_user_session_path, method: :delete %></li>        </ul>
+          </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
 </nav>
