@@ -100,7 +100,7 @@
           <% if expired_ads.count >0 %>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-open-o fa-2x" style="color:white"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret"></b></a>
           <% else %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-o fa-2x" style="color:white"></i><b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-o fa-2x" style="color:white; font-size: 22px;"></i><b class="caret"></b></a>
           <% end %>
           <ul class="dropdown-menu">
             <% if expired_ads.count > 0 %>
@@ -133,7 +133,7 @@
 
 <!-- Dropdown do User-->
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">
           <% if user_signed_in? %>
             <%= current_user.username %>
             <b class="caret"></b></a>
