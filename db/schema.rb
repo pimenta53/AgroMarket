@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131111125231) do
 
-  create_table "CITIES", force: true do |t|
-    t.string   "city"
-    t.integer  "country_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "longitude"
-    t.string   "latitude"
-  end
-
   create_table "ad_images", force: true do |t|
     t.integer  "ad_id"
     t.datetime "created_at"
@@ -56,6 +47,13 @@ ActiveRecord::Schema.define(version: 20131111125231) do
     t.string   "color"
   end
 
+  create_table "cities", force: true do |t|
+    t.string   "city"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "countries", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -85,11 +83,6 @@ ActiveRecord::Schema.define(version: 20131111125231) do
     t.integer  "rater_id"
     t.integer  "ad_id"
     t.text     "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "testes", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
