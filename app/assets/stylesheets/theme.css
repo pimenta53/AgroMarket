@@ -8,6 +8,29 @@
 
 /********** HEADER **********/
 
+#bs-example-navbar-collapse-1{
+  background-color: #00A75D;
+  width:100%;
+  position:fixed;
+  /*top:0;*/
+  right:0;
+  z-index:-1;
+}
+
+.navbar-right{
+  resize:horizontal;
+}
+
+#searchBox{
+  height:50px;
+  line-height:50px;
+}
+
+#input-groupBox{
+  height:100%;
+  width:300px;
+}
+
 
 #agrosocial_logo{
   width: 45px;
@@ -278,12 +301,13 @@ border-bottom-right-radius: 4px;
 
 /* AUTOCOmplete */
 .twitter-typeahead{
-width:100%;
+  width:100%;
+  top: 10px;
 }
 
 .twitter-typeahead .tt-query,
 .twitter-typeahead .tt-hint {
-  margin-bottom: 0;
+  /*margin-bottom: 0;*/
 }
 .tt-dropdown-menu {
   min-width: 160px;
