@@ -22,6 +22,9 @@
     <!-- IMAGENS -->
     <% if num_img > 0 %>
       <td>
+        <table class="adImages" align="center" cellpadding="3">
+        <tr>
+        <td colspan=2 align="center">
         <div id="imageCarousel" class="carousel slide">
           <ol class="carousel-indicators">
 	          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -47,6 +50,36 @@
           <a class="carousel-control left" href="#imageCarousel" data-slide="prev" style="top: 50%">&lsaquo;</a>
           <a class="carousel-control right" href="#imageCarousel" data-slide="next" style="top: 50%">&rsaquo;</a>
         </div>    
+        </td>
+        </tr>
+       <% i=0 %>
+       <% while (i < (num_img-1)) do %>
+         <% if !i.odd? %>
+           <tr>
+             <td align="center">
+               <%= image_tag @ad.ad_images[i].image(:thumb) %>
+             </td>
+         <% else %>
+             <td align="center">
+               <%= image_tag @ad.ad_images[i].image(:thumb) %>
+             </td>
+           </tr>
+         <% end %>
+         <% i+=1 %>
+       <% end %>
+       <% if !i.odd? %>
+         <tr>
+           <td colspan="2" align="center">
+             <%= image_tag @ad.ad_images[i].image(:thumb) %>
+           </td>
+         </tr>
+       <% else %>
+           <td>
+             <%= image_tag @ad.ad_images[i].image(:thumb) %>
+           </td>
+         </tr>
+       <% end %>
+       </table>
       </td>
     <% end %>
     <!-- ATRIBUTOS -->
