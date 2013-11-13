@@ -37,8 +37,19 @@ class Message < ActiveRecord::Base
   end
 
 
+  def self.conversations(user_id)
+    where("(sender_id = ? OR receiver_id = ?)",user_id,user_id)
+  end
+
+  # vai buscar todas as mensagens entre utilizadores 
+  # para criar a conversa
+  def self.conversation( user_one, user_two)
+    where("(sender_id = ? AND receiver_id = ?) OR (receiver_id= ? AND  sender_id = ?)", user_one,user_two,user_one,user_two)
+  end
+
+
   private
-  	#verifica se sender é diferente de sender
+  	#verifica se sender é diferente de receiver
   	def sender_receiver_must_be_diferent
   		errors[:base] << "Error message" unless sender_id != receiver_id
   	end

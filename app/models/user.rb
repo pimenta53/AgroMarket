@@ -53,6 +53,9 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing_photo.png"
 
+  #instance methods
+
+ 
   def age
     now = Time.now.utc.to_date
     now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
@@ -64,8 +67,13 @@ class User < ActiveRecord::Base
         birthday > Date.today
     end
   end
+
+
   
   def expired_ads
     self.ads.where("expire_date < ?", Date.today)
   end
+
+
+
 end

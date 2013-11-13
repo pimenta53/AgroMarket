@@ -1,5 +1,15 @@
+#encoding: utf-8
 class MessagesController < ApplicationController
 
+
+	#caixa de entrada das mensagens
+	def index
+	   @messages = Message.conversations( current_user.id )
+	end
+
+	def show
+		@messages = Message.conversation(current_user.id , params[:id] )
+	end
 	# POST /ads/:ad_id/new_messages
 	def create
 

@@ -25,6 +25,7 @@ Agrosocial::Application.routes.draw do
 
   resources :ratings
 
+  resources :messages
   get 'done_message', to: 'ads#done_message', as: :done_message
 
 
