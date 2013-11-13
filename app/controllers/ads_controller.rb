@@ -17,7 +17,7 @@ class AdsController < ApplicationController
     @ad.increment_page_view
 
     @message = Message.new
-    @messageToView = Message.get_messages( @ad.messages.where("(receiver_id = ? OR sender_id = ? ) and is_close = 0",current_user.id,current_user.id) , @ad.user_id ) if user_signed_in?
+    #@messageToView = Message.get_messages( @ad.messages.where("(receiver_id = ? OR sender_id = ? ) and is_close = 0",current_user.id,current_user.id) , @ad.user_id ) if user_signed_in?
   end
 
   # GET /ads/new
@@ -111,7 +111,7 @@ class AdsController < ApplicationController
 private
     # Use callbacks to share common setup or constraints between actions.
     def set_ad
-      @ad = Ad.includes([:messages]).find(params[:id])
+      @ad = Ad.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

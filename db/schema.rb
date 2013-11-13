@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131111125231) do
+ActiveRecord::Schema.define(version: 20131113173259) do
 
   create_table "ad_images", force: true do |t|
     t.integer  "ad_id"
@@ -61,14 +61,12 @@ ActiveRecord::Schema.define(version: 20131111125231) do
   end
 
   create_table "messages", force: true do |t|
+    t.integer  "talk_id",     null: false
+    t.integer  "user_sender", null: false
     t.string   "text"
-    t.integer  "sender_id"
-    t.integer  "receiver_id"
-    t.integer  "ad_id"
-    t.binary   "is_read"
+    t.integer  "is_read"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_close",    default: 0
   end
 
   create_table "price_types", force: true do |t|
@@ -83,6 +81,15 @@ ActiveRecord::Schema.define(version: 20131111125231) do
     t.integer  "rater_id"
     t.integer  "ad_id"
     t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "talks", force: true do |t|
+    t.integer  "user_one",               null: false
+    t.integer  "user_two",               null: false
+    t.integer  "ad_id"
+    t.integer  "is_close",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
