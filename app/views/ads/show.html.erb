@@ -6,7 +6,7 @@
 <p id="notice"><%= notice %></p>
 
 <% num_img=@ad.ad_images.count %>
-<table class="adData" width='100%' style="whitespace-wrap:nowrap">
+<table class="adData" width='100%'>
   <!-- AD HEADER -->
   <tr>
     <% if num_img > 0 %>
@@ -57,11 +57,15 @@
          <% if !i.odd? %>
            <tr>
              <td align="center">
-               <%= image_tag @ad.ad_images[i].image(:thumb) %>
+               <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                 <%= image_tag @ad.ad_images[i].image(:thumb) %>
+               </a>
              </td>
          <% else %>
              <td align="center">
-               <%= image_tag @ad.ad_images[i].image(:thumb) %>
+               <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                 <%= image_tag @ad.ad_images[i].image(:thumb) %>
+               </a>
              </td>
            </tr>
          <% end %>
@@ -70,12 +74,16 @@
        <% if !i.odd? %>
          <tr>
            <td colspan="2" align="center">
-             <%= image_tag @ad.ad_images[i].image(:thumb) %>
+             <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+               <%= image_tag @ad.ad_images[i].image(:thumb) %>
+             </a>
            </td>
          </tr>
        <% else %>
-           <td>
-             <%= image_tag @ad.ad_images[i].image(:thumb) %>
+           <td align="center">
+             <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+               <%= image_tag @ad.ad_images[i].image(:thumb) %>
+             </a>
            </td>
          </tr>
        <% end %>

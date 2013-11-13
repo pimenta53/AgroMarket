@@ -3,7 +3,6 @@ ready = function() {
   //select inputs
   $("select").select2();
 
-
   //
   $("#name_sign_up").blur(function() {
          //alert($(this).val());
@@ -71,8 +70,13 @@ ready = function() {
       // run the filter on the isotope element
       things.isotope({ filter: selector });
     }
+    
+
+    
   );
 
+  //PRETTYPHOTO
+  $("a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal', theme:'light_square'});
 
   $(".starrr").starrr();
 
