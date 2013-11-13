@@ -5,69 +5,119 @@
 
 <p id="notice"><%= notice %></p>
 
+<% num_img=@ad.ad_images.count %>
+<table class="adData" width='100%' style="whitespace-wrap:nowrap">
+  <!-- AD HEADER -->
+  <tr>
+    <% if num_img > 0 %>
+    <th colspan='2' cellpadding="7">
+    <% else %>
+    <th cellpadding="7">
+    <% end %> 
+      <h1><%= @ad.title %></h1>
+    </th>
+  </tr>
+  <!-- AD DATA -->
+  <tr valign="top">
+    <!-- IMAGENS -->
+    <% if num_img > 0 %>
+      <td>
+        <div id="imageCarousel" class="carousel slide">
+          <ol class="carousel-indicators">
+	          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	          <% i=1 %>
+	          <% while (i < num_img) do %>
+               <li data-target="#myCarousel" data-slide-to="<%= i %>"></li>
+               <% i+=1 %>
+             <% end %>
+          </ol>   
+          <!-- Carousel items -->
+          <div class="carousel-inner">
+             <% i=0 %>
+	          <% while (i < num_img) do %>
+	            <div class="<% if i>0 %>item<% else %>active item<% end %>" style="height: 200px; width: 200px;" valign="middle">
+	              <table width="100%" height="100%" valign="middle"><tr><td>
+	                <%= image_tag @ad.ad_images[i].image(:small), :width => "100%" %>
+	              </td></tr></table>
+	            </div>
+               <% i+=1 %>
+             <% end %>
+          </div>
+          <!-- Carousel nav -->
+          <a class="carousel-control left" href="#imageCarousel" data-slide="prev" style="top: 50%">&lsaquo;</a>
+          <a class="carousel-control right" href="#imageCarousel" data-slide="next" style="top: 50%">&rsaquo;</a>
+        </div>    
+      </td>
+    <% end %>
+    <!-- ATRIBUTOS -->
+    <td width="100%">
+      <table class="adsAtributes" cellpadding="7" width='100%'>
+        <tr>
+          <td align="left">
+		      <strong>Categoria:</strong>
+			   <% if @ad.category.blank? %>
+			     <span class="label" style="background-color: #888888">Sem categoria</span>
+			   <% else %>
+			     <span class="label" style="background-color: #<%= @ad.category.color %>">
+			       <%= @ad.category.name %>
+		 	     </span>
+		      <% end %>
+          </td>
+          <td align="right">
+            <strong>Preço:</strong>
+            <%= "#{@ad.price} #{@ad.price_type.name}" %>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <strong>Vendedor:</strong>
+            <%= @ad.user.name %>
+          </td>
+          <td align="right">
+            Rating
+          </td>
+        </tr>
+        <tr>
+          <td colspan='2' align="left">
+            <%= @ad.description %>
 
-<p>
-  <strong>Categoria:</strong>
-  <% if @ad.category.blank? %>
-    <span class="label" style="background-color: #888888">Sem categoria</span>
-  <% else %>
-    <span class="label" style="background-color: #<%= @ad.category.color %>">
-      <%= @ad.category.name %>
-    </span>
-  <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan='2' align="left">
+            <strong>Final do Anúncio:</strong>
+            <%= @ad.expire_date.strftime("%d - %m - %Y") %>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <strong>Cidade:</strong>
+            <%= @ad.city.city %>
+          </td>
+          <td align="right">
+            <strong>Localização:</strong>
+            <%= @ad.location %>
+          </td>
+        </tr>
+        <% if user_signed_in? %>
+        <tr>
+          <td colspan='2' align="left">
+            <legend> Messages </legend>
+            <div id="messages">
+            <%= render "messages" %>
+            </div>
+            <%= render "messages/form" %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </td>
+  </tr>
+</table>
 
-<p>
-  <strong>Titulo do anúncio:</strong>
-  <%= @ad.title %>
-</p>
 
-<p>
-  <strong>Descrição:</strong>
-  <%= @ad.description %>
-</p>
 
-<p>
-  <strong>Preço:</strong>
-  <%= "#{@ad.price} #{@ad.price_type.name}" %>
-</p>
 
-<p>
-  <strong>Final do Anúncio:</strong>
-  <%= @ad.expire_date.strftime("%d - %m - %Y") %>
-</p>
-
-<p>
-  <strong>Localização:</strong>
-  <%= @ad.location %>
-</p>
-
-<p>
-  <strong>Tipo de Preço:</strong>
-  <%= @ad.type_price_id %>
-</p>
-
-<p>
-  <strong>Cidade:</strong>
-  <%= @ad.city.city %>
-</p>
-
-<p>
-  <strong>Vendedor:</strong>
-  <%= @ad.user.name %>
-</p>
-
-<% @ad.ad_images.each do |i| %>
-  <%= image_tag i.image(:small) %>
-<% end %>
-
-<% if user_signed_in? %>
-  <legend> Messages </legend>
-  <div id="messages">
-    <%= render "messages" %>
-  </div>
-
-  <%= render "messages/form" %>
-<% end %>
 
 <%= link_to 'Edit', edit_ad_path(@ad) %> |
 <%= link_to 'Back', users_myads_path %>
