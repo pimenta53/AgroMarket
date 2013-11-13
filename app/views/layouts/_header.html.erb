@@ -136,11 +136,10 @@
             <%= current_user.username %>
             <b class="caret"></b></a>
           <% end %>
-         
         <ul class="dropdown-menu">
           <li><a href="#">Perfil</a></li>
           <li><%= link_to(ratings_path) do %>
-                    <span>Rating por atribuir <span class="badge"><%= load_stuff %></span></span>
+                    <span>Rating por atribuir <span class="badge"><%= load_stuff_header %></span></span>
                   <% end %></li>
           <li><a href="#">Inbox</a></li>
           <li class="divider"></li>
