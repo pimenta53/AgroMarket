@@ -39,5 +39,3 @@ PriceType.create(name: "€/L")
 PriceType.create(name: "€/Unidade")
 PriceType.create(name: "€ Total")
 
-
-

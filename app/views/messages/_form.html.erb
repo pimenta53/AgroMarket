@@ -3,7 +3,7 @@
     <div class="col-sm-4 col-md-4">
             <div class="panel panel-default" id="form_message" hidden="true">
                 <div class="panel-body">                
-                    <%= form_for @message, :url => ad_new_messages_path(@ad.id),:html => {:id => "comment_ad",:ajax_path => ad_new_messages_path(@ad.id) },:remote => true do |m| %>
+                    <%= form_for @message, :url => ad_new_messages_path(@ad.id),:html => {:id => "comment_ad",:ajax_path => ad_new_messages_path(@ad.id) } do |m| %>
   
                           <% if @message.errors.any? %>
                             <div id="error_explanation">
@@ -21,12 +21,12 @@
                             <h6 class="pull-right" id="counter">144 characters remaining</h6>
                           </div>
                           <div class="field" hidden="true">
-                            <%= m.label :sender_id %><br>
-                            <%= m.text_field :sender_id, :value => current_user.id,:readonly => true %>
+                            <%= m.label :user_sender %><br>
+                            <%= m.text_field :user_sender, :value => current_user.id,:readonly => true %>
                           </div>
                           <div class="field" hidden="true">
-                            <%= m.label :receiver_id %><br>
-                            <%= m.text_field :receiver_id, :value => @ad.user_id,:readonly => true %>
+                            <%= m.label :user_two %><br>
+                            <%= m.text_field :user_two, :value => @ad.user_id,:readonly => true %>
                           </div>
                           <div class="field" hidden="true">
                             <%= m.label :ad_id %><br>
