@@ -22,7 +22,7 @@
     <!-- IMAGENS -->
     <% if num_img > 0 %>
       <td>
-        <div id="imageCarousel" class="carousel-slide" width="200px">
+        <div id="imageCarousel" class="carousel slide">
           <ol class="carousel-indicators">
 	          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 	          <% i=1 %>
@@ -35,17 +35,17 @@
           <div class="carousel-inner">
              <% i=0 %>
 	          <% while (i < num_img) do %>
-	            <% if i>0 %>
-	              <div class="item"><%= image_tag @ad.ad_images[i].image(:small), :width => "200px" %></div>
-	            <% else %>
-	              <div class="active item"><%= image_tag @ad.ad_images[i].image(:small), :width => "200px" %></div>
-	            <% end %>
+	            <div class="<% if i>0 %>item<% else %>active item<% end %>" style="height: 200px; width: 200px;" valign="middle">
+	              <table width="100%" height="100%" valign="middle"><tr><td>
+	                <%= image_tag @ad.ad_images[i].image(:small), :width => "100%" %>
+	              </td></tr></table>
+	            </div>
                <% i+=1 %>
              <% end %>
           </div>
           <!-- Carousel nav -->
-          <a class="carousel-control left" href="#imageCarousel" data-slide="prev">&lsaquo;</a>
-          <a class="carousel-control right" href="#imageCarousel" data-slide="next">&rsaquo;</a>
+          <a class="carousel-control left" href="#imageCarousel" data-slide="prev" style="top: 50%">&lsaquo;</a>
+          <a class="carousel-control right" href="#imageCarousel" data-slide="next" style="top: 50%">&rsaquo;</a>
         </div>    
       </td>
     <% end %>
