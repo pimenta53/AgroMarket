@@ -7,10 +7,13 @@ class Talk < ActiveRecord::Base
                         :primary_key => 'id',
                         :foreign_key => 'user_two'
   
-  has_many :messages , -> { limit(50) },
-    class_name: "Message" , :dependent => :destroy
+  has_many :messages, :dependent => :destroy
 
-   def to_param  # overridden
+  #para dar as ultimas mensagens
+  has_many :latest_messages, -> { order('created_at desc').limit(5) },
+                             class_name: "Message"
+
+  def to_param  # overridden
     "#{id}-istotasuperseguro"
   end
 
@@ -21,7 +24,7 @@ class Talk < ActiveRecord::Base
 
   #get all talks of a user
   def self.all_talks(user_id)
-    where( "(user_one = ? or user_two = ? )",user_id,user_id )
+      where( "(user_one = ? or user_two = ? )",user_id,user_id )
   end
 
   def user_receiver( current_user )

@@ -20,5 +20,7 @@ module Agrosocial
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.encoding = "utf-8"
+
+    config.active_record.observers = :message_observer
   end
 end
