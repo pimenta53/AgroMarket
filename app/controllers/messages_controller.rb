@@ -2,15 +2,51 @@
 class MessagesController < ApplicationController
 
 
-	#caixa de entrada das mensagens
-	def index
-	   @messages = Message.conversations( current_user.id )
-	end
+	#caixa de entrada com todas mensagens
+  def index
+     @talks = Talk.all_talks( current_user.id )
+     
+  end
 
-	def show
-		@messages = Message.conversation(current_user.id , params[:id] )
-	end
-	# POST /ads/:ad_id/new_messages
+  def show
+    @talk = Talk.find(params[:id])
+    @user_receiver_id = @talk.user_receiver( current_user.id )
+
+    @messages = @talk.messages
+
+    @message = Message.new
+  end
+
+
+  # create new Private Messages
+  def create_mp
+
+    user_two = User.find(params[:message][:user_two].to_i)
+
+    talk = Talk.where("((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) ", current_user.id, user_two.id, user_two.id, current_user.id).first
+
+    if !talk
+      talk = Talk.new(:user_one => current_user.id, :user_two=> user_two.id )
+
+      if talk.save == false
+        redirect_to user_path(user_two)
+        return
+      end
+    end
+    
+    @message = talk.messages.new(ad_params)
+
+    
+    respond_to do |format|
+      if @message.save
+        format.html { redirect_to user_path(user_two) }
+      else
+        format.html
+      end
+    end
+  end
+
+	# create new message
 	def create
     @ad = Ad.find(params[:ad_id])
 

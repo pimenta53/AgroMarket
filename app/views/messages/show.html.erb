@@ -2,14 +2,16 @@
 <% if @messages.size == 0 %>
 No messages in your Inbox
 <% else %>
+					<%= @talk.user_one %>
 
+					<%= @talk.user_two %>
 
 					<% for message in @messages %>
 						 <p>
 						    <small>
 						    Enviado por:
-						      <%= message.sender_id %> - 
-						      <%= message.sender.name %>
+						      <%= message.user.name %> - 
+						      
 						    As:
 						      <%= message.created_at %>
 						    </small>
@@ -22,17 +24,10 @@ No messages in your Inbox
 						    <%= message.is_read %>
 						  </p>
 
-						  <p hidden="true">
-						    <strong>Receiver</strong>
-						    <%= message.receiver_id %>
-						    <%= message.receiver.name %>
-						  </p>
-
-						  <p hidden="true">
-						    <strong>Ad_id:</strong>
-						    <%= message.ad_id %>
-						  </p>
+						  
 						
 			<% end %>
 	
 		<% end %>
+		<% @user = @talk.user_two %>
+		<%= render "messages/form_mp" ,:user_receiver_id => @user_receiver_id %>

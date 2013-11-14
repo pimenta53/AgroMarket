@@ -30,8 +30,7 @@
           </span>
         </div>
       </li>
-
-
+      
       <!-- Lado direito da barra de navegação-->
           
       <!--NOTIFICACOES-->
@@ -74,9 +73,17 @@
 
         <!-- MESSAGES -->
         <li class="dropdown messages-dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-o"></i><span class="badge" id="custom-badge"><% if @last_message != nil %><%= @last_message.count %><% else %>0<%end%></span> <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-envelope-o"></i><span class="badge" id="custom-badge">
+            <% if @last_message != nil %>
+              <%= @last_message.count %>
+            <% else %>
+              0
+            <%end%>
+          </span> <b class="caret"></b></a>
+
           <ul class="dropdown-menu">
-            <% unless @last_message.nil? %>
+            <% if !@last_message.nil? %>
               <% @last_message.each do |m| %>
                 <li class="preview">
                   <a href="#">
@@ -87,7 +94,18 @@
                 </li>
                 <li class="divider"></li>
               <%end%>
-              <li><a href="#">Ver Mais <span class="badge"><%= (@last_message.count - 3) %></span></a></li>
+              <li>
+                <a href="#">Ver Mais <span class="badge"><%= (@last_message.count - 3) %></span></a>
+              </li>
+            <% else %>
+               <li class="preview">
+                 
+                    <span class="name"><i class="fa fa-envelope-o"></i>Sem Mensagens</span><br />
+                </li>
+                <li class="divider"></li>
+                 <li>
+                  <a href="<%= messages_path %>">Caixa de Mensagens</span></a>
+                </li>
             <% end %>
             
           </ul>

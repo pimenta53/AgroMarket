@@ -1,0 +1,30 @@
+              
+<%= form_for @message, :url => send_messages_path ,:html => {:id => "comment_ad11" } do |m| %>
+
+    <% if @message.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@message.errors.count, "error") %> prohibited this ad from being saved:</h2>
+
+        <ul>
+        <% @message.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+    <% end %>
+
+    <div class="field">
+      <%= m.label :text %><br>
+      <%= m.text_area :text,:id => "text_comment",:rows=>5,:class=> "form-control counted" ,:placeholder => "Type in your message"%>
+      <h6 class="pull-right" id="counter">144 characters remaining</h6>
+    </div>
+    <div class="field" >
+      <%= m.label :user_sender %><br>
+      <%= m.text_field :user_sender, :value => current_user.id,:readonly => true %>
+    </div>
+    <div class="field">
+      <%= m.label :user_two %><br>
+      <%= m.text_field :user_two, :value => user_receiver_id,:readonly => true %>
+    </div>
+
+    <button class="btn btn-info" type="submit">Post New Message</button>
+
+  <% end %>

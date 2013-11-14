@@ -14,6 +14,10 @@ class UsersController < ApplicationController
   end
 
   def show
+
+    @message = Message.new
+    @user_receiver = 1
+
   end
 
   def new

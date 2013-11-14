@@ -5,8 +5,8 @@ ready = function() {
 
   //
   $("#name_sign_up").blur(function() {
-         //alert($(this).val());
-         $("#name_extra").html("Olá "+ $(this).val() +"!! Bem vindo!!");
+       //alert($(this).val());
+       $("#name_extra").html("Olá "+ $(this).val() +"!! Bem vindo!!");
    });
 
    $(".counted").charCounter(144,{container: "#counter"});
@@ -16,9 +16,9 @@ ready = function() {
    $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
 
    $('.typeahead').typeahead({                               
-          name: "cities",                
-          local: ['couves', 'cenas', 'laranjas', 'coisass', 'anuncios', 'babes','boobs','big boobs','buceta']                                              
-    });
+        name: "cities",                
+        local: ['couves', 'cenas', 'laranjas', 'coisass', 'anuncios', 'babes','boobs','big boobs','buceta']                                              
+   });
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     $('.tt-query').css('background-color','#fff');                                  
@@ -81,42 +81,42 @@ ready = function() {
   $(".starrr").starrr();
 
         
-    $('#stars').on('starrr:change', function(e, value){
-      $('#count').html(value);
-      $('#rating_rate').val(value);
-    });
-    
-    $('#stars-existing').on('starrr:change', function(e, value){
-      $('#count-existing').html(value);
-      $('#rating_rate').val(value);
-    });
+  $('#stars').on('starrr:change', function(e, value){
+    $('#count').html(value);
+    $('#rating_rate').val(value);
+  });
+  
+  $('#stars-existing').on('starrr:change', function(e, value){
+    $('#count-existing').html(value);
+    $('#rating_rate').val(value);
+  });
 
-    //prettycheckable
-    //for customized checkbox
-     $('input.myClass').prettyCheckable({
-      color: 'green'
-     });
+  //prettycheckable
+  //for customized checkbox
+   $('input.myClass').prettyCheckable({
+    color: 'green'
+   });
 
 
-     /*
-     * Progress Bar Form
-     */
-     var total_percent = 0;
-     $("input").on('blur',function () {
+   /*
+   * Progress Bar Form
+   */
+   var total_percent = 0;
+   $("input").on('blur',function () {
 
-            var value = $(this).val();
+          var value = $(this).val();
 
-            if ( value !== ""){
-              var perc = $(this).attr("data-percentage");
-              total_percent += 10;
-              $(".progress-bar").css("width", + total_percent +"%");
-            }else if ( value === ""){
-              var perc = $(this).attr("data-percentage");
-              total_percent -= 10;
-              $(".progress-bar").css("width", + total_percent +"%");
-            }
-                
-        })
+          if ( value !== ""){
+            var perc = $(this).attr("data-percentage");
+            total_percent += 10;
+            $(".progress-bar").css("width", + total_percent +"%");
+          }else if ( value === ""){
+            var perc = $(this).attr("data-percentage");
+            total_percent -= 10;
+            $(".progress-bar").css("width", + total_percent +"%");
+          }
+              
+      })
 
 
 
