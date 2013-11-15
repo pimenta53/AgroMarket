@@ -13,6 +13,7 @@ class Talk < ActiveRecord::Base
   has_many :latest_messages, -> { order('created_at desc').limit(5) },
                              class_name: "Message"
 
+
   def to_param  # overridden
     "#{id}-istotasuperseguro"
   end
