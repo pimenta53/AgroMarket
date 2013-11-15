@@ -16,7 +16,7 @@
   <div class="modal-body">
            <div class="row" id="post-review-box" >
                 <div class="col-md-12">
-                    <%= render "messages/form_mp" ,:user_receiver_id => @user.id %>
+                    <%= render :partial =>"messages/form_mp" ,:locals =>{ :path => user_path(@user),:user_receiver_id => @user.id }  %>
                 </div>
             </div>
         </div>

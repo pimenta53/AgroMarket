@@ -26,8 +26,15 @@ class Talk < ActiveRecord::Base
   end
 
   #INSTANCE METHODS
-  def talk( current_user , user_two)
-    where("((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) ", current_user.id, user_two.id, user_two.id, current_user.id).first
+  
+  #get talks of MP
+  def self.talk_mp( current_user , user_two)
+    where("((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) and ad_id is NULL ", current_user.id, user_two.id, user_two.id, current_user.id).first
+  end
+
+  #get talks of ads
+  def self.talk_ad( current_user , ad)
+    where("((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) and ad_id = ?", current_user.id, ad.user_id, ad.user_id, current_user.id, ad.id).first
   end
 
   # verifica para quem vai mandar a mensagem
