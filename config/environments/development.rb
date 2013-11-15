@@ -38,4 +38,6 @@ Agrosocial::Application.configure do
     user_name: "agro.social2",
     password: "agrosocial2"
   }
+
+  
 end

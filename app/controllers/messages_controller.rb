@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
     @user_receiver_id = @talk.user_receiver( current_user.id )
 
     @messages = @talk.messages
+    
 
     @message = Message.new
   end
@@ -19,11 +20,13 @@ class MessagesController < ApplicationController
 
   # create new Private Messages
   def create_mp
-
+    #user receiver
     user_two = User.find(params[:message][:user_two].to_i)
 
-    talk = Talk.where("((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) ", current_user.id, user_two.id, user_two.id, current_user.id).first
+    #get the talk of 2 users
+    talk = Talk.talk( current_user , user_two )
 
+    #verify if exists
     if !talk
       talk = Talk.new(:user_one => current_user.id, :user_two=> user_two.id )
 
@@ -33,6 +36,7 @@ class MessagesController < ApplicationController
       end
     end
     
+    #create the new message in talk
     @message = talk.messages.new(ad_params)
 
     
