@@ -23,7 +23,7 @@ class Ad < ActiveRecord::Base
 
 	has_many :ad_images, :dependent => :destroy
 	has_many :messages
-  has_many :talks
+  	has_many :talks
 	#scopes
 
 	# atributes
@@ -44,8 +44,12 @@ class Ad < ActiveRecord::Base
   	validate :expire_date_cannot_exceed_limit
 
   	# class methods
-  	def search
-  		
+  	def self.search(params)
+  		if params
+  			where('category_id LIKE ?' ,Integer(params[0]))
+  		else
+  			all
+  		end
   	end
 
   	# instance methods
