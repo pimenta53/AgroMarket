@@ -1,5 +1,6 @@
 Agrosocial::Application.routes.draw do
   get "/users/myads" => "users#myads"
+  post '/users/:id/follow' => 'users#follow'
 
   resources :ads do
 
@@ -10,7 +11,7 @@ Agrosocial::Application.routes.draw do
   
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}
 
-  resources :users
+  resources :users 
 
 
   ### ADMIN ZONE ###
