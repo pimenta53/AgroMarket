@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20131111125231) do
+=======
 ActiveRecord::Schema.define(version: 20131113173259) do
+>>>>>>> a5d231247002bddbddf65b68a031a5c43acfee10
 
   create_table "ad_images", force: true do |t|
     t.integer  "ad_id"

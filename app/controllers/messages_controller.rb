@@ -5,11 +5,11 @@ class MessagesController < ApplicationController
 	#caixa de entrada com todas mensagens
   def index
      @talks = Talk.all_talks( current_user.id )
-     
   end
 
   def show
     @talk = Talk.find(params[:id])
+    #id do user receiver
     @user_receiver_id = @talk.user_receiver( current_user.id )
 
     @messages = @talk.messages
@@ -21,10 +21,13 @@ class MessagesController < ApplicationController
   # create new Private Messages
   def create_mp
 
+    #user receiver
     user_two = User.find(params[:message][:user_two].to_i)
 
-    talk = Talk.where("((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) ", current_user.id, user_two.id, user_two.id, current_user.id).first
+    #get the talk of private messages of 2 users
+    talk = Talk.talk_mp( current_user , user_two )
 
+    #verify if exists
     if !talk
       talk = Talk.new(:user_one => current_user.id, :user_two=> user_two.id )
 
@@ -34,12 +37,15 @@ class MessagesController < ApplicationController
       end
     end
     
+    #create the new message in talk
     @message = talk.messages.new(ad_params)
 
-    
+
+    path = params[:message][:path]
+
     respond_to do |format|
       if @message.save
-        format.html { redirect_to user_path(user_two) }
+        format.html { redirect_to path }
       else
         format.html
       end
@@ -58,7 +64,7 @@ class MessagesController < ApplicationController
     # criar a nova message
     # adicionar a message ao takl
 
-    talk = Talk.where("((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) and ad_id = ?", current_user.id, @ad.user_id, @ad.user_id, current_user.id, @ad.id).first
+    talk = Talk.talk_ad( current_user , @ad )
     if !talk
       talk = Talk.new()
     end

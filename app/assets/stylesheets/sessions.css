@@ -14,7 +14,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  border: 2px solid black;
+  
   height: 800px;
   width: auto;
   min-width: 100%;
@@ -22,7 +22,22 @@
 }
 
 
+#login_body_information{
+   background-image:url('/assets/farm_wallpaper6.jpg'); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+ 
+  height: 600px;
+  width: auto;
+  min-width: 100%;
+  min-height:100%;
 
+}
 .form-signin
 {
     max-width: 100%;
@@ -198,7 +213,7 @@
   background-position: center;
   background-attachment: fixed;
   
-  height: 800px;
+  height: 600px;
   width: auto;
   min-width: 100%;
   min-height:100%;
@@ -214,14 +229,15 @@
   background-position: center;
   background-attachment: fixed;
   
-  height: 800px;
+  height: 600px;
   width: auto;
   min-width: 100%;
   min-height:100%;
 }
 
 #login_body_show{
-  background-image:url('/assets/farm_wallpaper6.jpg'); 
+  
+  background-image:url('/assets/farm_wallpaper2.png'); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -230,7 +246,7 @@
   background-position: center;
   background-attachment: fixed;
  
-  height: 800px;
+  height: 600px;
   width: auto;
   min-width: 100%;
   min-height:100%;
@@ -265,6 +281,22 @@
   z-index: 9999;
 
 }
+
+.prev_section_button{
+
+  display: block;
+  position: fixed;
+  left: auto;
+  right: 25px;
+  bottom: 25px;
+  background-image: url('/assets/btn_prev_desktop.png');
+  width: 52px;
+  height: 52px;
+  margin-left: -26px;
+  z-index: 9999;
+
+
+}
 /*recuperar password*/
 .regist_form{
   width: 350px;
@@ -281,3 +313,401 @@
   color:#00A75D;
   text-align: center;
 }
+
+/* -------------------------- section ---------------------------- */
+
+
+#section-information{
+  border: 2px solid black;
+  background-color: #FFF;
+  height: 372px;
+
+}
+#login_section_information{
+  width: auto;
+  height: auto;
+}
+
+iframe:not([seamless]) {
+border: 2px inset;
+border-image-source: initial;
+border-image-slice: initial;
+border-image-width: initial;
+border-image-outset: initial;
+border-image-repeat: initial;
+}
+
+iframe[Attributes Style] {
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+width: 100%;
+height: 100%;
+}
+
+#login_section_video{
+
+  width: auto;
+  height: auto;
+
+}
+#section-video{
+  border: 2px solid black;
+  background-color: #FFF;
+  height: 500px; 
+  width: auto; 
+  
+}
+
+.vert-text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.vert-text h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 4.5em;
+  font-weight: 700;
+}
+
+.header {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  
+}
+
+.text-center {
+  margin-bottom: 35px;
+}
+
+.text-center ul, .text-center p {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.text-center ul {
+  float: left;
+}
+
+.text-center p {
+  float: right;
+}
+
+/* Social Networks */
+#facebook, #gplus, #twitter, #contact {
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+  border-radius: 3px;
+}
+
+#facebook {
+  background-image: url('/assets/social_icons/fb_bw.jpg');
+}
+
+#facebook:hover {
+  background-image: url('/assets/social_icons/fb.jpg');
+}
+
+#gplus {
+  background-image: url('/assets/social_icons/gplus_bw.jpg');}
+
+#gplus:hover {
+  background-image: url('/assets/social_icons/gplus.jpg');
+}
+
+#twitter {
+  background-image: url('/assets/social_icons/twitter_bw.jpg');}
+
+#twitter:hover {
+  background-image: url('/assets/social_icons/twitter.jpg');
+}
+
+#contact {
+  background-image: url('/assets/social_icons/contact_bw.jpg');}
+
+#contact:hover {
+  background-image: url('/assets/social_icons/contact.jpg');
+}
+/*--------------------------------------------*/
+
+.video-container {
+ 
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+   
+  
+}
+
+.tube{
+ 
+ 
+}
+
+.close{
+  border: 2px solid green;
+  background-image: url('/assets/retailer_close.png');
+  width: 52px;
+  height: 52px;
+  z-index: -100000;
+  top: 75px;
+  right: 16px;
+}
+
+
+/* section regist ------------- */
+
+#section-regist{
+ 
+ 
+  background-color: #FFF;
+  height: auto; 
+  width: auto; 
+ float: center;
+}
+
+#login_section_regist{
+ 
+  width: auto;
+  height: auto;
+
+}
+
+ .pocket_bronze{
+  width: 250px;
+  height: auto;
+  margin: 2%;
+ }
+ .pocket_silver{
+  width: 250px;
+  height: auto;
+  margin: 2%;
+  
+ }
+
+.pocket_gold{
+  width: 250px;
+  height: auto;
+  margin: 2%;
+ }
+
+.allpocket{
+
+width: auto;
+height: auto;
+
+margin-left: 15%;
+margin-right: 15%;
+
+position: relative;
+padding-left: 5%;
+
+
+}
+
+.pricing-table .plan {
+  border-radius: 5px;
+  text-align: center;
+  background-color: #f3f3f3;
+  -moz-box-shadow: 0 0 6px 2px #b0b2ab;
+  -webkit-box-shadow: 0 0 6px 2px #b0b2ab;
+  box-shadow: 0 0 6px 2px #b0b2ab;
+}
+ 
+ .plan:hover {
+  background-color: #fff;
+  -moz-box-shadow: 0 0 12px 3px #b0b2ab;
+  -webkit-box-shadow: 0 0 12px 3px #b0b2ab;
+  box-shadow: 0 0 12px 3px #b0b2ab;
+}
+ 
+ .plan {
+  padding: 20px;
+  color: #ff;
+  background-color: #5e5f59;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+  
+.plan-name-bronze {
+  padding: 20px;
+  color: #fff;
+  background-color: #665D1E;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+ }
+  
+.plan-name-silver {
+  padding: 20px;
+  color: #fff;
+  background-color: #C0C0C0;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+ }
+  
+.plan-name-gold {
+  padding: 20px;
+  color: #fff;
+  background-color: #FFD700;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  } 
+  
+.pricing-table-bronze  {
+  padding: 20px;
+  color: #fff;
+  background-color: #f89406;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+  
+.pricing-table .plan .plan-name span {
+  font-size: 20px;
+}
+ 
+.pricing-table .plan ul {
+  list-style: none;
+  margin: 0;
+  -moz-border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+ 
+.pricing-table .plan ul li.plan-feature {
+  padding: 15px 10px;
+  border-top: 1px solid #c5c8c0;
+}
+ 
+.pricing-three-column {
+  margin: 0 auto;
+  width: 80%;
+}
+ 
+.pricing-variable-height .plan {
+  float: none;
+  margin-left: 2%;
+  vertical-align: bottom;
+  display: inline-block;
+  zoom:1;
+  *display:inline;
+}
+ 
+.plan-mouseover .plan-name {
+  background-color: #4e9a06 !important;
+}
+ 
+.btn-plan-select {
+  padding: 8px 25px;
+  font-size: 18px;
+}
+
+#login_section_pocket{
+ 
+  width: auto;
+  height: auto;
+}
+.section-pocket{
+
+ 
+  background-color: #FFF;
+  height: auto; 
+  width: auto; 
+ 
+}
+.section_text{
+  
+}
+
+.section_carrousel{
+  
+}
+
+/* Services */
+
+.services {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: #7fbbda;
+  color: #ffffff;
+}
+
+.frame {
+  border: 1px solid black;
+  padding: 3px 3px 3px 3px;
+  background-color: white;
+  position: relative;
+}
+
+.carrosel {
+  position: relative;
+  width: 650px;
+  height: auto;
+  left: 30%;
+  margin-left: -305px;
+}
+
+.service-item {
+  margin-bottom: 15px;
+}
+
+i.service-icon {
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 56px;
+  width: 140px;
+  height: 140px;
+  line-height: 136px;
+  vertical-align: middle; 
+  text-align: center;
+}
+
+i.service-icon:hover {
+  font-size: 68px;
+}
+
+i.twitter {
+  color: black;
+}
+
+i.twitter:hover {
+  text-decoration: none;
+  background-color: white;
+  color: #2199f0;
+}
+
+i.facebook:hover {
+  text-decoration: none;
+  background-color: white;
+  color: #384e92;
+}
+
+i.globe:hover {
+  text-decoration: none;
+  background-color: white;
+  color: blue;
+}
+/*--------------------

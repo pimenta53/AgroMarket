@@ -1,5 +1,5 @@
               
-<%= form_for @message, :url => send_messages_path ,:html => {:id => "comment_ad11" } do |m| %>
+<%= form_for @message, :url => send_messages_path ,:hidden_fields => true ,:html => {:id => "comment_ad11" } do |m| %>
 
     <% if @message.errors.any? %>
       <div id="error_explanation">
@@ -10,7 +10,7 @@
           <li><%= msg %></li>
         <% end %>
     <% end %>
-
+   
     <div class="field">
       <%= m.label :text %><br>
       <%= m.text_area :text,:id => "text_comment",:rows=>5,:class=> "form-control counted" ,:placeholder => "Type in your message"%>
@@ -24,6 +24,11 @@
       <%= m.label :user_two %><br>
       <%= m.text_field :user_two, :value => user_receiver_id,:readonly => true %>
     </div>
+
+    <div class="field">
+      <%= m.text_field :path, :value => path,:readonly => true %>
+    </div>
+
 
     <button class="btn btn-info" type="submit">Post New Message</button>
 

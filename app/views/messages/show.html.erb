@@ -30,4 +30,4 @@ No messages in your Inbox
 	
 		<% end %>
 		<% @user = @talk.user_two %>
-		<%= render "messages/form_mp" ,:user_receiver_id => @user_receiver_id %>
+		<%= render :partial =>"messages/form_mp" ,:locals =>{ :path => message_path(@talk),:user_receiver_id => @user_receiver_id }  %>
