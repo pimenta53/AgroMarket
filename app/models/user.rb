@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
                                                 :foreign_key => 'user_id'
   has_many :followers, through: :follows_user , :class_name => 'User',
                                                 :source => 'user',
-                                                :foreign_key => 'following_id'  
+                                                :foreign_key => 'following_id' 
 
   belongs_to :city
 
@@ -77,6 +77,28 @@ class User < ActiveRecord::Base
 
   #instance methods
    
+  def follow(target)
+    link = UserFollow.create
+    link.user = self
+    link.following = target
+    link.save
+  end
+   
+  def unfollow(target)
+    link = self.user_follows.where("following_id = ?",target.id).first
+    link.destroy
+  end
+  
+  def toggle_follow(target)
+    link = self.user_follows.where("following_id = ?",target.id)
+    if link.count > 0
+      link.first.destroy
+      false
+    else
+      self.follow(target)
+      true
+    end
+  end
 
 
   def age
