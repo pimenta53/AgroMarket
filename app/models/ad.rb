@@ -23,7 +23,7 @@ class Ad < ActiveRecord::Base
 
 	has_many :ad_images, :dependent => :destroy
 	has_many :messages
-  has_many :talks
+    has_many :talks
 	#scopes
 
 	# atributes
@@ -70,7 +70,34 @@ class Ad < ActiveRecord::Base
 	  end
 	end
 	
+	#######################
+    ### STATISTIC ZONE ####
+    #######################
 	
+	def self.ads_per_city
+		result = Array.new
+		City.find(:all, :includes => ads ).each do |c|
+			results.push([ c.name , c.ads.count ])
+		end
+		return result
+	end
+
+	def self.most_viewed_this_week
+    	where("created_at > ?", 1.week.ago).order('page_views').limit(10)
+	end
+
+	def self.most_viewed( n )
+	 	order(:page_views).limit( n )
+	end
+
+	def self.ads_per_category
+		result = Array.new
+		Category.find(:all, :includes => ads ).each do |c|
+			results.push([ c.name , c.ads.count ])
+		end
+		return result
+	end
+
 	# private methods
 	private
 	#para criar friendly Url

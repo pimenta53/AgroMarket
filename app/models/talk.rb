@@ -46,7 +46,7 @@ class Talk < ActiveRecord::Base
       return self.user_one
     end
   end
-
+  
 
   
   private
