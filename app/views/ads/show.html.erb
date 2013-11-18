@@ -142,12 +142,13 @@
         </tr>
         <% if user_signed_in? %>
         <tr>
+          <!-- Messages -->
           <td colspan='2' align="left">
             <legend> Messages </legend>
             <div id="messages">
             <%= render "messages" %>
             </div>
-            <%= render "messages/form" %>
+            <%#= render "messages/form" %>
           </td>
         </tr>
         <% end %>
