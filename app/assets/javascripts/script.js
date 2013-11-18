@@ -121,6 +121,8 @@ ready = function() {
 
 
 
+
+
 };
 
 //em rails 4 so funciona assim

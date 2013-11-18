@@ -27,6 +27,12 @@
 
 </div>
 
+<% if current_user != nil %>
+  <% if @user.id != current_user.id %>
+    
+  <% end %>
+<% end %>
+
 <div class="text-center">
             <button class="demo btn btn-primary btn-lg" data-toggle="modal" href="#responsive">Mandar Mensagem</button>
 </div>

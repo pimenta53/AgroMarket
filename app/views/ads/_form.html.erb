@@ -11,14 +11,13 @@
     </div>
   <% end %>
   
-
   <div class="field ">
-    <h4> Quero inserir um anúncio na categoria de  <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma opção') unless @categories.blank? %></h4>
+    <h4> Quero inserir um anúncio na categoria de  <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria') unless @categories.blank? %>!</h4>
   </div>
 
   <div class="field">
-    <%= f.label :title, "Titulo" %><br>
-    <%= f.text_field :title,:placeholder => "Titulo" ,:class=>"form-control" %>
+    <%= f.label :title, "Título" %><br>
+    <%= f.text_field :title,:placeholder => "Defina o título do anúncio" ,:class=>"form-control" %>
   </div>
 
   <div class="field col-lg-7 col-sm-7">
