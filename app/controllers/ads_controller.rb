@@ -5,8 +5,9 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
-    @ads = Ad.all
+    @ads = Ad.search(params[:search])
     @categories = Category.all
+    @cities = City.all
     #render :layout => "admin"
   end
 
@@ -107,6 +108,7 @@ class AdsController < ApplicationController
 
     redirect_to @ad,notice: 'A mensagem foi terminada com sucesso' 
   end
+
 
 private
     # Use callbacks to share common setup or constraints between actions.
