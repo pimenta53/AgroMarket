@@ -78,24 +78,37 @@ class User < ActiveRecord::Base
   #instance methods
    
   def follow(target)
-    link = UserFollow.create
-    link.user = self
-    link.following = target
-    link.save
+    link = self.user_follows.where("following_id = ?",target.id).first
+    if link == nil
+      imperative_follow(target)
+    end
+    true
   end
    
   def unfollow(target)
     link = self.user_follows.where("following_id = ?",target.id).first
-    link.destroy
+    if link != nil
+      link.destroy
+    end
+    false
   end
   
   def toggle_follow(target)
-    link = self.user_follows.where("following_id = ?",target.id)
-    if link.count > 0
-      link.first.destroy
+    link = self.user_follows.where("following_id = ?",target.id).first
+    if link != nil
+      link.destroy
       false
     else
-      self.follow(target)
+      imperative_follow(target)
+      true
+    end
+  end
+  
+  def is_following(target)
+    link = self.user_follows.where("following_id = ?",target.id).first
+    if link == nil
+      false
+    else
       true
     end
   end
@@ -120,5 +133,13 @@ class User < ActiveRecord::Base
   end
 
 
+  # private methods
+  private
+  def imperative_follow(target)
+    link = UserFollow.create
+    link.user = self
+    link.following = target
+    link.save
+  end
 
 end
