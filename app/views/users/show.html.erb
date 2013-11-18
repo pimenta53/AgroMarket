@@ -8,4 +8,27 @@
 <p>Aniversário: <%= @user.birthday %> Falta o FORMAT</p>
 
 
+<div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">Mandar mensagem para <%= @user.name %></h4>
+  </div>
+  <div class="modal-body">
+           <div class="row" id="post-review-box" >
+                <div class="col-md-12">
+                    <%= render :partial =>"messages/form_mp" ,:locals =>{ :path => user_path(@user),:user_receiver_id => @user.id }  %>
+                </div>
+            </div>
+        </div>
+  <div class="modal-footer">
+    <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+  </div>
+
+</div>
+
+<div class="text-center">
+            <button class="demo btn btn-primary btn-lg" data-toggle="modal" href="#responsive">Mandar Mensagem</button>
+</div>
+
 <%= link_to "Home",root_path%> | <%= link_to "Voltar",:back %>

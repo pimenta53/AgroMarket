@@ -1,0 +1,57 @@
+<h2>Your Inbox</h2>
+<% if @talks.size == 0 %>
+No messages in your Inbox
+<% else %>
+
+<div class="container">
+    <div class="row">
+       <% @talks.each do |talk| %>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Message</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        	<% talk.latest_messages.each do |message| %>
+								 <p>
+								    <small>
+								    Enviado por:
+								      <%= message.user_sender %> - 
+								      <%= message.user.name %>
+								    As:
+								      <%= message.created_at %>
+								    </small>
+								  </p>
+								  
+								  <%= message.text %>
+								  <%= message.talk_id %>
+								  <p hidden="true">
+								    <strong>is_read:</strong>
+								    <%= message.is_read %>
+								  </p>
+								
+						<% end %>
+                        
+                    </div>
+                </div>
+                <div class="panel-footer">
+                      <div class="row">
+                        
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <button type="button" class="btn btn-labeled btn-success">
+                            	<%= link_to "<i class='fa fa-plus'></i>Ver Conversa".html_safe  ,  message_path(talk) %>
+                              
+                            </button>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <% end %>	
+    </div>
+</div>
+<% end %>
+           

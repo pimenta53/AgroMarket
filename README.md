@@ -20,7 +20,14 @@ A messagem de **commit** para melhor entendimento deve seguir o template:
 
 * Config
 
+## Modals Boostrap ##
+Mais info em https://github.com/jschr/bootstrap-modal
+
+## Form Validators ##
+Mais info em http://alittlecode.com/files/jQuery-Validate-Demo/index.html
+
 ## Configuration ##
+
 Alterem o vosso ficheiro `/config/database.yml` e mantenham-no localmente. 
 Atenção com os tipos, username, password, socket e host têm que ser strings 
 (entre '' preferivelemente), caso não fizerem terão erro de conversão de 

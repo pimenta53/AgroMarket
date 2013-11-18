@@ -32,8 +32,6 @@ describe Ad do
 	end
 
 	#novo anuncio com 
-
-
 	describe 'A new ad' do
 		  it "expiration date cant be in the past" do
 		    @ad.expire_date = "2013/10/12"

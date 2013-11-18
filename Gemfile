@@ -69,7 +69,9 @@ end
 #trata de permissoes
 gem "cancan"
 
+gem 'rails-observers'
 
+gem 'quiet_assets', :group => :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -80,4 +82,4 @@ gem "cancan"
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]

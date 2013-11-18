@@ -1,4 +1,4 @@
-<%= form_for @ad,:html => {:multipart => true} do |f| %>
+<%= form_for @ad,:html => {:multipart => true,:id=>"ad-form"} do |f| %>
   <% if @ad.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
@@ -12,44 +12,43 @@
   <% end %>
   
 
-  <div class="field">
+  <div class="field ">
     <h4> Quero inserir um anúncio na categoria de  <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma opção') unless @categories.blank? %></h4>
-     
   </div>
 
   <div class="field">
     <%= f.label :title, "Titulo" %><br>
-    <%= f.text_field :title,:placeholder => "Titulo" %>
+    <%= f.text_field :title,:placeholder => "Titulo" ,:class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field col-lg-7 col-sm-7">
     <%= f.label :description, "Descrição" %><br>
-    <%= f.text_area :description,:placeholder => "Descrição" %>
+    <%= f.text_area :description,:placeholder => "Descrição",:class=>"form-control valid" %>
   </div>
-  <div class="field">
+  <div class="field col-lg-7 col-sm-7 ">
     <%= f.label :price, "Preço" %><br>
-    <%= f.text_field :price,:placeholder => "Preço" %>
+    <%= f.text_field :price,:placeholder => "Preço" ,:class=>"form-control valid"%>
   </div>
 
-  <div class="field">
+  <div class="field col-lg-7 col-sm-7">
     <%= f.label :expire_date %><br />
     <%= f.text_field :expire_date, :label => "Date",  :class => 'datepicker' %>
   </div>
 
-  <div class="field">
+  <div class="field col-lg-7 col-sm-7">
     <%= f.label :location %><br>
-    <%= f.text_field :location,:placeholder =>:location %>
+    <%= f.text_field :location,:placeholder =>:location ,:class=>"form-control valid"%>
   </div>
-  <div class="field">
+  <div class="field col-lg-7 col-sm-7">
     <%= f.label :type_price_id %><br>
     <%= f.collection_select(:type_price_id,@price_types,:id,:name, :include_blank => 'Escolha uma opção') %>
   </div>
-  <div class="field">
+  <div class="field col-lg-7 col-sm-7">
     <%= f.label :city_id %><br>
       <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção') %>
   </div>
 
-	<%@ad.ad_images.each do |ad_image| %>
+	<% @ad.ad_images.each do |ad_image| %>
 		<% if !ad_image.new_record? %>
 			<%= image_tag ad_image.image %><br/>
 		<% end %>
@@ -80,6 +79,7 @@
           
        <% end %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

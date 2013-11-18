@@ -1,0 +1,33 @@
+<h2>Your Inbox</h2>
+<% if @messages.size == 0 %>
+No messages in your Inbox
+<% else %>
+					<%= @talk.user_one %>
+
+					<%= @talk.user_two %>
+
+					<% for message in @messages %>
+						 <p>
+						    <small>
+						    Enviado por:
+						      <%= message.user.name %> - 
+						      
+						    As:
+						      <%= message.created_at %>
+						    </small>
+						  </p>
+						  
+						  <%= message.text %>
+
+						  <p hidden="true">
+						    <strong>is_read:</strong>
+						    <%= message.is_read %>
+						  </p>
+
+						  
+						
+			<% end %>
+	
+		<% end %>
+		<% @user = @talk.user_two %>
+		<%= render :partial =>"messages/form_mp" ,:locals =>{ :path => message_path(@talk),:user_receiver_id => @user_receiver_id }  %>

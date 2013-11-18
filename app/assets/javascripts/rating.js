@@ -42,7 +42,8 @@
 
         _results = [];
         for (_i = 1, _ref = this.options.numStars; 1 <= _ref ? _i <= _ref : _i >= _ref; 1 <= _ref ? _i++ : _i--) {
-          _results.push(this.$el.append("<span class='icon_rating icon_rating-nocolor'></span>"));
+          var jump = 20 * _i;
+          _results.push(this.$el.append("<span class='icon_rating icon_rating-nocolor' style=left:"+ jump +"px></span>"));
         }
         return _results;
       };

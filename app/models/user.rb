@@ -35,11 +35,24 @@ class User < ActiveRecord::Base
   has_many :sent_messages,:class_name  => 'Message',
                           :primary_key => 'id',
                           :foreign_key => 'sender_id'
-  has_many :recieved_messages,:class_name  => 'Message',
+  has_many :received_messages,:class_name  => 'Message',
                               :primary_key => 'id',
                               :foreign_key => 'receiver_id'
   has_many :ads
+  has_many :messages 
+
+  has_many :talks_user_one , :class_name => 'Talk',
+                             :foreign_key => 'user_one'
+
+  has_many :talks_user_two , :class_name => 'Talk',
+                             :foreign_key => 'user_two'
+
   belongs_to :city
+
+  
+  def talks
+     talks_user_one + talks_user_two
+  end
 
   #validates
   validates :name, presence: true
@@ -53,6 +66,10 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing_photo.png"
 
+  #instance methods
+   
+
+
   def age
     now = Time.now.utc.to_date
     now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
@@ -64,8 +81,13 @@ class User < ActiveRecord::Base
         birthday > Date.today
     end
   end
+
+
   
   def expired_ads
     self.ads.where("expire_date < ?", Date.today)
   end
+
+
+
 end

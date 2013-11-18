@@ -8,7 +8,8 @@
 
 /********** HEADER **********/
 
-.navbar-ex1-collapse{
+#bs-example-navbar-collapse-1{
+  background-color: #00A75D;
   width:100%;
   position:fixed;
   /*top:0;*/
@@ -20,52 +21,16 @@
   resize:horizontal;
 }
 
-.col-lg-6{
+#searchBox{
   height:50px;
   line-height:50px;
+}
+
+#input-groupBox{
+  height:100%;
   width:300px;
 }
 
-
-
-
-
-
-
-
-
-/* Cor do header #00ba84 #4db07a #0a9268*/
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-  background-color: #16ab84;
-}
-.navbar-inverse {
-background-color: #16ab84;
-border-color: #16ab84;
-box-shadow: 0px 3px 5px #888888;
-}
-
-.navbar-inverse .navbar-brand{
-  text-transform: uppercase;
-  color:#fff;
-}
-
-.navbar-inverse .navbar-brand:hover,
-.navbar-inverse .navbar-brand:focus {
-  color: #34495e;
-  background-color: transparent;
-}
-
-.navbar-inverse .navbar-nav > li > a {
-  color: #fff;
-}
-
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-color: #16ab84;
-background-color: #fff;
-}
-
-
-/******SIDEBAR LEFT**********/
 
 #agrosocial_logo{
   width: 45px;
@@ -75,14 +40,32 @@ background-color: #fff;
   margin-top: 4px;
 }
 
+
+#navbarAgro{
+  background-color: #00A75D;
+}
+
+#brandAgro{
+  text-transform: uppercase;
+  color: white;
+}
+
+.caret{
+  color: #fff;
+}
+
+#omnisearch{
+  width: 300px;
+}
+
+#omnisearch-btn{
+  margin-left: 0%;
+}
+
 .fa-user, .fa-envelope-o, .fa-bell-o{
   color: #fff;
   /*vertical-align: center;*/
   font-size: 22px;
-}
-
-#omni-search{
-  width: 300px;
 }
 
 
@@ -91,17 +74,26 @@ background-color: #fff;
 
 }
 
+
 /****FOOTER****/
-
-
 footer {
-  background-color: #16ab84;
+  background-color: #00A75D;
   bottom: 0;
   position: relative;
   width: 100%;
   color: #fff;
   padding-left: 200px;
 }
+
+/******SIDEBAR LEFT**********/
+
+
+/*Botões principais da sidebar-left*/
+#big-btn:hover {
+background-color: #16ab84;
+}
+
+
 
 
 /******SIDEBAR LEFT**********/
@@ -112,7 +104,6 @@ footer {
   margin-top: 50px;
 
 }
-
 
 .main-button-left{
   width: 80%;
@@ -140,8 +131,6 @@ footer {
 #sidebar-left ul  {
   list-style: none;
 }
-
-
 
 
 #page-content-wrapper {
@@ -312,12 +301,13 @@ border-bottom-right-radius: 4px;
 
 /* AUTOCOmplete */
 .twitter-typeahead{
-width:100%;
+  width:100%;
+  top: 10px;
 }
 
 .twitter-typeahead .tt-query,
 .twitter-typeahead .tt-hint {
-  margin-bottom: 0;
+  /*margin-bottom: 0;*/
 }
 .tt-dropdown-menu {
   min-width: 160px;
@@ -365,6 +355,54 @@ width:100%;
   margin: 0;
 }
 
+.twitter-typeahead .tt-hint {
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border: 1px solid transparent;
+    border-radius:4px;
+}
+.twitter-typeahead .hint-small {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    line-height: 1.5;
+}
+.twitter-typeahead .hint-large {
+    height: 45px;
+    padding: 10px 16px;
+    font-size: 18px;
+    border-radius: 6px;
+    line-height: 1.33;
+}
+
+.twitter-typeahead {
+     width: 100%;
+}
+.tt-dropdown-menu {
+     width: 100%;
+}
+.tt-hint {
+     width: 100%;
+}
+
 #hearts { color: #FF0000;}
 #hearts-existing { color: #87bad7;}
 
+label.valid {
+  width: 24px;
+  height: 24px;
+  background: url('valid.png') center center no-repeat;
+  display: inline-block;
+
+  text-indent: -9999px;
+}
+label.error {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}

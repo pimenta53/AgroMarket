@@ -3,6 +3,10 @@ class RatingsController < ApplicationController
 
 	def index
 		@rating = Rating.where(:rater_id => current_user.id,:rate => nil)
+		@myrate = Rating.where(:rated_id => current_user.id).average(:rate)
+		rate_perc = @myrate.to_f - @myrate.to_i
+		#Value when image init and end - 20 is image size
+		@rate_perc_init = rate_perc * 20
 	end
 
 	def show
