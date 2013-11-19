@@ -67,9 +67,20 @@
             </ul>
 
 
-
-            <a href="#users-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-male"></i>Utilizadores</a>
+            <a href="#users-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-eur"></i>Tipos de Preço</a>
             <ul id="users-menu" class="nav nav-list collapse">
+                <li> 
+                 <%= link_to "<i class='fa fa-eye'></i> Tipos de Preço".html_safe  , admin_price_types_path %>
+                </li>
+                <li> 
+                 <%= link_to "<i class='fa fa-plus'></i> Novo Tipo de Preço".html_safe  , new_admin_price_type_path %>
+                </li>
+            </ul>
+
+
+
+            <a href="#price_types-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-male"></i>Utilizadores</a>
+            <ul id="price_types-menu" class="nav nav-list collapse">
                 <li> 
                  <%= link_to "<i class='fa fa-eye'></i> Utilizadores".html_safe  , admin_users_path %>
                 </li>
