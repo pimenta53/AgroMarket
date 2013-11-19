@@ -24,6 +24,7 @@ class Ad < ActiveRecord::Base
 	has_many :ad_images, :dependent => :destroy
 	has_many :messages
     has_many :talks
+
 	#scopes
 
 	# atributes
@@ -44,8 +45,12 @@ class Ad < ActiveRecord::Base
   	validate :expire_date_cannot_exceed_limit
 
   	# class methods
-  	def search
-  		
+  	def self.search(params)
+  		if params
+  			where('category_id LIKE ?' ,Integer(params[0]))
+  		else
+  			all
+  		end
   	end
 
   	# instance methods
@@ -100,20 +105,20 @@ class Ad < ActiveRecord::Base
 
 	# private methods
 	private
-	#para criar friendly Url
-	def create_permalink
-	  self.permanent_link = "#{self.title.parameterize}"
-	end
+		#para criar friendly Url
+		def create_permalink
+		  self.permanent_link = "#{self.title.parameterize}"
+		end
 
-	def expire_date_cannot_be_in_the_past
- 	  errors.add(:expire_date, "can't be in the past") if
-     !expire_date.blank? and expire_date < Date.today
-  	end
-
-	def expire_date_cannot_exceed_limit
- 	  errors.add(:expire_date, "can't exceed one week from today") if
-       !expire_date.blank? and (expire_date.change({:hour => 0 , :min => 0 , :sec => 0 }) - 1.week) > Date.today
-  	end
+		def expire_date_cannot_be_in_the_past
+	 	  errors.add(:expire_date, "can't be in the past") if
+	     !expire_date.blank? and expire_date < Date.today
+	  	end
+	  	
+		def expire_date_cannot_exceed_limit
+	 	  errors.add(:expire_date, "can't exceed one week from today") if
+	       !expire_date.blank? and (expire_date.change({:hour => 0 , :min => 0 , :sec => 0 }) - 1.week) > Date.today
+	  	end
 
 
 end

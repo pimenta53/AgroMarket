@@ -30,7 +30,7 @@ City.create :city => "Viseu"
 
 Category.delete_all
 Category.create(name: "Agricultura", description: "Produtos Agricolas", color: "009400")
-Category.create(name: "ProdutosBiologicos", description: "Produtos BIO", color: "30cf4b")
+Category.create(name: "ProdutosBio", description: "Produtos BIO", color: "30cf4b")
 Category.create(name: "Plantas", description: "Plantas", color: "ffff00")
 
 PriceType.delete_all

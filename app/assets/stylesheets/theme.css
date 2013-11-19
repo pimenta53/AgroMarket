@@ -8,6 +8,20 @@
 
 /********** HEADER **********/
 
+#header-bar{
+  width:250px;
+
+}
+
+
+#navbarToggle{
+  position:fixed;
+  top:0;
+  right:0;
+
+}
+
+
 #bs-example-navbar-collapse-1{
   background-color: #00A75D;
   width:100%;
@@ -234,6 +248,7 @@ color:  #293a49;
 #menu-toggle {
   display: inline-block;
   margin-top: 10px;
+  
 }
 
 .inset {
@@ -397,7 +412,6 @@ label.valid {
   height: 24px;
   background: url('valid.png') center center no-repeat;
   display: inline-block;
-
   text-indent: -9999px;
 }
 label.error {
