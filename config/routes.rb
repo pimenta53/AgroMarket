@@ -21,6 +21,7 @@ Agrosocial::Application.routes.draw do
     resources :cities
     resources :dashboard
     resources :ads
+    resources :users
   end
 
   resources :ratings
