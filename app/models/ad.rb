@@ -23,7 +23,7 @@ class Ad < ActiveRecord::Base
 
 	has_many :ad_images, :dependent => :destroy
 	has_many :messages
-  has_many :talks
+  	has_many :talks
 	#scopes
 
 	# atributes
