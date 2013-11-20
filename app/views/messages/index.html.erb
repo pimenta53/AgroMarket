@@ -1,57 +1,104 @@
 <h2>Your Inbox</h2>
 <% if @talks.size == 0 %>
 No messages in your Inbox
-<% else %>
+<% end %>
+
+
 
 <div class="container">
     <div class="row">
-       <% @talks.each do |talk| %>
+        <% @talks.each do |talk| %>
         <div class="col-xs-12 col-sm-12 col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Message</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        	<% talk.latest_messages.each do |message| %>
-								 <p>
-								    <small>
-								    Enviado por:
-								      <%= message.user_sender %> - 
-								      <%= message.user.name %>
-								    As:
-								      <%= message.created_at %>
-								    </small>
-								  </p>
-								  
-								  <%= message.text %>
-								  <%= message.talk_id %>
-								  <p hidden="true">
-								    <strong>is_read:</strong>
-								    <%= message.is_read %>
-								  </p>
-								
-						<% end %>
-                        
+                    <span class="fa fa-comment"></span> Chat
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                            <span class="fa fa-chevron-down"></span>
+                        </button>
+                        <ul class="dropdown-menu slidedown">
+                            <li><a href="#"><span class="fa fa-refresh">
+                            </span>Refresh</a></li>
+                            <li><a href="#"><span class="fa fa-ok-sign">
+                            </span>Available</a></li>
+                            <li><a href="#"><span class="fa fa-remove">
+                            </span>Busy</a></li>
+                            <li><a href="#"><span class="fa fa-time"></span>
+                                Away</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><span class="fa fa-off"></span>
+                                Sign Out</a></li>
+                        </ul>
                     </div>
+                </div>
+                <div class="panel-bodyMessage">
+                    <ul class="chat">
+                        <% talk.latest_messages.each do |message| %>
+                          <% if message.user.id != current_user.id %>
+                            <li class="left clearfix"><span class="chat-img pull-left">
+                              <% if message.user.avatar != nil %>
+                                <%= image_tag(message.user.avatar.url(:thumb), :alt => "User Avatar", :width => '50', :height => '50', :class => "img-circle") %></span>
+                              <% else %>
+                                <img width="50" alt="50x50" src="missing_photo.png" alt="User Avatar" class="img-circle" />
+                              <% end %>
+                              </span>
+                              <div class="chat-body clearfix">
+                                  <div class="header">
+                                        <strong class="primary-font">
+                                        <%= message.user.username %>
+                                      </strong> 
+                                      <small class="pull-right text-muted">
+                                          <span class="fa fa-time"></span><%= message.created_at %>
+                                      </small>
+                                  </div>
+                                  <p>
+                                    <%= message.text %>
+                                  </p>
+                              </div>
+                            </li>
+                          <% else %>
+                            <li class="right clearfix"><span class="chat-img pull-right">
+                              <% if message.user.avatar != nil %>
+                                <%= image_tag(message.user.avatar.url(:thumb), :alt => "User Avatar", :width => '50', :height => '50', :class => "img-circle") %></span>
+                              <% else %>
+                                <img width="50" alt="50x50" src="missing_photo.png" alt="User Avatar" class="img-circle" />
+                              <% end %>
+                              </span>
+                              <div class="chat-body clearfix">
+                                  <div class="header">
+                                      <small class="text-muted">
+                                          <span class="fa fa-time"></span><%= message.created_at %>
+                                      </small>
+                                      <strong class="pull-right primary-font">
+                                        <%= message.user.username %>
+                                      </strong> 
+                                  </div>
+                                  <p>
+                                    <%= message.text %>
+                                  </p>
+                              </div>
+                            </li>
+                          <% end %>
+                        <% end %>
+                    </ul>
                 </div>
                 <div class="panel-footer">
-                      <div class="row">
-                        
-                        <div class="col-xs-6 col-sm-6 col-md-6">
-                            <button type="button" class="btn btn-labeled btn-success">
-                            	<%= link_to "<i class='fa fa-plus'></i>Ver Conversa".html_safe  ,  message_path(talk) %>
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                                Send</button>
+
+                        </span>
+
+                    </div>
+                      <button type="button" class="btn btn-labeled btn-success">
+                                <%= link_to "<i class='fa fa-plus'></i>Ver Conversa".html_safe  ,  message_path(talk) %>
                               
                             </button>
-                           
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-       <% end %>	
+        <% end %>
     </div>
-</div>
-<% end %>
-           
+</div>  

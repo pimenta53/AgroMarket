@@ -1,9 +1,9 @@
 
 <%# My messages%>
-<% if message.sender_id == @ad.user_id %>
+<% if message.user_sender == @ad.user_id %>
   <% valor = "div_adminMessage" %>
 <% else %>
-  <% if message.sender_id == current_user.id %>
+  <% if message.user_sender == current_user.id %>
     <% valor = "div_myMessage" %>
   <% else %>
     <% valor = "div_otherMessage" %>
@@ -14,8 +14,8 @@
   <p>
     <small>
     Enviado por:
-      <%= message.sender_id %> - 
-      <%= message.sender.name %>
+      <%= message.user_sender %> - 
+      <%= message.user_sender %>
     As:
       <%= message.created_at %>
     </small>
@@ -28,15 +28,5 @@
     <%= message.is_read %>
   </p>
 
-  <p hidden="true">
-    <strong>Receiver</strong>
-    <%= message.receiver_id %>
-    <%= message.receiver.name %>
-  </p>
-
-  <p hidden="true">
-    <strong>Ad_id:</strong>
-    <%= message.ad_id %>
-  </p>
 </div>
 

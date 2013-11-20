@@ -1,5 +1,6 @@
 Agrosocial::Application.routes.draw do
   get "/users/myads" => "users#myads"
+  post '/users/:id/follow' => 'users#follow'
 
   resources :ads do
 
@@ -10,7 +11,7 @@ Agrosocial::Application.routes.draw do
   
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}
 
-  resources :users
+  resources :users 
 
 
   ### ADMIN ZONE ###
@@ -21,6 +22,7 @@ Agrosocial::Application.routes.draw do
     resources :cities
     resources :dashboard
     resources :ads
+    resources :users
   end
 
   resources :ratings
@@ -30,7 +32,8 @@ Agrosocial::Application.routes.draw do
 
   get 'done_message', to: 'ads#done_message', as: :done_message
 
-
+  get "refresh_header" => "application#refresh_header"
+  
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

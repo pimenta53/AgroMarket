@@ -1,11 +1,18 @@
 
-<h1>User#show</h1>
+<h1><%= @user.username %></h1>
 
+
+<%= image_tag @user.avatar.url(:medium), :width => "20%" %>
 <p>Nome: <%= @user.name %></p>
-<p>Nickname: <%= @user.username %></p>
+<% if current_user==@user %>
 <p>Email: <%= @user.email %></p>
+<p>Telefone: <%= @user.phone %></p>
+<% end %>
 <p>Cidade: <%= @user.city.city %></p>
 <p>Aniversário: <%= @user.birthday %> Falta o FORMAT</p>
+<p>Membro desde: <%= @user.created_at %></p>
+
+
 
 
 <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
@@ -13,6 +20,7 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h4 class="modal-title">Mandar mensagem para <%= @user.name %></h4>
   </div>
+
   <div class="modal-body">
            <div class="row" id="post-review-box" >
                 <div class="col-md-12">
@@ -27,8 +35,17 @@
 
 </div>
 
+
+<% if current_user != nil %>
+  <% if @user.id != current_user.id %>
+    <button class="followToggle" value="<%= @user.id %>"><% if current_user.is_following(@user) %>unfollow<% else %>follow<% end %></button>
+  <% end %>
+<% end %>
+
+<% if current_user!=@user %>
 <div class="text-center">
             <button class="demo btn btn-primary btn-lg" data-toggle="modal" href="#responsive">Mandar Mensagem</button>
 </div>
+<% end %>
 
 <%= link_to "Home",root_path%> | <%= link_to "Voltar",:back %>

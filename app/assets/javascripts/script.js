@@ -13,18 +13,20 @@ ready = function() {
 
    $(".pick-a-color").pickAColor();
 
+   
    $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
 
    $('.typeahead').typeahead({                               
         name: "cities",                
         local: ['couves', 'cenas', 'laranjas', 'coisass', 'anuncios', 'babes','boobs','big boobs','buceta']                                              
    });
+    
+
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     $('.tt-query').css('background-color','#fff');                                  
 
     $("abbr.timeago").timeago();
-
 
   // Script do Isotope Example
   var things = $('#things');
@@ -77,7 +79,27 @@ ready = function() {
 
   //PRETTYPHOTO
   $("a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal', theme:'light_square'});
+  
 
+  $(".followToggle").click(function(){
+  	   $id=$(this).val();
+  	   if ($(this).text() == "follow"){
+  	     $(this).text("unfollow");
+  	   }
+  	   else{
+  	     $(this).text("follow");
+  	   }
+  	   //$.post("./"+$id+"/follow");
+  	   $.ajax({
+          url: "./"+$id+"/follow",
+          async: true,
+          dataType: 'script',
+          type: "POST",     
+          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+      });
+  	 }
+  )
+  
   $(".starrr").starrr();
 
         
@@ -90,7 +112,6 @@ ready = function() {
     $('#count-existing').html(value);
     $('#rating_rate').val(value);
   });
-
 
 
    /*
@@ -111,8 +132,7 @@ ready = function() {
             $(".progress-bar").css("width", + total_percent +"%");
           }
               
-      })
-
+      });
 
 
 

@@ -31,6 +31,19 @@ ready = function() {
         return false;
       });
 
+
+
+      function refresh(){
+          //alert( status_id.serialize() );
+          //alert($("#users_search").attr("action"));
+          //alert("sd")
+          $.get("/refresh_header", "", null, "script");
+          //alert("dsdsd")
+        }
+
+        setInterval(refresh, 10000);
+        
+
       
 
 };

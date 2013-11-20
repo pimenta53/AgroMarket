@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 
 	#caixa de entrada com todas mensagens
   def index
-     @talks = Talk.all_talks( current_user.id )
+     @talks = current_user.all_talks
   end
 
   def show
@@ -56,25 +56,19 @@ class MessagesController < ApplicationController
 	def create
     @ad = Ad.find(params[:ad_id])
 
-    # verificar se existe takl entre os dois utilizadores
-    # se existir
-    # => obter o id da talk
-    #senao
-    # => criar uma nova talk
-    # criar a nova message
-    # adicionar a message ao takl
-
-    talk = Talk.talk_ad( current_user , @ad )
+    talk = Talk.where( "(user_one = ? and user_two = ?) or (user_one = ? and user_two = ?) and ad_id = ?", current_user.id, params[:message][:user_id], params[:message][:user_id], current_user.id, @ad.id ).first
+    
     if !talk
-      talk = Talk.new()
+      talk = Talk.new(:user_one => current_user.id, :user_two => @ad.user_id, :ad_id => @ad.id)
     end
     
-    @message = talk.messages.new(ad_params)
+    talk.save
 
-    
+    @message = talk.messages.new(ad_params)
+    @message.user_sender = current_user.id
 
     respond_to do |format|
-      if @message.save
+      if  @message.save
         format.html { redirect_to ad_path(@ad) }
       else
         format.html
@@ -85,6 +79,6 @@ class MessagesController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
-      params.require(:message).permit(:text, :user_sender, :is_read )
+      params.require(:message).permit(:text)
     end
 end

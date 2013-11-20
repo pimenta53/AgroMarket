@@ -1,8 +1,60 @@
+<% if @talk.empty? %>
+  <%#  if there is no messages for this user  %>
+  <p>"Não existem mensagens neste anuncio"</p>
+  <% if @ad.user_id != current_user.id %><%#  and if the logged user isn't the owner  %>
+    
+    <%#  create the message's form  %>
+    <%= form_for @message, :url => ad_new_messages_path(@ad.id),:html => {:id => "comment_ad",:ajax_path => ad_new_messages_path(@ad.id) } do |m| %>
+      
+      <div class="field">
+        <%= m.text_area :text,:id => "text_comment",:rows=>1,:class=> "form-control counted" ,:placeholder => "Responder"%>
+        <h6 class="pull-right" id="counter">144 characters remaining</h6>
+      </div>
 
-   
-<%# first contact to seller%>
-<% if @ad.user_id != current_user.id %>
-  <p>  
-    <%= button_to "Contactar anuncinate", "javascript:sender_button(#{@ad.user_id})"%>
-  </p>
+      <div class="field" hidden="true">
+        <%= m.label :user_id %><br>
+        <%= m.text_field :user_id, :value => @ad.id,:readonly => true %>
+      </div>
+      
+      <%= m.submit "Enviar" %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%#  there is messages for/from this user  %>
+  <% @talk.each do |t| %>
+
+    <div class="panel panel-default widget" id="accordion">
+      
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <span class="fa fa-comment"></span>
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= t.user_receiver(current_user) %>">Mensagens do Utilizador ID: <%= t.user_receiver(current_user) %></a>
+          <%= link_to('<span style="float: right;" class="fa fa-times-circle"></span>'.html_safe, done_message_path(id_ad: @ad.id,user_id: t.user_receiver(current_user)), :data => { :confirm => "Tem a certeza que pertende fechar este negócio?" }) if @ad.user_id == current_user.id  %>
+        </h4>
+        <span class="label label-info" style="float: right;"><%= t.messages.count%></span>
+      </div>
+
+      <div id="<%= t.user_receiver(current_user) %>" class="panel-collapse collapse">
+        <div class="panel-body">
+          
+          <% t.messages.each do |m| %>
+            <%= render "messages/show" , :message => m, :talk => t.id %>
+          <% end %>
+          
+          <%= form_for @message, :url => ad_new_messages_path(@ad.id),:html => {:id => "comment_ad",:ajax_path => ad_new_messages_path(@ad.id) } do |m| %>
+            
+            <div class="field">
+              <%= m.text_field :text,:id => "text_comment",:rows=>1,:class=> "form-control counted" ,:placeholder => "Responder"%>
+              <h6 class="pull-right" id="counter">144 characters remaining</h6>
+            </div>
+
+            <%= m.hidden_field :user_id, :value => t.user_receiver(current_user.id),:readonly => true %>
+
+            <%= m.submit "Enviar" %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
 <% end %>

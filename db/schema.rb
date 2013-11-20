@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20131111125231) do
-=======
-ActiveRecord::Schema.define(version: 20131113173259) do
->>>>>>> a5d231247002bddbddf65b68a031a5c43acfee10
+ActiveRecord::Schema.define(version: 20131118105237) do
 
   create_table "ad_images", force: true do |t|
     t.integer  "ad_id"
@@ -24,20 +20,6 @@ ActiveRecord::Schema.define(version: 20131113173259) do
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
-  end
-
-  create_table "admin_testes", force: true do |t|
-    t.integer  "coisas"
-    t.string   "coisas2"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "admin_tests", force: true do |t|
-    t.integer  "coisas"
-    t.string   "coisas2"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "ads", force: true do |t|
@@ -112,17 +94,22 @@ ActiveRecord::Schema.define(version: 20131113173259) do
     t.datetime "updated_at"
   end
 
-  create_table "testes", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "types", force: true do |t|
     t.string   "name"
     t.integer  "flag"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "user_follows", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "following_id"
+  end
+
+  add_index "user_follows", ["following_id"], name: "index_user_follows_on_following_id", using: :btree
+  add_index "user_follows", ["user_id"], name: "index_user_follows_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

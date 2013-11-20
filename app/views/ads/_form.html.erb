@@ -11,76 +11,90 @@
     </div>
   <% end %>
   
-
-  <div class="field ">
-    <h4> Quero inserir um anúncio na categoria de  <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma opção') unless @categories.blank? %></h4>
+    <div class="field ">
+    <h5> Quero inserir um anúncio na categoria de  <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria') unless @categories.blank? %>!</h5>
   </div>
 
   <div class="field">
-    <%= f.label :title, "Titulo" %><br>
-    <%= f.text_field :title,:placeholder => "Titulo" ,:class=>"form-control" %>
+    <%= f.label :title, "Título" %><br>
+    <%= f.text_field :title,:placeholder => "Defina o título do anúncio" ,:class=>"form-control" %>
   </div>
 
-  <div class="field col-lg-7 col-sm-7">
+  <div class="field">
     <%= f.label :description, "Descrição" %><br>
-    <%= f.text_area :description,:placeholder => "Descrição",:class=>"form-control valid" %>
-  </div>
-  <div class="field col-lg-7 col-sm-7 ">
-    <%= f.label :price, "Preço" %><br>
-    <%= f.text_field :price,:placeholder => "Preço" ,:class=>"form-control valid"%>
+    <%= f.text_area :description,:placeholder => "Descreva o seu anúncio...",:class=>"form-control valid" %>
   </div>
 
-  <div class="field col-lg-7 col-sm-7">
+  <div class="row">
+    <div class="col-md-4">
+          <%= f.label :price, "Preço" %><br>
+          <%= f.text_field :price,:placeholder => "Preço" ,:class=>"form-control valid"%>
+    </div>
+
+    <div class="col-md-4">
+          <%= f.label :type_price_id, "Medida" %><br>
+          <%= f.collection_select(:type_price_id,@price_types,:id,:name, :include_blank => 'Selecione...') %>
+    </div>
+     <div class="col-md-4">
+          <%= f.label :city_id, "Distrito" %><br>
+          <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Selecione...') %>
+    </div>
+  </div>
+
+  <div class="field" style="margin-top:8px">
+          <%= f.label :location, "Localização" %><br>
+          <%= f.text_field :location,:placeholder =>:location ,:class=>"form-control valid"%>
+          (mapa)
+  </div>
+
+
+   <div class="field col-lg-7 col-sm-7">
     <%= f.label :expire_date %><br />
     <%= f.text_field :expire_date, :label => "Date",  :class => 'datepicker' %>
   </div>
 
-  <div class="field col-lg-7 col-sm-7">
-    <%= f.label :location %><br>
-    <%= f.text_field :location,:placeholder =>:location ,:class=>"form-control valid"%>
-  </div>
-  <div class="field col-lg-7 col-sm-7">
-    <%= f.label :type_price_id %><br>
-    <%= f.collection_select(:type_price_id,@price_types,:id,:name, :include_blank => 'Escolha uma opção') %>
-  </div>
-  <div class="field col-lg-7 col-sm-7">
-    <%= f.label :city_id %><br>
-      <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção') %>
-  </div>
+  <div class="field" style="margin-top:8px">
+         <%= f.label :images, "Adicionar Imagens" %><br>
+         
+         <% @ad.ad_images.each do |ad_image| %>
+            <% if !ad_image.new_record? %>
+              <%= image_tag ad_image.image %><br/>
+            <% end %>
+          <% end %>
 
-	<% @ad.ad_images.each do |ad_image| %>
-		<% if !ad_image.new_record? %>
-			<%= image_tag ad_image.image %><br/>
-		<% end %>
-	<% end %>
-	
-  <div class="newPaperclipFiles">
+          <div class="newPaperclipFiles">
 
-        <%= f.fields_for :ad_images do |asset| %>
-           <% if asset.object.new_record? %>
-                 <%= asset.file_field :image %>
-           <% end %>
-       <% end %>
-  </div>
+                <%= f.fields_for :ad_images do |asset| %>
+                   <% if asset.object.new_record? %>
+                         <%= asset.file_field :image %>
+                   <% end %>
+               <% end %>
+          </div>
 
-  <div class="existingPaperclipFiles">
-          
-       <% f.fields_for :ad_images do |asset| %>
-          
-            <% unless asset.object.new_record? %>
-          
-                  <div class="thumbnail">
-                          <%= link_to( image_tag(asset.object.image.url(:thumb)), asset.object.image.url(:original) ) %>
-                          <%= asset.check_box  :_destroy %>
-
-                  </div>
+          <div class="existingPaperclipFiles">
                   
-            <% end %>        
-          
-       <% end %>
-  </div>
+               <% f.fields_for :ad_images do |asset| %>
+                  
+                    <% unless asset.object.new_record? %>
+                  
+                          <div class="thumbnail">
+                                  <%= link_to( image_tag(asset.object.image.url(:thumb)), asset.object.image.url(:original) ) %>
+                                  <%= asset.check_box  :_destroy %>
 
-  <div class="actions">
-    <%= f.submit %>
+                          </div>
+                          
+                    <% end %>        
+                  
+               <% end %>
+          </div>
+
+  </div>	
+
+	<div class="progress" style="background: #ddd">
+           <div class="progress-bar progress-bar-danger" style="width: 0%;"></div>
+   </div>
+
+  <div class="actions" style="float:right">
+    <%= f.submit "Publicar Anúncio", :class=>"btn btn-primary" %>
   </div>
 <% end %>
