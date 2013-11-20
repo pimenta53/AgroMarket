@@ -71,8 +71,8 @@ class Ad < ActiveRecord::Base
 
 
   			if categories.length>0 && cities.length>0 #caso se filtre por categoria e cidade (interseccao)
-  			filtered_categories = where(category_id: categories)
-  			filtered_categories.where(city_id: cities)
+  				filtered_categories = where(category_id: categories)
+  				filtered_categories.where(city_id: cities)
 
   			else 
   				if categories.length>0 #caso so se filtre por categorias
