@@ -38,7 +38,7 @@ ready = function() {
           //alert($("#users_search").attr("action"));
           //alert("sd")
           $.get("/refresh_header", "", null, "script");
-          //alert("dsdsd")
+          alert("dsdsd")
         }
 
         setInterval(refresh, 10000);

@@ -6,7 +6,15 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+
   
+  def refresh_header
+
+    respond_to do |format|
+      format.js
+    end
+
+  end
 
   protected
   	def configure_permitted_parameters
