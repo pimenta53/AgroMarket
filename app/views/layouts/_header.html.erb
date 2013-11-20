@@ -120,23 +120,15 @@
         <!-- ACADEMIA -->
         <% expired_ads=current_user.expired_ads %>
         <li class="dropdown messages-dropdown">
-<<<<<<< HEAD
+
           <% if expired_ads.count > 0 %>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret" id="dropCarret"></b></a>
-=======
-          <% if expired_ads.length >0 %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret"></b></a>
->>>>>>> dac9ffd164990677b459a18605d61f6ae74a1e4f
           <% else %>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><b class="caret" id="dropCarret"></b></a>
           <% end %>
           <ul class="dropdown-menu">
-<<<<<<< HEAD
 
-            <% if expired_ads.count > 0 %>
-=======
             <% if expired_ads.length > 0 %>
->>>>>>> dac9ffd164990677b459a18605d61f6ae74a1e4f
               <li class="dropdown-header"><%= expired_ads.count %> ads have expired</li>
               <% first_expired_ads = expired_ads.limit(5) %>
               <% first_expired_ads.each do |ad| %>
