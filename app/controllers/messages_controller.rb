@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 
 	#caixa de entrada com todas mensagens
   def index
-     @talks = Talk.all_talks( current_user.id )
+     @talks = current_user.all_talks
   end
 
   def show
@@ -55,17 +55,6 @@ class MessagesController < ApplicationController
 	# create new message
 	def create
     @ad = Ad.find(params[:ad_id])
-
-
-
-
-    # verificar se existe takl entre os dois utilizadores
-    # se existir
-    # => obter o id da talk
-    #senao
-    # => criar uma nova talk
-    # criar a nova message
-    # adicionar a message ao takl
 
     talk = Talk.where( "(user_one = ? and user_two = ?) or (user_one = ? and user_two = ?) and ad_id = ?", current_user.id, params[:message][:user_id], params[:message][:user_id], current_user.id, @ad.id ).first
     

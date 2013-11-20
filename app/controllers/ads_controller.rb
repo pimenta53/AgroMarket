@@ -17,8 +17,9 @@ class AdsController < ApplicationController
     
     @ad.increment_page_view
 
-    @message = Message.new
+    
     if user_signed_in?
+      @message = Message.new
       @talk = Talk.all_talk_ad(current_user , @ad)
     end
     
@@ -92,13 +93,13 @@ class AdsController < ApplicationController
     end
   end
 
-  # Mark message as read
-  # Close message
+  # Mark talk as closed
   # Create rated and rater entry in db
   def done_message
     @ad = Ad.find(params[:id_ad])
 
-    @ad.messages.where("receiver_id = ? OR sender_id = ?",params[:user_id],params[:user_id]).update_all(:is_close => 1)
+    Talk.where("ad_id = ? and ((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?))", @ad.id, @ad.user_id, params[:user_id], params[:user_id], @ad.user_id).update_all(:is_close => 1)
+    #@ad.messages.where("receiver_id = ? OR sender_id = ?",params[:user_id],params[:user_id]).update_all(:is_close => 1)
 
     # Create new entry, RATED current_user
     rated_current_user = Rating.new(:ad_id => @ad.id,:rater_id => params[:user_id],:rated_id => current_user.id)
