@@ -30,7 +30,7 @@
 
 <% if current_user != nil %>
   <% if @user.id != current_user.id %>
-    
+    <button class="followToggle" value="<%= @user.id %>"><% if current_user.is_following(@user) %>unfollow<% else %>follow<% end %></button>
   <% end %>
 <% end %>
 

@@ -25,14 +25,20 @@
 
     <ul class="nav navbar-nav navbar-right">
       
-      <li class="container" id="searchBox" role="search">
-        <div class="input-group" id="input-groupBox">
-          <input type="text" style="vertical-align: center;" class="form-control typeahead">
-          
-          <span class="input-group-btn">
-            <button type="submit" class="btn btn-default" id="omnisearch-btn" >Pesquisar</button>
-          </span>
-        </div>
+      <!--Search-->
+      <li class="dropdown messages-dropdown" >
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i><b class="caret"></b> </a>
+        <ul class="dropdown-menu">
+          <li class="container" id="searchBox" role="search">
+            <div class="input-group" id="input-groupBox">
+              <input type="text" style="vertical-align: center;" class="form-control typeahead">
+              
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default" id="omnisearch-btn" >Pesquisar</button>
+              </span>
+            </div>
+          </li>
+        </ul>  
       </li>
       
       <!-- Lado direito da barra de navegação-->
@@ -40,7 +46,7 @@
       <!--NOTIFICACOES-->
       <% if user_signed_in? %>
         <li class="dropdown messages-dropdown" >
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i><span class="badge" id="custom-badge">3</span> <b class="caret"></b> </a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i><span class="badge" id="custom-badge">3</span> <b class="caret"></b> </a>
           <ul class="dropdown-menu">
             <li class="dropdown-header">3 New </li>
             <li class="preview">
@@ -75,10 +81,10 @@
         </li>
         <!--END NOTIFICACOES-->
 
-        <!-- MESSAGES -->
+        <!-- ADS -->
         <li class="dropdown messages-dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-envelope-o"></i><span class="badge" id="custom-badge">
+            <i class="fa fa-tags"></i><span class="badge" id="custom-badge">
             <% if @last_message != nil %>
               <%= @last_message.count %>
             <% else %>
@@ -116,13 +122,13 @@
         </li>
         <!--END MESSAGES-->
 
-        <!-- ADS -->
+        <!-- ACADEMIA -->
         <% expired_ads=current_user.expired_ads %>
         <li class="dropdown messages-dropdown">
           <% if expired_ads.count >0 %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-open-o fa-2x" style="color:white"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret"></b></a>
           <% else %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-o fa-2x" style="color:white; font-size: 22px;"></i><b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><b class="caret"></b></a>
           <% end %>
           <ul class="dropdown-menu">
             <% if expired_ads.count > 0 %>
@@ -153,29 +159,57 @@
         </li>
         <!--END ADS-->
 
-<!-- Dropdown do User-->
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">
-          <% if user_signed_in? %>
-            <%= current_user.username %>
-            <b class="caret"></b></a>
-          <% end %>
-        <ul class="dropdown-menu">
-          <li><a href="#">Perfil</a></li>
-          <li><%= link_to(ratings_path) do %>
-                    <span>Rating por atribuir <span class="badge"><%= load_stuff_header %></span></span>
-                  <% end %></li>
-          <li><a href="#">Inbox</a></li>
-          <li class="divider"></li>
-            <li><%= link_to "Terminar Sessão",destroy_user_session_path, method: :delete %></li>
-          </ul>
-          </li>
-       
+        <!-- Dropdown do User-->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">
+            <% if user_signed_in? %>
+              <%= current_user.username %>
+              <b class="caret"></b></a>
+            <% end %>
+          <ul class="dropdown-menu">
+            <!-- Messages -->
+            <% if !@last_message.nil? %>
+              <% @last_message.each do |m| %>
+                <li class="preview">
+                  <a href="#">
+                    <span class="name">Enviado: <%= m.sender.name %></span><br />
+                    <span class="message"><%= truncate(m.text,:length => 20) %></span><br />
+                    <span class="time" align="rigth"><i class="icon-time"></i><small><%= m.created_at %></small></span>
+                  </a>
+                </li>
+                <li class="divider"></li>
+              <%end%>
+              <li>
+                <a href="#">Ver Mais <span class="badge"><%= (@last_message.count - 3) %></span></a>
+              </li>
+            <% else %>
+               <li class="preview">
+                 
+                    <span class="name"><i class="fa fa-envelope-o"></i>Sem Mensagens</span><br />
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="<%= messages_path %>">Caixa de Mensagens</span></a>
+                </li>
+            <% end %>
+            <li class="divider"></li>
 
-      <% else %>
-        <li><%= link_to "Login".html_safe , new_user_session_path %></li>
-        <li><%= link_to "Registo", new_user_registration_path %></li>
-      <% end %>
+
+            <li><a href="#">Perfil</a></li>
+            <li><%= link_to(ratings_path) do %>
+                      <span>Rating por atribuir <span class="badge"><%= load_stuff_header %></span></span>
+                    <% end %></li>
+            <li><a href="#">Inbox</a></li>
+            <li class="divider"></li>
+              <li><%= link_to "Terminar Sessão",destroy_user_session_path, method: :delete %></li>
+            </ul>
+            </li>
+         
+
+        <% else %>
+          <li><%= link_to "Login".html_safe , new_user_session_path %></li>
+          <li><%= link_to "Registo", new_user_registration_path %></li>
+        <% end %>
 
     </ul>
 

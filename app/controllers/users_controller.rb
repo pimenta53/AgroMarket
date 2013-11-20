@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :follow]
 
   def index
   	@user = User.all
@@ -19,6 +19,15 @@ class UsersController < ApplicationController
     @message = Message.new
     @user_receiver = 1
 
+  end
+
+  # POST /users/1/follow
+  def follow
+    current_user.toggle_follow(@user)
+    respond_to do |format|
+      format.html {render :nothing => true}
+      format.js {render :nothing => true}
+    end
   end
 
   def new

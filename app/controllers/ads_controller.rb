@@ -18,7 +18,9 @@ class AdsController < ApplicationController
     @ad.increment_page_view
 
     @message = Message.new
-    @talk = Talk.all_talk_ad(current_user , @ad)
+    if user_signed_in?
+      @talk = Talk.all_talk_ad(current_user , @ad)
+    end
     
   end
 

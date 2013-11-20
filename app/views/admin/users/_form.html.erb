@@ -28,8 +28,8 @@
   </div>
 
     <div class="field">
-    <%= f.label :cidade %><br>
-    <%= f.text_field :city_id %>
+    <%= f.label :city_id, "Distrito" %><br>
+    <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Selecione...') %>
   </div>
 
   <div class="field">
