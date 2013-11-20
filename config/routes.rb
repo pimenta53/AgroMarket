@@ -31,7 +31,8 @@ Agrosocial::Application.routes.draw do
 
   get 'done_message', to: 'ads#done_message', as: :done_message
 
-
+  get "refresh_header" => "application#refresh_header"
+  
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

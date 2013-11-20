@@ -13,20 +13,18 @@ ready = function() {
 
    $(".pick-a-color").pickAColor();
 
-   
    $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
 
    $('.typeahead').typeahead({                               
         name: "cities",                
         local: ['couves', 'cenas', 'laranjas', 'coisass', 'anuncios', 'babes','boobs','big boobs','buceta']                                              
    });
-    
-
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     $('.tt-query').css('background-color','#fff');                                  
 
     $("abbr.timeago").timeago();
+
 
   // Script do Isotope Example
   var things = $('#things');
@@ -93,7 +91,11 @@ ready = function() {
     $('#rating_rate').val(value);
   });
 
-
+  //prettycheckable
+  //for customized checkbox
+   $('input.myClass').prettyCheckable({
+    color: 'green'
+   });
 
 
    /*

@@ -14,9 +14,9 @@
 	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 	-->
-
-    <%= render "layouts/header"%>
-
+  <div id="header">
+      <%= render "layouts/header"%>
+  </div>
      <!-- Content row -->  
      <div id="wrapper">
 
@@ -33,7 +33,9 @@
 
                 <div class="col-md-3">
                   <%= render "layouts/sidebar_right_featured" %>
-                  <%= render "layouts/sidebar_right_ad" %>
+                  
+                    <%= render "layouts/sidebar_right_ad" %>
+                  
                 </div>
 
               </div>
