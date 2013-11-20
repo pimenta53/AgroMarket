@@ -1,33 +1,28 @@
 <nav class="navbar navbar-default navbar-fixed-top" id="navbarAgro" role="navigation">
+  
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header" id="header-bar">
-    
     <img id="agrosocial_logo" src="/assets/logo_button.svg" alt="AgroSocial Logo" class="img-circle">
     <a class="navbar-brand" id="brandAgro" href="/">AgroSocial</a>
-
     <a id="menu-toggle" href="#" class="btn btn-default"><i class="fa fa-reorder"></i></a>
-
-    
-
   </div>
 
   <button type="button" id="navbarToggle" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
     
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     
-
     <ul class="nav navbar-nav navbar-right">
       
-      <!--Search-->
+      <!-- SEARCH -->
       <li class="dropdown messages-dropdown" >
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i><b class="caret"></b> </a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i><b class="caret" id="dropCarret"></b> </a>
         <ul class="dropdown-menu">
           <li class="container" id="searchBox" role="search">
             <div class="input-group" id="input-groupBox">
@@ -40,14 +35,15 @@
           </li>
         </ul>  
       </li>
+      <!-- END SEARCH -->
       
-      <!-- Lado direito da barra de navegação-->
-          
-      <!--NOTIFICACOES-->
+
+      <!-- NOTIFICACOES -->
       <% if user_signed_in? %>
         <li class="dropdown messages-dropdown" >
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i><span class="badge" id="custom-badge">3</span> <b class="caret"></b> </a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i><span class="badge" id="custom-badge">3</span> <b class="caret" id="dropCarret"></b> </a>
           <ul class="dropdown-menu">
+
             <li class="dropdown-header">3 New </li>
             <li class="preview">
               <a href="#">
@@ -77,60 +73,21 @@
             </li>
             <li class="divider"></li>
             <li><a href="#">Ver Mais <span class="badge">3</span></a></li>
+
           </ul>
         </li>
         <!--END NOTIFICACOES-->
 
         <!-- ADS -->
-        <li class="dropdown messages-dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-tags"></i><span class="badge" id="custom-badge">
-            <% if @last_message != nil %>
-              <%= @last_message.count %>
-            <% else %>
-              0
-            <%end%>
-          </span> <b class="caret"></b></a>
-
-          <ul class="dropdown-menu">
-            <% if !@last_message.nil? %>
-              <% @last_message.each do |m| %>
-                <li class="preview">
-                  <a href="#">
-                    <span class="name">Enviado: <%= m.sender.name %></span><br />
-                    <span class="message"><%= truncate(m.text,:length => 20) %></span><br />
-                    <span class="time" align="rigth"><i class="icon-time"></i><small><%= m.created_at %></small></span>
-                  </a>
-                </li>
-                <li class="divider"></li>
-              <%end%>
-              <li>
-                <a href="#">Ver Mais <span class="badge"><%= (@last_message.count - 3) %></span></a>
-              </li>
-            <% else %>
-               <li class="preview">
-                 
-                    <span class="name"><i class="fa fa-envelope-o"></i>Sem Mensagens</span><br />
-                </li>
-                <li class="divider"></li>
-                 <li>
-                  <a href="<%= messages_path %>">Caixa de Mensagens</span></a>
-                </li>
-            <% end %>
-            
-          </ul>
-        </li>
-        <!--END MESSAGES-->
-
-        <!-- ACADEMIA -->
         <% expired_ads=current_user.expired_ads %>
         <li class="dropdown messages-dropdown">
           <% if expired_ads.count >0 %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret" id="dropCarret"></b></a>
           <% else %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><b class="caret" id="dropCarret"></b></a>
           <% end %>
           <ul class="dropdown-menu">
+
             <% if expired_ads.count > 0 %>
               <li class="dropdown-header"><%= expired_ads.count %> ads have expired</li>
               <% first_expired_ads = expired_ads.limit(5) %>
@@ -155,18 +112,64 @@
               <li class="dropdown-header">All active ads are in order</li>
             <% end %>
             <li><a href="<%= users_myads_path %>"> Ver todos </a></li>
+
           </ul>
         </li>
         <!--END ADS-->
 
-        <!-- Dropdown do User-->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">
-            <% if user_signed_in? %>
-              <%= current_user.username %>
-              <b class="caret"></b></a>
-            <% end %>
+        <!-- ACADEMIA -->
+        <% expired_ads=current_user.expired_ads %>
+        <li class="dropdown messages-dropdown">
+<<<<<<< HEAD
+          <% if expired_ads.count > 0 %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret" id="dropCarret"></b></a>
+=======
+          <% if expired_ads.length >0 %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret"></b></a>
+>>>>>>> dac9ffd164990677b459a18605d61f6ae74a1e4f
+          <% else %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><b class="caret" id="dropCarret"></b></a>
+          <% end %>
           <ul class="dropdown-menu">
+<<<<<<< HEAD
+
+            <% if expired_ads.count > 0 %>
+=======
+            <% if expired_ads.length > 0 %>
+>>>>>>> dac9ffd164990677b459a18605d61f6ae74a1e4f
+              <li class="dropdown-header"><%= expired_ads.count %> ads have expired</li>
+              <% first_expired_ads = expired_ads.limit(5) %>
+              <% first_expired_ads.each do |ad| %>
+                <li class="preview">
+                  <a href="<%= ad_path(ad) %>">
+                    <% if ad.ad_images.count > 0 %>
+                      <span class="avatar"><%= image_tag(ad.ad_images.first.image.url(:thumb), :alt => ad.title, :width => '50') %></span>
+                    <% else %>
+                      <span class="avatar"><img width="50" alt="50x50" src="http://placehold.it/50x50"></img></span>
+                    <% end %>
+                    <span class="name"><%= ad.title %></span>
+                    <span class="message"><%= ad.limited_description(20) %></span>
+                    <span class="time"><i class="icon-time"></i>
+                    <abbr class="timeago" title="<%= ad.expire_date.getutc.iso8601 %>"> <%= ad.expire_date.to_s %> </abbr>
+                    </span>
+                  </a>
+                </li>
+                <li class="divider"></li>
+              <% end %>
+            <% else %>
+              <li class="dropdown-header">All active ads are in order</li>
+            <% end %>
+            <li><a href="<%= users_myads_path %>"> Ver todos </a></li>
+
+          </ul>
+        </li>
+        <!--END ACADEMIA-->
+
+        <!-- USER-->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="userNick"><%= current_user.username %></span><b class="caret" id="dropCarret"></b></a>
+          <ul class="dropdown-menu">
+
             <!-- Messages -->
             <% if !@last_message.nil? %>
               <% @last_message.each do |m| %>
@@ -179,21 +182,13 @@
                 </li>
                 <li class="divider"></li>
               <%end%>
-              <li>
-                <a href="#">Ver Mais <span class="badge"><%= (@last_message.count - 3) %></span></a>
-              </li>
+              <li><a href="#">Ver Mais <span class="badge"><%= (@last_message.count - 3) %></span></a></li>
             <% else %>
-               <li class="preview">
-                 
-                    <span class="name"><i class="fa fa-envelope-o"></i>Sem Mensagens</span><br />
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <a href="<%= messages_path %>">Caixa de Mensagens</span></a>
-                </li>
+              <li class="preview"><span class="name"><i class="fa fa-envelope-o"></i>Sem Mensagens</span><br /></li>
+              <li class="divider"></li>
+              <li><a href="<%= messages_path %>">Caixa de Mensagens</span></a></li>
             <% end %>
             <li class="divider"></li>
-
 
             <li><a href="#">Perfil</a></li>
             <li><%= link_to(ratings_path) do %>
@@ -201,15 +196,17 @@
                     <% end %></li>
             <li><a href="#">Inbox</a></li>
             <li class="divider"></li>
-              <li><%= link_to "Terminar Sessão",destroy_user_session_path, method: :delete %></li>
-            </ul>
-            </li>
+            <li><%= link_to "Terminar Sessão",destroy_user_session_path, method: :delete %></li>
+
+          </ul>
+        </li>
          
 
-        <% else %>
-          <li><%= link_to "Login".html_safe , new_user_session_path %></li>
-          <li><%= link_to "Registo", new_user_registration_path %></li>
-        <% end %>
+      <% else %>
+        <li><%= link_to "Login".html_safe , new_user_session_path %></li>
+        <li><%= link_to "Registo", new_user_registration_path %></li>
+      <% end %>
+      <!--END USER-->
 
     </ul>
 

@@ -112,7 +112,10 @@ class User < ActiveRecord::Base
       true
     end
   end
-
+  
+  def all_talks
+    Talk.all_talks(id)
+  end
 
   def age
     now = Time.now.utc.to_date
