@@ -44,14 +44,12 @@
           <%= form_for @message, :url => ad_new_messages_path(@ad.id),:html => {:id => "comment_ad",:ajax_path => ad_new_messages_path(@ad.id) } do |m| %>
             
             <div class="field">
-              <%= m.text_area :text,:id => "text_comment",:rows=>1,:class=> "form-control counted" ,:placeholder => "Responder"%>
+              <%= m.text_field :text,:id => "text_comment",:rows=>1,:class=> "form-control counted" ,:placeholder => "Responder"%>
               <h6 class="pull-right" id="counter">144 characters remaining</h6>
             </div>
-            
-            <div class="field" hidden="true">
-              <%= m.label :user_id %><br>
-              <%= m.text_field :user_id, :value => t.user_receiver(current_user.id),:readonly => true %>
-            </div>
+
+            <%= m.hidden_field :user_id, :value => t.user_receiver(current_user.id),:readonly => true %>
+
             <%= m.submit "Enviar" %>
           <% end %>
         </div>
