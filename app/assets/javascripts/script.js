@@ -114,8 +114,6 @@ ready = function() {
   });
 
 
-
-
    /*
    * Progress Bar Form
    */
