@@ -37,6 +37,12 @@ class Talk < ActiveRecord::Base
     where("((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) and ad_id = ?", current_user.id, ad.user_id, ad.user_id, current_user.id, ad.id).first
   end
 
+  #get all talks of ads from the current_user
+  def self.all_talk_ad( current_user , ad)
+    where("(user_one = ? or user_two = ?) and ad_id = ?", current_user.id, current_user.id, ad.id)
+  end
+
+
   # verifica para quem vai mandar a mensagem
   # verifica quem é o receiver
   def user_receiver( current_user )
@@ -46,7 +52,7 @@ class Talk < ActiveRecord::Base
       return self.user_one
     end
   end
-
+  
 
   
   private

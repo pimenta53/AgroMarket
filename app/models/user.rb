@@ -132,14 +132,27 @@ class User < ActiveRecord::Base
     self.ads.where("expire_date < ?", Date.today)
   end
 
+  #######################
+  ### STATISTIC ZONE ####
+  #######################
 
+  #users last month
+  def self.last_month
+    find(:all, :conditions =>["created_at > ?", 1.month.ago])
+  end
+
+  def self.last_week
+    find(:all, :conditions =>["created_at > ?", 1.week.ago])
+  end
+
+  
   # private methods
   private
-  def imperative_follow(target)
-    link = UserFollow.create
-    link.user = self
-    link.following = target
-    link.save
-  end
+    def imperative_follow(target)
+      link = UserFollow.create
+      link.user = self
+      link.following = target
+      link.save
+    end
 
 end

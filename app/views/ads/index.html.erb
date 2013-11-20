@@ -1,22 +1,12 @@
 <legend> Anúncios </legend>
-<!-- Filtro de categorias JQUERY -->
-<div class="btn-group">
-  <ul class="filter option-set" data-filter-group="category">
-        <a class="btn btn-default" data-filter-value="">Todos</a>
-    <% @categories.each do |category| %>
-          <a class="btn btn-default" data-filter-value=".<%= category.name %>" >
-        <%= category.name %>
-      </a>
-    <% end %>
-  </ul>
-</div>
+
 
 <!-- Listagem de anúncios -->
 <div class="container" id="things">
   <div class="row">
     <ul class="thumbnails">
       <% @ads.each do |ad| %>
-        <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
+        <li class="col-sm-3 col-md-3 thing">
           <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
             <span class='price' ><%= ad.price %>€</span>
             <div style="padding:4px" >

@@ -23,14 +23,14 @@ City.create :city => "Leiria"
 City.create :city => "Lisboa"
 City.create :city => "Portalegre"
 City.create :city => "Porto"
-City.create :city => "Santerem"
+City.create :city => "Santarem"
 City.create :city => "Viana do Castelo"
 City.create :city => "Vila Real"
 City.create :city => "Viseu"
 
 Category.delete_all
 Category.create(name: "Agricultura", description: "Produtos Agricolas", color: "009400")
-Category.create(name: "ProdutosBiologicos", description: "Produtos BIO", color: "30cf4b")
+Category.create(name: "ProdutosBio", description: "Produtos BIO", color: "30cf4b")
 Category.create(name: "Plantas", description: "Plantas", color: "ffff00")
 
 PriceType.delete_all

@@ -40,11 +40,7 @@ No messages in your Inbox
                       <div class="row">
                         
                         <div class="col-xs-6 col-sm-6 col-md-6">
-                            <button type="button" class="btn btn-labeled btn-success">
-                            	<%= link_to "<i class='fa fa-plus'></i>Ver Conversa".html_safe  ,  message_path(talk) %>
-                              
-                            </button>
-                           
+                                                       
                         </div>
                     </div>
                 </div>
@@ -54,4 +50,92 @@ No messages in your Inbox
     </div>
 </div>
 <% end %>
-           
+
+
+
+<div class="container">
+    <div class="row">
+        <% @talks.each do |talk| %>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="fa fa-comment"></span> Chat
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                            <span class="fa fa-chevron-down"></span>
+                        </button>
+                        <ul class="dropdown-menu slidedown">
+                            <li><a href="http://www.jquery2dotnet.com"><span class="fa fa-refresh">
+                            </span>Refresh</a></li>
+                            <li><a href="http://www.jquery2dotnet.com"><span class="fa fa-ok-sign">
+                            </span>Available</a></li>
+                            <li><a href="http://www.jquery2dotnet.com"><span class="fa fa-remove">
+                            </span>Busy</a></li>
+                            <li><a href="http://www.jquery2dotnet.com"><span class="fa fa-time"></span>
+                                Away</a></li>
+                            <li class="divider"></li>
+                            <li><a href="http://www.jquery2dotnet.com"><span class="fa fa-off"></span>
+                                Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-bodyMessage">
+                     <ul class="chat">
+                    <% talk.latest_messages.each do |message| %>
+
+                            <li class="left clearfix"><span class="chat-img pull-left">
+                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+
+                                </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+                                        <span class="fa fa-time"></span><%= message.created_at %></small>
+                                </div>
+                                <p>
+                                  <%= message.text %>
+                                    
+                                </p>
+                            </div>
+                        </li>
+
+                                 <p>
+                                    <small>
+                                    Enviado por:
+                                      <%= message.user_sender %> - 
+                                      <%= message.user.name %>
+                                    As:
+                                      
+                                    </small>
+                                  </p>
+                                  
+                                  <%= message.talk_id %>
+                                  <p hidden="true">
+                                    <strong>is_read:</strong>
+                                    <%= message.is_read %>
+                                  </p>
+                              
+
+                        <% end %>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                                Send</button>
+
+                        </span>
+
+                    </div>
+                      <button type="button" class="btn btn-labeled btn-success">
+                                <%= link_to "<i class='fa fa-plus'></i>Ver Conversa".html_safe  ,  message_path(talk) %>
+                              
+                            </button>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>  

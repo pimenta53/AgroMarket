@@ -5,8 +5,9 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
-    @ads = Ad.all
+    @ads = Ad.search(params[:search])
     @categories = Category.all
+    @cities = City.all
     #render :layout => "admin"
   end
 
@@ -17,7 +18,8 @@ class AdsController < ApplicationController
     @ad.increment_page_view
 
     @message = Message.new
-    #@messageToView = Message.get_messages( @ad.messages.where("(receiver_id = ? OR sender_id = ? ) and is_close = 0",current_user.id,current_user.id) , @ad.user_id ) if user_signed_in?
+    @talk = Talk.all_talk_ad(current_user , @ad)
+    
   end
 
   # GET /ads/new
@@ -107,6 +109,7 @@ class AdsController < ApplicationController
 
     redirect_to @ad,notice: 'A mensagem foi terminada com sucesso' 
   end
+
 
 private
     # Use callbacks to share common setup or constraints between actions.

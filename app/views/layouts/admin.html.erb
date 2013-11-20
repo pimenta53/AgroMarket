@@ -34,9 +34,9 @@
 
 
             <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-legal"></i>Anúncios</a>
-            <ul id="legal-menu" class="nav nav-list collapse in">
+            <ul id="legal-menu" class="nav nav-list collapse">
                 <li> 
-                 <%= link_to "<i class='fa fa-plus'></i>Anuncios".html_safe  , admin_ads_path %>
+                 <%= link_to "<i class='fa fa-eye'></i>Anuncios".html_safe  , admin_ads_path %>
                 </li>
                 <li> 
                  <%= link_to "<i class='fa fa-plus'></i>Novo Anuncio".html_safe  , new_admin_ad_path %>
@@ -45,12 +45,12 @@
 
 
             <a href="#Categorias-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-dashboard"></i>Categorias</a>
-            <ul id="Categorias-menu" class="nav nav-list collapse in">
+            <ul id="Categorias-menu" class="nav nav-list collapse">
                 <li> 
-                 <%= link_to "<i class='fa fa-user'></i>Categorias".html_safe  , admin_categories_path %>
+                 <%= link_to "<i class='fa fa-eye'></i> Categorias".html_safe  , admin_categories_path %>
                 </li>
                 <li> 
-                 <%= link_to "<i class='fa fa-plus'></i>Nova Categorias".html_safe  , new_admin_category_path %>
+                 <%= link_to "<i class='fa fa-plus'></i> Nova Categorias".html_safe  , new_admin_category_path %>
                 </li>
                 
                 
@@ -59,13 +59,37 @@
             <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-briefcase"></i>Cidades<span class="label label-info">+3</span></a>
             <ul id="accounts-menu" class="nav nav-list collapse">
                 <li> 
-                 <%= link_to "<i class='fa fa-comment'></i>Cidades".html_safe  , admin_cities_path %>
+                 <%= link_to "<i class='fa fa-eye'></i> Cidades".html_safe  , admin_cities_path %>
                 </li>
                 <li> 
-                 <%= link_to "<i class='fa fa-plus'></i>Nova Cidade".html_safe  , new_admin_city_path %>
+                 <%= link_to "<i class='fa fa-plus'></i> Nova Cidade".html_safe  , new_admin_city_path %>
                 </li>
             </ul>
 
+
+            <a href="#users-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-eur"></i>Tipos de Preço</a>
+            <ul id="users-menu" class="nav nav-list collapse">
+                <li> 
+                 <%= link_to "<i class='fa fa-eye'></i> Tipos de Preço".html_safe  , admin_price_types_path %>
+                </li>
+                <li> 
+                 <%= link_to "<i class='fa fa-plus'></i> Novo Tipo de Preço".html_safe  , new_admin_price_type_path %>
+                </li>
+            </ul>
+
+
+
+            <a href="#price_types-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-male"></i>Utilizadores</a>
+            <ul id="price_types-menu" class="nav nav-list collapse">
+                <li> 
+                 <%= link_to "<i class='fa fa-eye'></i> Utilizadores".html_safe  , admin_users_path %>
+                </li>
+                <li> 
+                 <%= link_to "<i class='fa fa-plus'></i> Novo Utilizador".html_safe  , new_admin_user_path %>
+                </li>
+            </ul>
+
+            <hr>
 
         
 
