@@ -32,6 +32,8 @@ Agrosocial::Application.routes.draw do
 
   get 'done_message', to: 'ads#done_message', as: :done_message
 
+  get 'cancel_message', to: 'ads#cancel_message', as: :cancel_message
+  
   get "refresh_header" => "application#refresh_header"
   
   get "welcome/index"

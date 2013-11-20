@@ -113,6 +113,12 @@ class AdsController < ApplicationController
     redirect_to @ad,notice: 'A mensagem foi terminada com sucesso' 
   end
 
+  def cancel_message
+    @ad = Ad.find(params[:id_ad])
+    Talk.where("ad_id = ? and ((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?))", @ad.id, @ad.user_id, params[:user_id], params[:user_id], @ad.user_id).update_all(:is_close => 1)
+    redirect_to @ad, notice: 'A mensagem foi eliminada com sucesso' 
+  end
+
 
 private
     # Use callbacks to share common setup or constraints between actions.
