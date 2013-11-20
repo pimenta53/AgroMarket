@@ -1,6 +1,7 @@
 <ol class="breadcrumb">
               <li ><a href="<%= ads_path %>"><i class="fa fa-dashboard"></i> Ads</a></li>
               <li class="active"><i class="fa fa-bar-chart"></i><%= @ad.title %></li>
+              ISTO É PARA SAIR DAQUI (VAI SER UTILIZADO NA PARTE DE ACADEMIA)
 </ol>
 
 <p id="notice"><%= notice %></p>
@@ -140,6 +141,7 @@
             <%= @ad.location %>
           </td>
         </tr>
+        <%#  if there is no logged user dont show the message form  %>
         <% if user_signed_in? %>
         <tr>
           <!-- Messages -->
@@ -148,7 +150,6 @@
             <div id="messages">
             <%= render "messages" %>
             </div>
-            <%#= render "messages/form" %>
           </td>
         </tr>
         <% end %>
@@ -162,4 +163,5 @@
 <% if user_signed_in? && current_user.id == @ad.user_id %>
 <%= link_to 'Edit', edit_ad_path(@ad) %> |
 <% end %>
-<%= link_to 'Back', users_myads_path %>
+
+<%= link_to 'Back', ads_path %>
