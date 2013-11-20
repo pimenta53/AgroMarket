@@ -10,7 +10,6 @@
 
 #header-bar{
   width:250px;
-
 }
 
 
@@ -18,7 +17,6 @@
   position:fixed;
   top:0;
   right:0;
-
 }
 
 
@@ -26,7 +24,6 @@
   background-color: #00A75D;
   width:100%;
   position:fixed;
-  /*top:0;*/
   right:0;
   z-index:-1;
 }
@@ -76,16 +73,22 @@
   margin-left: 0%;
 }
 
-.fa-user, .fa-envelope-o, .fa-bell-o{
+.fa-user, .fa-envelope-o, .fa-globe, .fa-book, .fa-bell-o, .fa-tags, .fa-folder-open-o, .fa-search{
   color: #fff;
-  /*vertical-align: center;*/
   font-size: 22px;
+
+}
+.dropdown-toggle{
+  margin-left: -5px;
+  margin-right: -5px;
+
+
 }
 
 
-#custom-badge{
-  margin-left:-10px;
 
+#custom-badge{
+  margin-left:-2px;
 }
 
 
