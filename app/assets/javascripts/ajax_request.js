@@ -33,15 +33,21 @@ ready = function() {
 
 
 
-      function refresh(){
-          //alert( status_id.serialize() );
-          //alert($("#users_search").attr("action"));
-          //alert("sd")
-          $.get("/refresh_header", "", null, "script");
-          //alert("dsdsd")
-        }
+      function refresh_header(){
+        $.ajax({
+          url: "/refresh_header", 
+          type: "GET",
+          success: function(result){    
+            $("#header").html(result);
+          },
+          error: function(){
+              console.log('Error occured');
+          }
+        });
 
-        setInterval(refresh, 10000);
+      }
+
+      setInterval(refresh_header, 100000);
         
 
       
