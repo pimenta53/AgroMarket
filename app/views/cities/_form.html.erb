@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :country_id %><br>
-    <%= f.number_field :country_id %>
+      <%= f.collection_select(:country_id,@country,:id,:name, :include_blank => 'Escolha uma opção') %>
   </div>
   <div class="actions">
     <%= f.submit %>
