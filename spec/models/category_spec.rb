@@ -19,8 +19,9 @@ describe '#destroy' do
 
 
   context 'when category has ads' do
-  	it "should not destroy" do
-     expect { delete :destroy, :id => @category.id }.should_not change(Category, :count)
+    
+  	 it "should not destroy" do
+      expect { delete :destroy, :id => @category.id }.should_not change(Category, :count)
     end
 
   end
