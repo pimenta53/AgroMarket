@@ -1,5 +1,5 @@
 Agrosocial::Application.routes.draw do
-  get "/users/myads" => "users#myads"
+  get "/users/:id/myads" => "users#myads", as: "myads_user"
   post '/users/:id/follow' => 'users#follow'
 
   resources :ads do

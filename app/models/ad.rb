@@ -41,6 +41,7 @@ class Ad < ActiveRecord::Base
 	validates :type_price_id, presence: true
 	validates :city_id, presence: true
 
+   #validations with functions
 	validate :expire_date_cannot_be_in_the_past, :on => :create
 	validate :expire_date_cannot_exceed_limit
 
@@ -149,11 +150,13 @@ class Ad < ActiveRecord::Base
 			self.permanent_link = "#{self.title.parameterize}"
 		end
 
+      #erro se a expire_date for no passado
 		def expire_date_cannot_be_in_the_past
 			errors.add(:expire_date, "can't be in the past") if
 			!expire_date.blank? and expire_date < Date.today
 		end
 
+      #erro se expire_date exceder 7 dias a partir de hoje
 		def expire_date_cannot_exceed_limit
 			errors.add(:expire_date, "can't exceed one week from today") if
 			!expire_date.blank? and (expire_date.change({:hour => 0 , :min => 0 , :sec => 0 }) - 1.week) > Date.today

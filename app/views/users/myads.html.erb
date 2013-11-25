@@ -32,5 +32,7 @@
       </ul>
     </div>
   </div>
-  <%= link_to "Novo", new_ad_path %>
+  <% if @user.id == current_user.id %>
+    <%= link_to "Novo", new_ad_path %>
+  <% end %>
 </section>

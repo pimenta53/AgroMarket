@@ -1,5 +1,6 @@
 class Talk < ActiveRecord::Base
 
+  #uma Conversa pertence a dois utilizadores primarios
   belongs_to :user_1, :class_name => 'User',
                         :primary_key => 'id',
                         :foreign_key => 'user_one'
