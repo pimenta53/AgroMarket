@@ -111,7 +111,7 @@
             <% else %>
               <li class="dropdown-header">All active ads are in order</li>
             <% end %>
-            <li><a href="<%= users_myads_path %>"> Ver todos </a></li>
+            <li><a href="<%= myads_user_path(current_user.id) %>"> Ver todos </a></li>
 
           </ul>
         </li>
@@ -151,7 +151,7 @@
             <% else %>
               <li class="dropdown-header">All active ads are in order</li>
             <% end %>
-            <li><a href="<%= users_myads_path %>"> Ver todos </a></li>
+            <li><a href="<%= myads_user_path(current_user.id) %>"> Ver todos </a></li>
 
           </ul>
         </li>

@@ -1,16 +1,17 @@
 class UsersController < ApplicationController
   
-  before_action :set_user, only: [:show, :follow]
+  before_action :set_user, only: [:show, :follow, :myads]
 
   def index
   	@user = User.all
     
   end
   
-  # GET /users/myads
-  # GET /users/myads.json
+  #pagina sobre ads do user
+  # GET /users/1/myads
+  # GET /users/1/myads.json
   def myads
-    @ads = current_user.ads
+    @ads = @user.ads
     @categories = Category.all
   end
 
