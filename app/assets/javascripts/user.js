@@ -3,7 +3,7 @@
 $(function() {
 
 
-    alert('dino');
+  
 
             
             var panels = $('.user-infos');
