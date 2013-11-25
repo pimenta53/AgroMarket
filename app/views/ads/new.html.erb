@@ -14,12 +14,39 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-        $(function() {
 
-            
+<script>
+    $(function() {
+        var addresspicker = $( "#addresspicker" ).addresspicker();
+        var addresspickerMap = $( "#addresspicker_map" ).addresspicker(
+        {
+            regionBias: "de",
+            map:      "#map_canvas",
+            typeaheaddelay: 1000,
+            mapOptions: {
+                zoom:16,
+                center: new google.maps.LatLng(52.5122, 13.4194)
+            }
+
         });
 
+        addresspickerMap.on("addressChanged", function(evt, address) {
+           alert(address.geometry.location.lat() +"," + address.geometry.location.lng())
+           console.dir(address);
+        });
+        addresspickerMap.on("positionChanged", function(evt, markerPosition) {
+            markerPosition.getAddress( function(address) {
+                if (address) {
+                    $( "#addresspicker_map").val(address.formatted_address);
+                }
+            })
+        });
+    });
 </script>
+
+
+
+
+
 
 <%= link_to 'Back', users_myads_path %>
