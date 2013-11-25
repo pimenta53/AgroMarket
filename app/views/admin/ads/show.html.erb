@@ -68,13 +68,6 @@
   <%= image_tag i.image(:small) %>
 <% end %>
 
-<legend> Messages </legend>
-<div id="messages">
-  <%= render "messages" %>
-</div>
 
-<%= render "messages/form" %>
-
-
-<%= link_to 'Edit', edit_ad_path(@ad) %> |
+<%= link_to 'Edit', edit_admin_ad_path(@ad) %> |
 <%= link_to 'Back', admin_ads_path %>

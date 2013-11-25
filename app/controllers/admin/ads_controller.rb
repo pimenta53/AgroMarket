@@ -11,8 +11,14 @@ class Admin::AdsController < Admin::ApplicationController
   # GET /ads/1
   # GET /ads/1.json
   def show
-    @message = Message.new
-    @messageToView = Message.get_messages( @ad.messages.where("(receiver_id = ? OR sender_id = ? ) and is_close = 0",current_user.id,current_user.id) , @ad.user_id )
+    #@message = Message.new
+    #@messageToView = Message.get_messages( @ad.messages.where("(receiver_id = ? OR sender_id = ? ) and is_close = 0",current_user.id,current_user.id) , @ad.user_id )
+    @ad.increment_page_view
+
+    if user_signed_in?
+      @message = Message.new
+      @talk = Talk.all_talk_ad(current_user , @ad)
+    end
   end
 
   # GET /ads/new
@@ -25,9 +31,7 @@ class Admin::AdsController < Admin::ApplicationController
   def edit
   	 $i = @ad.ad_images.count
      
-  	 while $i < 5 do
-    	@ad.ad_images.build
-     end
+     (5 - $i).times{@ad.ad_images.build}
   end
 
   # POST /ads
@@ -86,7 +90,7 @@ class Admin::AdsController < Admin::ApplicationController
 private
     # Use callbacks to share common setup or constraints between actions.
     def set_ad
-      @ad = Ad.includes([:messages]).find(params[:id])
+      @ad = Ad.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

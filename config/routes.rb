@@ -3,7 +3,6 @@ Agrosocial::Application.routes.draw do
   post '/users/:id/follow' => 'users#follow'
 
   resources :ads do
-
     post "new_messages" => "messages#create"
   end
  
@@ -17,12 +16,15 @@ Agrosocial::Application.routes.draw do
   ### ADMIN ZONE ###
   namespace :admin do
     resources :price_types
-    resources :types 
+    resources :types
     resources :categories
     resources :cities
     resources :dashboard
     resources :ads
     resources :users
+    
+    get 'cancel_message', to: 'ads#cancel_message', as: :cancel_message
+    get 'done_message',   to: 'ads#done_message',   as: :done_message
   end
 
   resources :ratings
