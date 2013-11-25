@@ -50,8 +50,11 @@ class User < ActiveRecord::Base
   has_many :user_follows
   has_many :follows_user , :class_name => 'UserFollow',
                            :foreign_key => 'following_id'
+                           
+  #permite buscar os utilizadores que 'self' está a seguir
   has_many :following, through: :user_follows , :class_name => 'User',
                                                 :foreign_key => 'user_id'
+  #permite buscar os utilizadores a seguirem 'self'
   has_many :followers, through: :follows_user , :class_name => 'User',
                                                 :source => 'user',
                                                 :foreign_key => 'following_id' 
