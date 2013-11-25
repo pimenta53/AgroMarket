@@ -1,3 +1,33 @@
 // Place all the styles related to the ads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ADS SHOW */
+.navy{
+	background: #00A75D;
+	border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-bottom: none;
+}
+
+.panel-heading {
+border-color: #eff2f7;
+font-size: 16px;
+font-weight: 300;
+}
+
+.panel-heading .nav {
+border: medium none;
+font-size: 13px;
+margin: -10px -15px -11px;
+}
+
+.panel-heading .nav > li > a {
+	color: #fff;
+}
+
+
+.panel-heading .nav > li > a, .panel-heading .nav > li.active > a, .panel-heading .nav > li.active > a:hover, .panel-heading .nav > li.active > a:focus {
+	border-width: 0;
+	border-radius: 0;
+}
