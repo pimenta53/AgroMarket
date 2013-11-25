@@ -1,5 +1,7 @@
 class SessionsController < Devise::SessionsController
-	    layout "sessions"
+
+	layout "sessions"
+
 
 	def new
 		super
@@ -8,4 +10,6 @@ class SessionsController < Devise::SessionsController
 	def create
 	  super
 	end
+
+
 end

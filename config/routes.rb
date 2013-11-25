@@ -11,7 +11,10 @@ Agrosocial::Application.routes.draw do
   
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}
 
-  resources :users 
+
+  resources :users, :login
+
+
 
 
   ### ADMIN ZONE ###
