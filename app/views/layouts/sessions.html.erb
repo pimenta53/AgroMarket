@@ -2,10 +2,11 @@
 <html>
 <head>
   <title>Agrosocial</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", media: "all","data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag  "application", media: "all", "data-turbolinks-track" => true %>
+  
 
   <%= stylesheet_link_tag "bootstrap","sessions","data-turbolinks-track" => true %>
+  <%= javascript_include_tag  "jquery","jquery_ujs","turbolinks","session","data-turbolinks-track" => true %>
 
   <link rel="shortcut icon" href="">
   <!--Google Fonts -->
@@ -17,10 +18,12 @@
 
 <body>
      
+     <%= render "devise/sessions/header"%>
+
   <!-- Keep all page content within the page-content inset div! -->
   <div id="login_body"  data-slide="1" class="bgParallax slide teste" data-speed="15">
 
-      <div class="row_login_form ">
+      <div class="row_login_form">
 
         <div class="col-md-6 login-col-slogan">
 
@@ -28,155 +31,14 @@
               <h4 class= " text-center login-slogan">A SEMENTE DO SEU NEGÓCIO</h4>
               
         </div>
-          <%= yield %>
+        <%= yield =%>
       </div>
-      <div class="next_section_button" id="next" data-slide="2" style="margin-bottom: 0px;"> </div>
-      <div class="prev_section_button" id="prev" data-slide="2" style="margin-bottom: 0px;"> </div>
+     
   </div>
 
 
 
-  <div id="login_body_information" data-slide="2" class="bgParallax slide teste" data-speed="10">
-  </div>
-
-  <div id="login_section_information" data-slide="2" class="bgParallax slide teste" data-speed="10">
-        <section id="section-information" data-auto-size="0.6" >
-
-        </section>
-  </div>
   
-  <div id="login_body_show" data-slide="2" class="bgParallax slide teste" data-speed="10">
-  
-  </div>
-
-  <div id="login_section_video" data-slide="2" class="bgParallax slide teste" data-speed="10">
-
-      <div id="section-video" data-auto-size="0.6" >
-            <div id="top" class="header scroller">
-                  <div class="vert-text">
-                      <h1>AgroSocial</h1>
-                      <br>
-                      <h2>A semente do seu negócio</h2>
-
-                      <!--<a href="#services" class="btn btn-flat-white btn-bordered btn-lg up">Mais informações</a>-->
-                      <ul class="list-inline">
-                        <li><a href="https://www.facebook.com/386752774760741" target="_blank"><div id="facebook"></div></a></li>
-                        <li><a href="https://plus.google.com" target="_blank"><div id="gplus"></div></a></li>
-                        <li><a href="https://twitter.com/agro_social" target="_blank"><div id="twitter"></div></a></li>
-                        <li><a href="https://agrosocial.pt" target="_blank"><div id="contact"></div></a></li>
-                      </ul>
-                      <div id="copyright">Agrosocial&copy 2013</div>
-                      <p></p>
-                      <a href="#" class="btn-load-video" data-video="//www.youtube.com/embed/tKChV_aBLcc?autoplay=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;iv_load_policy=3&amp;wmode=opaque&amp;html5=1&amp;enablejsapi=1&amp;origin=http%3A%2F%2Fwww.google.com"  >
-                      Click Aqui 
-                      </a>
-                     
-
-                  </div>
-                 
-            </div>
-
-          <div class="tube">
-
-                  <div class="close">
-
-                  </div>
-
-          </div>
-     </div>
-</div>
-
-<div id="login_body_pocket" class="bgParallax teste" data-speed="15">
-</div>
-
-<div id="login_section_pocket" class="" data-speed="10">
-   <section id="section-pocket" data-auto-size="0.6" >
-
-            
-                <div class="container">
-                        <div class="row col-md-6 section_text">
-                            <div class="col-md-6 col-md-offset-3 text-center">
-                              <h2>Agricultura, Pecuária, Pesca e Caça numa plataforma.</h2>
-                              <br>
-                              <p class="lead">Negocie, encontre emprego ou mão de obra, partilhe o seu conhecimento e as suas ideias...</p>
-                            </div>
-                        </div>
-
-                        <div  class="carrosel col-md-6 section_carrousel">
-                            <div id="carousel" class="carousel slide">
-                              <ol class="carousel-indicators">
-                                <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel" data-slide-to="1"></li>
-                                <li data-target="#carousel" data-slide-to="2"></li>
-                              </ol>
-                              
-                                <div class="frame">
-                                    <div class="carousel-inner">
-                                      <div class="active item">
-                                        <img src="/assets/farm_wallpaper2.png"> 
-                                      </div>
-                                      <div class="item">
-                                        <img src="/assets/farm_wallpaper2.png">
-                                      </div>
-                                      <div class="item">
-                                        <img src="/assets/farm_wallpaper2.png">
-                                      </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-               </div>
-            
-      </section>
-  </div>
-
-
-  <div id="login_body_regist" class="bgParallax teste" data-speed="10">
-  </div>
-
-<div id="login_section_regist" class="" data-speed="10">
-
-    <section id="section-regist" data-auto-size="0.6" >
-
-             <div class="row allpocket">
-                      <div class="pricing-table ">
-                          <div class="pocket_bronze plan col-xs-6 col-md-6 ">
-                            <div class="plan-name-bronze ">
-                              <h2>Bronze</h2>
-                              <span>$8.99 / Month</span>
-                            </div>
-                            <ul>
-                              <li class="plan-feature">10 Users</li>
-                              <li class="plan-feature">5TB Disk Space</li>
-                              <li class="plan-feature"><a href="#" class="btn btn-primary btn-plan-select"><i class="icon-white icon-ok"></i> Select</a></li>
-                            </ul>
-                          </div>
-                          <div class="pocket_silver plan col-xs-6 col-md-6 ">
-                            <div class="plan-name-silver">
-                              <h2>Silver <span class="badge badge-warning">Popular</span></h2>
-                              <span><strike>$10.99</strike>   <font color="red">$9.99 - <span class="label label-warning">Sale</span></font></span>
-                            </div>
-                            <ul>
-                              <li class="plan-feature">50 Users</li>
-                              <li class="plan-feature">10TB Disk Space</li>
-                              <li class="plan-feature"><a href="#" class="btn btn-primary btn-plan-select"><i class="icon-white icon-ok"></i> Select</a></li>
-                            </ul>
-                          </div>
-                          <div class="pocket_gold plan col-xs-6 col-md-6 ">
-                            <div class="plan-name-gold">
-                              <h2>Gold</h2>
-                              <span>$15.99 / Month</span>
-                            </div>
-                            <ul>
-                              <li class="plan-feature">Unlimited Users</li>
-                              <li class="plan-feature">Unlimited Space</li>
-                              <li class="plan-feature"><a href="#" class="btn btn-primary btn-plan-select"><i class="icon-white icon-ok"></i> Select</a></li>
-                            </ul>
-                          </div>
-                      </div>
-              </div>    
-      </section>
-</div>
 
 </body>
 </html>

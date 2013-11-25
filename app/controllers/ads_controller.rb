@@ -110,6 +110,10 @@ class AdsController < ApplicationController
     redirect_to @ad,notice: 'A mensagem foi terminada com sucesso' 
   end
 
+  def home
+    
+  end
+
 
 private
     # Use callbacks to share common setup or constraints between actions.
