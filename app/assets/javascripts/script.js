@@ -1,15 +1,15 @@
-var ready;
-ready = function() {
+$(function() {
   //select inputs
   $("select").select2();
 
-  //
-  $("#name_sign_up").blur(function() {
+
+    $("#name_sign_up").blur(function() {
        //alert($(this).val());
        $("#name_extra").html("Olá "+ $(this).val() +"!! Bem vindo!!");
    });
 
-   $(".counted").charCounter(144,{container: "#counter"});
+  //
+  $(".counted").charCounter(144,{container: "#counter"});
 
    $(".pick-a-color").pickAColor();
 
@@ -113,12 +113,19 @@ ready = function() {
     $('#rating_rate').val(value);
   });
 
+<<<<<<< HEAD
+  //prettycheckable
+  //for customized checkbox
+ 
+=======
+>>>>>>> a0c0ff03929615e21bb8ba1fe140941114edc4e6
 
    /*
    * Progress Bar Form
    */
    var total_percent = 0;
-   $("input").on('blur',function () {
+   $("input").on('blur',function () 
+   {
 
           var value = $(this).val();
 
@@ -132,18 +139,18 @@ ready = function() {
             $(".progress-bar").css("width", + total_percent +"%");
           }
               
+<<<<<<< HEAD
+    })
+=======
       });
+>>>>>>> a0c0ff03929615e21bb8ba1fe140941114edc4e6
 
 
 
 
+});
 
-};
 
-//em rails 4 so funciona assim
-// por causa do turboLink
-$(document).ready(ready);
-$(document).on('page:load', ready);
 
 
 

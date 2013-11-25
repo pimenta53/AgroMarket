@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @ad %> |
-<%= link_to 'Back', users_myads_path %>
+<%= link_to 'Back', myads_user_path(current_user.id) %>

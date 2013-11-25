@@ -11,6 +11,20 @@ function scrollToPosition(id) {
 
  $(function() {
 
+  var $obj = $(this);
+ 
+  $(window).scroll(function() {
+
+    var yPos = -($(window).scrollTop() / $obj.data('speed')); 
+ 
+    var bgpos = '50% '+ yPos + 'px';
+ 
+    $obj.css('background-position', bgpos );
+ 
+  }); 
+
+  
+
    //Create an Array of posts
    var posts = $('.teste');
     var position = 1; //Start Position
@@ -62,6 +76,48 @@ var close_button = $('.close').hide();
    
        $('.btn-load-video').show();
       });
+
+
+
+
+
+  $(".frame").fancybox({
+
+      tpl: {
+        closeBtn: '<a title="Close" class="fancybox-item fancybox-close myClose" href="javascript:;"></a>'
+      },
+      maxWidth  : 800,
+      maxHeight : 600,
+      fitToView : false,
+      width   : '70%',
+      height    : '70%',
+      autoSize  : false,
+      closeClick  : false,
+      openEffect  : 'none',
+      closeEffect : 'none',
+      padding: 0,
+      modal: false,
+      helpers:{
+        overlay:{
+          locked:false
+        }
+      }
+    });
+
+    $('a[href*=#]:not([href=#])').click(function() {
+      
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+        || location.hostname == this.hostname) {
+        var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
   
  });
 

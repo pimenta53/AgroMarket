@@ -80,6 +80,9 @@ class User < ActiveRecord::Base
 
   #instance methods
    
+   
+  #fica a seguir 'target'
+  #target.class = user
   def follow(target)
     link = self.user_follows.where("following_id = ?",target.id).first
     if link == nil
@@ -88,6 +91,8 @@ class User < ActiveRecord::Base
     true
   end
    
+  #pára de seguir 'target'
+  #target.class = user
   def unfollow(target)
     link = self.user_follows.where("following_id = ?",target.id).first
     if link != nil
@@ -96,6 +101,8 @@ class User < ActiveRecord::Base
     false
   end
   
+  #muda o estado de follow com o 'target', para de seguir se estiver a seguir ou o contrário
+  #target.class = user
   def toggle_follow(target)
     link = self.user_follows.where("following_id = ?",target.id).first
     if link != nil
@@ -107,6 +114,8 @@ class User < ActiveRecord::Base
     end
   end
   
+  #se o utilizador está a seguir 'target'
+  #target.class = user
   def is_following(target)
     link = self.user_follows.where("following_id = ?",target.id).first
     if link == nil
@@ -116,15 +125,18 @@ class User < ActiveRecord::Base
     end
   end
   
+  #todos conversas do utilizador
   def all_talks
     Talk.all_talks(id)
   end
 
+  #idade do utilizador
   def age
     now = Time.now.utc.to_date
     now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
   end
   
+  #a data do nascimento não pode estar no futuro
   def birthday_cannot_be_in_the_future
     if (birthday != nil)
       errors.add(:birthday, " cannot be in the future") if 
@@ -132,8 +144,7 @@ class User < ActiveRecord::Base
     end
   end
 
-
-  
+  #busca todos os ads fora da validade do utilizador
   def expired_ads
     self.ads.where("expire_date < ?", Date.today)
   end

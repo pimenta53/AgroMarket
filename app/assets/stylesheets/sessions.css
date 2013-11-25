@@ -1,3 +1,12 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
 /********** Login_Signup **********/
 
 .form-control { margin-bottom: 10px; }
@@ -6,7 +15,7 @@
 /********** Login**********/
 
 #login_body{
-  background-image:url('/assets/background_login.jpg'); 
+  background-image:url('/assets/Backgrounds/farm_wallpaper4.jpg'); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -21,9 +30,15 @@
   min-height:100%;
 }
 
+.row_login_form {
 
-#login_body_information{
-   background-image:url('/assets/farm_wallpaper6.jpg'); 
+  right: 50%;
+
+}
+
+
+#login_body_image{
+  background-image:url('/assets/Backgrounds/farm_wallpaper7.jpg'); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -31,7 +46,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
- 
+
   height: 600px;
   width: auto;
   min-width: 100%;
@@ -117,6 +132,19 @@
 
 }
 
+.col-slogan{
+
+margin-top: 20%;
+margin-left: 25%;
+background-color: rgba(255,255,255,0.8);
+    -webkit-border-radius:10px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+}
+
 .login-col-form{
   /*
   height: 600px;
@@ -128,7 +156,13 @@
   left: 50%;*/
   margin-top: 10%;
 
+
   
+}
+
+.login_content{
+margin-top: 30%;
+
 }
 .login_form_regist_items a{
    color:#EA5B0C;
@@ -144,7 +178,7 @@
 .login-col-form_regist{
   
   
-  margin-top: 2%;
+  margin-top: 10%;
   width: auto;
   height: auto;
  
@@ -219,8 +253,8 @@
   min-height:100%;
 }
 
-#login_body_pocket{
-  background-image:url('/assets/farm_wallpaper13.jpg'); 
+#login_body_image2{
+  background-image:url('/assets/Backgrounds/farm_wallpaper13.jpg'); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -235,9 +269,62 @@
   min-height:100%;
 }
 
+#login_body_image3{
+
+  background-image:url('/assets/Backgrounds/farm_wallpaper6.jpg'); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  
+  height: 600px;
+  width: auto;
+  min-width: 100%;
+  min-height:100%;
+}
+
+#login_body_image4{
+
+  background-image:url('/assets/Backgrounds/farm_wallpaper11.jpg'); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  
+  height: 600px;
+  width: auto;
+  min-width: 100%;
+  min-height:100%;
+}
+
+
+#login_body_image5{
+
+  background-image:url('/assets/Backgrounds/farm_wallpaper5.jpg'); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  
+  height: 600px;
+  width: auto;
+  min-width: 100%;
+  min-height:100%;
+}
+
+
 #login_body_show{
   
-  background-image:url('/assets/farm_wallpaper2.png'); 
+  background-image:url('/assets/Backgrounds/farm_wallpaper2.png'); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -275,11 +362,10 @@
   right: 25px;
   bottom: 25px;
   background-image: url('/assets/btn_next_desktop.png');
-  width: 52px;
+ width: 52px;
   height: 52px;
   margin-left: -26px;
   z-index: 9999;
-
 }
 
 .prev_section_button{
@@ -318,14 +404,48 @@
 
 
 #section-information{
-  border: 2px solid black;
+  border: 2px solid red;
   background-color: #FFF;
   height: 372px;
 
 }
-#login_section_information{
+.login_section_information{
   width: auto;
-  height: auto;
+ 
+
+    background-color: rgba(218, 238, 250, 0.86);
+    -webkit-border-radius:10px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+  height: 250px;
+
+}
+
+.information
+{
+  
+  width: 600px;
+  
+
+  float: right;
+
+}
+
+.information h1{
+
+   color: #00A75D;
+   text-align: center;
+   font-size: 42pt;
+}
+
+.information p{
+
+   color: black;
+   font-family: times;
+   font-size: 15pt;
+
 }
 
 iframe:not([seamless]) {
@@ -350,12 +470,16 @@ height: 100%;
 
   width: auto;
   height: auto;
+  
 
 }
 #section-video{
-  border: 2px solid black;
-  background-color: #FFF;
-  height: 500px; 
+  background-color: rgba(218, 238, 250, 0.86);
+    -webkit-border-radius:10px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  height: 450px; 
   width: auto; 
   
 }
@@ -383,7 +507,7 @@ height: 100%;
 }
 
 .text-center {
-  margin-bottom: 35px;
+  margin-bottom: 15px;
 }
 
 .text-center ul, .text-center p {
@@ -475,8 +599,8 @@ height: 100%;
 
 #section-regist{
  
+
  
-  background-color: #FFF;
   height: auto; 
   width: auto; 
  float: center;
@@ -486,6 +610,11 @@ height: 100%;
  
   width: auto;
   height: auto;
+  background-color: rgba(218, 238, 250, 0.86);
+    -webkit-border-radius:10px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 
 }
 
@@ -622,11 +751,7 @@ padding-left: 5%;
   font-size: 18px;
 }
 
-#login_section_pocket{
- 
-  width: auto;
-  height: auto;
-}
+
 .section-pocket{
 
  
@@ -635,23 +760,20 @@ padding-left: 5%;
   width: auto; 
  
 }
-.section_text{
-  
-}
 
-.section_carrousel{
-  
-}
 
 /* Services */
 
 .services {
-  display: table;
-  height: 100%;
+  /*background: #7fbbda;*/
+ 
+
   width: 100%;
-  position: relative;
-  background: #7fbbda;
-  color: #ffffff;
+  height: 100%;
+  display: table;
+
+
+
 }
 
 .frame {
@@ -670,23 +792,33 @@ padding-left: 5%;
 }
 
 .service-item {
-  margin-bottom: 15px;
+
+
+  margin-top: 2%;
+  margin-left: 10%;
+  width: 800px;
+  
+ 
+  float: left;
 }
 
 i.service-icon {
-  border: 3px solid #ffffff;
+  border: 3px solid #EA5B0C;
   border-radius: 50%;
   display: inline-block;
   font-size: 56px;
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   line-height: 136px;
-  vertical-align: middle; 
+  vertical-align: middle;
   text-align: center;
+  color: #EA5B0C;
 }
 
 i.service-icon:hover {
   font-size: 68px;
+  color: #00A75D;
+  background-color: white;
 }
 
 i.twitter {
@@ -710,4 +842,12 @@ i.globe:hover {
   background-color: white;
   color: blue;
 }
-/*--------------------
+/*-------------------- */
+
+#rodape{
+  background-color: #FFF;
+  width: auto;
+  height: 100px;
+}
+
+
