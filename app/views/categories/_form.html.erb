@@ -1,4 +1,12 @@
-<%= form_for(@category) do |f| %>
+
+<script type="text/javascript">
+        $(function() {
+
+          alert("Coisa");   
+        });
+
+</script>
+<%= form_for(@category),:html => {:multipart => true,:id=>"new_category"} do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
@@ -11,9 +19,10 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name ,:class=>"form-control"%>
   </div>
 
   <div class="field">
@@ -24,7 +33,7 @@
   
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description ,:class=>"form-control"%>
   </div>
 
   <div class="actions">

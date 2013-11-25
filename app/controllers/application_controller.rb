@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+
   
+  def refresh_header
+    render :partial => 'layouts/header'
+  end
 
   protected
   	def configure_permitted_parameters

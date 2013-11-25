@@ -50,8 +50,11 @@ class User < ActiveRecord::Base
   has_many :user_follows
   has_many :follows_user , :class_name => 'UserFollow',
                            :foreign_key => 'following_id'
+                           
+  #permite buscar os utilizadores que 'self' está a seguir
   has_many :following, through: :user_follows , :class_name => 'User',
                                                 :foreign_key => 'user_id'
+  #permite buscar os utilizadores a seguirem 'self'
   has_many :followers, through: :follows_user , :class_name => 'User',
                                                 :source => 'user',
                                                 :foreign_key => 'following_id' 
@@ -112,7 +115,10 @@ class User < ActiveRecord::Base
       true
     end
   end
-
+  
+  def all_talks
+    Talk.all_talks(id)
+  end
 
   def age
     now = Time.now.utc.to_date
@@ -132,14 +138,27 @@ class User < ActiveRecord::Base
     self.ads.where("expire_date < ?", Date.today)
   end
 
+  #######################
+  ### STATISTIC ZONE ####
+  #######################
 
+  #users last month
+  def self.last_month
+    find(:all, :conditions =>["created_at > ?", 1.month.ago])
+  end
+
+  def self.last_week
+    find(:all, :conditions =>["created_at > ?", 1.week.ago])
+  end
+
+  
   # private methods
   private
-  def imperative_follow(target)
-    link = UserFollow.create
-    link.user = self
-    link.following = target
-    link.save
-  end
+    def imperative_follow(target)
+      link = UserFollow.create
+      link.user = self
+      link.following = target
+      link.save
+    end
 
 end

@@ -15,6 +15,7 @@ class CitiesController < ApplicationController
   # GET /cities/new
   def new
     @city = City.new
+    @country = Country.all
   end
 
   # GET /cities/1/edit

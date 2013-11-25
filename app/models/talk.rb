@@ -1,5 +1,6 @@
 class Talk < ActiveRecord::Base
 
+  #uma Conversa pertence a dois utilizadores primarios
   belongs_to :user_1, :class_name => 'User',
                         :primary_key => 'id',
                         :foreign_key => 'user_one'
@@ -37,9 +38,9 @@ class Talk < ActiveRecord::Base
     where("((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) and ad_id = ?", current_user.id, ad.user_id, ad.user_id, current_user.id, ad.id).first
   end
 
-  #get all talks of ads from the current_user
+  #get all unclosed talks of ads from the current_user
   def self.all_talk_ad( current_user , ad)
-    where("(user_one = ? or user_two = ?) and ad_id = ?", current_user.id, current_user.id, ad.id)
+    where("(user_one = ? or user_two = ?) and ad_id = ? and is_close != 1", current_user.id, current_user.id, ad.id)
   end
 
 
@@ -52,7 +53,7 @@ class Talk < ActiveRecord::Base
       return self.user_one
     end
   end
-
+  
 
   
   private
