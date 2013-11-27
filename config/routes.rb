@@ -1,4 +1,32 @@
 Agrosocial::Application.routes.draw do
+  namespace :academy do
+    resources :workshop_registrations
+  end
+
+  namespace :academy do
+    resources :workshops
+  end
+
+  namespace :academy do
+    resources :tutorial_images
+  end
+
+  namespace :academy do
+    resources :tutorials
+  end
+
+  namespace :academy do
+    resources :questions
+  end
+
+  namespace :academy do
+    resources :answers
+  end
+
+  namespace :academy do
+    resources :votes
+  end
+
   get "/users/:id/myads" => "users#myads", as: "myads_user"
   post '/users/:id/follow' => 'users#follow'
 

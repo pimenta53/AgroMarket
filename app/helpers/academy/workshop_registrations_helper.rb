@@ -1,0 +1,2 @@
+module Academy::WorkshopRegistrationsHelper
+end

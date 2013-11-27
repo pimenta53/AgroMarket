@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Workshop:</strong>
+  <%= @academy_workshop_registration.workshop_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @academy_workshop_registration.user_id %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @academy_workshop_registration.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_academy_workshop_registration_path(@academy_workshop_registration) %> |
+<%= link_to 'Back', academy_workshop_registrations_path %>
