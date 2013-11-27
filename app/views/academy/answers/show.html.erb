@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @academy_answer.question_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @academy_answer.user_id %>
+</p>
+
+<p>
+  <strong>Up:</strong>
+  <%= @academy_answer.up %>
+</p>
+
+<p>
+  <strong>Down:</strong>
+  <%= @academy_answer.down %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @academy_answer.is_deleted %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @academy_answer.image_url %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @academy_answer.text %>
+</p>
+
+<%= link_to 'Edit', edit_academy_answer_path(@academy_answer) %> |
+<%= link_to 'Back', academy_answers_path %>

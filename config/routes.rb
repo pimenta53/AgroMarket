@@ -1,4 +1,17 @@
 Agrosocial::Application.routes.draw do
+  
+  get "academy" => "academy#index"
+  ### ACADEMY ZONE ###
+  namespace :academy do
+    resources :questions
+    resources :votes
+    resources :answers
+    resources :workshops
+    resources :workshop_registrations
+    resources :tutorials
+    resources :tutorial_images
+  end
+
   get "/users/:id/myads" => "users#myads", as: "myads_user"
   post '/users/:id/follow' => 'users#follow'
 

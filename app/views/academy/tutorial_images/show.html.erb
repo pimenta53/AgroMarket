@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tutorial:</strong>
+  <%= @academy_tutorial_image.tutorial_id %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @academy_tutorial_image.url %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @academy_tutorial_image.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_academy_tutorial_image_path(@academy_tutorial_image) %> |
+<%= link_to 'Back', academy_tutorial_images_path %>
