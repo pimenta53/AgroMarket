@@ -1,7 +1,7 @@
 $(function() {
 
 
-  //Show add_images
+  //Show add_images in newAd
   $("#add").click(function() {
     $(".input:hidden:first").show();
 });

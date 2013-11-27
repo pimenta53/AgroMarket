@@ -83,7 +83,11 @@
             <% end %>
           <% end %>
 
+
           <div class="newPaperclipFiles">
+
+            <!--link para adicionar a primeira imagem, as outras estão com display:hide-->
+            <input class="input" id="ad_ad_images_attributes_1_image" name="ad[ad_images_attributes][1][image]" style="display: true" type="file">
 
                 <%= f.fields_for :ad_images do |asset| %>
                    <% if asset.object.new_record? %>
@@ -93,7 +97,8 @@
                <% end %>
           </div>
         
-        <input type='btn btn-lg btn-primary btn-block' value='Adicionar Imagem' id='add'>
+        <!--Link para adicionar mais imagens (show/hide JQuery)-->
+        <a id='add'><i class="fa fa-plus"></i> Adicionar outra</a>
 
           <div class="existingPaperclipFiles">
                   
