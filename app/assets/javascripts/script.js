@@ -11,22 +11,20 @@ $(function() {
   //
   $(".counted").charCounter(144,{container: "#counter"});
 
-   $(".pick-a-color").pickAColor();
-
-   
-   $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
-
-   $('.typeahead').typeahead({                               
-        name: "cities",                
-        local: ['couves', 'cenas', 'laranjas', 'coisass', 'anuncios', 'babes','boobs','big boobs','buceta']                                              
-   });
-    
+  $(".pick-a-color").pickAColor();
 
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-    $('.tt-query').css('background-color','#fff');                                  
+  $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
 
-    $("abbr.timeago").timeago();
+  $('.typeahead').typeahead({                               
+    name: "cities",                
+    local: ['couves', 'cenas', 'laranjas', 'coisass', 'anuncios', 'babes','boobs','big boobs','buceta']                                              
+  });
+
+
+  $('.tt-query').css('background-color','#fff');                                  
+
+  $("abbr.timeago").timeago();
 
   // Script do Isotope Example
   var things = $('#things');
@@ -38,6 +36,7 @@ $(function() {
   
   // when everything loads, make the "all" options selected
   $('.filter a[data-filter-value=""]').addClass('selected');
+
 
   // filter buttons
   $('.filter a').click(
@@ -72,9 +71,6 @@ $(function() {
       // run the filter on the isotope element
       things.isotope({ filter: selector });
     }
-    
-
-    
   );
 
   //PRETTYPHOTO
@@ -82,24 +78,24 @@ $(function() {
   
 
   $(".followToggle").click(function(){
-  	   $id=$(this).val();
-  	   if ($(this).text() == "follow"){
-  	     $(this).text("unfollow");
-  	   }
-  	   else{
-  	     $(this).text("follow");
-  	   }
-  	   //$.post("./"+$id+"/follow");
-  	   $.ajax({
+       $id=$(this).val();
+       if ($(this).text() == "follow"){
+         $(this).text("unfollow");
+       }
+       else{
+         $(this).text("follow");
+       }
+       //$.post("./"+$id+"/follow");
+       $.ajax({
           url: "./"+$id+"/follow",
           async: true,
           dataType: 'script',
           type: "POST",     
           beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
       });
-  	 }
+     }
   )
-  
+
   $(".starrr").starrr();
 
         
@@ -123,22 +119,20 @@ $(function() {
    $("input").on('blur',function () 
    {
 
-          var value = $(this).val();
+      var value = $(this).val();
 
-          if ( value !== ""){
-            var perc = $(this).attr("data-percentage");
-            total_percent += 10;
-            $(".progress-bar").css("width", + total_percent +"%");
-          }else if ( value === ""){
-            var perc = $(this).attr("data-percentage");
-            total_percent -= 10;
-            $(".progress-bar").css("width", + total_percent +"%");
-          }
+      if ( value !== ""){
+        var perc = $(this).attr("data-percentage");
+        total_percent += 10;
+        $(".progress-bar").css("width", + total_percent +"%");
+      }else if ( value === ""){
+        var perc = $(this).attr("data-percentage");
+        total_percent -= 10;
+        $(".progress-bar").css("width", + total_percent +"%");
+      }
     });
 });
-
-
-
+  
 
 function showNotify(text_noti,type_noti) {
   alert(text_noti);
@@ -155,7 +149,3 @@ function showNotify(text_noti,type_noti) {
     });
   });
 }
-
-
-
-
