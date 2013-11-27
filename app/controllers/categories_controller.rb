@@ -28,9 +28,11 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        flash[:notice] = "Categoria adicionada com sucesso".
+        format.html { redirect_to @category}
         format.json { render action: 'show', status: :created, location: @category }
       else
+        flash[:error] = "Erro ao adicionar categoria".
         format.html { render action: 'new' }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
@@ -42,7 +44,8 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+        flash[:notice] = "Categoria atualizada com sucesso".
+        format.html { redirect_to @category }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

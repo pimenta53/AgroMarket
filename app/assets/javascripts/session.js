@@ -23,7 +23,6 @@ function scrollToPosition(id) {
  
   }); 
 
-  
 
    //Create an Array of posts
    var posts = $('.teste');
@@ -104,21 +103,8 @@ var close_button = $('.close').hide();
       }
     });
 
-    $('a[href*=#]:not([href=#])').click(function() {
-      
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
-        || location.hostname == this.hostname) {
-        var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-  
+    $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
+
  });
 
 

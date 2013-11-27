@@ -1,0 +1,31 @@
+<h1>Listing academy_workshop_registrations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Workshop</th>
+      <th>User</th>
+      <th>Is deleted</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @academy_workshop_registrations.each do |academy_workshop_registration| %>
+      <tr>
+        <td><%= academy_workshop_registration.workshop_id %></td>
+        <td><%= academy_workshop_registration.user_id %></td>
+        <td><%= academy_workshop_registration.is_deleted %></td>
+        <td><%= link_to 'Show', academy_workshop_registration %></td>
+        <td><%= link_to 'Edit', edit_academy_workshop_registration_path(academy_workshop_registration) %></td>
+        <td><%= link_to 'Destroy', academy_workshop_registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Workshop registration', new_academy_workshop_registration_path %>

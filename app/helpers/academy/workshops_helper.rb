@@ -1,0 +1,2 @@
+module Academy::WorkshopsHelper
+end

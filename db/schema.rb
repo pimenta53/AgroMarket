@@ -12,6 +12,79 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20131127132046) do
+#ActiveRecord::Schema.define(version: 20131127112037) do
+
+  create_table "academy_answers", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.integer  "up"
+    t.integer  "down"
+    t.integer  "is_deleted"
+    t.string   "image_url"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "academy_questions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "title"
+    t.string   "text"
+    t.integer  "is_deleted"
+    t.string   "image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "academy_tutorial_images", force: true do |t|
+    t.integer  "tutorial_id"
+    t.string   "url"
+    t.integer  "is_deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "academy_tutorials", force: true do |t|
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.integer  "aproved"
+    t.string   "title"
+    t.string   "text"
+    t.integer  "is_delected"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "academy_votes", force: true do |t|
+    t.integer  "vote"
+    t.integer  "user_id"
+    t.integer  "answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "academy_workshop_registrations", force: true do |t|
+    t.integer  "workshop_id"
+    t.integer  "user_id"
+    t.integer  "is_deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "academy_workshops", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "available_slots"
+    t.integer  "slots_taken"
+    t.float    "price"
+    t.string   "local"
+    t.datetime "date"
+    t.string   "description"
+    t.integer  "is_delected"
+    t.integer  "requires_registration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "ad_images", force: true do |t|
     t.integer  "ad_id"
@@ -20,20 +93,6 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
-  end
-
-  create_table "admin_testes", force: true do |t|
-    t.integer  "coisas"
-    t.string   "coisas2"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "admin_tests", force: true do |t|
-    t.integer  "coisas"
-    t.string   "coisas2"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "ads", force: true do |t|
@@ -57,6 +116,14 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
+    
+  create_table "answers", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.integer  "up"
+    t.integer  "down"
+    t.integer  "is_deleted"
+    t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -99,6 +166,16 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.datetime "updated_at"
   end
 
+  create_table "questions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "title"
+    t.string   "text"
+    t.integer  "is_deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ratings", force: true do |t|
     t.integer  "rate"
     t.integer  "rated_id"
@@ -118,7 +195,21 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.datetime "updated_at"
   end
 
-  create_table "testes", force: true do |t|
+  create_table "tutorial_images", force: true do |t|
+    t.integer  "tutorial_id"
+    t.string   "url"
+    t.integer  "is_deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tutorials", force: true do |t|
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.integer  "aproved"
+    t.string   "title"
+    t.string   "text"
+    t.integer  "is_delected"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -166,5 +257,27 @@ ActiveRecord::Schema.define(version: 20131127132046) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "votes", force: true do |t|
+    t.integer  "vote"
+    t.integer  "user_id"
+    t.integer  "answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "workshops", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "available_slots"
+    t.integer  "slots_taken"
+    t.float    "price"
+    t.string   "local"
+    t.datetime "date"
+    t.string   "description"
+    t.integer  "is_delected"
+    t.integer  "requires_registration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

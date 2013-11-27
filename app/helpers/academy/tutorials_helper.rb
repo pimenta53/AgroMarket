@@ -1,0 +1,2 @@
+module Academy::TutorialsHelper
+end

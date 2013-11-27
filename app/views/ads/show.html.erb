@@ -3,8 +3,12 @@
               <li class="active"><i class="fa fa-bar-chart"></i><%= @ad.title %></li>
               ISTO É PARA SAIR DAQUI (VAI SER UTILIZADO NA PARTE DE ACADEMIA)
 </ol>
-
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+  <script> showNotify("<%= flash[:notice] %>","success") </script>
+<% end %>
+<% if flash[:error] %>
+  <script> showNotify("<%= flash[:error] %>","error") </script>
+<% end %>
 
   <% num_img=@ad.ad_images.count %>
   <table class="adData" width='100%'>
@@ -131,7 +135,7 @@
           <tr>
             <td colspan='2' align="left">
               <strong>Final do Anúncio:</strong>
-              <%= @ad.expire_date.strftime("%d - %m - %Y") %>
+              <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
             </td>
           </tr>
           <tr>

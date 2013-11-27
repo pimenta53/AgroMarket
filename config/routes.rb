@@ -2,6 +2,19 @@ Agrosocial::Application.routes.draw do
   #facebook callback
   match '/auth/:provider/callback' => 'authentications#create', via: :all
 
+  
+  get "academy" => "academy#index"
+  ### ACADEMY ZONE ###
+  namespace :academy do
+    resources :questions
+    resources :votes
+    resources :answers
+    resources :workshops
+    resources :workshop_registrations
+    resources :tutorials
+    resources :tutorial_images
+  end
+
   #pagina myads do utilizador
   get "/users/:id/myads" => "users#myads", as: "myads_user"
   

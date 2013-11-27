@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @academy_workshop.user_id %>
+</p>
+
+<p>
+  <strong>Available slots:</strong>
+  <%= @academy_workshop.available_slots %>
+</p>
+
+<p>
+  <strong>Slots taken:</strong>
+  <%= @academy_workshop.slots_taken %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @academy_workshop.price %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @academy_workshop.local %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @academy_workshop.date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @academy_workshop.description %>
+</p>
+
+<p>
+  <strong>Is delected:</strong>
+  <%= @academy_workshop.is_delected %>
+</p>
+
+<p>
+  <strong>Requires registration:</strong>
+  <%= @academy_workshop.requires_registration %>
+</p>
+
+<%= link_to 'Edit', edit_academy_workshop_path(@academy_workshop) %> |
+<%= link_to 'Back', academy_workshops_path %>

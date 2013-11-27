@@ -1,0 +1,2 @@
+module Academy::AnswersHelper
+end
