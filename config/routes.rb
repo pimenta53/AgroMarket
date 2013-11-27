@@ -1,4 +1,7 @@
 Agrosocial::Application.routes.draw do
+  #facebook callback
+  match '/auth/:provider/callback' => 'authentications#create', via: :all
+
   
   get "academy" => "academy#index"
   ### ACADEMY ZONE ###
@@ -12,7 +15,10 @@ Agrosocial::Application.routes.draw do
     resources :tutorial_images
   end
 
+  #pagina myads do utilizador
   get "/users/:id/myads" => "users#myads", as: "myads_user"
+  
+  #accao follow do utilizador
   post '/users/:id/follow' => 'users#follow'
 
   resources :ads do
@@ -24,7 +30,7 @@ Agrosocial::Application.routes.draw do
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}
 
 
-  resources :users, :login
+  resources :users, :login, :authentications
 
 
 

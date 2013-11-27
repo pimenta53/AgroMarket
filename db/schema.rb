@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131127112037) do
+ActiveRecord::Schema.define(version: 20131127132046) do
+#ActiveRecord::Schema.define(version: 20131127112037) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id"
@@ -111,6 +112,11 @@ ActiveRecord::Schema.define(version: 20131127112037) do
     t.integer  "page_views",     default: 0
   end
 
+  create_table "authentications", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    
   create_table "answers", force: true do |t|
     t.integer  "question_id"
     t.integer  "user_id"
@@ -121,6 +127,8 @@ ActiveRecord::Schema.define(version: 20131127112037) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "authentications", ["user_id"], name: "index_authentications_on_user_id", using: :btree
 
   create_table "categories", force: true do |t|
     t.string   "name"

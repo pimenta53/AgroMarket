@@ -23,7 +23,6 @@ function scrollToPosition(id) {
  
   }); 
 
-  
 
    //Create an Array of posts
    var posts = $('.teste');
@@ -104,7 +103,8 @@ var close_button = $('.close').hide();
       }
     });
 
-  
+    $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
+
  });
 
 

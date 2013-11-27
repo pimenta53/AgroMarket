@@ -33,6 +33,11 @@ gem 'jbuilder', '~> 1.2'
 # Login System
 gem 'devise' , '3.0.0'
 
+#Facebook authentication
+gem 'mongrel', '1.2.0.pre2'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # Load image
 gem 'paperclip', '3.5.0'
 
