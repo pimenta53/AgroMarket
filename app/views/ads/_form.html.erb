@@ -66,6 +66,13 @@
     <div class="controls">
       <%= f.text_field :location,:placeholder =>"Localização da venda..." ,:class=>"form-control", :id=>"addresspicker_map"%>
     </div>
+
+    <div class="col-md-4">
+          <%= f.label :city_id, "Distrito" %><br>
+          <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Selecione...') %>
+    </div>
+
+    
     <div style="width:100%;height:350px;margin-top:20px">
         <div id="map_canvas" style="width:100%; height:100%"></div>
         <div id="location" class=""></div>
