@@ -1,4 +1,5 @@
-$(function() {
+var ready;
+ready = function() {
   //select inputs
   $("select").select2();
 
@@ -13,8 +14,7 @@ $(function() {
 
   $(".pick-a-color").pickAColor();
 
-
-  $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
+  //$('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
 
   $('.typeahead').typeahead({                               
     name: "cities",                
@@ -131,7 +131,12 @@ $(function() {
         $(".progress-bar").css("width", + total_percent +"%");
       }
     });
-});
+}
+
+//em rails 4 so funciona assim
+// por causa do turboLink
+$(document).ready(ready);
+$(document).on('page:load', ready);
   
 
 function showNotify(text_noti,type_noti) {
