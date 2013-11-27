@@ -1,5 +1,6 @@
 Agrosocial::Application.routes.draw do
   
+  get "academy" => "academy#index"
   ### ACADEMY ZONE ###
   namespace :academy do
     resources :questions
