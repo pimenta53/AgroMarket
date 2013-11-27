@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @academy_question.user_id %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @academy_question.category_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @academy_question.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @academy_question.text %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @academy_question.is_deleted %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @academy_question.image_url %>
+</p>
+
+<%= link_to 'Edit', edit_academy_question_path(@academy_question) %> |
+<%= link_to 'Back', academy_questions_path %>

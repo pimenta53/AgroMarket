@@ -1,0 +1,29 @@
+<%= form_for(@academy_tutorial_image) do |f| %>
+  <% if @academy_tutorial_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@academy_tutorial_image.errors.count, "error") %> prohibited this academy_tutorial_image from being saved:</h2>
+
+      <ul>
+      <% @academy_tutorial_image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tutorial_id %><br>
+    <%= f.number_field :tutorial_id %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :is_deleted %><br>
+    <%= f.number_field :is_deleted %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

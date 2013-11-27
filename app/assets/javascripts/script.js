@@ -1,4 +1,12 @@
-$(function() {
+var ready;
+ready = function() {
+
+
+  //Show add_images in newAd
+  $("#add").click(function() {
+    $(".input:hidden:first").show();
+  });
+  
   //select inputs
   $("select").select2();
 
@@ -11,22 +19,19 @@ $(function() {
   //
   $(".counted").charCounter(144,{container: "#counter"});
 
-   $(".pick-a-color").pickAColor();
+  $(".pick-a-color").pickAColor();
 
-   
-   $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
+  //$('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
 
-   $('.typeahead').typeahead({                               
-        name: "cities",                
-        local: ['couves', 'cenas', 'laranjas', 'coisass', 'anuncios', 'babes','boobs','big boobs','buceta']                                              
-   });
-    
+  $('.typeahead').typeahead({
+    name: "cities",
+    local: ['couves', 'cenas', 'laranjas', 'coisass', 'anuncios', 'babes','boobs','big boobs','buceta']
+  });
 
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-    $('.tt-query').css('background-color','#fff');                                  
+  $('.tt-query').css('background-color','#fff');
 
-    $("abbr.timeago").timeago();
+  $("abbr.timeago").timeago();
 
   // Script do Isotope Example
   var things = $('#things');
@@ -38,6 +43,7 @@ $(function() {
   
   // when everything loads, make the "all" options selected
   $('.filter a[data-filter-value=""]').addClass('selected');
+
 
   // filter buttons
   $('.filter a').click(
@@ -62,8 +68,8 @@ $(function() {
     
       // convert the filters object into an array of strings which are CSS class selectors
       var filters_to_use = [];
-      for ( var group in filters ) {
-        filters_to_use.push( filters[ group ] )
+      for ( group in filters ) {
+        filters_to_use.push( filters[ group ] );
       }
       
       // smash the array together to get a big selector which will filter all elements with the filter classes
@@ -72,9 +78,6 @@ $(function() {
       // run the filter on the isotope element
       things.isotope({ filter: selector });
     }
-    
-
-    
   );
 
   //PRETTYPHOTO
@@ -82,24 +85,24 @@ $(function() {
   
 
   $(".followToggle").click(function(){
-  	   $id=$(this).val();
-  	   if ($(this).text() == "follow"){
-  	     $(this).text("unfollow");
-  	   }
-  	   else{
-  	     $(this).text("follow");
-  	   }
-  	   //$.post("./"+$id+"/follow");
-  	   $.ajax({
+       $id=$(this).val();
+       if ($(this).text() == "follow"){
+         $(this).text("unfollow");
+       }
+       else{
+         $(this).text("follow");
+       }
+       //$.post("./"+$id+"/follow");
+       $.ajax({
           url: "./"+$id+"/follow",
           async: true,
           dataType: 'script',
-          type: "POST",     
-          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+          type: "POST",
+          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));}
       });
-  	 }
-  )
-  
+     }
+  );
+
   $(".starrr").starrr();
 
         
@@ -113,44 +116,47 @@ $(function() {
     $('#rating_rate').val(value);
   });
 
-<<<<<<< HEAD
+
   //prettycheckable
   //for customized checkbox
- 
-=======
->>>>>>> a0c0ff03929615e21bb8ba1fe140941114edc4e6
-
    /*
    * Progress Bar Form
    */
    var total_percent = 0;
-   $("input").on('blur',function () 
+   $("input").on('blur',function ()
    {
 
-          var value = $(this).val();
+      var value = $(this).val();
+      var perc;
+      if ( value !== ""){
+        perc = $(this).attr("data-percentage");
+        total_percent += 10;
+        $(".progress-bar").css("width", + total_percent +"%");
+      }else if ( value === ""){
+        perc = $(this).attr("data-percentage");
+        total_percent -= 10;
+        $(".progress-bar").css("width", + total_percent +"%");
+      }
+    });
+}
 
-          if ( value !== ""){
-            var perc = $(this).attr("data-percentage");
-            total_percent += 10;
-            $(".progress-bar").css("width", + total_percent +"%");
-          }else if ( value === ""){
-            var perc = $(this).attr("data-percentage");
-            total_percent -= 10;
-            $(".progress-bar").css("width", + total_percent +"%");
-          }
-              
-<<<<<<< HEAD
-    })
-=======
-      });
->>>>>>> a0c0ff03929615e21bb8ba1fe140941114edc4e6
+//em rails 4 so funciona assim
+// por causa do turboLink
+$(document).ready(ready);
+$(document).on('page:load', ready);
+  
 
-
-
-
-});
-
-
-
-
-
+function showNotify(text_noti,type_noti) {
+  alert(text_noti);
+  $(function() {
+    $.pnotify({
+        text: text_noti,
+        type: type_noti,
+        delay: 1000,
+        icon: true,
+        closer: true,
+        closer_hover: true,
+        styling: 'bootstrap'
+    });
+  });
+}
