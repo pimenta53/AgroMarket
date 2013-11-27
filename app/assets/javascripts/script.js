@@ -133,17 +133,29 @@ ready = function() {
           }
               
       });
-
-
-
-
-
 };
 
 //em rails 4 so funciona assim
 // por causa do turboLink
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
+function showNotify(text_noti,type_noti) {
+  alert(text_noti);
+  $(function() {
+    $.pnotify({
+        text: text_noti,
+        type: type_noti,
+        closer: true,
+        delay: 1000,
+        icon: true,
+        closer: true,
+        closer_hover: true,
+        styling: 'bootstrap'
+    });
+  });
+}
+
 
 
 
