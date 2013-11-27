@@ -52,8 +52,40 @@
 </div>
 
 
+
+
 <%= render "academy/answers/display_all" %>
-<%= render "academy/answers/form", :question => @academy_question %>
+
+<% if user_signed_in? %>
+  <%= render "academy/answers/form", :question => @academy_question %>
+<% else %>
+    <div class="col-lg-12">
+    <section class="panel">
+        <header class="panel-heading">
+          
+          <div class="" >
+            Please sign in to answer this question
+          </div>
+
+        </header>
+
+
+        <div class="panel-body">
+          
+
+            <div class="col-xs-9 col-md-10 ">
+              
+                  Meter link para o login e registo
+
+           </div>
+        
+
+         
+        </div>
+
+    </section>
+</div>
+<% end %>
 
 
 
