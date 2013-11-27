@@ -10,11 +10,14 @@ class Academy::QuestionsController < ApplicationController
   # GET /academy/questions/1
   # GET /academy/questions/1.json
   def show
+    @answers = Academy::Answer.where(:question_id => @academy_question.id)
+    @academy_answer = Academy::Answer.new
   end
 
   # GET /academy/questions/new
   def new
     @academy_question = Academy::Question.new
+    @categories = Category.all
   end
 
   # GET /academy/questions/1/edit
@@ -51,16 +54,6 @@ class Academy::QuestionsController < ApplicationController
     end
   end
 
-  # DELETE /academy/questions/1
-  # DELETE /academy/questions/1.json
-  def destroy
-    @academy_question.destroy
-    respond_to do |format|
-      format.html { redirect_to academy_questions_url }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_academy_question
@@ -69,6 +62,6 @@ class Academy::QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def academy_question_params
-      params.require(:academy_question).permit(:user_id, :category_id, :title, :text, :is_deleted, :image_url)
+      params.require(:academy_question).permit(:user_id, :category_id, :title, :text, :image_url)
     end
 end

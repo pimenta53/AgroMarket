@@ -11,34 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :question_id %><br>
-    <%= f.number_field :question_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :up %><br>
-    <%= f.number_field :up %>
-  </div>
-  <div class="field">
-    <%= f.label :down %><br>
-    <%= f.number_field :down %>
-  </div>
-  <div class="field">
-    <%= f.label :is_deleted %><br>
-    <%= f.number_field :is_deleted %>
-  </div>
+    <%= f.hidden_field :question_id, :value => question.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+
   <div class="field">
     <%= f.label :image_url %><br>
     <%= f.text_field :image_url %>
   </div>
   <div class="field">
     <%= f.label :text %><br>
-    <%= f.text_field :text %>
+    <%= f.text_area :text %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

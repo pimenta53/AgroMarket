@@ -4,59 +4,72 @@
 
       <div class="panel-group" id="accordion">
         <li class="panel-heading">
-
           <% if user_signed_in? && (controller_name == 'ads' || (action_name=="myads")) %>
-          <li>
-            <%= link_to "Mercado".html_safe, "#collapseAds", :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn","data-toggle" =>  "collapse", "data-parent" => "#accordion" %>
-          </li>
+            <li>
+              <%= link_to "Mercado".html_safe, "#collapseAds", :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn","data-toggle" =>  "collapse", "data-parent" => "#accordion" %>
+            </li>
+            </li>
+            <div id="collapseAds" class="panel-collapse collapse in">
+              <li><%= link_to "Ver Todos".html_safe , ads_path %></li>
+              <li><%= link_to "Os Meus Anúncios".html_safe , myads_user_path(current_user.id) %></li>
+              <li><%= link_to "Novo Anúncio".html_safe , new_ad_path %></li>
+            </div>
+
+          <% else %>
+            <li>
+              <%= link_to "Mercado".html_safe, ads_path, :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn" %>
+            </li>
+          <% end %>
+      </div>
+
+
+
+    <%#  EVENTS ZONE  %>
+
+
+      <div class="panel-group" id="accordion">
+        <li class="panel-heading">
+          <% if user_signed_in? %>
+          <li><%= link_to "Eventos".html_safe, "#collapseEvents", :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn", "data-toggle" =>  "collapse", "data-parent" => "#accordion" %></li>
         </li>
 
-        <div id="collapseAds" class="panel-collapse collapse in">     
-          <li><%= link_to "Ver Todos".html_safe , ads_path %></li> 
-          <li><%= link_to "Os Meus Anúncios".html_safe , myads_user_path(current_user.id) %></li>
-          <li><%= link_to "Novo Anúncio".html_safe , new_ad_path %></li>
-        </div>
 
+        <div id="collapseEvents" class="panel-collapse collapse">
+          <li><%= link_to "Ver Todos".html_safe %></li>
+          <li><%= link_to "Os Meus Eventos".html_safe %></li>
+          <li><%= link_to "Novo Evento".html_safe %></li>
+        </div>
 
         <% else %>
         <li>
-          <%= link_to "Mercado".html_safe, ads_path, :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn" %>
+          <%= link_to "Eventos".html_safe, ads_path, :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn" %>
         </li>
         <% end %>
-
       </div>
 
-      <li class="panel-heading">
-        <% if user_signed_in? %>
-        <li><%= link_to "Eventos".html_safe, "#collapseEvents", :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn", "data-toggle" =>  "collapse", "data-parent" => "#accordion" %></li>
-      </li>
+      <%#  ACADEMY ZONE  %>
+      <div class="panel-group" id="accordion">
+        <li class="panel-heading">
+          <% if (controller_name == 'academy') %>
+            <li>
+              <%= link_to "Academia".html_safe, "#collapseAcademy", :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn", "data-toggle" =>  "collapse", "data-parent" => "#accordion" %>
+            </li>
+          </li>
 
-      <div id="collapseEvents" class="panel-collapse collapse">  
-        <li><%= link_to "Ver Todos".html_safe %></li>     
-        <li><%= link_to "Os Meus Eventos".html_safe %></li>
-        <li><%= link_to "Novo Evento".html_safe %></li>      
+          <div id="collapseAcademy" class="panel-collapse collapse in">
+            <li><%= link_to "tutoriais".html_safe, academy_questions_path %></li>
+            <li><%= link_to "workshops".html_safe %></li>
+            <li><%= link_to "workshops".html_safe %></li>
+          </div>
+        <% else %>
+          <li>
+            <%= link_to "Academia".html_safe, academy_path, :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn" %>
+          </li>
+        <% end %>
       </div>
 
-      <% else %>
-      <li>
-        <%= link_to "Eventos".html_safe, ads_path, :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn" %>
-      </li>
-      <% end %>
 
-      <li class="panel-heading">
-        <% if user_signed_in? %>
-        <li><%= link_to "Academia".html_safe, "#collapseAcademy", :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn", "data-toggle" =>  "collapse", "data-parent" => "#accordion" %></li>
-      </li>
-
-      <div id="collapseAcademy" class="panel-collapse collapse">      
-        <li><%= link_to "Os Meus Interesses".html_safe %></li>
-        <li><%= link_to "Colocar Pergunta".html_safe%></li>   
-      </div>
-      <% else %>
-      <li><%= link_to "Academia".html_safe, ads_path, :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn" %></li>
-      <% end %>
-
-
+<hr>
       <!-- Admin Acess-->
       <li>
         <% if user_signed_in? %>
@@ -76,7 +89,7 @@
 
       <!--Filtros-->
       <% if user_signed_in? && controller_name=="ads"%>
-      <legend>Filtros</legend> 
+      <legend>Filtros</legend>
       <li>
         <a href="#collapseCategory" data-toggle="collapse" data-parent="#accordion">Categoria<b class="caret"></b></a>
       </li>

@@ -1,4 +1,4 @@
 class Academy::Answer < ActiveRecord::Base
-  belongs_to :Question
-  has_many :Votes
+  belongs_to :question
+  has_many :votes
 end

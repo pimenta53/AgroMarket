@@ -47,7 +47,7 @@ Agrosocial::Application.routes.draw do
 
   resources :messages
   post 'send_messages' => 'messages#create_mp'
-
+  
   get 'done_message', to: 'ads#done_message', as: :done_message
 
   get 'cancel_message', to: 'ads#cancel_message', as: :cancel_message

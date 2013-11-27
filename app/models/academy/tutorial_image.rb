@@ -1,3 +1,3 @@
 class Academy::TutorialImage < ActiveRecord::Base
-  belongs_to :Tutorial
+  belongs_to :tutorial
 end

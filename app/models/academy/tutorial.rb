@@ -1,5 +1,5 @@
 class Academy::Tutorial < ActiveRecord::Base
-  belongs_to :User
-  belongs_to :categary
-  has_many :Tutorial_images
+  belongs_to :user
+  belongs_to :category
+  has_many :tutorial_images
 end

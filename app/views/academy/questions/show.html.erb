@@ -2,12 +2,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @academy_question.user_id %>
+  <%= @academy_question.user.name %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @academy_question.category_id %>
+  <%= @academy_question.category.name %>
 </p>
 
 <p>
@@ -21,14 +21,18 @@
 </p>
 
 <p>
-  <strong>Is deleted:</strong>
-  <%= @academy_question.is_deleted %>
-</p>
-
-<p>
   <strong>Image url:</strong>
   <%= @academy_question.image_url %>
 </p>
+
+<hr />
+
+<%= render "academy/answers/display_all" %>
+<%= render "academy/answers/form", :question => @academy_question %>
+
+
+
+
 
 <%= link_to 'Edit', edit_academy_question_path(@academy_question) %> |
 <%= link_to 'Back', academy_questions_path %>
