@@ -155,7 +155,6 @@ ready = function() {
   /**
   * New AD ADmin zone
   */
-  alert("adasdasdas");
 
   $('#new_ad').validate({
     errorElement: 'label',

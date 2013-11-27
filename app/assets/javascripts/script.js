@@ -6,7 +6,7 @@ ready = function() {
   $("#add").click(function() {
     $(".input:hidden:first").show();
   });
-  
+
   //select inputs
   $("select").select2();
 
@@ -147,7 +147,6 @@ $(document).on('page:load', ready);
   
 
 function showNotify(text_noti,type_noti) {
-  alert(text_noti);
   $(function() {
     $.pnotify({
         text: text_noti,
