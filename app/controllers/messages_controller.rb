@@ -56,13 +56,16 @@ class MessagesController < ApplicationController
 	def create
     @ad = Ad.find(params[:ad_id])
 
-    talk = Talk.where( "(user_one = ? and user_two = ?) or (user_one = ? and user_two = ?) and ad_id = ?", current_user.id, params[:message][:user_id], params[:message][:user_id], current_user.id, @ad.id ).first
+    # select all unclosed talks between both users and from this ad 
+    talk = Talk.where( "((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) and ad_id = ? and is_close != 1", current_user.id, params[:message][:user_id], params[:message][:user_id], current_user.id, @ad.id ).first
     
+    # if there is no talk between both users in this ad
+    # => create a new one 
+    # => and save it
     if !talk
       talk = Talk.new(:user_one => current_user.id, :user_two => @ad.user_id, :ad_id => @ad.id)
+      talk.save
     end
-    
-    talk.save
 
     @message = talk.messages.new(ad_params)
     @message.user_sender = current_user.id
@@ -75,7 +78,8 @@ class MessagesController < ApplicationController
       end
     end
 	end
-	
+
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params

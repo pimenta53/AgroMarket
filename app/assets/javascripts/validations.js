@@ -104,9 +104,9 @@ $(function() {
 
       });
 
-      /**
+      /*****************************************************************
       * NEW AD
-      */
+      *****************************************************************/
       $('#ad-form').validate({
         errorElement: 'label',
         errorClass: 'help-inline',
@@ -120,10 +120,11 @@ $(function() {
             required: true
           },
           "ad[description]": {
+            minlength: 5,
             required: true,
           },
           "ad[price]": {
-            minlength: 2,
+            minlength: 1,
             required: true
           },
           "ad[expire_date]": {
@@ -131,6 +132,7 @@ $(function() {
             required: true
           },
           "ad[location]": {
+            minlength:2,
             required: true
           },
           "ad[type_price_id]": {
@@ -143,14 +145,15 @@ $(function() {
           }
         },
         highlight: function(element) {
-          $(element).closest('.control-group').removeClass('success').addClass('error');
-        },
-        success: function(element) {
-          element
-          .addClass('valid')
-          .closest('.control-group').removeClass('error').addClass('success');
-        }
+        $(element).closest('.control-group').removeClass('success').addClass('error');
+      },
+      success: function(element) {
+        element
+        .text('OK!').addClass('valid')
+        .closest('.control-group').removeClass('error').addClass('success');
+      }
        });
+
 
       /**
       * New AD ADmin zone
@@ -210,7 +213,7 @@ $(function() {
       }, "Categoria required");
 
       jQuery.extend(jQuery.validator.messages, {
-        required: "This field is required.",
+        required: "Obrigatório!",
         remote: "Please fix this field.",
         email: "Please enter a valid email address.",
         url: "Please enter a valid URL.",

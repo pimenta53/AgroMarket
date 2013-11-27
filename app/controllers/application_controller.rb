@@ -9,11 +9,7 @@ class ApplicationController < ActionController::Base
 
   
   def refresh_header
-
-    respond_to do |format|
-      format.js
-    end
-
+    render :partial => 'layouts/header'
   end
 
   protected

@@ -1,25 +1,29 @@
-<legend> Anúncios </legend>
+<% if @user.id == current_user.id %>
+  <legend> Os teus anúncios </legend>
+<% else %>
+  <legend> Anúncios de <%= @user.name %> </legend>
+<% end %>
 
-<!-- Listagem de anúncios -->
+<!-- Listagem de anúncios do utilizador -->
 <div class="container" id="things">
   <div class="row">
     <ul class="thumbnails">
-     <% @ads.each do |ad| %>
-     <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
-      <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
-        <span class='price' ><%= ad.price %>€</span>
-        <div style="padding:4px" >
-          <%= link_to ad_image( ad.ad_images.first ), ad %>
-          <% if !ad.category.blank? %>
-          <div class="caption">
-            <% if ad.category.nil? %>
-            <span class="label" style="background-color: #888888">
+      <% @ads.each do |ad| %>
+        <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
+          <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
+            <span class='price' ><%= ad.price %>€</span>
+            <div style="padding:4px" >
+              <%= link_to ad_image( ad.ad_images.first ), ad %>
+              <% if !ad.category.blank? %>
+                <div class="caption">
+                  <% if ad.category.nil? %>
+                    <span class="label" style="background-color: #888888">
 
-              <% else %>
-              <span class="label" style="background-color: #<%= ad.category.color %>">
-                <%= ad.category.name %>
-                <% end %>
-              </span>
+                  <% else %>
+                    <span class="label" style="background-color: #<%= ad.category.color %>">
+                    <%= ad.category.name %>
+                  <% end %>
+                  </span>
               <% end %>
 
               <h2><%= link_to ad.title, ad %></h2>
@@ -32,5 +36,9 @@
       </ul>
     </div>
   </div>
-  <%= link_to "Novo", new_ad_path %>
+  
+  <!-- O link para criar novos ads só existirá se for a página do próprio utilizador -->
+  <% if @user.id == current_user.id %>
+    <%= link_to "Novo", new_ad_path %>
+  <% end %>
 </section>

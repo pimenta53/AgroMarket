@@ -1,13 +1,310 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<% if user_signed_in? %>
-	<p> Seja Bem Vindo '<%= current_user.username %>'</p>
-	<p><%= link_to "Terminar a sessão",destroy_user_session_path, method: :delete %></p>
-	<p><%= link_to "Editar perfil",edit_user_registration_path %></p>
-	<p><%= link_to "Ver utilizadores",users_path %></p>
-	<p><%= link_to "Ver os teus anúncios",users_myads_path %></p>
-	<p><%= link_to "Adicionar anúncio",ads_path %></p>
-	<% else %>
-	<p> <%= link_to "Login",new_user_session_path %></p>
-	<p> <%= link_to "Criar uma conta",new_user_registration_path %></p>
-	<% end %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agrosocial</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  
+
+  <%= stylesheet_link_tag "bootstrap","sessions","data-turbolinks-track" => true %>
+  <%= javascript_include_tag  "jquery","jquery_ujs","jquery.fancybox","turbolinks","session","data-turbolinks-track" => true %>
+
+  <link rel="shortcut icon" href="">
+  <!--Google Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+     
+  <%= render "devise/sessions/header"%>
+
+  <!-- _______________________Slogan___________________ -->
+
+  <div id="login_body"  data-slide="1" class="bgParallax slide teste" data-speed="15">
+
+      <div class="row_login_form ">
+
+        <div class="col-md-6 col-slogan">
+
+              <h1 class="text-center login-title"> AGROSOCIAL </h1>
+              <h4 class= " text-center login-slogan">A SEMENTE DO SEU NEGÓCIO</h4>
+              
+        </div>
+            <div class="row">
+                    <div class="col-md-4 col-md-offset-4 text-center">
+                      <h2>O que fazemos</h2>
+                      <hr>
+                     
+                    </div>
+             
+            </div>
+             
+      </div>
+      
+      <div class="next_section_button" id="next" data-slide="2" style="margin-bottom: 0px;"> </div>
+      <div class="prev_section_button" id="prev" data-slide="2" style="margin-bottom: 0px;"> </div>
+  </div>
+
+<!-- ________________________ Section Information ___________________________________ -->
+
+  <div id="login_body_image" data-slide="2" class="bgParallax slide" data-speed="10">
+  </div>
+
+  <div class="login_section_information" data-slide="2" class="slide teste" data-speed="10">
+      
+       <div class="services">
+            <div class="container">
+                  
+                            <div class="row">
+
+                                <div class="service-item">
+                                                      
+                                     <i class="service-icon icon-shopping-cart"></i>
+
+
+                                     <div class="information">
+
+                                    <h1>Negócio</h1>
+                                    <br/>
+                                    <p>
+                                      Encontre o melhor preço para o produto que procura ou divulgue os seus produtos a uma vasta comunidade.
+                                    </p>
+                                
+                                     </div>
+                                                      
+                                </div>
+
+                           </div>
+            </div>
+      </div>
+     
+  </div>
+
+<div id="login_body_image2" class="bgParallax teste" data-speed="15">
+</div>
+
+<div class="login_section_information" data-slide="2" class="slide teste" data-speed="10">
+      
+       <div class="services">
+            <div class="container">
+                  
+                            <div class="row">
+
+                                <div class="service-item">
+                                                      
+                                     <i class="service-icon icon-male"></i>
+
+
+                                     <div class="information">
+
+                                    <h1>Emprego</h1>
+                                    <br/>
+                                    <p>
+                                      Encontre um emprego à medida das suas capacidades ou a mão de obra que precisa para aquela tarefa específica.
+                                    </p>
+                                
+                                     </div>
+                                                      
+                                </div>
+
+                           </div>
+            </div>
+      </div>
+     
+  </div>
+
+
+  <div id="login_body_image3" class="bgParallax teste" data-speed="15">
+  </div>
+
+  <div class="login_section_information" data-slide="2" class="slide teste" data-speed="10">
+      
+       <div class="services">
+            <div class="container">
+                  
+                            <div class="row">
+
+                                <div class="service-item">
+                                                      
+                                     <i class="service-icon icon-group"></i>
+
+
+                                     <div class="information">
+
+                                    <h1>Conhecimento</h1>
+                                    <br/>
+                                    <p>
+                                      Participe em workshops ou siga técnicos especializados na nossa academia. Partilhe conhecimento na sua área de interesse.
+                                    </p>
+                                
+                                     </div>
+                                                      
+                                </div>
+
+                           </div>
+            </div>
+      </div>
+     
+  </div>
+
+  <div id="login_body_image4" class="bgParallax teste" data-speed="15">
+  </div>
+
+  <div class="login_section_information" data-slide="2" class="slide teste" data-speed="10">
+      
+       <div class="services">
+            <div class="container">
+                  
+                            <div class="row">
+
+                                <div class="service-item">
+                                                      
+                                     <i class="service-icon icon-bullhorn"></i>
+
+
+                                     <div class="information">
+
+                                    <h1>Divulgação</h1>
+                                    <br/>
+                                    <p>
+                                      Divulgue a sua empresa, negócio ou produtos facilmente e a quem realmente interessa.
+                                    </p>
+                                
+                                     </div>
+                                                      
+                                </div>
+
+                           </div>
+            </div>
+      </div>
+     
+  </div>
+
+  <div id="login_body_image5" class="bgParallax teste" data-speed="15">
+  </div>
+
+<div class="login_section_information" data-slide="2" class="slide teste" data-speed="10">
+      
+       <div class="services">
+            <div class="container">
+                  
+                            <div class="row">
+
+                                <div class="service-item">
+                                                      
+                                     <i class="service-icon icon-calendar-empty"></i>
+
+
+                                     <div class="information">
+
+                                    <h1>Participação</h1>
+                                    <br/>
+                                    <p>
+                                      Crie, promova e participe em eventos sociais ou profissionais.
+                                    </p>
+                                
+                                     </div>
+                                                      
+                                </div>
+
+                           </div>
+            </div>
+      </div>
+     
+  </div>
+  <!-- ________________________ Section Video ___________________________________ -->
+
+  <div id="login_body_show" data-slide="2" class="bgParallax slide" data-speed="10">
+  
+  </div>
+
+  <div id="login_section_video" data-slide="2" class="slide teste" data-speed="10">
+
+      <div id="section-video" data-auto-size="0.6" >
+            <div id="top" class="header scroller">
+                  <div class="vert-text">
+                      <h1>AgroSocial</h1>
+                      <br>
+                      <h2>A semente do seu negócio</h2>
+
+                      <!--<a href="#services" class="btn btn-flat-white btn-bordered btn-lg up">Mais informações</a>-->
+                      <ul class="list-inline">
+                        <li><a href="https://www.facebook.com/386752774760741" target="_blank"><div id="facebook"></div></a></li>
+                        <li><a href="https://plus.google.com" target="_blank"><div id="gplus"></div></a></li>
+                        <li><a href="https://twitter.com/agro_social" target="_blank"><div id="twitter"></div></a></li>
+                        <li><a href="https://agrosocial.pt" target="_blank"><div id="contact"></div></a></li>
+                      </ul>
+                      <div id="copyright">Agrosocial&copy 2013</div>
+                      <p></p>
+
+                      <a class="frame" data-fancybox-type="iframe" href="http://www.youtube.com/embed/ZLLiPwPsfjU?autoplay=1">
+                      Click Aqui 
+                      </a>
+                     
+
+                  </div>
+                 
+            </div>
+
+         
+     </div>
+</div>
+
+
+<!-- ________________________ Section Regist ___________________________________ -->
+
+<div id="login_body_regist" class="bgParallax teste" data-speed="10">
+</div>
+
+<div id="login_section_regist" class="" data-speed="10">
+
+    <section id="section-regist" data-auto-size="0.6" >
+
+             <div class="row allpocket">
+                      <div class="pricing-table ">
+                          <div class="pocket_bronze plan col-xs-6 col-md-6 ">
+                            <div class="plan-name-bronze ">
+                              <h2>Bronze</h2>
+                              <span>$8.99 / Month</span>
+                            </div>
+                            <ul>
+                              <li class="plan-feature">10 Users</li>
+                              <li class="plan-feature">5TB Disk Space</li>
+                              <li class="plan-feature"><a href="#" class="btn btn-primary btn-plan-select"><i class="icon-white icon-ok"></i> Select</a></li>
+                            </ul>
+                          </div>
+                          <div class="pocket_silver plan col-xs-6 col-md-6 ">
+                            <div class="plan-name-silver">
+                              <h2>Silver <span class="badge badge-warning">Popular</span></h2>
+                              <span><strike>$10.99</strike>   <font color="red">$9.99 - <span class="label label-warning">Sale</span></font></span>
+                            </div>
+                            <ul>
+                              <li class="plan-feature">50 Users</li>
+                              <li class="plan-feature">10TB Disk Space</li>
+                              <li class="plan-feature"><a href="#" class="btn btn-primary btn-plan-select"><i class="icon-white icon-ok"></i> Select</a></li>
+                            </ul>
+                          </div>
+                          <div class="pocket_gold plan col-xs-6 col-md-6 ">
+                            <div class="plan-name-gold">
+                              <h2>Gold</h2>
+                              <span>$15.99 / Month</span>
+                            </div>
+                            <ul>
+                              <li class="plan-feature">Unlimited Users</li>
+                              <li class="plan-feature">Unlimited Space</li>
+                              <li class="plan-feature"><a href="#" class="btn btn-primary btn-plan-select"><i class="icon-white icon-ok"></i> Select</a></li>
+                            </ul>
+                          </div>
+                      </div>
+              </div>    
+      </section>
+</div>
+
+<%= render 'layouts/footer' %>
+
+</body>
+</html>
+
+
