@@ -29,9 +29,11 @@ class CitiesController < ApplicationController
     
     respond_to do |format|
       if @city.save
-        format.html { redirect_to @city, notice: 'City was successfully created.' }
+        flash[:notice] = "Cidade adicionada com sucesso".
+        format.html { redirect_to @city }
         format.json { render action: 'show', status: :created, location: @city }
       else
+        flash[:error] = "Erro ao adicionar cidade".
         format.html { render action: 'new' }
         format.json { render json: @city.errors, status: :unprocessable_entity }
       end

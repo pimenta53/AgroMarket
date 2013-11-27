@@ -14,6 +14,8 @@
  *= require bootstrap-datepicker
  *= stub admin_theme
  *= stub sessions
+ *= require jquery.pnotify.default
+ *= require jquery.pnotify.default.icons
  */
 
 .icon_rating, .icon_rating-nocolor{

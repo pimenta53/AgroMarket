@@ -31,6 +31,7 @@ class  Admin::CitiesController <  Admin::ApplicationController
     respond_to do |format|
       if @city.save
         format.html { redirect_to [:admin,@city], notice: 'City was successfully created.' }
+        format.js{ render :js => "alert(\"coisa\")"}
         format.json { render action: 'show', status: :created, location: @city }
       else
         format.html { render action: 'new' }
