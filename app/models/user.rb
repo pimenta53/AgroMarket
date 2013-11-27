@@ -31,6 +31,9 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   
+  #omniauth
+  has_many :authentications, :dependent => :destroy
+  
   #Dependencies
   has_many :sent_messages,:class_name  => 'Message',
                           :primary_key => 'id',
@@ -147,6 +150,37 @@ class User < ActiveRecord::Base
   #busca todos os ads fora da validade do utilizador
   def expired_ads
     self.ads.where("expire_date < ?", Date.today)
+  end
+  
+  #inserir dados pelo omniauth
+  def apply_omniauth(omniauth)
+    if omniauth['provider'] = 'facebook'
+      
+      #Buscar info
+      self.email = omniauth['info']['email']
+      self.username = omniauth['info']['nickname']
+      self.name = omniauth['info']['first_name']
+      
+      #location será composto por Cidade, Pais
+      location = omniauth['info']['location'].split(", ")
+      
+      #buscar cidade do location
+      self.city = City.find_by city: location[0]
+      
+      #buscar imagem
+      if omniauth['info']['image']!=nil
+        self.avatar = URI.parse(omniauth['info']['image'])
+      end
+      
+      if omniauth['info']['last_name'].length > 0
+        self.name += ' ' + omniauth['info']['last_name']
+      end
+      authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+    end
+  end
+
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
   end
 
   #######################

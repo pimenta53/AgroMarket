@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118105237) do
+ActiveRecord::Schema.define(version: 20131127132046) do
 
   create_table "ad_images", force: true do |t|
     t.integer  "ad_id"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 20131118105237) do
     t.integer  "category_id",                null: false
     t.integer  "page_views",     default: 0
   end
+
+  create_table "authentications", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authentications", ["user_id"], name: "index_authentications_on_user_id", using: :btree
 
   create_table "categories", force: true do |t|
     t.string   "name"
