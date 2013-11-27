@@ -87,10 +87,13 @@
 
                 <%= f.fields_for :ad_images do |asset| %>
                    <% if asset.object.new_record? %>
-                         <%= asset.file_field :image %>
+                         <%= asset.file_field :image, :style=>"display: none;", :class=>"input"%>
+
                    <% end %>
                <% end %>
           </div>
+        
+        <input type='btn btn-lg btn-primary btn-block' value='Adicionar Imagem' id='add'>
 
           <div class="existingPaperclipFiles">
                   
