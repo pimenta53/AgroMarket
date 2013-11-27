@@ -14,7 +14,7 @@ ready = function() {
         email: true
       },
       "user[name]": {
-        accept: "[a-zA-Z ]+"
+        accept: "[a-zA-Z]+"
       },
       "user_city_id": {
         required: true
@@ -24,9 +24,9 @@ ready = function() {
         maxlength: 15
       },
       "user[phone]": {
-        minlength: 9,
-        maxlength: 9
-      }
+        accept: "[0-9]",
+        minlength: 9
+      },
     },
     messages: {
       "user[name]": "Este nome não parece ser válido",
@@ -40,7 +40,7 @@ ready = function() {
       element
       .addClass('valid')
       .closest('.control-group').removeClass('error').addClass('success');
-    }  
+    }
    });
 
 
@@ -74,7 +74,7 @@ ready = function() {
       element
       .addClass('valid')
       .closest('.control-group').removeClass('error').addClass('success');
-    } 
+    }
 
   });
 
@@ -97,7 +97,7 @@ ready = function() {
       element
       .addClass('valid')
       .closest('.control-group').removeClass('error').addClass('success');
-    } 
+    }
 
   });
 
@@ -228,7 +228,7 @@ ready = function() {
     max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
     min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
   });
-}
+};
 
 
 //em rails 4 so funciona assim
