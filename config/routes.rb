@@ -1,30 +1,14 @@
 Agrosocial::Application.routes.draw do
-  namespace :academy do
-    resources :workshop_registrations
-  end
-
-  namespace :academy do
-    resources :workshops
-  end
-
-  namespace :academy do
-    resources :tutorial_images
-  end
-
-  namespace :academy do
-    resources :tutorials
-  end
-
+  
+  ### ACADEMY ZONE ###
   namespace :academy do
     resources :questions
-  end
-
-  namespace :academy do
-    resources :answers
-  end
-
-  namespace :academy do
     resources :votes
+    resources :answers
+    resources :workshops
+    resources :workshop_registrations
+    resources :tutorials
+    resources :tutorial_images
   end
 
   get "/users/:id/myads" => "users#myads", as: "myads_user"
