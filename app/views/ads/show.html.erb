@@ -135,7 +135,7 @@
           <tr>
             <td colspan='2' align="left">
               <strong>Final do Anúncio:</strong>
-              <%= @ad.expire_date.strftime("%d - %m - %Y") %>
+              <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
             </td>
           </tr>
           <tr>

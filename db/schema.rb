@@ -111,6 +111,17 @@ ActiveRecord::Schema.define(version: 20131127112037) do
     t.integer  "page_views",     default: 0
   end
 
+  create_table "answers", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.integer  "up"
+    t.integer  "down"
+    t.integer  "is_deleted"
+    t.string   "image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "categories", force: true do |t|
     t.string   "name"
     t.string   "description"
@@ -147,6 +158,16 @@ ActiveRecord::Schema.define(version: 20131127112037) do
     t.datetime "updated_at"
   end
 
+  create_table "questions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "title"
+    t.string   "text"
+    t.integer  "is_deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ratings", force: true do |t|
     t.integer  "rate"
     t.integer  "rated_id"
@@ -162,6 +183,25 @@ ActiveRecord::Schema.define(version: 20131127112037) do
     t.integer  "user_two",               null: false
     t.integer  "ad_id"
     t.integer  "is_close",   default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tutorial_images", force: true do |t|
+    t.integer  "tutorial_id"
+    t.string   "url"
+    t.integer  "is_deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tutorials", force: true do |t|
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.integer  "aproved"
+    t.string   "title"
+    t.string   "text"
+    t.integer  "is_delected"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -209,5 +249,27 @@ ActiveRecord::Schema.define(version: 20131127112037) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "votes", force: true do |t|
+    t.integer  "vote"
+    t.integer  "user_id"
+    t.integer  "answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "workshops", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "available_slots"
+    t.integer  "slots_taken"
+    t.float    "price"
+    t.string   "local"
+    t.datetime "date"
+    t.string   "description"
+    t.integer  "is_delected"
+    t.integer  "requires_registration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
