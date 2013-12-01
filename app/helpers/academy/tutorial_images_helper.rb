@@ -1,0 +1,2 @@
+module Academy::TutorialImagesHelper
+end

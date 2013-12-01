@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AdsController < ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
   before_action :load_stuff, only: [:new,:create,:show,:edit,:update]
@@ -58,9 +59,11 @@ class AdsController < ApplicationController
     #http redirection, json render
     respond_to do |format|
       if @ad.save
-        format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
+        flash[:notice] = "Anúncio criado com sucesso."
+        format.html { redirect_to @ad }
         format.json { render action: 'show', status: :created, location: @ad }
       else
+        flash[:error] = "Erro ao criar anúncio."
         format.html { render action: 'new' }
         format.json { render json: @ad.errors, status: :unprocessable_entity }
       end
@@ -79,7 +82,8 @@ class AdsController < ApplicationController
     
     respond_to do |format|
       if @ad.update(ad_params)
-        format.html { redirect_to @ad, notice: 'Ad was successfully updated.' }
+        flash[:notice] = "Anúncio atualizado com sucesso."
+        format.html { redirect_to @ad }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @academy_tutorial.category_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @academy_tutorial.user_id %>
+</p>
+
+<p>
+  <strong>Aproved:</strong>
+  <%= @academy_tutorial.aproved %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @academy_tutorial.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @academy_tutorial.text %>
+</p>
+
+<p>
+  <strong>Is delected:</strong>
+  <%= @academy_tutorial.is_delected %>
+</p>
+
+<%= link_to 'Edit', edit_academy_tutorial_path(@academy_tutorial) %> |
+<%= link_to 'Back', academy_tutorials_path %>

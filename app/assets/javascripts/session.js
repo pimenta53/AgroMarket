@@ -26,7 +26,6 @@ function scrollToPosition(id) {
  
   }); 
 
-  
 
    //Create an Array of posts
    var posts = $('.teste');
@@ -109,6 +108,7 @@ var close_button = $('.close').hide();
 
 
 
+
   $(".icon-shopping-cart").hover((function() {
       $(this).removeClass("icon-shopping-cart");
       return $(this).addClass("icon-play-circle");
@@ -147,6 +147,10 @@ var close_button = $('.close').hide();
 
     
   
+
+    $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
+
+
  });
 
 

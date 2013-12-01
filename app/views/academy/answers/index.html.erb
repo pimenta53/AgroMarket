@@ -1,0 +1,40 @@
+
+<h1>Listing academy_answers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>User</th>
+      <th>Up</th>
+      <th>Down</th>
+      <th>Is deleted</th>
+      <th>Image url</th>
+      <th>Text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @academy_answers.each do |academy_answer| %>
+      <tr>
+        <td><%= academy_answer.question_id %></td>
+        <td><%= academy_answer.user_id %></td>
+        <td><%= academy_answer.up %></td>
+        <td><%= academy_answer.down %></td>
+        <td><%= academy_answer.is_deleted %></td>
+        <td><%= academy_answer.image_url %></td>
+        <td><%= academy_answer.text %></td>
+        <td><%= link_to 'Show', academy_answer %></td>
+        <td><%= link_to 'Edit', edit_academy_answer_path(academy_answer) %></td>
+        <td><%= link_to 'Destroy', academy_answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Answer', new_academy_answer_path %>

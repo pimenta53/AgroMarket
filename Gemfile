@@ -21,7 +21,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-
+# Notification
+gem 'pnotify-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -31,6 +32,11 @@ gem 'jbuilder', '~> 1.2'
 
 # Login System
 gem 'devise' , '3.0.0'
+
+#Facebook authentication
+gem 'mongrel', '1.2.0.pre2'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Load image
 gem 'paperclip', '3.5.0'

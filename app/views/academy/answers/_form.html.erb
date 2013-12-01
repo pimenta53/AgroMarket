@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+    <div class="col-sm-12 col-md-12">
+            <div class="panel" id="form_message">
+              <header class="panel-heading">
+                  Respostas
+                </header>
+                <div class="panel-body">   
+                  <%= form_for(@academy_answer) do |f| %>
+                    <% if @academy_answer.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(@academy_answer.errors.count, "error") %> prohibited this academy_answer from being saved:</h2>
+
+                        <ul>
+                        <% @academy_answer.errors.full_messages.each do |msg| %>
+                          <li><%= msg %></li>
+                        <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+
+                      <%= f.hidden_field :question_id, :value => question.id %>
+                      <%= f.hidden_field :user_id, :value => current_user.id %>
+
+                      <div class="field">
+                       <%= f.text_area :text,:id => "text_comment",:rows=>5,:class=> "form-control counted" ,:placeholder => "Type in your message"%>
+                      </div>
+
+                    <div class="field">
+                      <%= f.label :image_url %><br>
+                      <%= f.text_field :image_url %>
+                    </div>
+
+
+                    <div class="actions">
+                       <button class="btn btn-info" type="submit">Post</button>
+                    </div>
+                  <% end %>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>

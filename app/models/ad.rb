@@ -31,19 +31,15 @@ class Ad < ActiveRecord::Base
 	accepts_nested_attributes_for :ad_images
 
 	#filters
-	before_validation :create_permalink
+	before_validation :create_permalink, :calculate_expire_date
 
 	
 	#validates
 	validates :title, presence: true
-	validates :price, presence: true
-	validates :expire_date, presence: true
+	validates :price, presence: true, format: /\d{1,}\Z/i
 	validates :type_price_id, presence: true
 	validates :city_id, presence: true
 
-   #validations with functions
-	validate :expire_date_cannot_be_in_the_past, :on => :create
-	validate :expire_date_cannot_exceed_limit
 
   	# class methods
 
@@ -149,6 +145,10 @@ class Ad < ActiveRecord::Base
 		def create_permalink
 			self.permanent_link = "#{self.title.parameterize}"
 		end
+    def calculate_expire_date
+      self.expire_date = Time.now + 1.week
+    end
+
 
       #erro se a expire_date for no passado
 		def expire_date_cannot_be_in_the_past
@@ -163,4 +163,4 @@ class Ad < ActiveRecord::Base
 		end
 
 
-	end
+end

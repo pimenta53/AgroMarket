@@ -1,0 +1,31 @@
+<h1>Listing academy_tutorial_images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tutorial</th>
+      <th>Url</th>
+      <th>Is deleted</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @academy_tutorial_images.each do |academy_tutorial_image| %>
+      <tr>
+        <td><%= academy_tutorial_image.tutorial_id %></td>
+        <td><%= academy_tutorial_image.url %></td>
+        <td><%= academy_tutorial_image.is_deleted %></td>
+        <td><%= link_to 'Show', academy_tutorial_image %></td>
+        <td><%= link_to 'Edit', edit_academy_tutorial_image_path(academy_tutorial_image) %></td>
+        <td><%= link_to 'Destroy', academy_tutorial_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tutorial image', new_academy_tutorial_image_path %>

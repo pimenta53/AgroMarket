@@ -1,3 +1,4 @@
+#encoding: utf-8
 class RatingsController < ApplicationController
 	before_action :set_rating, only: [:show,:update]
 

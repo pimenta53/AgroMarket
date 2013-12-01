@@ -4,16 +4,12 @@
         </div>
     <div class="panel-body">
 
-	<input type="checkbox" class="myClass" value="yes" id="answer" name="answer"/>
-
-	<input type="checkbox" class="myClass" value="yes" id="answer" name="answer" data-color="green" />
-
-
 	<%= render 'form' %>
 
 	</div>
 </div>
 
+<%= link_to 'Back', myads_user_path(current_user.id) %>
 
 <script>
     $(function() {
@@ -31,7 +27,8 @@
         });
 
         addresspickerMap.on("addressChanged", function(evt, address) {
-           alert(address.geometry.location.lat() +"," + address.geometry.location.lng())
+            $('#coordX').text(address.geometry.location.lat());
+            $('#coordY').text(address.geometry.location.lng());
            console.dir(address);
         });
         addresspickerMap.on("positionChanged", function(evt, markerPosition) {
@@ -43,6 +40,3 @@
         });
     });
 </script>
-
-
-<%= link_to 'Back', myads_user_path(current_user.id) %>

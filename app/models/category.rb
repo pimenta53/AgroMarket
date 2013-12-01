@@ -13,9 +13,10 @@
 class Category < ActiveRecord::Base
 
   has_many :ads
+  has_many :questions
 
   validates :name, presence: true
-  
+
 
   #verifica se categoria possui ads
   def has_ads?
