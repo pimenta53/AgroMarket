@@ -3,9 +3,12 @@
 
 function scrollToPosition(id) {
    if (id !== undefined) {
+    
        $('html,body').animate({
          scrollTop: $('#'+id).offset().top},
        'slow');
+
+
    }
  }
 
@@ -104,22 +107,50 @@ var close_button = $('.close').hide();
       }
     });
 
-    $('a[href*=#]:not([href=#])').click(function() {
-      
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
-        || location.hostname == this.hostname) {
-        var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
+
+
+  $(".icon-shopping-cart").hover((function() {
+      $(this).removeClass("icon-shopping-cart");
+      return $(this).addClass("icon-play-circle");
+    }), function() {
+      $(this).removeClass("icon-play-circle");
+      return $(this).addClass("icon-shopping-cart");
+    });
+    $(".icon-male").hover((function() {
+      $(this).removeClass("icon-male");
+      return $(this).addClass("icon-play-circle");
+    }), function() {
+      $(this).removeClass("icon-play-circle");
+      return $(this).addClass("icon-male");
+    });
+    $(".icon-group").hover((function() {
+      $(this).removeClass("icon-group");
+      return $(this).addClass("icon-play-circle");
+    }), function() {
+      $(this).removeClass("icon-play-circle");
+      return $(this).addClass("icon-group");
+    });
+    $(".icon-bullhorn").hover((function() {
+      $(this).removeClass("icon-bullhorn");
+      return $(this).addClass("icon-play-circle");
+    }), function() {
+      $(this).removeClass("icon-play-circle");
+      return $(this).addClass("icon-bullhorn");
+    });
+    $(".icon-calendar-empty").hover((function() {
+      $(this).removeClass("icon-calendar-empty");
+      return $(this).addClass("icon-play-circle");
+    }), function() {
+      $(this).removeClass("icon-play-circle");
+      return $(this).addClass("icon-calendar-empty");
+    });
+
+    
   
  });
+
+
+
 
 
 //sddsaasdasdasdasd
