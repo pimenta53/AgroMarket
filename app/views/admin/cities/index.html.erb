@@ -1,11 +1,11 @@
-<h1>Listing cities</h1>
-
+<section class="panel">
+  <header class="panel-heading"><h1>Lista de cidades</h1></header>
 <div class="table-responsive">
   <table class="table table-hover" >
   <thead>
     <tr>
-      <th>City</th>
-      <th>Country</th>
+      <th>Cidade</th>
+      <th>País</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,9 +17,9 @@
       <tr>
         <td><%= city.city %></td>
         <td><%= city.country_id %></td>
-        <td><%= link_to 'Show', [:admin,city] %></td>
-        <td><%= link_to 'Edit', edit_admin_city_path(city) %></td>
-        <td><%= link_to 'Destroy', [:admin,city], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!--td><%= link_to 'Ver', [:admin,city] %></td-->
+        <td><%= link_to 'Editar', edit_admin_city_path(city) %></td>
+        <td><%= link_to 'Eliminar', [:admin,city], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,6 @@
 </div>
 <br>
 
-<%= link_to 'New City', new_admin_city_path %>
+<%= link_to 'Nova cidade', new_admin_city_path %>
+
+</section>
