@@ -12,11 +12,10 @@
                                     </div>
                                    </div>
                                   <div class="col-md-6">
-                                      <strong> <%= @user.username %></strong><br/>
                                       <table class="table table-condensed table-responsive table-user-information">
                                           <tbody>
                                               <tr>
-                                                  <td>Nickname:</td>
+                                                  <td>Nome:</td>
                                                   <td><%= @user.name %></td>
                                               </tr>
                                               <% if current_user==@user %>
@@ -54,8 +53,8 @@
                                       data-original-title="Send message to user"><i class="glyphicon glyphicon-envelope"></i>
                                     </button>
                             <% end %>
-                            
-                              
+
+
                               <span class="pull-right">
                                   <button class="btn btn-sm btn-warning" type="button"
                                           data-toggle="tooltip"

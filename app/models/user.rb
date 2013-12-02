@@ -30,10 +30,10 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  
+
   #omniauth
   has_many :authentications, :dependent => :destroy
-  
+
   #Dependencies
   has_many :sent_messages,:class_name  => 'Message',
                           :primary_key => 'id',
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
                               :primary_key => 'id',
                               :foreign_key => 'receiver_id'
   has_many :ads
-  has_many :messages 
+  has_many :messages
 
   has_many :talks_user_one , :class_name => 'Talk',
                              :foreign_key => 'user_one'
@@ -53,38 +53,37 @@ class User < ActiveRecord::Base
   has_many :user_follows
   has_many :follows_user , :class_name => 'UserFollow',
                            :foreign_key => 'following_id'
-                           
+
   #permite buscar os utilizadores que 'self' está a seguir
   has_many :following, through: :user_follows , :class_name => 'User',
                                                 :foreign_key => 'user_id'
   #permite buscar os utilizadores a seguirem 'self'
   has_many :followers, through: :follows_user , :class_name => 'User',
                                                 :source => 'user',
-                                                :foreign_key => 'following_id' 
+                                                :foreign_key => 'following_id'
 
   belongs_to :city
 
-  
+
   def talks
      talks_user_one + talks_user_two
   end
 
   #validates
   validates :name, presence: true
-  validates :username, :uniqueness => true , presence: true
   validates :phone, format: /\d{9,}\Z/i
-  validates :email, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
-  
+  validates :email, :uniqueness => true ,presence: true,format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
+
   validate :birthday_cannot_be_in_the_future
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing_photo.png"
 
   #instance methods
-   
-   
+
+
   #fica a seguir 'target'
   #target.class = user
   def follow(target)
@@ -94,7 +93,7 @@ class User < ActiveRecord::Base
     end
     true
   end
-   
+
   #pára de seguir 'target'
   #target.class = user
   def unfollow(target)
@@ -104,7 +103,7 @@ class User < ActiveRecord::Base
     end
     false
   end
-  
+
   #muda o estado de follow com o 'target', para de seguir se estiver a seguir ou o contrário
   #target.class = user
   def toggle_follow(target)
@@ -117,7 +116,7 @@ class User < ActiveRecord::Base
       true
     end
   end
-  
+
   #se o utilizador está a seguir 'target'
   #target.class = user
   def is_following(target)
@@ -128,7 +127,7 @@ class User < ActiveRecord::Base
       true
     end
   end
-  
+
   #todos conversas do utilizador
   def all_talks
     Talk.all_talks(id)
@@ -139,11 +138,11 @@ class User < ActiveRecord::Base
     now = Time.now.utc.to_date
     now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
   end
-  
+
   #a data do nascimento não pode estar no futuro
   def birthday_cannot_be_in_the_future
     if (birthday != nil)
-      errors.add(:birthday, " cannot be in the future") if 
+      errors.add(:birthday, " cannot be in the future") if
         birthday > Date.today
     end
   end
@@ -152,27 +151,27 @@ class User < ActiveRecord::Base
   def expired_ads
     self.ads.where("expire_date < ?", Date.today)
   end
-  
+
   #inserir dados pelo omniauth
   def apply_omniauth(omniauth)
     if omniauth['provider'] = 'facebook'
-      
+
       #Buscar info
       self.email = omniauth['info']['email']
       self.username = omniauth['info']['nickname']
       self.name = omniauth['info']['first_name']
-      
+
       #location será composto por Cidade, Pais
       location = omniauth['info']['location'].split(", ")
-      
+
       #buscar cidade do location
       self.city = City.find_by city: location[0]
-      
+
       #buscar imagem
       if omniauth['info']['image']!=nil
         self.avatar = URI.parse(omniauth['info']['image'])
       end
-      
+
       if omniauth['info']['last_name'].length > 0
         self.name += ' ' + omniauth['info']['last_name']
       end
@@ -197,7 +196,7 @@ class User < ActiveRecord::Base
     find(:all, :conditions =>["created_at > ?", 1.week.ago])
   end
 
-  
+
   # private methods
   private
     def imperative_follow(target)
