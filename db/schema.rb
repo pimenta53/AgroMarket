@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131127132046) do
+ActiveRecord::Schema.define(version: 20131202142904) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id"
@@ -92,20 +92,6 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
-  end
-
-  create_table "admin_testes", force: true do |t|
-    t.integer  "coisas"
-    t.string   "coisas2"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "admin_tests", force: true do |t|
-    t.integer  "coisas"
-    t.string   "coisas2"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "ads", force: true do |t|
@@ -211,11 +197,6 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.datetime "updated_at"
   end
 
-  create_table "testes", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "tutorial_images", force: true do |t|
     t.integer  "tutorial_id"
     t.string   "url"
@@ -266,7 +247,6 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.string   "username"
     t.datetime "birthday"
     t.string   "phone"
     t.string   "avatar_file_name"

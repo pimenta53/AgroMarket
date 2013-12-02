@@ -10,43 +10,45 @@
       </ul>
     </div>
   <% end %>
-  
+
 
   <div class="field">
     <h4> Quero inserir um anúncio na categoria de  <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma opção') unless @categories.blank? %></h4>
-     
+
   </div>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :título %><br>
     <%= f.text_field :title,:placeholder => "Title" %>
   </div>
 
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :descrição %><br>
     <%= f.text_field :description,:placeholder => :description %>
   </div>
   <div class="field">
-    <%= f.label :price %><br>
+    <%= f.label :preço %><br>
     <%= f.text_field :price,:placeholder => :price %>
   </div>
 
+ <div class="field">
+    <%= f.label :medida %><br>
+    <%= f.collection_select(:type_price_id,@price_types,:id,:name, :include_blank => 'Escolha uma opção') %>
+  </div>
+
   <div class="field">
-    <%= f.label :expire_date %><br />
+    <%= f.label :data_de_expiração %><br />
     <%= f.text_field :expire_date, :label => "Date",  :class => 'datepicker' %>
   </div>
 
   <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location,:placeholder =>:location %>
-  </div>
-  <div class="field">
-    <%= f.label :type_price_id %><br>
-    <%= f.collection_select(:type_price_id,@price_types,:id,:name, :include_blank => 'Escolha uma opção') %>
-  </div>
-  <div class="field">
     <%= f.label :city_id %><br>
       <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção') %>
+  </div>
+
+  <div class="field">
+    <%= f.label :local %><br>
+    <%= f.text_field :location,:placeholder =>:location %>
   </div>
 
   <div class="newPaperclipFiles">
@@ -59,19 +61,19 @@
   </div>
 
   <div class="existingPaperclipFiles">
-          
+
        <% f.fields_for :ad_images do |asset| %>
-          
+
             <% unless asset.object.new_record? %>
-          
+
                   <div class="thumbnail">
                           <%= link_to( image_tag(asset.object.image.url(:thumb)), asset.object.image.url(:original) ) %>
                           <%= asset.check_box  :_destroy %>
 
                   </div>
-                  
-            <% end %>        
-          
+
+            <% end %>
+
        <% end %>
   </div>
   <div class="actions">

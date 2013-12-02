@@ -9,224 +9,264 @@
 <% if flash[:error] %>
   <script> showNotify("<%= flash[:error] %>","error") </script>
 <% end %>
+<!--FACEBOOK SDK START -->
+<div id="fb-root"></div>
+<script>
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/pt_PT/all.js#xfbml=1&appId=547514635336381";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+<!--FACEBOOK SDK END -->
+<!--TWITTER SDK START -->
+<script>
+  !function(d,s,id){
+    var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+    if(!d.getElementById(id)){
+      js=d.createElement(s);
+      js.id=id;
+      js.src=p+'://platform.twitter.com/widgets.js';
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document, 'script', 'twitter-wjs');
+</script>
+<!--TWITTER SDK END -->
 
   <% num_img=@ad.ad_images.count %>
-  <table class="adData" width='100%'>
-    <!-- AD HEADER -->
-    <tr>
-      <% if num_img > 0 %>
-      <th colspan='2' cellpadding="7">
-      <% else %>
-      <th cellpadding="7">
-      <% end %> 
-        <h1><%= @ad.title %></h1>
-      </th>
-    </tr>
-    <!-- AD DATA -->
-    <tr valign="top">
-      <!-- IMAGENS -->
-      <% if num_img > 0 %>
-        <td>
-          <table class="adImages" align="center" cellpadding="3">
-          <tr>
-          <td colspan=2 align="center">
-          <div id="imageCarousel" class="carousel slide">
-            <ol class="carousel-indicators">
-  	          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-  	          <% i=1 %>
-  	          <% while (i < num_img) do %>
-                 <li data-target="#myCarousel" data-slide-to="<%= i %>"></li>
-                 <% i+=1 %>
-               <% end %>
-            </ol>   
-            <!-- Carousel items -->
-            <div class="carousel-inner">
-               <% i=0 %>
-  	          <% while (i < num_img) do %>
-  	            <div class="<% if i>0 %>item<% else %>active item<% end %>" style="height: 200px; width: 200px;" valign="middle">
-  	              <table width="100%" height="100%" valign="middle"><tr><td>
-                   <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery_carousel]">
-  	                  <%= image_tag @ad.ad_images[i].image(:small), :width => "100%" %>
-                   </a>
-  	              </td></tr></table>
-  	            </div>
-                 <% i+=1 %>
-               <% end %>
-            </div>
-            <!-- Carousel nav -->
-            <a class="carousel-control left" href="#imageCarousel" data-slide="prev" style="top: 50%">&lsaquo;</a>
-            <a class="carousel-control right" href="#imageCarousel" data-slide="next" style="top: 50%">&rsaquo;</a>
-          </div>    
-          </td>
-          </tr>
-         <% i=0 %>
-         <% while (i < (num_img-1)) do %>
-           <% if !i.odd? %>
-             <tr>
-               <td align="center">
-                 <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                   <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                 </a>
-               </td>
-           <% else %>
-               <td align="center">
-                 <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                   <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                 </a>
-               </td>
-             </tr>
-           <% end %>
-           <% i+=1 %>
-         <% end %>
-         <!-- Para centrar a ultima imagem caso o numero de imagens for impar -->
-         <% if !i.odd? %>
-           <tr>
-             <td colspan="2" align="center">
-               <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                 <%= image_tag @ad.ad_images[i].image(:thumb) %>
-               </a>
-             </td>
-           </tr>
-         <% else %>
-             <td align="center">
-               <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                 <%= image_tag @ad.ad_images[i].image(:thumb) %>
-               </a>
-             </td>
-           </tr>
-         <% end %>
-         </table>
-        </td>
-      <% end %>
-      <!-- ATRIBUTOS -->
-      <td width="100%">
-        <table class="adsAtributes" cellpadding="7" width='100%'>
-          <tr>
-            <td align="left">
-  		      <strong>Categoria:</strong>
-  			   <% if @ad.category.blank? %>
-  			     <span class="label" style="background-color: #888888">Sem categoria</span>
-  			   <% else %>
-  			     <span class="label" style="background-color: #<%= @ad.category.color %>">
-  			       <%= @ad.category.name %>
-  		 	     </span>
-  		      <% end %>
-            </td>
-            <td align="right">
-              <strong>Preço:</strong>
-              <%= "#{@ad.price} #{@ad.price_type.name}" %>
-            </td>
-          </tr>
-          <tr>
-            <td align="left">
-              <strong>Vendedor:</strong>
-              <%= @ad.user.name %>
-            </td>
-            <td align="right">
-              Rating
-            </td>
-          </tr>
-          <tr>
-            <td colspan='2' align="left">
-              <%= @ad.description %>
 
-            </td>
-          </tr>
-          <tr>
-            <td colspan='2' align="left">
-              <strong>Final do Anúncio:</strong>
-              <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
-            </td>
-          </tr>
-          <tr>
-            <td align="left">
-              <strong>Cidade:</strong>
-              <%= @ad.city.city %>
-            </td>
-            <td align="right">
-              <strong>Localização:</strong>
-              <%= @ad.location %>
-            </td>
-          </tr>
-          <%#  if there is no logged user dont show the message form  %>
-          <% if user_signed_in? %>
-          <tr>
-            <!-- Messages -->
-            <td colspan='2' align="left">
-              <legend> Messages </legend>
-              <div id="messages">
-              <%= render "messages" %>
-              </div>
-            </td>
-          </tr>
-          <% end %>
-        </table>
-      </td>
-    </tr>
-  </table>
-
-<!-- painel dos extras do ad -->
-<section class="panel">
-    <!-- headers -->
-    <header class="panel-heading navy">
-        <ul class="nav nav-tabs ">
-            <li class="active">
-                <a data-toggle="tab" href="#related">
-                    Produtos na mesma Area
-                </a>
-            </li>
-            <li>
-                <a data-toggle="tab" href="#reviews">
-                    Review do vendedor
-                </a>
-            </li>
-
-        </ul>
-    </header>
-    <!-- conteudos -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= @ad.title %></h3>
+    </div>
     <div class="panel-body">
-        <div class="tab-content tasi-tab">
-            <!-- produtos relacionados -->
-            <div id="related" class="tab-pane active">
-                <h4 class="pro-d-head">Produtos na mesma Area</h4>
-                <p> </p>
-            </div>
-            <!-- reviews -->
-            <div id="reviews" class="tab-pane">
-                <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                        <img src="http://placehold.it/50x50">
-                        
-                    </a>
-                    <div class="media-body">
-                        <a href="#" class="cmt-head">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-                        <p> <i class="fa fa-clock-o"></i> 1 hours ago</p>
+      <table class="adData" width='100%'>
+        <!-- AD HEADER -->
+        <tr>
+          <% if num_img > 0 %>
+          <th colspan='2' cellpadding="7">
+          <% else %>
+          <th cellpadding="7">
+          <% end %>
+          </th>
+        </tr>
+        <!-- AD DATA -->
+        <tr valign="top">
+          <!-- IMAGENS -->
+          <% if num_img > 0 %>
+            <td>
+              <table class="adImages" align="center" cellpadding="3">
+              <tr>
+              <td colspan=2 align="center">
+              <div id="imageCarousel" class="carousel slide">
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <% i=1 %>
+                  <% while (i < num_img) do %>
+                     <li data-target="#myCarousel" data-slide-to="<%= i %>"></li>
+                     <% i+=1 %>
+                   <% end %>
+                </ol>
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                   <% i=0 %>
+                  <% while (i < num_img) do %>
+                    <div class="<% if i>0 %>item<% else %>active item<% end %>" style="height: 200px; width: 200px;" valign="middle">
+                      <table width="100%" height="100%" valign="middle"><tr><td>
+                       <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery_carousel]">
+                          <%= image_tag @ad.ad_images[i].image(:small), :width => "100%" %>
+                       </a>
+                      </td></tr></table>
                     </div>
-                </article>
-                <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                        <img src="http://placehold.it/50x50">
-                        
+                     <% i+=1 %>
+                   <% end %>
+                </div>
+                <!-- Carousel nav -->
+                <a class="carousel-control left" href="#imageCarousel" data-slide="prev" style="top: 50%">&lsaquo;</a>
+                <a class="carousel-control right" href="#imageCarousel" data-slide="next" style="top: 50%">&rsaquo;</a>
+              </div>
+              </td>
+              </tr>
+             <% i=0 %>
+             <% while (i < (num_img-1)) do %>
+               <% if !i.odd? %>
+                 <tr>
+                   <td align="center">
+                     <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                       <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                     </a>
+                   </td>
+               <% else %>
+                   <td align="center">
+                     <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                       <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                     </a>
+                   </td>
+                 </tr>
+               <% end %>
+               <% i+=1 %>
+             <% end %>
+             <!-- Para centrar a ultima imagem caso o numero de imagens for impar -->
+             <% if !i.odd? %>
+               <tr>
+                 <td colspan="2" align="center">
+                   <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                     <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                   </a>
+                 </td>
+               </tr>
+             <% else %>
+                 <td align="center">
+                   <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                     <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                   </a>
+                 </td>
+               </tr>
+             <% end %>
+             </table>
+            </td>
+          <% end %>
+          <!-- ATRIBUTOS -->
+          <td width="100%">
+            <table class="adsAtributes" cellpadding="7" width='100%'>
+              <tr>
+                <td align="left">
+                  <strong>Categoria:</strong>
+                   <% if @ad.category.blank? %>
+                     <span class="label" style="background-color: #888888">Sem categoria</span>
+                   <% else %>
+                     <span class="label" style="background-color: #<%= @ad.category.color %>">
+                       <%= @ad.category.name %>
+                     </span>
+                  <% end %>
+                </td>
+                <td align="right">
+                  <strong>Preço:</strong>
+                  <%= "#{@ad.price} #{@ad.price_type.name}" %>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">
+                  <strong>Vendedor:</strong>
+                  <%= @ad.user.name %>
+                </td>
+                <td align="right">
+                  Rating
+                </td>
+              </tr>
+              <tr>
+                <td colspan='2' align="left">
+                  <%= @ad.description %>
+
+                </td>
+              </tr>
+              <tr>
+                <td align="left">
+                  <strong>Final do Anúncio:</strong>
+                  <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
+                </td>
+                <td align="right">
+                  <div class="fb-share-button" data-href="http://teste94.di.uminho.pt/" data-type="button"></div>
+                  <!-- div class="fb-share-button" data-href="<%= ad_path(@ad) %>" data-type="button"></div -->
+                  
+                  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">
+                  <strong>Cidade:</strong>
+                  <%= @ad.city.city %>
+                </td>
+                <td align="right">
+                  <strong>Localização:</strong>
+                  <%= @ad.location %>
+                </td>
+              </tr>
+              <%#  if there is no logged user dont show the message form  %>
+              <% if user_signed_in? %>
+              <tr>
+                <!-- Messages -->
+                <td colspan='2' align="left">
+                  <legend> Messages </legend>
+                  <div id="messages">
+                  <%= render "messages" %>
+                  </div>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    <!-- painel dos extras do ad -->
+    <section class="panel">
+        <!-- headers -->
+        <header class="panel-heading navy">
+            <ul class="nav nav-tabs ">
+                <li class="active">
+                    <a data-toggle="tab" href="#related">
+                        Produtos na mesma Area
                     </a>
-                    <div class="media-body">
-                        <a href="#" class="cmt-head">Nulla vel metus scelerisque ante sollicitudin commodo</a>
-                        <p> <i class="fa fa-clock-o"></i> 23 mins ago</p>
-                    </div>
-                </article>
-                <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                        <img src="http://placehold.it/50x50">
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#reviews">
+                        Review do vendedor
                     </a>
-                    <div class="media-body">
-                        <a href="#" class="cmt-head">Donec lacinia congue felis in faucibus. </a>
-                        <p> <i class="fa fa-clock-o"></i> 15 mins ago</p>
-                    </div>
-                </article>
+                </li>
+
+            </ul>
+        </header>
+        <!-- conteudos -->
+        <div class="panel-body">
+            <div class="tab-content tasi-tab">
+                <!-- produtos relacionados -->
+                <div id="related" class="tab-pane active">
+                    <h4 class="pro-d-head">Produtos na mesma Area</h4>
+                    <p> </p>
+                </div>
+                <!-- reviews -->
+                <div id="reviews" class="tab-pane">
+                    <article class="media">
+                        <a class="pull-left thumb p-thumb">
+                            <img src="http://placehold.it/50x50">
+
+                        </a>
+                        <div class="media-body">
+                            <a href="#" class="cmt-head">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+                            <p> <i class="fa fa-clock-o"></i> 1 hours ago</p>
+                        </div>
+                    </article>
+                    <article class="media">
+                        <a class="pull-left thumb p-thumb">
+                            <img src="http://placehold.it/50x50">
+
+                        </a>
+                        <div class="media-body">
+                            <a href="#" class="cmt-head">Nulla vel metus scelerisque ante sollicitudin commodo</a>
+                            <p> <i class="fa fa-clock-o"></i> 23 mins ago</p>
+                        </div>
+                    </article>
+                    <article class="media">
+                        <a class="pull-left thumb p-thumb">
+                            <img src="http://placehold.it/50x50">
+                        </a>
+                        <div class="media-body">
+                            <a href="#" class="cmt-head">Donec lacinia congue felis in faucibus. </a>
+                            <p> <i class="fa fa-clock-o"></i> 15 mins ago</p>
+                        </div>
+                    </article>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+
+    </div>
+</div>
 
 
 <%#  Only the ad's owner can edit it  %>

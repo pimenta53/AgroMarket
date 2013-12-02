@@ -1,5 +1,5 @@
-<h1>Lista de Tipos de Preços</h1>
-
+<section class="panel">
+  <header class="panel-heading"><h1>Lista de Tipos de Preço</h1></header>
 <div class="table-responsive">
   <table class="table table-hover" >
   <thead>
@@ -15,9 +15,9 @@
     <% @price_types.each do |price_type| %>
       <tr>
         <td><%= price_type.name %></td>
-        <td><%= link_to 'Show', admin_price_type_path(price_type) %></td>
-        <td><%= link_to 'Edit', edit_admin_price_type_path(price_type) %></td>
-        <td><%= link_to 'Destroy', admin_price_type_path(price_type), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!--td><%= link_to 'Show', admin_price_type_path(price_type) %></td-->
+        <td><%= link_to 'Editar', edit_admin_price_type_path(price_type) %></td>
+        <td><%= link_to 'Eliminar', admin_price_type_path(price_type), method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,3 +26,4 @@
 <br>
 
 <%= link_to 'Novo Tipo de Preço', new_admin_price_type_path %>
+</section>

@@ -14,7 +14,7 @@ ready = function() {
         email: true
       },
       "user[name]": {
-        accept: "[a-zA-Z]+"
+        accept: "[a-zA-Z ]" /*Está a deixar passar coisas como 123JorgeDaniel */
       },
       "user_city_id": {
         required: true
@@ -118,10 +118,11 @@ ready = function() {
       },
       "ad[description]": {
         minlength: 5,
-        required: true,
+        required: true
       },
       "ad[price]": {
         minlength: 1,
+        number: true,
         required: true
       },
       "ad[expire_date]": {
@@ -133,22 +134,20 @@ ready = function() {
         required: true
       },
       "ad[type_price_id]": {
-        
         required: true
       },
       "ad[city_id]": {
-    
         required: true
       }
     },
-    highlight: function(element) {
-      $(element).closest('.control-group').removeClass('success').addClass('error');
-    },
-    success: function(element) {
-      element
-      .text('OK!').addClass('valid')
-      .closest('.control-group').removeClass('error').addClass('success');
-    }
+      highlight: function(element) {
+          $(element).closest('.control-group').removeClass('success').addClass('error');
+      },
+      success: function(element) {
+          element
+              .addClass('valid')
+              .closest('.control-group').removeClass('error').addClass('success');
+      }
   });
 
 
@@ -184,11 +183,11 @@ ready = function() {
         required: true
       },
       "ad[type_price_id]": {
-        
+
         required: true
       },
       "ad[city_id]": {
-    
+
         required: true
       }
     },
@@ -203,7 +202,7 @@ ready = function() {
    });
 
 
-  
+
   //serve para validar select boxes
   jQuery.validator.addMethod('selectcheck', function (value) {
     return (value != '0');

@@ -1,30 +1,28 @@
 
 <ol class="breadcrumb">
-              <li class="active"><a href="<%= ads_path %>"><i class="fa fa-dashboard"></i> Ads</a></li>
-              
+              <li class="active"><a href="<%= ads_path %>"><i class="fa fa-dashboard"></i> Anúncios</a></li>
+
 </ol>
 
 <section class="panel">
-  <header class="panel-heading">
-                All Ads
-  </header>
+  <header class="panel-heading"><h1>Lista de anúncios</h1></header>
   <div class="table-responsive">
     <table class="table table-hover" >
       <thead>
         <tr>
           <th></th>
-          <th>Image</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Price</th>
-          <th>Category</th>
-          <th>Expire date</th>
-          <th>Location</th>
-          <th>Is active</th>
-          <th>Type price</th>
-          <th>City</th>
+          <th>Imagem</th>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+          <th>Medida</th>
+          <th>Categoria</th>
+          <th>Data de expiração</th>
+          <th>Local</th>
+          <th>Activo?</th>
+          <th>Cidade</th>
           <th>User_ID / User_Name</th>
-          <th>Created_at</th>
+          <th>Criado em</th>
           <th></th>
           <th></th>
           <th></th>
@@ -35,7 +33,7 @@
         <% @ads.each do |ad| %>
           <tr>
             <td>
-               
+
               <a href="#details<%= ad.id %>"  data-toggle="collapse"><span class="label label-info"><i class="fa fa-search"></i></a></td>
             <td>
               <div class="img_table">
@@ -46,13 +44,14 @@
             <td><%= ad.title %></td>
             <td><%= ad.description %></td>
             <td><%= ad.price %></td>
+            <td><%= ad.type_price_id %></td>
             <td>
               <% if ad.category %>
                 <span class="label" style="background-color: #<%= ad.category.color %>">
                   <%= ad.category.name %>
                 </span>
 
-                <% else %> 
+                <% else %>
                    <span class="label label-default" >
                     Sem Categoria
                   </span>
@@ -61,18 +60,14 @@
             <td><%= l ad.expire_date, :format => :short %></td>
             <td><%= ad.location %></td>
             <td><%= ad.is_active %></td>
-            <td><%= ad.type_price_id %></td>
             <td><%= ad.city.city unless ad.city.blank? %></td>
             <td><%= ad.user_id %> / <%= ad.user.name %></td>
-            <td><strong><%= l ad.created_at , :format => :short%></strong> / 
-              <abbr class="timeago" title="<%= ad.created_at.getutc.iso8601 %>"> 
-                <%= ad.created_at.to_s %> 
-              </abbr>
+            <td><strong><%= l ad.created_at , :format => :short%></strong>
             </td>
 
-            <td><%= link_to 'Show', [:admin,ad] %></td>
-            <td><%= link_to 'Edit', edit_admin_ad_path(ad) %></td>
-            <td><%= link_to 'Destroy', [:admin,ad], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Ver', [:admin,ad] %></td>
+            <td><%= link_to 'Editar', edit_admin_ad_path(ad) %></td>
+            <td><%= link_to 'Eliminar', [:admin,ad], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
           </tr>
 
           <tr id="details<%= ad.id %>" class="collapse" data-toggle="collapse">
@@ -103,8 +98,8 @@
   <br>
 
 
-<%= link_to 'New Ad', new_ad_path %>
-                          
+<%= link_to 'Novo anúncio', new_ad_path %>
+
 </section>
 
 

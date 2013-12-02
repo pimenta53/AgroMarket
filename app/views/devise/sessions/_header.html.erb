@@ -1,13 +1,13 @@
 <nav class="navbar navbar-default navbar-fixed-top" id="navbarAgro" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header" id="header-bar">
-    
+
     <img id="agrosocial_logo" src="/assets/logo_button.svg" alt="AgroSocial Logo" class="img-circle">
     <a class="navbar-brand" id="brandAgro" href="/">AgroSocial</a>
 
     <a id="menu-toggle" href="#" class="btn btn-default"><i class="fa fa-reorder"></i></a>
 
-    
+
 
   </div>
 
@@ -17,18 +17,18 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    
+
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    
+
 
     <ul class="nav navbar-nav navbar-right">
-      
-  
-      
+
+
+
       <!-- Lado direito da barra de navegação-->
-          
+
       <!--NOTIFICACOES-->
       <% if user_signed_in? %>
         <li class="dropdown messages-dropdown" >
@@ -95,7 +95,7 @@
               </li>
             <% else %>
                <li class="preview">
-                 
+
                     <span class="name"><i class="fa fa-envelope-o"></i>Sem Mensagens</span><br />
                 </li>
                 <li class="divider"></li>
@@ -103,7 +103,7 @@
                   <a href="<%= messages_path %>">Caixa de Mensagens</span></a>
                 </li>
             <% end %>
-            
+
           </ul>
         </li>
         <!--END MESSAGES-->
@@ -149,7 +149,7 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">
           <% if user_signed_in? %>
-            <%= current_user.username %>
+            <%= current_user.name.split(" ")[0] %>
             <b class="caret"></b></a>
           <% end %>
         <ul class="dropdown-menu">
@@ -162,13 +162,14 @@
             <li><%= link_to "Terminar Sessão",destroy_user_session_path, method: :delete %></li>
           </ul>
           </li>
-       
+
 
       <% else %>
 
-   
 
-       
+        <li><%= link_to "Facebook".html_safe , "/auth/facebook" %></li>
+        <li><%= link_to "Twitter".html_safe , "/auth/twitter" %></li>
+
         <li><%= link_to "Entrar".html_safe , new_user_session_path %></li>
         <li><%= link_to "Registo", new_user_registration_path %></li>
       <% end %>
