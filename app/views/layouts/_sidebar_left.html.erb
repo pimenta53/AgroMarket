@@ -50,15 +50,16 @@
       <%#  ACADEMY ZONE  %>
       <div class="panel-group" id="accordion">
         <li class="panel-heading">
-          <% if (controller_name == 'academy') %>
+          <% if (controller_name == 'academy' || controller_name == 'questions') %>
+
             <li>
               <%= link_to "Academia".html_safe, "#collapseAcademy", :class=>"btn btn-primary btn-block main-button-left", "id"=>"big-btn", "data-toggle" =>  "collapse", "data-parent" => "#accordion" %>
             </li>
           </li>
 
           <div id="collapseAcademy" class="panel-collapse collapse in">
-            <li><%= link_to "tutoriais".html_safe, academy_questions_path %></li>
-            <li><%= link_to "workshops".html_safe %></li>
+            <li><%= link_to "Perguntas".html_safe, academy_questions_path %></li>
+            <li><%= link_to "Tutoriais".html_safe %></li>
             <li><%= link_to "workshops".html_safe %></li>
           </div>
         <% else %>

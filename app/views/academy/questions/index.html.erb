@@ -3,9 +3,9 @@
         <div class="btn-group">
             <a href="#" id="list" class="btn btn-default btn-sm">
               <span class="fa fa-th-list"></span>
-              Respondidas</a> 
+              Respondidas</a>
               <a href="#" id="grid" class="btn btn-default btn-sm">
-              
+
               <span class="fa fa-th"></span>Activas</a>
               <a href="#" id="grid" class="btn btn-default btn-sm">
               <span class="fa fa-truck"></span>Outras</a>
@@ -22,7 +22,6 @@
       <th>Category</th>
       <th>Title</th>
       <th>Text</th>
-      <th>Is deleted</th>
       <th>Image url</th>
       <th></th>
       <th></th>
@@ -37,11 +36,9 @@
         <td><%= academy_question.category_id %></td>
         <td><%= academy_question.title %></td>
         <td><%= academy_question.text %></td>
-        <td><%= academy_question.is_deleted %></td>
         <td><%= academy_question.image_url %></td>
         <td><%= link_to 'Show', academy_question %></td>
         <td><%= link_to 'Edit', edit_academy_question_path(academy_question) %></td>
-        <td><%= link_to 'Destroy', academy_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
