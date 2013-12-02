@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise' , '3.0.0'
 
 #Facebook authentication
-gem 'mongrel', '1.2.0.pre2'
+#gem 'mongrel', '1.2.0.pre2'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
