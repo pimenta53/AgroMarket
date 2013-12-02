@@ -63,10 +63,13 @@
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.8.2, ruby-2.0.0-p195 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multipart-post (v1.2.0, ruby-2.0.0-p195 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mysql2 (v0.3.13, ruby-2.0.0-p195 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="oauth (v0.4.7, ruby-2.0.0-p195 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="oauth2 (v0.8.1, ruby-2.0.0-p195 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="omniauth (v1.1.4, ruby-2.0.0-p195 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="omniauth-facebook (v1.5.1, ruby-2.0.0-p195 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="omniauth-oauth (v1.0.1, ruby-2.0.0-p195 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="omniauth-oauth2 (v1.1.1, ruby-2.0.0-p195 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="omniauth-twitter (v1.0.1, ruby-2.0.0-p195 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.4.0, ruby-2.0.0-p195 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="paperclip (v3.5.0, ruby-2.0.0-p195 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pnotify-rails (v1.2.2, ruby-2.0.0-p195 (1)) [gem]" level="application" />
