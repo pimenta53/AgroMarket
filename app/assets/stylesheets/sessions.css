@@ -904,6 +904,15 @@ i.globe:hover {
 }
 /*-------------------- */
 
+.fb-login-button{
+
+  width: auto;
+  height: auto;
+  border: 2px solid black;
+
+}
+
+
 #rodape{
   background-color: #FFF;
   width: auto;
