@@ -165,6 +165,8 @@
        
 
       <% else %>
+        <li><%= link_to "Facebook".html_safe , "/auth/facebook" %></li>
+        <li><%= link_to "Twitter".html_safe , "/auth/twitter" %></li>
         <li><%= link_to "Entrar".html_safe , new_user_session_path %></li>
         <li><%= link_to "Registo", new_user_registration_path %></li>
       <% end %>
