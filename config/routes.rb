@@ -2,7 +2,7 @@ Agrosocial::Application.routes.draw do
   #facebook callback
   match '/auth/:provider/callback' => 'authentications#create', via: :all
 
-  
+
   get "academy" => "academy#index"
   ### ACADEMY ZONE ###
   namespace :academy do
@@ -13,20 +13,23 @@ Agrosocial::Application.routes.draw do
     resources :workshop_registrations
     resources :tutorials
     resources :tutorial_images
+
+    get 'up_vote', to: 'votes#up_vote', as: :up_vote
+    get 'down_vote', to: 'votes#down_vote', as: :down_vote
   end
 
   #pagina myads do utilizador
   get "/users/:id/myads" => "users#myads", as: "myads_user"
-  
+
   #accao follow do utilizador
   post '/users/:id/follow' => 'users#follow'
 
   resources :ads do
     post "new_messages" => "messages#create"
   end
- 
 
-  
+
+
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}
 
 
@@ -44,7 +47,7 @@ Agrosocial::Application.routes.draw do
     resources :dashboard
     resources :ads
     resources :users
-    
+
     get 'cancel_message', to: 'ads#cancel_message', as: :cancel_message
     get 'done_message',   to: 'ads#done_message',   as: :done_message
   end
@@ -53,13 +56,13 @@ Agrosocial::Application.routes.draw do
 
   resources :messages
   post 'send_messages' => 'messages#create_mp'
-  
+
   get 'done_message', to: 'ads#done_message', as: :done_message
 
   get 'cancel_message', to: 'ads#cancel_message', as: :cancel_message
-  
+
   get "refresh_header" => "application#refresh_header"
-  
+
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -101,7 +104,7 @@ Agrosocial::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
