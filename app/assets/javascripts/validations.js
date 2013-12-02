@@ -14,7 +14,7 @@ ready = function() {
         email: true
       },
       "user[name]": {
-        accept: "[a-zA-Z]+"
+        accept: "[a-zA-Z ]" /*Está a deixar passar coisas como 123JorgeDaniel */
       },
       "user_city_id": {
         required: true
@@ -133,11 +133,11 @@ ready = function() {
         required: true
       },
       "ad[type_price_id]": {
-        
+
         required: true
       },
       "ad[city_id]": {
-    
+
         required: true
       }
     },
@@ -184,11 +184,11 @@ ready = function() {
         required: true
       },
       "ad[type_price_id]": {
-        
+
         required: true
       },
       "ad[city_id]": {
-    
+
         required: true
       }
     },
@@ -203,7 +203,7 @@ ready = function() {
    });
 
 
-  
+
   //serve para validar select boxes
   jQuery.validator.addMethod('selectcheck', function (value) {
     return (value != '0');
