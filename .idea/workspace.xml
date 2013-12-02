@@ -3,11 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0f10ffca-3c38-4c05-bf22-01c7074b8c37" name="Default" comment="">
       <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\assets\javascripts\lib\jquery.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ads/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/ads/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/script.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ads/show.html.erb" afterPath="$PROJECT_DIR$/app/views/ads/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/validations.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/validations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="agrosocial.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,19 +55,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="validations.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="validations.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/validations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="28" selection-start="2610" selection-end="2610" vertical-scroll-proportion="-9.52">
+            <state line="140" column="10" selection-start="3040" selection-end="3040" vertical-scroll-proportion="0.62975204">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="script.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="147" column="52" selection-start="4176" selection-end="4176" vertical-scroll-proportion="0.5371901">
+            <state line="22" column="55" selection-start="493" selection-end="493" vertical-scroll-proportion="72.8">
               <folding />
             </state>
           </provider>
@@ -90,9 +92,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/validations.js" />
         <option value="$PROJECT_DIR$/app/views/ads/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/script.js" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/validations.js" />
       </list>
     </option>
   </component>
@@ -670,16 +672,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/validations.js">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="28" selection-start="2610" selection-end="2610" vertical-scroll-proportion="-9.52">
+        <state line="22" column="55" selection-start="493" selection-end="493" vertical-scroll-proportion="72.8">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/script.js">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/validations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="52" selection-start="4176" selection-end="4176" vertical-scroll-proportion="0.5371901">
+        <state line="140" column="10" selection-start="3040" selection-end="3040" vertical-scroll-proportion="0.62975204">
           <folding />
         </state>
       </provider>

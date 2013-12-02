@@ -9,6 +9,19 @@
 <% if flash[:error] %>
   <script> showNotify("<%= flash[:error] %>","error") </script>
 <% end %>
+<!--FACEBOOK SDK START -->
+<div id="fb-root"></div>
+<script>
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/pt_PT/all.js#xfbml=1&appId=547514635336381";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+<!--FACEBOOK SDK END -->
 
   <% num_img=@ad.ad_images.count %>
   <table class="adData" width='100%'>
@@ -133,9 +146,13 @@
             </td>
           </tr>
           <tr>
-            <td colspan='2' align="left">
+            <td align="left">
               <strong>Final do Anúncio:</strong>
               <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
+            </td>
+            <td align="right">
+              <div class="fb-share-button" data-href="http://teste94.di.uminho.pt/" data-type="button"></div>
+              <!-- div class="fb-share-button" data-href="ad_path(@ad)" data-type="button"></div -->
             </td>
           </tr>
           <tr>

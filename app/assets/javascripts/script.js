@@ -1,6 +1,16 @@
 var ready;
 ready = function() {
-
+	
+  //Facebook SDK START?
+  $.ajaxSetup({ cache: true });
+  $.getScript('//connect.facebook.net/pt_PT/all.js', function(){
+    FB.init({
+      appId: '547514635336381',
+    });     
+    $('#loginbutton,#feedbutton').removeAttr('disabled');
+    FB.getLoginStatus(updateStatusCallback);
+  });
+  //FACEBOOK SDK END
 
   //Show add_images in newAd
   $("#add").click(function() {
