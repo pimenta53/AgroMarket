@@ -3,9 +3,12 @@
 
 function scrollToPosition(id) {
    if (id !== undefined) {
+    
        $('html,body').animate({
          scrollTop: $('#'+id).offset().top},
        'slow');
+
+
    }
  }
 
@@ -103,9 +106,55 @@ var close_button = $('.close').hide();
       }
     });
 
+
+
+
+  $(".icon-shopping-cart").hover((function() {
+      $(this).removeClass("icon-shopping-cart");
+      return $(this).addClass("icon-play-circle");
+    }), function() {
+      $(this).removeClass("icon-play-circle");
+      return $(this).addClass("icon-shopping-cart");
+    });
+    $(".icon-male").hover((function() {
+      $(this).removeClass("icon-male");
+      return $(this).addClass("icon-play-circle");
+    }), function() {
+      $(this).removeClass("icon-play-circle");
+      return $(this).addClass("icon-male");
+    });
+    $(".icon-group").hover((function() {
+      $(this).removeClass("icon-group");
+      return $(this).addClass("icon-play-circle");
+    }), function() {
+      $(this).removeClass("icon-play-circle");
+      return $(this).addClass("icon-group");
+    });
+    $(".icon-bullhorn").hover((function() {
+      $(this).removeClass("icon-bullhorn");
+      return $(this).addClass("icon-play-circle");
+    }), function() {
+      $(this).removeClass("icon-play-circle");
+      return $(this).addClass("icon-bullhorn");
+    });
+    $(".icon-calendar-empty").hover((function() {
+      $(this).removeClass("icon-calendar-empty");
+      return $(this).addClass("icon-play-circle");
+    }), function() {
+      $(this).removeClass("icon-play-circle");
+      return $(this).addClass("icon-calendar-empty");
+    });
+
+    
+  
+
     $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
 
+
  });
+
+
+
 
 
 //sddsaasdasdasdasd

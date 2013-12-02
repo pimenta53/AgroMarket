@@ -3,9 +3,6 @@
 $(function() {
 
 
-  
-
-            
             var panels = $('.user-infos');
             var panelsButton = $('.dropdown-user');
             panels.hide();

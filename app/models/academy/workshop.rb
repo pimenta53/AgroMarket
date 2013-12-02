@@ -1,4 +1,4 @@
 class Academy::Workshop < ActiveRecord::Base
-  belongs_to :User
-  has_many :Workshop_registrations
+  belongs_to :user
+  has_many :workshop_registrations
 end

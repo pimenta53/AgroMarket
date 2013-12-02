@@ -1,5 +1,5 @@
 class Academy::Question < ActiveRecord::Base
   has_many :Answers
-  belongs_to :User
-  belongs_to :Category
+  belongs_to :user
+  belongs_to :category
 end

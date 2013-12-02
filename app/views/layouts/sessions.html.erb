@@ -6,7 +6,9 @@
   <%= stylesheet_link_tag  "application", media: "all", "data-turbolinks-track" => true %>
 
   <%= stylesheet_link_tag "bootstrap","sessions","data-turbolinks-track" => true %>
-  <%= javascript_include_tag  "jquery","jquery_ujs","jquery.fancybox","bootstrap-datepicker","turbolinks","session","data-turbolinks-track" => true %>
+
+  <%= javascript_include_tag  "jquery","jquery_ujs","jquery.fancybox","validations","lib/jquery.validate.min","bootstrap-datepicker","turbolinks","session","data-turbolinks-track" => true %>
+
 
   <link rel="shortcut icon" href="">
   <!--Google Fonts -->
@@ -18,20 +20,22 @@
 
 <body>
      
-     <%= render "devise/sessions/header"%>
+  <%= render "devise/sessions/header"%>
 
   <!-- Keep all page content within the page-content inset div! -->
   <div id="login_body"  data-slide="1" class="bgParallax slide teste" data-speed="15">
 
-      <div class="row_login_form">
+      <div class="row">
 
         <div class="col-md-6 login-col-slogan">
 
               <h1 class="text-center login-title"> AGROSOCIAL </h1>
-              <h4 class= " text-center login-slogan">A SEMENTE DO SEU NEGÓCIO</h4>
+              <h4 class= "text-center login-slogan">A SEMENTE DO SEU NEGÓCIO</h4>
               
         </div>
+
         <%= yield =%>
+      
       </div>
      
   </div>

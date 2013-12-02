@@ -1,25 +1,79 @@
+<div class="row">
+                  <div class="col-sm-10 col-md-10 col-md-offset-1">
+                      <div class="panel panel-primary">
+                          <div class="panel-heading">
+                              <h3 class="panel-title">Informacao do Utilizador</h3>
+                          </div>
+                          <div class="panel-body">
+                              <div class="row">
+                                  <div class="col-md-3">
+                                    <div class= "img-circle" alt="User Pic">
+                                      <%= image_tag @user.avatar.url(:medium),:width => "70%"%>
+                                    </div>
+                                   </div>
+                                  <div class="col-md-6">
+                                      <strong> <%= @user.username %></strong><br/>
+                                      <table class="table table-condensed table-responsive table-user-information">
+                                          <tbody>
+                                              <tr>
+                                                  <td>Nickname:</td>
+                                                  <td><%= @user.name %></td>
+                                              </tr>
+                                              <% if current_user==@user %>
+                                              <tr>
+                                                  <td>Email:</td>
+                                                  <td><%= @user.email %></td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Telefone:</td>
+                                                  <td><%= @user.phone %></td>
+                                              </tr>
+                                              <% end %>
+                                              <tr>
+                                                  <td>Cidade:</td>
+                                                  <td><%= @user.city.city %></td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Aniversário:</td>
+                                                  <td><%= @user.birthday %></td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Membro desde:</td>
+                                                  <td><%= @user.created_at %></td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="panel-footer">
+                            <% if current_user!=@user %>
 
-<h1><%= @user.username %></h1>
-
-
-<%= image_tag @user.avatar.url(:medium), :width => "20%" %>
-<p>Nome: <%= @user.name %></p>
-<% if current_user==@user %>
-<p>Email: <%= @user.email %></p>
-<p>Telefone: <%= @user.phone %></p>
-<% end %>
-<p>Cidade: <%= @user.city.city %></p>
-<p>Aniversário: <%= @user.birthday %> Falta o FORMAT</p>
-<p>Membro desde: <%= @user.created_at %></p>
-
-
-
+                                <button class="btn btn-sm btn-primary" type="button"
+                                      data-toggle="tooltip"
+                                      data-original-title="Send message to user"><i class="glyphicon glyphicon-envelope"></i>
+                                    </button>
+                            <% end %>
+                            
+                              
+                              <span class="pull-right">
+                                  <button class="btn btn-sm btn-warning" type="button"
+                                          data-toggle="tooltip"
+                                          data-original-title="Edit this user"><i class="glyphicon glyphicon-edit"></i></button>
+                                  <button class="btn btn-sm btn-danger" type="button"
+                                          data-toggle="tooltip"
+                                          data-original-title="Remove this user"><i class="glyphicon glyphicon-remove"></i></button>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+</div>
 
 <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h4 class="modal-title">Mandar mensagem para <%= @user.name %></h4>
-  </div>
+</div>
 
   <div class="modal-body">
            <div class="row" id="post-review-box" >
@@ -27,7 +81,7 @@
                     <%= render :partial =>"messages/form_mp" ,:locals =>{ :path => user_path(@user),:user_receiver_id => @user.id }  %>
                 </div>
             </div>
-        </div>
+  </div>
   <div class="modal-footer">
     <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
     <button type="button" class="btn btn-primary">Save changes</button>

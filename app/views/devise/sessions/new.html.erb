@@ -22,10 +22,10 @@
 
                <% if devise_mapping.rememberable? -%>
            <div>
-
+              <hr>
                  <%= f.check_box :remember_me ,:class=>"checkbox pull-left" %> <%= f.label :remember_me ,"Manter sessão iniciada", :id=>"login_option" %>
                 
-                 <div class='colorrender text-rigth '>
+                 <div class='colorrender'>
                   <%= render "devise/shared/links"  %>
                  </div>
           </div>

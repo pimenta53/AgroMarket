@@ -14,6 +14,7 @@
   <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
 
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width">
 </head>
 
 <body>
@@ -24,12 +25,13 @@
 
   <div id="login_body"  data-slide="1" class="bgParallax slide teste" data-speed="15">
 
-      <div class="row_login_form ">
+      <div class="vert-text">
 
-        <div class="col-md-6 col-slogan">
 
-              <h1 class="text-center login-title"> AGROSOCIAL </h1>
-              <h4 class= " text-center login-slogan">A SEMENTE DO SEU NEGÓCIO</h4>
+        <div class="col-slogan row">
+
+              <h1 class="login-title"> AGROSOCIAL </h1>
+              <h4 class="login-slogan">A SEMENTE DO SEU NEGÓCIO</h4>
               
         </div>
             <div class="row">
@@ -43,25 +45,33 @@
              
       </div>
       
+
       <div class="next_section_button" id="next" data-slide="2" style="margin-bottom: 0px;"> </div>
+
       <div class="prev_section_button" id="prev" data-slide="2" style="margin-bottom: 0px;"> </div>
   </div>
 
-<!-- ________________________ Section Information ___________________________________ -->
+  <!-- ________________________ Section Information ___________________________________ -->
 
-  <div id="login_body_image" data-slide="2" class="bgParallax slide" data-speed="10">
+  <div id="login_body_image" data-slide="2" class="bgParallax slide img-responsive" data-speed="10">
   </div>
 
-  <div class="login_section_information" data-slide="2" class="slide teste" data-speed="10">
+  <div id="section_negocio" class="login_section_information slide teste img-responsive" data-slide="2"  data-speed="10">
       
        <div class="services">
             <div class="container">
                   
-                            <div class="row">
+                         <div class="row">
 
                                 <div class="service-item">
-                                                      
-                                     <i class="service-icon icon-shopping-cart"></i>
+                                    
+                                    
+                                    <a class="frame" data-fancybox-type="iframe" href="http://www.youtube.com/embed/RetFcjbzInY?autoplay=1">
+                                      <i class="service-icon icon-shopping-cart">
+                                       
+                                      </i>
+                                    </a>
+
 
 
                                      <div class="information">
@@ -74,18 +84,18 @@
                                 
                                      </div>
                                                       
-                                </div>
+                              </div>
 
-                           </div>
+                    </div>
             </div>
       </div>
      
   </div>
 
-<div id="login_body_image2" class="bgParallax teste" data-speed="15">
+<div id="login_body_image2" class="bgParallax" data-speed="15">
 </div>
 
-<div class="login_section_information" data-slide="2" class="slide teste" data-speed="10">
+<div id="section_emprego" class="login_section_information slide teste" data-slide="2" data-speed="20">
       
        <div class="services">
             <div class="container">
@@ -93,9 +103,11 @@
                             <div class="row">
 
                                 <div class="service-item">
-                                                      
-                                     <i class="service-icon icon-male"></i>
 
+
+                                   <a class="frame" data-fancybox-type="iframe" href="http://www.youtube.com/embed/XMkeeZgHY14?autoplay=1">                    
+                                     <i class="service-icon icon-male"></i>
+                                     </a>
 
                                      <div class="information">
 
@@ -106,6 +118,7 @@
                                     </p>
                                 
                                      </div>
+
                                                       
                                 </div>
 
@@ -116,10 +129,10 @@
   </div>
 
 
-  <div id="login_body_image3" class="bgParallax teste" data-speed="15">
+  <div id="login_body_image3" class="bgParallax" data-speed="15">
   </div>
 
-  <div class="login_section_information" data-slide="2" class="slide teste" data-speed="10">
+  <div id="section_conhecimento" class="login_section_information slide teste" data-slide="2" data-speed="10">
       
        <div class="services">
             <div class="container">
@@ -128,8 +141,9 @@
 
                                 <div class="service-item">
                                                       
+                                     <a class="frame" data-fancybox-type="iframe" href="http://www.youtube.com/embed/yCn7XZVuRDg?autoplay=1">
                                      <i class="service-icon icon-group"></i>
-
+                                     </a>
 
                                      <div class="information">
 
@@ -140,7 +154,7 @@
                                     </p>
                                 
                                      </div>
-                                                      
+                                             
                                 </div>
 
                            </div>
@@ -149,10 +163,10 @@
      
   </div>
 
-  <div id="login_body_image4" class="bgParallax teste" data-speed="15">
+  <div id="login_body_image4" class="bgParallax" data-speed="15">
   </div>
 
-  <div class="login_section_information" data-slide="2" class="slide teste" data-speed="10">
+  <div id="section_divulgacao" class="login_section_information slide teste" data-slide="2"  data-speed="10">
       
        <div class="services">
             <div class="container">
@@ -160,9 +174,9 @@
                             <div class="row">
 
                                 <div class="service-item">
-                                                      
+                                     <a class="frame" data-fancybox-type="iframe" href="http://www.youtube.com/embed/irLwbREnL54?autoplay=1">         
                                      <i class="service-icon icon-bullhorn"></i>
-
+                                   </a>
 
                                      <div class="information">
 
@@ -173,7 +187,7 @@
                                     </p>
                                 
                                      </div>
-                                                      
+                                              
                                 </div>
 
                            </div>
@@ -182,10 +196,10 @@
      
   </div>
 
-  <div id="login_body_image5" class="bgParallax teste" data-speed="15">
+  <div id="login_body_image5" class="bgParallax" data-speed="15">
   </div>
 
-<div class="login_section_information" data-slide="2" class="slide teste" data-speed="10">
+<div id="section_participacao" class="login_section_information slide teste" data-slide="2"  data-speed="10">
       
        <div class="services">
             <div class="container">
@@ -193,9 +207,11 @@
                             <div class="row">
 
                                 <div class="service-item">
+
+                                     <a class="frame" data-fancybox-type="iframe" href="http://www.youtube.com/embed/D5seyeETouQ?autoplay=1">
                                                       
                                      <i class="service-icon icon-calendar-empty"></i>
-
+                                   </a>
 
                                      <div class="information">
 
@@ -206,7 +222,7 @@
                                     </p>
                                 
                                      </div>
-                                                      
+                                                
                                 </div>
 
                            </div>
@@ -255,10 +271,10 @@
 
 <!-- ________________________ Section Regist ___________________________________ -->
 
-<div id="login_body_regist" class="bgParallax teste" data-speed="10">
+<div id="login_body_regist" class="bgParallax" data-speed="10">
 </div>
 
-<div id="login_section_regist" class="" data-speed="10">
+<div id="login_section_regist" class="teste" data-speed="10">
 
     <section id="section-regist" data-auto-size="0.6" >
 
@@ -303,6 +319,7 @@
 </div>
 
 <%= render 'layouts/footer' %>
+
 
 </body>
 </html>

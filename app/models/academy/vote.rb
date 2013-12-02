@@ -1,3 +1,3 @@
 class Academy::Vote < ActiveRecord::Base
-  belongs_to :Answer
+  belongs_to :answer
 end

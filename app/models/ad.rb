@@ -36,7 +36,7 @@ class Ad < ActiveRecord::Base
 	
 	#validates
 	validates :title, presence: true
-	validates :price, presence: true
+	validates :price, presence: true, format: /\d{1,}\Z/i
 	validates :type_price_id, presence: true
 	validates :city_id, presence: true
 
