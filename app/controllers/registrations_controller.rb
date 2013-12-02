@@ -29,6 +29,8 @@ class RegistrationsController < Devise::RegistrationsController
 		      "sessions"
 		    when "index"
 		      "sessions"
+		    when "edit"
+		   	  "userslayouts"
 		    else
 		      "application"
 		    end

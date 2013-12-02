@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+  layout :resolve_layout
   before_action :set_user, only: [:show, :follow, :myads]
 
   def index
@@ -39,5 +39,13 @@ class UsersController < ApplicationController
   		@user = User.find(params[:id])
   	end
 
+    def resolve_layout
+        case action_name
+        when "show" 
+             "userslayouts"
+        else
+          "application"
+        end
+    end
 
 end

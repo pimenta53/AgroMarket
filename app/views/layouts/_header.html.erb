@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top" id="navbarAgro" role="navigation">
-  
+
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header" id="header-bar">
     <img id="agrosocial_logo" src="/assets/logo_button.svg" alt="AgroSocial Logo" class="img-circle">
@@ -12,38 +12,49 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
+
   </button>
-    
+
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    
+
     <ul class="nav navbar-nav navbar-right">
-      
+
       <!-- SEARCH -->
       <li class="dropdown messages-dropdown" >
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i><b class="caret" id="dropCarret"></b> </a>
+        <a href="#" class="dropdown-toggle" OnClick="document.www.focus();" data-toggle="dropdown"><i class="fa fa-search"></i><b class="caret" id="dropCarret"></b> </a>
         <ul class="dropdown-menu">
           <li class="container" id="searchBox" role="search">
             <div class="input-group" id="input-groupBox">
-              <input type="text" style="vertical-align: center;" class="form-control typeahead">
+              <input type="text" name="wwww" style="vertical-align: center;" class="form-control typeahead" >
               
               <span class="input-group-btn">
                 <button type="submit" class="btn btn-default" id="omnisearch-btn" >Pesquisar</button>
               </span>
             </div>
           </li>
-        </ul>  
+        </ul>
       </li>
       <!-- END SEARCH -->
-      
+
+      <script type="text/javascript"> 
+
+        function onClickScript(){
+          alert("cvbcv");
+          
+          document.elements['www'].focus();
+
+        }
+      </script>
+
 
       <!-- NOTIFICACOES -->
       <% if user_signed_in? %>
         <li class="dropdown messages-dropdown" >
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i><span class="badge" id="custom-badge">3</span> <b class="caret" id="dropCarret"></b> </a>
           <ul class="dropdown-menu">
-            
+
             <li class="dropdown-header">3 New </li>
             <li class="preview">
               <a href="#">
@@ -161,7 +172,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <% image_tag current_user.avatar.url%>
-            <span id="userNick"><%= current_user.username %></span>
+            <span id="userNick"><%= current_user.name.split(" ")[0] %></span>
             <b class="caret" id="dropCarret"></b>
           </a>
 
@@ -183,7 +194,9 @@
             <% else %>
               <li class="preview"><span class="name"><i class="fa fa-envelope-o"></i>Sem Mensagens</span><br /></li>
               <li class="divider"></li>
-              <li><a href="<%= messages_path %>">Caixa de Mensagens</span></a></li>
+              <li>
+                  <%= link_to "Caixa de Mensagens", messages_path %>
+              </li>
             <% end %>
             <li class="divider"></li>
 
@@ -191,13 +204,12 @@
             <li><%= link_to(ratings_path) do %>
                       <span>Rating por atribuir <span class="badge"><%= load_stuff_header %></span></span>
                     <% end %></li>
-            <li><a href="#">Inbox</a></li>
             <li class="divider"></li>
             <li><%= link_to "Terminar Sessão",destroy_user_session_path, method: :delete %></li>
 
           </ul>
         </li>
-         
+
 
       <% else %>
         <li><%= link_to "Login".html_safe , new_user_session_path %></li>

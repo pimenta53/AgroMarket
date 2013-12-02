@@ -1,5 +1,6 @@
 var ready;
 ready = function() {
+	
 
 
   //Show add_images in newAd
@@ -121,21 +122,53 @@ ready = function() {
    * Progress Bar Form
    */
    var total_percent = 0;
-   $("input").on('blur',function ()
-   {
-
-      var value = $(this).val();
-      var perc;
-      if ( value !== ""){
-        perc = $(this).attr("data-percentage");
-        total_percent += 10;
+   $("input").on('blur',function (){
+      var idName = $(this).attr('id');
+      var helplineClass = document.getElementById('help_' + idName).className;
+      if ( (helplineClass.indexOf('valid') !== -1)){
+          if (total_percent >= 100){
+            total_percent = 100;}
+          else
+          { total_percent += 10;}
         $(".progress-bar").css("width", + total_percent +"%");
-      }else if ( value === ""){
-        perc = $(this).attr("data-percentage");
-        total_percent -= 10;
+      }else{
+          if (total_percent <= 0){
+              total_percent = 0;}
+          else{
+            total_percent -= 10;}
         $(".progress-bar").css("width", + total_percent +"%");
       }
     });
+
+    $("textarea").on('blur',function (){
+        var idName = $(this).attr('id');
+        var helplineClass = document.getElementById('help_' + idName).className;
+        if ( (helplineClass.indexOf('valid') !== -1)){
+            if (total_percent >= 100){
+                total_percent = 100;}
+            else
+            { total_percent += 40;}
+            $(".progress-bar").css("width", + total_percent +"%");
+        }else{
+            if (total_percent <= 0){
+                total_percent = 0;}
+            else{
+                total_percent -= 40;}
+            $(".progress-bar").css("width", + total_percent +"%");
+        }
+    });
+
+
+    $('#some-textarea').wysihtml5({
+      "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+      "emphasis": true, //Italics, bold, etc. Default true
+      "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+      "html": true, //Button which allows you to edit the generated HTML. Default false
+      "link": true, //Button to insert a link. Default true
+      "image": true, //Button to insert an image. Default true,
+      "color": true //Button to change color of font  
+    });
+
 }
 
 //em rails 4 so funciona assim

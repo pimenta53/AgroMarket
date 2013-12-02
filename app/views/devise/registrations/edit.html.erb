@@ -1,107 +1,138 @@
-<div id="regist_user">
-<div class="well regist_pag">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#home" data-toggle="tab">Perfil</a></li>
-      <li><a href="#profile" data-toggle="tab">Password</a></li>
-    </ul>
-    <div id="myTabContent" class="tab-content">
-      <div class="tab-pane active in" id="home">
-        
-           <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put ,:class=>"form-signin tab"}) do |f| %>
-          <%= devise_error_messages! %>
+<aside class="profile-info col-lg-9">
+          <section class="panel">
+                          <div class="panel-body bio-graph-info">
+                              <h1> Profile Info</h1>
+                        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put ,:class=>"form-horizontal"}) do |f| %>
+                           <%= devise_error_messages! %>
+                              
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">About Me</label>
+                                      <div class="col-lg-10">
+                                          <textarea name="" id="" class="form-control" cols="30" rows="10"></textarea>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">Last Name</label>
+                                      <div class="col-lg-6">
+                                           <%= f.text_field :name ,:class=>"form-control"%>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">Cidade</label>
+                                      <div class="col-lg-6">
+                                           <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção')  %>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">Aniversario</label>
+                                      <div class="col-lg-6">
+                                          <%= f.text_field :birthday, :label => "Date",  :class => ['datepicker','form-control'] %>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">Occupation</label>
+                                      <div class="col-lg-6">
+                                          <input type="text" class="form-control" id="occupation" placeholder=" ">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">Email</label>
+                                      <div class="col-lg-6">
+                                          <%= f.email_field :email, :autofocus => true,:class => "form-control" %>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">Telefone</label>
+                                      <div class="col-lg-6">
+                                           <%= f.text_field :phone ,:class=>"form-control" %>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">Website URL</label>
+                                      <div class="col-lg-6">
+                                          <input type="text" class="form-control" id="url" placeholder="http://www.demowebsite.com ">
+                                      </div>
+                                  </div>
 
-           <br/>
-            <div class ="regist_util_items" >
-              <%= f.label :avatar,"Image" %><br />
-              <%= image_tag current_user.avatar %><br />
-              <%= f.file_field :avatar ,:class=>"form-control"%>
-            </div>
-             <br />
-            
-           
-                <div class ="regist_util_items" ><%= f.label :username %><br />
-                 <%= f.text_field :username ,:class=>"form-control"%>
-                </div>
-                
-                <br/>
-                 <div class="form-control regist_util_items">
-                  <%= f.label :city_id %>
+                                  <div class="form-group">
+                                      <div class="col-lg-offset-2 col-lg-10">
+                                          <%= f.submit "Salvar" ,:class=>"btn btn-success" %>
+                                          <%= link_to "Cancelar", :back ,:class=>"btn btn-default" %>
+                                       </div>
+                                  </div>
+                           
+                              <% end %>
+                          </div>
+                      </section>
 
-                  <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção')  %>
-                </div>        
-          
 
-          <br />
-            <div class ="regist_util_items" >
-              <%= f.label :email %><br />
-              <%= f.email_field :email, :autofocus => true,:class => "form-control" %>
-            </div>
 
-          <br />
-      <div class="row">
-            <div class="col-xs-6 col-md-6 field regist_util_items" >
-             <%= f.label :birthday %><br />
-             <%= f.text_field :birthday, :label => "Date",  :class => ['datepicker','form-control'] %>
-           </div>
-        
-           
-          <div class ="col-xs-6 col-md-6 regist_util_items" >
-            <%= f.label :phone, "Phone"%><br />
-            <%= f.text_field :phone ,:class=>"form-control" %>
-          </div>
-           <br />
-     </div>
 
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-          <% end %>
-          
-           <br />
-           <div class="btn btn-primary">
-            <%= f.submit "Update" %>
-          </div>
-         <br />
-        <% end %>
-  </div>
-      <div class="tab-pane fade" id="profile">
-      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put ,:class=>"form-signin tab2"}) do |f| %>
-          <%= devise_error_messages! %>
-          <br/>
-          <div class ="regist_util_items" >
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-          <%= f.password_field :password, :autocomplete => "off" ,:class=>"form-control"%>
-          </div>
-         <br />
-          <div class ="regist_util_items" >
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation ,:class=>"form-control"%>
-          </div>
-           <br />
-          <div class ="regist_util_items" >
-            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-            <%= f.password_field :current_password ,:class=>"form-control"%>
-          </div>
-          <br/>
-          <div class="btn btn-primary">
-            <%= f.submit "Update" %>
-          </div>
+                  <section>
+                     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put ,:class=>"form-horizontal"}) do |f| %>
+                          <div class="panel panel-primary">
+                              <div class="panel-heading"> Sets New Password &amp; Avatar</div>
+                              <div class="panel-body">
+                                  
+                                      <div class="form-group">
+                                          <label class="col-lg-2 control-label">Current Password</label>
+                                          <div class="col-lg-6">
+                                              
+                                               <%= f.password_field :current_password ,:class=>"form-control",:id=>"c-pwd",:placeholder=>" " %>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="col-lg-2 control-label">New Password</label>
+                                          <div class="col-lg-6">
+                                              
+                                              <%= f.password_field :password, :autocomplete => "off" ,:class=>"form-control",:id=>"n-pwd",:placeholder=>" " %>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="col-lg-2 control-label">Re-type New Password</label>
+                                          <div class="col-lg-6">
+                                               <%= f.password_field :password_confirmation ,:class=>"form-control",:id=>"rt-pwd",:placeholder=>" " %>
+                                          </div>
+                                      </div>
 
-           <br />
-      <% end %>
-      </div>
-  </div>
 
-        <div class="btn cancel">
-             <%= link_to "Cancelar", :back %>
-        </div>
-       
-  </div>
-  <div id="cancel_count">
-         <h4>Apagar a Conta</h4>
+                                      <div class="form-group">
+                                          <label class="col-lg-2 control-label">Alterar Avatar</label>
+                                          <div class="col-lg-6"> 
+                                              <%= f.file_field :avatar ,:class=>"form-control file-pos"%>
+                                          </div>
+                                      </div>
 
-        <p>Deseja apagar a conta? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-  </div>
+                                      <div class="form-group">
+                                          <div class="col-lg-offset-2 col-lg-10">
 
-   
-</div>    
-  
+                                              <%= f.submit "Salvar" ,:class=>"btn btn-success" %>
+                                              <%= link_to "Cancelar", :back ,:class=>"btn btn-default" %>
+                                              
+                                          </div>
+                                      </div>
+                                
+                              </div>
+                          </div>
+                          <% end %>
+                      </section>
+
+                      <section>
+                          <div class="panel panel-primary">
+                              
+                       <div class="panel-heading"> Apagar a Conta </div>
+                               <div class="panel-body">
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">Deseja apagar a conta?</label>
+                                      <div class="col-lg-10">
+                                          <%= button_to "Apagar a minha conta", registration_path(resource_name), :data => { :confirm => "Tens a certeza?" }, :method => :delete %>
+                                      </div>
+                                  </div>
+                                 
+                              </div>
+                          </div>
+                      </section>
+
+
+</aside> 
+

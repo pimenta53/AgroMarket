@@ -11,6 +11,7 @@ function scrollToPosition(id) {
 
    }
  }
+ 
 
  $(function() {
 
@@ -148,7 +149,10 @@ var close_button = $('.close').hide();
     
   
 
-    $('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
+    //$('input.datepicker').datepicker({"format": "yyyy-mm-dd",autoclose: true});
+
+
+ 
 
 
  });

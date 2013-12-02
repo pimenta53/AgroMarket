@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131127132046) do
+
+ActiveRecord::Schema.define(version: 20131202175911) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id", null: false
@@ -49,8 +50,8 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.integer  "user_id", null: false
     t.integer  "aproved", default: 0
     t.string   "title"
-    t.string   "text"
     t.integer  "is_delected", default: 0
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -207,7 +208,6 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.string   "username"
     t.datetime "birthday"
     t.string   "phone"
     t.string   "avatar_file_name"
