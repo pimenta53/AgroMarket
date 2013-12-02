@@ -49,6 +49,13 @@
         </div>
       </div>
 
+      <script>
+          $('#ad_price').on('input', function() {
+              var value = $("#ad_price").val().replace("1","2");
+              $("#ad_price").val(value.replace(',', '.'));
+          })
+      </script>
+
       <div class="col-md-3">
         <div class="control-group">
           <%= f.label :type_price_id, "Medida" ,:class=>"control-label" %><br>
