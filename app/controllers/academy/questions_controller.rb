@@ -1,5 +1,5 @@
 class Academy::QuestionsController < ApplicationController
-  before_action :set_academy_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_academy_question, only: [:show, :edit, :update]
 
   # GET /academy/questions
   # GET /academy/questions.json

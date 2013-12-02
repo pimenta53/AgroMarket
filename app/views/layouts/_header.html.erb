@@ -11,6 +11,7 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
+
   </button>
 
 
@@ -21,12 +22,12 @@
 
       <!-- SEARCH -->
       <li class="dropdown messages-dropdown" >
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i><b class="caret" id="dropCarret"></b> </a>
+        <a href="#" class="dropdown-toggle" OnClick="document.www.focus();" data-toggle="dropdown"><i class="fa fa-search"></i><b class="caret" id="dropCarret"></b> </a>
         <ul class="dropdown-menu">
           <li class="container" id="searchBox" role="search">
             <div class="input-group" id="input-groupBox">
-              <input type="text" style="vertical-align: center;" class="form-control typeahead">
-
+              <input type="text" name="wwww" style="vertical-align: center;" class="form-control typeahead" >
+              
               <span class="input-group-btn">
                 <button type="submit" class="btn btn-default" id="omnisearch-btn" >Pesquisar</button>
               </span>
@@ -35,6 +36,16 @@
         </ul>
       </li>
       <!-- END SEARCH -->
+
+      <script type="text/javascript"> 
+
+        function onClickScript(){
+          alert("cvbcv");
+          
+          document.elements['www'].focus();
+
+        }
+      </script>
 
 
       <!-- NOTIFICACOES -->
@@ -182,7 +193,9 @@
             <% else %>
               <li class="preview"><span class="name"><i class="fa fa-envelope-o"></i>Sem Mensagens</span><br /></li>
               <li class="divider"></li>
-              <li><a href="<%= messages_path %>">Caixa de Mensagens</span></a></li>
+              <li>
+                  <%= link_to "Caixa de Mensagens", messages_path %>
+              </li>
             <% end %>
             <li class="divider"></li>
 
@@ -190,7 +203,6 @@
             <li><%= link_to(ratings_path) do %>
                       <span>Rating por atribuir <span class="badge"><%= load_stuff_header %></span></span>
                     <% end %></li>
-            <li><a href="#">Inbox</a></li>
             <li class="divider"></li>
             <li><%= link_to "Terminar Sessão",destroy_user_session_path, method: :delete %></li>
 

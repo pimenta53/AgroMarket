@@ -1,44 +1,38 @@
-<p id="notice"><%= notice %></p>
-
-
 <div class="col-lg-12">
-    <section class="panel panel-success">
-        <header class="panel-heading">
+  <section class="panel panel-success">
+    <header class="panel-heading">
+      <div class="pull-right">
+        <button class="btn btn-success btn-xs">
+          <i class="icon-ok"></i>
+        </button>
 
-          <div class="pull-right">
-                <button class="btn btn-success btn-xs">
-                  <i class="icon-ok"></i>
+        <button class="btn btn-primary btn-xs">
+          <%= link_to '<i class="icon-pencil"></i>'.html_safe , edit_academy_answer_path(answer) %>
+        </button>
 
-                </button>
-                <button class="btn btn-primary btn-xs">
-                  
-                  <%= link_to '<i class="icon-pencil"></i>'.html_safe , edit_academy_answer_path(answer) %>
-                </button>
-                <button class="btn btn-danger btn-xs">
-                  <i class="icon-trash "></i>
-                </button>
-            </div>
-          <div class="" >
-            Resposta
-          </div>
+        <button class="btn btn-danger btn-xs">
+          <i class="icon-trash "></i>
+        </button>
+      </div>
 
-        </header>
+    </header>
 
-        
-        <div class="panel-body">
-          
-            <div class="col-xs-2 col-md-2">
-              <img class="img-circle" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=70" alt="User Pic">
-            </div>
+    <div class="panel-body">
+      <div class="col-xs-2 col-md-2">
+        <img class="img-circle" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=70" alt="User Pic">
+        <%= answer.user.name %>
+      </div>
 
-            <div class="col-xs-9 col-md-10 ">
-              
-                  <%= answer.text %>
-                  
-           </div>
-         </div>
+      <div class="col-xs-9 col-md-10 ">
+        <%= answer.text %>
+      </div>
+    </div>
 
-     </section>
+    <div class="">
+      <%#  Verify if the user is logged  %>
+      <%= link_to '<i class="icon-circle-arrow-up"></i>'.html_safe, academy_up_vote_path(:answer => answer) %>
+      <%= answer.up - answer.down %>
+      <%= link_to '<i class="icon-circle-arrow-down"></i>'.html_safe, academy_down_vote_path(:answer => answer) %>
+    </div>
+  </section>
 </div>
-
-

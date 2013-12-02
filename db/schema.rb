@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202142904) do
+ActiveRecord::Schema.define(version: 20131202175911) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20131202142904) do
     t.integer  "user_id"
     t.integer  "aproved"
     t.string   "title"
-    t.string   "text"
+    t.text     "text"
     t.integer  "is_delected"
     t.datetime "created_at"
     t.datetime "updated_at"

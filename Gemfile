@@ -38,6 +38,7 @@ gem 'devise' , '3.0.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 
 # Load image
 gem 'paperclip', '3.5.0'
@@ -46,6 +47,9 @@ gem 'annotate'
 
 # DatePicker
 gem 'bootstrap-datepicker-rails'
+
+# Workshop
+gem 'bootstrap-wysihtml5-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

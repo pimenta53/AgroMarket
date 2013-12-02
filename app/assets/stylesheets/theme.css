@@ -8,9 +8,9 @@
 
 /********** HEADER **********/
 
-#header-bar{
+/*#header-bar{
   width:250px;
-}
+}*/
 
 
 #navbarToggle{
@@ -50,6 +50,7 @@
   margin-left: 10px;
   margin-top: 4px;
 }
+
 
 
 #navbarAgro{
@@ -268,7 +269,7 @@ color:  #293a49;
 #menu-toggle {
   display: inline-block;
   margin-top: 10px;
-  
+
 }
 
 .inset {
@@ -362,7 +363,7 @@ border-bottom-right-radius: 4px;
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
-  width:100%;        
+  width:100%;
 }
 
 .tt-suggestion {

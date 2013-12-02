@@ -114,14 +114,17 @@ ready = function() {
       },
       "ad[title]": {
         minlength: 2,
+        maxlength: 20,
         required: true
       },
       "ad[description]": {
         minlength: 5,
+        maxlength: 140,
         required: true
       },
       "ad[price]": {
         minlength: 1,
+        maxlength: 6,
         number: true,
         required: true
       },
@@ -131,6 +134,7 @@ ready = function() {
       },
       "ad[location]": {
         minlength:2,
+        maxlength: 40,
         required: true
       },
       "ad[type_price_id]": {
