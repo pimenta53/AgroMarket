@@ -3,6 +3,8 @@ class Academy::Answer < ActiveRecord::Base
   belongs_to :user
   has_many :votes
 
+  ## add validations, maybe
+
 
 
   def vote_up
