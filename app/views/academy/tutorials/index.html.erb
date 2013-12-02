@@ -1,13 +1,12 @@
 <h1>Listing academy_tutorials</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Category</th>
       <th>User</th>
       <th>Aproved</th>
       <th>Title</th>
-      <th>Text</th>
       <th>Is delected</th>
       <th></th>
       <th></th>
@@ -22,7 +21,6 @@
         <td><%= academy_tutorial.user_id %></td>
         <td><%= academy_tutorial.aproved %></td>
         <td><%= academy_tutorial.title %></td>
-        <td><%= academy_tutorial.text %></td>
         <td><%= academy_tutorial.is_delected %></td>
         <td><%= link_to 'Show', academy_tutorial %></td>
         <td><%= link_to 'Edit', edit_academy_tutorial_path(academy_tutorial) %></td>

@@ -39,5 +39,4 @@ Agrosocial::Application.configure do
     password: "agrosocial2"
   }
 
-  
 end
