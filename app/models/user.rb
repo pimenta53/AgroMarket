@@ -155,26 +155,45 @@ class User < ActiveRecord::Base
   
   #inserir dados pelo omniauth
   def apply_omniauth(omniauth)
-    if omniauth['provider'] = 'facebook'
+    if omniauth['provider'] == 'facebook'
       
       #Buscar info
       self.email = omniauth['info']['email']
       self.username = omniauth['info']['nickname']
       self.name = omniauth['info']['first_name']
+      if omniauth['info']['last_name'].length > 0
+        self.name += ' ' + omniauth['info']['last_name']
+      end
       
       #location será composto por Cidade, Pais
       location = omniauth['info']['location'].split(", ")
       
       #buscar cidade do location
-      self.city = City.find_by city: location[0]
+      city = City.find_by city: location[0]
+      if city != nil
+      	self.city = city
+      end
       
       #buscar imagem
       if omniauth['info']['image']!=nil
         self.avatar = URI.parse(omniauth['info']['image'])
       end
       
-      if omniauth['info']['last_name'].length > 0
-        self.name += ' ' + omniauth['info']['last_name']
+      authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+    elsif omniauth['provider'] == 'twitter'
+      #Buscar info
+      self.username = omniauth['info']['nickname']
+      self.name = omniauth['info']['name']
+      
+      #buscar cidade do location
+      city = City.find_by city: omniauth['info']['location']
+      if city != nil
+      	self.city = city
+      end
+      
+      #buscar imagem
+      if omniauth['info']['image']!=nil
+        self.avatar = URI.parse(omniauth['info']['image'])
       end
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
