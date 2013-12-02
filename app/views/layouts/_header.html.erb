@@ -12,6 +12,7 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
+
   </button>
 
 
@@ -183,7 +184,9 @@
             <% else %>
               <li class="preview"><span class="name"><i class="fa fa-envelope-o"></i>Sem Mensagens</span><br /></li>
               <li class="divider"></li>
-              <li><a href="<%= messages_path %>">Caixa de Mensagens</span></a></li>
+              <li>
+                  <%= link_to "Caixa de Mensagens", messages_path %>
+              </li>
             <% end %>
             <li class="divider"></li>
 
@@ -191,7 +194,6 @@
             <li><%= link_to(ratings_path) do %>
                       <span>Rating por atribuir <span class="badge"><%= load_stuff_header %></span></span>
                     <% end %></li>
-            <li><a href="#">Inbox</a></li>
             <li class="divider"></li>
             <li><%= link_to "Terminar Sessão",destroy_user_session_path, method: :delete %></li>
 
