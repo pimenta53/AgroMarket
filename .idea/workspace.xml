@@ -2,22 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f10ffca-3c38-4c05-bf22-01c7074b8c37" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\assets\javascripts\lib\jquery.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/script.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ads/show.html.erb" afterPath="$PROJECT_DIR$/app/views/ads/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/validations.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/validations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ads/index.html.erb" afterPath="$PROJECT_DIR$/app/views/ads/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="agrosocial.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385979524282" ignored="false" />
     <file path="/Gemfile" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385978235321" ignored="false" />
-    <file path="/_form.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385985758048" ignored="false" />
+    <file path="/_form.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385994183974" ignored="false" />
     <file path="/validations.js" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385981479909" ignored="false" />
-    <file path="/script.js" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385984317176" ignored="false" />
+    <file path="/script.js" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385992428394" ignored="false" />
+    <file path="/_sidebar_right_featured.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385987069536" ignored="false" />
+    <file path="/_sidebar_right_ad.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385987159977" ignored="false" />
+    <file path="/edit.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385991767862" ignored="false" />
+    <file path="/myads.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385991927595" ignored="false" />
+    <file path="/index.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385995163387" ignored="false" />
+    <file path="/show.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385992019804" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,38 +37,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/ads/_form.html.erb">
+      <file leaf-file-name="_sidebar_left.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidebar_left.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="43" selection-start="2779" selection-end="2779" vertical-scroll-proportion="-27.608696">
+            <state line="20" column="24" selection-start="1022" selection-end="1022" vertical-scroll-proportion="-12.173913">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/ads/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="26" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.66886324">
               <folding>
-                <element signature="e#3187#3234#0" expanded="true" />
-                <element signature="e#3265#3296#0" expanded="true" />
-                <element signature="e#3371#3390#0" expanded="true" />
-                <element signature="e#3571#3593#0" expanded="true" />
-                <element signature="e#4059#4080#0" expanded="true" />
-                <element signature="e#4934#4958#0" expanded="true" />
-                <element signature="e#5013#5031#0" expanded="true" />
-                <element signature="e#5076#5095#0" expanded="true" />
+                <element signature="e#396#414#0" expanded="true" />
+                <element signature="e#498#517#0" expanded="true" />
+                <element signature="e#769#802#0" expanded="true" />
+                <element signature="e#881#932#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="validations.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/validations.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="10" selection-start="3040" selection-end="3040" vertical-scroll-proportion="0.62975204">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="script.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/script.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="55" selection-start="493" selection-end="493" vertical-scroll-proportion="72.8">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -92,9 +79,15 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/validations.js" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_sidebar_right_featured.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_sidebar_right_ad.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/ads/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/myads.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/ads/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/ads/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/script.js" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/validations.js" />
+        <option value="$PROJECT_DIR$/app/views/ads/index.html.erb" />
       </list>
     </option>
   </component>
@@ -226,28 +219,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agrosocial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agrosocial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -564,75 +535,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/ads/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#3187#3234#0" expanded="true" />
-            <element signature="e#3265#3296#0" expanded="true" />
-            <element signature="e#3371#3390#0" expanded="true" />
-            <element signature="e#3571#3593#0" expanded="true" />
-            <element signature="e#4059#4080#0" expanded="true" />
-            <element signature="e#4934#4958#0" expanded="true" />
-            <element signature="e#5013#5031#0" expanded="true" />
-            <element signature="e#5076#5095#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/validations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="13" selection-start="2445" selection-end="2445" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/ads/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="63" selection-start="1531" selection-end="1556" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#3187#3234#0" expanded="true" />
-            <element signature="e#3265#3296#0" expanded="true" />
-            <element signature="e#3371#3390#0" expanded="true" />
-            <element signature="e#3571#3593#0" expanded="true" />
-            <element signature="e#4059#4080#0" expanded="true" />
-            <element signature="e#4934#4958#0" expanded="true" />
-            <element signature="e#5013#5031#0" expanded="true" />
-            <element signature="e#5076#5095#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/ads/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="14" selection-start="1712" selection-end="1712" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#3187#3234#0" expanded="true" />
-            <element signature="e#3265#3296#0" expanded="true" />
-            <element signature="e#3371#3390#0" expanded="true" />
-            <element signature="e#3571#3593#0" expanded="true" />
-            <element signature="e#4059#4080#0" expanded="true" />
-            <element signature="e#4934#4958#0" expanded="true" />
-            <element signature="e#5013#5031#0" expanded="true" />
-            <element signature="e#5076#5095#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="1" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0">
@@ -656,33 +558,126 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/ads/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/validations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="43" selection-start="2779" selection-end="2779" vertical-scroll-proportion="-27.608696">
+        <state line="140" column="10" selection-start="3040" selection-end="3040" vertical-scroll-proportion="0.62975204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidebar_right_featured.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="0" selection-start="1440" selection-end="1583" vertical-scroll-proportion="0.25370675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidebar_right_ad.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="45" selection-start="71" selection-end="71" vertical-scroll-proportion="0.02306425">
           <folding>
-            <element signature="e#3187#3234#0" expanded="true" />
-            <element signature="e#3265#3296#0" expanded="true" />
-            <element signature="e#3371#3390#0" expanded="true" />
-            <element signature="e#3571#3593#0" expanded="true" />
-            <element signature="e#4059#4080#0" expanded="true" />
-            <element signature="e#4934#4958#0" expanded="true" />
-            <element signature="e#5013#5031#0" expanded="true" />
-            <element signature="e#5076#5095#0" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#section#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ads/show.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ads/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="34" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0461285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/myads.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="33" selection-start="138" selection-end="138" vertical-scroll-proportion="0.06919275">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ads/_messages.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ads/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="20" selection-start="525" selection-end="525" vertical-scroll-proportion="0.461285">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="55" selection-start="493" selection-end="493" vertical-scroll-proportion="72.8">
+        <state line="169" column="0" selection-start="4822" selection-end="4822" vertical-scroll-proportion="0.7111111">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/validations.js">
+    <entry file="file://$PROJECT_DIR$/app/views/ads/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="10" selection-start="3040" selection-end="3040" vertical-scroll-proportion="0.62975204">
+        <state line="66" column="41" selection-start="2557" selection-end="2557" vertical-scroll-proportion="0.34596375">
+          <folding>
+            <element signature="e#3378#3425#0" expanded="true" />
+            <element signature="e#3456#3487#0" expanded="true" />
+            <element signature="e#3562#3581#0" expanded="true" />
+            <element signature="e#3762#3784#0" expanded="true" />
+            <element signature="e#4250#4271#0" expanded="true" />
+            <element signature="e#5125#5149#0" expanded="true" />
+            <element signature="e#5204#5222#0" expanded="true" />
+            <element signature="e#5267#5286#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidebar_left.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="24" selection-start="1022" selection-end="1022" vertical-scroll-proportion="-12.173913">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ads/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="30" selection-start="1269" selection-end="1269" vertical-scroll-proportion="-2.00659">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ads/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="26" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.66886324">
+          <folding>
+            <element signature="e#396#414#0" expanded="true" />
+            <element signature="e#498#517#0" expanded="true" />
+            <element signature="e#769#802#0" expanded="true" />
+            <element signature="e#881#932#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

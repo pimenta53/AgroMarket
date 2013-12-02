@@ -1,14 +1,13 @@
-<h1>Lista de Utilizadores</h1>
-
+<section class="panel">
+  <header class="panel-heading"><h1>Lista de utilizadores</h1></header>
 <div class="table-responsive">
   <table class="table table-hover" >
       <thead>
     <tr>
-      <th>Name</th>
-      <th>Username</th>
-      <th>City</th>
+      <th>Nome</th>
       <th>Email</th>
-      <th>Status</th>
+      <th>Cidade</th>
+      <th>Estado</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,13 +18,12 @@
     <% @admin_users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= user.username %></td>
-        <td><%= user.city.city %></td>
         <td><%= user.email %></td>
-
-        <td><%= link_to 'Show', admin_user_path(user) %></td>
-        <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
-        <td><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= user.city.city %></td>
+        <td></td>
+        <td><%= link_to 'Ver', admin_user_path(user) %></td>
+        <td><%= link_to 'Editar', edit_admin_user_path(user) %></td>
+        <td><%= link_to 'Eliminar', admin_user_path(user), method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,5 +31,6 @@
 
 <br>
 
-<%= link_to 'New User', new_admin_user_path %>
+<%= link_to 'Novo utilizador', new_admin_user_path %>
 </div>
+</section>

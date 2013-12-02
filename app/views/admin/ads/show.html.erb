@@ -7,8 +7,7 @@
 
 
 <p>
-  <strong>Category:</strong>
-  <% if @ad.category.blank? %>
+  <strong>Categoria:</strong>
     <% if @ad.category.nil? %>
       <span class="label" style="background-color: #888888">Sem categoria</span>
     <% else %>
@@ -16,51 +15,50 @@
         <%= @ad.category.name %>
       </span>
     <% end %>
-  <% end %>
 
 
 <p>
-  <strong>Title:</strong>
+  <strong>Título:</strong>
   <%= @ad.title %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descrição:</strong>
   <%= @ad.description %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>Preço:</strong>
   <%= @ad.price %>
 </p>
 
 <p>
-  <strong>Expire date:</strong>
+  <strong>Medida:</strong>
+  <%= @ad.price_type.name %>
+</p>
+
+<p>
+  <strong>Data de expiração:</strong>
   <%= @ad.expire_date %>
 </p>
 
 <p>
-  <strong>Location:</strong>
+  <strong>Local:</strong>
   <%= @ad.location %>
 </p>
 
 <p>
-  <strong>Is active:</strong>
+  <strong>Activo?:</strong>
   <%= @ad.is_active %>
 </p>
 
 <p>
-  <strong>Type price:</strong>
-  <%= @ad.type_price_id %>
-</p>
-
-<p>
-  <strong>City:</strong>
+  <strong>Cidade:</strong>
   <%= @ad.city.city %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Utilizador:</strong>
   <%= @ad.user.name %>
 </p>
 
@@ -69,5 +67,5 @@
 <% end %>
 
 
-<%= link_to 'Edit', edit_admin_ad_path(@ad) %> |
-<%= link_to 'Back', admin_ads_path %>
+<%= link_to 'Editar', edit_admin_ad_path(@ad) %> |
+<%= link_to 'Voltar', admin_ads_path %>
