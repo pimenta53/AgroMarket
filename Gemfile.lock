@@ -56,7 +56,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    daemons (1.0.10)
     debug_inspector (0.0.2)
     devise (3.0.0)
       bcrypt-ruby (~> 3.0)
@@ -70,7 +69,6 @@ GEM
       multipart-post (~> 1.2.0)
     ffi (1.9.0)
     ffi (1.9.0-x86-mingw32)
-    gem_plugin (0.2.3)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -93,9 +91,6 @@ GEM
       railties
     mime-types (1.25)
     minitest (4.7.5)
-    mongrel (1.2.0.pre2)
-      daemons (~> 1.0.10)
-      gem_plugin (~> 0.2.3)
     multi_json (1.8.2)
     multipart-post (1.2.0)
     mysql2 (0.3.13)
@@ -223,7 +218,6 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   meta_request
-  mongrel (= 1.2.0.pre2)
   mysql2
   omniauth
   omniauth-facebook
