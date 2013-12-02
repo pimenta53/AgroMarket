@@ -6,7 +6,7 @@
     </ul>
     <div id="myTabContent" class="tab-content">
       <div class="tab-pane active in" id="home">
-        
+
            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put ,:class=>"form-signin tab"}) do |f| %>
           <%= devise_error_messages! %>
 
@@ -17,19 +17,15 @@
               <%= f.file_field :avatar ,:class=>"form-control"%>
             </div>
              <br />
-            
-           
-                <div class ="regist_util_items" ><%= f.label :username %><br />
-                 <%= f.text_field :username ,:class=>"form-control"%>
-                </div>
-                
+
+
                 <br/>
                  <div class="form-control regist_util_items">
                   <%= f.label :city_id %>
 
                   <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção')  %>
-                </div>        
-          
+                </div>
+
 
           <br />
             <div class ="regist_util_items" >
@@ -43,8 +39,8 @@
              <%= f.label :birthday %><br />
              <%= f.text_field :birthday, :label => "Date",  :class => ['datepicker','form-control'] %>
            </div>
-        
-           
+
+
           <div class ="col-xs-6 col-md-6 regist_util_items" >
             <%= f.label :phone, "Phone"%><br />
             <%= f.text_field :phone ,:class=>"form-control" %>
@@ -55,7 +51,7 @@
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
-          
+
            <br />
            <div class="btn btn-primary">
             <%= f.submit "Update" %>
@@ -94,7 +90,7 @@
         <div class="btn cancel">
              <%= link_to "Cancelar", :back %>
         </div>
-       
+
   </div>
   <div id="cancel_count">
          <h4>Apagar a Conta</h4>
@@ -102,6 +98,5 @@
         <p>Deseja apagar a conta? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
   </div>
 
-   
-</div>    
-  
+
+</div>

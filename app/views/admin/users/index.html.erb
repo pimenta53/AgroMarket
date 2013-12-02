@@ -5,9 +5,8 @@
       <thead>
     <tr>
       <th>Nome</th>
-      <th>Username</th>
-      <th>Cidade</th>
       <th>Email</th>
+      <th>Cidade</th>
       <th>Estado</th>
       <th></th>
       <th></th>
@@ -19,9 +18,8 @@
     <% @admin_users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= user.username %></td>
-        <td><%= user.city.city %></td>
         <td><%= user.email %></td>
+        <td><%= user.city.city %></td>
         <td></td>
         <td><%= link_to 'Ver', admin_user_path(user) %></td>
         <td><%= link_to 'Editar', edit_admin_user_path(user) %></td>
