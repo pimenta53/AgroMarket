@@ -5451,12 +5451,12 @@ a.list-group-item:focus {
 }
 
 .panel-primary {
-  border-color: #428bca;
+  border-color: #00A75D;
 }
 
 .panel-primary > .panel-heading {
   color: #ffffff;
-  background-color: #428bca;
+  background-color: #00A75D;
   border-color: #428bca;
 }
 
