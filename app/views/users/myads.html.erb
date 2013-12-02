@@ -1,8 +1,12 @@
-<% if @user.id == current_user.id %>
-  <legend> Os teus anúncios </legend>
-<% else %>
-  <legend> Anúncios de <%= @user.name %> </legend>
-<% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <% if @user.id == current_user.id %>
+        <h3 class="panel-title">Os meus anúncios</h3>
+    <% else %>
+        <h3 class="panel-title">Anúncios de <%= @user.name %></h3>
+    <% end %>
+  </div>
+  <div class="panel-body">
 
 <!-- Listagem de anúncios do utilizador -->
 <div class="container" id="things">
@@ -36,7 +40,9 @@
       </ul>
     </div>
   </div>
-  
+
+  </div>
+</div>
   <!-- O link para criar novos ads só existirá se for a página do próprio utilizador -->
   <% if @user.id == current_user.id %>
     <%= link_to "Novo", new_ad_path %>

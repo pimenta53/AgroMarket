@@ -12,7 +12,7 @@
     <% end %>
 
     <div class="control-group">
-      <h5> Quero inserir um anúncio na categoria:</h5>
+      <h5> Categoria:</h5>
       <div class="controls">
         <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria') unless @categories.blank? %>
       </div>
