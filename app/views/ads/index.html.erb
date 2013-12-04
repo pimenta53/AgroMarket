@@ -8,6 +8,7 @@
     <!-- Listagem de anúncios -->
       <div class="row">
         <ul class="thumbnails">
+          <% if @ads.count>0 %>
           <% @ads.each do |ad| %>
             <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
               <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
@@ -31,6 +32,11 @@
                   </div>
               </div>
             </li>
+
+            <% end %>
+
+            <% else %>
+            <h1>Não há anúncios!</h1>
 
             <% end %>
           </ul>

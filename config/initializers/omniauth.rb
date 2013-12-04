@@ -7,3 +7,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :google_oauth2, '611864901662.apps.googleusercontent.com', 'OtA8_4UzYIZWBRcAwhOU67k2'
   #provider :open_id, OpenID::Store::Filesystem.new('/tmp')
 end
+
+OmniAuth.config.on_failure = Proc.new { |env|
+  OmniAuth::FailureEndpoint.new(env).redirect_to_failure
+}
