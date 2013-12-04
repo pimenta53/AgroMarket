@@ -22,6 +22,7 @@
     <%= f.text_field :title,:placeholder => "Title" %>
   </div>
 
+
   <div class="field">
     <%= f.label :descrição %><br>
     <%= f.text_field :description,:placeholder => :description %>
@@ -49,6 +50,11 @@
   <div class="field">
     <%= f.label :local %><br>
     <%= f.text_field :location,:placeholder =>:location %>
+  </div>
+
+    <div class="field">
+    <%= f.label :Activo? %><br>
+    <%= f.select :is_active, [['Sim', true], ['Não', false]] %>
   </div>
 
   <div class="newPaperclipFiles">
