@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
 
   #validates
   validates :name, presence: true
-  validates :phone, format: /\d{9,}\Z/i
+  validates :phone, format: /(^$|(\d{9,}\Z))/i
   validates :email, :uniqueness => true ,presence: true,format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
 
   validate :birthday_cannot_be_in_the_future
@@ -179,10 +179,9 @@ class User < ActiveRecord::Base
 
 
       #buscar imagem
-      if omniauth['info']['image']!=nil
-        self.avatar = URI.parse(omniauth['info']['image'])
-      end
-
+      #if omniauth['info']['image']!=nil
+      #  self.avatar = URI.parse(omniauth['info']['image'])
+      #end
 
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     elsif omniauth['provider'] == 'twitter'
@@ -196,9 +195,10 @@ class User < ActiveRecord::Base
       end
 
       #buscar imagem
-      if omniauth['info']['image']!=nil
-        self.avatar = URI.parse(omniauth['info']['image'])
-      end
+      #if omniauth['info']['image']!=nil
+      #  self.avatar = URI.parse(omniauth['info']['image'])
+      #end
+      
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
   end
