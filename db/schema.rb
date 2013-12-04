@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202175911) do
+ActiveRecord::Schema.define(version: 20131204135335) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id"
@@ -114,7 +114,6 @@ ActiveRecord::Schema.define(version: 20131202175911) do
     t.float    "price"
     t.datetime "expire_date"
     t.string   "location"
-    t.binary   "is_active"
     t.integer  "type_price_id"
     t.integer  "city_id"
     t.datetime "created_at"
@@ -123,6 +122,8 @@ ActiveRecord::Schema.define(version: 20131202175911) do
     t.string   "permanent_link"
     t.integer  "category_id",                null: false
     t.integer  "page_views",     default: 0
+    t.boolean  "is_deleted"
+    t.boolean  "is_active"
   end
 
   create_table "authentications", force: true do |t|
@@ -237,6 +238,5 @@ ActiveRecord::Schema.define(version: 20131202175911) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
 
 end

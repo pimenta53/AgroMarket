@@ -16,14 +16,13 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  name                   :string(255)
-#  username               :string(255)
-#  city                   :string(255)
 #  birthday               :datetime
 #  phone                  :string(255)
 #  avatar_file_name       :string(255)
 #  avatar_content_type    :string(255)
 #  avatar_file_size       :integer
 #  avatar_updated_at      :datetime
+#  city_id                :integer
 #
 
 class User < ActiveRecord::Base
