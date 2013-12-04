@@ -82,11 +82,11 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing_photo.png"
 
-  validates :avatar, :attachment_presence => true
-  validates_with AttachmentPresenceValidator, :attributes => :avatar
-  validates_attachment :avatar, :presence => true,
-  :content_type => { :content_type => "image/jpg" },
-  :size => { :in => 0..10.kilobytes }
+  #validates :avatar, :attachment_presence => true
+  #validates_with AttachmentPresenceValidator, :attributes => :avatar
+  #validates_attachment :avatar, :presence => true,
+  #:content_type => { :content_type => "image/jpg" },
+  #:size => { :in => 0..10.kilobytes }
 
   #instance methods
 
