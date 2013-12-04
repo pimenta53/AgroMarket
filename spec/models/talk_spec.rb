@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: talks
+#
+#  id         :integer          not null, primary key
+#  user_one   :integer          not null
+#  user_two   :integer          not null
+#  ad_id      :integer
+#  is_close   :integer          default(0)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 require 'spec_helper'
 
 
