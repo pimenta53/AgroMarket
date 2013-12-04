@@ -2,44 +2,38 @@
   <section class="panel panel-success">
     <header class="panel-heading">
       <div class="pull-right">
-        <button class="btn btn-success btn-xs">
-          <i class="icon-ok"></i>
-        </button>
-
-        <button class="btn btn-primary btn-xs">
-          <%= link_to '<i class="icon-pencil"></i>'.html_safe , edit_academy_answer_path(answer) %>
-        </button>
-
-        <button class="btn btn-danger btn-xs">
-          <i class="icon-trash "></i>
-        </button>
+        <%##  botão verde com o certo  ##%>
+        <%= link_to '<i class="icon-ok"></i>'.html_safe, "#", :class => "btn btn-success btn-xs" %>
+        <%##  botão verde com o lapis para editar a resposta  ##%>
+        <%= link_to '<i class="icon-pencil"></i>'.html_safe , edit_academy_answer_path(answer), :class => "btn btn-primary btn-xs" if answer.user.id == current_user.id %>
+        <%##  botão vermelho com o caixote para eliminar a resposta  ##%>
+        <%= link_to '<i class="icon-trash"></i>'.html_safe , edit_academy_answer_path(answer), :class => "btn btn-danger btn-xs" if answer.user.id == current_user.id %>
       </div>
-
     </header>
 
     <div class="panel-body">
-      <div class="col-xs-2 col-md-2">
-        <img class="img-circle" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=70" alt="User Pic">
+      <div class="col-xs-2 col-md-2"><%##  Avatar do user que respondeu  ##%>
+        <%= image_tag answer.user.avatar.url(:medium),:width => "70%",:class => "img-circle" %>
         <%= answer.user.name %>
       </div>
 
-      <div class="col-xs-9 col-md-10 ">
+      <div class="col-xs-9 col-md-10 "><%##  texto da resposta  ##%>
         <%= answer.text %>
+        <br>os botões de edit e eliminar não estão direitos
       </div>
     </div>
 
 <%###  answers votes  ###%>
-      <%#  Verify if the user is logged  %>
-      <% if !user_signed_in? #if not legged cant vote %>
+      <%#  Verify if the user is logged or if is the answer's owner %>
+      <% if !user_signed_in? || current_user.id == answer.user.id #if not logged or is the owner them cant vote %>
         <i class="icon-circle-arrow-up"></i>
         <%= answer.up - answer.down %>
         <i class="icon-circle-arrow-down"></i>
       <% else %>
-
+        <%= link_to '<i class="icon-circle-arrow-up"></i>'.html_safe, academy_up_vote_path(:answer => answer) %>
+        <%= answer.up - answer.down %>
+        <%= link_to '<i class="icon-circle-arrow-down"></i>'.html_safe, academy_down_vote_path(:answer => answer) %>
       <% end %>
-      <%= link_to '<i class="icon-circle-arrow-up"></i>'.html_safe, academy_up_vote_path(:answer => answer) %>
-      <%= answer.up - answer.down %>
-      <%= link_to '<i class="icon-circle-arrow-down"></i>'.html_safe, academy_down_vote_path(:answer => answer) %>
 <%###  end of answers votes  ###%>
 
   </section>
