@@ -29,7 +29,7 @@ class RegistrationsController < Devise::RegistrationsController
 		      "sessions"
 		    when "index"
 		      "sessions"
-		    when "edit"
+		    when "edit","update"
 		   	  "userslayouts"
 		    else
 		      "application"
