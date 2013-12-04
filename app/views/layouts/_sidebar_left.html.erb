@@ -1,17 +1,24 @@
+
 <div class="panel panel-default">
   <div class="panel-body">
 
-    <% if user_signed_in? && (controller_name == 'ads' || (action_name=="myads")) %>
-    <div style="text-align: center">
+<% if user_signed_in? %>
+
+<div style="text-align: center">
       <% if current_user.avatar.url != nil %>
-      <img src="https://secure.gravatar.com/avatar/de9b11d0f9c0569ba917393ed5e5b3ab?s=140&r=g&d=mm" class="img-circle">
+      <%= image_tag current_user.avatar.url(:medium),:width => "70%",:class => "img-circle" %>
       <% else %>
-      <% image_tag current_user.avatar.url %>
+   
       <% end %>
     </div>
     <div class="row" style="margin-bottom:5px">
       <div class="col-md-8"><b style="font-size: 15px"> <%= current_user.name  %></b></div>
     </div>
+
+
+<% end -%>
+
+    <% if user_signed_in? && (controller_name == 'ads' || (action_name=="myads")) %>
     <% end %>
 
 
@@ -22,7 +29,7 @@
       </a>
       <ul class="dropdown-menu">
         <li><%= link_to "Ver Todos".html_safe , ads_path %></li>
-        <% if user_signed_in? && (controller_name == 'ads' || (action_name=="myads")) %>
+        <% if user_signed_in? %>
             <li><%= link_to "Os Meus Anúncios".html_safe , myads_user_path(current_user.id) %></li>
             <li><%= link_to "Novo Anúncio".html_safe , new_ad_path %></li>
         <% end %>
@@ -48,9 +55,11 @@
         <span class=" icon-user"></span></a>
       <ul class="dropdown-menu">
         <li><%= link_to "Entrar na Academia".html_safe, academy_path %></li>
-        <li><%= link_to "Questões".html_safe, academy_questions_path %></li>
-        <li><%= link_to "Tutoriais".html_safe, academy_tutorials_path %></li>
-        <li><%= link_to "workshops".html_safe, ads_path %></li>
+
+        <li><%= link_to "Perguntas".html_safe, academy_questions_path %></li>
+        <li><%= link_to "tutoriais".html_safe %></li>
+        <li><%= link_to "workshops".html_safe %></li>
+
       </ul>
     </div>
 
@@ -64,7 +73,7 @@
         <% if user_signed_in? %>
         <a class="btn dropdown-toggle btn-danger" href="/admin/ads" style="width: 100%;">Danger-Zone</a>
         <% else %>
-            <%= link_to html_safe , new_user_session_path %>
+            <%#= link_to html_safe , new_user_session_path %>
         <% end %>
     </div>
   </div>

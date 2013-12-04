@@ -2,17 +2,22 @@
 #
 # Table name: ads
 #
-#  id            :integer          not null, primary key
-#  title         :string(255)
-#  description   :string(255)
-#  price         :float
-#  expire_date   :datetime
-#  location      :string(255)
-#  is_active     :binary
-#  type_price_id :integer
-#  city_id       :integer
-#  created_at    :datetime
-#  updated_at    :datetime
+#  id             :integer          not null, primary key
+#  title          :string(255)
+#  description    :string(255)
+#  price          :float
+#  expire_date    :datetime
+#  location       :string(255)
+#  type_price_id  :integer
+#  city_id        :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#  user_id        :integer
+#  permanent_link :string(255)
+#  category_id    :integer          not null
+#  page_views     :integer          default(0)
+#  is_deleted     :boolean
+#  is_active      :boolean
 #
 
 require 'spec_helper'

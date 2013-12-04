@@ -12,38 +12,26 @@
 
         </div>
  </div>
+<hr />
+<div class="panel-heading">
+  <h4>Perguntas feitas:</h4>
+</div>
 
-<h1>Listing academy_questions</h1>
-
+<div class="panel panel-default">
+<%###  categoria | view counter | respostas | Titulo | utilizador | link para a pergunta |  ###%>
 <table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Category</th>
-      <th>Title</th>
-      <th>Text</th>
-      <th>Image url</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @academy_questions.each do |academy_question| %>
       <tr>
-        <td><%= academy_question.user_id %></td>
-        <td><%= academy_question.category_id %></td>
+        <td><%= academy_question.category.name %></td>
+        <td>view Counter</td>
+        <td><%= academy_question.answers.count %></td>
         <td><%= academy_question.title %></td>
-        <td><%= academy_question.text %></td>
-        <td><%= academy_question.image_url %></td>
+        <td><%= academy_question.user.name %></td>
         <td><%= link_to 'Show', academy_question %></td>
-        <td><%= link_to 'Edit', edit_academy_question_path(academy_question) %></td>
       </tr>
     <% end %>
-  </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'New Question', new_academy_question_path %>
+<%= link_to 'Nova questão', new_academy_question_path %>

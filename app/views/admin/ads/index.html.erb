@@ -20,6 +20,7 @@
           <th>Data de expiração</th>
           <th>Local</th>
           <th>Activo?</th>
+          <th>Apagado?</th>
           <th>Cidade</th>
           <th>User_ID / User_Name</th>
           <th>Criado em</th>
@@ -60,6 +61,7 @@
             <td><%= l ad.expire_date, :format => :short %></td>
             <td><%= ad.location %></td>
             <td><%= ad.is_active %></td>
+            <td><%= ad.is_deleted %></td>
             <td><%= ad.city.city unless ad.city.blank? %></td>
             <td><%= ad.user_id %> / <%= ad.user.name %></td>
             <td><strong><%= l ad.created_at , :format => :short%></strong>

@@ -2,18 +2,24 @@
 #
 # Table name: ads
 #
-#  id            :integer          not null, primary key
-#  title         :string(255)
-#  description   :string(255)
-#  price         :float
-#  expire_date   :datetime
-#  location      :string(255)
-#  is_active     :binary
-#  type_price_id :integer
-#  city_id       :integer
-#  created_at    :datetime
-#  updated_at    :datetime
-#  category_id
+#  id             :integer          not null, primary key
+#  title          :string(255)
+#  description    :string(255)
+#  price          :float
+#  expire_date    :datetime
+#  location       :string(255)
+#  type_price_id  :integer
+#  city_id        :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#  user_id        :integer
+#  permanent_link :string(255)
+#  category_id    :integer          not null
+#  page_views     :integer          default(0)
+#  is_deleted     :boolean
+#  is_active      :boolean
+#
+
 class Ad < ActiveRecord::Base
 	# associations
 	belongs_to :city
@@ -33,7 +39,7 @@ class Ad < ActiveRecord::Base
 	#filters
 	before_validation :create_permalink, :calculate_expire_date
 
-	
+
 	#validates
 	validates :title, presence: true
 	validates :price, presence: true, format: /\d{1,}\Z/i
@@ -47,10 +53,10 @@ class Ad < ActiveRecord::Base
   		categories = Array.new
   		cities = Array.new
   		$i = 0
-  		begin 
+  		begin
   			if params[$i][1] == "a"
   				categories.push(Integer(params[$i].gsub(/[^[:digit:]]/, '')))
-  			else 
+  			else
   				if params[$i][1] == "i"
   					cities.push(Integer(params[$i].gsub(/[^[:digit:]]/, '')))
   				end
@@ -71,10 +77,10 @@ class Ad < ActiveRecord::Base
   				filtered_categories = where(category_id: categories)
   				filtered_categories.where(city_id: cities)
 
-  			else 
+  			else
   				if categories.length>0 #caso so se filtre por categorias
   					where(category_id: categories)
-  				else 
+  				else
   					if cities.length>0 #caso so se filtre por cidade
   						where(city_id: cities)
   					else
@@ -87,7 +93,7 @@ class Ad < ActiveRecord::Base
   		end
   	end
 
-  	
+
 
   	# instance methods
   	def to_param

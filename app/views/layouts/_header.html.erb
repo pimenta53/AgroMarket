@@ -22,30 +22,20 @@
 
       <!-- SEARCH -->
       <li class="dropdown messages-dropdown" >
-        <a href="#" class="dropdown-toggle" OnClick="document.www.focus();" data-toggle="dropdown"><i class="fa fa-search"></i><b class="caret" id="dropCarret"></b> </a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i><b class="caret" id="dropCarret"></b> </a>
         <ul class="dropdown-menu">
           <li class="container" id="searchBox" role="search">
-            <div class="input-group" id="input-groupBox">
+            <form class="input-group" id="input-groupBox">
               <input type="text" name="wwww" style="vertical-align: center;" class="form-control typeahead" >
               
               <span class="input-group-btn">
-                <button type="submit" class="btn btn-default" id="omnisearch-btn" >Pesquisar</button>
+                <input value="Pesquisar" type="submit" class="btn btn-default" id="omnisearch-btn" >
               </span>
-            </div>
+            </form>
           </li>
         </ul>
       </li>
       <!-- END SEARCH -->
-
-      <script type="text/javascript"> 
-
-        function onClickScript(){
-          alert("cvbcv");
-          
-          document.elements['www'].focus();
-
-        }
-      </script>
 
 
       <!-- NOTIFICACOES -->

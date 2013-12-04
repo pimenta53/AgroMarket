@@ -16,14 +16,13 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  name                   :string(255)
-#  username               :string(255)
-#  city                   :string(255)
 #  birthday               :datetime
 #  phone                  :string(255)
 #  avatar_file_name       :string(255)
 #  avatar_content_type    :string(255)
 #  avatar_file_size       :integer
 #  avatar_updated_at      :datetime
+#  city_id                :integer
 #
 
 class User < ActiveRecord::Base
@@ -76,10 +75,18 @@ class User < ActiveRecord::Base
 
   validate :birthday_cannot_be_in_the_future
 
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing_photo.png"
+
+  validates :avatar, :attachment_presence => true
+  validates_with AttachmentPresenceValidator, :attributes => :avatar
+  validates_attachment :avatar, :presence => true,
+  :content_type => { :content_type => "image/jpg" },
+  :size => { :in => 0..10.kilobytes }
 
   #instance methods
 

@@ -28,11 +28,19 @@
       </div>
     </div>
 
-    <div class="">
+<%###  answers votes  ###%>
       <%#  Verify if the user is logged  %>
+      <% if !user_signed_in? #if not legged cant vote %>
+        <i class="icon-circle-arrow-up"></i>
+        <%= answer.up - answer.down %>
+        <i class="icon-circle-arrow-down"></i>
+      <% else %>
+
+      <% end %>
       <%= link_to '<i class="icon-circle-arrow-up"></i>'.html_safe, academy_up_vote_path(:answer => answer) %>
       <%= answer.up - answer.down %>
       <%= link_to '<i class="icon-circle-arrow-down"></i>'.html_safe, academy_down_vote_path(:answer => answer) %>
-    </div>
+<%###  end of answers votes  ###%>
+
   </section>
 </div>

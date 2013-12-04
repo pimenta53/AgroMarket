@@ -1,5 +1,6 @@
 Agrosocial::Application.routes.draw do
   #facebook callback
+  match '/auth/failure' => 'authentications#failure', via: :all
   match '/auth/:provider/callback' => 'authentications#create', via: :all
 
 
