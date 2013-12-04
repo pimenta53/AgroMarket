@@ -4,11 +4,20 @@
          <div class="well col container">
             <legend><i class="fa fa-pencil"></i> Registo </legend>
             <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name) ,:html=>{:class=>"form"}) do |f| %>
+
                     
              <div class="login_form_regist_items"><%= f.label :name, "Nome" %>
+
+
+
+
+           
+
+                  <div class="login_form_regist_items"><%= f.label :name, "Nome" %>
+
                     <%= f.text_field :name,:id =>"name_sign_up", :class=>"form-control" %>
                      <span id="name_extra" class="textoextra"></span>
-             </div>
+       
 
              
 

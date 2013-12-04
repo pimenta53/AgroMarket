@@ -44,5 +44,4 @@
 
   </div>
 </div>
-
-<%= link_to 'Back', myads_user_path(current_user.id) %>
+    <%= link_to 'Voltar', myads_user_path(current_user.id) if user_signed_in? %>
