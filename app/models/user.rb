@@ -82,11 +82,11 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing_photo.png"
 
-  validates :avatar, :attachment_presence => true
-  validates_with AttachmentPresenceValidator, :attributes => :avatar
-  validates_attachment :avatar, :presence => true,
-  :content_type => { :content_type => "image/jpg" },
-  :size => { :in => 0..10.kilobytes }
+  #validates :avatar, :attachment_presence => true
+  #validates_with AttachmentPresenceValidator, :attributes => :avatar
+  #validates_attachment :avatar, :presence => true,
+  #:content_type => { :content_type => "image/jpg" },
+  #:size => { :in => 0..10.kilobytes }
 
   #instance methods
 
@@ -159,9 +159,19 @@ class User < ActiveRecord::Base
     self.ads.where("expire_date < ?", Date.today)
   end
 
+  def generate_password
+    #password_length = 6
+    #password = Devise.friendly_token.first(password_length)
+    #self.password=password
+    #self.password_confirmation=password
+    
+    self.password='1234567890'
+    self.password_confirmation='1234567890'
+  end
+
   #inserir dados pelo omniauth
   def apply_omniauth(omniauth)
-
+    self.generate_password
     if omniauth['provider'] == 'facebook'
 
 
