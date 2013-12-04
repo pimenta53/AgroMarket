@@ -1,8 +1,4 @@
-<ol class="breadcrumb">
-              <li ><a href="<%= ads_path %>"><i class="fa fa-dashboard"></i> Ads</a></li>
-              <li class="active"><i class="fa fa-bar-chart"></i><%= @ad.title %></li>
-              ISTO É PARA SAIR DAQUI (VAI SER UTILIZADO NA PARTE DE ACADEMIA)
-</ol>
+
 <% if flash[:notice] %>
   <script> showNotify("<%= flash[:notice] %>","success") </script>
 <% end %>
@@ -185,6 +181,14 @@
                   <%= @ad.location %>
                 </td>
               </tr>
+
+              <tr>
+              <% if user_signed_in? && current_user.id == @ad.user_id %>
+            <td ><i class="fa fa-exclamation-triangle"></i><%= link_to 'Eliminar Anúncio', @ad, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?s' } %></td>
+              <% end %>
+            </tr>
+
+
               <%#  if there is no logged user dont show the message form  %>
               <% if user_signed_in? %>
               <tr>

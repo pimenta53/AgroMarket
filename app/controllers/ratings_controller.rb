@@ -1,6 +1,14 @@
 #encoding: utf-8
 class RatingsController < ApplicationController
-	before_action :set_rating, only: [:show,:update]
+	before_action :set_rating, only: [:show,:update,:edit]
+
+	def new
+		@rating = Rating.new
+	end
+
+	def edit
+
+	end
 
 	def index
 		@rating = Rating.where(:rater_id => current_user.id,:rate => nil)
@@ -21,7 +29,7 @@ class RatingsController < ApplicationController
 	def update
 		@rating.update(rating_params)
 		flash[:notice] = "Rating atribuído com sucesso"
-		redirect_to root_path
+		redirect_to root_path,notice: 'Rating Atribuido com sucesso' 
 	end
 
 	private

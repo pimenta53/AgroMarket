@@ -13,7 +13,7 @@
 			</div>
 		</div>
 
-		<div hidden="true">
+		<div hidden="false">
 			<%= f.label :rate %><br>
 	    	<%= f.text_field :rate %>
 	    </div>
@@ -23,11 +23,9 @@
 		  <%= f.text_area :comment,:id => "text_comment_rating",:rows=>5,:class=> "form-control counted" ,:placeholder => "Type in your message"%>
 		  <h6 class="pull-right" id="counter">144 characters remaining</h6>
 
-		<button class="btn btn-info" type="submit" onclick="javascript:send_rating()">Atribuir Rating</button>
-
 	  	</div>
 
-
+		<button class="btn btn-info" type="submit" onclick="javascript:send_rating()">Atribuir Rating</button>
 
 	<% end %>
 </div>
