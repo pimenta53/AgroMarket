@@ -152,9 +152,19 @@ class User < ActiveRecord::Base
     self.ads.where("expire_date < ?", Date.today)
   end
 
+  def generate_password
+    #password_length = 6
+    #password = Devise.friendly_token.first(password_length)
+    #self.password=password
+    #self.password_confirmation=password
+    
+    self.password='1234567890'
+    self.password_confirmation='1234567890'
+  end
+
   #inserir dados pelo omniauth
   def apply_omniauth(omniauth)
-
+    self.generate_password
     if omniauth['provider'] == 'facebook'
 
 
