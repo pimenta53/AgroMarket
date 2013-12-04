@@ -55,6 +55,7 @@ class AdsController < ApplicationController
     @ad = Ad.new(ad_params)
     @ad.user_id = current_user.id
     @ad.is_active = true
+    @ad.is_deleted = false
 
     #http redirection, json render
     respond_to do |format|
@@ -95,7 +96,10 @@ class AdsController < ApplicationController
   # DELETE /ads/1
   # DELETE /ads/1.json
   def destroy
-    @ad.destroy
+    #@ad.destroy
+    @ad.is_deleted=true
+    @ad.is_active=false
+    @ad.save
     respond_to do |format|
       format.html { redirect_to ads_url }
       format.json { head :no_content }
