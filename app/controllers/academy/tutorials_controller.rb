@@ -65,6 +65,7 @@ class Academy::TutorialsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_academy_tutorial
       @academy_tutorial = Academy::Tutorial.find(params[:id])
+      @categories = Category.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -28,7 +28,7 @@ class Academy::AnswersController < ApplicationController
 
     respond_to do |format|
       if @academy_answer.save
-        format.html { redirect_to @academy_answer, notice: 'Answer was successfully created.' }
+        format.html { redirect_to @academy_answer.question, notice: 'Answer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @academy_answer }
       else
         format.html { render action: 'new' }

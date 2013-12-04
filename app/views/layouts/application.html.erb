@@ -9,6 +9,7 @@
   <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
 
+
   <%= csrf_meta_tags %>
 
 </head>
@@ -19,21 +20,21 @@
   </div>
      <!-- Content row -->  
      <div id="wrapper">
-
-            <%= render "layouts/sidebar_left" %>
-
          <div id="page-content-wrapper">
             <!-- Keep all page content within the page-content inset div! -->
             
             <div class="page-content inset">
               <div class="row">
-                <div class="col-md-9" >
+                <div class="col-md-2" style="padding-right:0px">
+                  <%= render "layouts/sidebar_left" %>
+                </div>
+                <div class="col-md-7" >
                   <%= yield %>
                 </div>
 
                 <div class="col-md-3" style="padding-right:15px;padding-left:0px">
                   <%= render "layouts/sidebar_right_featured" %>
-                  
+
                     <%= render "layouts/sidebar_right_ad" %>
                   
                 </div>

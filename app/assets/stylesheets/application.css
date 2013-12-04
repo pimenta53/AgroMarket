@@ -10,12 +10,12 @@
  *
  *= require bootstrap
  *= require_self
- *= require_tree .
  *= require bootstrap-datepicker
  *= stub admin_theme
  *= stub sessions
  *= require jquery.pnotify.default
  *= require jquery.pnotify.default.icons
+ *= require_tree .
  */
 
 .icon_rating, .icon_rating-nocolor{

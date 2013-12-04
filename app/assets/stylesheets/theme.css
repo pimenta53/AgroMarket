@@ -52,6 +52,7 @@
 }
 
 
+
 #navbarAgro{
   background-color: #00A75D;
 }
@@ -134,9 +135,8 @@ background-color: #16ab84;
 /******SIDEBAR LEFT**********/
 
 #wrapper {
-  padding-left: 200px;
   transition: all 0.4s ease 0s;
-  margin-top: 50px;
+  margin-top: 40px;
 
 }
 

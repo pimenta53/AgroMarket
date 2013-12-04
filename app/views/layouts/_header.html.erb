@@ -4,7 +4,6 @@
   <div class="navbar-header" id="header-bar">
     <img id="agrosocial_logo" src="/assets/logo_button.svg" alt="AgroSocial Logo" class="img-circle">
     <a class="navbar-brand" id="brandAgro" href="/">AgroSocial</a>
-    <a id="menu-toggle" href="#" class="btn btn-default"><i class="fa fa-reorder"></i></a>
   </div>
 
   <button type="button" id="navbarToggle" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -23,12 +22,12 @@
 
       <!-- SEARCH -->
       <li class="dropdown messages-dropdown" >
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i><b class="caret" id="dropCarret"></b> </a>
+        <a href="#" class="dropdown-toggle" OnClick="document.www.focus();" data-toggle="dropdown"><i class="fa fa-search"></i><b class="caret" id="dropCarret"></b> </a>
         <ul class="dropdown-menu">
           <li class="container" id="searchBox" role="search">
             <div class="input-group" id="input-groupBox">
-              <input type="text" style="vertical-align: center;" class="form-control typeahead">
-
+              <input type="text" name="wwww" style="vertical-align: center;" class="form-control typeahead" >
+              
               <span class="input-group-btn">
                 <button type="submit" class="btn btn-default" id="omnisearch-btn" >Pesquisar</button>
               </span>
@@ -37,6 +36,16 @@
         </ul>
       </li>
       <!-- END SEARCH -->
+
+      <script type="text/javascript"> 
+
+        function onClickScript(){
+          alert("cvbcv");
+          
+          document.elements['www'].focus();
+
+        }
+      </script>
 
 
       <!-- NOTIFICACOES -->
