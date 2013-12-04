@@ -201,20 +201,20 @@ margin-top: 30%;
 
 .login_form_regist_items
 {
-  width: 200px;
+  width: auto;
   
   
 }
 
 .login-col-form_regist{
   
-  width: auto;
+  width: 45%;
   height: auto;
  
   margin-left:auto;
   margin-right: auto;
-  margin-top: 10%;
-  
+  margin-top: 5%;
+  padding: 10%;
 }
 
 #login_option{
