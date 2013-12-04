@@ -1,5 +1,10 @@
 class AuthenticationsController < ApplicationController
   
+  def failure
+    flash[:notice] = "Authentication failed."
+    redirect_to root_url
+  end
+  
   def create
     omniauth = request.env["omniauth.auth"]
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
