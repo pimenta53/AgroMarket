@@ -22,7 +22,7 @@
                                   </li>
                               </ul>
           </footer>
-          </section>  
+          </section>
           <section class="panel">
                   <div class="panel-body bio-graph-info">
                                       <h1>Bio Graph</h1>
@@ -31,10 +31,10 @@
                                               <p><span>NickName </span>: <%= @user.name %></p>
                                           </div>
                                           <div class="bio-row">
-                                              <p><span>Cidade </span>: <%= @user.city.city %></p>
+                                              <p><span>Cidade </span>:<% if @user.city %> <%= @user.city.city %><% end %></p>
                                           </div>
                                           <div class="bio-row">
-                                              <p><span>Aniversario</span>: <%= @user.birthday %></p>
+                                              <p><span>Aniversario</span>:<% if @user.birthday %> <%= @user.birthday %><% end %></p>
                                           </div>
                                           <div class="bio-row">
                                               <p><span>Occupation </span>: UI Designer</p>
@@ -46,7 +46,7 @@
                                               <p><span>Membro desde </span>: <%= @user.created_at %></p>
                                           </div>
                                           <div class="bio-row">
-                                              <p><span>Telefone </span>: <%= @user.phone %></p>
+                                              <p><span>Telefone </span>: <% if @user.phone %><%= @user.phone %><% end %></p>
                                           </div>
                                       </div>
 
@@ -113,7 +113,7 @@
 
                           </div>
           </section>
-      </aside> 
+      </aside>
 
 <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
   <div class="modal-header">

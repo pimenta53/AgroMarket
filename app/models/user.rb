@@ -75,10 +75,18 @@ class User < ActiveRecord::Base
 
   validate :birthday_cannot_be_in_the_future
 
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing_photo.png"
+
+  #validates :avatar, :attachment_presence => true
+  #validates_with AttachmentPresenceValidator, :attributes => :avatar
+  #validates_attachment :avatar, :presence => true,
+  #:content_type => { :content_type => "image/jpg" },
+  #:size => { :in => 0..10.kilobytes }
 
   #instance methods
 
@@ -212,7 +220,7 @@ class User < ActiveRecord::Base
       #if omniauth['info']['image']!=nil
       #  self.avatar = URI.parse(omniauth['info']['image'])
       #end
-      
+
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
   end

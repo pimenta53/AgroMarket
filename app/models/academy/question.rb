@@ -14,7 +14,7 @@
 #
 
 class Academy::Question < ActiveRecord::Base
-  has_many :Answers
+  has_many :answers
   belongs_to :user
   belongs_to :category
 

@@ -30,7 +30,7 @@ class Admin::AdsController < Admin::ApplicationController
   # GET /ads/1/edit
   def edit
   	 $i = @ad.ad_images.count
-     
+
      (5 - $i).times{@ad.ad_images.build}
   end
 
@@ -41,6 +41,7 @@ class Admin::AdsController < Admin::ApplicationController
     @ad = Ad.new(ad_params)
     @ad.user_id = current_user.id
     @ad.is_active = true
+    @ad.is_deleted = false
     respond_to do |format|
       if @ad.save
         format.html { redirect_to [:admin,@ad], notice: 'Ad was successfully created.' }
@@ -84,7 +85,7 @@ class Admin::AdsController < Admin::ApplicationController
 
     @ad.messages.where("receiver_id = ? OR sender_id = ?",params[:user_id],params[:user_id]).update_all(:is_close => 1)
 
-    redirect_to @ad,notice: 'A mensagem foi terminada com sucesso' 
+    redirect_to @ad,notice: 'A mensagem foi terminada com sucesso'
   end
 
 private
@@ -101,7 +102,7 @@ private
     # Load cities from database
     def load_stuff_ads
       @cities = City.all
-      @price_types = PriceType.all 
+      @price_types = PriceType.all
       @categories = Category.all
 
     end
