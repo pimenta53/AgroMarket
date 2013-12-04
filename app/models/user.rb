@@ -210,7 +210,7 @@ class User < ActiveRecord::Base
       #if omniauth['info']['image']!=nil
       #  self.avatar = URI.parse(omniauth['info']['image'])
       #end
-      
+
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
   end
