@@ -181,6 +181,7 @@ function showNotify(text_noti,type_noti) {
   $(function() {
     $.pnotify({
         text: text_noti,
+        history: false,
         type: type_noti,
         delay: 1000,
         icon: true,
