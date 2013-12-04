@@ -1,4 +1,13 @@
 <div class="panel panel-default">
+
+<% if flash[:notice] %>
+  <script> showNotify("<%= flash[:notice] %>","success") </script>
+<% end %>
+<% if flash[:error] %>
+  <script> showNotify("<%= flash[:error] %>","error") </script>
+<% end %>
+
+
   <div class="panel-heading">
     <h3 class="panel-title">Anúncios</h3>
   </div>

@@ -1,11 +1,4 @@
 
-<script type="text/javascript">
-        $(function() {
-
-          alert("Coisa");
-        });
-
-</script>
 <%= form_for(@category),:html => {:multipart => true,:id=>"new_category"} do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
