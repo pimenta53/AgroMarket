@@ -2,7 +2,7 @@ class AuthenticationsController < ApplicationController
   
   def failure
     flash[:notice] = "Authentication failed."
-    redirect_to root_url
+    redirect_to new_user_session_url
   end
   
   def create

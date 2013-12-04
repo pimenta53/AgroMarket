@@ -26,39 +26,17 @@
                <% if devise_mapping.rememberable? -%>
                    <div>
                     <hr>
-                     <%= f.check_box :remember_me ,:class=>"checkbox pull-left" %> <%= f.label :remember_me ,"Manter sessão iniciada", :id=>"login_option" %>
+                     <div class="checkbox" id="user_remember_me" name="user[remember_me]">
+                       <label>
+                         <input type="checkbox"> Manter Sessão Iniciada
+                       </label>
+                     </div>
 
                      <div class="left-section">
                        <%= render "devise/shared/links"  %>
                      </div>
-                     <div class='colorrender'></div>
                    </div>
               <% end -%>
-                
-
-                
        <% end %>
     </div>
-            
-            
  </div>
-
-<div class="container">
-  <div class="row">
-    <form class="form-signin mg-btm">
-      <h3 class="heading-desc">
-
-      <div class="login-footer">
-        <div class="row">
-          <div class="col-xs-6 col-md-6">
-            <div class="left-section">
-              <a href="">Forgot your password?</a>
-              <a href="">Sign up now</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </form>
-  </div>
-</div>
