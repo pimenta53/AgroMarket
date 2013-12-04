@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0f10ffca-3c38-4c05-bf22-01c7074b8c37" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="agrosocial.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -20,7 +19,7 @@
     <file path="/show.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385992019804" ignored="false" />
     <file path="/application.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386002135859" ignored="false" />
     <file path="/_sidebar_left.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386150506080" ignored="false" />
-    <file path="/_header.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386152441747" ignored="false" />
+    <file path="/_header.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386152742114" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +42,7 @@
       <file leaf-file-name="_sidebar_left.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidebar_left.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="53" selection-start="229" selection-end="229" vertical-scroll-proportion="-3.0434783">
+            <state line="5" column="24" selection-start="196" selection-end="208" vertical-scroll-proportion="-3.0434783">
               <folding>
                 <element signature="n#style#0;n#b#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -54,7 +53,7 @@
       <file leaf-file-name="_header.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="43" selection-start="7359" selection-end="7359" vertical-scroll-proportion="0.73779386">
+            <state line="201" column="32" selection-start="9140" selection-end="9140" vertical-scroll-proportion="0.5352622">
               <folding />
             </state>
           </provider>
@@ -718,7 +717,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidebar_left.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="53" selection-start="229" selection-end="229" vertical-scroll-proportion="-3.0434783">
+        <state line="5" column="24" selection-start="196" selection-end="208" vertical-scroll-proportion="-3.0434783">
           <folding>
             <element signature="n#style#0;n#b#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
@@ -727,7 +726,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="43" selection-start="7359" selection-end="7359" vertical-scroll-proportion="0.73779386">
+        <state line="201" column="32" selection-start="9140" selection-end="9140" vertical-scroll-proportion="0.5352622">
           <folding />
         </state>
       </provider>

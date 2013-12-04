@@ -199,7 +199,7 @@
             <% end %>
             <li class="divider"></li>
 
-            <li><a href="#">Perfil</a></li>
+            <li><a href="/users/<%= current_user.id %>">Perfil</a></li>
             <li><%= link_to(ratings_path) do %>
                       <span>Rating por atribuir <span class="badge"><%= load_stuff_header %></span></span>
                     <% end %></li>
