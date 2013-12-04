@@ -168,7 +168,12 @@ class User < ActiveRecord::Base
 
 
       #location será composto por Cidade, Pais
-      location = omniauth['info']['location'].split(", ")
+      if omniauth['info']['location'] != nil
+        location = omniauth['info']['location'].split(", ")
+      else
+        location = ''
+      end
+      #location = omniauth['info']['location'].split(", ")
 
       #buscar cidade do location
 

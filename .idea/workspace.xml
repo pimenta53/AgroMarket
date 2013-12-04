@@ -2,156 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f10ffca-3c38-4c05-bf22-01c7074b8c37" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-be83281bf598930a20a5662a81e39a0e.js.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-ed477744c9e43554cdf6cf6924247bd1.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap-wysihtml5-9fb60e67ebfbacf800bf3f62cab9fe1e.js.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap-wysihtml5-d9d84a9cb9331a55202f0cc5c9186c88.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper-594758e9e67359232992211d4bbbd8ab.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper10-b28a1565b3f77c585b76cba044942e64.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper11-f935475e9e2b4c473f73c4f627dc55ee.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper12-4c2be8b31bab05eb33cc955dacf2d579.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper13-b5a35c822de9754bc21a75bee9534acf.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper14-d2ebf0554ccc3301f5c3c11bf4ff60cd.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper15-a3c8d67338938ad42d60d59c06fb403b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper16-0f3aa23e9adb15f25747c9e8eb7936ec.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper17-1a8fda2c771a920abc38d734142b1dad.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper18-26132bf9228212c78841e1cd9fd79086.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper19-e86cff322b0d714a149f16dcab0cc76a.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper2-b29a24810208240502c509999b61a191.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper2-c4b105a0230890c747b12552462622f7.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper2_blur-9cd776763eff5b24272788707cc6b7cd.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper3-3fc87573789e8157cf3b8aa9ee738218.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper4-4654687f1047bf4ee1ace7f6473d3125.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper5-ef625ebd4b7af31398142f9d24e723a6.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper6-c4045f0dec14c41dbe2f400abf51bc4b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper7-05abd21bde3033f67d51a2965c11a5bc.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper8-c52bce5f942757810deaa781e0454800.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/Backgrounds/farm_wallpaper9-6cd2f66d7963934e0330b7dc2ed99a09.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/pin-8b52670538af411f1a8b086906fe3778.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/pin_shadow-b2b8eb5c7826682fd310e1da61361363.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap-wysihtml5/wysiwyg-color-ac4ff8d55437994c39af37bc0dd939e2.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20131202175911_change_type_tutorial_academy_tutorials.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/academy.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-be83281bf598930a20a5662a81e39a0e.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-ed477744c9e43554cdf6cf6924247bd1.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/ar-AR.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap-wysihtml5/b3.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/b3.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/bg-BG.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap-wysihtml5-9fb60e67ebfbacf800bf3f62cab9fe1e.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap-wysihtml5-d9d84a9cb9331a55202f0cc5c9186c88.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/bootstrap-wysihtml5.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/ca-CT.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap-wysihtml5/core-b3.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/core-b3.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap-wysihtml5/core.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/core.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/cs-CZ.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/da-DK.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/de-DE.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/el-GR.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/es-AR.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/es-ES.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/fr-FR.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/fr-NL.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/hr-HR.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap-wysihtml5/index.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/it-IT.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/ja-JP.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/ko-KR.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/lt-LT.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/mo-MD.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/nb-NB.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/nl-NL.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/pl-PL.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/prettify.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/pt-BR.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/ru-RU.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/sk-SK.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/sv-SE.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/tr-TR.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/ua-UA.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/userslayouts.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/wysihtml5.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap-wysihtml5/wysiwyg-color-ac4ff8d55437994c39af37bc0dd939e2.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap-wysihtml5/wysiwyg-color.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/zh-CN.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/bootstrap-wysihtml5/locales/zh-TW.js" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\assets\stylesheets\academy.css.scss" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\views\academy\answers\index.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\views\academy\answers\index.json.jbuilder" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\views\academy\answers\show.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\views\academy\votes\_form.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\views\academy\votes\edit.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\views\academy\votes\index.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\views\academy\votes\index.json.jbuilder" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\views\academy\votes\new.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\views\academy\votes\show.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\app\views\academy\votes\show.json.jbuilder" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\db\migrate\20131127104524_create_votes.rb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\db\migrate\20131127104804_create_answers.rb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\db\migrate\20131127105003_create_questions.rb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\db\migrate\20131127105742_create_tutorials.rb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\db\migrate\20131127105923_create_tutorial_images.rb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\martins\workspace\agrosocial\db\migrate\20131127110722_create_workshops.rb" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\martins\workspace\agrosocial\app\assets\stylesheets\bootstrap-modal.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap-wysihtml5/bootstrap-modal.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/academy/answers/_display_all.erb" afterPath="$PROJECT_DIR$/app/views/academy/answers/_display_all.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/academy/answers/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/academy/answers/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/academy/tutorials/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/academy/tutorials/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ads/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/ads/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/sessions/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/sessions/_header.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/shared/_links.erb" afterPath="$PROJECT_DIR$/app/views/devise/shared/_links.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/academy/answers/_show.html.erb" afterPath="$PROJECT_DIR$/app/views/academy/answers/_show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_sidebar_left.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_sidebar_left.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/agrosocial.iml" afterPath="$PROJECT_DIR$/.idea/agrosocial.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/academy/answer.rb" afterPath="$PROJECT_DIR$/app/models/academy/answer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/academy/answers_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/academy/answers_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/academy/index.html.erb" afterPath="$PROJECT_DIR$/app/views/academy/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/academy/questions/index.html.erb" afterPath="$PROJECT_DIR$/app/views/academy/questions/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/academy/tutorials/index.html.erb" afterPath="$PROJECT_DIR$/app/views/academy/tutorials/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ratings/index.html.erb" afterPath="$PROJECT_DIR$/app/views/ratings/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/manifest-a1c41f4286c276ade9ba12e74b6faf95.json" afterPath="$PROJECT_DIR$/public/assets/manifest-a1c41f4286c276ade9ba12e74b6faf95.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/omniauth.rb" afterPath="$PROJECT_DIR$/config/initializers/omniauth.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/academy/questions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/academy/questions_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/registrations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/script.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/session.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/session.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/sessions.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/sessions.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/academy/questions/show.html.erb" afterPath="$PROJECT_DIR$/app/views/academy/questions/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/academy/tutorials/show.html.erb" afterPath="$PROJECT_DIR$/app/views/academy/tutorials/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ads/show.html.erb" afterPath="$PROJECT_DIR$/app/views/ads/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/test.rb" afterPath="$PROJECT_DIR$/config/environments/test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/theme.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/theme.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/academy/tutorials_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/academy/tutorials_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/user.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/user.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/user.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/validations.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/validations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/academy/vote.rb" afterPath="$PROJECT_DIR$/app/models/academy/vote.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/academy/votes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/academy/votes_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="agrosocial.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386016186655" ignored="false" />
+    <file path="/Dummy.txt" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386150294078" ignored="false" />
     <file path="/Gemfile" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385978235321" ignored="false" />
     <file path="/_form.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385994183974" ignored="false" />
     <file path="/validations.js" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385981479909" ignored="false" />
@@ -163,7 +18,8 @@
     <file path="/index.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385995163387" ignored="false" />
     <file path="/show.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385992019804" ignored="false" />
     <file path="/application.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386002135859" ignored="false" />
-    <file path="/_sidebar_left.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386015744670" ignored="false" />
+    <file path="/_sidebar_left.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386150506080" ignored="false" />
+    <file path="/_header.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386152742114" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,17 +39,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_sidebar_left.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_sidebar_left.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidebar_left.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="77" selection-start="2240" selection-end="2240" vertical-scroll-proportion="0.20826447">
+            <state line="5" column="24" selection-start="196" selection-end="208" vertical-scroll-proportion="-3.0434783">
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#b#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#4;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_header.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="201" column="32" selection-start="9140" selection-end="9140" vertical-scroll-proportion="0.5352622">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -201,7 +62,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="49" selection-start="1069" selection-end="1069" vertical-scroll-proportion="-13.391304">
+            <state line="28" column="49" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -236,10 +97,10 @@
         <option value="$PROJECT_DIR$/app/views/ads/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/myads.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/theme.css" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_sidebar_left.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
       </list>
     </option>
   </component>
@@ -251,10 +112,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="960" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -282,6 +141,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -367,51 +228,9 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agrosocial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agrosocial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agrosocial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agrosocial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -421,7 +240,7 @@
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
     <property name="dynamic.classpath" value="false" />
   </component>
-  <component name="RunManager" selected="Rails.Development: agrosocial">
+  <component name="RunManager" selected="Rake.db:setup">
     <configuration default="false" name="db:migrate" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="agrosocial" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -437,6 +256,50 @@
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="db:migrate" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="db:seed" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
+      <module name="agrosocial" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="db:seed" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="db:setup" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
+      <module name="agrosocial" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="db:setup" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
@@ -630,16 +493,20 @@
       <ConfigurationWrapper RunnerId="RubyRunner" />
       <method />
     </configuration>
-    <list size="5">
+    <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Rake.test" />
       <item index="1" class="java.lang.String" itemvalue="Rake.spec" />
       <item index="2" class="java.lang.String" itemvalue="Rails.Production: agrosocial" />
       <item index="3" class="java.lang.String" itemvalue="Rails.Development: agrosocial" />
       <item index="4" class="java.lang.String" itemvalue="Rake.db:migrate" />
+      <item index="5" class="java.lang.String" itemvalue="Rake.db:seed" />
+      <item index="6" class="java.lang.String" itemvalue="Rake.db:setup" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Rake.db:migrate" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Rake.db:setup" />
+        <item index="1" class="java.lang.String" itemvalue="Rake.db:seed" />
+        <item index="2" class="java.lang.String" itemvalue="Rake.db:migrate" />
       </list>
     </recent_temporary>
   </component>
@@ -690,18 +557,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="0" width="960" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18089648" sideWeight="0.71086955" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19710468" sideWeight="0.70640177" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28913045" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29359823" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -834,35 +701,33 @@
         <state line="4646" column="20" selection-start="78313" selection-end="78314" vertical-scroll-proportion="0.3322034" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="66" selection-start="368" selection-end="368" vertical-scroll-proportion="0.023140496" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="18" selection-start="593" selection-end="593" vertical-scroll-proportion="0.15659955">
+        <state line="28" column="49" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="49" selection-start="1069" selection-end="1069" vertical-scroll-proportion="-13.391304">
+        <state line="241" column="54" selection-start="6896" selection-end="6896" vertical-scroll-proportion="0.86023295">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidebar_left.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="77" selection-start="2240" selection-end="2240" vertical-scroll-proportion="0.20826447">
+        <state line="5" column="24" selection-start="196" selection-end="208" vertical-scroll-proportion="-3.0434783">
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#b#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#4;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="201" column="32" selection-start="9140" selection-end="9140" vertical-scroll-proportion="0.5352622">
+          <folding />
         </state>
       </provider>
     </entry>
