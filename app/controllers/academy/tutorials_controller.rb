@@ -15,6 +15,8 @@ class Academy::TutorialsController < ApplicationController
   # GET /academy/tutorials/new
   def new
     @academy_tutorial = Academy::Tutorial.new
+    @categories = Category.all
+
   end
 
   # GET /academy/tutorials/1/edit
