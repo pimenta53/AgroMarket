@@ -1,7 +1,7 @@
 <div class="col-md-4 login-col-form">
     <div class="account-wall login_content">
         <img class="profile-img" src="/assets/logo2.svg" alt="">
-            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html=> {:class=>"form-signin"}) do |f| %>
+            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html=> {:id => "login_id",:class=>"form-signin"}) do |f| %>
               <div class="social-box">
                 <div class="row mg-btm">
                   <div class="col-md-12"><%= link_to "<i class=\"icon-facebook\" style=\"margin-right: 5px;\"></i>Entrar com o Facebook".html_safe , "/auth/facebook",:class=>"btn btn-primary btn-block",:style=>"color:white" %></div>
@@ -20,7 +20,7 @@
                  <%= f.password_field :password ,:class=>"form-control",:placeholder=> "Password" %>
                </div>
                
-               <div><%= f.submit "Entrar", :class=>"btn btn-lg btn-primary btn-block" %></div>
+               <div><%= f.submit "Iniciar Sessão", :class=>"btn btn-lg btn-primary btn-block" %></div>
 
 
                <% if devise_mapping.rememberable? -%>
@@ -28,7 +28,10 @@
                     <hr>
                      <%= f.check_box :remember_me ,:class=>"checkbox pull-left" %> <%= f.label :remember_me ,"Manter sessão iniciada", :id=>"login_option" %>
 
-                     <div class='colorrender'><%= render "devise/shared/links"  %></div>
+                     <div class="left-section">
+                       <%= render "devise/shared/links"  %>
+                     </div>
+                     <div class='colorrender'></div>
                    </div>
               <% end -%>
                 
@@ -44,17 +47,7 @@
   <div class="row">
     <form class="form-signin mg-btm">
       <h3 class="heading-desc">
-        <button type="button" class="close pull-right" aria-hidden="true">×</button>
-        Login to Bootsnipp</h3>
 
-      <div class="main">
-
-        <input type="text" class="form-control" placeholder="Email" autofocus>
-        <input type="password" class="form-control" placeholder="Password">
-
-        Are you a business? <a href=""> Get started here</a>
-        <span class="clearfix"></span>
-      </div>
       <div class="login-footer">
         <div class="row">
           <div class="col-xs-6 col-md-6">
@@ -62,9 +55,6 @@
               <a href="">Forgot your password?</a>
               <a href="">Sign up now</a>
             </div>
-          </div>
-          <div class="col-xs-6 col-md-6 pull-right">
-            <button type="submit" class="btn btn-large btn-danger pull-right">Login</button>
           </div>
         </div>
 
