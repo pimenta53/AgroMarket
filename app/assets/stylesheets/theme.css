@@ -335,6 +335,7 @@ border-bottom-right-radius: 4px;
 }
 
 
+
 /* AUTOCOmplete */
 .twitter-typeahead{
   width:100%;
@@ -476,6 +477,14 @@ background: #ff6c60;
 border-radius: 4px 4px 0px 0px;
 color: #fff;
 line-height: 50px;
+}
+
+
+
+/*SHOW AD*/
+
+#extraNavButton{
+  background-color: #00A75D;
 }
 
 
