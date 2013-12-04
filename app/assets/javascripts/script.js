@@ -2,25 +2,12 @@ var ready;
 ready = function() {
 	
 
+
   //previne o dropdown que feche ao clicar nele
   //This will prevent the event from bubbling up and close the dropdown when you type/click on text boxes.
   $('.dropdown-menu input').click(function(e) {
         e.stopPropagation(); 
     });
-
-  //funcao de criar um popup para um determinado url
-  function popupCenter(url, width, height, name) {
-    var left = (screen.width/2)-(width/2);
-    var top = (screen.height/2)-(height/2);
-    return window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
-  }
-
-  //criar um popup ao criar
-  $(".popupurl").click(function(e) {
-  	 alert($(this).attr("href"));
-    popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");    
-    e.stopPropagation(); return false;
-  });
 
   //Show add_images in newAd
   $("#add").click(function() {
