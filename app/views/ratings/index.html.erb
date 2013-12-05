@@ -1,8 +1,8 @@
 <% if @rating.count != 0 %>
 <table class="table">
 	<tr>
-		<th>Rater ID</th>
-		<th>Rated ID</th>
+		<th>Quem avalia</th>
+		<th>Quem vai ser avaliado</th>
 		<th>AD ID</th>
 		<th>SHOW</th>
 	</tr>
@@ -38,10 +38,10 @@
 </div>
 
 <div>
-	<% @rating.each do |r| %>
+	<% @my_rate_feedback.each do |r| %>
 		<% if r.rate %>
 			<div id="div_otherMessage">
-				<small>Mensagem De <%= r.rater.name %> </small><br>
+				<small>Mensagem De <%= r.rater.name %> </small>Com rate de <%= r.rate %><br>
 				<%= r.comment%><br>
 			</div>
 		<% end %>
