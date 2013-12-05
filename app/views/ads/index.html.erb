@@ -1,4 +1,13 @@
 <div class="panel panel-default">
+
+<% if flash[:notice] %>
+  <script> showNotify("<%= flash[:notice] %>","success") </script>
+<% end %>
+<% if flash[:error] %>
+  <script> showNotify("<%= flash[:error] %>","error") </script>
+<% end %>
+
+
   <div class="panel-heading">
     <h3 class="panel-title">Anúncios</h3>
   </div>
@@ -7,6 +16,8 @@
     <div class="row">
       <ul class="thumbnails">
         <% @ads.each do |ad| %>
+
+          <% if ad.is_active? %> <!-- Verifica se o anúncio ainda está activo-->
           <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
             <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
               <span class='price' ><%= ad.price %>€</span>
@@ -27,6 +38,8 @@
               </div>
             </div>
           </li>
+
+          <% end %>
         <% end %>
         <% if @ads.empty? %>
           Ainda não existem anuncios. Sê o primeiro a anunciar!

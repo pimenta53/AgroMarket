@@ -4,7 +4,7 @@
   <title>Agrosocial</title>
 
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-  
+
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application","user" "data-turbolinks-track" => true %>  <!--Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-     
+
   <div id="header">
       <%= render "layouts/header"%>
   </div>
@@ -36,7 +36,7 @@
             <a href="#">
               <%= image_tag @user.avatar.url(:medium),:width => "70%"%>
            </a>
-           <h1> 
+           <h1>
             <%= @user.name %>
            </h1>
 
@@ -45,17 +45,17 @@
            </p>
           </div>
           <ul class="nav nav-pills nav-stacked">
-                 <li class="active"> 
-                    <%= link_to "Perfil".html_safe , user_path(current_user.id), :class => "fa fa-user" %> 
-                   
+                 <li class="active">
+                    <%= link_to "Perfil".html_safe , user_path(current_user.id), :class => "fa fa-user" %>
+
                 </li>
 
-                <li> 
-                      <%= link_to "Editar Perfil".html_safe , edit_user_registration_path(), :class => "fa fa-edit" %>  
+                <li>
+                      <%= link_to "Editar Perfil".html_safe , edit_user_registration_path(), :class => "fa fa-edit" %>
 
-                      
+
                </li>
-               <li> <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(current_user.id), :class => "fa fa-calendar" %> <span class="label label-danger pull-right r-activity">9</span></li>
+               <li> <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(current_user.id), :class => "fa fa-calendar" %> <span class="label label-danger pull-right r-activity"><%= @user.ads.count %></span></li>
 
           </ul>
          </section>
@@ -70,8 +70,8 @@
 
   <%= render 'layouts/footer' %>
 
-        
-  
+
+
 
 </body>
 </html>

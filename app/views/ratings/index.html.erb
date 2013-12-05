@@ -1,4 +1,3 @@
-
 <% if @rating.count != 0 %>
 <table class="table">
 	<tr>
@@ -8,7 +7,9 @@
 		<th>SHOW</th>
 	</tr>
 		<% @rating.each do |r| %>
-			<%= render "show" , :rating => r %>
+			<% if r.rate.nil? %>
+				<%= render "show" , :rating => r %>
+			<% end %>
 		<% end %>
 </table>
 <% else %>
@@ -33,8 +34,17 @@
 	        <span class="icon_rating-nocolor" style="left: <%= i*30 %>px"></span>
 		<% end %>
 		<hr>
-
 	</div>
+</div>
 
+<div>
+	<% @rating.each do |r| %>
+		<% if r.rate %>
+			<div id="div_otherMessage">
+				<small>Mensagem De <%= r.rater.name %> </small><br>
+				<%= r.comment%><br>
+			</div>
+		<% end %>
+	<% end %>
 </div>
 

@@ -75,10 +75,18 @@ class User < ActiveRecord::Base
 
   validate :birthday_cannot_be_in_the_future
 
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing_photo.png"
+
+  #validates :avatar, :attachment_presence => true
+  #validates_with AttachmentPresenceValidator, :attributes => :avatar
+  #validates_attachment :avatar, :presence => true,
+  #:content_type => { :content_type => "image/jpg" },
+  #:size => { :in => 0..10.kilobytes }
 
   #instance methods
 
@@ -151,9 +159,19 @@ class User < ActiveRecord::Base
     self.ads.where("expire_date < ?", Date.today)
   end
 
+  def generate_password
+    #password_length = 6
+    #password = Devise.friendly_token.first(password_length)
+    #self.password=password
+    #self.password_confirmation=password
+    
+    self.password='1234567890'
+    self.password_confirmation='1234567890'
+  end
+
   #inserir dados pelo omniauth
   def apply_omniauth(omniauth)
-
+    self.generate_password
     if omniauth['provider'] == 'facebook'
 
 
@@ -202,7 +220,7 @@ class User < ActiveRecord::Base
       #if omniauth['info']['image']!=nil
       #  self.avatar = URI.parse(omniauth['info']['image'])
       #end
-      
+
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
   end
