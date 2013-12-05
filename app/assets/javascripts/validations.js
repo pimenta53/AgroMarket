@@ -1,7 +1,6 @@
 var ready;
 ready = function() {
 
-
   /**
   * New USER, CREATE ACCOUNT
   */
@@ -11,36 +10,56 @@ ready = function() {
     errorClass: 'help-inline',
     rules: {
       "user[email]": {
-        email: true
+        email: true,
+        required: true
+      },
+      "user[avatar]": {
+          required: false
       },
       "user[name]": {
-        accept: "[a-zA-Z ]" /*Está a deixar passar coisas como 123JorgeDaniel */
+        accept: "[a-zA-Z ]",
+        required: true
       },
-      "user_city_id": {
+      "user[city_id]": {
         required: true
       },
       "user[password]": {
         minlength: 5,
-        maxlength: 15
+        maxlength: 15,
+        required: true
+      },
+      "user[password_confirmation]": {
+          minlength: 5,
+          maxlength: 15,
+          required: true
+      },
+      "user[birthday]": {
+          date: true,
+          required: true
       },
       "user[phone]": {
         accept: "[0-9]",
         minlength: 9
-      },
+      }
     },
-    messages: {
-      "user[name]": "Este nome não parece ser válido",
-      "user[email]": "Email inválido",
-      "user[phone]": "O seu contacto não parece válido"
-    },
+    /* messages: {
+          "user[email]": "Email inválido",
+          "user[phone]": "O seu contacto não parece válido"
+      },    */
     highlight: function(element) {
       $(element).closest('.control-group').removeClass('success').addClass('error');
     },
     success: function(element) {
-      element
-      .addClass('valid')
-      .closest('.control-group').removeClass('error').addClass('success');
-    }
+        element
+            .text('OK!').addClass('valid')
+            .closest('.control-group').removeClass('error').addClass('success');
+      } /*,
+      errorPlacement: function(error, element) {
+         alert("aaa");
+          console.log(element);
+          console.log("help_" + element[0].id);
+          console.log(document.getElementById("help_" + element[0].id));
+      }    */
    });
 
 
@@ -223,7 +242,7 @@ ready = function() {
     digits: "Please enter only digits.",
     creditcard: "Please enter a valid credit card number.",
     equalTo: "Please enter the same value again.",
-    accept: "Please enter a value with a valid extension.",
+    accept: "Insira um valor válido!",
     maxlength: jQuery.validator.format("Por favor insira menos de {0} caracteres."),
     minlength: jQuery.validator.format("Por favor insira mais de {0} caracteres."),
     rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
