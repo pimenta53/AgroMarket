@@ -64,6 +64,10 @@
           <%= f.submit "Registar" ,:class=>"btn btn-lg btn-primary btn-block" %>
         </div>
 
+        <% if @user.errors.any? %>
+            <%= render "layouts/error_message" %>
+        <% end %>
+
         <div class="left-section">
           <%= render "devise/shared/links"  %>
         </div>

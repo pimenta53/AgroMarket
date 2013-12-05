@@ -44,25 +44,26 @@ div {
   display: table;
 }
 
+
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
+  text-align: left;
+  padding: 15px;
+  margin-top: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  font-weight: bold;
+}
+
+#error_explanation h2 {
+  margin-top: 0;
+  color: inherit;
+  font-size: 14px;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
 }

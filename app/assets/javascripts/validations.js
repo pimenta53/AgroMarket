@@ -42,10 +42,6 @@ ready = function() {
         minlength: 9
       }
     },
-    /* messages: {
-          "user[email]": "Email inválido",
-          "user[phone]": "O seu contacto não parece válido"
-      },    */
     highlight: function(element) {
       $(element).closest('.control-group').removeClass('success').addClass('error');
     },
@@ -53,15 +49,32 @@ ready = function() {
         element
             .text('OK!').addClass('valid')
             .closest('.control-group').removeClass('error').addClass('success');
-      } /*,
-      errorPlacement: function(error, element) {
-         alert("aaa");
-          console.log(element);
-          console.log("help_" + element[0].id);
-          console.log(document.getElementById("help_" + element[0].id));
-      }    */
+      }
    });
 
+    /**
+     * REQUEST PASSWORD
+     */
+
+    $('#request_password').validate({
+        errorElement: 'label',
+        errorClass: 'help-inline',
+        rules: {
+            "user[email]": {
+                email: true,
+                required: true
+            }
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+        },
+        success: function(element) {
+            element
+                .addClass('valid')
+                .closest('.control-group').removeClass('error').addClass('success');
+        }
+
+    });
 
   /**
   * NEW CATEGORY
