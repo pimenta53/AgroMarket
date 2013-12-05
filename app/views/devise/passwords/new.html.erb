@@ -1,30 +1,23 @@
-
-
-
 <div class=" col-md-8 regist_form text-center">
-	
-        
-    		  
-                <h2>Esqueceu a sua password</h2>
-                
-                <p>Escreva o seu email e siga as intrucões.</p>
+    <h2>Esqueceu-se da password?</h2>
+    <p>Escreva o seu email e siga as instruções.</p>
 
-                <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post}) do |f| %>
-					  <%= devise_error_messages! %>
+    <%= form_for(resource, :as => resource_name, id: "request_password", :url => password_path(resource_name), :html => { :method => :post}) do |f| %>
 
-                      <div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span>
-                        <%= f.label :email %><br />
-					      <%= f.email_field :email, :autofocus => true , :placeholder=>"Escreva aqui o seu email"%>
-                       </div>
+      <div class="control-group">
+        <div class="controls" style="text-align: left">
+          <%= f.email_field :email, :autofocus => true , class:"form-control", :placeholder=>"Escreva aqui o seu email"%>
+        </div>
+      </div>
 
-					  <div class="btn btn-large"><%= f.submit "Envia e recupera a tua password" %></div>
-				<% end %>
-                
-                <div class='regist_form_regist_items text-center'>
-              <%= render "devise/shared/links"  %>
-            </div>
-               
-        
-	
-	
+      <%= f.submit "Recuperar password",class: "btn btn-lg btn-primary btn-block" %>
+
+        <% if @user.errors.any? %>
+            <%= render "layouts/error_message" %>
+        <% end %>
+
+    <% end %>
+    <div class="left-section">
+        <%= render "devise/shared/links"  %>
+    </div>
 </div>

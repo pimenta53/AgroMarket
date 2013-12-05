@@ -495,13 +495,13 @@ label.valid {
     background: url(valid.png) center center no-repeat;
     display: inline-block;
     text-indent: -9999px;
-  }
+}
 label.error {
     font-weight: bold;
     color: red;
     padding: 2px 8px;
     margin-top: 2px;
-  }
+}
 
 .control-group.warning>label,.control-group.warning .help-block,.control-group.warning .help-inline{color:#c09853;}
 .control-group.warning input,.control-group.warning select,.control-group.warning textarea{color:#c09853;border-color:#c09853;}.control-group.warning input:focus,.control-group.warning select:focus,.control-group.warning textarea:focus{border-color:#a47e3c;-webkit-box-shadow:0 0 6px #dbc59e;-moz-box-shadow:0 0 6px #dbc59e;box-shadow:0 0 6px #dbc59e;}
