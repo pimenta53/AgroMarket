@@ -13,7 +13,7 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Tutorial</h3>
+      <h3 class="panel-title">Criar novo Tutorial</h3>
     </div>
     <div class="panel-body">
     <div class="control-group">
@@ -34,12 +34,12 @@
       <%= f.label :aproved %><br>
       <%= f.number_field :aproved %>
     </div>
-    <div class="textarea">
+    <div class="tab-content">
       <%= f.label :text %><br>
-      <%= f.text_field :text ,:id => "some-textarea", :style => "width: 810px; height: 200px"%>
+      <%= f.text_area :text ,:rows => "10",:id => "some-textarea", :class => "form-control" %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Submeter Tutorial', :class => "btn btn-success dropdown-toggle" %>
     </div>
     </div>
   </div>
