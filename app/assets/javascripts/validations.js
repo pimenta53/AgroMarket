@@ -38,8 +38,7 @@ ready = function() {
           required: true
       },
       "user[phone]": {
-        accept: "[0-9]",
-        minlength: 9
+          telefone: true
       }
     },
     highlight: function(element) {
@@ -243,6 +242,13 @@ ready = function() {
   jQuery.validator.addMethod('selectcheck', function (value) {
     return (value != '0');
   }, "Categoria required");
+
+  //VAlidar um nº de telefone com 9 digitos
+  jQuery.validator.addMethod("telefone", function(phone_number, element) {
+      phone_number = phone_number.replace(/\s+/g, "");
+      return (this.optional(element) || phone_number.length == 9) && $.isNumeric(phone_number) ;
+  }, "Introduza um telefone válido!");
+
 
   jQuery.extend(jQuery.validator.messages, {
     required: "Obrigatório!",
