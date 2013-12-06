@@ -37,7 +37,19 @@
 	background-image:url('carrot-image-nocolor.png');
 }
 
+.rating_color{
+  background-image:url('carrot-image.png');
+  display: inline-block;
+  height: 40px;
+  width: 20px;
+}
 
+.rating_nocolor{
+  background-image:url('carrot-image-nocolor.png');
+  display: inline-block;
+  height: 40px;
+  width: 20px;
+}
 
 .btn-twitter {
   color: #ffffff;

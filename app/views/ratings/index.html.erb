@@ -33,18 +33,29 @@
 		<% ((@myrate.to_i + j)..5).each do |i| %>
 	        <span class="icon_rating-nocolor" style="left: <%= i*30 %>px"></span>
 		<% end %>
-		<hr>
 	</div>
 </div>
-
-<div>
+<br>
+<br>
+<div class="container">
 	<% @my_rate_feedback.each do |r| %>
 		<% if r.rate %>
-			<div id="div_otherMessage">
-				<small>Mensagem De <%= r.rater.name %> </small>Com rate de <%= r.rate %><br>
-				<%= r.comment%><br>
+			<div class="panel panel-default">
+			    <div class="panel-heading">
+			      <h5 class="panel-title"><%= r.rater.name %></h5>
+			      <p><%= r.created_at %></p>
+			      <div class="pull-right">
+				      <% (1..(r.rate)).each do |k|%>
+				      	<small><span class="rating_color" style="left: <%= k*30 %>px"></span></small>
+				      <% end %>
+				      <% ((r.rate+1)..5).each do |l| %>
+				      	<span class="rating_nocolor" style="left: <%= l*30 %>px"></span>
+				      <% end %>
+				  </div>
+			    </div>
+				<p><%= r.comment%><br></p>
 			</div>
 		<% end %>
 	<% end %>
-</div>
 
+</div>

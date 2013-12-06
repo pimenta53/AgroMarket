@@ -1,6 +1,28 @@
 var ready;
 ready = function() {
 
+
+  /******       New Tutorial VALIDATION     */
+  $('#new_academy_tutorial').validate({
+    errorElement: 'label',
+    errorClass: 'help-inline',
+    rules: {
+      "academy_tutorial[title]" : {required: true, maxlength: 255},
+      "academy_tutorial[rapid_description]" : {required: true, maxlength: 255}
+    },
+    messages: {
+        "academy_tutorial[rapid_description]": "Insira uma descrição, ela ajudará os utilizadores a identificarem melhor o que desejam"
+    },
+    highlight: function(element) {
+      $(element).closest('.control-group').removeClass('success').addClass('error');
+    },
+    success: function(element) {
+        element
+            .text('OK!').addClass('valid')
+            .closest('.control-group').removeClass('error').addClass('success');
+      }
+   });
+
   /******       New USER, CREATE ACCOUNT      */
   $('#new_user').validate({
     errorElement: 'label',
