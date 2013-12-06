@@ -26,11 +26,15 @@
       <%= f.label :title %><br>
       <%= f.text_field :title ,:class => "form-control"%>
     </div>
-    <div class="field">
+    <div>
+      <%= f.label :rapid_description %><br>
+      <%= f.text_field :rapid_description ,:class => "form-control"%>
+    </div>
+    <div class="field" hidden="true">
       <%= f.label :user_id %><br>
       <%= f.text_field :user_id, :value => current_user.id %>
     </div>
-    <div class="field">
+    <div class="field" hidden="true">
       <%= f.label :aproved %><br>
       <%= f.number_field :aproved %>
     </div>

@@ -72,6 +72,6 @@ class Academy::TutorialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def academy_tutorial_params
-      params.require(:academy_tutorial).permit(:category_id, :user_id, :aproved, :title, :text, :is_delected)
+      params.require(:academy_tutorial).permit(:category_id,:rapid_description, :user_id, :aproved, :title, :text, :is_delected)
     end
 end

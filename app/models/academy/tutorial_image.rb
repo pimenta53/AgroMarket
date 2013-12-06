@@ -12,4 +12,12 @@
 
 class Academy::TutorialImage < ActiveRecord::Base
   belongs_to :tutorial
+
+  has_attached_file :image,:styles => {
+	:avatar => "50x50>",
+	:thumb => "100x100>",
+	:small  => "300x300>",
+	:large => "600x600>"
+  }
+  
 end

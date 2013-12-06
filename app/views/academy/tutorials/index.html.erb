@@ -1,35 +1,32 @@
-<h1>Listing academy_tutorials</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>User</th>
-      <th>Aproved</th>
-      <th>Title</th>
-      <th>Is delected</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @academy_tutorials.each do |academy_tutorial| %>
-      <tr>
-        <td><%= academy_tutorial.category_id %></td>
-        <td><%= academy_tutorial.user_id %></td>
-        <td><%= academy_tutorial.aproved %></td>
-        <td><%= academy_tutorial.title %></td>
-        <td><%= academy_tutorial.is_delected %></td>
-        <td><%= link_to 'Show', academy_tutorial %></td>
-        <td><%= link_to 'Edit', edit_academy_tutorial_path(academy_tutorial) %></td>
-        <td><%= link_to 'Destroy', academy_tutorial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="col-lg-12">
+      <section class="panel">
+        <header class="panel-heading">
+          <div class="pull-right">
+            <span class="label" style="background-color: #<%= academy_tutorial.category.color %>">
+              <%= academy_tutorial.category.name %>
+            </span>
+          </div>
 
-<br>
+          <div class="" >
+            <h3> <%= academy_tutorial.title %> </h3>
+          </div>
+        </header>
+
+
+        <p>Tutorial de <%= academy_tutorial.user.name %> criado a <%= academy_tutorial.created_at %></p>
+        <%= academy_tutorial.aproved %>
+        <%= academy_tutorial.title %>
+        <%= academy_tutorial.rapid_description %>
+        <%= academy_tutorial.is_delected %>
+        <div class="pull-right">
+          <%= link_to 'Show', academy_tutorial ,:class => "label"%>
+          <%= link_to 'Edit', edit_academy_tutorial_path(academy_tutorial) %>
+          <%= link_to 'Destroy', academy_tutorial, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </section>
+      </div>
+    <% end %>
 
 <%= link_to 'New Tutorial', new_academy_tutorial_path %>
