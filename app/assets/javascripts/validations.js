@@ -1,46 +1,22 @@
 var ready;
 ready = function() {
 
-  /**
-  * New USER, CREATE ACCOUNT
-  */
-
+  /******       New USER, CREATE ACCOUNT      */
   $('#new_user').validate({
     errorElement: 'label',
     errorClass: 'help-inline',
     rules: {
-      "user[email]": {
-        email: true,
-        required: true
-      },
-      "user[avatar]": {
-          required: false
-      },
-      "user[name]": {
-        accept: "[a-zA-Z ]",
-        required: true
-      },
-      "user[city_id]": {
-        required: true
-      },
-      "user[password]": {
-        minlength: 5,
-        maxlength: 15,
-        required: true
-      },
-      "user[password_confirmation]": {
-          minlength: 5,
-          maxlength: 15,
-          required: true
-      },
-      "user[birthday]": {
-          date: true,
-          required: true
-      },
-      "user[phone]": {
-        accept: "[0-9]",
-        minlength: 9
-      }
+      "user[email]": { email: true, maxlength: 255, required: true },
+      "user[avatar]": { required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
+      "user[name]": { accept: "[a-zA-Z ]", required: true, maxlength: 255 },
+      "user[city_id]": { required: true },
+      "user[password]": {minlength: 5, maxlength: 15, required: true },
+      "user[password_confirmation]": { minlength: 5, maxlength: 15, required: true },
+      "user[birthday]": {date: true, required: true },
+      "user[phone]": { telefone: true }
+    },
+    messages: {
+        "user[avatar]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg"
     },
     highlight: function(element) {
       $(element).closest('.control-group').removeClass('success').addClass('error');
@@ -52,18 +28,12 @@ ready = function() {
       }
    });
 
-    /**
-     * REQUEST PASSWORD
-     */
-
+    /*****      REQUEST PASSWORD            */
     $('#request_password').validate({
         errorElement: 'label',
         errorClass: 'help-inline',
         rules: {
-            "user[email]": {
-                email: true,
-                required: true
-            }
+            "user[email]": { email: true, required: true }
         },
         highlight: function(element) {
             $(element).closest('.control-group').removeClass('success').addClass('error');
@@ -76,25 +46,14 @@ ready = function() {
 
     });
 
-  /**
-  * NEW CATEGORY
-  */
-
+  /*****        NEW CATEGORY                */
   $('#new_category').validate({
     errorElement: 'label',
     errorClass: 'help-inline',
     rules: {
-      "category[name]": {
-        required: true,
-        minlength: 3
-      },
-      "category[color]": {
-        required: true
-      },
-      "category[description]": {
-        required: true,
-        minlength: 5
-      }
+      "category[name]": { required: true, minlength: 3 },
+      "category[color]": { required: true },
+      "category[description]": { required: true, minlength: 5 }
     },
     messages: {
       "category[color]": "Adicione uma cor."
@@ -110,17 +69,12 @@ ready = function() {
 
   });
 
-  /**
-  * NEW CITY
-  */
-
+  /*****        NEW CITY                */
   $('#new_city').validate({
     errorElement: 'label',
     errorClass: 'help-inline',
     rules: {
-      "city[city]": {
-        minlength: 4
-      }
+      "city[city]": { minlength: 4 }
     },
     highlight: function(element) {
       $(element).closest('.control-group').removeClass('success').addClass('error');
@@ -133,49 +87,34 @@ ready = function() {
 
   });
 
-  /*****************************************************************
-  * NEW AD
-  *****************************************************************/
+  /*****        NEW AD                             */
   $('#ad-form').validate({
     errorElement: 'label',
     errorClass: 'help-inline',
     rules: {
-
-      "ad[category_id]": {
-        required: true
-      },
-      "ad[title]": {
-        minlength: 2,
-        maxlength: 20,
-        required: true
-      },
-      "ad[description]": {
-        minlength: 5,
-        maxlength: 140,
-        required: true
-      },
-      "ad[price]": {
-        minlength: 1,
-        maxlength: 6,
-        number: true,
-        required: true
-      },
-      "ad[expire_date]": {
-        date: true,
-        required: true
-      },
-      "ad[location]": {
-        minlength:2,
-        maxlength: 40,
-        required: true
-      },
-      "ad[type_price_id]": {
-        required: true
-      },
-      "ad[city_id]": {
-        required: true
-      }
+      "ad[category_id]": { required: true },
+      "ad[title]": {minlength: 2, maxlength: 50, required: true },
+      "ad[description]": { minlength: 5, maxlength: 255, required: true },
+      "ad[price]": { minlength: 1, maxlength: 6, number: true, required: true },
+      "ad[expire_date]": { date: true, required: true },
+      "ad[location]": { minlength:2, maxlength: 255, required: true },
+      "ad[type_price_id]": { required: true },
+      "ad[city_id]": { required: true },
+      "ad[ad_images_attributes][1][image]":{ required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
+      "ad[ad_images_attributes][2][image]":{ required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
+      "ad[ad_images_attributes][3][image]":{ required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
+      "ad[ad_images_attributes][4][image]":{ required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
+      "ad[ad_images_attributes][5][image]":{ required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
+      "ad[ad_images_attributes][6][image]":{ required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" }
     },
+      messages: {
+          "ad[ad_images_attributes][1][image]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg",
+          "ad[ad_images_attributes][2][image]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg",
+          "ad[ad_images_attributes][3][image]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg",
+          "ad[ad_images_attributes][4][image]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg",
+          "ad[ad_images_attributes][5][image]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg",
+          "ad[ad_images_attributes][6][image]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg"
+      },
       highlight: function(element) {
           $(element).closest('.control-group').removeClass('success').addClass('error');
       },
@@ -187,8 +126,8 @@ ready = function() {
   });
 
 
-  /**
-  * New AD ADmin zone
+  /*****
+  * New AD ADmin zone    (pq é que nao se usa a mesma validação do new ad ?)
   */
 
   $('#new_ad').validate({
@@ -243,6 +182,12 @@ ready = function() {
   jQuery.validator.addMethod('selectcheck', function (value) {
     return (value != '0');
   }, "Categoria required");
+
+  //VAlidar um nº de telefone com 9 digitos
+  jQuery.validator.addMethod("telefone", function(phone_number, element) {
+      phone_number = phone_number.replace(/\s+/g, "");
+      return (this.optional(element) || phone_number.length == 9) && $.isNumeric(phone_number) ;
+  }, "Introduza um telefone válido!");
 
   jQuery.extend(jQuery.validator.messages, {
     required: "Obrigatório!",
