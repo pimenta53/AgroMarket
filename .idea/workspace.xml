@@ -10,8 +10,8 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386249120034" ignored="false" />
     <file path="/Gemfile" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385978235321" ignored="false" />
-    <file path="/_form.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385994183974" ignored="false" />
-    <file path="/validations.js" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386330487488" ignored="false" />
+    <file path="/_form.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386332363563" ignored="false" />
+    <file path="/validations.js" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1386332539308" ignored="false" />
     <file path="/script.js" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385992428394" ignored="false" />
     <file path="/_sidebar_right_featured.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385987069536" ignored="false" />
     <file path="/_sidebar_right_ad.html.erb" changelist="0f10ffca-3c38-4c05-bf22-01c7074b8c37" time="1385987159977" ignored="false" />
@@ -48,29 +48,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ad.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/ad.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="validations.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/validations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="189" column="76" selection-start="5955" selection-end="5955" vertical-scroll-proportion="0.80545455">
+            <state line="115" column="84" selection-start="4976" selection-end="4976" vertical-scroll-proportion="0.9418182">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/ads/_form.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="111" column="106" selection-start="4248" selection-end="4248" vertical-scroll-proportion="-9.869565">
+              <folding>
+                <element signature="e#4250#4271#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -221,73 +214,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="devise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agrosocial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agrosocial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="devise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="registrations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agrosocial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agrosocial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="ads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agrosocial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agrosocial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -724,13 +651,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/welcome_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -805,14 +725,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="8" selection-start="2491" selection-end="2585" vertical-scroll-proportion="0.26565465">
+        <state line="66" column="8" selection-start="2491" selection-end="2585" vertical-scroll-proportion="0.83301705">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/ads/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/models/ad_image.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="0" selection-start="5377" selection-end="5377" vertical-scroll-proportion="0.86717266">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -831,9 +751,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ads/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="106" selection-start="4248" selection-end="4248" vertical-scroll-proportion="-9.869565">
+          <folding>
+            <element signature="e#4250#4271#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/validations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="76" selection-start="5955" selection-end="5955" vertical-scroll-proportion="0.80545455">
+        <state line="115" column="84" selection-start="4976" selection-end="4976" vertical-scroll-proportion="0.9418182">
           <folding />
         </state>
       </provider>

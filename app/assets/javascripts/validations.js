@@ -7,13 +7,16 @@ ready = function() {
     errorClass: 'help-inline',
     rules: {
       "user[email]": { email: true, maxlength: 255, required: true },
-      "user[avatar]": { required: false, maxlength: 255 },
+      "user[avatar]": { required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
       "user[name]": { accept: "[a-zA-Z ]", required: true, maxlength: 255 },
       "user[city_id]": { required: true },
       "user[password]": {minlength: 5, maxlength: 15, required: true },
       "user[password_confirmation]": { minlength: 5, maxlength: 15, required: true },
       "user[birthday]": {date: true, required: true },
       "user[phone]": { telefone: true }
+    },
+    messages: {
+        "user[avatar]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg"
     },
     highlight: function(element) {
       $(element).closest('.control-group').removeClass('success').addClass('error');
@@ -96,8 +99,22 @@ ready = function() {
       "ad[expire_date]": { date: true, required: true },
       "ad[location]": { minlength:2, maxlength: 255, required: true },
       "ad[type_price_id]": { required: true },
-      "ad[city_id]": { required: true }
+      "ad[city_id]": { required: true },
+      "ad[ad_images_attributes][1][image]":{ required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
+      "ad[ad_images_attributes][2][image]":{ required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
+      "ad[ad_images_attributes][3][image]":{ required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
+      "ad[ad_images_attributes][4][image]":{ required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
+      "ad[ad_images_attributes][5][image]":{ required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
+      "ad[ad_images_attributes][6][image]":{ required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" }
     },
+      messages: {
+          "ad[ad_images_attributes][1][image]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg",
+          "ad[ad_images_attributes][2][image]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg",
+          "ad[ad_images_attributes][3][image]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg",
+          "ad[ad_images_attributes][4][image]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg",
+          "ad[ad_images_attributes][5][image]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg",
+          "ad[ad_images_attributes][6][image]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg"
+      },
       highlight: function(element) {
           $(element).closest('.control-group').removeClass('success').addClass('error');
       },
@@ -171,7 +188,6 @@ ready = function() {
       phone_number = phone_number.replace(/\s+/g, "");
       return (this.optional(element) || phone_number.length == 9) && $.isNumeric(phone_number) ;
   }, "Introduza um telefone válido!");
-
 
   jQuery.extend(jQuery.validator.messages, {
     required: "Obrigatório!",
