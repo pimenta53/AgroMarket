@@ -13,38 +13,36 @@
   </div>
   <div class="panel-body">
 <!-- Listagem de anúncios -->
+ <!-- Listagem de anúncios -->
     <div class="row">
-      <ul class="thumbnails">
-        <% @ads.each do |ad| %>
-
-          <% if ad.is_active? %> <!-- Verifica se o anúncio ainda está activo-->
-          <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
-            <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
-              <span class='price' ><%= ad.price %>€</span>
-              <div style="padding:4px" >
-                <%= link_to ad_image( ad.ad_images.first ), ad %>
-                <% if !ad.category.blank? %>
-                  <div class="caption">
-                    <% if ad.category.nil? %>
-                      <span class="label" style="background-color: #888888">Desconhecido
-                    <% else %>
-                      <span class="label" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>
+       
+      <% @ads.each do |ad| %>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <% if !ad.is_active?  %> <!-- Verifica se o anúncio ainda está activo-->
+                  <span class='price' ><%= ad.price %>€</span>
+                    <%= link_to ad_image( ad.ad_images.first ), ad %>
+                    <% if !ad.category.blank? %>
+                      <div class="caption">
+                          <% if ad.category.nil? %>
+                            <span class="label" style="background-color: #888888">Desconhecido
+                          <% else %>
+                            <span class="label" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>
+                          <% end %>
+                          </span>
                     <% end %>
-                      </span>
-                <% end %>
-                    <h2><%= link_to ad.title, ad %></h2>
-                    <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
-                  </div>
-              </div>
-            </div>
-          </li>
-
+                     
+                      <h4><%= link_to ad.title, ad %></h4>
+                      <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
+                    </div>
+          </div>
+        </div>
           <% end %>
         <% end %>
         <% if @ads.empty? %>
           Ainda não existem anuncios. Sê o primeiro a anunciar!
         <% end %>
-      </ul>
+        
     </div>
   </div>
 </div>

@@ -94,8 +94,9 @@ class Ad < ActiveRecord::Base
   	end
 
 
-
-  	# instance methods
+    ####################
+  	# instance methods #
+    ####################
   	def to_param
   		"#{id}-#{permanent_link}"
   	end
@@ -120,7 +121,10 @@ class Ad < ActiveRecord::Base
 
   #devolve anuncios relacionados por categoria
   def related_ads
-    related_ads = Ad.where(:category_id => self.category_id).limit(5)
+    
+    related_ads = Ad.where(:category_id => self.category_id)
+                    .where.not(id: self.id)
+                    .limit(5)
   end
 
 
