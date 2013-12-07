@@ -18,6 +18,14 @@ class AdsController < ApplicationController
     #actualiza o contador de vezes que o ad foi visto
     @ad.increment_page_view
 
+    #devolve produtos parecidos
+    @related_ads = @ad.related_ads
+
+    #devolve ultimos ads vistos
+    @last_viewed = @ad.last_viewed( session[:history] , @ad.id )
+
+    #poe este anuncio nos anuncios vistos
+    store_last_viewed(@ad.id)
 
     if user_signed_in?
       @message = Message.new
@@ -155,5 +163,13 @@ private
       @categories = Category.all
 
     end
+
+    #store last views ads in session
+    def store_last_viewed( ad_id )
+      session[:history] ||= []
+      session[:history].delete_at(0) if session[:history].size >= 5
+      session[:history] << ad_id  unless session[:history].include?( ad_id  )
+    end
+
 
 end

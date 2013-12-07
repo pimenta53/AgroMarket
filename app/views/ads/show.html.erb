@@ -217,6 +217,11 @@
                     </a>
                 </li>
                 <li>
+                    <a data-toggle="tab" href="#last_viewed" id="extraNavButton">
+                        Ultimos vistos
+                    </a>
+                </li>
+                <li>
                     <a data-toggle="tab" href="#reviews" id="extraNavButton">
                         Review do vendedor
                     </a>
@@ -224,14 +229,67 @@
 
             </ul>
         <!--/header-->
+
+
+
+
         <!-- conteudos -->
         <div class="panel-body">
             <div class="tab-content tasi-tab">
                 <!-- produtos relacionados -->
                 <div id="related" class="tab-pane active">
                     <h4 class="pro-d-head">Produtos na mesma Area</h4>
-                    <p> </p>
+                    <% @related_ads.each do |ad| %>
+                        <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
+                            <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
+                              <span class='price' ><%= ad.price %>€</span>
+                              <div style="padding:4px" >
+                                <%= link_to ad_image( ad.ad_images.first ), ad %>
+                                <% if !ad.category.blank? %>
+                                  <div class="caption">
+                                    <% if ad.category.nil? %>
+                                      <span class="label" style="background-color: #888888">Desconhecido
+                                    <% else %>
+                                      <span class="label" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>
+                                    <% end %>
+                                      </span>
+                                <% end %>
+                                    <h2><%= link_to ad.title, ad %></h2>
+                                    <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
+                                  </div>
+                              </div>
+                            </div>
+                          </li>
+                    <% end %>
                 </div>
+                
+                <!-- ultimos visitados -->
+                <div id="last_viewed" class="tab-pane active">
+                    <h4 class="pro-d-head">Ultimos vistos</h4>
+                    <% @last_viewed.each do |ad| %>
+                        <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
+                            <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
+                              <span class='price' ><%= ad.price %>€</span>
+                              <div style="padding:4px" >
+                                <%= link_to ad_image( ad.ad_images.first ), ad %>
+                                <% if !ad.category.blank? %>
+                                  <div class="caption">
+                                    <% if ad.category.nil? %>
+                                      <span class="label" style="background-color: #888888">Desconhecido
+                                    <% else %>
+                                      <span class="label" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>
+                                    <% end %>
+                                      </span>
+                                <% end %>
+                                    <h2><%= link_to ad.title, ad %></h2>
+                                    <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
+                                  </div>
+                              </div>
+                            </div>
+                          </li>
+                    <% end %>
+                </div>
+
                 <!-- reviews -->
                 <div id="reviews" class="tab-pane">
                     <article class="media">

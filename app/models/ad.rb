@@ -117,9 +117,33 @@ class Ad < ActiveRecord::Base
   		end
   	end
 
+
+  #devolve anuncios relacionados por categoria
+  def related_ads
+    related_ads = Ad.where(:category_id => self.category_id).limit(5)
+  end
+
+
+  #delvolve ultimos ads vistos por utilizador
+  def last_viewed( history , current_ad)
+    view_ads = []
+    if !history.nil?
+      history.each do |ad_id|
+        # verifica se anuncio que estamos a ver esta no historico
+        if current_ad != ad_id
+          ad = Ad.find_by_id(ad_id)
+          view_ads << ad unless ad == nil
+        end
+        
+      end
+    end
+
+    return view_ads
+  end
+
 	#######################
-    ### STATISTIC ZONE ####
-    #######################
+  ### STATISTIC ZONE ####
+  #######################
 
     def self.ads_per_city
     	result = Array.new
@@ -151,12 +175,12 @@ class Ad < ActiveRecord::Base
 		def create_permalink
 			self.permanent_link = "#{self.title.parameterize}"
 		end
+
     def calculate_expire_date
       self.expire_date = Time.now + 1.week
     end
 
-
-      #erro se a expire_date for no passado
+    #erro se a expire_date for no passado
 		def expire_date_cannot_be_in_the_past
 			errors.add(:expire_date, "can't be in the past") if
 			!expire_date.blank? and expire_date < Date.today

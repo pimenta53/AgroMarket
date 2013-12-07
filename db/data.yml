@@ -1,0 +1,15 @@
+
+---
+academy_answers:
+  columns:
+  - id
+  - question_id
+  - user_id
+  - up
+  - down
+  - is_deleted
+  - image_url
+  - text
+  - created_at
+  - updated_at
+  records: 
