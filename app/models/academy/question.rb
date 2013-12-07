@@ -22,5 +22,9 @@ class Academy::Question < ActiveRecord::Base
   validates :title, presence: true
   validates :text, presence: true
 ## end validations ##
+	
+  def to_param
+  		"#{id}-#{title.parameterize}"
+  end
 
 end
