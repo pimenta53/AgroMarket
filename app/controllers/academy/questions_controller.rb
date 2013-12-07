@@ -10,7 +10,7 @@ class Academy::QuestionsController < ApplicationController
   # GET /academy/questions/1
   # GET /academy/questions/1.json
   def show
-    @answers = Academy::Answer.where(:question_id => @academy_question.id)
+    #@answers = Academy::Answer.where(:question_id => @academy_question.id)
     @academy_answer = Academy::Answer.new
   end
 
@@ -57,7 +57,7 @@ class Academy::QuestionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_academy_question
-      @academy_question = Academy::Question.find(params[:id])
+      @academy_question = Academy::Question.includes(:answers).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

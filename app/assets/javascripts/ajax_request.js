@@ -47,9 +47,11 @@ ready = function() {
 
       }
 
-      //setInterval(refresh_header, 100000);
+      setInterval(refresh_header, 700000);
       
-
+      /*
+      *  Criar nova resposta para uma pergunta com AJAX
+      */
       $("#academy_answer").submit(function() {
         var valuesToSubmit = $(this).serialize();
        $.ajax({
@@ -66,7 +68,7 @@ ready = function() {
          },
          error: function(request,error) 
          {
-          alert ( "Não foi possivel inserir o seu comentario!!" + error);
+          alert ( "Não foi possivel inserir a tua resposta!!");
          }       
        });
        

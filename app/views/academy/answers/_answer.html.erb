@@ -27,11 +27,11 @@
       <%#  Verify if the user is logged or if is the answer's owner %>
       <% if !user_signed_in? || current_user.id == answer.user.id #if not logged or is the owner them cant vote %>
         <i class="icon-circle-arrow-up"></i>
-        <%= 1 %>
+        <%= answer.up - answer.down %> 
         <i class="icon-circle-arrow-down"></i>
       <% else %>
         <%= link_to '<i class="icon-circle-arrow-up"></i>'.html_safe, academy_up_vote_path(:answer => answer) %>
-        <%= 1 %>
+        <%= answer.up - answer.down %> 
         <%= link_to '<i class="icon-circle-arrow-down"></i>'.html_safe, academy_down_vote_path(:answer => answer) %>
       <% end %>
 <%###  end of answers votes  ###%>

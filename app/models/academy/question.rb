@@ -24,7 +24,7 @@ class Academy::Question < ActiveRecord::Base
 ## end validations ##
 	
   def to_param
-  		"#{id}-#{title.parameterize}"
+  	 "#{id}-#{title.parameterize}"
   end
 
 end
