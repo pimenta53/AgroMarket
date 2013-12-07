@@ -44,7 +44,9 @@
 </div>
 
 <%#  Display all the answers  %>
-<%= render "academy/answers/display_all" %>
+<div id="answers">
+  <%= render @answers %>
+</div>
 
 <% if user_signed_in? %>
   <%= render "academy/answers/form", :question => @academy_question %>

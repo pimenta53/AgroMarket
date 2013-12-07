@@ -25,16 +25,14 @@ class Academy::AnswersController < ApplicationController
   # POST /academy/answers.json
   def create
     @academy_answer = Academy::Answer.new(academy_answer_params)
-
-    respond_to do |format|
-      if @academy_answer.save
-        format.html { redirect_to @academy_answer.question, notice: 'Answer was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @academy_answer }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @academy_answer.errors, status: :unprocessable_entity }
-      end
+    
+    question_id = params[:academy_answer][:question_id]
+    
+    if @academy_answer.save
+      @answers = Academy::Answer.where(:question_id => question_id)
+      render :partial => 'create.js.erb'
     end
+
   end
 
   # PATCH/PUT /academy/answers/1

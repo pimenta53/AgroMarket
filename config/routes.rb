@@ -10,6 +10,9 @@ Agrosocial::Application.routes.draw do
     resources :questions
     resources :votes
     resources :answers
+
+    post "answers/new" => "answers#create"
+
     resources :workshops
     resources :workshop_registrations
     resources :tutorials

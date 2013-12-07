@@ -47,8 +47,31 @@ ready = function() {
 
       }
 
-      setInterval(refresh_header, 100000);
-        
+      //setInterval(refresh_header, 100000);
+      
+
+      $("#academy_answer").submit(function() {
+        var valuesToSubmit = $(this).serialize();
+       $.ajax({
+         url: $(this).attr('ajax_path'),  
+         data: valuesToSubmit,
+         async: true,
+         dataType: 'script',
+         type: "POST",
+         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+         success: function(data)
+         {
+           //$("#answers").html(result);
+           $("#text_comment").val("");
+         },
+         error: function(request,error) 
+         {
+          alert ( "Não foi possivel inserir o seu comentario!!" + error);
+         }       
+       });
+       
+       return false;
+      });
 
       
 
