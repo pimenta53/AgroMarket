@@ -5,7 +5,7 @@
 			<h2>Rater: <%= @rating.rater.name %> - Rated: <%= @rating.rated.name %></h2>
 		</div>
 	    <div class="row lead">
-	        You gave a rating of <span id="count">0</span> carrot(s)
+	        Tu deste um rating de <span id="count">0</span> cenoura(s)
 	        <div id="stars" class="starrr" onclick="javascript:send_rating()"></div>
 		</div>
 	</div>
@@ -19,8 +19,8 @@
 	<br><br><br><br><br>
 	<div id="comment_rating" class="field" hidden="true">
 	  <%= f.label :commet %><br>
-	  <%= f.text_area :comment,:id => "text_comment_rating",:rows=>5,:class=> "form-control counted" ,:placeholder => "Type in your message"%>
-	  <h6 class="pull-right" id="counter">144 characters remaining</h6>
+	  <%= f.text_area :comment,:id => "text_comment_rating",:rows=>5,:class=> "form-control counted" ,:placeholder => "Escreve a tua mensagem"%>
+	  <h6 class="pull-right" id="counter">144 characteres livres</h6>
 
 		</div>
 

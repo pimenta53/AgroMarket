@@ -85,7 +85,7 @@
                   <a href="#">
                     <span class="name">Enviado: <%= m.sender.name %></span><br />
                     <span class="message"><%= truncate(m.text,:length => 20) %></span><br />
-                    <span class="time" align="rigth"><i class="icon-time"></i><small><%= m.created_at %></small></span>
+                    <span class="time" align="right"><i class="icon-time"></i><small><%= m.created_at %></small></span>
                   </a>
                 </li>
                 <li class="divider"></li>
@@ -177,4 +177,11 @@
 
   </div><!-- /.navbar-collapse -->
 </nav>
+
+<% if flash[:notice] %>
+  <script> showNotify("<%= flash[:notice] %>","success") </script>
+<% end %>
+<% if flash[:alert] %>
+  <script> showNotify("<%= flash[:alert] %>","info") </script>
+<% end %>
 
