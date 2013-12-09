@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>A fechar a janela</title>
+</head>
+<body>
+    Pode fechar a janela.
+    Aqui por engano? Clique <a href="/" >aqui</a>! 
+    <script language="Javascript">
+        if (window.opener!= null){
+            window.opener.location.href = window.opener.location.href;
+            if (window.opener.progressWindow){
+                window.opener.progressWindow.close()
+            }
+            window.close();
+        }
+        window.location.href = "/";
+    </script>
+
+</body>
+</html>

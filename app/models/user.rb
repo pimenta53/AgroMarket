@@ -225,6 +225,11 @@ class User < ActiveRecord::Base
     end
   end
   
+  def has_provider(provider)
+    collection = User.first.authentications.where("provider = ?",provider)
+    collection.length > 0
+  end
+  
   def self.match_omniauth(omniauth)
     email = nil
     user = nil
