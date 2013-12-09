@@ -25,9 +25,9 @@ class Academy::AnswersController < ApplicationController
   # POST /academy/answers.json
   def create
     @academy_answer = Academy::Answer.new(academy_answer_params)
-    
+
     question_id = params[:academy_answer][:question_id]
-    
+
     if @academy_answer.save
       @answers = Academy::Answer.where(:question_id => question_id)
       render :partial => 'create.js.erb'
