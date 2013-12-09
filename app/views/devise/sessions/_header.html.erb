@@ -178,3 +178,10 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 
+<% if flash[:notice] %>
+  <script> showNotify("<%= flash[:notice] %>","success") </script>
+<% end %>
+<% if flash[:alert] %>
+  <script> showNotify("<%= flash[:alert] %>","info") </script>
+<% end %>
+

@@ -182,19 +182,3 @@ ready = function() {
 // por causa do turboLink
 $(document).ready(ready);
 $(document).on('page:load', ready);
-  
-
-function showNotify(text_noti,type_noti) {
-  $(function() {
-    $.pnotify({
-        text: text_noti,
-        history: false,
-        type: type_noti,
-        delay: 1000,
-        icon: true,
-        closer: true,
-        closer_hover: true,
-        styling: 'bootstrap'
-    });
-  });
-}
