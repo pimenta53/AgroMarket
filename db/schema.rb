@@ -127,17 +127,6 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.boolean  "is_active",      default: false
   end
 
-  create_table "answers", force: true do |t|
-    t.integer  "question_id"
-    t.integer  "user_id"
-    t.integer  "up"
-    t.integer  "down"
-    t.integer  "is_deleted"
-    t.string   "image_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -218,25 +207,6 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "updated_at"
   end
 
-  create_table "tutorial_images", force: true do |t|
-    t.integer  "tutorial_id"
-    t.string   "url"
-    t.integer  "is_deleted"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tutorials", force: true do |t|
-    t.integer  "category_id"
-    t.integer  "user_id"
-    t.integer  "aproved"
-    t.string   "title"
-    t.string   "text"
-    t.integer  "is_delected"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "types", force: true do |t|
     t.string   "name"
     t.integer  "flag"
@@ -254,50 +224,10 @@ ActiveRecord::Schema.define(version: 20131209093600) do
   add_index "user_follows", ["following_id"], name: "index_user_follows_on_following_id", using: :btree
   add_index "user_follows", ["user_id"], name: "index_user_follows_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.datetime "birthday"
-    t.string   "phone"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.integer  "city_id"
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
   create_table "votes", force: true do |t|
     t.integer  "vote"
     t.integer  "user_id"
     t.integer  "answer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "workshops", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "available_slots"
-    t.integer  "slots_taken"
-    t.float    "price"
-    t.string   "local"
-    t.datetime "date"
-    t.string   "description"
-    t.integer  "is_delected"
-    t.integer  "requires_registration"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
