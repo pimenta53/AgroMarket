@@ -173,16 +173,6 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "updated_at"
   end
 
-  create_table "questions", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "category_id"
-    t.string   "title"
-    t.string   "text"
-    t.integer  "is_deleted"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "ratings", force: true do |t|
     t.integer  "rate"
     t.integer  "rated_id"
@@ -223,13 +213,5 @@ ActiveRecord::Schema.define(version: 20131209093600) do
 
   add_index "user_follows", ["following_id"], name: "index_user_follows_on_following_id", using: :btree
   add_index "user_follows", ["user_id"], name: "index_user_follows_on_user_id", using: :btree
-
-  create_table "votes", force: true do |t|
-    t.integer  "vote"
-    t.integer  "user_id"
-    t.integer  "answer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end
