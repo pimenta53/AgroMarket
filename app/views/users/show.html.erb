@@ -2,7 +2,7 @@
  <aside class="profile-info col-lg-9">
           <section class="panel">
             <form>
-                              <textarea placeholder="Whats in your mind today?" rows="2" class="form-control input-lg p-text-area"></textarea>
+                              <textarea placeholder="Em que estás a pensar?" rows="2" class="form-control input-lg p-text-area"></textarea>
             </form>
 
             <footer class="panel-footer">
@@ -28,19 +28,19 @@
                                       <h1>Bio Graph</h1>
                                       <div class="row">
                                           <div class="bio-row">
-                                              <p><span>NickName </span>: <%= @user.name %></p>
+                                              <p><span>Alias </span>: <%= @user.name %></p>
                                           </div>
                                           <div class="bio-row">
                                               <p><span>Cidade </span>:<% if @user.city %> <%= @user.city.city %><% end %></p>
                                           </div>
                                           <div class="bio-row">
-                                              <p><span>Aniversario</span>:<% if @user.birthday %> <%= @user.birthday %><% end %></p>
+                                              <p><span>Data de Nascimento</span>:<% if @user.birthday %> <%= @user.birthday %><% end %></p>
                                           </div>
                                           <div class="bio-row">
-                                              <p><span>Occupation </span>: UI Designer</p>
+                                              <p><span>Ocupação </span>: UI Designer</p>
                                           </div>
                                           <div class="bio-row">
-                                              <p><span>Email </span>: <%= @user.email %></p>
+                                              <p><span>E-mail </span>: <%= @user.email %></p>
                                           </div>
                                           <div class="bio-row">
                                               <p><span>Membro desde </span>: <%= @user.created_at %></p>

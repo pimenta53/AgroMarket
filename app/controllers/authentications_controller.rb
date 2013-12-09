@@ -14,7 +14,7 @@ class AuthenticationsController < ApplicationController
     elsif current_user
       current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
       flash[:notice] = "Authentication successful."
-      redirect_to redirect_url
+      redirect_to refresh_url
     else
       user = User.match_omniauth(omniauth)
       if (user != nil)
