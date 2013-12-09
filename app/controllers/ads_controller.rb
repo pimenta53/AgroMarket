@@ -45,7 +45,6 @@ class AdsController < ApplicationController
   	 (5 - @ad.ad_images.count).times{
     	@ad.ad_images.build
     }
-
   end
 
   # POST /ads
@@ -158,7 +157,7 @@ private
 
     # Load cities from database
     def load_stuff
-      @cities = City.all
+      @cities = City.order('city').all
       @price_types = PriceType.all
       @categories = Category.all
 
