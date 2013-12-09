@@ -67,6 +67,8 @@ class Ad < ActiveRecord::Base
   	end
 
   	def self.search(params)
+
+      active_ads = where(is_active: true) #busca só os anúncios activos
   		if params
   			result = self.separateQuery(params) #separa as categorias e as cidades
   			categories = result[0]
@@ -74,22 +76,22 @@ class Ad < ActiveRecord::Base
 
 
   			if categories.length>0 && cities.length>0 #caso se filtre por categoria e cidade (interseccao)
-  				filtered_categories = where(category_id: categories)
+  				filtered_categories = active_ads.where(category_id: categories)
   				filtered_categories.where(city_id: cities)
 
   			else
   				if categories.length>0 #caso so se filtre por categorias
-  					where(category_id: categories)
+  					active_ads.where(category_id: categories)
   				else
   					if cities.length>0 #caso so se filtre por cidade
-  						where(city_id: cities)
+  						active_ads.where(city_id: cities)
   					else
-  						all
+  						active_ads
   					end
   				end
   			end
   		else
-  			all
+  			active_ads  #não foi feita nenhuma pesquisa -> retorna todosos anúncios activos
   		end
   	end
 
@@ -121,7 +123,7 @@ class Ad < ActiveRecord::Base
 
   #devolve anuncios relacionados por categoria
   def related_ads
-    
+
     related_ads = Ad.where(:category_id => self.category_id)
                     .where.not(id: self.id)
                     .limit(5)
@@ -138,7 +140,7 @@ class Ad < ActiveRecord::Base
           ad = Ad.find_by_id(ad_id)
           view_ads << ad unless ad == nil
         end
-        
+
       end
     end
 
