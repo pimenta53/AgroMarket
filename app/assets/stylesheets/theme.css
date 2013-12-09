@@ -55,6 +55,7 @@
 
 #navbarAgro{
   background-color: #00A75D;
+  border: 0px solid transparent;
 }
 
 #brandAgro{
@@ -86,7 +87,7 @@ a:hover #dropCarret{
   margin-left: 0%;
 }
 
-.fa-user, .fa-envelope-o, .fa-globe, .fa-book, .fa-bell-o, .fa-tags, .fa-folder-open-o, .fa-search, #userNick{
+#fa-user, #fa-envelope-o, #fa-globe, #fa-book, #fa-bell-o, #fa-tags, #fa-folder-open-o, #fa-search, #userNick{
   color: #fff;
   font-size: 22px;
 }
@@ -475,6 +476,12 @@ hr {
   border-style: solid none;
   border-width: 1px 0;
   margin: 18px 0;
+}
+
+/* Ads */
+#breadcrumbAds{
+  background-color: white;
+
 }
 
 
