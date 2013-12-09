@@ -1,10 +1,10 @@
 class Academy::QuestionsController < ApplicationController
   before_action :set_academy_question, only: [:show, :edit, :update]
-
+  before_action :get_categories
   # GET /academy/questions
   # GET /academy/questions.json
   def index
-    @academy_questions = Academy::Question.all
+    @academy_questions = Academy::Question.all.where(:is_deleted => false)
   end
 
   # GET /academy/questions/1
@@ -17,7 +17,6 @@ class Academy::QuestionsController < ApplicationController
   # GET /academy/questions/new
   def new
     @academy_question = Academy::Question.new
-    @categories = Category.all
   end
 
   # GET /academy/questions/1/edit
@@ -54,6 +53,17 @@ class Academy::QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    a = Academy::Question.find(params[:id].split('-')[0])
+    a.update(:is_deleted => true)
+    a.save
+    redirect_to academy_questions_path
+  end
+
+  def get_categories
+    @categories = Category.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_academy_question
@@ -64,4 +74,5 @@ class Academy::QuestionsController < ApplicationController
     def academy_question_params
       params.require(:academy_question).permit(:user_id, :category_id, :title, :text, :image_url)
     end
+
 end
