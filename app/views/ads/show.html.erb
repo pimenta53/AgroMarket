@@ -34,183 +34,153 @@
 
   <% num_img=@ad.ad_images.count %>
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= @ad.title %></h3>
-    </div>
+<section class="panel">
+    
     <div class="panel-body">
-      <table class="adData" width='100%'>
-        <!-- AD HEADER -->
-        <tr>
           <% if num_img > 0 %>
-          <th colspan='2' cellpadding="7">
-          <% else %>
-          <th cellpadding="7">
-          <% end %>
-          </th>
-        </tr>
-        <!-- AD DATA -->
-        <tr valign="top">
-          <!-- IMAGENS -->
-          <% if num_img > 0 %>
-            <td>
-              <table class="adImages" align="center" cellpadding="3">
-              <tr>
-              <td colspan=2 align="center">
-              <div id="imageCarousel" class="carousel slide">
-                <ol class="carousel-indicators">
-                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                  <% i=1 %>
+      <div class="col-md-6">
+
+        <!-- Image ADS -->
+            <div class="ads_img_section">
+
+                <div id="imageCarousel" class="carousel-inner">
+                  <% i=0 %>
                   <% while (i < num_img) do %>
-                     <li data-target="#myCarousel" data-slide-to="<%= i %>"></li>
-                     <% i+=1 %>
-                   <% end %>
-                </ol>
-                <!-- Carousel items -->
-                <div class="carousel-inner">
-                   <% i=0 %>
-                  <% while (i < num_img) do %>
-                    <div class="<% if i>0 %>item<% else %>active item<% end %>" style="height: 200px; width: 200px;" valign="middle">
-                      <table width="100%" height="100%" valign="middle"><tr><td>
-                       <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery_carousel]">
-                          <%= image_tag @ad.ad_images[i].image(:small), :width => "100%" %>
-                       </a>
-                      </td></tr></table>
+                    <div class="<% if i>0 %>item<% else %>active item<% end %> ads_img">
+                      <table>
+                        <tr><td>
+                           <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery_carousel]">
+                              <%= image_tag @ad.ad_images[i].image(:large), :width => "100%" %>
+                           </a>
+                        </td></tr>
+                      </table>
                     </div>
                      <% i+=1 %>
                    <% end %>
+
+                   <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <% i=1 %>
+                        <% while (i < num_img) do %>
+                           <li data-target="#myCarousel" data-slide-to="<%= i %>"></li>
+                           <% i+=1 %>
+                         <% end %>
+                   </ol>
+                    <a class="carousel-control left" href="#imageCarousel" data-slide="prev" style="top: 50%">&lsaquo;</a>
+                    <a class="carousel-control right" href="#imageCarousel" data-slide="next" style="top: 50%">&rsaquo;</a>
                 </div>
-                <!-- Carousel nav -->
-                <a class="carousel-control left" href="#imageCarousel" data-slide="prev" style="top: 50%">&lsaquo;</a>
-                <a class="carousel-control right" href="#imageCarousel" data-slide="next" style="top: 50%">&rsaquo;</a>
-              </div>
-              </td>
-              </tr>
-             <% i=0 %>
-             <% while (i < (num_img-1)) do %>
-               <% if !i.odd? %>
-                 <tr>
-                   <td align="center">
-                     <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                       <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                     </a>
-                   </td>
-               <% else %>
-                   <td align="center">
-                     <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                       <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                     </a>
-                   </td>
-                 </tr>
-               <% end %>
-               <% i+=1 %>
-             <% end %>
-             <!-- Para centrar a ultima imagem caso o numero de imagens for impar -->
-             <% if !i.odd? %>
-               <tr>
-                 <td colspan="2" align="center">
-                   <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                     <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                   </a>
-                 </td>
-               </tr>
-             <% else %>
-                 <td align="center">
-                   <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                     <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                   </a>
-                 </td>
-               </tr>
-             <% end %>
-             </table>
-            </td>
-          <% end %>
-          <!-- ATRIBUTOS -->
-          <td width="100%">
-            <table class="adsAtributes" cellpadding="7" width='100%'>
-              <tr>
-                <td align="left">
-                  <strong>Categoria:</strong>
-                   <% if @ad.category.blank? %>
-                     <span class="label" style="background-color: #888888">Sem categoria</span>
+
+            </div>
+            <div class="ads_otherimg_section">
+
+                <% i=0 %>
+                 <% while (i < (num_img-1)) do %>
+                   <% if !i.odd? %>
+                     <tr>
+                       <td align="center">
+                         <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                           <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                         </a>
+                       </td>
+                    </tr>
                    <% else %>
-                     <span class="label" style="background-color: #<%= @ad.category.color %>">
-                       <%= @ad.category.name %>
-                     </span>
+                      <tr>
+                         <td align="center">
+                           <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                             <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                           </a>
+                         </td>
+                       </tr>
+                   <% end %>
+                   <% i+=1 %>
+                 <% end %>
+                 <!-- Para centrar a ultima imagem caso o numero de imagens for impar -->
+                 <% if !i.odd? %>
+                   <tr>
+                     <td colspan="2" align="center">
+                       <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                         <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                       </a>
+                     </td>
+                   </tr>
+                 <% else %>
+                    <tr>
+                     <td align="center">
+                       <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                         <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                       </a>
+                     </td>
+                   </tr>
+                 <% end %>
+                
+          </div>
+
+    </div>
+   <!-- Information ADS -->
+          <div class="col-md-6">
+               <h4 class = "ads_title">
+                <%= @ad.title %>
+               </h4>
+               <br/>
+               <div class = "ads_metainfo">
+                    <p>
+                        <strong>Categoria:</strong>
+                        <% if @ad.category.blank? %>
+                           <span class="label" style="background-color: #888888">Sem categoria</span>
+                         <% else %>
+                           <span class="label" style="background-color: #<%= @ad.category.color %>">
+                             <%= @ad.category.name %>
+                           </span>
                   <% end %>
-                </td>
-                <td align="right">
-                  <strong>Preço:</strong>
-                  <%= "#{@ad.price} #{@ad.price_type.name}" %>
-                </td>
-              </tr>
-              <tr>
-                <td align="left">
-                  <strong>Vendedor:</strong>
-                  <%= @ad.user.name %>
-                </td>
-                <td align="right">
-                  Rating
-                </td>
-              </tr>
-              <tr>
-                <td colspan='2' align="left">
-                  <%= @ad.description %>
+                    </p>
+                    <p>
+                        <strong>Descricão:</strong>
+                         <%= @ad.description %>
+                    </p>
 
-                </td>
-              </tr>
-              <tr>
-                <td align="left">
-                  <strong>Final do Anúncio:</strong>
-                  <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
-                </td>
-                <td align="right">
-                  <div class="fb-share-button" data-href="http://teste94.di.uminho.pt/" data-type="button"></div>
+               </div>
+               <div class ="ads_description">
+                    <p>
+                        <strong>Vendedor:</strong>
+                        <%= @ad.user.name %>
+                    </p>
+                    <p>
+                     <strong>Preço:</strong>
+                     <%= "#{@ad.price} #{@ad.price_type.name}" %>
+                   </p>
+                   <p>
+                     <strong>Final do Anúncio:</strong>
+                    <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
+                  </p>
+                   <p>
+                     <strong>Cidade:</strong>
+                     <%= @ad.city.city %>
+                  </p>
+                  <p>
+                    <strong>Localização:</strong>
+                    <%= @ad.location %>
+                  </p>
+                  <p>
+                      
+                        <div class="fb-share-button sharebutton" data-href="http://teste94.di.uminho.pt/" data-type="button">
+                        </div>
                   <!-- div class="fb-share-button" data-href="<%= ad_path(@ad) %>" data-type="button"></div -->
-
-                  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
-                </td>
-              </tr>
-              <tr>
-                <td align="left">
-                  <strong>Cidade:</strong>
-                  <%= @ad.city.city %>
-                </td>
-                <td align="right">
-                  <strong>Localização:</strong>
-                  <%= @ad.location %>
-                </td>
-              </tr>
-
-              <tr>
-              <% if user_signed_in? && current_user.id == @ad.user_id %>
-            <td ><i class="fa fa-exclamation-triangle"></i><%= link_to 'Eliminar Anúncio', @ad, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?s' } %></td>
-              <% end %>
-            </tr>
+                  
+                         <div class="sharebutton">
+                         <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+                         </div>
+                  </p>
+               </div>
 
 
-              <%#  if there is no logged user dont show the message form  %>
-              <% if user_signed_in? %>
-              <tr>
-                <!-- Messages -->
-                <td colspan='2' align="left">
-                  <legend> Messages </legend>
-                  <div id="messages">
-                  <%= render "messages" %>
-                  </div>
-                </td>
-              </tr>
-              <% end %>
-            </table>
-          </td>
-        </tr>
-      </table>
+          </div>
+       <% end %>
+  </div>
 
-    <!-- painel dos extras do ad -->
-    <section class="panel">
-        <!-- headers -->
-        <!--header class="panel-heading navy"-->
-            <ul class="nav nav-tabs">
+</section>
+<section class="panel">
+       <header class="header header_tab">
+        <ul class="nav nav-tabs">
                 <li class="active">
                     <a data-toggle="tab" href="#related" id="extraNavButton">
                         Produtos na mesma Area
@@ -228,14 +198,10 @@
                 </li>
 
             </ul>
-        <!--/header-->
+       </header>
+       <div class="panel-body">
 
-
-
-
-        <!-- conteudos -->
-        <div class="panel-body">
-            <div class="tab-content tasi-tab">
+         <div class="tab-content tasi-tab">
                 <!-- produtos relacionados -->
                 <div id="related" class="tab-pane active">
                    
@@ -324,14 +290,41 @@
                     </article>
                 </div>
             </div>
+
+       </div>
+
+</section>
+
+<section class="panel">
+
+     <header class="header">
+        <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#related" id="extraNavButton">
+                        Mensagens
+                    </a>
+                </li>
+
+            </ul>
+       </header>
+       <div class="panel-body">
+         <% if user_signed_in? %>
+         <div id="messages">
+                  <%= render "messages" %>
         </div>
-    </section>
+        <% end %>
+        
+       </div>
+
+</section>
 
 
-    </div>
-</div>
 
 
+  <% if user_signed_in? && current_user.id == @ad.user_id %>
+            <td ><i class="fa fa-exclamation-triangle"></i><%= link_to 'Eliminar Anúncio', @ad, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?s' } %></td>
+              <% end %>
+            </tr>
 <%#  Only the ad's owner can edit it  %>
 <% if user_signed_in? && current_user.id == @ad.user_id %>
 <%= link_to 'Edit', edit_ad_path(@ad) %> |
