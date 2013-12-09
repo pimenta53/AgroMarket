@@ -3,7 +3,7 @@
 
     <% if @message.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@message.errors.count, "error") %> prohibited this ad from being saved:</h2>
+        <h2><%= pluralize(@message.errors.count, "error") %> proibiu este anuncio de ser salvado:</h2>
 
         <ul>
         <% @message.errors.full_messages.each do |msg| %>
@@ -13,8 +13,8 @@
    
     <div class="field">
       <%= m.label :text %><br>
-      <%= m.text_area :text,:id => "text_comment",:rows=>5,:class=> "form-control counted" ,:placeholder => "Type in your message"%>
-      <h6 class="pull-right" id="counter">144 characters remaining</h6>
+      <%= m.text_area :text,:id => "text_comment",:rows=>5,:class=> "form-control counted" ,:placeholder => "Escreve a tua mensagem"%>
+      <h6 class="pull-right" id="counter">144 characteres livres</h6>
     </div>
     <div class="field" >
       <%= m.label :user_sender %><br>
@@ -30,6 +30,6 @@
     </div>
 
 
-    <button class="btn btn-info" type="submit">Post New Message</button>
+    <button class="btn btn-info" type="submit">Envie a nova mensagem</button>
 
   <% end %>
