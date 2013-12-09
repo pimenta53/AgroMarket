@@ -140,11 +140,18 @@
 <% end %>
 
 
+<!--Painel de Filtros-->
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <ul style="margin-left: -30px; line-height: 28px;">
     <!--Filtros-->
     <% if user_signed_in? && controller_name=="ads"%>
     <div class="panel panel-default">
-  <div class="panel-body">
+      <div class="panel-body">
         <legend>Filtros</legend>
+
+        
         <li>
           <a href="#collapseCategory" data-toggle="collapse" data-parent="#accordion">Categoria<b class="caret"></b></a>
         </li>
@@ -152,36 +159,43 @@
         <!--Formulário-->
         <%= form_tag ads_path ,:method => :get do%>
 
-            <div id="collapseCategory" class="panel-collapse collapse">
-              <ul>
+          <div id="collapseCategory" class="panel-collapse collapse">
+            <ul>
 
-                <% @categories.each do |cat| %>
-                    <li>
-                      <%= check_box_tag "search[]","cat:#{cat.id}" %>
-                      <%= cat.name %>
-                    </li>
-                <% end %>
-              </ul>
-            </div>
+              <% @categories.each do |cat| %>
+                  <li>
+                    <%= check_box_tag "search[]","cat:#{cat.id}" %>
+                    <%= cat.name %>
+                  </li>
+              <% end %>
+            </ul>
+          </div>
 
-            <li>
-              <a href="#collapseCity" data-toggle="collapse" data-parent="#accordion">Cidade<b class="caret"></b></a>
-            </li>
+          <li>
+            <a href="#collapseCity" data-toggle="collapse" data-parent="#accordion">Cidade<b class="caret"></b></a>
+          </li>
 
-            <div id="collapseCity" class="panel-collapse collapse">
-              <ul>
-                <% @cities.each do |city| %>
-                    <li>
-                      <%= check_box_tag "search[]","city:#{city.id}"%>
-                      <%= city.city %>
-                    </li>
-                <% end %>
-              </ul>
-            </div>
+          <div id="collapseCity" class="panel-collapse collapse">
+            <ul>
+              <% @cities.each do |city| %>
+                  <li>
+                    <%= check_box_tag "search[]","city:#{city.id}"%>
+                    <%= city.city %>
+                  </li>
+              <% end %>
+            </ul>
+          </div>
+          <br>
+          <li style="text-align: center; ">
             <%= submit_tag "Filtrar" %>
+          </li>
         <% end %>
         <!-- END FORMULARIO-->
-          </div>
-</div>
+        
     <% end %>
+    </ul>
     <!-- END FILTERS -->
+  </div>
+
+</div>
+
