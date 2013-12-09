@@ -27,7 +27,21 @@ function scrollToPosition(id) {
     $obj.css('background-position', bgpos );
  
   }); 
+  
+  //função que cria popups
+  function popupCenter(url, width, height, name) {
+    var left = (screen.width/2)-(width/2);
+    var top = (screen.height/2)-(height/2);
+    newwindow = window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top+",scrollbars=yes");
+    if (window.focus) {newwindow.focus()};
+    return newwindow;
+  }
 
+  //todos .popup criam um popup usando popupCenter
+  $(".popup").click(function(e) {
+    popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
+    e.stopPropagation(); return false;
+  });
 
    //Create an Array of posts
    var posts = $('.teste');

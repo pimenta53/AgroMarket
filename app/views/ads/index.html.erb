@@ -10,7 +10,11 @@
 
 <!-- Listagem de anúncios -->
  <!-- Listagem de anúncios -->
+ <ol class="breadcrumb" id="breadcrumbAds">
+              <li class="active"><a href="<%= ads_path %>"><i class="fa fa-tags"></i> Anúncios</a></li>
+      </ol>
     <div class="row">
+
       <% @ads.each do |ad| %>
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
