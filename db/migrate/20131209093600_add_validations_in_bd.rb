@@ -22,8 +22,8 @@ class AddValidationsInBd < ActiveRecord::Migration
     change_column :academy_tutorials, :category_id, :integer, :null => false
     change_column :academy_tutorials, :user_id,     :integer, :null => false
     change_column :academy_tutorials, :aproved,     :boolean, :default => false
+    rename_column :academy_tutorials, :is_delected, :is_deleted
     change_column :academy_tutorials, :is_deleted, :boolean, :default => false
-    #rename_column :academy_tutorials, :is_delected, :is_deleted
 
     # academy_votes
     change_column :academy_votes, :user_id,   :integer, :null => false
