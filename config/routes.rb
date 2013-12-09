@@ -33,7 +33,7 @@ Agrosocial::Application.routes.draw do
   end
 
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}
-
+  
 
   resources :users, :login, :authentications
 

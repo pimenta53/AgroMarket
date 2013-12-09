@@ -24,11 +24,14 @@ class Talk < ActiveRecord::Base
   has_many :messages, :dependent => :destroy
 
   #para dar as ultimas mensagens
-  has_many :latest_messages, -> { order('created_at desc').limit(5) },
+  has_many :latest_messages, -> { order('created_at ASC').limit(5) },
                              class_name: "Message"
 
   #validates
   validate :sender_receiver_must_be_diferent
+
+  #scope
+  default_scope -> { order('created_at DESC') }
 
   def to_param  # overridden
     "#{id}-istotasuperseguro"

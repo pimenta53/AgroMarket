@@ -36,13 +36,14 @@ class MessagesController < ApplicationController
         return
       end
     end
-    
+
     #create the new message in talk
     @message = talk.messages.new(ad_params)
+    @message.user_sender = current_user.id
 
 
     path = params[:message][:path]
-
+    
     respond_to do |format|
       if @message.save
         format.html { redirect_to path }

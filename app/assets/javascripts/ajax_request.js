@@ -30,6 +30,12 @@ ready = function() {
        
        return false;
      });
+     
+    $("#cenas").click(function() {
+            alert ( "Não foi possivel inserir o seu comentario!!" + error);
+         return false;
+       });
+
 
 
       function refresh_header(){
