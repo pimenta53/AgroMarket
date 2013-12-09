@@ -33,7 +33,7 @@ body {
 .ads_img table{
 
 	width:100%;
-	 height:100% 
+	 height:100%;
 
 }
 
@@ -69,5 +69,17 @@ font-weight: 300;
 
 .sharebutton{
 	float: right;
+}
+
+.no_image{
+	width: 100%;
+	height: 100%;
+}
+
+.ads_no_img{
+     width:100%;
+	 height:100%;
+	 padding: 0px;
+
 }
 
