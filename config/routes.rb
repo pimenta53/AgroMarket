@@ -3,6 +3,7 @@ Agrosocial::Application.routes.draw do
   match '/auth/failure' => 'authentications#failure', via: :all
   match '/auth/:provider/callback' => 'authentications#create', via: :all
   get '/redirect', :to => redirect('/redirect.html')
+  post '/redirect', :to => redirect('/redirect.html')
 
   get "academy" => "academy#index"
   ### ACADEMY ZONE ###

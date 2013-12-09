@@ -224,6 +224,23 @@ class User < ActiveRecord::Base
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
   end
+  
+  def self.match_omniauth(omniauth)
+    email = nil
+    user = nil
+    if omniauth['provider'] == 'facebook'
+      email = omniauth['info']['email']
+    elsif omniauth['provider'] == 'twitter'
+      email = nil
+    else
+      email = omniauth['info']['email']
+    end
+    
+    if email != nil
+      user = User.where("email = ?",email).first
+    end
+    user
+  end
 
   def password_required?
     (authentications.empty? || !password.blank?) && super
