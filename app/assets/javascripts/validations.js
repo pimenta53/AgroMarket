@@ -208,7 +208,7 @@ ready = function() {
   //VAlidar um nº de telefone com 9 digitos
   jQuery.validator.addMethod("telefone", function(phone_number, element) {
       phone_number = phone_number.replace(/\s+/g, "");
-      return (this.optional(element) || phone_number.length == 9) && $.isNumeric(phone_number) ;
+      return ((this.optional(element) || phone_number.length == 9 ) && $.isNumeric(phone_number) || phone_number.length == 0) ;
   }, "Introduza um telefone válido!");
 
   jQuery.extend(jQuery.validator.messages, {

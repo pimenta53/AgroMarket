@@ -1,0 +1,21 @@
+Redirecting...
+
+<html>
+<head>
+    <title>Redirecting...</title>
+</head>
+<body>
+
+    <script language="Javascript">
+        if (window.opener!= null){
+            window.opener.location.href = window.opener.location.href;
+            if (window.opener.progressWindow){
+                window.opener.progressWindow.close()
+            }
+            window.close();
+        }
+        window.location.href = "/";
+    </script>
+
+</body>
+</html>

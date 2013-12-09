@@ -22,7 +22,7 @@
 
       <!-- SEARCH -->
       <li class="dropdown messages-dropdown" >
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i><b class="caret" id="dropCarret"></b> </a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search" id="fa-search"></i><b class="caret" id="dropCarret"></b> </a>
         <ul class="dropdown-menu">
           <li class="container" id="searchBox" role="search">
             <form class="input-group" id="input-groupBox">
@@ -41,7 +41,7 @@
       <!-- NOTIFICACOES -->
       <% if user_signed_in? %>
         <li class="dropdown messages-dropdown" >
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i><span class="badge" id="custom-badge">3</span> <b class="caret" id="dropCarret"></b> </a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe" id="fa-globe"></i><span class="badge" id="custom-badge">3</span> <b class="caret" id="dropCarret"></b> </a>
           <ul class="dropdown-menu">
 
             <li class="dropdown-header">3 New </li>
@@ -82,9 +82,9 @@
         <% expired_ads=current_user.expired_ads %>
         <li class="dropdown messages-dropdown">
           <% if expired_ads.count >0 %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret" id="dropCarret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags" id="fa-tags"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret" id="dropCarret"></b></a>
           <% else %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags"></i><b class="caret" id="dropCarret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags" id="fa-tags"></i><b class="caret" id="dropCarret"></b></a>
           <% end %>
           <ul class="dropdown-menu">
 
@@ -122,9 +122,9 @@
         <li class="dropdown messages-dropdown">
 
           <% if expired_ads.count > 0 %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret" id="dropCarret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book" id="fa-book"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret" id="dropCarret"></b></a>
           <% else %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i><b class="caret" id="dropCarret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"  id="fa-book"></i><b class="caret" id="dropCarret"></b></a>
           <% end %>
           <ul class="dropdown-menu">
 

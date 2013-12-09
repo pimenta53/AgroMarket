@@ -1,4 +1,3 @@
-<div class="panel panel-default">
 
 <% if flash[:notice] %>
   <script> showNotify("<%= flash[:notice] %>","success") </script>
@@ -8,16 +7,16 @@
 <% end %>
 
 
-  <div class="panel-heading">
-    <h3 class="panel-title">Anúncios</h3>
-  </div>
-  <div class="panel-body">
+
 <!-- Listagem de anúncios -->
  <!-- Listagem de anúncios -->
+ <ol class="breadcrumb" id="breadcrumbAds">
+              <li class="active"><a href="<%= ads_path %>"><i class="fa fa-tags"></i> Anúncios</a></li>
+      </ol>
     <div class="row">
-       
+      
+
       <% @ads.each do |ad| %>
-            <% if ad.is_active?  %> <!-- Verifica se o anúncio ainda está activo-->
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
                   <span class='price' ><%= ad.price %>€</span>
@@ -31,18 +30,15 @@
                           <% end %>
                           </span>
                     <% end %>
-                     
+
                       <h4><%= link_to ad.title, ad %></h4>
                       <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
                     </div>
               </div>
            </div>
-          <% end %>
-         
+
         <% end %>
         <% if @ads.empty? %>
           Ainda não existem anuncios. Sê o primeiro a anunciar!
         <% end %>
     </div>
-  </div>
-</div>

@@ -2,7 +2,10 @@ Agrosocial::Application.routes.draw do
   #facebook callback
   match '/auth/failure' => 'authentications#failure', via: :all
   match '/auth/:provider/callback' => 'authentications#create', via: :all
-
+  get '/redirect', :to => redirect('/redirect.html')
+  post '/redirect', :to => redirect('/redirect.html')
+  get '/refresh', :to => redirect('/refresh.html')
+  post '/refresh', :to => redirect('/refresh.html')
 
   get "academy" => "academy#index"
   ### ACADEMY ZONE ###
