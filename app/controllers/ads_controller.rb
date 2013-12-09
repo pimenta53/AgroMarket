@@ -18,6 +18,7 @@ class AdsController < ApplicationController
     #actualiza o contador de vezes que o ad foi visto
     @ad.increment_page_view
 
+
     #devolve produtos parecidos
     @related_ads = @ad.related_ads
 
@@ -26,6 +27,12 @@ class AdsController < ApplicationController
 
     #poe este anuncio nos anuncios vistos
     store_last_viewed(@ad.id)
+
+    #devolve todos os ratings
+    @reviews = Rating.all
+
+    #devolve reviews do dono deste ad
+    @reviews_user = @reviews.where("rated_id=?",@ad.user_id)
 
     if user_signed_in?
       @message = Message.new
