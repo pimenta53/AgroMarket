@@ -37,10 +37,10 @@
 
 
 <%= link_to 'Nova questão', new_academy_question_path %>
-<legend>Questoes em Thumnails( meter isto direito) </legend>
+<legend>Questoes em Thumbnails( meter isto direito) </legend>
 
 <div class="row">
-       
+
       <% @academy_questions.each do |academy_question| %>
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
@@ -50,21 +50,21 @@
                     </div>
 
                     <div class="col-xs-12 col-md-12 ">
-                      <%= academy_question.text %><%##  texto da pergunta  ##%>
-                     
+                      <%= link_to academy_question.title, academy_question %><%##  texto da pergunta  ##%>
+
                     </div>
-                    
+
                       <div class="caption">
                             <span class="label label-info">
                               <%= academy_question.category.name %>
                           </span>
-                    
+
                       <p><i class="fa fa-map-marker"></i> <%= academy_question.text %></p>
                     </div>
               </div>
            </div>
           <% end %>
-         
-       
-       
+
+
+
     </div>
