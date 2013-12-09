@@ -23,4 +23,12 @@ class ApplicationController < ActionController::Base
   			Rating.where(:rater_id => current_user.id,:rate => nil).count
   		end
   	end
+  	
+  def after_sign_in_path_for(resource_or_scope)
+    if resource_or_scope.is_a?(User)
+      redirect_path
+    else
+      super
+    end
+  end
 end
