@@ -95,6 +95,23 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.integer  "image_file_size"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "admin_testes", force: true do |t|
+    t.integer  "coisas"
+    t.string   "coisas2"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "admin_tests", force: true do |t|
+    t.integer  "coisas"
+    t.string   "coisas2"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+>>>>>>> feea83e065da45658d741319937ad2387074a033
   create_table "ads", force: true do |t|
     t.string   "title"
     t.string   "description"
@@ -113,6 +130,7 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.boolean  "is_active",      default: false
   end
 
+<<<<<<< HEAD
   create_table "answers", force: true do |t|
     t.integer  "question_id"
     t.integer  "user_id"
@@ -124,6 +142,8 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> feea83e065da45658d741319937ad2387074a033
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -170,6 +190,7 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "questions", force: true do |t|
     t.integer  "user_id"
     t.integer  "category_id"
@@ -180,6 +201,8 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> feea83e065da45658d741319937ad2387074a033
   create_table "ratings", force: true do |t|
     t.integer  "rate"
     t.integer  "rated_id"
@@ -199,6 +222,7 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "tutorial_images", force: true do |t|
     t.integer  "tutorial_id"
     t.string   "url"
@@ -214,6 +238,9 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.string   "title"
     t.string   "text"
     t.integer  "is_delected"
+=======
+  create_table "testes", force: true do |t|
+>>>>>>> feea83e065da45658d741319937ad2387074a033
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -260,6 +287,7 @@ ActiveRecord::Schema.define(version: 20131209093600) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+<<<<<<< HEAD
 
   create_table "votes", force: true do |t|
     t.integer  "vote"
@@ -282,5 +310,7 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+=======
+>>>>>>> feea83e065da45658d741319937ad2387074a033
 
 end

@@ -27,8 +27,6 @@ class Academy::AnswersController < ApplicationController
     @academy_answer = Academy::Answer.new(academy_answer_params)
 
     question_id = params[:academy_answer][:question_id]
-    @academy_answer.up = 0
-    @academy_answer.down= 0
 
     if @academy_answer.save
       @answers = Academy::Answer.where(:question_id => question_id)
