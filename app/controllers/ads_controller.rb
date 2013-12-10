@@ -18,6 +18,7 @@ class AdsController < ApplicationController
     #actualiza o contador de vezes que o ad foi visto
     @ad.increment_page_view
 
+
     #devolve produtos parecidos
     @related_ads = @ad.related_ads
 
@@ -26,6 +27,12 @@ class AdsController < ApplicationController
 
     #poe este anuncio nos anuncios vistos
     store_last_viewed(@ad.id)
+
+    #devolve todos os ratings
+    @reviews = Rating.all
+
+    #devolve reviews do dono deste ad
+    @reviews_user = @reviews.where("rated_id=?",@ad.user_id)
 
     if user_signed_in?
       @message = Message.new
@@ -45,7 +52,6 @@ class AdsController < ApplicationController
   	 (5 - @ad.ad_images.count).times{
     	@ad.ad_images.build
     }
-
   end
 
   # POST /ads
@@ -158,7 +164,7 @@ private
 
     # Load cities from database
     def load_stuff
-      @cities = City.all
+      @cities = City.order('city').all
       @price_types = PriceType.all
       @categories = Category.all
 

@@ -35,28 +35,33 @@
   <% num_img=@ad.ad_images.count %>
 
 <section class="panel">
-    
+
     <div class="panel-body">
-          <% if num_img > 0 %>
+
       <div class="col-md-6">
 
         <!-- Image ADS -->
+           <% if num_img > 0 %>
             <div class="ads_img_section">
 
                 <div id="imageCarousel" class="carousel-inner">
-                  <% i=0 %>
-                  <% while (i < num_img) do %>
-                    <div class="<% if i>0 %>item<% else %>active item<% end %> ads_img">
-                      <table>
-                        <tr><td>
-                           <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery_carousel]">
-                              <%= image_tag @ad.ad_images[i].image(:large), :width => "100%" %>
-                           </a>
-                        </td></tr>
-                      </table>
-                    </div>
-                     <% i+=1 %>
-                   <% end %>
+
+
+                        <% i=0 %>
+                        <% while (i < num_img) do %>
+                          <div class="<% if i>0 %>item<% else %>active item<% end %> ads_img">
+                            <table>
+                              <tr><td>
+                                 <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery_carousel]">
+                                    <%= image_tag @ad.ad_images[i].image(:large), :width => "100%" %>
+                                 </a>
+                              </td></tr>
+                            </table>
+                          </div>
+                           <% i+=1 %>
+                         <% end %>
+
+
 
                    <ol class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -112,9 +117,17 @@
                      </td>
                    </tr>
                  <% end %>
-                
+
           </div>
 
+        <% else %>
+             <div id="imageCarousel" class="carousel-inner">
+                 <a class="ads_no_img">
+                        <img class="no_image" src="http://placehold.it/250x200">
+                </a>
+             </div>
+
+       <% end %>
     </div>
    <!-- Information ADS -->
           <div class="col-md-6">
@@ -161,11 +174,11 @@
                     <%= @ad.location %>
                   </p>
                   <p>
-                      
+
                         <div class="fb-share-button sharebutton" data-href="http://teste94.di.uminho.pt/" data-type="button">
                         </div>
                   <!-- div class="fb-share-button" data-href="<%= ad_path(@ad) %>" data-type="button"></div -->
-                  
+
                          <div class="sharebutton">
                          <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
                          </div>
@@ -174,7 +187,7 @@
 
 
           </div>
-       <% end %>
+
   </div>
 
 </section>
@@ -204,7 +217,7 @@
          <div class="tab-content tasi-tab">
                 <!-- produtos relacionados -->
                 <div id="related" class="tab-pane active">
-                   
+
                     <% @related_ads.each do |ad| %>
                         <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
                             <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
@@ -231,7 +244,7 @@
 
                 <!-- ultimos visitados -->
                 <div id="last_viewed" class="tab-pane">
-                    
+
 
                    <div class="row">
                     <% @last_viewed.each do |ad| %>
@@ -246,49 +259,32 @@
                                           <span class="label" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>
                                         <% end %>
                                         </span>
-                                   
+
                                     <h4><%= link_to ad.title, ad %></h4>
                                     <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
                                   </div>
                           </div>
                         </div>
-                      
+
                       <% end %>
                   </div><!--close row -->
                 </div>
 
                 <!-- reviews -->
+                <% @reviews_user.each do |review| %>
                 <div id="reviews" class="tab-pane">
                     <article class="media">
                         <a class="pull-left thumb p-thumb">
-                            <img src="http://placehold.it/50x50">
+                            <!--img src="http://placehold.it/50x50"-->
+                            <%= image_tag @ad.user.avatar.url(:small)%>
 
                         </a>
                         <div class="media-body">
-                            <a href="#" class="cmt-head">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+                            <a href="#" class="cmt-head"><%= review.comment %></a>
                             <p> <i class="fa fa-clock-o"></i> 1 hours ago</p>
                         </div>
                     </article>
-                    <article class="media">
-                        <a class="pull-left thumb p-thumb">
-                            <img src="http://placehold.it/50x50">
-
-                        </a>
-                        <div class="media-body">
-                            <a href="#" class="cmt-head">Nulla vel metus scelerisque ante sollicitudin commodo</a>
-                            <p> <i class="fa fa-clock-o"></i> 23 mins ago</p>
-                        </div>
-                    </article>
-                    <article class="media">
-                        <a class="pull-left thumb p-thumb">
-                            <img src="http://placehold.it/50x50">
-                        </a>
-                        <div class="media-body">
-                            <a href="#" class="cmt-head">Donec lacinia congue felis in faucibus. </a>
-                            <p> <i class="fa fa-clock-o"></i> 15 mins ago</p>
-                        </div>
-                    </article>
-                </div>
+                    <% end %>
             </div>
 
        </div>
@@ -313,10 +309,13 @@
                     <%= render "messages/messages_ads" %>
           </div>
         <% end %>
-        
+
        </div>
 
 </section>
+
+
+
 
 
 

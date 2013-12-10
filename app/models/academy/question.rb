@@ -21,8 +21,10 @@ class Academy::Question < ActiveRecord::Base
 ## validations ##
   validates :title, presence: true
   validates :text, presence: true
+  validates :category, presence: true
+
 ## end validations ##
-	
+
   def to_param
   	 "#{id}-#{title.parameterize}"
   end

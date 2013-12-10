@@ -7,6 +7,14 @@ class RegistrationsController < Devise::RegistrationsController
   		super
   	end
 
+  	def edit
+
+  	end
+
+  	def update
+      super
+    end
+
    #omniauth
    def create
      super
