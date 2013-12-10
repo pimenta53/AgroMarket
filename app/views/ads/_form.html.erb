@@ -12,16 +12,18 @@
     <% end %>
 
     <div class="control-group">
-      <h5> Categoria:</h5>
+      <h5> Categoria*:</h5>
       <div class="controls">
         <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria') unless @categories.blank? %>
       </div>
     </div>
 
     <div class="control-group">
-      <%= f.label :title, "Título",:class=>"control-label" %><br>
+      <%= f.label :title, "Título*",:class=>"control-label" %><br>
       <div class="controls">
-        <%= f.text_field :title,:placeholder => "Defina o título do anúncio" ,:class=>"form-control" %>
+        <%= f.text_field :title,:placeholder => "Defina o título do anúncio" ,:class=>"form-control",:rel=>"tooltip",:title=>"Escolha um titulo apropriado.
+         Seja claro e sucinto." %>
+
         <label class="help-inline" id="help_ad_title"  for="ad_title"></label>
       </div>
     </div>
@@ -29,7 +31,8 @@
     <div class="control-group">
       <%= f.label :description, "Descrição" ,:class=>"control-label" %><br>
       <div class="controls">
-        <%= f.text_area :description,:placeholder => "Descreva o seu anúncio...",:class=>"form-control" %>
+        <%= f.text_area :description,:placeholder => "Descreva o seu anúncio...",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
+
         <label class="help-inline" id="help_ad_description"  for="ad_description"></label>
       </div>
     </div>
