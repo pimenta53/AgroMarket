@@ -87,7 +87,7 @@ a:hover #dropCarret{
   margin-left: 0%;
 }
 
-.fa-user, .fa-envelope-o, .fa-globe, .fa-book, .fa-bell-o, .fa-tags, .fa-folder-open-o, .fa-search, #userNick{
+#fa-user, #fa-envelope-o, #fa-globe, #fa-book, #fa-bell-o, #fa-tags, #fa-folder-open-o, #fa-search, #userNick{
   color: #fff;
   font-size: 22px;
 }
@@ -277,6 +277,16 @@ color:  #293a49;
   padding: 15px;
 }
 }
+
+/******SIDEBAR RIGHT**********/
+
+#pubAD{
+  /*width: 100%;*/
+  max-width: 100%;
+  max-height: 100px;
+
+}
+
 
 /******THUMBNAILS**********/
 
@@ -478,6 +488,12 @@ hr {
   margin: 18px 0;
 }
 
+/* Ads */
+#breadcrumbAds{
+  background-color: white;
+
+}
+
 
 /****** Validations *********/
 label.valid {
@@ -514,3 +530,9 @@ legend+.control-group{margin-top:18px;-webkit-margin-top-collapse:separate;}
 .form-horizontal .form-actions{padding-left:160px;}
 
 .input-xlarge{width:270px;}
+
+
+
+/************* THUMBS for answers**********/
+
+

@@ -1,33 +1,43 @@
-<h2>Your Inbox</h2>
-<% if @messages.size == 0 %>
-No messages in your Inbox
-<% else %>
-					<%= @talk.user_one %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="fa fa-comment"></span> Chat 
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                            <span class="fa fa-chevron-down"></span>
+                        </button>
+                        <ul class="dropdown-menu slidedown">
+                            <li><a href="#"><span class="fa fa-refresh">
+                            </span>Refresh</a></li>
+                            <li><a href="#"><span class="fa fa-ok-sign">
+                            </span>Available</a></li>
+                            <li><a href="#"><span class="fa fa-remove">
+                            </span>Busy</a></li>
+                            <li><a href="#"><span class="fa fa-time"></span>
+                                Away</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><span class="fa fa-off"></span>
+                                Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body panel-bodyMessage">
+                    <ul class="chat">
+                        <div id="messages">
+                            <%= render :partial => "messages" %>
+                        </div>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                  <%= render :partial =>"messages/form_mp" ,:locals =>{ :path => message_path(@talk),:user_receiver_id => @user_receiver_id }  %>        
+                </div>
+            </div>
+        </div>
 
-					<%= @talk.user_two %>
 
-					<% for message in @messages %>
-						 <p>
-						    <small>
-						    Enviado por:
-						      <%= message.user.name %> - 
-						      
-						    As:
-						      <%= message.created_at %>
-						    </small>
-						  </p>
-						  
-						  <%= message.text %>
 
-						  <p hidden="true">
-						    <strong>is_read:</strong>
-						    <%= message.is_read %>
-						  </p>
+        </div>
+    </div> 
 
-						  
-						
-			<% end %>
-	
-		<% end %>
-		<% @user = @talk.user_two %>
-		<%= render :partial =>"messages/form_mp" ,:locals =>{ :path => message_path(@talk),:user_receiver_id => @user_receiver_id }  %>

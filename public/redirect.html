@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Redireccionando...</title>
+</head>
+<body>
+    Redireccionando... 
+    A demorar demasiado? Clique <a href="/" >aqui</a>! 
+    <script language="Javascript">
+        if (window.opener!= null){
+            window.opener.location.href = "/";
+            self.close();
+        }
+        window.location.href = "/";
+    </script>
+
+</body>
+</html>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209093600) do
+ActiveRecord::Schema.define(version: 20131127132046) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.string   "title"
     t.text     "text"
     t.boolean  "is_deleted",        default: false
+    t.string   "rapid_description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "rapid_description"
   end
 
   create_table "academy_votes", force: true do |t|
@@ -88,20 +88,22 @@ ActiveRecord::Schema.define(version: 20131209093600) do
 
   create_table "ad_images", force: true do |t|
     t.integer  "ad_id",              null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
+<<<<<<< HEAD
   end
 
   create_table "admin_testes", force: true do |t|
     t.integer  "coisas"
     t.string   "coisas2"
+=======
+>>>>>>> 085e3e99fc2dceb7a5f5a18838c07df6303298b0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "admin_tests", force: true do |t|
     t.integer  "coisas"
     t.string   "coisas2"
@@ -109,6 +111,8 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> 085e3e99fc2dceb7a5f5a18838c07df6303298b0
   create_table "ads", force: true do |t|
     t.string   "title"
     t.string   "description"
@@ -117,14 +121,13 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.string   "location"
     t.integer  "type_price_id",                  null: false
     t.integer  "city_id",                        null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "user_id",                        null: false
     t.string   "permanent_link"
-    t.integer  "category_id",                    null: false
     t.integer  "page_views",     default: 0
+    t.integer  "category_id",                    null: false
     t.boolean  "is_deleted",     default: false
     t.boolean  "is_active",      default: false
+<<<<<<< HEAD
   end
 
   create_table "answers", force: true do |t|
@@ -134,6 +137,8 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.integer  "down"
     t.integer  "is_deleted"
     t.string   "image_url"
+=======
+>>>>>>> 085e3e99fc2dceb7a5f5a18838c07df6303298b0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -151,9 +156,9 @@ ActiveRecord::Schema.define(version: 20131209093600) do
   create_table "categories", force: true do |t|
     t.string   "name"
     t.string   "description"
+    t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "color"
   end
 
   create_table "cities", force: true do |t|
@@ -184,6 +189,7 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "questions", force: true do |t|
     t.integer  "user_id"
     t.integer  "category_id"
@@ -194,6 +200,8 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> 085e3e99fc2dceb7a5f5a18838c07df6303298b0
   create_table "ratings", force: true do |t|
     t.integer  "rate"
     t.integer  "rated_id"
@@ -213,6 +221,7 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "testes", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -237,6 +246,8 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> 085e3e99fc2dceb7a5f5a18838c07df6303298b0
   create_table "types", force: true do |t|
     t.string   "name"
     t.integer  "flag"
@@ -265,16 +276,15 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.datetime "birthday"
-    t.string   "phone"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "name"
+    t.datetime "birthday"
+    t.string   "phone"
     t.integer  "city_id"
+<<<<<<< HEAD
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -284,10 +294,13 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.integer  "vote"
     t.integer  "user_id"
     t.integer  "answer_id"
+=======
+>>>>>>> 085e3e99fc2dceb7a5f5a18838c07df6303298b0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "workshops", force: true do |t|
     t.integer  "user_id"
     t.integer  "available_slots"
@@ -301,5 +314,9 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+=======
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+>>>>>>> 085e3e99fc2dceb7a5f5a18838c07df6303298b0
 
 end

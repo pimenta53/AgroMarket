@@ -34,6 +34,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string :authentication_token
 
 
+      # Avatar
+      t.attachment :avatar
+
+      # Other Fields
+      t.string    :name
+      t.datetime  :birthday
+      t.string    :phone
+      t.integer   :city_id
+
       t.timestamps
     end
 

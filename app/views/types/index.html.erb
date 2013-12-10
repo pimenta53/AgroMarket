@@ -1,9 +1,9 @@
-<h1>Listing types</h1>
+<h1>Listar tipos</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nome</th>
       <th>Flag</th>
       <th></th>
       <th></th>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= type.name %></td>
         <td><%= type.flag %></td>
-        <td><%= link_to 'Show', type %></td>
-        <td><%= link_to 'Edit', edit_type_path(type) %></td>
-        <td><%= link_to 'Destroy', type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', type %></td>
+        <td><%= link_to 'Editar', edit_type_path(type) %></td>
+        <td><%= link_to 'Destruir', type, method: :delete, data: { confirm: 'Tens a certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Type', new_type_path %>
+<%= link_to 'Novo Tipo', new_type_path %>

@@ -80,7 +80,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing_photo.png"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", :small => "50x50>" }, :default_url => "/assets/missing_photo.png"
 
   #validates :avatar, :attachment_presence => true
   #validates_with AttachmentPresenceValidator, :attributes => :avatar
@@ -164,7 +164,7 @@ class User < ActiveRecord::Base
     #password = Devise.friendly_token.first(password_length)
     #self.password=password
     #self.password_confirmation=password
-    
+
     self.password='1234567890'
     self.password_confirmation='1234567890'
   end
@@ -223,6 +223,28 @@ class User < ActiveRecord::Base
 
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
+  end
+
+  def has_provider(provider)
+    collection = User.first.authentications.where("provider = ?",provider)
+    collection.length > 0
+  end
+
+  def self.match_omniauth(omniauth)
+    email = nil
+    user = nil
+    if omniauth['provider'] == 'facebook'
+      email = omniauth['info']['email']
+    elsif omniauth['provider'] == 'twitter'
+      email = nil
+    else
+      email = omniauth['info']['email']
+    end
+
+    if email != nil
+      user = User.where("email = ?",email).first
+    end
+    user
   end
 
   def password_required?

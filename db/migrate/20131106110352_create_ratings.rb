@@ -6,7 +6,6 @@ class CreateRatings < ActiveRecord::Migration
       t.integer :rater_id
       t.integer :ad_id
       t.text :comment
-      t.integer :type
 
       t.timestamps
     end
