@@ -25,6 +25,7 @@
          Seja claro e sucinto." %>
 
         <label class="help-inline" id="help_ad_title"  for="ad_title"></label>
+
       </div>
     </div>
 
@@ -47,34 +48,31 @@
               <span class="input-group-addon">€</span>
               <%= f.text_field :price,:placeholder => "Preço" ,:class=>"form-control" %>
             </div>
-            <label class="help-inline" id="help_ad_price"  for="ad_price"></label>
+            <label class="help-inline" id="ad_price" for="ad_price"></label>
           </div>
         </div>
       </div>
 
       <script>
           $('#ad_price').on('input', function() {
-              var value = $("#ad_price").val().replace("1","2");
               $("#ad_price").val(value.replace(',', '.'));
           })
       </script>
 
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="control-group">
           <%= f.label :type_price_id, "Medida" ,:class=>"control-label" %><br>
           <div class="controls">
             <%= f.collection_select(:type_price_id,@price_types,:id,:name,:class=>"form-control", :include_blank => 'Selecione...') %>
-            <label class="help-inline" id="help_ad_type_price_id" for="ad_type_price_id"></label>
           </div>
         </div>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-4">
         <div class="control-group">
             <%= f.label :city_id, "Distrito" %><br>
             <div class="controls">
             <%= f.collection_select(:city_id,@cities,:id,:city,:class=>"form-control", :include_blank => 'Selecione...') %>
-              <label class="help-inline" id="help_ad_city_id" for="ad_city_id"></label>
             </div>
         </div>
       </div>
@@ -85,14 +83,14 @@
       <%= f.label :locatlion, "Localização da Venda" ,:class=>"control-label" %><br>
       <div class="controls">
         <%= f.text_field :location,:placeholder =>"Localização da venda..." ,:class=>"form-control", :id=>"addresspicker_map"%>
-        <label class="help-inline" id="help_addresspicker_map" for="addresspicker_map"></label>
       </div>
 
       <div style="width:100%;height:350px;margin-top:20px">
-        <div id="map_canvas" style="width:100%; height:100%"></div>
+        <div id="map" style="width:100%; height:100%"></div>
         <div id="location" class=""></div>
       </div>
       <div style="float:right">
+          <span class="label label-danger" id="city">-</span>
           <span class="label label-primary" id="coordX">X</span>
           <span class="label label-primary" id="coordY">Y</span>
       </div>
@@ -142,10 +140,6 @@
         <% end %>
       </div>
 
-    </div>
-
-    <div class="progress" style="background: #ddd">
-      <div class="progress-bar progress-bar-primary" style="width: 0%;"></div>
     </div>
 
     <div class="actions" style="float:right">

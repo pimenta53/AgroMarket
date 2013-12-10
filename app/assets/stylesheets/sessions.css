@@ -177,18 +177,23 @@ body {
 
 
 .login-col-form{
-  /*
-  height: 600px;
-  width: 450px;
-  border: 2px solid red;
-  position: absolute;
-  top: 50%;
-  margin-top: -300px;
-  left: 50%;*/
   margin-top: 5%;
+}
 
+.linkHover{
+    float:right;
+    padding-top: 15px;
+    font-size: 13px;
+}
 
-  
+.linkHover a{
+    color:white;
+    padding: 5px;
+}
+
+.linkHover a:hover{
+    background-color:#EA5B0C;
+    text-decoration: none;
 }
 
 .login_content{
@@ -660,9 +665,6 @@ a.frame:hover {
 /* section regist ------------- */
 
 #section-regist{
- 
-
- 
   height: auto; 
   width: auto; 
  float: center;

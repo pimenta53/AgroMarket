@@ -129,7 +129,7 @@ ready = function() {
    /*
    * Progress Bar Form
    */
-   var total_percent = 0;
+   /*var total_percent = 0;
    $("input").on('blur',function (){
       var idName = $(this).attr('id');
       var helplineClass = document.getElementById('help_' + idName).className;
@@ -165,7 +165,7 @@ ready = function() {
             $(".progress-bar").css("width", + total_percent +"%");
         }
     });
-
+    */
 
     $('#some-textarea').wysihtml5({
       "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true

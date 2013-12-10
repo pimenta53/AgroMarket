@@ -9,34 +9,48 @@
 	</div>
 </div>
 
-<%= link_to 'Back', myads_user_path(current_user.id) %>
+<%= link_to 'Voltar', myads_user_path(current_user.id) %>
 
 <script>
     $(function() {
-        var addresspicker = $( "#addresspicker" ).addresspicker();
-        var addresspickerMap = $( "#addresspicker_map" ).addresspicker(
-        {
-            regionBias: "de",
-            map:      "#map_canvas",
-            typeaheaddelay: 1000,
-            mapOptions: {
-                zoom:16,
-                center: new google.maps.LatLng(52.5122, 13.4194)
+        function getLocation(){
+            if (navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition);
             }
+            else{ $('#city').text("Geolocation is not supported by this browser.");}
+        }
 
-        });
-
-        addresspickerMap.on("addressChanged", function(evt, address) {
-            $('#coordX').text(address.geometry.location.lat());
-            $('#coordY').text(address.geometry.location.lng());
-           console.dir(address);
-        });
-        addresspickerMap.on("positionChanged", function(evt, markerPosition) {
-            markerPosition.getAddress( function(address) {
-                if (address) {
-                    $( "#addresspicker_map").val(address.formatted_address);
+        function showPosition(position){
+            var addresspicker = $( "#addresspicker" ).addresspicker();
+            var addresspickerMap = $( "#addresspicker_map" ).addresspicker({
+                regionBias: "de",
+                map:      "#map",
+                typeaheaddelay: 1000,
+                mapOptions: {
+                    zoom:9,
+                    center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
                 }
-            })
-        });
+
+            });
+
+            addresspickerMap.on("addressChanged", function(evt, address) {
+                $('#coordX').text(address.geometry.location.lat());
+                $('#coordY').text(address.geometry.location.lng());
+                $('#city').text(address.address_components[2].long_name);
+            });
+
+            addresspickerMap.on("positionChanged", function(evt, markerPosition) {
+                markerPosition.getAddress( function(address) {
+                    if (address) {
+                        $( "#addresspicker_map").val(address.formatted_address);
+                    }
+                })
+            });
+        }
+
+        getLocation();
+
+
+
     });
 </script>
