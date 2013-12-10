@@ -29,7 +29,7 @@ class AdsController < ApplicationController
 
     if user_signed_in?
       @message = Message.new
-      @talk = Talk.all_talk_ad(current_user , @ad)
+      @talks = Talk.all_talk_ad(current_user , @ad)
     end
 
   end
