@@ -25,7 +25,7 @@
       <div class="panel-heading">
         <h4 class="panel-title">
           <span class="fa fa-comment"></span>
-          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= t.user_receiver(current_user) %>">Mensagens do Utilizador ID: <%= t.user_receiver(current_user) %></a>
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= t.user_receiver(current_user) %>">Mensagens do Utilizador: <%= t.user_receiver_name(current_user) %></a>
 
           <%= link_to "Fechar Negócio", done_message_path(id_ad: @ad.id, user_id: t.user_receiver(current_user)), :data => { :confirm => "Tem a certeza que pertende fechar este negócio?" }, :class => "btn btn-primary ", :style => ""  if @ad.user_id == current_user.id %>
 
