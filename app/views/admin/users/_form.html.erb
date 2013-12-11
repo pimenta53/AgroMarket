@@ -33,13 +33,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
+    <%= f.label :user_type %><br>
+    <%= f.select :user_type, options_for_select([["Utilizador Normal", "1"], ["Administrador", "2"]]) %>
 
-  <div class="field">
-    <%= f.label :confirmaçao_de_password %><br>
-    <%= f.password_field :password_confirmation %>
   </div>
 
 

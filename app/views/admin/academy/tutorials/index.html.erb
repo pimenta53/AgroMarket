@@ -39,7 +39,7 @@
 				<td><%= ap_tutorials.title %></td>
 				<td><%= ap_tutorials.rapid_description %></td>
 				<td><%= link_to 'Ver', admin_academy_tutorial_path(ap_tutorials.id) %> </td>
-				<td>EDITAR</td>
+				<td><%= link_to 'Editar',edit_admin_academy_tutorial_path(ap_tutorials.id) %> </td>
 			</tr>
 		<% end %>
 	<% end %>

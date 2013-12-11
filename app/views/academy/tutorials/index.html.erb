@@ -1,3 +1,10 @@
+<% if flash[:notice] %>
+  <script> showNotify("<%= flash[:notice] %>","success") </script>
+<% end %>
+<% if flash[:error] %>
+  <script> showNotify("<%= flash[:error] %>","info") </script>
+<% end %>
+
 <div class="container">
     <% @academy_tutorials.each do |academy_tutorial| %>
       <div class="col-xs-5">
@@ -21,7 +28,9 @@
         <%= academy_tutorial.rapid_description %>
         <%= academy_tutorial.is_delected %><br>
         <%= link_to 'Ver', academy_tutorial ,:class => "label pull-right",:style => "background-color:#91CAFF" %>
+        <% if current_user.id == academy_tutorial.user_id %>
         <%= link_to 'Editar', edit_academy_tutorial_path(academy_tutorial),:class => "label pull-right",:style => "background-color:#FFCC91" %>
+        <% end %>
       </section>
       </div>
     <% end %>

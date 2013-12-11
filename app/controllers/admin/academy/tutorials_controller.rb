@@ -11,6 +11,10 @@ class Admin::Academy::TutorialsController < ApplicationController
 		
 	end
 
+	def edit
+		
+	end
+
 	def aprove_tutorial
 		tutorial = Academy::Tutorial.find(params[:id_aprove])
 		tutorial.aproved = 1
