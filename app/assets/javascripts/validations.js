@@ -50,6 +50,33 @@ ready = function() {
       }
    });
 
+  /******       Edit USER, CURRENT ACCOUNT      */
+  $('#edit_user').validate({
+    errorElement: 'label',
+    errorClass: 'help-inline',
+    rules: {
+      "user[email]": { email: true, maxlength: 255, required: true },
+      "user[avatar]": { required: false, maxlength: 255, accept: "gif|png|jpg|jpeg|pjpeg" },
+      "user[name]": { accept: "[a-zA-Z ]", required: true, maxlength: 255 },
+      "user[city_id]": { required: true },
+      "user[password]": {minlength: 5, maxlength: 15, required: true },
+      "user[password_confirmation]": { minlength: 5, maxlength: 15, required: true },
+      "user[birthday]": {accept: "[\\d]{1}/[\\d]{2}/[\\d]{4}", required: true },
+      "user[phone]": { telefone: true }
+    },
+    messages: {
+        "user[avatar]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg"
+    },
+    highlight: function(element) {
+      $(element).closest('.control-group').removeClass('success').addClass('error');
+    },
+    success: function(element) {
+        element
+            .text('OK!').addClass('valid')
+            .closest('.control-group').removeClass('error').addClass('success');
+      }
+   });
+
     /*****      REQUEST PASSWORD            */
     $('#request_password').validate({
         errorElement: 'label',
