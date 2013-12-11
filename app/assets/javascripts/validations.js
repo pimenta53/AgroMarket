@@ -208,7 +208,7 @@ ready = function() {
   //VAlidar um nº de telefone com 9 digitos
   jQuery.validator.addMethod("telefone", function(phone_number, element) {
       phone_number = phone_number.replace(/\s+/g, "");
-      return ((this.optional(element) || phone_number.length == 9 ) && $.isNumeric(phone_number) || phone_number.length == 0) ;
+      return ((this.optional(element) || phone_number.length == 9 ) && $.isNumeric(phone_number) || phone_number.len) ;
   }, "Introduza um telefone válido!");
 
   jQuery.extend(jQuery.validator.messages, {
@@ -237,22 +237,6 @@ ready = function() {
 // por causa do turboLink
 $(document).ready(ready);
 $(document).on('page:load', ready);
-
-
-function showNotify(text_noti,type_noti) {
-  $(function() {
-    $.pnotify({
-        text: text_noti,
-        history: false,
-        type: type_noti,
-        delay: 2000,
-        icon: true,
-        closer: true,
-        closer_hover: true,
-        styling: 'bootstrap'
-    });
-  });
-}
 
 
 
