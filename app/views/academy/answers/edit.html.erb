@@ -1,10 +1,16 @@
-<h1>Editing academy_answer</h1>
+
+<%= render 'academy/questions/question' %>
+
+<% @academy_question.answers.each do |a| %>
+  <% if a.id == @academy_answer.id %>
+      <%= render 'form', :question => @academy_question %>
+    <% else %>
+      <%= render a, :question => @academy_question %>
+    <% end %>
+<% end %>
 
 
-
-
-
-<%= render 'form' %>
+<%#= render 'form' %>
 
 <%= link_to 'Show', @academy_answer %> |
 <%= link_to 'Back', academy_answers_path %>

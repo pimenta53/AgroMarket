@@ -1,18 +1,6 @@
 <%= form_for @ad,:html => {:multipart => true,:id=>"ad-form"} do |f| %>
-    <% if @ad.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
-
-          <ul>
-            <% @ad.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-
     <div class="control-group">
-      <h5> Categoria*:</h5>
+      <label class="control-label"> Categoria:</label>
       <div class="controls">
         <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria') unless @categories.blank? %>
       </div>
@@ -48,7 +36,7 @@
               <span class="input-group-addon">€</span>
               <%= f.text_field :price,:placeholder => "Preço" ,:class=>"form-control" %>
             </div>
-            <label class="help-inline" id="ad_price" for="ad_price"></label>
+            <label class="help-inline" id="help_ad_price" for="ad_price"></label>
           </div>
         </div>
       </div>
@@ -145,5 +133,17 @@
     <div class="actions" style="float:right">
       <%= f.submit "Publicar Anúncio", :class=>"btn btn-primary" %>
     </div>
+
+    <% if @ad.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
+
+          <ul>
+            <% @ad.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
 <% end %>

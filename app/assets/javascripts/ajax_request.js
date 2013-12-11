@@ -10,7 +10,7 @@ ready = function() {
      $("#comment_ad").submit(function() {
        var valuesToSubmit = $(this).serialize();
        $.ajax({
-         url: $(this).attr('ajax_path'),  
+         url: $(this).attr('ajax_path'),
          data: valuesToSubmit,
          async: true,
          dataType: 'script',
@@ -22,15 +22,15 @@ ready = function() {
            $("#text_comment").val("");
 
          },
-         error: function(request,error) 
+         error: function(request,error)
          {
           alert ( "Não foi possivel inserir o seu comentario!!" + error);
-         }       
+         }
        });
-       
+
        return false;
      });
-     
+
     $("#cenas").click(function() {
           alert ( "Não foi possivel inserir o seu comentario!!" + error);
          return false;
@@ -40,7 +40,7 @@ ready = function() {
     $("#message_private").submit(function() {
         var valuesToSubmit = $(this).serialize();
        $.ajax({
-         url: $(this).attr('ajax_path'),  
+         url: $(this).attr('ajax_path'),
          data: valuesToSubmit,
          async: true,
          dataType: 'script',
@@ -51,19 +51,19 @@ ready = function() {
           alert(data)
            $("#text_comment").val("");
          },
-         error: function(request,error) 
+         error: function(request,error)
          {
           alert ( "Não foi possivel inserir a tua resposta!!");
-         }       
+         }
        });
        return false;
       });
 
       function refresh_header(){
         $.ajax({
-          url: "/refresh_header", 
+          url: "/refresh_header",
           type: "GET",
-          success: function(result){    
+          success: function(result){
             $("#header").html(result);
           },
           error: function(){
@@ -75,14 +75,14 @@ ready = function() {
       }
 
       setInterval(refresh_header, 700000);
-      
+
       /*
       *  Criar nova resposta para uma pergunta com AJAX
       */
       $("#academy_answer").submit(function() {
         var valuesToSubmit = $(this).serialize();
        $.ajax({
-         url: $(this).attr('ajax_path'),  
+         url: $(this).attr('ajax_path'),
          data: valuesToSubmit,
          async: true,
          dataType: 'script',
@@ -93,16 +93,18 @@ ready = function() {
            //$("#answers").html(result);
            $("#text_comment").val("");
          },
-         error: function(request,error) 
+         error: function(request,error)
          {
+          alert(request);
+          alert(error);
           alert ( "Não foi possivel inserir a tua resposta!!");
-         }       
+         }
        });
-       
+
        return false;
       });
 
-      
+
 
 };
 
@@ -110,4 +112,3 @@ ready = function() {
 // por causa do turboLink
 $(document).ready(ready);
 $(document).on('page:load', ready);
-      
