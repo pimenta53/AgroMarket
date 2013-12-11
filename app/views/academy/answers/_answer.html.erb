@@ -1,13 +1,11 @@
 <div class="col-lg-12">
   <section class="panel panel-success">
     <header class="panel-heading">
-      
+
     </header>
 
     <div class="panel-body">
       <div class="pull-right">
-        <%##  botão verde com o certo  ##%>
-        <%= link_to '<i class="icon-ok"></i>'.html_safe, "#", :class => "btn btn-success btn-xs" %>
         <%##  botão verde com o lapis para editar a resposta  ##%>
         <%= link_to '<i class="icon-pencil"></i>'.html_safe , edit_academy_answer_path(answer), :class => "btn btn-primary btn-xs" if answer.user.id == current_user.id %>
         <%##  botão vermelho com o caixote para eliminar a resposta  ##%>
@@ -22,7 +20,7 @@
 
       <div class="col-xs-9 col-md-10 "><%##  texto da resposta  ##%>
         <%= answer.text %>
-        <br>os botões de edit e eliminar não estão direitos
+        <br>o botão de edit não está direito
       </div>
     </div>
 
@@ -33,11 +31,11 @@
 
 
         <i class="fa  fa-arrow-circle-o-up  fa-2x"></i>
-        <%= 1 %> 
+        <%= 1 %>
         <i class="fa  fa-arrow-circle-down  fa-2x"></i>
       <% else %>
         <%= link_to '<i class="icon-circle-arrow-up"></i>'.html_safe, academy_up_vote_path(:answer => answer) %>
-        <%= 1 %> 
+        <%= 1 %>
         <%= link_to '<i class="icon-circle-arrow-down"></i>'.html_safe, academy_down_vote_path(:answer => answer) %>
       <% end %>
 <%###  end of answers votes  ###%>
