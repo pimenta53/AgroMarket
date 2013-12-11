@@ -7,7 +7,7 @@
     </div>
 
     <div class="control-group">
-      <%= f.label :title, "Título*",:class=>"control-label" %><br>
+      <%= f.label :title, "Título*",:class=>"control-label" %>
       <div class="controls">
         <%= f.text_field :title,:placeholder => "Defina o título do anúncio" ,:class=>"form-control",:rel=>"tooltip",:title=>"Escolha um titulo apropriado.
          Seja claro e sucinto." %>
@@ -18,7 +18,7 @@
     </div>
 
     <div class="control-group">
-      <%= f.label :description, "Descrição" ,:class=>"control-label" %><br>
+      <%= f.label :description, "Descrição" ,:class=>"control-label" %>
       <div class="controls">
         <%= f.text_area :description,:placeholder => "Descreva o seu anúncio...",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
 
@@ -30,7 +30,7 @@
 
       <div class="col-md-6">
         <div class="control-group">
-          <%= f.label :price, "Preço" ,:class=>"control-label" %><br>
+          <%= f.label :price, "Preço" ,:class=>"control-label" %>
           <div class="controls">
             <div class="input-group">
               <span class="input-group-addon">€</span>
@@ -47,11 +47,11 @@
               value = value.replace(",", ".");
               $("#ad_price").val(value);
           })
-      </script>,
+      </script>
 
       <div class="col-md-2">
         <div class="control-group">
-          <%= f.label :type_price_id, "Medida" ,:class=>"control-label" %><br>
+          <%= f.label :type_price_id, "Medida" ,:class=>"control-label" %>
           <div class="controls">
             <%= f.collection_select(:type_price_id,@price_types,:id,:name,:class=>"form-control", :include_blank => 'Selecione...') %>
           </div>
@@ -60,7 +60,7 @@
 
       <div class="col-md-4">
         <div class="control-group">
-            <%= f.label :city_id, "Concelho" %><br>
+            <%= f.label :city_id, "Concelho" %>
             <div class="controls">
             <%= f.collection_select(:city_id,@cities,:id,:city,:class=>"form-control", :include_blank => 'Selecione...') %>
             </div>
@@ -70,7 +70,7 @@
     </div>
 
     <div class="control-group">
-      <%= f.label :locatlion, "Localização da Venda" ,:class=>"control-label" %><br>
+      <%= f.label :locatlion, "Localização da Venda" ,:class=>"control-label" %>
       <div class="controls">
         <%= f.text_field :location,:placeholder =>"Localização da venda..." ,:class=>"form-control", :id=>"addresspicker_map",autocomplete: "off"%>
       </div>
