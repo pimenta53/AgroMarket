@@ -5,6 +5,7 @@ class SessionsController < Devise::SessionsController
 
 	def new
 		super
+    @user = User.new
 	end
 
 	def create
