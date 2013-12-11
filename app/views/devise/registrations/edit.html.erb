@@ -12,7 +12,7 @@
                                       </div>
                                   </div>
                                   <div class="form-group">
-                                      <label class="col-lg-2 control-label">Ultimo Nome</label>
+                                      <label class="col-lg-2 control-label">Nome</label>
                                       <div class="col-lg-6">
                                            <%= f.text_field :name ,:class=>"form-control"%>
                                       </div>
@@ -30,7 +30,7 @@
                                       </div>
                                   </div>
                                   <div class="form-group">
-                                      <label class="col-lg-2 control-label">Occupação</label>
+                                      <label class="col-lg-2 control-label">Ocupação</label>
                                       <div class="col-lg-6">
                                           <input type="text" class="form-control" id="occupation" placeholder=" ">
                                       </div>
@@ -127,7 +127,7 @@
                       <section>
                           <div class="panel panel-primary">
                               
-                          <div class="panel-heading"> Conecções exteriores </div>
+                          <div class="panel-heading"> Coneções exteriores </div>
                                <div class="panel-body">
                                   <div class="form-group">
                                      <div class="social-box">
@@ -135,7 +135,7 @@
                                         <% if !current_user.has_provider("facebook")%>
                                         <div class="row mg-btm">
                                            <div class="col-lg-6">
-                                              <div class="col-md-12"><%= link_to "<i class=\"icon-facebook\" style=\"margin-right: 5px; color: white;\"></i>Connectar com o Facebook".html_safe , "/auth/facebook",:class=>"popup btn btn-facebook btn-block",:style=>"color:white;" %></div>
+                                              <div class="col-md-12"><%= link_to "<i class=\"icon-facebook\" style=\"margin-right: 5px; color: white;\"></i>Conetar com o Facebook".html_safe , "/auth/facebook",:class=>"popup btn btn-facebook btn-block",:style=>"color:white;" %></div>
                                            </div>
                                         </div>
                                         <% else provider_count += 1 %>
@@ -143,7 +143,7 @@
                                         <% if !current_user.has_provider("twitter")%>
                                         <div class="row mg-btm" style="margin-top: 5px; margin-bottom: 10px">
                                            <div class="col-lg-6">
-                                              <div class="col-md-12"><%= link_to "<i class=\"icon-twitter\" style=\"margin-right: 5px; color: white;\"></i>Connectar com o Twitter".html_safe , "/auth/twitter" ,:class=>"popup btn btn-twitter btn-block" ,:style=>"color:white;" %></div>
+                                              <div class="col-md-12"><%= link_to "<i class=\"icon-twitter\" style=\"margin-right: 5px; color: white;\"></i>Conetar com o Twitter".html_safe , "/auth/twitter" ,:class=>"popup btn btn-twitter btn-block" ,:style=>"color:white;" %></div>
                                            </div>
                                         </div>
                                         <% else provider_count += 1 %>

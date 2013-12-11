@@ -6,7 +6,6 @@ class CreateAcademyAnswers < ActiveRecord::Migration
       t.integer :up,          :default => 0
       t.integer :down,        :default => 0
       t.boolean :is_deleted,  :default => false
-      t.string  :image_url
       t.text    :text
 
       t.timestamps

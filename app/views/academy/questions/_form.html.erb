@@ -28,11 +28,12 @@
     <%= f.text_area :text %>
   </div>
 
-  <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
-  </div>
+  <%#  butao de submit, tanto para editar como criar respetivamente  %>
   <div class="actions">
-    <%= f.submit %>
+    <% if controller.action_name == "edit" %>
+      <%= f.submit "Editar pergunta" %>
+    <% else %>
+      <%= f.submit "Criar pergunta" %>
+    <% end %>
   </div>
 <% end %>

@@ -21,6 +21,7 @@ class Academy::QuestionsController < ApplicationController
 
   # GET /academy/questions/1/edit
   def edit
+
   end
 
   # POST /academy/questions
