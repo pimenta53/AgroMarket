@@ -43,9 +43,11 @@
 
       <script>
           $('#ad_price').on('input', function() {
-              $("#ad_price").val(value.replace(',', '.'));
+              var value = $("#ad_price").val();
+              value = value.replace(",", ".");
+              $("#ad_price").val(value);
           })
-      </script>
+      </script>,
 
       <div class="col-md-2">
         <div class="control-group">
@@ -58,7 +60,7 @@
 
       <div class="col-md-4">
         <div class="control-group">
-            <%= f.label :city_id, "Distrito" %><br>
+            <%= f.label :city_id, "Concelho" %><br>
             <div class="controls">
             <%= f.collection_select(:city_id,@cities,:id,:city,:class=>"form-control", :include_blank => 'Selecione...') %>
             </div>
