@@ -109,7 +109,46 @@ ready = function() {
 
   });
 
-  /*****        NEW AD                             */
+  /*****        NEW QUESTION                */
+  $('#question_form').validate({
+        errorElement: 'label',
+        errorClass: 'help-inline',
+        rules: {
+            "academy_question[category_id]": {required: true},
+            "academy_question[title]": {minlength: 2, maxlength: 50, required: true },
+            "academy_question[text]": { minlength: 5, maxlength: 255, required: true }
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+        },
+        success: function(element) {
+            element
+                .addClass('valid')
+                .closest('.control-group').removeClass('error').addClass('success');
+        }
+
+  });
+
+    /*****        NEW ANSWER                */
+    $('#academy_answer').validate({
+        errorElement: 'label',
+        errorClass: 'help-inline',
+        rules: {
+            "academy_answer[text]": { minlength: 2, maxlength: 255, required: true }
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+        },
+        success: function(element) {
+            element
+                .addClass('valid')
+                .closest('.control-group').removeClass('error').addClass('success');
+        }
+
+    });
+
+
+    /*****        NEW AD                             */
   $('#ad-form').validate({
     errorElement: 'label',
     errorClass: 'help-inline',
@@ -117,7 +156,7 @@ ready = function() {
       "ad[category_id]": { required: true },
       "ad[title]": {minlength: 2, maxlength: 50, required: true },
       "ad[description]": { minlength: 5, maxlength: 255, required: true },
-      "ad[price]": { minlength: 1, maxlength: 6, number: true, required: true },
+      "ad[price]": { min: 0, maxlength: 6, number: true, required: true },
       "ad[expire_date]": { date: true, required: true },
       "ad[location]": { minlength:2, maxlength: 255, required: true },
       "ad[type_price_id]": { required: true },
@@ -146,59 +185,6 @@ ready = function() {
               .closest('.control-group').removeClass('error').addClass('success');
       }
   });
-
-
-  /*****
-  * New AD ADmin zone    (pq é que nao se usa a mesma validação do new ad ?)
-  */
-
-  $('#new_ad').validate({
-    errorElement: 'label',
-    errorClass: 'help-inline',
-    rules: {
-
-      "ad[category_id]": {
-        required: true
-      },
-      "ad[title]": {
-        minlength: 2,
-        required: true
-      },
-      "ad[description]": {
-        required: true,
-      },
-      "ad[price]": {
-        minlength: 2,
-        number: true,
-        required: true
-      },
-      "ad[expire_date]": {
-        date: true,
-        required: true
-      },
-      "ad[location]": {
-        required: true
-      },
-      "ad[type_price_id]": {
-
-        required: true
-      },
-      "ad[city_id]": {
-
-        required: true
-      }
-    },
-    highlight: function(element) {
-      $(element).closest('.control-group').removeClass('success').addClass('error');
-    },
-    success: function(element) {
-      element
-      .addClass('valid')
-      .closest('.control-group').removeClass('error').addClass('success');
-    }
-   });
-
-
 
   //serve para validar select boxes
   jQuery.validator.addMethod('selectcheck', function (value) {
@@ -237,6 +223,21 @@ ready = function() {
 // por causa do turboLink
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
+function showNotify(text_noti,type_noti) {
+  $(function() {
+    $.pnotify({
+        text: text_noti,
+        history: false,
+        type: type_noti,
+        delay: 2000,
+        icon: true,
+        closer: true,
+        closer_hover: true,
+        styling: 'bootstrap'
+    });
+  });
+}
 
 
 

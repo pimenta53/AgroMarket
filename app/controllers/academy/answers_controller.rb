@@ -19,6 +19,11 @@ class Academy::AnswersController < ApplicationController
 
   # GET /academy/answers/1/edit
   def edit
+
+    @academy_answer   = Academy::Answer.find(params[:id])
+    @academy_question = @academy_answer.question
+
+
   end
 
   # POST /academy/answers
@@ -40,11 +45,11 @@ class Academy::AnswersController < ApplicationController
   def update
     respond_to do |format|
       if @academy_answer.update(academy_answer_params)
-        format.html { redirect_to @academy_answer, notice: 'Answer was successfully updated.' }
+        format.html { redirect_to @academy_answer.question, notice: 'Answer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @academy_answer.errors, status: :unprocessable_entity }
+        format.json { render json: @academy_answer.question.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -67,6 +72,6 @@ class Academy::AnswersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def academy_answer_params
-      params.require(:academy_answer).permit(:question_id, :user_id, :up, :down, :is_deleted, :image_url, :text)
+      params.require(:academy_answer).permit(:question_id, :user_id, :up, :down, :is_deleted, :text)
     end
 end
