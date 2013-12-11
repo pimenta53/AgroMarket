@@ -126,7 +126,7 @@ class AdsController < ApplicationController
 
     @ad = Ad.find(params[:id_ad])
 
-    #Talk.where("ad_id = ? and ((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?))", @ad.id, @ad.user_id, params[:user_id], params[:user_id], @ad.user_id).update_all(:is_close => 1)
+    Talk.where("ad_id = ? and ((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?))", @ad.id, @ad.user_id, params[:user_id], params[:user_id], @ad.user_id).update_all(:is_close => 1)
     #@ad.messages.where("receiver_id = ? OR sender_id = ?",params[:user_id],params[:user_id]).update_all(:is_close => 1)
 
     # Create new entry, RATED current_user
@@ -134,7 +134,6 @@ class AdsController < ApplicationController
 
     # Create new entry, RATER current_user
     rater_current_user = Rating.new(:ad_id => @ad.id,:rater_id => current_user.id ,:rated_id => params[:user_id])
-
     rater_current_user.save
     rated_current_user.save
 

@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<div class="tutorial_show">
+  <div class="text-center">
+    <h1><%= @academy_tutorial.title %><h1>
+  </div>
+<%= @academy_tutorial.text.html_safe %>
+</div>
+
+
+<%= link_to 'Edit', edit_academy_tutorial_path(@academy_tutorial) %> |
+<%= link_to 'Back', academy_tutorials_path %>
