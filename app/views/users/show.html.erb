@@ -34,7 +34,7 @@
                                               <p><span>Cidade </span>:<% if @user.city %> <%= @user.city.city %><% end %></p>
                                           </div>
                                           <div class="bio-row">
-                                              <p><span>Data de Nascimento</span>:<% if @user.birthday %> <%= @user.birthday %><% end %></p>
+                                              <p><span>Data de Nascimento</span>:<%= I18n.localize(@user.birthday) if @user.birthday %></p>
                                           </div>
                                           <div class="bio-row">
                                               <p><span>Ocupação </span>: UI Designer</p>
@@ -43,7 +43,7 @@
                                               <p><span>Email </span>: <%= @user.email %></p>
                                           </div>
                                           <div class="bio-row">
-                                              <p><span>Membro desde </span>: <%= @user.created_at %></p>
+                                              <p><span>Membro desde </span>: <%= I18n.localize(@user.created_at, :format => :time) %></p>
                                           </div>
                                           <div class="bio-row">
                                               <p><span>Telefone </span>: <% if @user.phone %><%= @user.phone %><% end %></p>
