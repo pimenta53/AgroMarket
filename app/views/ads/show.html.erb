@@ -158,7 +158,6 @@
                   <p>
                         <div class="fb-share-button sharebutton" data-href="http://teste94.di.uminho.pt/" data-type="button">
                         </div>
-                  <!-- div class="fb-share-button" data-href="<%= ad_path(@ad) %>" data-type="button"></div -->
                          <div class="sharebutton">
                          <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
                          </div>
@@ -195,7 +194,6 @@
                   <div class="row ads_index_section">
                     <% @related_ads.each do |ad| %>
                       <div class="col-sm-6 col-md-3">
-                        <!-- <li class="col-sm-6 col-md-3 thing <%= ad.category.name %>" id="painelAnuncios">-->
                           <div class="panel">
                             <div class="ads_index_img">
                               <div class="thumbnail">
@@ -216,7 +214,7 @@
                                 </div>
                               <% end %>
                               <h4><%= link_to ad.title, ad %></h4>
-                              <p><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></p>
+                              <div style="height:50px"><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></div>
                             </div>
                           </div>
                         </div>
@@ -251,7 +249,7 @@
                               </div>
                             <% end %>
                             <h4><%= link_to ad.title, ad %></h4>
-                            <p><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></p>
+                            <div style="height:50px"><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></div>
                           </div>
                         </div>
 
