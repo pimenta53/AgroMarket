@@ -7,36 +7,48 @@
 
 
 <!-- Listagem de anúncios -->
+
  <ol class="breadcrumb" id="breadcrumbAds">
               <li class="active"><a href="<%= ads_path %>"><i class="fa fa-tags"></i> Anúncios</a></li>
  </ol>
 
-    <div class="row" style="margin-right: -15px;">
 
+  <div class="row ads_index_section">
       <% @ads.each do |ad| %>
-            <div class="col-sm-6 col-md-3">
-              <div class="thumbnail">
-                  <span class='price' ><%= ad.price %>€</span>
-                    <%# link_to ad_image( ad.ad_images.first ), ad %>
-                    <%= image_tag ad.ad_images.first.image(:ad_size) %>
-                    <% if !ad.category.blank? %>
-                      <div class="caption">
-                          <% if ad.category.nil? %>
-                            <span class="label" style="background-color: #888888">Desconhecido
-                          <% else %>
-                            <span class="label" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>
-                          <% end %>
-                          </span>
-                    <% end %>
 
-                      <h4><%= link_to ad.title, ad %></h4>
-                      <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
+         <div class="col-md-4">
+                <div class="panel">
+                    <div class="ads_index_img">
+                       <div class="thumbnail">
+                              <span class='price' ><%= ad.price %>€</span>
+                              <div class="ads_index_img_pos">
+                      <%= link_to ad_image( ad.ad_images.first ), ad %>
                     </div>
-              </div>
-           </div>
+                      </div>
+                    </div>
+                  <div class="panel-body text-center">
+                    <% if !ad.category.blank? %>
+                                <div class="caption">
+                                  <% if ad.category.nil? %>
+                                          <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
+                                  <% else %>
+                                          <span class="label pro_title" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>  </span>
+                                  <% end %>
 
+                   <% end %>
+                                    <h4><%= link_to ad.title, ad %></h4>
+                                    <p><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></p>
+                              </div>
+                    </div>
+                </div>
+         </div>
         <% end %>
         <% if @ads.empty? %>
           Ainda não existem anuncios. Sê o primeiro a anunciar!
         <% end %>
     </div>
+
+
+
+
+

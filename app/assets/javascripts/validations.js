@@ -34,7 +34,7 @@ ready = function() {
       "user[city_id]": { required: true },
       "user[password]": {minlength: 5, maxlength: 15, required: true },
       "user[password_confirmation]": { minlength: 5, maxlength: 15, required: true },
-      "user[birthday]": {date: true, required: true },
+      "user[birthday]": {accept: "[\\d]{1}/[\\d]{2}/[\\d]{4}", required: true },
       "user[phone]": { telefone: true }
     },
     messages: {
@@ -237,22 +237,6 @@ ready = function() {
 // por causa do turboLink
 $(document).ready(ready);
 $(document).on('page:load', ready);
-
-
-function showNotify(text_noti,type_noti) {
-  $(function() {
-    $.pnotify({
-        text: text_noti,
-        history: false,
-        type: type_noti,
-        delay: 2000,
-        icon: true,
-        closer: true,
-        closer_hover: true,
-        styling: 'bootstrap'
-    });
-  });
-}
 
 
 
