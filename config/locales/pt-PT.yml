@@ -1,9 +1,9 @@
 # Versão pt
 
-pt:
+pt-PT:
   hello: "Olá mundo"
 
-pt:
+pt-PT:
   time:
     formats:
       default: "%d/%m/%Y"
