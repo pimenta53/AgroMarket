@@ -49,7 +49,7 @@
         <div class="control-group">
           <%= f.label :birthday, "Data de Nascimento",:class=>"control-label" %>
           <div class="controls">
-            <%= f.text_field :birthday, :placeholder=>"mm/dd/yyyy", :class=> "datepicker form-control" %>
+            <%= f.text_field :birthday, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
           </div>
         </div>
 
@@ -77,11 +77,20 @@
   </div>
 
 <script type="text/javascript">
+    var currentTime = new Date()  ;
+    var month = currentTime.getMonth() + 1   ;
+    var day = currentTime.getDate() ;
+    var year = currentTime.getFullYear() ;
+
     $('.datepicker').datepicker({
         todayBtn: true,
+        startView: 2,
+        format: "dd/mm/yyyy",
         language: "pt",
         autoclose: true,
         todayHighlight: true,
-        calendarWeeks: true
+        calendarWeeks: true,
+        startDate: day + "/" + month + "/" + (year - 100),
+        endDate: day + "/" + month + "/" + (year - 13)
     })
 </script>
