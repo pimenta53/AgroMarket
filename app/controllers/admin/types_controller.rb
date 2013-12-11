@@ -1,3 +1,4 @@
+#encoding: utf-8
 class  Admin::TypesController <  Admin::ApplicationController
   layout "admin"
   before_action :set_type, only: [:show, :edit, :update, :destroy]

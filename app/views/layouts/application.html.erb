@@ -34,9 +34,15 @@
 
                 <div class="col-sm-1"></div>
                 <div class="col-md-3 col-lg-3 col-sm-11 col-sx-12" style="padding-right:15px;padding-left:0px">
-                  <%= render "layouts/sidebar_right_featured" %>
-
-                    <%= render "layouts/sidebar_right_ad" %>
+                  
+                    
+                      <%  if academy? %>
+                        <%= render "layouts/search_bar_academy" %>
+                      <%  else %>
+                        <%= render "layouts/sidebar_right_featured" %>
+                        <%= render "layouts/sidebar_right_ad" %>
+                      <% end %>
+                    
                   
                 </div>
               </div>

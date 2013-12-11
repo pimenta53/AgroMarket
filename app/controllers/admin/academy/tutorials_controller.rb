@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Admin::Academy::TutorialsController < ApplicationController
 	layout "admin"
 	before_action :set_academy_tutorial, only: [:show, :edit, :update, :destroy]

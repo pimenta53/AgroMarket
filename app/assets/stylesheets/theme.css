@@ -544,5 +544,10 @@ legend+.control-group{margin-top:18px;-webkit-margin-top-collapse:separate;}
 
 
 /************* THUMBS for answers**********/
+.up_vote {color:green;}
+.down_vote {color:red;}
 
+.border-header {
+border-color: #eff2f7;
+}
 

@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Admin::AdsController < Admin::ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
   before_action :load_stuff_ads, only: [:new,:create,:show,:edit,:update]
