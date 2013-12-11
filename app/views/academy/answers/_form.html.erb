@@ -22,11 +22,13 @@
             <%= f.hidden_field :question_id, :value => question.id %>
             <%= f.hidden_field :user_id, :value => current_user.id %>
 
-            <div class="field">
-            <%= f.text_area :text,:id => "text_comment",:rows=>5,:class=> "form-control counted" ,:placeholder => "Type in your message"%>
-            </div>
+              <div class="control-group">
+                <div class="controls">
+                  <%= f.text_area :text,:id=>"text_comment",:rows=>5,:placeholder => "Escreva a sua resposta aqui..." ,:class=>"form-control counted",:rel=>"tooltip",:title=>"Responda de forma clara e sucinta." %>
+                </div>
+              </div>
 
-            <div class="actions">
+            <div class="actions" style="float:right">
               <%= f.submit "Responder", :class => "btn btn-info" %>
             </div>
 

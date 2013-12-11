@@ -129,8 +129,26 @@ ready = function() {
 
   });
 
+    /*****        NEW ANSWER                */
+    $('#academy_answer').validate({
+        errorElement: 'label',
+        errorClass: 'help-inline',
+        rules: {
+            "academy_answer[text]": { minlength: 2, maxlength: 255, required: true }
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+        },
+        success: function(element) {
+            element
+                .addClass('valid')
+                .closest('.control-group').removeClass('error').addClass('success');
+        }
 
-  /*****        NEW AD                             */
+    });
+
+
+    /*****        NEW AD                             */
   $('#ad-form').validate({
     errorElement: 'label',
     errorClass: 'help-inline',
