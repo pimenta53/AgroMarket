@@ -34,7 +34,7 @@ ready = function() {
       "user[city_id]": { required: true },
       "user[password]": {minlength: 5, maxlength: 15, required: true },
       "user[password_confirmation]": { minlength: 5, maxlength: 15, required: true },
-      "user[birthday]": {date: true, required: true },
+      "user[birthday]": {accept: "[\\d]{1}/[\\d]{2}/[\\d]{4}", required: true },
       "user[phone]": { telefone: true }
     },
     messages: {
@@ -208,7 +208,7 @@ ready = function() {
   //VAlidar um nº de telefone com 9 digitos
   jQuery.validator.addMethod("telefone", function(phone_number, element) {
       phone_number = phone_number.replace(/\s+/g, "");
-      return ((this.optional(element) || phone_number.length == 9 ) && $.isNumeric(phone_number) || phone_number.len) ;
+      return ((this.optional(element) || phone_number.length == 9 ) && $.isNumeric(phone_number) || phone_number.length == 0) ;
   }, "Introduza um telefone válido!");
 
   jQuery.extend(jQuery.validator.messages, {
