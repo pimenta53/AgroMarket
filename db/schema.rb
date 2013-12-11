@@ -11,84 +11,100 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131127132046) do
+ActiveRecord::Schema.define(version: 20131211223006) do
 
   create_table "academy_answers", force: true do |t|
-    t.integer  "question_id",                 null: false
-    t.integer  "user_id",                     null: false
-    t.integer  "up",          default: 0
-    t.integer  "down",        default: 0
-    t.boolean  "is_deleted",  default: false
-    t.text     "text"
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.integer  "up"
+    t.integer  "down"
+    t.integer  "is_deleted"
+    t.string   "image_url"
+    t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "academy_questions", force: true do |t|
-    t.integer  "user_id",                     null: false
-    t.integer  "category_id",                 null: false
-    t.string   "title",                       null: false
-    t.text     "text"
-    t.boolean  "is_deleted",  default: false
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "title"
+    t.string   "text"
+    t.integer  "is_deleted"
+    t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "academy_tutorial_images", force: true do |t|
-    t.integer  "tutorial_id",                 null: false
+    t.integer  "tutorial_id"
     t.string   "url"
-    t.boolean  "is_deleted",  default: false
+    t.integer  "is_deleted"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "academy_tutorials", force: true do |t|
-    t.integer  "category_id",                       null: false
-    t.integer  "user_id",                           null: false
-    t.boolean  "aproved",           default: false
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.integer  "aproved",           default: 0
     t.string   "title"
     t.text     "text"
-    t.boolean  "is_deleted",        default: false
-    t.string   "rapid_description"
+    t.integer  "is_delected"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "rapid_description"
   end
 
   create_table "academy_votes", force: true do |t|
     t.integer  "vote"
-    t.integer  "user_id",    null: false
-    t.integer  "answer_id",  null: false
+    t.integer  "user_id"
+    t.integer  "answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "academy_workshop_registrations", force: true do |t|
-    t.integer  "workshop_id",                 null: false
-    t.integer  "user_id",                     null: false
-    t.boolean  "is_deleted",  default: false
+    t.integer  "workshop_id"
+    t.integer  "user_id"
+    t.integer  "is_deleted"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "academy_workshops", force: true do |t|
-    t.integer  "user_id",                               null: false
+    t.integer  "user_id"
     t.integer  "available_slots"
     t.integer  "slots_taken"
     t.float    "price"
     t.string   "local"
     t.datetime "date"
     t.string   "description"
-    t.boolean  "is_deleted",            default: false
+    t.integer  "is_delected"
     t.integer  "requires_registration"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "ad_images", force: true do |t|
-    t.integer  "ad_id",              null: false
+    t.integer  "ad_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
+  end
+
+  create_table "admin_testes", force: true do |t|
+    t.integer  "coisas"
+    t.string   "coisas2"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "admin_tests", force: true do |t|
+    t.integer  "coisas"
+    t.string   "coisas2"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -99,16 +115,16 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.float    "price"
     t.datetime "expire_date"
     t.string   "location"
-    t.integer  "type_price_id",                  null: false
-    t.integer  "city_id",                        null: false
-    t.integer  "user_id",                        null: false
-    t.string   "permanent_link"
-    t.integer  "page_views",     default: 0
-    t.integer  "category_id",                    null: false
-    t.boolean  "is_deleted",     default: false
-    t.boolean  "is_active",      default: false
+    t.integer  "type_price_id"
+    t.integer  "city_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "permanent_link"
+    t.integer  "category_id",                null: false
+    t.integer  "page_views",     default: 0
+    t.boolean  "is_deleted"
+    t.boolean  "is_active"
   end
 
   create_table "authentications", force: true do |t|
@@ -124,9 +140,9 @@ ActiveRecord::Schema.define(version: 20131127132046) do
   create_table "categories", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "color"
   end
 
   create_table "cities", force: true do |t|
@@ -176,6 +192,11 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.datetime "updated_at"
   end
 
+  create_table "testes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "types", force: true do |t|
     t.string   "name"
     t.integer  "flag"
@@ -204,16 +225,17 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.datetime "birthday"
+    t.string   "phone"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "name"
-    t.datetime "birthday"
-    t.string   "phone"
     t.integer  "city_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
