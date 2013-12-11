@@ -2,7 +2,7 @@ module AdsHelper
 
 	def first_image( image )
 		 if !image.blank?
-             image_tag image.image(:small) ,:style => "width: 66%; height: 40%;", :alt => "200x100"
+             image_tag image.image(:small) ,:style => "width: 66q%; height: 40%;", :alt => "200x100"
          else
          	 image_tag "http://placehold.it/200x100" ,:style => "width: 66%; height: 40%;", :alt => "200x100"
          end
@@ -11,7 +11,7 @@ module AdsHelper
 
 	def ad_image( image )
 		 if !image.blank?
-             image_tag image.image(:small) , :style => "width: 100%; height: 100%;", :alt => "300x200"
+             image_tag image.image(:ad_size) , :style => "width: 100%; height: 100%;", :alt => "300x200"
          else
          	 image_tag "http://placehold.it/200x150" ,:style => "width: 100%; height: 100%;", :alt => "200x150"
          end
