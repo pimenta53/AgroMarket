@@ -109,6 +109,27 @@ ready = function() {
 
   });
 
+  /*****        NEW QUESTION                */
+  $('#question_form').validate({
+        errorElement: 'label',
+        errorClass: 'help-inline',
+        rules: {
+            "academy_question[category_id]": {required: true},
+            "academy_question[title]": {minlength: 2, maxlength: 50, required: true },
+            "academy_question[text]": { minlength: 5, maxlength: 255, required: true }
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+        },
+        success: function(element) {
+            element
+                .addClass('valid')
+                .closest('.control-group').removeClass('error').addClass('success');
+        }
+
+  });
+
+
   /*****        NEW AD                             */
   $('#ad-form').validate({
     errorElement: 'label',
@@ -146,59 +167,6 @@ ready = function() {
               .closest('.control-group').removeClass('error').addClass('success');
       }
   });
-
-
-  /*****
-  * New AD ADmin zone    (pq é que nao se usa a mesma validação do new ad ?)
-  */
-
-  $('#new_ad').validate({
-    errorElement: 'label',
-    errorClass: 'help-inline',
-    rules: {
-
-      "ad[category_id]": {
-        required: true
-      },
-      "ad[title]": {
-        minlength: 2,
-        required: true
-      },
-      "ad[description]": {
-        required: true,
-      },
-      "ad[price]": {
-        minlength: 2,
-        number: true,
-        required: true
-      },
-      "ad[expire_date]": {
-        date: true,
-        required: true
-      },
-      "ad[location]": {
-        required: true
-      },
-      "ad[type_price_id]": {
-
-        required: true
-      },
-      "ad[city_id]": {
-
-        required: true
-      }
-    },
-    highlight: function(element) {
-      $(element).closest('.control-group').removeClass('success').addClass('error');
-    },
-    success: function(element) {
-      element
-      .addClass('valid')
-      .closest('.control-group').removeClass('error').addClass('success');
-    }
-   });
-
-
 
   //serve para validar select boxes
   jQuery.validator.addMethod('selectcheck', function (value) {
