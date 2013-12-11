@@ -291,10 +291,12 @@ color:  #293a49;
 
 #painelAnuncios{
   list-style-type: none;
-
-
 }
 
+.h4{
+  margin-bottom: 25px;
+  
+}
 
 /******THUMBNAILS**********/
 

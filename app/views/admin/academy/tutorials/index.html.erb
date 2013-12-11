@@ -1,0 +1,46 @@
+<h1>Tutoriais por aprovar</h1>
+
+<table class="table">
+	<tr>
+		<th>Autor</th>
+		<th>Título</th>
+		<th>Rapid_Description</th>
+		<th>Ver</th>
+		<th>Aprovar</th>
+	</tr>
+	<% @aproved_tutorials.each do |ap_tutorials| %>
+		<% if ap_tutorials.aproved == 0 %>
+			<tr>
+				<td><%= ap_tutorials.user.name %></td>
+				<td><%= ap_tutorials.title %></td>
+				<td><%= ap_tutorials.rapid_description %></td>
+				<td><%= link_to 'Ver', admin_academy_tutorial_path(ap_tutorials.id) %> </td>
+				<td><%= link_to 'Aprovar' , admin_aprove_tutorial_path(:id_aprove => ap_tutorials.id)%></td>
+			</tr>
+		<% end %>
+	<% end %>
+</table>
+
+
+<h1>Tutoriais aprovados</h1>
+
+<table class="table">
+	<tr>
+		<th>Autor</th>
+		<th>Título</th>
+		<th>Rapid_Description</th>
+		<th>Ver</th>
+		<th>Editar</th>
+	</tr>
+	<% @aproved_tutorials.each do |ap_tutorials| %>
+		<% if ap_tutorials.aproved == 1 %>
+			<tr>
+				<td><%= ap_tutorials.user.name %></td>
+				<td><%= ap_tutorials.title %></td>
+				<td><%= ap_tutorials.rapid_description %></td>
+				<td><%= link_to 'Ver', admin_academy_tutorial_path(ap_tutorials.id) %> </td>
+				<td>EDITAR</td>
+			</tr>
+		<% end %>
+	<% end %>
+</table>

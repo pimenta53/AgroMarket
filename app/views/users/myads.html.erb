@@ -1,19 +1,8 @@
-<!--<div class="panel panel-default">
-  <div class="panel-heading">
-    <% if @user.id == current_user.id %>
-        <h3 class="panel-title">Os meus anúncios</h3>
-    <% else %>
-        <h3 class="panel-title">Anúncios de <%= @user.name %></h3>
-    <% end %>
-  </div>-->
 
   <ol class="breadcrumb" id="breadcrumbAds">
               <li class="active"><a href="<%= myads_user_path(current_user.id) %>"><i class="fa fa-tags"></i> Os meus anúncios</a></li>
  </ol>
 
-  <!--<div class="panel-body">
-      <div class="row">
-        <ul class="thumbnails">-->
   <div class="row ads_index_section">
     <% @ads.each do |ad| %>
 
@@ -40,40 +29,16 @@
               </div>
             <% end %>
             <h4><%= link_to ad.title, ad %></h4>
-            <p><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></p>
+            <div style="height:50px"><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></div>
           </div>
 
-
-            <!--<div class="thumbnail" id="thumbnail_ad" style="padding: 0">
-              <span class='price' ><%= ad.price %>€</span>
-              <div style="padding:4px" >
-                <%= link_to ad_image( ad.ad_images.first ), ad %>
-
-
-                <% if !ad.category.blank? %>
-                  <div class="caption">
-                    <% if ad.category.nil? %>
-                      <span class="label" style="background-color: #888888">
-
-                    <% else %>
-                      <span class="label" style="background-color: #<%= ad.category.color %>">
-                      <%= ad.category.name %>
-                    <% end %>
-                    </span>
-                <% end %>
-
-                <h2><%= link_to ad.title, ad %></h2>
-                <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
-                </div>
-              </div>
-            </div>-->
           </div>
         </li>
       <% end %>
     <% end %>
 
   </div>
-<!--</div>-->
+  
   <!-- O link para criar novos ads só existirá se for a página do próprio utilizador -->
   <% if @user.id == current_user.id %>
     <%= link_to "Novo", new_ad_path %>

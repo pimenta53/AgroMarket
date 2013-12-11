@@ -32,9 +32,16 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav sidebar_nav_admin">
 
-
-            <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-legal"></i>Anúncios</a>
+            <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-quote-left"></i>Tutoriais</a>
             <ul id="legal-menu" class="nav nav-list collapse">
+                <li> 
+                 <%= link_to "<i class='fa fa-eye'></i>Ver tutoriais".html_safe  , admin_academy_tutorials_path %>
+                </li>
+            </ul>
+
+
+            <a href="#ads_menu" class="nav-header" data-toggle="collapse"><i class="fa fa-legal"></i>Anúncios</a>
+            <ul id="ads_menu" class="nav nav-list collapse">
                 <li> 
                  <%= link_to "<i class='fa fa-eye'></i>Anuncios".html_safe  , admin_ads_path %>
                 </li>
@@ -131,6 +138,12 @@
         </div><!-- /.navbar-collapse -->
       </nav>
 
+      <% if flash[:notice] %>
+        <script> showNotify("<%= flash[:notice] %>","success") </script>
+      <% end %>
+      <% if flash[:error] %>
+        <script> showNotify("<%= flash[:error] %>","error") </script>
+      <% end %>
       <div id="page-wrapper">
 
         <div class="row">

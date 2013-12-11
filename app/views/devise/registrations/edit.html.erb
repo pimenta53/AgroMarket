@@ -26,7 +26,7 @@
                                   <div class="form-group">
                                       <label class="col-lg-2 control-label">Data de Nascimento</label>
                                       <div class="col-lg-6">
-                                          <%= f.text_field :birthday, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
+                                          <%= f.text_field :birthday, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control", :value => I18n.localize(current_user.birthday) if current_user.birthday %>
                                           <!--<%= f.text_field :birthday, :label => "Date",  :class => ['datepicker','form-control'] %>-->
                                       </div>
                                   </div>
