@@ -9,3 +9,9 @@
     <%= link_to "Registar", new_user_registration_path%>
 </div>
 </nav>
+<% if flash[:notice] %>
+  <script> showNotify("<%= flash[:notice] %>","success") </script>
+<% end %>
+<% if flash[:alert] %>
+  <script> showNotify("<%= flash[:alert] %>","info") </script>
+<% end %>
