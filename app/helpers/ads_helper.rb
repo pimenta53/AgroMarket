@@ -13,7 +13,7 @@ module AdsHelper
 		 if !image.blank?
              image_tag image.image(:ad_size) , :style => "width: 100%; height: 100%;", :alt => "300x200"
          else
-         	 image_tag "http://placehold.it/200x150" ,:style => "width: 100%; height: 100%;", :alt => "200x150"
+         	 image_tag "http://placehold.it/300x200" ,:style => "width: 100%; height: 100%;", :alt => "200x150"
          end
 	end
 end
