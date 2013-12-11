@@ -2,8 +2,9 @@ var ready;
 ready = function() {
 
 	
-
-
+  /**tooltips **/
+  $('[rel="tooltip"]').tooltip({'placement': 'top'});
+  
   //previne o dropdown que feche ao clicar nele
   //This will prevent the event from bubbling up and close the dropdown when you type/click on text boxes.
   $('.dropdown-menu input').click(function(e) {

@@ -14,10 +14,11 @@
     <div class="row" style="margin-right: -15px;">
 
       <% @ads.each do |ad| %>
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-3">
               <div class="thumbnail">
                   <span class='price' ><%= ad.price %>€</span>
-                    <%= link_to ad_image( ad.ad_images.first ), ad %>
+                    <%# link_to ad_image( ad.ad_images.first ), ad %>
+                    <%= image_tag ad.ad_images.first.image(:ad_size) %>
                     <% if !ad.category.blank? %>
                       <div class="caption">
                           <% if ad.category.nil? %>
