@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Admin::UsersController < Admin::ApplicationController
   before_action :set_admin_user, only: [:show, :edit, :update, :destroy]
   before_action :load_stuff_ads, only: [:new,:create,:show,:edit,:update]

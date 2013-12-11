@@ -18,4 +18,11 @@ module Academy::AnswersHelper
 
 		return r
 	end
+
+	#verifica se resposta pertence ao current_user
+	def is_mine?( user_id )
+		if user_id == current_user.id
+			return "panel-info"
+		end
+	end
 end

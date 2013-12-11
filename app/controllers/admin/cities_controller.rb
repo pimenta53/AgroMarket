@@ -1,3 +1,4 @@
+#encoding: utf-8
 class  Admin::CitiesController <  Admin::ApplicationController
   layout "admin"
   before_action :set_city, only: [:show, :edit, :update, :destroy]
