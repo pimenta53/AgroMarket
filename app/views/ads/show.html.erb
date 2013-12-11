@@ -191,7 +191,8 @@
   </div>
 
 </section>
-<section class="panel">
+
+<section class="panel" style="background-color: rgba(255, 255, 255, 0);">
        <header class="header header_tab">
         <ul class="nav nav-tabs">
                 <li class="active">
@@ -217,57 +218,72 @@
          <div class="tab-content tasi-tab">
                 <!-- produtos relacionados -->
                 <div id="related" class="tab-pane active">
-
+                  <div class="row ads_index_section">
                     <% @related_ads.each do |ad| %>
-                        <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>" style="list-style-type: none;">
-                            <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
-                              <span class='price' ><%= ad.price %>€</span>
-                              <div style="padding:4px" >
-                                <%= link_to ad_image( ad.ad_images.first ), ad %>
-                                <% if !ad.category.blank? %>
-                                  <div class="caption">
-                                    <% if ad.category.nil? %>
-                                      <span class="label" style="background-color: #888888">Desconhecido
-                                    <% else %>
-                                      <span class="label" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>
-                                    <% end %>
-                                      </span>
-                                <% end %>
-                                    <h2><%= link_to ad.title, ad %></h2>
-                                    <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
+                      <div class="col-sm-6 col-md-3">
+                        <!-- <li class="col-sm-6 col-md-3 thing <%= ad.category.name %>" id="painelAnuncios">-->
+                          <div class="panel">
+                            <div class="ads_index_img">
+                              <div class="thumbnail">
+                                <span class='price' ><%= ad.price %>€</span>
+                                  <div >
+                                    <%= link_to ad_image( ad.ad_images.first ), ad %>
                                   </div>
                               </div>
                             </div>
-                          </li>
+                            <div class="panel-body text-center">
+                              <% if !ad.category.blank? %>
+                                <div class="caption">
+                                  <% if ad.category.nil? %>
+                                          <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
+                                  <% else %>
+                                          <span class="label pro_title" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>  </span>
+                                  <% end %>
+                                </div>
+                              <% end %>
+                              <h4><%= link_to ad.title, ad %></h4>
+                              <p><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></p>
+                            </div>
+                          </div>
+                        </div>
                     <% end %>
+                  </div>
                 </div>
 
                 <!-- ultimos visitados -->
                 <div id="last_viewed" class="tab-pane">
 
-
-                   <div class="row">
+                  <div class="row ads_index_section">
                     <% @last_viewed.each do |ad| %>
-                      <div class="col-sm-3 col-md-3">
-                        <div class="thumbnail">
-                                <span class='price' ><%= ad.price %>€</span>
+                      <div class="col-sm-6 col-md-3">
+                        <div class="panel">
+                          <div class="ads_index_img">
+                            <div class="thumbnail">
+                              <span class='price' ><%= ad.price %>€</span>
+                                <div >
                                   <%= link_to ad_image( ad.ad_images.first ), ad %>
-                                    <div class="caption">
-                                        <% if ad.category.nil? %>
-                                          <span class="label" style="background-color: #888888">Desconhecido
-                                        <% else %>
-                                          <span class="label" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>
-                                        <% end %>
-                                        </span>
-
-                                    <h4><%= link_to ad.title, ad %></h4>
-                                    <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
-                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="panel-body text-center">
+                            <% if !ad.category.blank? %>
+                              <div class="caption">
+                                <% if ad.category.nil? %>
+                                        <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
+                                <% else %>
+                                        <span class="label pro_title" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>  </span>
+                                <% end %>
+                              </div>
+                            <% end %>
+                            <h4><%= link_to ad.title, ad %></h4>
+                            <p><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></p>
                           </div>
                         </div>
-
-                      <% end %>
-                  </div><!--close row -->
+                      
+                      </div>
+                    <% end %>
+                  </div>  
+                  <!-- </div> -->
                 </div>
 
                 <!-- reviews -->
