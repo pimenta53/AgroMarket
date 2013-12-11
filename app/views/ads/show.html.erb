@@ -265,16 +265,19 @@
                 <div id="reviews" class="tab-pane">
                 <% @reviews_user.each do |review| %>
                     <article class="media">
-                        <a class="pull-left thumb p-thumb">
-                            <!--img src="http://placehold.it/50x50"-->
-                            <%=  image_tag(review.rater.avatar.url(:small))%>
-                        </a>
+                        <p class="pull-left thumb p-thumb">
+                        <%=link_to image_tag(review.rater.avatar.url(:small)), user_path(review.rater)%>
+                        </p>
                         <div class="media-body">
-                            <a href="#" class="cmt-head"><%= review.comment %></a>
-                            <p> <i class="fa fa-clock-o"></i> 1 hours ago</p>
+                            <b class="cmt-head"><%= review.comment %></b>
+                            <p> <i class="fa fa-clock-o"></i><abbr class="timeago" title="<%= review.created_at.getutc.iso8601 %>"> <%= review.created_at.to_s %> </abbr></p>
                         </div>
                     </article>
                     <% end %>
+                    <% if @reviews_user.empty? %>
+                    <p> Não existem reviews para este utilizador </p>
+                    <% end %>
+
             </div>
        </div>
 </section>
