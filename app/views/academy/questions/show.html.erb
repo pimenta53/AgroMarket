@@ -1,49 +1,9 @@
 
-
-<div class="col-lg-12">
-  <section class="panel">
-    <header class="panel-heading">
-      <div class="pull-right">
-
-        <%##  botão verde com um certo  ##%>
-        <%= link_to '<i class="icon-ok"></i>'.html_safe , "#", :class => "btn btn-success btn-xs" %>
-
-        <%##  botão verde com um lapis para editar a pergunta  ##%>
-        <%= link_to '<i class="icon-pencil"></i>'.html_safe , edit_academy_question_path(@academy_question), :class => "btn btn-primary btn-xs" if @academy_question.user.id == current_user.id %>
-
-        <%##  botão vermelho com um caixote para eliminar a pergunta  ##%>
-        <%= link_to '<i class="icon-trash"></i>'.html_safe, @academy_question, method: :delete, :class => "btn btn-danger btn-xs" if @academy_question.user.id == current_user.id %>
-
-      </div>
-
-      <div class="" >
-        <h3> <%= @academy_question.title %> </h3>
-      </div>
-    </header>
-
-    <div class="panel-body">
-      <div class="col-xs-2 col-md-2"><%##  Avatar do user que fez a pergunta  ##%>
-        <%= image_tag @academy_question.user.avatar.url(:medium),:width => "70%",:class => "img-circle" %>
-      </div>
-
-      <div class="col-xs-9 col-md-10 ">
-        <%= @academy_question.text %><%##  texto da pergunta  ##%>
-        <br/>os botões de edit e eliminar não estão direitos
-        <p>
-          <strong>Image url:</strong>
-          <%= @academy_question.image_url %>
-        </p>
-      </div>
-
-      <span class="label pull-right" style="background-color: #<%= @academy_question.category.color %>">
-      <%= @academy_question.category.name %>
-      </span>
-    </div>
-
-  </section>
-</div>
+<%#  render da questão feita  %>
+<%= render 'question' %>
 
 <%#  Display all the answers  %>
+<%#  needed to load the new answers without the need to reload  %>
 <div id="answers">
   <%= render @academy_question.answers %>
 </div>
@@ -63,4 +23,4 @@
 <% end %>
 
 <%#= link_to 'Edit', edit_academy_question_path(@academy_question) %>
-<%= link_to 'Back', academy_questions_path %>
+<%= link_to 'Voltar', academy_questions_path %>

@@ -219,7 +219,7 @@
                 <div id="related" class="tab-pane active">
 
                     <% @related_ads.each do |ad| %>
-                        <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
+                        <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>" style="list-style-type: none;">
                             <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
                               <span class='price' ><%= ad.price %>€</span>
                               <div style="padding:4px" >
