@@ -1,7 +1,12 @@
 var ready;
 ready = function() {
 
-	
+	/**Nao deixa que o utilizador vote novamente numa pergunta **/
+  $('.vote_done').click(function(e) {
+      alert("Já votou nesta pergunta!!")
+        e.stopPropagation(); 
+        return false;
+  });
   /**tooltips **/
   $('[rel="tooltip"]').tooltip({'placement': 'top'});
   

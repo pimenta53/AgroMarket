@@ -6,7 +6,7 @@ class Academy::VotesController < ApplicationController
   def up_vote
     answer = Academy::Answer.find(params[:answer])
     vote = Academy::Vote.where(:user_id => current_user.id, :answer_id => answer.id)
-
+    
     if vote.empty?
       answer.vote_up
       vote = Academy::Vote.new(:vote => 1, :user_id => current_user.id, :answer_id => answer.id)
@@ -20,7 +20,7 @@ class Academy::VotesController < ApplicationController
 
   def down_vote
     answer = Academy::Answer.find(params[:answer])
-
+    
     vote = Academy::Vote.where(:user_id => current_user.id, :answer_id => answer.id)
 
     if vote.empty?

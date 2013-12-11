@@ -4,7 +4,7 @@ class Academy::QuestionsController < ApplicationController
   # GET /academy/questions
   # GET /academy/questions.json
   def index
-    @academy_questions = Academy::Question.all.where(:is_deleted => false)
+    @academy_questions = Academy::Question.all#.where(:is_deleted => false)
   end
 
   # GET /academy/questions/1
@@ -12,6 +12,7 @@ class Academy::QuestionsController < ApplicationController
   def show
     #@answers = Academy::Answer.where(:question_id => @academy_question.id)
     @academy_answer = Academy::Answer.new
+    @best_answer = Academy::Answer.best_answer
   end
 
   # GET /academy/questions/new
