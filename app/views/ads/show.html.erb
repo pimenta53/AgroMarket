@@ -270,8 +270,10 @@
                         </p>
                         <div class="media-body">
                             <b class="cmt-head"><%= review.comment %></b>
+                            <p>Classificação : <%= review.rate %></p>
                             <p> <i class="fa fa-clock-o"></i><abbr class="timeago" title="<%= review.created_at.getutc.iso8601 %>"> <%= review.created_at.to_s %> </abbr></p>
                         </div>
+
                     </article>
                     <% end %>
                     <% if @reviews_user.empty? %>
