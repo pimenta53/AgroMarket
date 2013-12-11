@@ -156,7 +156,7 @@ ready = function() {
       "ad[category_id]": { required: true },
       "ad[title]": {minlength: 2, maxlength: 50, required: true },
       "ad[description]": { minlength: 5, maxlength: 255, required: true },
-      "ad[price]": { min: 0, minlength: 1, maxlength: 6, number: true, required: true },
+      "ad[price]": { min: 0, maxlength: 6, number: true, required: true },
       "ad[expire_date]": { date: true, required: true },
       "ad[location]": { minlength:2, maxlength: 255, required: true },
       "ad[type_price_id]": { required: true },
