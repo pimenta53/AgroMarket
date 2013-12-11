@@ -24,9 +24,19 @@
                
                <div><%= f.submit "Iniciar Sessão", :class=>"btn btn-lg btn-primary btn-block" %></div>
 
-                <% if @user.errors.any? %>
-                  <%= render "layouts/error_message" %>
-                <% end %>
+            <% if flash[:notice] || flash[:alert]  %>
+              <div id="error_explanation">
+                <h2>Os seguintes erros impediram o envio do formulário:</h2>
+                <ul>
+                  <% if flash[:notice] %>
+                      <li><%= flash[:notice] %> </li>
+                  <% end %>
+                  <% if flash[:alert] %>
+                      <li><%= flash[:alert] %> </li>
+                  <% end %>
+                </ul>
+              </div>
+              <% end %>
 
                <% if devise_mapping.rememberable? -%>
                    <div>

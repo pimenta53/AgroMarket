@@ -3,10 +3,9 @@
   <div class="panel-body">
 
 <% if user_signed_in? %>
-
-<div style="text-align: center">
+    <div class="col-md-12 col-lg-12 col-xs-4 col-sm-8">
       <% if current_user.avatar.url != nil %>
-      <%= image_tag current_user.avatar.url(:medium),:width => "70%",:class => "img-circle" %>
+      <%= image_tag current_user.avatar.url(:medium),:width => "50%",:class => "img-circle" %>
       <% else %>
 
       <% end %>
@@ -14,127 +13,120 @@
     <div class="row" style="margin-bottom:5px">
       <div class="col-md-8"><strong> <%= current_user.name  %></strong></div>
     </div>
-
-
 <% end -%>
+
+  </div>
+</div>
 
   <div class="panel-group" id="accordion">
 
+    <!-- MERCADO -->
     <% if user_signed_in? && (controller_name == 'ads' || (action_name=="myads")) %>
-
-  <!-- MERCADO -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseMercado">
-          Mercado
-        </a>
-      </h4>
-    </div>
-    <div id="collapseMercado" class="panel-collapse collapse in">
-      <div class="panel-body">
-        <ul>
-          <li><%= link_to "Ver Todos".html_safe , ads_path %></li>
-            <li><%= link_to "Os Meus Anúncios".html_safe , myads_user_path(current_user.id) %></li>
-            <li><%= link_to "Novo Anúncio".html_safe , new_ad_path %></li>
-        </ul>
+      <div class="panel panel-info">
+        <div class="panel-heading" style="background-color: #39b3d7">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseMercado">
+              Mercado
+            </a>
+          </h4>
+        </div>
+        <div id="collapseMercado" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul>
+              <li><%= link_to "Ver Todos".html_safe , ads_path %></li>
+                <li><%= link_to "Os Meus Anúncios".html_safe , myads_user_path(current_user.id) %></li>
+                <li><%= link_to "Novo Anúncio".html_safe , new_ad_path %></li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <% else %>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-          <%= link_to "Mercado".html_safe, ads_path %>
-      </h4>
-    </div>
-  </div>
-
-  <% end %>
-
-  <% if user_signed_in? %>
-
-  <!-- EVENTOS -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseEventos">
-          Eventos
-        </a>
-      </h4>
-    </div>
-    <div id="collapseEventos" class="panel-collapse collapse">
-      <div class="panel-body">
-        <ul>
-          <li><%= link_to "Ver Todos".html_safe, ads_path %></li>
-        <% if user_signed_in? %>
-            <li><%= link_to "Os Meus Eventos".html_safe, ads_path %></li>
-            <li><%= link_to "Novo Evento".html_safe, ads_path %></li>
-        <% end %>
-        </ul>
+      <% else %>
+      <div class="panel panel-info">
+        <div class="panel-heading" style="background-color: #39b3d7">
+          <h4 class="panel-title">
+              <%= link_to "Mercado".html_safe, ads_path %>
+          </h4>
+        </div>
       </div>
-    </div>
-  </div>
+      <% end %>
 
-  <% else %>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-          <%= link_to "Eventos".html_safe, ads_path %>
-      </h4>
-    </div>
-  </div>
-
-  <% end %>
-
-  <% if user_signed_in? && controller_name=="academy" %>
-
-  <!-- ACADEMIA -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseAcademia">
-          Academia
-        </a>
-      </h4>
-    </div>
-    <div id="collapseAcademia" class="panel-collapse collapse in">
-      <div class="panel-body">
-        <ul>
-        <li><%= link_to "Entrar na Academia".html_safe, academy_path %></li>
-        <li><%= link_to "Perguntas".html_safe, academy_questions_path %></li>
-        <li><%= link_to "Tutoriais".html_safe, academy_tutorials_path%></li>
-        <li><%= link_to "  Criar Tutorial".html_safe, new_academy_tutorial_path%></li>
-        <li><%= link_to "workshops".html_safe, ads_path %></li>
-        </ul>
+    <!-- EVENTOS -->
+    <% if user_signed_in? %>
+      <div class="panel panel-warning">
+        <div class="panel-heading" style="background-color: #ed9c28">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseEventos">
+              Eventos
+            </a>
+          </h4>
+        </div>
+        <div id="collapseEventos" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul>
+              <li><%= link_to "Ver Todos".html_safe, ads_path %></li>
+            <% if user_signed_in? %>
+                <li><%= link_to "Os Meus Eventos".html_safe, ads_path %></li>
+                <li><%= link_to "Novo Evento".html_safe, ads_path %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+      <% else %>
+      <div class="panel panel-default">
+        <div class="panel-heading" style="background-color: #ed9c28">
+          <h4 class="panel-title">
+              <%= link_to "Eventos".html_safe, ads_path %>
+          </h4>
+        </div>
+      </div>
+      <% end %>
 
-  <% else %>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-          <%= link_to "Academia".html_safe, academy_path %>
-      </h4>
-    </div>
-  </div>
+      <!-- ACADEMIA -->
+      <% if user_signed_in? && controller_name=="academy" %>
+      <div class="panel panel-default">
+        <div class="panel-heading" style="background-color: #47a447;">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseAcademia">
+              Academia
+            </a>
+          </h4>
+        </div>
+        <div id="collapseAcademia" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul>
+            <li><%= link_to "Entrar na Academia".html_safe, academy_path %></li>
+            <li><%= link_to "Perguntas".html_safe, academy_questions_path %></li>
+            <li><%= link_to "Tutoriais".html_safe, academy_tutorials_path%></li>
+            <li><%= link_to "  Criar Tutorial".html_safe, new_academy_tutorial_path%></li>
+            <li><%= link_to "workshops".html_safe, ads_path %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <% else %>
+      <div class="panel panel-default">
+        <div class="panel-heading" style="background-color: #47a447;">
+          <h4 class="panel-title">
+              <%= link_to "Academia".html_safe, academy_path %>
+          </h4>
+        </div>
+      </div>
 
   <% end %>
 
 </div>
 
-  </div>
-</div>
+
 
 <!-- Admin Acess-->
 <% if user_signed_in? %>
 <div class="panel panel-default">
-  <div class="panel-body">
-    <div>
-        <a class="btn dropdown-toggle btn-danger" href="/admin/ads" style="width: 100%;">Danger-Zone</a>
-    </div>
+  <div class="panel-heading" style="background-color: #d2322d">
+    <h4 class="panel-title">
+      <a href="/admin/ads">Danger-Zone</a>
+    </h4>
   </div>
 </div>
 <% end %>
