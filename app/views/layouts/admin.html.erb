@@ -32,14 +32,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav sidebar_nav_admin">
 
-            <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-quote-left"></i>Tutoriais</a>
-            <ul id="legal-menu" class="nav nav-list collapse">
-                <li> 
-                 <%= link_to "<i class='fa fa-eye'></i>Ver tutoriais".html_safe  , admin_academy_tutorials_path %>
-                </li>
-            </ul>
-
-
+           
             <a href="#ads_menu" class="nav-header" data-toggle="collapse"><i class="fa fa-legal"></i>Anúncios</a>
             <ul id="ads_menu" class="nav nav-list collapse">
                 <li> 
@@ -85,7 +78,7 @@
             </ul>
 
 
-
+            <hr>
             <a href="#price_types-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-male"></i>Utilizadores</a>
             <ul id="price_types-menu" class="nav nav-list collapse">
                 <li> 
@@ -97,7 +90,16 @@
             </ul>
 
             <hr>
+        <!--ZONA DA ACADEMIA -->
+                 <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-quote-left"></i>Tutoriais</a>
+                  <ul id="legal-menu" class="nav nav-list collapse">
+                      <li> 
+                       <%= link_to "<i class='fa fa-eye'></i>Ver tutoriais".html_safe  , admin_academy_tutorials_path %>
+                      </li>
+                  </ul>
 
+            <hr>
+      <!-- FIM ZONA DA ACADEMIA -->
         
 
             <a href="/" class="nav-header" >
