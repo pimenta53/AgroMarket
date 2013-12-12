@@ -43,8 +43,10 @@
       <%###  end of answers votes  ###%> 
 
           <div class="pull-right">
+            
               <abbr class="timeago" title="<%= answer.created_at.getutc.iso8601 %>"> 
                 <%= answer.created_at.to_s %> 
+
               </abbr>
           </div>
        </div>

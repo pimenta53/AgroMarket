@@ -51,8 +51,8 @@
             </div>
 
             <%= m.hidden_field :user_id, :value => t.user_receiver(current_user.id),:readonly => true %>
-
-            <%= m.submit "Enviar" %>
+            
+            <%= m.submit "Enviar", :class => "btn btn-info" %>
           <% end %>
         </div>
       </div>
