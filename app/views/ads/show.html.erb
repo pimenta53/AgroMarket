@@ -219,26 +219,36 @@
                 <div id="related" class="tab-pane active">
 
                     <% @related_ads.each do |ad| %>
-                        <li class="col-sm-3 col-md-3 thing <%= ad.category.name %>">
-                            <div class="thumbnail" id="thumbnail_ad" style="padding: 0">
-                              <span class='price' ><%= ad.price %>€</span>
-                              <div style="padding:4px" >
-                                <%= link_to ad_image( ad.ad_images.first ), ad %>
-                                <% if !ad.category.blank? %>
-                                  <div class="caption">
-                                    <% if ad.category.nil? %>
-                                      <span class="label" style="background-color: #888888">Desconhecido
-                                    <% else %>
-                                      <span class="label" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>
-                                    <% end %>
-                                      </span>
-                                <% end %>
-                                    <h2><%= link_to ad.title, ad %></h2>
-                                    <p><i class="fa fa-map-marker"></i> <%= ad.city.city unless ad.city.blank? %></p>
+
+
+                     <div class="col-md-3 thumbnail">
+                            <div class="panel">
+                                <div class="ads_index_img">
+                                   <div class="thumbnail">
+                                          <span class='price' ><%= ad.price %>€</span>
+                                          <div class="ads_index_img_pos">
+                                            <%= link_to ad_image( ad.ad_images.first ), ad %>
+                                          </div>
                                   </div>
-                              </div>
+                                </div>
+                              <div class="panel-body text-center">
+                                <% if !ad.category.blank? %>
+                                            <div class="caption">
+                                              <% if ad.category.nil? %>
+                                                      <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
+                                              <% else %>
+                                                      <span class="label pro_title" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>  </span>
+                                              <% end %>
+
+                               <% end %>
+                                                <h4><%= link_to ad.title, ad %></h4>
+                                                <p><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></p>
+                                          </div>
+                                </div>
                             </div>
-                          </li>
+                   </div>
+
+
                     <% end %>
                 </div>
 
@@ -272,20 +282,21 @@
 
                 <!-- reviews -->
                 <% @reviews_user.each do |review| %>
-                <div id="reviews" class="tab-pane">
-                    <article class="media">
-                        <a class="pull-left thumb p-thumb">
-                            <!--img src="http://placehold.it/50x50"-->
-                            <%= image_tag @ad.user.avatar.url(:small)%>
+                      <div id="reviews" class="tab-pane">
+                          <article class="media">
+                              <a class="pull-left thumb p-thumb">
+                                  <!--img src="http://placehold.it/50x50"-->
+                                  <%= image_tag @ad.user.avatar.url(:small)%>
 
-                        </a>
-                        <div class="media-body">
-                            <a href="#" class="cmt-head"><%= review.comment %></a>
-                            <p> <i class="fa fa-clock-o"></i> 1 hours ago</p>
-                        </div>
-                    </article>
-                    <% end %>
-            </div>
+                              </a>
+                              <div class="media-body">
+                                  <a href="#" class="cmt-head"><%= review.comment %></a>
+                                  <p> <i class="fa fa-clock-o"></i> 1 hours ago</p>
+                              </div>
+                          </article>
+                      
+                    </div>
+              <% end %>
 
        </div>
 
@@ -316,11 +327,7 @@
 
 
 
-
-
-
-
-  <% if user_signed_in? && current_user.id == @ad.user_id %>
+<% if user_signed_in? && current_user.id == @ad.user_id %>
             <td ><i class="fa fa-exclamation-triangle"></i><%= link_to 'Eliminar Anúncio', @ad, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?s' } %></td>
               <% end %>
             </tr>
