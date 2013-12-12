@@ -1,38 +1,46 @@
-<%= form_for(@academy_question) do |f| %>
-
-  <% if @academy_question.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@academy_question.errors.count, "error") %> prohibited this academy_question from being saved:</h2>
-
-      <ul>
-      <% @academy_question.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@academy_question,:html => {:multipart => true,:id=>"question_form"}) do |f| %>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria') unless @categories.blank? %>
+    <div class="control-group">
+      <label class="control-label"> Categoria:</label>
+      <div class="controls">
+        <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria',:title=>"Selecione a categoria que melhor se enquadra a sua questão.") unless @categories.blank?%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :title, "Título:",:class=>"control-label" %>
+      <div class="controls">
+        <%= f.text_field :title,:placeholder => "Escreva a sua questão..." ,:class=>"form-control",:rel=>"tooltip",:title=>"Escreva de forma breve, clara e sucinta a sua questão." %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :text, "Descrição:",:class=>"control-label" %>
+      <div class="controls">
+        <%= f.text_area :text,:placeholder => "Defina a sua questão..." ,:class=>"form-control",:rel=>"tooltip",:title=>"Explique de forma clara e sucinta a sua questão." %>
+      </div>
+    </div>
+
+  <%#  butao de submit, tanto para editar como criar respetivamente  %>
+  <div class="actions" style="float:right">
+    <% if controller.action_name == "edit" %>
+      <%= f.submit "Editar pergunta", :class=>"btn btn-primary" %>
+    <% else %>
+      <%= f.submit "Criar pergunta" , :class=>"btn btn-primary"%>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </div>
+    <% if @academy_question.errors.any? %>
+        <div id="error_explanation">
+          <h2>Os seguintes erros impediram o envio do formulário:</h2>
+          <ul>
+            <% @academy_question.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

@@ -4,7 +4,9 @@ class MessagesController < ApplicationController
 
 	#caixa de entrada com todas mensagens
   def index
-     @talks = current_user.all_talks
+     @talks_privates = current_user.private_talks
+     @talks_ads = current_user.ads_talks
+
   end
 
   def show

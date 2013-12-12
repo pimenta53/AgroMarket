@@ -1,0 +1,49 @@
+<%= form_for(@academy_tutorial) do |f| %>
+  <% if @academy_tutorial.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@academy_tutorial.errors.count, "error") %> prohibited this academy_tutorial from being saved:</h2>
+
+      <ul>
+      <% @academy_tutorial.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Criar novo Tutorial</h3>
+    </div>
+    <div class="panel-body">
+    <div class="control-group">
+      <h5> Quero inserir um anúncio na categoria:</h5>
+      <div class="controls">
+        <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria') unless @categories.blank? %>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title ,:class => "form-control"%>
+    </div>
+    <div>
+      <%= f.label :rapid_description %><br>
+      <%= f.text_field :rapid_description ,:class => "form-control"%>
+    </div>
+    <div class="field" hidden="true">
+      <%= f.label :user_id %><br>
+      <%= f.text_field :user_id, :value => current_user.id %>
+    </div>
+    <div class="field" hidden="true">
+      <%= f.label :aproved %><br>
+      <%= f.number_field :aproved %>
+    </div>
+    <div class="tab-content">
+      <%= f.text_area :text ,:rows => "10",:id => "some-textarea", :class => "form-control" %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Submeter Tutorial', :class => "btn btn-success dropdown-toggle" %>
+    </div>
+    </div>
+  </div>
+<% end %>

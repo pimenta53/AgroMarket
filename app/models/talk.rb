@@ -20,7 +20,7 @@ class Talk < ActiveRecord::Base
   belongs_to :user_2, :class_name => 'User',
                         :primary_key => 'id',
                         :foreign_key => 'user_two'
-  
+
   has_many :messages, :dependent => :destroy
 
   #para dar as ultimas mensagens
@@ -42,8 +42,16 @@ class Talk < ActiveRecord::Base
       includes(:messages).where( "(user_one = ? or user_two = ? )",user_id,user_id )
   end
 
+  def self.private_talks(user_id)
+    includes(:messages).where( "(user_one = ? or user_two = ? ) and ad_id is NULL ",user_id,user_id )
+  end
+
+  def self.ads_talks(user_id)
+    includes(:messages).where( "(user_one = ? or user_two = ? ) and ad_id IS NOT NULL ",user_id,user_id )
+  end
+
   #INSTANCE METHODS
-  
+
   #get talks of MP
   def self.talk_mp( current_user , user_two)
     where("((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) and ad_id is NULL ", current_user.id, user_two.id, user_two.id, current_user.id).first
@@ -69,9 +77,16 @@ class Talk < ActiveRecord::Base
       return self.user_one
     end
   end
-  
 
-  
+  def user_receiver_name( current_user )
+    if self.user_one == current_user
+      return User.find(self.user_two).name
+    else
+      return User.find(self.user_one).name
+    end
+  end
+
+
   private
           #verifica se sender é diferente de receiver
           def sender_receiver_must_be_diferent

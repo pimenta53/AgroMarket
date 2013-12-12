@@ -140,6 +140,15 @@ class User < ActiveRecord::Base
     Talk.all_talks(id)
   end
 
+  def private_talks
+    Talk.private_talks(self.id)
+  end
+
+  def ads_talks
+    Talk.ads_talks(self.id)
+  end
+
+
   #idade do utilizador
   def age
     now = Time.now.utc.to_date

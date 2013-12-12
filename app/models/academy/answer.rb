@@ -19,6 +19,29 @@ class Academy::Answer < ActiveRecord::Base
   belongs_to :user
   has_many :votes
 
+  #pergunta com melhor votacao
+  def self.best_answer
+    answer = order('up - down DESC').first
+    if answer.total_votes <= 0
+      answer = nil
+    end
+    return answer
+  end
+
+  #verifica se ultizador já votou
+  def has_vote?(user)
+    self.votes.where(:user_id => user.id ).first
+  end
+
+  def which_vote?(user)
+    result = 0
+    v = has_vote?(user)
+    if v != nil
+      result = v.vote
+    end
+
+    return result
+  end
 
   def vote_up
     self.up = self.up + 1
@@ -28,6 +51,11 @@ class Academy::Answer < ActiveRecord::Base
   def vote_down
     self.down = self.down + 1
     self.save
+  end
+
+  #devolve o ratio da pergunta
+  def total_votes
+    self.up - self.down
   end
 
   def vote_up_from_down
@@ -41,5 +69,7 @@ class Academy::Answer < ActiveRecord::Base
     self.up = self.up - 1
     self.save
   end
+
+
 
 end

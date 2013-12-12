@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131127132046) do
+ActiveRecord::Schema.define(version: 20131211223006) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.integer  "up",          default: 0
     t.integer  "down",        default: 0
     t.boolean  "is_deleted",  default: false
-    t.string   "image_url"
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -31,7 +30,6 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.string   "title",                       null: false
     t.text     "text"
     t.boolean  "is_deleted",  default: false
-    t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -216,6 +214,7 @@ ActiveRecord::Schema.define(version: 20131127132046) do
     t.integer  "city_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

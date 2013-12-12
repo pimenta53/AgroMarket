@@ -52,9 +52,13 @@ Agrosocial::Application.routes.draw do
     resources :dashboard
     resources :ads
     resources :users
+    namespace :academy do
+      resources :tutorials
+    end
 
-    get 'cancel_message', to: 'ads#cancel_message', as: :cancel_message
-    get 'done_message',   to: 'ads#done_message',   as: :done_message
+    get 'cancel_message',  to: 'ads#cancel_message',              as: :cancel_message
+    get 'done_message',    to: 'ads#done_message',                as: :done_message
+    get 'aprove_tutorial', to: 'academy/tutorials#aprove_tutorial', as: :aprove_tutorial
   end
 
   resources :ratings

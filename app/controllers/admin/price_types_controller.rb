@@ -1,3 +1,4 @@
+#encoding: utf-8
 class  Admin::PriceTypesController <  Admin::ApplicationController
   layout "admin"
   before_action :set_price_type, only: [:show, :edit, :update, :destroy]

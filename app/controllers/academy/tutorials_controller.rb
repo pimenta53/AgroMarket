@@ -21,6 +21,9 @@ class Academy::TutorialsController < ApplicationController
 
   # GET /academy/tutorials/1/edit
   def edit
+    if @academy_tutorial.user_id != current_user.id
+      redirect_to academy_tutorials_path,:notice => "Não pode editar um tutorial que não é seu."
+    end
   end
 
   # POST /academy/tutorials

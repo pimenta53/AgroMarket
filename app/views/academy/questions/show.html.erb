@@ -1,52 +1,72 @@
 
-
-<div class="col-lg-12">
-  <section class="panel">
-    <header class="panel-heading">
-      <div class="pull-right">
-
-        <%##  botão verde com um certo  ##%>
-        <%= link_to '<i class="icon-ok"></i>'.html_safe , "#", :class => "btn btn-success btn-xs" %>
-
-        <%##  botão verde com um lapis para editar a pergunta  ##%>
-        <%= link_to '<i class="icon-pencil"></i>'.html_safe , edit_academy_question_path(@academy_question), :class => "btn btn-primary btn-xs" if @academy_question.user.id == current_user.id %>
-
-        <%##  botão vermelho com um caixote para eliminar a pergunta  ##%>
-        <%= link_to '<i class="icon-trash"></i>'.html_safe, @academy_question, method: :delete, :class => "btn btn-danger btn-xs" if @academy_question.user.id == current_user.id %>
-
-      </div>
-
-      <div class="" >
-        <h3> <%= @academy_question.title %> </h3>
-      </div>
-    </header>
-
-    <div class="panel-body">
-      <div class="col-xs-2 col-md-2"><%##  Avatar do user que fez a pergunta  ##%>
-        <%= image_tag @academy_question.user.avatar.url(:medium),:width => "70%",:class => "img-circle" %>
-      </div>
-
-      <div class="col-xs-9 col-md-10 ">
-        <%= @academy_question.text %><%##  texto da pergunta  ##%>
-        <br/>os botões de edit e eliminar não estão direitos
-        <p>
-          <strong>Image url:</strong>
-          <%= @academy_question.image_url %>
-        </p>
-      </div>
-
-      <span class="label pull-right" style="background-color: #<%= @academy_question.category.color %>">
-      <%= @academy_question.category.name %>
-      </span>
-    </div>
-
-  </section>
-</div>
+<%#  render da questão feita  %>
+<%= render 'question' %>
 
 <%#  Display all the answers  %>
+<%#  needed to load the new answers without the need to reload  %>
+<%# Verifica se existe uma melhor resposta %>
+<% if @best_answer != nil %>
+        <div class="col-lg-12">
+          <section class="panel panel-success">
+            <header class="panel-heading">
+              Melhor Reposta
+            </header>
+            <div class="panel-body">
+              <div class="pull-right">
+                <%##  botão verde com o lapis para editar a resposta  ##%>
+                <%= link_to '<i class="icon-pencil"></i>'.html_safe , edit_academy_answer_path(@best_answer), :class => "btn btn-primary btn-xs" if @best_answer.user.id == current_user.id %>
+                <%##  botão vermelho com o caixote para eliminar a resposta  ##%>
+                <%= link_to '<i class="icon-trash"></i>'.html_safe , edit_academy_answer_path(@best_answer), :class => "btn btn-danger btn-xs" if @best_answer.user.id == current_user.id %>
+              </div>
+
+
+              <div class="col-xs-2 col-md-2"><%##  Avatar do user que respondeu  ##%>
+                <%=link_to image_tag(@best_answer.user.avatar.url(:medium),:width => "70%",:class => "img-circle"), @best_answer.user %>
+                <%= @best_answer.user.name %>
+              </div>
+
+              <div class="col-xs-9 col-md-10 "><%##  texto da resposta  ##%>
+                <%= @best_answer.text %>
+                <br>o botão de edit não está direito
+              </div>
+            </div>
+
+            <div class="panel-footer">
+            <%###  @best_answers votes  ###%>
+                  <%#  Verify if the user is logged or if is the @best_answer's owner %>
+                  <% if !user_signed_in? || current_user.id == @best_answer.user.id #if not logged or is the owner them cant vote %>
+
+                    <label class="label label-default" syle="font-size:10px">
+                      <%= @best_answer.up - @best_answer.down %>
+                    </label>
+               
+                  <% else %>
+                    <%= vote = @best_answer.which_vote?( current_user ) %>
+                    <!-- Answer Helper-->
+
+                    <%= link_to '<i class="fa fa-thumbs-up  fa-2x '.html_safe + up_vote?( vote ) +'"></i>'.html_safe, academy_up_vote_path(:answer => @best_answer), :title => "Dá mais um ponto a esta resposta!!" %>
+                    <label class="label label-success" syle="font-size:10px"><%= @best_answer.up - @best_answer.down %></label>
+                    <%= link_to '<i class="fa fa-thumbs-o-down fa-2x '.html_safe + down_vote?( vote ) +'"></i>'.html_safe, academy_down_vote_path(:answer => @best_answer), :title => "Dá menos um ponto a esta resposta!!"  %>
+
+
+                  <% end %>
+            <%###  end of answers votes  ###%>
+
+                  <div class="pull-right">
+                        <abbr class="timeago" title="<%= @best_answer.created_at.getutc.iso8601 %>"> 
+                          <%= @best_answer.created_at.to_s %> 
+                        </abbr>
+                    </div>
+          </div>
+      </section>
+    </div>
+<% end %>
+
 <div id="answers">
-  <%= render @academy_question.answers %>
+  <%= render @academy_question.answers  %>
 </div>
+
+<button href="#" class="btn btn-info ir_para_form_resposta">Responder</button>
 
 <% if user_signed_in? %>
   <%= render "academy/answers/form", :question => @academy_question %>
@@ -63,4 +83,6 @@
 <% end %>
 
 <%#= link_to 'Edit', edit_academy_question_path(@academy_question) %>
-<%= link_to 'Back', academy_questions_path %>
+<%= link_to 'Voltar', academy_questions_path %>
+
+

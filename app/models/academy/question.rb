@@ -29,4 +29,14 @@ class Academy::Question < ActiveRecord::Base
   	 "#{id}-#{title.parameterize}"
   end
 
+  def self.search(nome,category_id)
+	   if nome
+      where('(nome LIKE ? or descricao LIKE ?) and activo == 1',"%#{nome}%","%#{nome}%")
+     elsif !category_id.nil?
+      where('category_id = ? and activo == 1',category_id)
+      else
+       all
+    end
+ end
+
 end

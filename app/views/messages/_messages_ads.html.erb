@@ -25,21 +25,23 @@
       <div class="panel-heading">
         <h4 class="panel-title">
           <span class="fa fa-comment"></span>
-          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= t.user_receiver(current_user) %>">Mensagens do Utilizador ID: <%= t.user_receiver(current_user) %></a>
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= t.user_receiver(current_user) %>">Mensagens do Utilizador: <%= t.user_receiver_name(current_user) %></a>
 
           <%= link_to "Fechar Negócio", done_message_path(id_ad: @ad.id, user_id: t.user_receiver(current_user)), :data => { :confirm => "Tem a certeza que pertende fechar este negócio?" }, :class => "btn btn-primary ", :style => ""  if @ad.user_id == current_user.id %>
 
           <%= link_to('<span style="float: right;" class="fa fa-times-circle"></span>'.html_safe, cancel_message_path(id_ad: @ad.id,user_id: t.user_receiver(current_user)), :data => { :confirm => "Tem a certeza que pertende eliminar a troca de mensagem com este utilizador?" }) if @ad.user_id == current_user.id  %>
         </h4>
+        
         <span class="label label-info" style="float: right;"><%= t.messages.count%></span>
       </div>
 
       <div id="<%= t.user_receiver(current_user) %>" class="panel-collapse collapse">
         <div class="panel-body">
 
-          <% t.messages.each do |m| %>
-            <%= render "messages/show" , :message => m, :talk => t.id %>
-          <% end %>
+          
+            <%= render "messages/show" , :messages => t.messages, :talk => t.id %>
+
+
 
           <%= form_for @message, :url => ad_new_messages_path(@ad.id),:html => {:id => "comment_ad",:ajax_path => ad_new_messages_path(@ad.id) } do |m| %>
 
@@ -49,8 +51,8 @@
             </div>
 
             <%= m.hidden_field :user_id, :value => t.user_receiver(current_user.id),:readonly => true %>
-
-            <%= m.submit "Enviar" %>
+            
+            <%= m.submit "Enviar", :class => "btn btn-info" %>
           <% end %>
         </div>
       </div>
