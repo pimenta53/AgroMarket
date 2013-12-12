@@ -24,4 +24,5 @@ class Message < ActiveRecord::Base
   def self.get_messages( talk )
     where(:talk_id => talk)
   end
+  
 end

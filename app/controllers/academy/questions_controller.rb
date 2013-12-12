@@ -4,7 +4,7 @@ class Academy::QuestionsController < ApplicationController
   # GET /academy/questions
   # GET /academy/questions.json
   def index
-    @academy_questions = Academy::Question.all#.where(:is_deleted => false)
+    @academy_questions = Academy::Question.search(params[:query],params[:category_id])#.where(:is_deleted => false)
   end
 
   # GET /academy/questions/1

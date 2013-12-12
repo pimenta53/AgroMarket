@@ -21,7 +21,7 @@
 
 
               <div class="col-xs-2 col-md-2"><%##  Avatar do user que respondeu  ##%>
-                <%= image_tag @best_answer.user.avatar.url(:medium),:width => "70%",:class => "img-circle" %>
+                <%=link_to image_tag(@best_answer.user.avatar.url(:medium),:width => "70%",:class => "img-circle"), @best_answer.user %>
                 <%= @best_answer.user.name %>
               </div>
 
@@ -31,25 +31,33 @@
               </div>
             </div>
 
+            <div class="panel-footer">
+            <%###  @best_answers votes  ###%>
+                  <%#  Verify if the user is logged or if is the @best_answer's owner %>
+                  <% if !user_signed_in? || current_user.id == @best_answer.user.id #if not logged or is the owner them cant vote %>
 
-    <%###  @best_answers votes  ###%>
-          <%#  Verify if the user is logged or if is the @best_answer's owner %>
-          <% if !user_signed_in? || current_user.id == @best_answer.user.id #if not logged or is the owner them cant vote %>
+                    <label class="label label-default" syle="font-size:10px">
+                      <%= @best_answer.up - @best_answer.down %>
+                    </label>
+               
+                  <% else %>
+                    <%= vote = @best_answer.which_vote?( current_user ) %>
+                    <!-- Answer Helper-->
 
-            <label class="label label-default" syle="font-size:10px">
-              <%= @best_answer.up - @best_answer.down %>
-            </label>
-       
-          <% else %>
-            <%= vote = @best_answer.which_vote?( current_user ) %>
-            <!-- Answer Helper-->
+                    <%= link_to '<i class="fa fa-thumbs-up  fa-2x '.html_safe + up_vote?( vote ) +'"></i>'.html_safe, academy_up_vote_path(:answer => @best_answer), :title => "Dá mais um ponto a esta resposta!!" %>
+                    <label class="label label-success" syle="font-size:10px"><%= @best_answer.up - @best_answer.down %></label>
+                    <%= link_to '<i class="fa fa-thumbs-o-down fa-2x '.html_safe + down_vote?( vote ) +'"></i>'.html_safe, academy_down_vote_path(:answer => @best_answer), :title => "Dá menos um ponto a esta resposta!!"  %>
 
-            <%= link_to '<i class="fa fa-thumbs-up  fa-2x '.html_safe + up_vote?( vote ) +'"></i>'.html_safe, academy_up_vote_path(:answer => @best_answer), :title => "Dá mais um ponto a esta resposta!!" %>
-            <label class="label label-success" syle="font-size:10px"><%= @best_answer.up - @best_answer.down %></label>
-            <%= link_to '<i class="fa fa-thumbs-o-down fa-2x '.html_safe + down_vote?( vote ) +'"></i>'.html_safe, academy_down_vote_path(:answer => @best_answer), :title => "Dá menos um ponto a esta resposta!!"  %>
-          <% end %>
-    <%###  end of answers votes  ###%>
 
+                  <% end %>
+            <%###  end of answers votes  ###%>
+
+                  <div class="pull-right">
+                        <abbr class="timeago" title="<%= @best_answer.created_at.getutc.iso8601 %>"> 
+                          <%= @best_answer.created_at.to_s %> 
+                        </abbr>
+                    </div>
+          </div>
       </section>
     </div>
 <% end %>
@@ -57,6 +65,8 @@
 <div id="answers">
   <%= render @academy_question.answers  %>
 </div>
+
+<button href="#" class="btn btn-info ir_para_form_resposta">Responder</button>
 
 <% if user_signed_in? %>
   <%= render "academy/answers/form", :question => @academy_question %>

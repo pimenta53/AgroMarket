@@ -1,28 +1,58 @@
+<ul class="chat">
+    <% messages.each do |message| %>
+      <% if message.user.id != current_user.id %>
+        <li class="left clearfix" style="background-color:#eee;"><span class="chat-img pull-left">
+          <% if message.user.avatar != nil %>
+            <%= image_tag(message.user.avatar.url(:thumb), :alt => "User Avatar", :width => '50', :height => '50', :class => "img-circle") %></span>
+          <% else %>
+            <img width="50" alt="50x50" src="missing_photo.png" alt="User Avatar" class="img-circle" />
+          <% end %>
+          </span>
+          <div class="chat-body clearfix">
+              <div class="header">
+                    <strong class="primary-font">
+                    <%= message.user.name %>
+                  </strong> 
+                  <small class="pull-right text-muted">
+                        <span class="fa fa-clock-o"></span>
+                        <abbr class="timeago" title="<%= message.created_at.getutc.iso8601 %>"> <%= message.created_at %> </abbr>
+                     </small>
+              </div>
+              <p>
+                <%= message.text %>
+              </p>
+          </div>
+        </li>
+      <% else %>
+        <li class="right clearfix"><span class="chat-img pull-right">
+          <% if message.user.avatar != nil %>
+            <%= image_tag(message.user.avatar.url(:thumb), :alt => "User Avatar", :width => '50', :height => '50', :class => "img-circle") %></span>
+          <% else %>
+            <img width="50" alt="50x50" src="missing_photo.png" alt="User Avatar" class="img-circle" />
+          <% end %>
+          </span>
+          <div class="chat-body clearfix">
+              <div class="header">
+                     <small class=" text-muted">
+                        <span class="fa fa-clock-o"></span>
+                        <abbr class="timeago" title="<%= message.created_at.getutc.iso8601 %>"> <%= message.created_at %> </abbr>
+                     </small>
+                
+                  <strong class="pull-right primary-font">
+                    <%= message.user.name %>
+                  </strong> 
+              </div>
+              <p>
+                <%= message.text %>
+              </p>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+</ul>
 
-<%# My messages%>
-<% if message.user_sender == @ad.user_id %>
-  <% valor = "div_adminMessage" %>
-<% else %>
-  <% if message.user_sender == current_user.id %>
-    <% valor = "div_myMessage" %>
-  <% else %>
-    <% valor = "div_otherMessage" %>
-  <% end %>
-<%end%>
-<div id="<%=valor%>">
 
-  <p>
-    <small>
-      <%= message.created_at.strftime("%d-%m-%Y") %>
-    </small>
-  </p>
 
-  <%= message.text %>
 
-  <p hidden="true">
-    <strong>is_read:</strong>
-    <%= message.is_read %>
-  </p>
 
-</div>
 

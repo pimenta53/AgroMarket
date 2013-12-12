@@ -547,7 +547,23 @@ legend+.control-group{margin-top:18px;-webkit-margin-top-collapse:separate;}
 .up_vote {color:green;}
 .down_vote {color:red;}
 
+.fa-thumbs-up:hover{ color:green; }
+.fa-thumbs-o-down:hover{ color:red; }
+
+
 .border-header {
 border-color: #eff2f7;
 }
 
+
+.ir_para_form_resposta{
+    opacity:0.7;
+    position:fixed;
+    bottom:50px;
+    right:226px;
+    display:none;
+}
+
+.img-circle{
+  /*border: 5px solid #edeff0;*/
+}
