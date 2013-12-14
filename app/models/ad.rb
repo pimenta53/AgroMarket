@@ -153,9 +153,10 @@ class Ad < ActiveRecord::Base
   #######################
 
     def self.ads_per_city
+      #, :includes => ads
     	result = Array.new
-    	City.find(:all, :includes => ads ).each do |c|
-    		results.push([ c.name , c.ads.count ])
+    	City.find(:all).each do |c|
+    		result.push([ c.city , c.ads.count ])
     	end
     	return result
     end
