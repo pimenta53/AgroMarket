@@ -36,4 +36,38 @@
     <% end %>
 </div>
 
+
+ <ol class="breadcrumb" id="breadcrumbAds">
+    <li class="active"><a href="<%= academy_tutorials_path %>"><i class="fa fa-tags"></i> Tutorials</a></li>
+ </ol>
+
+
+  <div class="row ads_index_section">
+    <% @academy_tutorials.each do |academy_tutorial| %>
+
+      <div class="col-sm-3 col-md-4" >
+        <div class="panel">
+           <header class="panel-heading tutorials_thumbnails" style="border-bottom: 2px solid #<%= academy_tutorial.category.color %>;">
+             <div class="pull-right">
+              <% if current_user.id == academy_tutorial.user_id %>
+                <%= link_to 'Editar', edit_academy_tutorial_path(academy_tutorial),:class => "label pull-right",:style => "background-color:#FFCC91" %>
+              <% end %>
+            </div>
+              <span class="label" style="background-color: #<%= academy_tutorial.category.color %>">
+               <%= academy_tutorial.category.name %>
+              </span>
+
+            </header>
+          <div class="panel-body" style="padding:10px;">
+             <div class="caption">
+              <h2><%= academy_tutorial.title %></h2>
+              <p><%= academy_tutorial.rapid_description %></p>
+              <p><i class="icon icon-user"></i> <%= academy_tutorial.user.name %> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 <%= link_to 'Criar tutorial', new_academy_tutorial_path %>

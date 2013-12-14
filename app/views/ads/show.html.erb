@@ -1,310 +1,315 @@
 <% if flash[:notice] %>
-  <script> showNotify("<%= flash[:notice] %>","success") </script>
+<script> showNotify("<%= flash[:notice] %>","success") </script>
 <% end %>
 <% if flash[:error] %>
-  <script> showNotify("<%= flash[:error] %>","error") </script>
+<script> showNotify("<%= flash[:error] %>","error") </script>
 <% end %>
 <!--FACEBOOK SDK START -->
 <div id="fb-root"></div>
 <script>
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/pt_PT/all.js#xfbml=1&appId=547514635336381";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+   // Load the SDK asynchronously
+   (function(d, s, id) {
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) return;
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/pt_PT/all.js#xfbml=1&appId=547514635336381";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 </script>
 <!--FACEBOOK SDK END -->
 <!--TWITTER SDK START -->
 <script>
-  !function(d,s,id){
-    var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-    if(!d.getElementById(id)){
-      js=d.createElement(s);
-      js.id=id;
-      js.src=p+'://platform.twitter.com/widgets.js';
-      fjs.parentNode.insertBefore(js,fjs);
-    }
-  }(document, 'script', 'twitter-wjs');
+   !function(d,s,id){
+     var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+     if(!d.getElementById(id)){
+       js=d.createElement(s);
+       js.id=id;
+       js.src=p+'://platform.twitter.com/widgets.js';
+       fjs.parentNode.insertBefore(js,fjs);
+     }
+   }(document, 'script', 'twitter-wjs');
 </script>
 <!--TWITTER SDK END -->
-  <% num_img=@ad.ad_images.count %>
+<% num_img=@ad.ad_images.count %>
 <section class="panel">
-    <div class="panel-body">
+   <div class="panel-body">
       <div class="col-md-6">
-        <!-- Image ADS -->
-           <% if num_img > 0 %>
-            <div class="ads_img_section">
-                <div id="imageCarousel" class="carousel-inner">
-                        <% i=0 %>
-                        <% while (i < num_img) do %>
-                          <div class="<% if i>0 %>item<% else %>active item<% end %> ads_img">
-                            <table>
-                              <tr><td>
-                                 <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery_carousel]">
-                                    <%= image_tag @ad.ad_images[i].image(:large), :width => "100%" %>
-                                 </a>
-                              </td></tr>
-                            </table>
-                          </div>
-                           <% i+=1 %>
-                         <% end %>
-                   <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <% i=1 %>
-                        <% while (i < num_img) do %>
-                           <li data-target="#myCarousel" data-slide-to="<%= i %>"></li>
-                           <% i+=1 %>
-                         <% end %>
-                   </ol>
-                    <a class="carousel-control left" href="#imageCarousel" data-slide="prev" style="top: 50%">&lsaquo;</a>
-                    <a class="carousel-control right" href="#imageCarousel" data-slide="next" style="top: 50%">&rsaquo;</a>
-                </div>
-            </div>
-            <div class="ads_otherimg_section">
-                <% i=0 %>
-                 <% while (i < (num_img-1)) do %>
-                   <% if !i.odd? %>
+         <!-- Image ADS -->
+         <% if num_img > 0 %>
+         <div class="ads_img_section">
+            <div id="imageCarousel" class="carousel-inner">
+               <% i=0 %>
+               <% while (i < num_img) do %>
+               <div class="<% if i>0 %>item<% else %>active item<% end %> ads_img">
+                  <table>
                      <tr>
-                       <td align="center">
-                         <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                           <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                         </a>
-                       </td>
-                    </tr>
-                   <% else %>
-                      <tr>
-                         <td align="center">
-                           <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                             <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                        <td>
+                           <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery_carousel]">
+                           <%= image_tag @ad.ad_images[i].image(:large), :width => "100%" %>
                            </a>
-                         </td>
-                       </tr>
-                   <% end %>
-                   <% i+=1 %>
-                 <% end %>
-                 <!-- Para centrar a ultima imagem caso o numero de imagens for impar -->
-                 <% if !i.odd? %>
-                   <tr>
-                     <td colspan="2" align="center">
-                       <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                         <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                       </a>
-                     </td>
-                   </tr>
-                 <% else %>
-                    <tr>
-                     <td align="center">
-                       <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                         <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                       </a>
-                     </td>
-                   </tr>
-                 <% end %>
-          </div>
-        <% else %>
-             <div id="imageCarousel" class="carousel-inner">
-                 <a class="ads_no_img">
-                        <img class="no_image" src="http://placehold.it/250x200">
-                </a>
-             </div>
-       <% end %>
-    </div>
-   <!-- Information ADS -->
-          <div class="col-md-6">
-               <h4 class = "ads_title">
-                <%= @ad.title %>
-               </h4>
-               <br/>
-               <div class = "ads_metainfo">
-                    <p>
-                        <strong>Categoria:</strong>
-                        <% if @ad.category.blank? %>
-                           <span class="label" style="background-color: #888888">Sem categoria</span>
-                         <% else %>
-                           <span class="label" style="background-color: #<%= @ad.category.color %>">
-                             <%= @ad.category.name %>
-                           </span>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <% i+=1 %>
+               <% end %>
+               <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <% i=1 %>
+                  <% while (i < num_img) do %>
+                  <li data-target="#myCarousel" data-slide-to="<%= i %>"></li>
+                  <% i+=1 %>
                   <% end %>
-                    </p>
-                    <p>
-                        <strong>Descricão:</strong>
-                         <%= @ad.description %>
-                    </p>
-               </div>
-               <div class ="ads_description">
-                    <p>
-                        <strong>Vendedor:</strong>
-                        <%= @ad.user.name %>
-                    </p>
-                    <p>
-                     <strong>Preço:</strong>
-                     <%= "#{@ad.price} #{@ad.price_type.name}" %>
-                   </p>
-                   <p>
-                     <strong>Final do Anúncio:</strong>
-                    <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
-                  </p>
-                   <p>
-                     <strong>Cidade:</strong>
-                     <%= @ad.city.city %>
-                  </p>
-                  <p>
-                    <strong>Localização:</strong>
-                    <%= @ad.location %>
-                  </p>
-                  <p>
-                        <div class="fb-share-button sharebutton" data-href="http://teste94.di.uminho.pt/" data-type="button">
-                        </div>
-                         <div class="sharebutton">
-                         <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
-                         </div>
-                  </p>
-               </div>
-          </div>
-  </div>
-</section>
-
-<section class="panel" style="background-color: rgba(255, 255, 255, 0);">
-       <header class="header header_tab">
-        <ul class="nav nav-tabs">
-                <li class="active">
-                    <a data-toggle="tab" href="#related" id="extraNavButton">
-                        Produtos na mesma Area
-                    </a>
-                </li>
-                <li>
-                    <a data-toggle="tab" href="#last_viewed" id="extraNavButton">
-                        Ultimos vistos
-                    </a>
-                </li>
-                <li>
-                    <a data-toggle="tab" href="#reviews" id="extraNavButton">
-                        Review do vendedor
-                    </a>
-                </li>
-            </ul>
-       </header>
-       <div class="panel-body">
-         <div class="tab-content tasi-tab">
-                <!-- produtos relacionados -->
-                <div id="related" class="tab-pane active">
-                  <div class="row ads_index_section">
-                    <% @related_ads.each do |ad| %>
-                      <div class="col-sm-6 col-md-3">
-                          <div class="panel">
-                            <div class="ads_index_img">
-                              <div class="thumbnail">
-                                <span class='price' ><%= ad.price %>€</span>
-                                  <div >
-                                    <%= link_to ad_image( ad.ad_images.first ), ad %>
-                                  </div>
-                              </div>
-                            </div>
-                            <div class="panel-body text-center">
-                              <% if !ad.category.blank? %>
-                                <div class="caption">
-                                  <% if ad.category.nil? %>
-                                          <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
-                                  <% else %>
-                                          <span class="label pro_title" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>  </span>
-                                  <% end %>
-                                </div>
-                              <% end %>
-                              <h4><%= link_to ad.title, ad %></h4>
-                              <div style="height:50px"><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></div>
-                            </div>
-                          </div>
-                        </div>
-                    <% end %>
-                  </div>
-                </div>
-                <!-- ultimos visitados -->
-                <div id="last_viewed" class="tab-pane">
-
-
-                  <div class="row ads_index_section">
-                    <% @last_viewed.each do |ad| %>
-                      <div class="col-sm-6 col-md-3">
-                        <div class="panel">
-                          <div class="ads_index_img">
-                            <div class="thumbnail">
-                              <span class='price' ><%= ad.price %>€</span>
-                                <div >
-                                  <%= link_to ad_image( ad.ad_images.first ), ad %>
-
-                                </div>
-                            </div>
-                          </div>
-                          <div class="panel-body text-center">
-                            <% if !ad.category.blank? %>
-                              <div class="caption">
-                                <% if ad.category.nil? %>
-                                        <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
-                                <% else %>
-                                        <span class="label pro_title" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>  </span>
-                                <% end %>
-                              </div>
-                            <% end %>
-                            <h4><%= link_to ad.title, ad %></h4>
-                            <div style="height:50px"><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></div>
-                          </div>
-                        </div>
-
-                      </div>
-                    <% end %>
-                  </div>
-                  <!-- </div> -->
-                </div>
-                <!-- reviews -->
-
-                <div id="reviews" class="tab-pane">
-                <% @reviews_user.each do |review| %>
-                    <article class="media">
-                        <p class="pull-left thumb p-thumb">
-                        <%=link_to image_tag(review.rater.avatar.url(:small)), user_path(review.rater)%>
-                        </p>
-                        <div class="media-body">
-                            <b class="cmt-head"><%= review.comment %></b>
-                            <p>Classificação : <%= review.rate %></p>
-                            <p> <i class="fa fa-clock-o"></i><abbr class="timeago" title="<%= review.created_at.getutc.iso8601 %>"> <%= review.created_at.to_s %> </abbr></p>
-                        </div>
-
-                    </article>
-                    <% end %>
-                    <% if @reviews_user.empty? %>
-                    <p> Não existem reviews para este utilizador </p>
-                    <% end %>
-
+               </ol>
+               <a class="carousel-control left" href="#imageCarousel" data-slide="prev" style="top: 50%">&lsaquo;</a>
+               <a class="carousel-control right" href="#imageCarousel" data-slide="next" style="top: 50%">&rsaquo;</a>
             </div>
-       </div>
-</section>
-<section class="panel">
-      <header class="header">
-        <ul class="nav nav-tabs">
-                <li class="active">
-                    <a data-toggle="tab" href="#related" id="extraNavButton">
-                        Mensagens
-                    </a>
-                </li>
-            </ul>
-       </header>
-       <div class="panel-body">
-         <% if user_signed_in? %>
-          <div id="messages">
-                    <%= render "messages/messages_ads" %>
-          </div>
-        <% end %>
-       </div>
-</section>
-  <% if user_signed_in? && current_user.id == @ad.user_id %>
-            <td ><i class="fa fa-exclamation-triangle"></i><%= link_to 'Eliminar Anúncio', @ad, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?s' } %></td>
-              <% end %>
+         </div>
+         <div class="ads_otherimg_section">
+            <% i=0 %>
+            <% while (i < (num_img-1)) do %>
+            <% if !i.odd? %>
+            <tr>
+               <td align="center">
+                  <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                  <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                  </a>
+               </td>
             </tr>
-<%#  Only the ad's owner can edit it  %>
-<% if user_signed_in? && current_user.id == @ad.user_id %>
-<%= link_to 'Edit', edit_ad_path(@ad) %> |
-<% end %>
-<%= link_to 'Back', ads_path %>
+            <% else %>
+            <tr>
+               <td align="center">
+                  <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                  <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                  </a>
+               </td>
+            </tr>
+            <% end %>
+            <% i+=1 %>
+            <% end %>
+            <!-- Para centrar a ultima imagem caso o numero de imagens for impar -->
+            <% if !i.odd? %>
+            <tr>
+               <td colspan="2" align="center">
+                  <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                  <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                  </a>
+               </td>
+            </tr>
+            <% else %>
+            <tr>
+               <td align="center">
+                  <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
+                  <%= image_tag @ad.ad_images[i].image(:thumb) %>
+                  </a>
+               </td>
+            </tr>
+            <% end %>
+         </div>
+         <% else %>
+         <div id="imageCarousel" class="carousel-inner">
+            <a class="ads_no_img">
+            <img class="no_image" src="http://placehold.it/250x200">
+            </a>
+         </div>
+         <% end %>
+      </div>
+      <!-- Information ADS -->
+      <div class="col-md-6">
+         <!-- PARA O UTILIZADOR DO DONO ANUNCIO -->
+         <% if user_signed_in? && current_user.id == @ad.user_id %>
+         <div class="pull-right">
+            <%#  Only the ad's owner can edit it  %>
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="ui-group-buttons">
+                        <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_ad_path(@ad),:class=>"btn btn-info",:tile=> "Editar Anúncio" %>
+                        <div class="or"></div>
+                        <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @ad, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?s' } ,:class=>"btn btn-danger", :tile=> "Apagar Anúncio"%>
+                     </div>
+                     <br>
+                     <span class="label label-info" >
+                        Este anúncio é meu!!
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <% end %>
+         <!-- [FIM] PARA O UTILIZADOR DO DONO ANUNCIO -->
+         <h4 class = "ads_title">
+            <%= @ad.title %>
+         </h4>
+          
+         <br/>
+         <div class = "ads_metainfo">
+            <p>
+               <strong>Categoria:</strong>
+               <% if @ad.category.blank? %>
+               <span class="label" style="background-color: #888888">Sem categoria</span>
+               <% else %>
+               <span class="label" style="background-color: #<%= @ad.category.color %>">
+               <%= @ad.category.name %>
+               </span>
+               <% end %>
+            </p>
+            <p>
+               <strong>Descricão:</strong>
+               <%= @ad.description %>
+            </p>
+         </div>
+         <div class ="ads_description">
+            <p>
+               <strong>Vendedor:</strong>
+               <%= @ad.user.name %>
+            </p>
+            <p>
+               <strong>Preço:</strong>
+               <span class="label label-info" >
+                  <%= "#{@ad.price} #{@ad.price_type.name}" %>
+               </span>
+            </p>
+            <p>
+               <strong>Final do Anúncio:</strong>
+               <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
+            </p>
+            <p>
+               <strong>Cidade:</strong>
+               <%= @ad.city.city %>
+            </p>
+            <p>
+               <strong>Localização:</strong>
+               <%= @ad.location %>
+            </p>
+            <p>
+            <div class="fb-share-button sharebutton" data-href="http://teste94.di.uminho.pt/" data-type="button">
+            </div>
+            <div class="sharebutton">
+               <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+            </div>
+            </p>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="panel" style="background-color: rgba(255, 255, 255, 0);">
+   <header class="header header_tab">
+      <ul class="nav nav-tabs">
+         <li class="active">
+            <a data-toggle="tab" href="#related" id="extraNavButton">
+            Produtos na mesma Area
+            </a>
+         </li>
+         <li>
+            <a data-toggle="tab" href="#last_viewed" id="extraNavButton">
+            Ultimos vistos
+            </a>
+         </li>
+         <li>
+            <a data-toggle="tab" href="#reviews" id="extraNavButton">
+            Review do vendedor
+            </a>
+         </li>
+      </ul>
+   </header>
+   <div class="panel-body">
+   <div class="tab-content tasi-tab">
+      <!-- produtos relacionados -->
+      <div id="related" class="tab-pane active">
+         <div class="row ads_index_section">
+            <% @related_ads.each do |ad| %>
+            <div class="col-sm-6 col-md-3">
+               <div class="panel">
+                  <div class="ads_index_img">
+                     <div class="thumbnail">
+                        <span class='price' ><%= ad.price %>€</span>
+                        <div >
+                           <%= link_to ad_image( ad.ad_images.first ), ad %>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="panel-body text-center">
+                     <% if !ad.category.blank? %>
+                     <div class="caption">
+                        <% if ad.category.nil? %>
+                        <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
+                        <% else %>
+                        <span class="label pro_title" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>  </span>
+                        <% end %>
+                     </div>
+                     <% end %>
+                     <h4><%= link_to ad.title, ad %></h4>
+                     <div style="height:50px"><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></div>
+                  </div>
+               </div>
+            </div>
+            <% end %>
+         </div>
+      </div>
+      <!-- ultimos visitados -->
+      <div id="last_viewed" class="tab-pane">
+         <div class="row ads_index_section">
+            <% @last_viewed.each do |ad| %>
+            <div class="col-sm-6 col-md-3">
+               <div class="panel">
+                  <div class="ads_index_img">
+                     <div class="thumbnail">
+                        <span class='price' ><%= ad.price %>€</span>
+                        <div >
+                           <%= link_to ad_image( ad.ad_images.first ), ad %>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="panel-body text-center">
+                     <% if !ad.category.blank? %>
+                     <div class="caption">
+                        <% if ad.category.nil? %>
+                        <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
+                        <% else %>
+                        <span class="label pro_title" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>  </span>
+                        <% end %>
+                     </div>
+                     <% end %>
+                     <h4><%= link_to ad.title, ad %></h4>
+                     <div style="height:50px"><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></div>
+                  </div>
+               </div>
+            </div>
+            <% end %>
+         </div>
+         <!-- </div> -->
+      </div>
+      <!-- reviews -->
+      <div id="reviews" class="tab-pane">
+         <% @reviews_user.each do |review| %>
+         <article class="media">
+            <p class="pull-left thumb p-thumb">
+               <%=link_to image_tag(review.rater.avatar.url(:small)), user_path(review.rater)%>
+            </p>
+            <div class="media-body">
+               <b class="cmt-head"><%= review.comment %></b>
+               <p>Classificação : <%= review.rate %></p>
+               <p> <i class="fa fa-clock-o"></i><abbr class="timeago" title="<%= review.created_at.getutc.iso8601 %>"> <%= review.created_at.to_s %> </abbr></p>
+            </div>
+         </article>
+         <% end %>
+         <% if @reviews_user.empty? %>
+         <p> Não existem reviews para este utilizador </p>
+         <% end %>
+      </div>
+   </div>
+</section>
+ 
+<section class="panel">
+    <div class="panel-heading border-header">
+            <h3 class="panel-title">Mensagens</h3>
+        </div>
+   <div class="panel-body  panel_without_bg">
+      <% if user_signed_in? %>
+      <div id="messages">
+         <%= render "messages/messages_ads" %>
+      </div>
+      <% end %>
+   </div>
+</section>

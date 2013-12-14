@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Academy::TutorialImagesController < ApplicationController
   before_action :set_academy_tutorial_image, only: [:show, :edit, :update, :destroy]
 

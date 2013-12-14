@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Academy::QuestionsController < ApplicationController
   before_action :set_academy_question, only: [:show, :edit, :update]
   before_action :get_categories

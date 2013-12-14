@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Academy::AnswersController < ApplicationController
   before_action :set_academy_answer, only: [:show, :edit, :update, :destroy]
 
@@ -57,9 +58,10 @@ class Academy::AnswersController < ApplicationController
   # DELETE /academy/answers/1
   # DELETE /academy/answers/1.json
   def destroy
+    question = @academy_answer.question
     @academy_answer.destroy
     respond_to do |format|
-      format.html { redirect_to academy_answers_url }
+      format.html { redirect_to academy_question_path(question) , notice: 'Answer was successfully deleted.'}
       format.json { head :no_content }
     end
   end

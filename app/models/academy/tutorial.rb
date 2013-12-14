@@ -21,4 +21,8 @@ class Academy::Tutorial < ActiveRecord::Base
   def to_param
   		"#{id}-#{title.parameterize}"
   end
+
+  def is_delected
+
+  end
 end

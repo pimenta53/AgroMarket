@@ -1,11 +1,37 @@
 <p id="notice"><%= notice %></p>
-<div class="tutorial_show">
-  <div class="text-center">
-    <h1><%= @academy_tutorial.title %><h1>
-  </div>
-<%= @academy_tutorial.text.html_safe %>
-</div>
 
+
+<div class="col-lg-12">
+          <section class="panel">
+            <header class="panel-heading border-header">
+               <h3><%= @academy_tutorial.title %><h3>
+            </header>
+            <div class="panel-body">
+
+              <div class="col-xs-9 col-md-10 "><%##  texto da resposta  ##%>
+                <div class="">
+					  <div class="text-center">
+					   
+					  </div>
+					<%= @academy_tutorial.text.html_safe %>
+					</div>
+              </div>
+            </div>
+
+            <div class="panel-footer">
+            	<span class="label" style="background-color: #<%= @academy_tutorial.category.color %>">
+            	 <%= @academy_tutorial.category.name %>
+            	</span>
+
+                  <div class="pull-right">
+
+                        <abbr class="timeago" title="<%=  @academy_tutorial.created_at.getutc.iso8601 %>"> 
+                          <%=  @academy_tutorial.created_at.to_s %> 
+                        </abbr>
+                    </div>
+          </div>
+      </section>
+    </div>
 
 <%= link_to 'Edit', edit_academy_tutorial_path(@academy_tutorial) %> |
 <%= link_to 'Back', academy_tutorials_path %>

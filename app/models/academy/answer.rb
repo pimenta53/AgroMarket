@@ -70,6 +70,8 @@ class Academy::Answer < ActiveRecord::Base
     self.save
   end
 
+  
+
 
 
 end

@@ -8,7 +8,7 @@
         <%##  botão verde com o lapis para editar a resposta  ##%>
         <%= link_to '<i class="icon-pencil"></i>'.html_safe , edit_academy_answer_path(answer), :class => "btn btn-primary btn-xs" if answer.user.id == current_user.id %>
         <%##  botão vermelho com o caixote para eliminar a resposta  ##%>
-        <%= link_to '<i class="icon-trash"></i>'.html_safe , edit_academy_answer_path(answer), :class => "btn btn-danger btn-xs" if answer.user.id == current_user.id %>
+        <%= link_to '<i class="icon-trash"></i>'.html_safe , answer , method: :delete, data: { confirm: 'Tem a certeza?' }, :class => "btn btn-danger btn-xs" if answer.user.id == current_user.id %>
       </div>
 
 
@@ -32,6 +32,7 @@
 
               
               <label class="label label-default" syle="font-size:10px"><%= answer.up - answer.down %></label>
+              <label class="label label-info" >Minha Resposta</label>
             <% else %>
               <% vote = answer.which_vote?( current_user ) %>
               <!-- Answer Helper-->
@@ -43,11 +44,8 @@
       <%###  end of answers votes  ###%> 
 
           <div class="pull-right">
-            
-              <abbr class="timeago" title="<%= answer.created_at.getutc.iso8601 %>"> 
-                <%= answer.created_at.to_s %> 
-
-              </abbr>
+            <%= was_edited?( answer ) %>
+              
           </div>
        </div>
 
