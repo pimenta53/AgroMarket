@@ -1,6 +1,6 @@
 #encoding: utf-8
 class Academy::VotesController < ApplicationController
-
+  load_and_authorize_resource
 
   #only logged user can vote (carefull with url chenges)
 

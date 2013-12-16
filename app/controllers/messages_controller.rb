@@ -1,5 +1,6 @@
 #encoding: utf-8
 class MessagesController < ApplicationController
+  load_and_authorize_resource :only => [:edit,:update,:show,:index]
 
 
 	#caixa de entrada com todas mensagens

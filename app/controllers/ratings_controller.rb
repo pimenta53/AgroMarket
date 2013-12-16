@@ -1,6 +1,7 @@
 #encoding: utf-8
 class RatingsController < ApplicationController
 	before_action :set_rating, only: [:show,:update,:edit]
+	load_and_authorize_resource :only => [:edit,:update,:show,:index]
 
 	def new
 		@rating = Rating.new

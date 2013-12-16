@@ -1,7 +1,7 @@
 #encoding: utf-8
 class Academy::WorkshopsController < ApplicationController
   before_action :set_academy_workshop, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /academy/workshops
   # GET /academy/workshops.json
   def index
