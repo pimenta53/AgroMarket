@@ -26,8 +26,8 @@
               </div>
 
               <div class="col-xs-9 col-md-10 "><%##  texto da resposta  ##%>
-                <%= @best_answer.text %>
-                <br>o botão de edit não está direito
+                <%= @best_answer.text.html_safe %>
+
               </div>
             </div>
 
@@ -39,7 +39,7 @@
                     <label class="label label-default" syle="font-size:10px">
                       <%= @best_answer.up - @best_answer.down %>
                     </label>
-               
+
                   <% else %>
                     <%= vote = @best_answer.which_vote?( current_user ) %>
                     <!-- Answer Helper-->
@@ -53,8 +53,8 @@
             <%###  end of answers votes  ###%>
 
                   <div class="pull-right">
-                        <abbr class="timeago" title="<%= @best_answer.created_at.getutc.iso8601 %>"> 
-                          <%= @best_answer.created_at.to_s %> 
+                        <abbr class="timeago" title="<%= @best_answer.created_at.getutc.iso8601 %>">
+                          <%= @best_answer.created_at.to_s %>
                         </abbr>
                     </div>
           </div>

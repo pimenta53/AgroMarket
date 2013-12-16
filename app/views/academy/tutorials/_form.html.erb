@@ -30,14 +30,10 @@
       <%= f.label :rapid_description %><br>
       <%= f.text_field :rapid_description ,:class => "form-control"%>
     </div>
-    <div class="field" hidden="true">
-      <%= f.label :user_id %><br>
-      <%= f.text_field :user_id, :value => current_user.id %>
-    </div>
-    <div class="field" hidden="true">
-      <%= f.label :aproved %><br>
-      <%= f.number_field :aproved %>
-    </div>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :aproved %>
+
     <div class="tab-content">
       <%= f.text_area :text ,:rows => "10",:id => "some-textarea", :class => "form-control" %>
     </div>

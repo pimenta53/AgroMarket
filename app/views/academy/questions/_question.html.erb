@@ -20,15 +20,14 @@
     <div class="panel-body">
       <div class="col-xs-2 col-md-2"><%##  Avatar do user que fez a pergunta  ##%>
         <%=link_to image_tag(@academy_question.user.avatar.url(:medium),:width => "70%",:class => "img-circle") , @academy_question.user %>
-        
+
       </div>
 
       <div class="col-xs-9 col-md-10 ">
-        <%= @academy_question.text %><%##  texto da pergunta  ##%>
-        <br/>o botão de edit não está direito
+        <%= @academy_question.text.html_safe %><%##  texto da pergunta  ##%>
       </div>
 
-     
+
     </div>
     <div class="panel-footer">
         &nbsp;
@@ -37,8 +36,8 @@
        </span>
 
         <div class="pull-right">
-              <abbr class="timeago" title="<%= @academy_question.created_at.getutc.iso8601 %>"> 
-                <%= @academy_question.created_at.to_s %> 
+              <abbr class="timeago" title="<%= @academy_question.created_at.getutc.iso8601 %>">
+                <%= @academy_question.created_at.to_s %>
               </abbr>
         </div>
 
