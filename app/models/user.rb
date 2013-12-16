@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
   #validates
   validates :name, presence: true
   validates :phone, format: /(^$|(\d{9,}\Z))/i
-  validates :email, :uniqueness => true ,presence: true,format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
+  validates :email, presence: true,format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
 
   validate :birthday_cannot_be_in_the_future
 
