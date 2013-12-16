@@ -1,6 +1,20 @@
 # European Portuguese translations for devise
 
 "pt-PT":
+  #Custom messages (Specific errors)
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "já é usado por outro utilizador."
+            password:
+              confirmation: "não corresponde à confirmação."
+            password_confirmation:
+              confirmation: "não corresponde à Password."
+              
+  #Generic Messages (all that is not included in the custom messages)
   errors:
     messages:
       expired: "expirou, por favor solicite uma nova"
@@ -10,6 +24,9 @@
       not_saved:
         one: "1 erro impediu %{resource} de ser gravado:"
         other: "%{count} erros impediram %{resource} de ser gravado:"
+      taken: "já existe."
+      blank: "não pode ser inexistente."
+      invalid: "inválido."
  
   devise:
     failure:
@@ -57,23 +74,4 @@
         subject: 'Instruções de desbloqueio'
         
 
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            email:
-              blank: "não pode ser inexistente."
-              taken: "já é usado por outro utilizador."
-              invalid: "inválido."
-            password:
-              blank: "não pode ser inexistente."
-              confirmation: "não corresponde à confirmação."
-            password_confirmation:
-              blank: "não pode ser inexistente."
-              confirmation: "não corresponde à Password."
-            name:
-              blank: "não pode ser inexistente."
-            current_password:
-              blank: "não pode ser inexistente."
 

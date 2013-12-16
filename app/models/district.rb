@@ -8,7 +8,7 @@
 #  updated_at :datetime
 #
 
-class Country < ActiveRecord::Base
-	has_many :city
+class District < ActiveRecord::Base
+	has_many :cities
 	validates :name, presence: true
 end

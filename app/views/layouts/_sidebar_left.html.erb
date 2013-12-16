@@ -1,39 +1,19 @@
-
-<div class="panel panel-default">
-  <div class="panel-body">
-
-<% if user_signed_in? %>
-    <div class="col-md-12 col-lg-12 col-xs-4 col-sm-8">
-      <% if current_user.avatar.url != nil %>
-      <%= image_tag current_user.avatar.url(:medium),:width => "50%",:class => "img-circle" %>
-      <% else %>
-
-      <% end %>
-    </div>
-    <div class="row" style="margin-bottom:5px">
-      <div class="col-md-8"><strong> <%= current_user.name  %></strong></div>
-    </div>
-<% end -%>
-
-  </div>
-</div>
-
-  <div class="panel-group" id="accordion">
+<div class="panel-group" id="accordion">
 
     <!-- MERCADO -->
-    <% if user_signed_in? && (controller_name == 'ads' || (action_name=="myads")) %>
+    <% if user_signed_in? %>
       <div class="panel panel-info">
         <div class="panel-heading" style="background-color: #39b3d7">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseMercado">
-              Mercado
+                <span class="icon-shopping-cart" style="margin-right: 2px"></span> MERCADO
             </a>
           </h4>
         </div>
         <div id="collapseMercado" class="panel-collapse collapse in">
           <div class="panel-body">
             <ul>
-              <li><%= link_to "Ver Todos".html_safe , ads_path %></li>
+              <li><%= link_to "Entrar no Mercado".html_safe , ads_path %></li>
                 <li><%= link_to "Os Meus Anúncios".html_safe , myads_user_path(current_user.id) %></li>
                 <li><%= link_to "Novo Anúncio".html_safe , new_ad_path %></li>
             </ul>
@@ -44,7 +24,7 @@
       <div class="panel panel-info">
         <div class="panel-heading" style="background-color: #39b3d7">
           <h4 class="panel-title">
-              <%= link_to "Mercado".html_safe, ads_path %>
+              <%= link_to "MERCADO".html_safe, ads_path %>
           </h4>
         </div>
       </div>
@@ -56,7 +36,7 @@
         <div class="panel-heading" style="background-color: #ed9c28">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseEventos">
-              Eventos
+              <span class="icon-heart" style="margin-right: 2px"></span> EVENTOS
             </a>
           </h4>
         </div>
@@ -76,19 +56,19 @@
       <div class="panel panel-default">
         <div class="panel-heading" style="background-color: #ed9c28">
           <h4 class="panel-title">
-              <%= link_to "Eventos".html_safe, ads_path %>
+              <%= link_to "EVENTOS".html_safe, ads_path %>
           </h4>
         </div>
       </div>
       <% end %>
 
       <!-- ACADEMIA -->
-      <% if user_signed_in? && controller_name=="academy" %>
+      <% if user_signed_in? %>
       <div class="panel panel-default">
         <div class="panel-heading" style="background-color: #47a447;">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseAcademia">
-              Academia
+              <span class="icon-book" style="margin-right: 2px"></span>  ACADEMIA
             </a>
           </h4>
         </div>
@@ -109,7 +89,7 @@
       <div class="panel panel-default">
         <div class="panel-heading" style="background-color: #47a447;">
           <h4 class="panel-title">
-              <%= link_to "Academia".html_safe, academy_path %>
+              <%= link_to "ACADEMIA".html_safe, academy_path %>
           </h4>
         </div>
       </div>
@@ -118,75 +98,66 @@
 
 </div>
 
-
-
 <!-- Admin Acess-->
 <% if user_signed_in? %>
+    <br>
 <div class="panel panel-default">
   <div class="panel-heading" style="background-color: #d2322d">
     <h4 class="panel-title">
-      <a href="/admin/ads">Danger-Zone</a>
+      <span class="icon-lock" style="margin-right: 2px"></span><a href="/admin/ads">Danger-Zone</a>
     </h4>
   </div>
 </div>
 <% end %>
 
 
-<!--Painel de Filtros-->
+<!-- Painel de Filtros-->
 <div class="panel panel-default">
+  <div class="panel-heading" style="background-color: rgb(237, 239, 240);">
+    <i class="icon-search"></i><span style="font-size:13px;margin-left:5px">Pesquisar por:</span>
+  </div>
   <div class="panel-body">
 
-    <ul style="margin-left: -30px; line-height: 28px;">
-    <!--Filtros-->
     <% if user_signed_in? && controller_name=="ads"%>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <legend>Filtros</legend>
+    <%= form_tag ads_path ,:method => :get do%>
 
-        
-        <li>
-          <a href="#collapseCategory" data-toggle="collapse" data-parent="#accordion">Categoria<b class="caret"></b></a>
-        </li>
-
-        <!--Formulário-->
-        <%= form_tag ads_path ,:method => :get do%>
-
-          <div id="collapseCategory" class="panel-collapse collapse">
-            <ul>
-
-              <% @categories.each do |cat| %>
-                  <li>
-                    <%= check_box_tag "search[]","cat:#{cat.id}" %>
-                    <%= cat.name %>
-                  </li>
-              <% end %>
-            </ul>
-          </div>
-
-          <li>
-            <a href="#collapseCity" data-toggle="collapse" data-parent="#accordion">Cidade<b class="caret"></b></a>
-          </li>
-
-          <div id="collapseCity" class="panel-collapse collapse">
-            <ul>
-              <% @cities.each do |city| %>
-                  <li>
-                    <%= check_box_tag "search[]","city:#{city.id}"%>
-                    <%= city.city %>
-                  </li>
-              <% end %>
-            </ul>
-          </div>
-          <br>
-          <li style="text-align: center; ">
-            <%= submit_tag "Filtrar" %>
-          </li>
+    <!-- Split button Categoria -->
+    <div class="btn-group" style="width: 100%; margin-bottom: 2px" >
+      <button type="button" class="btn btn-sm" style="width: 80%;text-align: left">Categoria</button>
+      <button type="button" class="btn btn-sm dropdown-toggle" style="width: 20%" data-toggle="dropdown">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Categoria</span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <% @categories.each do |cat| %>
+            <li>
+              <%= check_box_tag "search[]","cat:#{cat.id}" %>
+              <%= cat.name %>
+            </li>
         <% end %>
-        <!-- END FORMULARIO-->
-        
+      </ul>
+    </div>
+
+    <div class="btn-group" style="width: 100%; margin-bottom: 2px">
+      <button type="button" class="btn btn-sm" style="width: 80%;text-align: left">Cidade</button>
+      <button type="button" class="btn btn-sm dropdown-toggle" style="width: 20%" data-toggle="dropdown">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Cidade</span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <% @cities.each do |city| %>
+            <li>
+              <%= check_box_tag "search[]","city:#{city.id}"%>
+              <%= city.city %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%= submit_tag "Filtrar",class:"btn btn-default btn-sm",style:"width:100%" %>
+
     <% end %>
-    </ul>
-    <!-- END FILTERS -->
+    <% end %>
+
   </div>
 </div>
-
