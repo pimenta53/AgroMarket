@@ -1,8 +1,9 @@
-//// ==================================================== //
+  //// ==================================================== //
 ////                 Pedidos AJAX                         //
 //// ==================================================== //
 var ready;
 ready = function() {
+
 
      /*
      *  Cria um novo comentario na pagina de um anuncio
@@ -48,7 +49,7 @@ ready = function() {
          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
          success: function(data)
          {
-          alert(data)
+            //alert(data)
            $("#text_comment").val("");
          },
          error: function(request,error)
@@ -91,7 +92,7 @@ ready = function() {
          success: function(data)
          {
            //$("#answers").html(result);
-           $("#text_comment").val("");
+           $("#some-textarea").data("wysihtml5").editor.setValue("");
          },
          error: function(request,error)
          {
@@ -100,6 +101,7 @@ ready = function() {
           alert ( "Não foi possivel inserir a tua resposta!!");
          }
        });
+      
 
        return false;
       });

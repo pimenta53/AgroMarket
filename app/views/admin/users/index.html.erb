@@ -18,6 +18,8 @@
   <tbody>
     <% @admin_users.each do |user| %>
       <tr>
+        <td> <%=link_to image_tag(user.avatar.url(:medium),:width => "70%",:class => "img-circle"), user %>
+        </td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.city.city %></td>

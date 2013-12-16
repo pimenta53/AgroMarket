@@ -1,6 +1,21 @@
 var ready;
 ready = function() {
 
+
+  $(window).scroll(function(){
+        if ($(this).scrollTop() > 200) {
+            $('.ir_para_form_resposta').fadeIn();
+        } else {
+            $('.ir_para_form_resposta').fadeOut();
+        }
+  });
+
+  $('.ir_para_form_resposta').click(function(){
+    $("html, body").animate({ scrollTop: $(document).height() }, 600);
+    return false;
+  });
+
+
 	/**Nao deixa que o utilizador vote novamente numa pergunta **/
   $('.vote_done').click(function(e) {
       alert("Já votou nesta pergunta!!")

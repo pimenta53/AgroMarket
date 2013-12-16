@@ -3,13 +3,12 @@
 # Table name: academy_answers
 #
 #  id          :integer          not null, primary key
-#  question_id :integer
-#  user_id     :integer
-#  up          :integer
-#  down        :integer
-#  is_deleted  :integer
-#  image_url   :string(255)
-#  text        :string(255)
+#  question_id :integer          not null
+#  user_id     :integer          not null
+#  up          :integer          default(0)
+#  down        :integer          default(0)
+#  is_deleted  :boolean          default(FALSE)
+#  text        :text
 #  created_at  :datetime
 #  updated_at  :datetime
 #

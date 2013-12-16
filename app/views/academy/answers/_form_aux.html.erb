@@ -11,11 +11,17 @@
 
 <%= f.hidden_field :question_id, :value => question.id %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
+ <div class="col-xs-2 col-md-2"><%##  Avatar do user que respondeu  ##%>
+        <%=link_to image_tag(current_user.avatar.url(:medium),:width => "70%",:class => "img-circle"), current_user %>
 
+        <%= current_user.name %>
+      </div>
+<div class="col-xs-10 col-md-10">
 <div class="control-group">
   <div class="controls">
-    <%= f.text_area :text,:id=>"text_comment",:rows=>5,:placeholder => "Escreva a sua resposta aqui..." ,:class=>"form-control counted",:rel=>"tooltip",:title=>"Responda de forma clara e sucinta." %>
+    <%= f.text_area :text,:rows=>5,:placeholder => "Escreva a sua resposta aqui..." ,:id => "some-textarea", :class=>"form-control counted",:rel=>"tooltip",:title=>"Responda de forma clara e sucinta." %>
   </div>
+</div>
 </div>
 
 <div class="actions" style="float:right">

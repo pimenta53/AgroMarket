@@ -105,3 +105,6 @@ Usem desta forma para que o servidor a cada pedido não esteja a fazer novamente
             <%= ad.created_at.to_s %>
      </abbr> `
  
+## Graficos ##
+Vejam aqui alguns dos exemplos
+http://ankane.github.io/chartkick/

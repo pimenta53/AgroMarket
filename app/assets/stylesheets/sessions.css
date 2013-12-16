@@ -7,30 +7,7 @@ body {
 
 
 
-@media only screen and (max-width: 700px){
 
- #login_body,#section_negocio{
-  float: none;
-  width: 100%;
- }
-
- .login-title{
-
-  font-size: 30%;
- color: #FFF;
-  }
-
-}
-
-@media only screen and (max-width: 430px){
-
- .login-title{
-
-  font-size: 23%;
-  color: #FFF;
- }
-
-}
 
 
 /********** Login_Signup **********/
@@ -42,13 +19,12 @@ body {
 
 #login_body
 {
-
+  display: table;
   height: 100%;
   width: 100%;
-  display: table;
   position: relative;
 
-  background:url('/assets/Backgrounds/farm_wallpaper4.jpg') no-repeat center fixed; 
+  background:url('/assets/Backgrounds/farm_wallpaper4.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -140,7 +116,20 @@ body {
     -moz-text-shadow:1px 1px #000;
     text-shadow:1px 1px #000;
     color: #00A75D;
-   font-size: 4.5em;
+    font-size: 20px;
+   
+   
+
+}
+
+.login-title_login
+{
+
+    -webkit-text-shadow:1px 1px #000;
+    -moz-text-shadow:1px 1px #000;
+    text-shadow:1px 1px #000;
+    color: #00A75D;
+    font-size: 4.5em;
    
    
 
@@ -162,12 +151,15 @@ body {
 
 .col-slogan{
 
-    margin: 0 auto;
-    border: 2px solid black;
-    width: 60%;
+    display: inline-block;
+    zoom: 1;
+    display*: inline;
+    
+    width: 100%;
+
 
     background-color: rgba(255,255,255,0.8);
-    -webkit-border-radius:10px;
+    -webkit-border-radius: 10px;
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
@@ -213,11 +205,10 @@ margin-top: 0%;
 
 .login-col-form_regist{
   
-  width: 45%;
+  width: auto;
   height: auto;
  
-  margin-left:auto;
-  margin-right: auto;
+ 
   margin-top: 1%;
   padding: 10%;
 }
@@ -230,6 +221,15 @@ margin-top: 0%;
 .login-slogan{
 
   
+  -webkit-text-shadow:1px 1px #000;
+  -moz-text-shadow:1px 1px #000;
+  text-shadow:1px 1px #000;
+  color: #EA5B0C;
+  font-size: 18px;
+
+
+}
+.login-slogan_login{
   -webkit-text-shadow:1px 1px #000;
   -moz-text-shadow:1px 1px #000;
   text-shadow:1px 1px #000;
@@ -454,25 +454,23 @@ margin-top: 0%;
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 
-    height: 60%;
+    height: auto;
 
 }
 
 .information
 {
   
-  width: 70%;
- 
-
-  float: right;
+  width: auto;
+  
 
 }
 
 .information h1{
 
    color: #00A75D;
-   text-align: center;
-   font-size: 6em;
+   
+   font-size: 80px;
 }
 
 
@@ -480,7 +478,7 @@ margin-top: 0%;
 
    color: black;
    font-family: times;
-   font-size: 1.5em;
+   font-size: 30px;
 
 }
 
@@ -667,7 +665,7 @@ a.frame:hover {
 #section-regist{
   height: auto; 
   width: auto; 
- float: center;
+  float: center;
 }
 
 #login_section_regist{
@@ -683,20 +681,20 @@ a.frame:hover {
 }
 
  .pocket_bronze{
-  width: 250px;
-  height: auto;
+  width: auto;
+  height: 300px;
   margin: 2%;
  }
  .pocket_silver{
-  width: 250px;
-  height: auto;
+  width: auto;
+  height: 300px;
   margin: 2%;
   
  }
 
 .pocket_gold{
-  width: 250px;
-  height: auto;
+  width: auto;
+  height: 300px;
   margin: 2%;
  }
 
@@ -705,12 +703,8 @@ a.frame:hover {
 width: auto;
 height: auto;
 
-margin-left: 15%;
+margin-left: 25%;
 margin-right: 15%;
-
-position: relative;
-padding-left: 5%;
-
 
 }
 
@@ -732,7 +726,7 @@ padding-left: 5%;
  
  .plan {
   padding: 20px;
-  color: #ff;
+  color: #fff;
   background-color: #5e5f59;
   -moz-border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;
@@ -742,29 +736,43 @@ padding-left: 5%;
 .plan-name-bronze {
   padding: 20px;
   color: #fff;
-  background-color: #665D1E;
+  background-color: #00A75D;
   -moz-border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 5px 5px;
+ }
+
+ .plan-name-bronze,..plan-name-silver h2{
+  color:#EA5B0C;
  }
   
 .plan-name-silver {
   padding: 20px;
   color: #fff;
-  background-color: #C0C0C0;
+  background-color: #00A75D;
   -moz-border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 5px 5px;
  }
   
 .plan-name-gold {
   padding: 20px;
   color: #fff;
-  background-color: #FFD700;
+  background-color: #00A75D;
   -moz-border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 5px 5px;
   } 
+
+.section_regist_text{
+  font-size: 20px;
+
+  }
+
+  .section_regist_text span{
+   font-size: 22px;
+
+  }
   
 .pricing-table-bronze  {
   padding: 20px;
@@ -788,8 +796,9 @@ padding-left: 5%;
 }
  
 .pricing-table .plan ul li.plan-feature {
-  padding: 15px 10px;
+  padding: 15px 10px 0px 0px;
   border-top: 1px solid #c5c8c0;
+
 }
  
 .pricing-three-column {
@@ -797,22 +806,14 @@ padding-left: 5%;
   width: 80%;
 }
  
-.pricing-variable-height .plan {
-  float: none;
-  margin-left: 2%;
-  vertical-align: bottom;
-  display: inline-block;
-  zoom:1;
-  *display:inline;
-}
- 
+
 .plan-mouseover .plan-name {
   background-color: #4e9a06 !important;
 }
  
 .btn-plan-select {
-  padding: 8px 25px;
-  font-size: 18px;
+  padding: 10px 8px;
+  font-size: 14px;
 }
 
 
@@ -858,10 +859,11 @@ padding-left: 5%;
 .service-item {
 
 
-  margin-top: 2%;
-  margin-left: 10%;
-  width: 70%;
-  float: left;
+    margin-top: 2%;
+ 
+    vertical-align: center;
+    width: auto;
+
 }
 
 i.service-icon {

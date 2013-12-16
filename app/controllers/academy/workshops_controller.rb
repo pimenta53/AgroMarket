@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Academy::WorkshopsController < ApplicationController
   before_action :set_academy_workshop, only: [:show, :edit, :update, :destroy]
 

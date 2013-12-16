@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Academy::TutorialsController < ApplicationController
   before_action :set_academy_tutorial, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource

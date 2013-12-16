@@ -12,59 +12,63 @@
 
         </div>
  </div>
-<hr />
-<div class="panel-heading">
-  <h4>Perguntas feitas:</h4>
-</div>
 
-<div class="panel panel-default">
-<%###  categoria | view counter | respostas | Titulo | utilizador | link para a pergunta |  ###%>
-<table>
-    <% @academy_questions.each do |academy_question| %>
-      <tr>
-        <td><%= academy_question.category.name %></td>
-        <td>view Counter</td>
-        <td><%= academy_question.answers.count %></td>
-        <td><%= academy_question.title %></td>
-        <td><%= academy_question.user.name %></td>
-        <td><%= link_to 'Show', academy_question %></td>
-      </tr>
-    <% end %>
-</table>
-</div>
-<br>
+<div class="row classifieds-table">
+    <div class="col-lg-12">
+      <section class="panel">
+        <header class="panel-heading "><h3>Perguntas</h3></header>
+        <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Pergunta</th>
+                          <th class="">Categoria</th>
+                          <th class="text-center">Views</th>
+                          <th class="text-center">Respostas</th>
+                        </tr>
+                      </thead>
+                      <tbody>
 
-
-
-<%= link_to 'Nova questão', new_academy_question_path %>
-<legend>Questoes em Thumbnails( meter isto direito) </legend>
-
-<div class="row">
-
-      <% @academy_questions.each do |academy_question| %>
-            <div class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-
-                      <div class="col-xs-5 col-md-5"><%##  Avatar do user que fez a pergunta  ##%>
-                       <%= link_to (image_tag academy_question.user.avatar.url(:medium),:width => "100%",:class => "img-circle"), academy_question.user %>
-                    </div>
-
-                    <div class="col-xs-12 col-md-12 ">
-                      <%= link_to academy_question.title, academy_question %><%##  texto da pergunta  ##%>
-
-                    </div>
-
-                      <div class="caption">
-                            <span class="label label-info">
+                        <% @academy_questions.each do |academy_question| %>
+                          <tr>
+                            <td class="col-sm-8 col-md-6">
+                              <div class="media">
+                                
+                                 <%= link_to (image_tag academy_question.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circlethumbnail pull-left"), academy_question.user %>
+                                </a>
+                                <div class="media-body">
+                                  <h4 class="media-heading">    
+                                    <%= link_to academy_question.title, academy_question %>
+                                  </h4>
+                                  <p><small><%= academy_question.text %></small></p>
+                                </div>
+                              </div>
+                            </td>
+                            <td>  
+                              <span class="label label-info">
                               <%= academy_question.category.name %>
-                          </span>
-
-                      <p><i class="fa fa-map-marker"></i> <%= academy_question.text %></p>
-                    </div>
-              </div>
-           </div>
-          <% end %>
-
-
-
-    </div>
+                              </span> 
+                            </td>
+                            <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;"><strong>110 </strong></td>
+                            <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;">76x</td>
+                          </tr>
+                        <% end %>
+                     
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="col-lg-12" style="text-align: center;">
+                    <ul class="pagination">
+                      <li class="disabled"><a href="#">«</a></li>
+                      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#">»</a></li>
+                    </ul>
+                   
+                </div>
+               </section>
+        </div>
+      </div>

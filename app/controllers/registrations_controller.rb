@@ -46,7 +46,7 @@ class RegistrationsController < Devise::RegistrationsController
 
 
 		def load_cities
-			@cities = City.all
+			@cities = City.all.order('city')
 		end
 
 		def date_convert

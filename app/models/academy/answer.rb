@@ -3,13 +3,12 @@
 # Table name: academy_answers
 #
 #  id          :integer          not null, primary key
-#  question_id :integer
-#  user_id     :integer
-#  up          :integer
-#  down        :integer
-#  is_deleted  :integer
-#  image_url   :string(255)
-#  text        :string(255)
+#  question_id :integer          not null
+#  user_id     :integer          not null
+#  up          :integer          default(0)
+#  down        :integer          default(0)
+#  is_deleted  :boolean          default(FALSE)
+#  text        :text
 #  created_at  :datetime
 #  updated_at  :datetime
 #
@@ -19,14 +18,7 @@ class Academy::Answer < ActiveRecord::Base
   belongs_to :user
   has_many :votes
 
-  #pergunta com melhor votacao
-  def self.best_answer
-    answer = order('up - down DESC').first
-    if answer.total_votes <= 0
-      answer = nil
-    end
-    return answer
-  end
+  
 
   #verifica se ultizador já votou
   def has_vote?(user)
@@ -69,6 +61,8 @@ class Academy::Answer < ActiveRecord::Base
     self.up = self.up - 1
     self.save
   end
+
+  
 
 
 

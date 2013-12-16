@@ -25,4 +25,16 @@ module Academy::AnswersHelper
 			return "panel-info"
 		end
 	end
+
+	def was_edited?( answer )
+		if answer.created_at == answer.updated_at
+			return  '<abbr class="timeago" title="'.html_safe + answer.created_at.getutc.iso8601 + '">'.html_safe+
+			            answer.created_at.to_s +
+			         '</abbr>'.html_safe
+		else
+			return 'Editada <abbr class="timeago" title="'.html_safe + answer.updated_at.getutc.iso8601 + '">'.html_safe+
+			             answer.updated_at.to_s
+			        '</abbr>'.html_safe
+		end
+	end
 end

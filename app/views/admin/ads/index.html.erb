@@ -14,7 +14,7 @@
           <th>Título</th>
           <th>Descrição</th>
           <th>Preço</th>
-          <th>Medida</th>
+          
           <th>Categoria</th>
           <th>Data de expiração</th>
           <th>Local</th>
@@ -24,8 +24,6 @@
           <th>User_ID / User_Name</th>
           <th>Criado em</th>
           <th></th>
-          <th></th>
-          <th></th>
         </tr>
       </thead>
 
@@ -34,7 +32,8 @@
           <tr>
             <td>
 
-              <a href="#details<%= ad.id %>"  data-toggle="collapse"><span class="label label-info"><i class="fa fa-search"></i></a></td>
+              <a href="#details<%= ad.id %>"  data-toggle="collapse"><span class="label label-info"><i class="fa fa-search"></i></a>
+            </td>
             <td>
               <div class="img_table">
                 <!--HELPER helper/ads_helper -->
@@ -43,8 +42,7 @@
             </td>
             <td><%= ad.title %></td>
             <td><%= ad.description %></td>
-            <td><%= ad.price %></td>
-            <td><%= ad.type_price_id %></td>
+            <td><%= ad.price %> <%= ad.type_price_id %></td>
             <td>
               <% if ad.category %>
                 <span class="label" style="background-color: #<%= ad.category.color %>">
@@ -66,9 +64,9 @@
             <td><strong><%= l ad.created_at , :format => :short%></strong>
             </td>
 
-            <td><%= link_to 'Ver', [:admin,ad] %></td>
-            <td><%= link_to 'Editar', edit_admin_ad_path(ad) %></td>
-            <td><%= link_to 'Eliminar', [:admin,ad], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+            <td><%= link_to 'Ver', [:admin,ad] %>
+            <%= link_to 'Editar', edit_admin_ad_path(ad) %>
+            <%= link_to 'Eliminar', [:admin,ad], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
           </tr>
 
           <tr id="details<%= ad.id %>" class="collapse" data-toggle="collapse">

@@ -42,6 +42,14 @@ class Talk < ActiveRecord::Base
       includes(:messages).where( "(user_one = ? or user_two = ? )",user_id,user_id )
   end
 
+  def self.private_talks(user_id)
+    includes(:messages).where( "(user_one = ? or user_two = ? ) and ad_id is NULL ",user_id,user_id )
+  end
+
+  def self.ads_talks(user_id)
+    includes(:messages).where( "(user_one = ? or user_two = ? ) and ad_id IS NOT NULL ",user_id,user_id )
+  end
+
   #INSTANCE METHODS
 
   #get talks of MP

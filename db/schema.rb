@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211223006) do
+ActiveRecord::Schema.define(version: 20131127132046) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -212,9 +212,10 @@ ActiveRecord::Schema.define(version: 20131211223006) do
     t.datetime "birthday"
     t.string   "phone"
     t.integer  "city_id"
+    t.string   "ocupation"
+    t.integer  "user_type",              default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
