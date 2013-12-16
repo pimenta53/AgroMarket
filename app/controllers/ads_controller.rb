@@ -2,6 +2,8 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
   before_action :load_stuff, only: [:new,:create,:show,:edit,:update]
+  load_and_authorize_resource
+
 
   # GET /ads
   # GET /ads.json
