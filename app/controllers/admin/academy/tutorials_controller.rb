@@ -5,6 +5,7 @@ class Admin::Academy::TutorialsController < ApplicationController
 
 	def index
 		@aproved_tutorials = Academy::Tutorial.all
+		authorize! :read, @aproved_tutorials
 	end
 
 	def show 
@@ -28,6 +29,7 @@ class Admin::Academy::TutorialsController < ApplicationController
 	    def set_academy_tutorial
 	      @academy_tutorial = Academy::Tutorial.find(params[:id])
 	      @categories = Category.all
+	      authorize! :read, nil
 	    end
 
 	    # Never trust parameters from the scary internet, only allow the white list through.

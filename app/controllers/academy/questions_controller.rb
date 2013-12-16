@@ -2,6 +2,7 @@
 class Academy::QuestionsController < ApplicationController
   before_action :set_academy_question, only: [:show, :edit, :update]
   before_action :get_categories
+  load_and_authorize_resource :only => [:edit,:update,:new,:destroy]
   # GET /academy/questions
   # GET /academy/questions.json
   def index

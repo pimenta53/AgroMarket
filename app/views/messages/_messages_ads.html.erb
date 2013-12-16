@@ -42,7 +42,6 @@
             <%= render "messages/show" , :messages => t.messages, :talk => t.id %>
 
 
-            <%= sadads %>
           <%= form_for @message, :url => ad_new_messages_path(@ad.id),:html => {:id => "comment_ad",:ajax_path => ad_new_messages_path(@ad.id) } do |m| %>
 
             <div class="field">
