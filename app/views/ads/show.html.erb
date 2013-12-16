@@ -124,7 +124,7 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="ui-group-buttons">
-                        <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_ad_path(@ad),:class=>"btn btn-info",:tile=> "Editar Anúncio" %>
+                        <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_ad_path(@ad),:class=>"btn btn-info", :tile=> "Editar Anúncio" %>
                         <div class="or"></div>
                         <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @ad, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?s' } ,:class=>"btn btn-danger", :tile=> "Apagar Anúncio"%>
                      </div>
@@ -281,7 +281,7 @@
          <!-- </div> -->
       </div>
       <!-- reviews -->
-      <div id="reviews" class="tab-pane">
+      <div id="reviews" class="tab-pane" style="background-color: white;">
          <% @reviews_user.each do |review| %>
          <article class="media">
             <p class="pull-left thumb p-thumb">

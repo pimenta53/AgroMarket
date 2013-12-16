@@ -27,12 +27,13 @@ class RatingsController < ApplicationController
 	def create
 		@rating = Rating.new(rating_params)
 
+
 	end
 
 	def update
 		@rating.update(rating_params)
 		flash[:notice] = "Rating atribuído com sucesso"
-		redirect_to root_path,notice: 'Rating Atribuido com sucesso' 
+		redirect_to root_path,notice: 'Rating Atribuido com sucesso'
 	end
 
 	private
