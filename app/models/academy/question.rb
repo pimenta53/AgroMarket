@@ -39,4 +39,12 @@ class Academy::Question < ActiveRecord::Base
     end
  end
 
+ #resposta com melhor votacao
+  def best_answer
+
+    answer = self.answers.order('up - down DESC').first
+
+    return answer
+  end
+
 end

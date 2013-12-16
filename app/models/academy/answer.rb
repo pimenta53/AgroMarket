@@ -19,14 +19,7 @@ class Academy::Answer < ActiveRecord::Base
   belongs_to :user
   has_many :votes
 
-  #pergunta com melhor votacao
-  def self.best_answer
-    answer = order('up - down DESC').first
-    if answer.total_votes <= 0
-      answer = nil
-    end
-    return answer
-  end
+  
 
   #verifica se ultizador já votou
   def has_vote?(user)
