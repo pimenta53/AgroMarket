@@ -6,9 +6,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Country.delete_all
-Country.create :name => "Portugal"
-Country.create :name => "Spain"
 
 City.delete_all
 City.create :city => "Águeda"
