@@ -7,9 +7,10 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
-    @ads = Ad.search(params[:search])
+    @ads = Ad.all
     @categories = Category.all
     @cities = City.all
+    #params[:search]
     #render :layout => "admin"
   end
 
