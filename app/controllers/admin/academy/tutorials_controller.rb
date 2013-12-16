@@ -2,9 +2,6 @@
 class Admin::Academy::TutorialsController < ApplicationController
 	layout "admin"
 	before_action :set_academy_tutorial, only: [:show, :edit, :update, :destroy]
-  	load_and_authorize_resource
-
-
 
 	def index
 		@aproved_tutorials = Academy::Tutorial.all

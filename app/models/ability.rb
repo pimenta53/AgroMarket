@@ -2,15 +2,25 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.user_type == 1 #normal user    
-        can :read, Ad
-        can :create, Ad
-    elsif user.user_type == 2 #admin user
-        can :manage, :all
+    if !user.nil?
+        if user.user_type == 1 #normal user    
+            can :read, Ad
+            can :create, Ad
+            can :new, Ad
+            can :read, Academy::Tutorial
+            can :create, Academy::Tutorial
+            can :new, Academy::Tutorial
+        elsif user.user_type == 2 #admin user
+            can :manage, :all
+        end
+
+        can :update, Ad, :user_id => user.id
+        can :update, Academy::Tutorial, :user_id => user.id
+    else
+        can :index,Ad
     end
 
-    can :update, Ad, :user_id => user.id
-    can :update, Academy::Tutorial, :user_id => user.id
+    
 
 
     # Define abilities for the passed in user here. For example:
