@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bem vindo a AgroSocial, <%= @user.name %></h1>
+    <p>
+      A sua conta foi criada com sucesso.
+    </p>
+    <% if @pass != nil %>
+      <p>
+        A tua password é: <%= @pass %> 
+      </p>
+    <% end %>
+    <p>
+      Para fazer login use este link: <a href="https://http://localhost:3000/users/sign_in">https://http://localhost:3000/users/sign_in</a>.
+    </p>
+    <p>Obrigado por registar e bom negócio!</p>
+  </body>
+</html>
