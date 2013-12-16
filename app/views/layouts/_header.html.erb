@@ -26,7 +26,7 @@
         <ul class="dropdown-menu">
           <li class="container" id="searchBox" role="search">
             <form class="input-group" id="input-groupBox">
-              <input type="text" name="wwww" style="vertical-align: center;" class="form-control typeahead" >
+              <input type="text" name="search" style="vertical-align: center;" class="form-control typeahead" value="<%= params[:search] %>">
               
               <span class="input-group-btn">
                 <input value="Pesquisar" type="submit" class="btn btn-default" id="omnisearch-btn" >
@@ -161,7 +161,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" style="padding-top:9px; padding-bottom:9px;" data-toggle="dropdown" >
             <!--<% image_tag current_user.avatar.url%>-->
-            <span><%= image_tag current_user.avatar.url(:medium), style:"background-color:white; width:35px; " %></span>
+            <span><%= image_tag current_user.avatar.url(:medium), style:"width:35px; " %></span>
             <b class="caret" id="dropCarret"></b>
           </a>
 

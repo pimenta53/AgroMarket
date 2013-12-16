@@ -7,9 +7,24 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
-    @ads = Ad.search(params[:search])
+    if params[:search] != nil
+      ads = Ad.arel_table
+      search_table = nil
+      search_params = params[:search].split
+      search_params.each { |parameter|
+        if (search_table != nil)
+          search_table = search_table.and(ads[:title].matches("%#{parameter}%"))
+        else
+          search_table = ads[:title].matches("%#{parameter}%")
+        end
+      }
+      @ads = Ad.where(search_table)
+    else 
+      @ads = Ad.all
+    end
     @categories = Category.all
     @cities = City.all
+    params[:search]
     #render :layout => "admin"
   end
 
@@ -134,12 +149,10 @@ class AdsController < ApplicationController
     @ad.talks.where("(user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)", params[:user_id], current_user.id, current_user.id, params[:user_id]).first.update(:is_close => true)
 
     # Create new entry, RATED current_user
-    rated_current_user = Rating.new(:ad_id => @ad.id,:rater_id => params[:user_id],:rated_id => current_user.id)
+    Rating.new(:ad_id => @ad.id,:rater_id => params[:user_id],:rated_id => current_user.id).save
 
     # Create new entry, RATER current_user
-    rater_current_user = Rating.new(:ad_id => @ad.id,:rater_id => current_user.id ,:rated_id => params[:user_id])
-    rater_current_user.save
-    rated_current_user.save
+    Rating.new(:ad_id => @ad.id,:rater_id => current_user.id ,:rated_id => params[:user_id]).save
 
     redirect_to @ad,notice: 'A mensagem foi terminada com sucesso'
   end
