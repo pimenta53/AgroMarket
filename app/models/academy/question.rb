@@ -3,12 +3,11 @@
 # Table name: academy_questions
 #
 #  id          :integer          not null, primary key
-#  user_id     :integer
-#  category_id :integer
-#  title       :string(255)
-#  text        :string(255)
-#  is_deleted  :integer
-#  image_url   :string(255)
+#  user_id     :integer          not null
+#  category_id :integer          not null
+#  title       :string(255)      not null
+#  text        :text
+#  is_deleted  :boolean          default(FALSE)
 #  created_at  :datetime
 #  updated_at  :datetime
 #
