@@ -1,0 +1,11 @@
+Bem vindo a AgroSocial, <%= @user.name %>
+===============================================
+ 
+A sua conta foi criada com sucesso.
+<% if @pass != nil %>
+A tua password é: <%= @pass %> 
+<% end %>
+ 
+Para fazer login use este link: https://http://localhost:3000/users/sign_in
+ 
+Obrigado por registar e bom negócio!
