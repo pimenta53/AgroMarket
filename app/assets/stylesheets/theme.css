@@ -114,12 +114,23 @@ a:hover #dropCarret{
 
 /****FOOTER****/
 footer {
+  padding-top:10px;
   background-color: #00A75D;
   bottom: 0;
   position: relative;
   width: 100%;
   color: #fff;
   padding-left: 200px;
+}
+
+footer a{
+    text-decoration: none;
+    color:white;
+}
+
+footer a:visited,footer li a:visited{
+    text-decoration: none;
+    color:white;
 }
 
 /******SIDEBAR LEFT**********/
