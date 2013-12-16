@@ -2,14 +2,29 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
   before_action :load_stuff, only: [:new,:create,:show,:edit,:update]
-  load_and_authorize_resource :only => [:edit,:update,:show]
+  #load_and_authorize_resource :only => [:edit,:update,:show]
 
   # GET /ads
   # GET /ads.json
   def index
-    @ads = Ad.search(params[:search])
+    if params[:search] != nil
+      ads = Ad.arel_table
+      search_table = nil
+      search_params = params[:search].split
+      search_params.each { |parameter|
+        if (search_table != nil)
+          search_table = search_table.and(ads[:title].matches("%#{parameter}%"))
+        else
+          search_table = ads[:title].matches("%#{parameter}%")
+        end
+      }
+      @ads = Ad.where(search_table)
+    else 
+      @ads = Ad.all
+    end
     @categories = Category.all
     @cities = City.all
+    params[:search]
     #render :layout => "admin"
   end
 
