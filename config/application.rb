@@ -23,5 +23,6 @@ module Agrosocial
     config.i18n.default_locale = "pt-PT"
     
     config.active_record.observers = :message_observer
+    
   end
 end

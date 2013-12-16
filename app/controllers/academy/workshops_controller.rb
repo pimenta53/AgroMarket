@@ -11,6 +11,9 @@ class Academy::WorkshopsController < ApplicationController
   # GET /academy/workshops/1
   # GET /academy/workshops/1.json
   def show
+    @academy_workshop_registration = Academy::WorkshopRegistration.new
+    @academy_workshop_registrations = @academy_workshop.workshop_registrations
+
   end
 
   # GET /academy/workshops/new

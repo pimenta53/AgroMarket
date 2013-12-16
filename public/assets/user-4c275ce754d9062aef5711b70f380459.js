@@ -1,0 +1,1 @@
+$(function(){var i=$(".user-infos"),t=$(".dropdown-user");i.hide(),t.click(function(){var i=$(this).attr("data-for"),t=$(i),n=$(this);t.slideToggle(400,function(){t.is(":visible")?n.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>'):n.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>')})}),$("button").click(function(i){i.preventDefault()})});
