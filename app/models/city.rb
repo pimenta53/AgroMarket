@@ -10,10 +10,10 @@
 #
 
 class City < ActiveRecord::Base
-	belongs_to :country
+	belongs_to :district
 
     has_many :users
     has_many :ads
-	
+
 	validates :city, presence: true, uniqueness: true
 end
