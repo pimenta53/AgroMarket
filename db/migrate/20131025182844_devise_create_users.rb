@@ -42,8 +42,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime  :birthday
       t.string    :phone
       t.integer   :city_id
-
-      t.integer   :user_type
+      t.string    :ocupation
+      t.integer   :user_type, :default => 1
 
       t.timestamps
     end

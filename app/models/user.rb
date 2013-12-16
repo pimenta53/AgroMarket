@@ -13,16 +13,18 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
-#  created_at             :datetime
-#  updated_at             :datetime
-#  name                   :string(255)
-#  birthday               :datetime
-#  phone                  :string(255)
 #  avatar_file_name       :string(255)
 #  avatar_content_type    :string(255)
 #  avatar_file_size       :integer
 #  avatar_updated_at      :datetime
+#  name                   :string(255)
+#  birthday               :datetime
+#  phone                  :string(255)
 #  city_id                :integer
+#  ocupation              :string(255)
+#  user_type              :integer          default(1)
+#  created_at             :datetime
+#  updated_at             :datetime
 #
 
 class User < ActiveRecord::Base
@@ -71,7 +73,7 @@ class User < ActiveRecord::Base
   #validates
   validates :name, presence: true
   validates :phone, format: /(^$|(\d{9,}\Z))/i
-  validates :email, :uniqueness => true ,presence: true,format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
+  validates :email, presence: true,format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
 
   validate :birthday_cannot_be_in_the_future
 
