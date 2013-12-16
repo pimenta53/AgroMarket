@@ -15,6 +15,7 @@
  *= stub sessions
  *= require jquery.pnotify.default
  *= require jquery.pnotify.default.icons
+ *= require font-awesome
  *= require_tree .
  */
 

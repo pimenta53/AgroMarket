@@ -72,10 +72,12 @@ GEM
       multipart-post (~> 1.2.0)
     ffi (1.9.0)
     ffi (1.9.0-x86-mingw32)
+    font-awesome-rails (4.0.3.0)
+      railties (>= 3.2, < 5.0)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
-    i18n (0.6.5)
+    i18n (0.6.9)
     jbuilder (1.5.2)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -230,6 +232,7 @@ DEPENDENCIES
   chartkick
   coffee-rails (~> 4.0.0)
   devise (= 3.0.0)
+  font-awesome-rails
   jbuilder (~> 1.2)
   jquery-rails
   meta_request
