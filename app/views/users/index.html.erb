@@ -4,23 +4,23 @@
 <p>Find me in app/views/users/index.html.erb</p>
 <br><br>
 <div class="container">
- <div class="well col-sm-12 col-md-8 col-md-offset-2">
+	<div class="well col-sm-12 col-md-8 col-md-offset-2">
         <div class="row user-row">
             <div class="col-md-1">
                 <img class="img-circle"
                      src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
                      alt="User Pic">
             </div>
-         <% @user.each do |user| %>
+         	<% @user.each do |user| %>
 
-			            <div class="col-md-10">
-			                <strong><%= user.name %></strong><br>
-			                <span class="text-muted">User level: Administrator</span>
-			            </div>
-			            <div class="col-md-1 dropdown-user" data-for=".cyruxx">
-			                <i class="glyphicon glyphicon-chevron-down text-muted"></i>
-			            </div>
-			        </div>
+            <div class="col-md-10">
+                <strong><%= user.name %></strong><br>
+                <span class="text-muted">User level: Administrator</span>
+            </div>
+            <div class="col-md-1 dropdown-user" data-for=".cyruxx">
+                <i class="glyphicon glyphicon-chevron-down text-muted"></i>
+            </div>
+        </div>
 			        <div class="row user-infos cyruxx">
 			            <div class="col-sm-10 col-md-10 col-md-offset-1">
 			                <div class="panel panel-primary">
