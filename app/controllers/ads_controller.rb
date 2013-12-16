@@ -9,7 +9,16 @@ class AdsController < ApplicationController
   def index
     if params[:search] != nil
       ads = Ad.arel_table
-      @ads = Ad.where(ads[:title].matches("%#{params[:search]}%"))
+      search_table = nil
+      search_params = params[:search].split
+      search_params.each { |parameter|
+        if (search_table != nil)
+          search_table = search_table.and(ads[:title].matches("%#{parameter}%"))
+        else
+          search_table = ads[:title].matches("%#{parameter}%")
+        end
+      }
+      @ads = Ad.where(search_table)
     else 
       @ads = Ad.all
     end
