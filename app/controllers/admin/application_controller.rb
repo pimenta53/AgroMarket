@@ -1,22 +1,12 @@
 #encoding: utf-8
 class Admin::ApplicationController <  ActionController::Base
-  before_action :set_premission
-
   layout "admin"
+  load_and_authorize_resource :only => [:edit]
   
 
-  private
-  	def set_premission
-  		if current_user.nil?
-  			redirect_to root_path
-  		else
-  			if !current_user.user_type.nil?
-		  		if current_user.user_type == 1
-		  			redirect_to ads_path, :notice => "Boa sorte, não consegues entrar porque não és ADMIN, se quiseres pede ao LIMA"
-		  		end
-		  	end
-	  	end
-  	end
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :notice => exception.message
+  end
 
 
 end

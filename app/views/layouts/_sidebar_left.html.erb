@@ -1,18 +1,4 @@
-
-<% if user_signed_in? %>
-    <div class="col-md-12 col-lg-12 col-xs-4 col-sm-8" style="text-align: center">
-      <%= image_tag current_user.avatar.url(:medium),:width => "50%",:class => "img-rounded",style:"background-color:white" %>
-    </div>
-    <div class="row" style="margin-bottom:15px;">
-      <div class="col-md-8"><strong> <%= current_user.name  %></strong></div>
-    </div>
-<% else %>
-    <div class="row" style="margin-bottom:5px">
-      <div class="col-md-8"><strong> Bem-vindo Visitante!</strong></div>
-    </div>
-<% end -%>
-
-  <div class="panel-group" id="accordion">
+<div class="panel-group" id="accordion">
 
     <!-- MERCADO -->
     <% if user_signed_in? %>

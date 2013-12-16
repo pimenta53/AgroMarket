@@ -144,12 +144,12 @@ ActiveRecord::Schema.define(version: 20131209093600) do
 
   create_table "cities", force: true do |t|
     t.string   "city"
-    t.integer  "country_id"
+    t.integer  "district_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "countries", force: true do |t|
+  create_table "districts", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -186,6 +186,15 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.integer  "rater_id"
     t.integer  "ad_id"
     t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sub_categories", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "color"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -261,6 +270,7 @@ ActiveRecord::Schema.define(version: 20131209093600) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+<<<<<<< HEAD
   create_table "votes", force: true do |t|
     t.integer  "vote"
     t.integer  "user_id"
@@ -283,4 +293,6 @@ ActiveRecord::Schema.define(version: 20131209093600) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> bfc1196eef24f2671ca4a2e86be9adf3422fcc69
 end

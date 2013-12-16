@@ -1,6 +1,8 @@
 #encoding: utf-8
 class Academy::TutorialsController < ApplicationController
   before_action :set_academy_tutorial, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :only => [:edit,:update,:show]
+
 
   # GET /academy/tutorials
   # GET /academy/tutorials.json
@@ -22,9 +24,7 @@ class Academy::TutorialsController < ApplicationController
 
   # GET /academy/tutorials/1/edit
   def edit
-    if @academy_tutorial.user_id != current_user.id
-      redirect_to academy_tutorials_path,:notice => "Não pode editar um tutorial que não é seu."
-    end
+
   end
 
   # POST /academy/tutorials
