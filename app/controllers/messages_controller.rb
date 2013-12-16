@@ -73,6 +73,7 @@ class MessagesController < ApplicationController
 
     @talks = Talk.all_talk_ad(current_user , @ad)
 
+
     if @message.save
         @messages = @talk.messages
         render :partial => 'create.js.erb'

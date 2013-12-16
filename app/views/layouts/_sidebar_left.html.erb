@@ -131,7 +131,15 @@
       <ul class="dropdown-menu" role="menu">
         <% @categories.each do |cat| %>
             <li>
-              <%= check_box_tag "search[]","cat:#{cat.id}" %>
+              <% if !params[:search].nil? %>
+                  <% if params[:search].include?("cat:" + "#{cat.id}") %>
+                    <%= check_box_tag "search[]","cat:#{cat.id}", "active" %>
+                  <%else%>
+                    <%= check_box_tag "search[]","cat:#{cat.id}" %>
+                  <% end %>
+              <% else %>
+                  <%= check_box_tag "search[]","cat:#{cat.id}" %>
+              <% end %>
               <%= cat.name %>
             </li>
         <% end %>
@@ -147,7 +155,15 @@
       <ul class="dropdown-menu" role="menu">
         <% @cities.each do |city| %>
             <li>
-              <%= check_box_tag "search[]","city:#{city.id}"%>
+              <% if params[:search] != nil %>
+                <%  if params[:search].include?("city:" + "#{city.id}") %>
+                    <%= check_box_tag "search[]","city:#{city.id}", "active" %>
+                <% else %>
+                    <%= check_box_tag "search[]","city:#{city.id}" %>
+                <% end %>
+               <% else %>
+                  <%= check_box_tag "search[]","city:#{city.id}" %>
+              <% end %>
               <%= city.city %>
             </li>
         <% end %>

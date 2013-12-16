@@ -25,6 +25,12 @@ class AuthenticationsController < ApplicationController
         user.apply_omniauth(omniauth)
         if user.save
           flash[:notice] = "Signed in successfully."
+          
+          #CORRIGEM OS SMTP SETTINGS PLZ
+          #Dropbox\Agrosocial\business\mails\mail_conf_no_reply.png
+          #
+          #UserMailer.new_user_email(user,user.password).deliver
+          
           sign_in_and_redirect(:user, user)
         else
           session[:omniauth] = omniauth.except('extra')
