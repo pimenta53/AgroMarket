@@ -1,0 +1,1 @@
+function sender_button(e){var t=document.getElementById("message_receiver_id"),n=document.getElementById("form_message");n.hidden=!1,t.value=e,document.getElementById("text_comment").focus()}function cancel_message(){var e=document.getElementById("form_message");e.hidden=!0}
