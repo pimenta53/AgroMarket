@@ -7,6 +7,28 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+District.delete_all
+District.create :name => "Aveiro"
+District.create :name => "Beja"
+District.create :name => "Braga"
+District.create :name => "Bragança"
+District.create :name => "Castelo Branco"
+District.create :name => "Coimbra"
+District.create :name => "Évora"
+District.create :name => "Faro"
+District.create :name => "Guarda"
+District.create :name => "Leiria"
+District.create :name => "Lisboa"
+District.create :name => "Portalegre"
+District.create :name => "Porto"
+District.create :name => "Santarém"
+District.create :name => "Setúbal"
+District.create :name => "Viana do Castelo"
+District.create :name => "Vila Real"
+District.create :name => "Viseu"
+District.create :name => "R. A. da Madeira"
+District.create :name => "R. A. dos Açores"
+
 City.delete_all
 City.create :city => "Águeda"
 City.create :city => "Albergaria-a-Velha"
