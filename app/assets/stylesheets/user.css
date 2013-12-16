@@ -1,10 +1,18 @@
+*{
+
+  font-family: "Oswald";
+  font-weight: normal;
+  font-size: 14px;
+  color: #293a49;
+}
+
 /*user profile image */
 
 #user_profile{
 	width: 100%;
 	height: auto;
 	
-	margin-top: 3%;
+	margin-top: 50px;
 
 	display: inline-block;
 
