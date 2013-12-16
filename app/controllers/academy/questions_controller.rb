@@ -13,7 +13,7 @@ class Academy::QuestionsController < ApplicationController
   def show
     #@answers = Academy::Answer.where(:question_id => @academy_question.id)
     @academy_answer = Academy::Answer.new
-    @best_answer = Academy::Answer.best_answer
+    @best_answer = @academy_question.best_answer
   end
 
   # GET /academy/questions/new

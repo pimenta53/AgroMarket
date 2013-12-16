@@ -4,8 +4,8 @@
 #
 #  id         :integer          not null, primary key
 #  vote       :integer
-#  user_id    :integer
-#  answer_id  :integer
+#  user_id    :integer          not null
+#  answer_id  :integer          not null
 #  created_at :datetime
 #  updated_at :datetime
 #
