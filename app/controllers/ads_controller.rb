@@ -7,10 +7,15 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
-    @ads = Ad.all
+    if params[:search] != nil
+      ads = Ad.arel_table
+      @ads = Ad.where(ads[:title].matches("%#{params[:search]}%"))
+    else 
+      @ads = Ad.all
+    end
     @categories = Category.all
     @cities = City.all
-    #params[:search]
+    params[:search]
     #render :layout => "admin"
   end
 
