@@ -10,6 +10,5 @@ class SessionsController < Devise::SessionsController
 
 	def create
 	  super
-      set_flash_message(:notice, :signed_in) #if is_flashing_format?
 	end
 end
