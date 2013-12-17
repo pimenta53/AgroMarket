@@ -40,7 +40,7 @@
                           <h4 class="media-heading">
                             <%= link_to academy_question.title, academy_question %>
                           </h4>
-                          <p><small><%= academy_question.text %></small></p>
+                          <p><small><%= academy_question.text.html_safe %></small></p>
                         </div>
                       </div>
                     </td>
