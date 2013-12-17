@@ -1,0 +1,31 @@
+<div style="margin-bottom: 40px;">
+    <div class="input-append">
+      <input type="text" placeholder="Pesquisar..." class="form-control" style="float:left;width: 80%">
+      <button type="submit" class="btn btn-danger btn-sm btn-search" style="float:right;margin-left:1%;width: 19%"><i class="icon-search icon-white"></i></button>
+    </div>
+</div>
+
+<section class="panel">
+    <header class="panel-heading border-header">
+        Categorias
+    </header>
+    <div class="panel-body">
+        <ul class="nav prod-cat">
+          <% @categories.each do |cat| %>
+            <li>
+                <a href="#" class="active"><i class=" fa fa-angle-right"></i> <%= cat.name%></a>
+                <ul class="nav">
+                    <li class="active"><a href="#">- sub cat</a></li>
+                    <li><a href="#">- sub cat</a></li>
+                </ul>
+            </li>
+           <% end %>
+        </ul>
+    </div>
+</section>
+
+
+
+
+
+
