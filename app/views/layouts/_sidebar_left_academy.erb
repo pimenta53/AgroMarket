@@ -11,14 +11,16 @@
     </header>
     <div class="panel-body">
         <ul class="nav prod-cat">
-          <% @categories.each do |cat| %>
-            <li>
-                <a href="#" class="active"><i class=" fa fa-angle-right"></i> <%= cat.name%></a>
-                <ul class="nav">
-                    <li class="active"><a href="#">- sub cat</a></li>
-                    <li><a href="#">- sub cat</a></li>
-                </ul>
-            </li>
+          <% if !@categories.nil? %>
+              <% @categories.each do |cat| %>
+                <li>
+                    <a href="#" class="active"><i class=" fa fa-angle-right"></i> <%= cat.name%></a>
+                    <ul class="nav">
+                        <li class="active"><a href="#">- sub cat</a></li>
+                        <li><a href="#">- sub cat</a></li>
+                    </ul>
+                </li>
+               <% end %>
            <% end %>
         </ul>
     </div>
