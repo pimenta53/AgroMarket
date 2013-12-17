@@ -24,3 +24,5 @@ class SubCategory < ActiveRecord::Base
   def has_ads?
     self.ads.count == 0
   end
+  
+end

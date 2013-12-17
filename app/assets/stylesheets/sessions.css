@@ -923,4 +923,10 @@ i.globe:hover {
   height: 100px;
 }
 
+.links a{
+  color: black;
+}
+.checkbox label{
+  color: black;
+}
 

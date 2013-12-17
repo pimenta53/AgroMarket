@@ -89,7 +89,9 @@
       <div class="panel panel-default">
         <div class="panel-heading" style="background-color: #47a447;">
           <h4 class="panel-title">
-              <%= link_to "ACADEMIA".html_safe, academy_path %>
+            
+              <%= link_to "ACADEMIA".html_safe, academy_path  %>
+          
           </h4>
         </div>
       </div>
@@ -99,7 +101,7 @@
 </div>
 
 <!-- Admin Acess-->
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.isAdmin? %>
     <br>
 <div class="panel panel-default">
   <div class="panel-heading" style="background-color: #d2322d">

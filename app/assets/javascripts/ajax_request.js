@@ -3,7 +3,6 @@
 //// ==================================================== //
 var ready;
 ready = function() {
-
   /*
   *  Cria um novo comentario na pagina de um anuncio
   */

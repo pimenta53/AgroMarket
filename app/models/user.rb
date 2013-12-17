@@ -66,6 +66,7 @@ class User < ActiveRecord::Base
   belongs_to :city
 
 
+
   def talks
      talks_user_one + talks_user_two
   end
@@ -92,6 +93,13 @@ class User < ActiveRecord::Base
 
   #instance methods
   
+  #verifica se utilizador é admin
+  def isAdmin?
+    if !self.blank?
+      return self.user_type == 2
+    end
+  end
+
   #fica a seguir 'target'
   #target.class = user
   def follow(target)

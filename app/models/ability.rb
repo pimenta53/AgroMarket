@@ -21,6 +21,12 @@ class Ability
         can :new, Academy::Question
         can :create, Academy::Question
 
+        can :create, Academy::Answer
+        can :new, Academy::Answer
+        can :read, Academy::Answer
+
+
+
         can :read, Academy::Workshop
         can :create, Academy::Workshop
         can :new, Academy::Workshop
