@@ -32,6 +32,8 @@ class Ability
         can :up_vote , Academy::Vote
         can :down_vote , Academy::Vote
 
+        can :read, User
+
     elsif user.user_type == 2 #admin user
         can :manage, :all
     else

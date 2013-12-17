@@ -91,8 +91,7 @@ class User < ActiveRecord::Base
   #:size => { :in => 0..10.kilobytes }
 
   #instance methods
-
-
+  
   #fica a seguir 'target'
   #target.class = user
   def follow(target)
