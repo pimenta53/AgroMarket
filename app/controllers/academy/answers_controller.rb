@@ -1,7 +1,7 @@
 #encoding: utf-8
 class Academy::AnswersController < ApplicationController
   before_action :set_academy_answer, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   # GET /academy/answers
   # GET /academy/answers.json

@@ -124,10 +124,9 @@ class Ad < ActiveRecord::Base
 
   #devolve anuncios relacionados por categoria
   def related_ads
-
     related_ads = Ad.where(:category_id => self.category_id)
                     .where.not(id: self.id)
-                    .limit(5)
+                    .limit(4)
   end
 
 
@@ -170,11 +169,11 @@ class Ad < ActiveRecord::Base
     end
 
     def self.ads_per_category
-    	result = Array.new
-    	Category.find(:all, :includes => ads ).each do |c|
+    	results = Array.new
+    	Category.find(:all ).each do |c|
     		results.push([ c.name , c.ads.count ])
     	end
-    	return result
+    	return results
     end
 
 	# private methods

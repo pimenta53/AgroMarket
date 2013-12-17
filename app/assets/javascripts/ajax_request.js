@@ -9,10 +9,6 @@ ready = function() {
      *  Cria um novo comentario na pagina de um anuncio
      */
      $(document).on('submit', '#comment_ad', function() {
-
-
-      
-
        var valuesToSubmit = $(this).serialize();
        $.ajax({
          url: $(this).attr('ajax_path'),
@@ -101,7 +97,7 @@ ready = function() {
          error: function(request,error)
          {
           alert(request);
-          alert(error);
+          //alert(error);
           alert ( "Não foi possivel inserir a tua resposta!!");
          }
        });
