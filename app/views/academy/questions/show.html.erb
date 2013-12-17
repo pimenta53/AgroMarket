@@ -14,9 +14,9 @@
             <div class="panel-body">
               <div class="pull-right">
                 <%##  botão verde com o lapis para editar a resposta  ##%>
-                <%= link_to '<i class="icon-pencil"></i>'.html_safe , edit_academy_answer_path(@best_answer), :class => "btn btn-primary btn-xs" if @best_answer.user.id == current_user.id %>
+                <%= link_to '<i class="fa fa-pencil"></i>'.html_safe , edit_academy_answer_path(@best_answer), :class => "btn btn-primary btn-xs" if @best_answer.user.id == current_user.id %>
                 <%##  botão vermelho com o caixote para eliminar a resposta  ##%>
-                <%= link_to '<i class="icon-trash"></i>'.html_safe , edit_academy_answer_path(@best_answer), :class => "btn btn-danger btn-xs" if @best_answer.user.id == current_user.id %>
+                <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe , edit_academy_answer_path(@best_answer), :class => "btn btn-danger btn-xs" if @best_answer.user.id == current_user.id %>
               </div>
 
 
