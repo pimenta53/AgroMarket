@@ -13,8 +13,9 @@
 
 class Category < ActiveRecord::Base
 
-  has_many :ads
-  has_many :questions
+  has_many :ads##################### talvez seja para sair
+  has_many :questions############### talvez seja para sair
+  has_many :sub_categories
 
   validates :name, presence: true
 
