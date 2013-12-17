@@ -650,8 +650,42 @@ City.create :city => "Corvo", :district_id => aux.first.id
 Category.delete_all
 Category.create(name: "Agricultura", description: "Produtos Agricolas", color: "009400")
 Category.create(name: "Pecuária", description: "Produtos de origem animal", color: "30cf4b")
-Category.create(name: "Caça", description: "Produtos de Caça", color: "ffff00")
-Category.create(name: "Pesca", description: "Produtos de Pesca", color: "ffaa00")
+Category.create(name: "Caça", description: "Produtos de Caça", color: "ffaa00")
+Category.create(name: "Pesca", description: "Produtos de Pesca", color: "3069ff")
+
+
+SubCategory.delete_all
+aux = Category.where(:name => "Agricultura")
+SubCategory.create :name => "Fruta", :category_id => aux.first.id
+aux = Category.where(:name => "Agricultura")
+SubCategory.create :name => "Leguminosas", :category_id => aux.first.id
+aux = Category.where(:name => "Agricultura")
+SubCategory.create :name => "Flores", :category_id => aux.first.id
+aux = Category.where(:name => "Agricultura")
+SubCategory.create :name => "Decoração", :category_id => aux.first.id
+aux = Category.where(:name => "Agricultura")
+SubCategory.create :name => "Outros", :category_id => aux.first.id
+aux = Category.where(:name => "Pecuária")
+SubCategory.create :name => "Animais", :category_id => aux.first.id
+aux = Category.where(:name => "Pecuária")
+SubCategory.create :name => "Apicultura", :category_id => aux.first.id
+aux = Category.where(:name => "Pecuária")
+SubCategory.create :name => "Produtos lácteos", :category_id => aux.first.id
+aux = Category.where(:name => "Pecuária")
+SubCategory.create :name => "Outros", :category_id => aux.first.id
+aux = Category.where(:name => "Caça")
+SubCategory.create :name => "Equipamento", :category_id => aux.first.id
+aux = Category.where(:name => "Caça")
+SubCategory.create :name => "Outros", :category_id => aux.first.id
+aux = Category.where(:name => "Pesca")
+SubCategory.create :name => "Canas", :category_id => aux.first.id
+aux = Category.where(:name => "Pesca")
+SubCategory.create :name => "isco", :category_id => aux.first.id
+aux = Category.where(:name => "Pesca")
+SubCategory.create :name => "Pescado", :category_id => aux.first.id
+aux = Category.where(:name => "Pesca")
+SubCategory.create :name => "Outros", :category_id => aux.first.id
+
 
 
 PriceType.delete_all
