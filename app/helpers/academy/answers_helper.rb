@@ -37,4 +37,14 @@ module Academy::AnswersHelper
 			        '</abbr>'.html_safe
 		end
 	end
+
+	def total_result( total_result )
+		if total_result > 0
+			return '<label class="label label-success" syle="font-size:10px">'.html_safe + total_result.to_s + '</label>'.html_safe
+		elsif total_result == 0
+			return '<label class="label label-default" syle="font-size:10px">'.html_safe + total_result.to_s + '</label>'.html_safe
+		else
+			return '<label class="label label-danger" syle="font-size:10px">'.html_safe + total_result.to_s + '</label>'.html_safe
+		end
+	end
 end

@@ -44,7 +44,7 @@
 <%= link_to 'Edit', edit_academy_workshop_path(@academy_workshop) %> |
 <%= link_to 'Back', academy_workshops_path %>
 
-<%= render :partial =>"academy/workshop_registrations/inscriptions"   %>
+<%= render :partial =>"academy/workshop_registrations/inscriptions" %>
 
 <div class="text-center">
       <button class="demo btn btn-primary" data-toggle="modal" href="#responsive">Inscrever-se no Workshop</button>
@@ -62,14 +62,10 @@
   <div class="modal-body">
            <div class="row" id="post-review-box" >
                 <div class="col-md-12">
-                    <%= render :partial =>"academy/workshop_registrations/form"  %>
+                    <%= render :partial =>"academy/workshop_registrations/form" %>
                 </div>
             </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
-  </div>
-
+  
 </div>
 <!-- FIM MODAL -->

@@ -28,9 +28,10 @@
               </header>
             <div class="panel-body" style="padding:10px;">
                <div class="caption">
-                <h2><%= academy_tutorial.title %></h2>
+                <h3><%= academy_tutorial.title %></h3>
                 <p><%= academy_tutorial.rapid_description %></p>
-                <p><i class="icon icon-user"></i> <%= academy_tutorial.user.name %> </p>
+                <p><i class="fa fa-user"></i> <%= academy_tutorial.user.name %> </p>
+                <%= link_to 'Ver', academy_tutorial,:class => "label pull-right",:style => "background-color:#FFCC91" %>
               </div>
             </div>
           </div>

@@ -5,10 +5,10 @@
       <div class="pull-right">
 
         <%##  botão verde com um lapis para editar a pergunta  ##%>
-        <%= link_to '<i class="icon-pencil"></i>'.html_safe , edit_academy_question_path(@academy_question), :class => "btn btn-primary btn-xs" if @academy_question.user.id == current_user.id %>
+        <%= link_to '<i class="fa fa-pencil"></i>'.html_safe , edit_academy_question_path(@academy_question), :class => "btn btn-primary btn-xs" if @academy_question.user.id == current_user.id %>
 
         <%##  botão vermelho com um caixote para eliminar a pergunta  ##%>
-        <%= link_to '<i class="icon-trash"></i>'.html_safe, @academy_question, method: :delete, :class => "btn btn-danger btn-xs" if @academy_question.user.id == current_user.id %>
+        <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, @academy_question, method: :delete, :class => "btn btn-danger btn-xs" if @academy_question.user.id == current_user.id %>
 
       </div>
 
