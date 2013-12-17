@@ -2,6 +2,9 @@ var ready;
 ready = function() {
 
 
+
+
+
   $(window).scroll(function(){
         if ($(this).scrollTop() > 200) {
             $('.ir_para_form_resposta').fadeIn();

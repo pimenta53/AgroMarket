@@ -41,15 +41,20 @@
                <% if devise_mapping.rememberable? -%>
                    <div>
                     <hr>
-                     <div class="checkbox" id="user_remember_me" name="user[remember_me]">
+                     <div class="checkbox left-section" id="user_remember_me" name="user[remember_me]">
                        <label>
                          <input type="checkbox"> Manter Sessão Iniciada
                        </label>
+                       
+
+                             <div class="right-section links">
+                                    <a>
+                                     <%= render "devise/shared/links"  %>
+                                   </a>
+                             </div>
                      </div>
 
-                     <div class="left-section">
-                       <%= render "devise/shared/links"  %>
-                     </div>
+
                    </div>
               <% end -%>
        <% end %>

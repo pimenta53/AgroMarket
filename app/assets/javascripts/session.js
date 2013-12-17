@@ -1,7 +1,3 @@
-
-
-
-
 function scrollToPosition(id) {
    if (id !== undefined) {
     
