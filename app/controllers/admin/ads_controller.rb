@@ -8,6 +8,7 @@ class Admin::AdsController < Admin::ApplicationController
   # GET /ads.json
   def index
     @ads = Ad.all
+    authorize! :read, @ads
   end
 
   # GET /ads/1

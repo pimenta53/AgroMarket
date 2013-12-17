@@ -9,7 +9,7 @@
 		<th>Aprovar</th>
 	</tr>
 	<% @aproved_tutorials.each do |ap_tutorials| %>
-		<% if ap_tutorials.aproved == 0 %>
+		<% if !ap_tutorials.aproved? %>
 			<tr>
 				<td><%= ap_tutorials.user.name %></td>
 				<td><%= ap_tutorials.title %></td>
@@ -33,7 +33,7 @@
 		<th>Editar</th>
 	</tr>
 	<% @aproved_tutorials.each do |ap_tutorials| %>
-		<% if ap_tutorials.aproved == 1 %>
+		<% if ap_tutorials.aproved? %>
 			<tr>
 				<td><%= ap_tutorials.user.name %></td>
 				<td><%= ap_tutorials.title %></td>

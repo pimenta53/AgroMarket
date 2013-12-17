@@ -2,6 +2,8 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
   before_action :load_stuff, only: [:new,:create,:show,:edit,:update]
+
+  load_and_authorize_resource :only => [:edit,:update,:show,:index]
   #load_and_authorize_resource :only => [:edit,:update,:show]
 
   # GET /ads
@@ -9,16 +11,22 @@ class AdsController < ApplicationController
   def index
     if params[:search] != nil
       ads = Ad.arel_table
-      search_table = nil
+      
+      search_table_title = nil
+      search_table_description = nil
       search_params = params[:search].split
+      
       search_params.each { |parameter|
-        if (search_table != nil)
-          search_table = search_table.and(ads[:title].matches("%#{parameter}%"))
+        if (search_table_title != nil)
+          search_table_title = search_table_title.and(ads[:title].matches("%#{parameter}%"))
+          search_table_description  = search_table_description.and(ads[:description].matches("%#{parameter}%"))
         else
-          search_table = ads[:title].matches("%#{parameter}%")
+          search_table_title = ads[:title].matches("%#{parameter}%")
+          search_table_description  = ads[:description].matches("%#{parameter}%")
         end
       }
-      @ads = Ad.where(search_table)
+      
+      @ads = Ad.where(search_table_title.or(search_table_description))
     else 
       @ads = Ad.all
     end
