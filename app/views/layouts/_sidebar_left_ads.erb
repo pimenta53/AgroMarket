@@ -1,0 +1,53 @@
+<%= form_tag ads_path ,:method => :get do%>
+
+    <!-- Split button Categoria -->
+    <div class="btn-group" style="width: 100%; margin-bottom: 2px" >
+      <button type="button" class="btn btn-sm" style="width: 80%;text-align: left">Categoria</button>
+      <button type="button" class="btn btn-sm dropdown-toggle" style="width: 20%" data-toggle="dropdown">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Categoria</span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <% @categories.each do |cat| %>
+            <li>
+              <% if !params[:search].nil? %>
+                  <% if params[:search].include?("cat:" + "#{cat.id}") %>
+                      <%= check_box_tag "search[]","cat:#{cat.id}", "active" %>
+                  <%else%>
+                      <%= check_box_tag "search[]","cat:#{cat.id}" %>
+                  <% end %>
+              <% else %>
+                  <%= check_box_tag "search[]","cat:#{cat.id}" %>
+              <% end %>
+              <%= cat.name %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="btn-group" style="width: 100%; margin-bottom: 2px">
+      <button type="button" class="btn btn-sm" style="width: 80%;text-align: left">Cidade</button>
+      <button type="button" class="btn btn-sm dropdown-toggle" style="width: 20%" data-toggle="dropdown">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Cidade</span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <% @cities.each do |city| %>
+            <li>
+              <% if !params[:search].nil? %>
+                  <%  if params[:search].include?("city:" + "#{city.id}") %>
+                      <%= check_box_tag "search[]","city:#{city.id}", "active" %>
+                  <% else %>
+                      <%= check_box_tag "search[]","city:#{city.id}" %>
+                  <% end %>
+              <% else %>
+                  <%= check_box_tag "search[]","city:#{city.id}" %>
+              <% end %>
+              <%= city.city %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%= submit_tag "Filtrar",class:"btn btn-default btn-sm",style:"width:100%" %>
+<% end %>

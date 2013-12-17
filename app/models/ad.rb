@@ -8,16 +8,16 @@
 #  price          :float
 #  expire_date    :datetime
 #  location       :string(255)
-#  type_price_id  :integer
-#  city_id        :integer
+#  type_price_id  :integer          not null
+#  city_id        :integer          not null
+#  user_id        :integer          not null
+#  permanent_link :string(255)
+#  page_views     :integer          default(0)
+#  category_id    :integer          not null
+#  is_deleted     :boolean          default(FALSE)
+#  is_active      :boolean          default(FALSE)
 #  created_at     :datetime
 #  updated_at     :datetime
-#  user_id        :integer
-#  permanent_link :string(255)
-#  category_id    :integer          not null
-#  page_views     :integer          default(0)
-#  is_deleted     :boolean
-#  is_active      :boolean
 #
 
 class Ad < ActiveRecord::Base
@@ -124,10 +124,9 @@ class Ad < ActiveRecord::Base
 
   #devolve anuncios relacionados por categoria
   def related_ads
-
     related_ads = Ad.where(:category_id => self.category_id)
                     .where.not(id: self.id)
-                    .limit(5)
+                    .limit(4)
   end
 
 
@@ -170,11 +169,11 @@ class Ad < ActiveRecord::Base
     end
 
     def self.ads_per_category
-    	result = Array.new
-    	Category.find(:all, :includes => ads ).each do |c|
+    	results = Array.new
+    	Category.find(:all ).each do |c|
     		results.push([ c.name , c.ads.count ])
     	end
-    	return result
+    	return results
     end
 
 	# private methods

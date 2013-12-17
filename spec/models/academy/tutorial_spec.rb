@@ -2,15 +2,16 @@
 #
 # Table name: academy_tutorials
 #
-#  id          :integer          not null, primary key
-#  category_id :integer
-#  user_id     :integer
-#  aproved     :integer
-#  title       :string(255)
-#  text        :text
-#  is_delected :integer
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id                :integer          not null, primary key
+#  category_id       :integer          not null
+#  user_id           :integer          not null
+#  aproved           :boolean          default(FALSE)
+#  title             :string(255)
+#  text              :text
+#  is_deleted        :boolean          default(FALSE)
+#  rapid_description :string(255)
+#  created_at        :datetime
+#  updated_at        :datetime
 #
 
 require 'spec_helper'

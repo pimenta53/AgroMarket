@@ -5331,6 +5331,25 @@ a.list-group-item:focus {
   padding: 5px;
 }
 
+.panel-title a:hover, .panel-title a:visited{
+    text-decoration: none;
+    color:black;
+}
+
+.panel-body ul li a:hover,
+.panel-body ul li a:visited{
+    text-decoration: none;
+    color:black;
+}
+
+.panel-body ul{
+    padding-left:8px;
+}
+
+.panel-body ul li:hover{
+    background-color: rgb(237, 239, 240);
+}
+
 .panel-body:before,
 .panel-body:after {
   display: table;
@@ -5395,7 +5414,12 @@ a.list-group-item:focus {
 }
 
 .panel-title > a {
-  color: inherit;
+  color: black;
+}
+
+.panel-title > a:hover{
+    text-decoration: none;
+    color: white;
 }
 
 .panel-footer {

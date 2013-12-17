@@ -13,17 +13,16 @@
 
   <div class="field">
     <%= f.label :workshop_id %><br>
-    <%= f.number_field :workshop_id %>
+    <%= f.number_field :workshop_id ,:value=> @academy_workshop.id%>
   </div>
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.number_field :user_id ,:value=> current_user.id%>
   </div>
-  <div class="field">
-    <%= f.label :is_deleted %><br>
-    <%= f.number_field :is_deleted %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="actions pull-right">
+    <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+    
+    <%= f.submit "Inscrever-se", :class=> "btn btn-primary"%>
   </div>
 <% end %>

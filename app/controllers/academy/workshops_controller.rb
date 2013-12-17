@@ -1,7 +1,7 @@
 #encoding: utf-8
 class Academy::WorkshopsController < ApplicationController
   before_action :set_academy_workshop, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /academy/workshops
   # GET /academy/workshops.json
   def index
@@ -11,6 +11,8 @@ class Academy::WorkshopsController < ApplicationController
   # GET /academy/workshops/1
   # GET /academy/workshops/1.json
   def show
+    @academy_workshop_registrations = @academy_workshop.workshop_registrations
+    @academy_workshop_registration = Academy::WorkshopRegistration.new
   end
 
   # GET /academy/workshops/new
@@ -26,7 +28,7 @@ class Academy::WorkshopsController < ApplicationController
   # POST /academy/workshops.json
   def create
     @academy_workshop = Academy::Workshop.new(academy_workshop_params)
-
+    
     respond_to do |format|
       if @academy_workshop.save
         format.html { redirect_to @academy_workshop, notice: 'Workshop was successfully created.' }

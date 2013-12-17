@@ -2,6 +2,7 @@
 class Academy::QuestionsController < ApplicationController
   before_action :set_academy_question, only: [:show, :edit, :update]
   before_action :get_categories
+  load_and_authorize_resource :only => [:edit,:update,:new,:destroy]
   # GET /academy/questions
   # GET /academy/questions.json
   def index
@@ -13,7 +14,7 @@ class Academy::QuestionsController < ApplicationController
   def show
     #@answers = Academy::Answer.where(:question_id => @academy_question.id)
     @academy_answer = Academy::Answer.new
-    @best_answer = Academy::Answer.best_answer
+    @best_answer = @academy_question.best_answer
   end
 
   # GET /academy/questions/new

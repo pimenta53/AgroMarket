@@ -6,324 +6,652 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Country.delete_all
-Country.create :name => "Portugal"
-Country.create :name => "Spain"
+
+District.delete_all
+District.create :name => "Aveiro"
+District.create :name => "Beja"
+District.create :name => "Braga"
+District.create :name => "Bragança"
+District.create :name => "Castelo Branco"
+District.create :name => "Coimbra"
+District.create :name => "Évora"
+District.create :name => "Faro"
+District.create :name => "Guarda"
+District.create :name => "Leiria"
+District.create :name => "Lisboa"
+District.create :name => "Portalegre"
+District.create :name => "Porto"
+District.create :name => "Santarém"
+District.create :name => "Setúbal"
+District.create :name => "Viana do Castelo"
+District.create :name => "Vila Real"
+District.create :name => "Viseu"
+District.create :name => "R. A. da Madeira"
+District.create :name => "R. A. dos Açores"
 
 City.delete_all
-City.create :city => "Águeda"
-City.create :city => "Albergaria-a-Velha"
-City.create :city => "Anadia"
-City.create :city => "Arouca"
-City.create :city => "Aveiro"
-City.create :city => "Castelo de Paiva"
-City.create :city => "Espinho"
-City.create :city => "Estarreja"
-City.create :city => "Santa Maria da Feira"
-City.create :city => "Ílhavo"
-City.create :city => "Mealhada"
-City.create :city => "Murtosa"
-City.create :city => "Oliveira de Azeméis"
-City.create :city => "Oliveira do Bairro"
-City.create :city => "Ovar"
-City.create :city => "São João da Madeira"
-City.create :city => "Sever do Vouga"
-City.create :city => "Vagos"
-City.create :city => "Vale de Cambra"
-City.create :city => "Aljustrel"
-City.create :city => "Almodôvar"
-City.create :city => "Alvito"
-City.create :city => "Barrancos"
-City.create :city => "Beja"
-City.create :city => "Castro Verde"
-City.create :city => "Cuba"
-City.create :city => "Ferreira do Alentejo"
-City.create :city => "Mértola"
-City.create :city => "Moura"
-City.create :city => "Odemira"
-City.create :city => "Ourique"
-City.create :city => "Serpa"
-City.create :city => "Vidigueira"
-City.create :city => "Amares"
-City.create :city => "Barcelos"
-City.create :city => "Braga"
-City.create :city => "Cabeceiras de Basto"
-City.create :city => "Celorico de Basto"
-City.create :city => "Esposende"
-City.create :city => "Fafe"
-City.create :city => "Guimarães"
-City.create :city => "Póvoa de Lanhoso"
-City.create :city => "Terras de Bouro"
-City.create :city => "Vieira do Minho"
-City.create :city => "Vila Nova de Famalicão"
-City.create :city => "Vila Verde"
-City.create :city => "Vizela"
-City.create :city => "Alfândega da Fé"
-City.create :city => "Bragança"
-City.create :city => "Carrazeda de Ansiães"
-City.create :city => "Freixo Espada à Cinta"
-City.create :city => "Macedo de Cavaleiros"
-City.create :city => "Miranda do Douro"
-City.create :city => "Mirandela"
-City.create :city => "Mogadouro"
-City.create :city => "Torre de Moncorvo"
-City.create :city => "Vila Flor"
-City.create :city => "Vimioso"
-City.create :city => "Vinhais"
-City.create :city => "Belmonte"
-City.create :city => "Castelo Branco"
-City.create :city => "Covilhã"
-City.create :city => "Fundão"
-City.create :city => "Idanha-a-Nova"
-City.create :city => "Oleiros"
-City.create :city => "Penamacor"
-City.create :city => "Proença-a-Nova"
-City.create :city => "Sertã"
-City.create :city => "Vila de Rei"
-City.create :city => "Vila Velha de Ródão"
-City.create :city => "Arganil"
-City.create :city => "Cantanhede"
-City.create :city => "Coimbra"
-City.create :city => "Condeixa-a-Nova"
-City.create :city => "Figueira da Foz"
-City.create :city => "Góis"
-City.create :city => "Lousã"
-City.create :city => "Mira"
-City.create :city => "Miranda do Corvo"
-City.create :city => "Montemor-o-Velho"
-City.create :city => "Oliveira do Hospital"
-City.create :city => "Pampilhosa da Serra"
-City.create :city => "Penacova"
-City.create :city => "Penela"
-City.create :city => "Soure"
-City.create :city => "Tábua"
-City.create :city => "Vila Nova de Poiares"
-City.create :city => "Alandroal"
-City.create :city => "Arraiolos"
-City.create :city => "Borba"
-City.create :city => "Estremoz"
-City.create :city => "Évora"
-City.create :city => "Montemor-o-Novo"
-City.create :city => "Mora"
-City.create :city => "Mourão"
-City.create :city => "Portel"
-City.create :city => "Redondo"
-City.create :city => "Reguengos de Monsaraz"
-City.create :city => "Vendas Novas"
-City.create :city => "Viana do Alentejo"
-City.create :city => "Vila Viçosa"
-City.create :city => "Albufeira"
-City.create :city => "Alcoutim"
-City.create :city => "Aljezur"
-City.create :city => "Castro Marim"
-City.create :city => "Faro"
-City.create :city => "Lagoa"
-City.create :city => "Lagos"
-City.create :city => "Loulé"
-City.create :city => "Monchique"
-City.create :city => "Olhão"
-City.create :city => "Portimão"
-City.create :city => "São Brás de Alportel"
-City.create :city => "Silves"
-City.create :city => "Tavira"
-City.create :city => "Vila do Bispo"
-City.create :city => "Vila Real Sto António"
-City.create :city => "Aguiar da Beira"
-City.create :city => "Almeida"
-City.create :city => "Celorico da Beira"
-City.create :city => "Fig. Castelo Rodrigo"
-City.create :city => "Fornos de Algodres"
-City.create :city => "Gouveia"
-City.create :city => "Guarda"
-City.create :city => "Manteigas"
-City.create :city => "Meda"
-City.create :city => "Pinhel"
-City.create :city => "Sabugal"
-City.create :city => "Seia"
-City.create :city => "Trancoso"
-City.create :city => "Vila Nova de Foz Côa"
-City.create :city => "Alcobaça"
-City.create :city => "Alvaiázere"
-City.create :city => "Ansião"
-City.create :city => "Batalha"
-City.create :city => "Bombarral"
-City.create :city => "Caldas da Rainha"
-City.create :city => "Castanheira de Pêra"
-City.create :city => "Figueiró dos Vinhos"
-City.create :city => "Leiria"
-City.create :city => "Marinha Grande"
-City.create :city => "Nazaré"
-City.create :city => "Óbidos"
-City.create :city => "Pedrógão Grande"
-City.create :city => "Peniche"
-City.create :city => "Pombal"
-City.create :city => "Porto de Mós"
-City.create :city => "Alenquer"
-City.create :city => "Arruda dos Vinhos"
-City.create :city => "Azambuja"
-City.create :city => "Cadaval"
-City.create :city => "Cascais"
-City.create :city => "Lisboa"
-City.create :city => "Loures"
-City.create :city => "Lourinhã"
-City.create :city => "Mafra"
-City.create :city => "Oeiras"
-City.create :city => "Sintra"
-City.create :city => "Sobral de Monte Agraço"
-City.create :city => "Torres Vedras"
-City.create :city => "Vila Franca de Xira"
-City.create :city => "Amadora"
-City.create :city => "Odivelas"
-City.create :city => "Alter do Chão"
-City.create :city => "Arronches"
-City.create :city => "Avis"
-City.create :city => "Campo Maior"
-City.create :city => "Castelo de Vide"
-City.create :city => "Crato"
-City.create :city => "Elvas"
-City.create :city => "Fronteira"
-City.create :city => "Gavião"
-City.create :city => "Marvão"
-City.create :city => "Monforte"
-City.create :city => "Nisa"
-City.create :city => "Ponte de Sor"
-City.create :city => "Portalegre"
-City.create :city => "Sousel"
-City.create :city => "Amarante"
-City.create :city => "Baião"
-City.create :city => "Felgueiras"
-City.create :city => "Gondomar"
-City.create :city => "Lousada"
-City.create :city => "Maia"
-City.create :city => "Marco de Canaveses"
-City.create :city => "Matosinhos"
-City.create :city => "Paços de Ferreira"
-City.create :city => "Paredes"
-City.create :city => "Penafiel"
-City.create :city => "Porto"
-City.create :city => "Póvoa de Varzim"
-City.create :city => "Santo Tirso"
-City.create :city => "Valongo"
-City.create :city => "Vila do Conde"
-City.create :city => "Vila Nova de Gaia"
-City.create :city => "Trofa"
-City.create :city => "Abrantes"
-City.create :city => "Alcanena"
-City.create :city => "Almeirim"
-City.create :city => "Alpiarça"
-City.create :city => "Benavente"
-City.create :city => "Cartaxo"
-City.create :city => "Chamusca"
-City.create :city => "Constância"
-City.create :city => "Coruche"
-City.create :city => "Entroncamento"
-City.create :city => "Ferreira do Zezêre"
-City.create :city => "Golegã"
-City.create :city => "Mação"
-City.create :city => "Rio Maior"
-City.create :city => "Salvaterra de Magos"
-City.create :city => "Santarém"
-City.create :city => "Sardoal"
-City.create :city => "Tomar"
-City.create :city => "Torres Novas"
-City.create :city => "Vila Nova da Barquinha"
-City.create :city => "Ourém"
-City.create :city => "Alcácer do Sal"
-City.create :city => "Alcochete"
-City.create :city => "Almada"
-City.create :city => "Barreiro"
-City.create :city => "Grândola"
-City.create :city => "Moita"
-City.create :city => "Montijo"
-City.create :city => "Palmela"
-City.create :city => "Santiago do Cacém"
-City.create :city => "Seixal"
-City.create :city => "Sesimbra"
-City.create :city => "Setúbal"
-City.create :city => "Sines"
-City.create :city => "Arcos de Valdevez"
-City.create :city => "Caminha"
-City.create :city => "Melgaço"
-City.create :city => "Monção"
-City.create :city => "Paredes de Coura"
-City.create :city => "Ponte da Barca"
-City.create :city => "Ponte de Lima"
-City.create :city => "Valença"
-City.create :city => "Viana do Castelo"
-City.create :city => "Vila Nova de Cerveira"
-City.create :city => "Alijó"
-City.create :city => "Boticas"
-City.create :city => "Chaves"
-City.create :city => "Mesão Frio"
-City.create :city => "Mondim de Basto"
-City.create :city => "Montalegre"
-City.create :city => "Murça"
-City.create :city => "Peso da Régua"
-City.create :city => "Ribeira de Pena"
-City.create :city => "Sabrosa"
-City.create :city => "Sta Marta de Penaguião"
-City.create :city => "Valpaços"
-City.create :city => "Vila Pouca de Aguiar"
-City.create :city => "Vila Real"
-City.create :city => "Armamar"
-City.create :city => "Carregal do Sal"
-City.create :city => "Castro Daire"
-City.create :city => "Cinfães"
-City.create :city => "Lamego"
-City.create :city => "Mangualde"
-City.create :city => "Moimenta da Beira"
-City.create :city => "Mortágua"
-City.create :city => "Nelas"
-City.create :city => "Oliveira de Frades"
-City.create :city => "Penalva do Castelo"
-City.create :city => "Penedono"
-City.create :city => "Resende"
-City.create :city => "Santa Comba Dão"
-City.create :city => "São João da Pesqueira"
-City.create :city => "São Pedro do Sul"
-City.create :city => "Sátão"
-City.create :city => "Sernancelhe"
-City.create :city => "Tabuaço"
-City.create :city => "Tarouca"
-City.create :city => "Tondela"
-City.create :city => "Vila Nova de Paiva"
-City.create :city => "Viseu"
-City.create :city => "Vouzela"
-City.create :city => "Calheta"
-City.create :city => "Câmara de Lobos"
-City.create :city => "Funchal"
-City.create :city => "Machico"
-City.create :city => "Ponta do Sol"
-City.create :city => "Porto Moniz"
-City.create :city => "Ribeira Brava"
-City.create :city => "Santa Cruz"
-City.create :city => "Santana"
-City.create :city => "São Vicente"
-City.create :city => "Porto Santo"
-City.create :city => "Vila do Porto"
-City.create :city => "Lagoa"
-City.create :city => "Nordeste"
-City.create :city => "Ponta Delgada"
-City.create :city => "Povoação"
-City.create :city => "Ribeira Grande"
-City.create :city => "Vila Franca do Campo"
-City.create :city => "Angra do Heroísmo"
-City.create :city => "Praia da Vitória"
-City.create :city => "Santa Cruz da Graciosa"
-City.create :city => "Calheta"
-City.create :city => "Velas"
-City.create :city => "Lajes do Pico"
-City.create :city => "Madalena"
-City.create :city => "São Roque do Pico"
-City.create :city => "Horta"
-City.create :city => "Lajes das Flores"
-City.create :city => "Santa Cruz das Flores"
-City.create :city => "Corvo"
+aux = District.where(:name => "Aveiro")
+City.create :city => "Águeda", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Albergaria-a-Velha", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Anadia", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Arouca", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Aveiro", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Castelo de Paiva", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Espinho", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Estarreja", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Santa Maria da Feira", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Ílhavo", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Mealhada", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Murtosa", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Oliveira de Azeméis", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Oliveira do Bairro", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Ovar", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "São João da Madeira", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Sever do Vouga", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Vagos", :district_id => aux.first.id
+aux = District.where(:name => "Aveiro")
+City.create :city => "Vale de Cambra", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Aljustrel", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Almodôvar", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Alvito", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Barrancos", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Beja", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Castro Verde", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Cuba", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Ferreira do Alentejo", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Mértola", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Moura", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Odemira", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Ourique", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Serpa", :district_id => aux.first.id
+aux = District.where(:name => "Beja")
+City.create :city => "Vidigueira", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Amares", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Barcelos", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Braga", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Cabeceiras de Basto", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Celorico de Basto", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Esposende", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Fafe", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Guimarães", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Póvoa de Lanhoso", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Terras de Bouro", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Vieira do Minho", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Vila Nova de Famalicão", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Vila Verde", :district_id => aux.first.id
+aux = District.where(:name => "Braga")
+City.create :city => "Vizela", :district_id => aux.first.id
+aux = District.where(:name => "Bragança")
+City.create :city => "Alfândega da Fé", :district_id => aux.first.id
+aux = District.where(:name => "Bragança")
+City.create :city => "Bragança", :district_id => aux.first.id
+aux = District.where(:name => "Bragança")
+City.create :city => "Carrazeda de Ansiães", :district_id => aux.first.id
+aux = District.where(:name => "Bragança")
+City.create :city => "Freixo Espada à Cinta", :district_id => aux.first.id
+aux = District.where(:name => "Bragança")
+City.create :city => "Macedo de Cavaleiros", :district_id => aux.first.id
+aux = District.where(:name => "Bragança")
+City.create :city => "Miranda do Douro", :district_id => aux.first.id
+aux = District.where(:name => "Bragança")
+City.create :city => "Mirandela", :district_id => aux.first.id
+aux = District.where(:name => "Bragança")
+City.create :city => "Mogadouro", :district_id => aux.first.id
+aux = District.where(:name => "Bragança")
+City.create :city => "Torre de Moncorvo", :district_id => aux.first.id
+aux = District.where(:name => "Bragança")
+City.create :city => "Vila Flor", :district_id => aux.first.id
+aux = District.where(:name => "Bragança")
+City.create :city => "Vimioso", :district_id => aux.first.id
+aux = District.where(:name => "Bragança")
+City.create :city => "Vinhais", :district_id => aux.first.id
+aux = District.where(:name => "Castelo Branco")
+City.create :city => "Belmonte", :district_id => aux.first.id
+aux = District.where(:name => "Castelo Branco")
+City.create :city => "Castelo Branco", :district_id => aux.first.id
+aux = District.where(:name => "Castelo Branco")
+City.create :city => "Covilhã", :district_id => aux.first.id
+aux = District.where(:name => "Castelo Branco")
+City.create :city => "Fundão", :district_id => aux.first.id
+aux = District.where(:name => "Castelo Branco")
+City.create :city => "Idanha-a-Nova", :district_id => aux.first.id
+aux = District.where(:name => "Castelo Branco")
+City.create :city => "Oleiros", :district_id => aux.first.id
+aux = District.where(:name => "Castelo Branco")
+City.create :city => "Penamacor", :district_id => aux.first.id
+aux = District.where(:name => "Castelo Branco")
+City.create :city => "Proença-a-Nova", :district_id => aux.first.id
+aux = District.where(:name => "Castelo Branco")
+City.create :city => "Sertã", :district_id => aux.first.id
+aux = District.where(:name => "Castelo Branco")
+City.create :city => "Vila de Rei", :district_id => aux.first.id
+aux = District.where(:name => "Castelo Branco")
+City.create :city => "Vila Velha de Ródão", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Arganil", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Cantanhede", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Coimbra", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Condeixa-a-Nova", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Figueira da Foz", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Góis", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Lousã", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Mira", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Miranda do Corvo", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Montemor-o-Velho", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Oliveira do Hospital", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Pampilhosa da Serra", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Penacova", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Penela", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Soure", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Tábua", :district_id => aux.first.id
+aux = District.where(:name => "Coimbra")
+City.create :city => "Vila Nova de Poiares", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Alandroal", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Arraiolos", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Borba", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Estremoz", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Évora", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Montemor-o-Novo", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Mora", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Mourão", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Portel", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Redondo", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Reguengos de Monsaraz", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Vendas Novas", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Viana do Alentejo", :district_id => aux.first.id
+aux = District.where(:name => "Évora")
+City.create :city => "Vila Viçosa", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Albufeira", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Alcoutim", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Aljezur", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Castro Marim", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Faro", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Lagoa", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Lagos", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Loulé", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Monchique", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Olhão", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Portimão", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "São Brás de Alportel", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Silves", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Tavira", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Vila do Bispo", :district_id => aux.first.id
+aux = District.where(:name => "Faro")
+City.create :city => "Vila Real Sto António", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Aguiar da Beira", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Almeida", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Celorico da Beira", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Fig. Castelo Rodrigo", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Fornos de Algodres", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Gouveia", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Guarda", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Manteigas", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Meda", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Pinhel", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Sabugal", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Seia", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Trancoso", :district_id => aux.first.id
+aux = District.where(:name => "Guarda")
+City.create :city => "Vila Nova de Foz Côa", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Alcobaça", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Alvaiázere", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Ansião", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Batalha", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Bombarral", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Caldas da Rainha", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Castanheira de Pêra", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Figueiró dos Vinhos", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Leiria", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Marinha Grande", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Nazaré", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Óbidos", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Pedrógão Grande", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Peniche", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Pombal", :district_id => aux.first.id
+aux = District.where(:name => "Leiria")
+City.create :city => "Porto de Mós", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Alenquer", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Arruda dos Vinhos", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Azambuja", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Cadaval", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Cascais", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Lisboa", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Loures", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Lourinhã", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Mafra", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Oeiras", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Sintra", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Sobral de Monte Agraço", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Torres Vedras", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Vila Franca de Xira", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Amadora", :district_id => aux.first.id
+aux = District.where(:name => "Lisboa")
+City.create :city => "Odivelas", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Alter do Chão", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Arronches", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Avis", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Campo Maior", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Castelo de Vide", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Crato", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Elvas", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Fronteira", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Gavião", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Marvão", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Monforte", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Nisa", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Ponte de Sor", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Portalegre", :district_id => aux.first.id
+aux = District.where(:name => "Portalegre")
+City.create :city => "Sousel", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Amarante", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Baião", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Felgueiras", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Gondomar", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Lousada", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Maia", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Marco de Canaveses", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Matosinhos", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Paços de Ferreira", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Paredes", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Penafiel", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Porto", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Póvoa de Varzim", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Santo Tirso", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Valongo", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Vila do Conde", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Vila Nova de Gaia", :district_id => aux.first.id
+aux = District.where(:name => "Porto")
+City.create :city => "Trofa", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Abrantes", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Alcanena", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Almeirim", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Alpiarça", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Benavente", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Cartaxo", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Chamusca", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Constância", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Coruche", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Entroncamento", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Ferreira do Zezêre", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Golegã", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Mação", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Rio Maior", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Salvaterra de Magos", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Santarém", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Sardoal", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Tomar", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Torres Novas", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Vila Nova da Barquinha", :district_id => aux.first.id
+aux = District.where(:name => "Santarém")
+City.create :city => "Ourém", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Alcácer do Sal", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Alcochete", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Almada", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Barreiro", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Grândola", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Moita", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Montijo", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Palmela", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Santiago do Cacém", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Seixal", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Sesimbra", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Setúbal", :district_id => aux.first.id
+aux = District.where(:name => "Setúbal")
+City.create :city => "Sines", :district_id => aux.first.id
+aux = District.where(:name => "Viana do Castelo")
+City.create :city => "Arcos de Valdevez", :district_id => aux.first.id
+aux = District.where(:name => "Viana do Castelo")
+City.create :city => "Caminha", :district_id => aux.first.id
+aux = District.where(:name => "Viana do Castelo")
+City.create :city => "Melgaço", :district_id => aux.first.id
+aux = District.where(:name => "Viana do Castelo")
+City.create :city => "Monção", :district_id => aux.first.id
+aux = District.where(:name => "Viana do Castelo")
+City.create :city => "Paredes de Coura", :district_id => aux.first.id
+aux = District.where(:name => "Viana do Castelo")
+City.create :city => "Ponte da Barca", :district_id => aux.first.id
+aux = District.where(:name => "Viana do Castelo")
+City.create :city => "Ponte de Lima", :district_id => aux.first.id
+aux = District.where(:name => "Viana do Castelo")
+City.create :city => "Valença", :district_id => aux.first.id
+aux = District.where(:name => "Viana do Castelo")
+City.create :city => "Viana do Castelo", :district_id => aux.first.id
+aux = District.where(:name => "Viana do Castelo")
+City.create :city => "Vila Nova de Cerveira", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Alijó", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Boticas", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Chaves", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Mesão Frio", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Mondim de Basto", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Montalegre", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Murça", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Peso da Régua", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Ribeira de Pena", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Sabrosa", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Sta Marta de Penaguião", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Valpaços", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Vila Pouca de Aguiar", :district_id => aux.first.id
+aux = District.where(:name => "Vila Real")
+City.create :city => "Vila Real", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Armamar", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Carregal do Sal", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Castro Daire", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Cinfães", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Lamego", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Mangualde", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Moimenta da Beira", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Mortágua", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Nelas", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Oliveira de Frades", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Penalva do Castelo", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Penedono", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Resende", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Santa Comba Dão", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "São João da Pesqueira", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "São Pedro do Sul", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Sátão", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Sernancelhe", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Tabuaço", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Tarouca", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Tondela", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Vila Nova de Paiva", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Viseu", :district_id => aux.first.id
+aux = District.where(:name => "Viseu")
+City.create :city => "Vouzela", :district_id => aux.first.id
+aux = District.where(:name => "R. A. da Madeira")
+City.create :city => "Calheta", :district_id => aux.first.id
+aux = District.where(:name => "R. A. da Madeira")
+City.create :city => "Câmara de Lobos", :district_id => aux.first.id
+aux = District.where(:name => "R. A. da Madeira")
+City.create :city => "Funchal", :district_id => aux.first.id
+aux = District.where(:name => "R. A. da Madeira")
+City.create :city => "Machico", :district_id => aux.first.id
+aux = District.where(:name => "R. A. da Madeira")
+City.create :city => "Ponta do Sol", :district_id => aux.first.id
+aux = District.where(:name => "R. A. da Madeira")
+City.create :city => "Porto Moniz", :district_id => aux.first.id
+aux = District.where(:name => "R. A. da Madeira")
+City.create :city => "Ribeira Brava", :district_id => aux.first.id
+aux = District.where(:name => "R. A. da Madeira")
+City.create :city => "Santa Cruz", :district_id => aux.first.id
+aux = District.where(:name => "R. A. da Madeira")
+City.create :city => "Santana", :district_id => aux.first.id
+aux = District.where(:name => "R. A. da Madeira")
+City.create :city => "São Vicente", :district_id => aux.first.id
+aux = District.where(:name => "R. A. da Madeira")
+City.create :city => "Porto Santo", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Vila do Porto", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Lagoa", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Nordeste", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Ponta Delgada", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Povoação", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Ribeira Grande", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Vila Franca do Campo", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Angra do Heroísmo", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Praia da Vitória", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Santa Cruz da Graciosa", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Calheta", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Velas", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Lajes do Pico", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Madalena", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "São Roque do Pico", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Horta", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Lajes das Flores", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Santa Cruz das Flores", :district_id => aux.first.id
+aux = District.where(:name => "R. A. dos Açores")
+City.create :city => "Corvo", :district_id => aux.first.id
 
 Category.delete_all
 Category.create(name: "Agricultura", description: "Produtos Agricolas", color: "009400")
-Category.create(name: "ProdutosBio", description: "Produtos BIO", color: "30cf4b")
-Category.create(name: "Plantas", description: "Plantas", color: "ffff00")
+Category.create(name: "Pecuária", description: "Produtos de origem animal", color: "30cf4b")
+Category.create(name: "Caça", description: "Produtos de Caça", color: "ffff00")
+Category.create(name: "Pesca", description: "Produtos de Pesca", color: "ffaa00")
 
 
 PriceType.delete_all

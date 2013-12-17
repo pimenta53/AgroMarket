@@ -16,7 +16,7 @@
     <% @ads.each do |ad| %>
 
       <div class="col-sm-6 col-md-3" id="painelAnuncios">
-        <div class="panel">
+          <div class="panel">
           <div class="ads_index_img">
             <div class="thumbnail">
               <span class='price' ><%= ad.price %>€</span>
@@ -35,7 +35,7 @@
                 <% end %>
               </div>
             <% end %>
-            <h4><%= link_to ad.title, ad %></h4>
+            <div style="height:50px"><%= link_to ad.title, ad %></div>
             <div style="height:50px"><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></div>
           </div>
         </div>

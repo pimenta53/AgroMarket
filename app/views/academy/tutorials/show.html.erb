@@ -4,14 +4,14 @@
 <div class="col-lg-12">
           <section class="panel">
             <header class="panel-heading border-header">
-               <h3><%= @academy_tutorial.title %><h3>
+               <h3><%= @academy_tutorial.title %></h3>
             </header>
             <div class="panel-body">
 
               <div class="col-xs-9 col-md-10 "><%##  texto da resposta  ##%>
                 <div class="">
 					  <div class="text-center">
-					   
+
 					  </div>
 					<%= @academy_tutorial.text.html_safe %>
 					</div>
@@ -25,13 +25,15 @@
 
                   <div class="pull-right">
 
-                        <abbr class="timeago" title="<%=  @academy_tutorial.created_at.getutc.iso8601 %>"> 
-                          <%=  @academy_tutorial.created_at.to_s %> 
+                        <abbr class="timeago" title="<%=  @academy_tutorial.created_at.getutc.iso8601 %>">
+                          <%=  @academy_tutorial.created_at.to_s %>
                         </abbr>
                     </div>
           </div>
       </section>
     </div>
 
-<%= link_to 'Edit', edit_academy_tutorial_path(@academy_tutorial) %> |
-<%= link_to 'Back', academy_tutorials_path %>
+<% if user_signed_in? && current_user.id == @academy_tutorial.user_id %>
+    <%= link_to 'Editar', edit_academy_tutorial_path(@academy_tutorial) %> |
+<% end %>
+<%= link_to 'Voltar', academy_tutorials_path %>

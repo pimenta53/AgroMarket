@@ -4,7 +4,7 @@
                               <h1> Profile Info</h1>
                         <%= form_for( :html => { :method => :put ,:class=>"form-horizontal"}) do |f| %>
                            <%= devise_error_messages! %>
-                              
+
                                   <div class="form-group">
                                       <label class="col-lg-2 control-label">Descrição</label>
                                       <div class="col-lg-10">
@@ -33,7 +33,7 @@
                                   <div class="form-group">
                                       <label class="col-lg-2 control-label">Ocupação</label>
                                       <div class="col-lg-6">
-                                          <input type="text" class="form-control" id="occupation" placeholder=" ">
+                                           <%= f.text_field :ocupation ,:class=>"form-control" %>
                                       </div>
                                   </div>
                                   <div class="form-group">
@@ -55,7 +55,7 @@
                                       </div>
                                   </div>
 
-                        
+
                           </div>
                       </section>
 
@@ -66,12 +66,12 @@
                           <div class="panel panel-primary">
                               <div class="panel-heading"> Mudar a password e Avatar</div>
                               <div class="panel-body">
-                                  
-                                  
+
+
                                       <div class="form-group">
                                           <label class="col-lg-2 control-label">Nova Password</label>
                                           <div class="col-lg-6">
-                                              
+
                                               <%= f.password_field :password, :autocomplete => "off" ,:class=>"form-control",:id=>"n-pwd",:placeholder=>" " %>
                                           </div>
                                       </div>
@@ -85,25 +85,25 @@
 
                                       <div class="form-group">
                                           <label class="col-lg-2 control-label">Alterar Avatar</label>
-                                          <div class="col-lg-6"> 
+                                          <div class="col-lg-6">
                                               <%= f.file_field :avatar ,:class=>"form-control file-pos"%>
                                           </div>
                                       </div>
 
-                                      
-                                
+
+
                               </div>
                           </div>
 
                           <section>
                           <div class="panel panel-primary">
-                              
+
                           <div class="panel-heading"> Salvar </div>
                                <div class="panel-body">
                                   <div class="form-group">
                                           <label class="col-lg-2 control-label">Password atual</label>
                                           <div class="col-lg-6">
-                                              
+
                                                <%= f.password_field :current_password ,:class=>"form-control",:id=>"c-pwd",:placeholder=>" " %>
                                           </div>
                                       </div>
@@ -113,10 +113,10 @@
 
                                               <%= f.submit "Salvar" ,:class=>"btn btn-success" %>
                                               <%= link_to "Cancelar", :back ,:class=>"btn btn-default" %>
-                                              
+
                                           </div>
                                       </div>
-                                 
+
                               </div>
                           </div>
                       </section>
@@ -127,7 +127,7 @@
 
                       <section>
                           <div class="panel panel-primary">
-                              
+
                           <div class="panel-heading"> Coneções exteriores </div>
                                <div class="panel-body">
                                   <div class="form-group">
@@ -154,14 +154,14 @@
                                         <% end %>
                                      </div>
                                   </div>
-                                 
+
                               </div>
                           </div>
                       </section>
 
                       <section>
                           <div class="panel panel-primary">
-                              
+
                           <div class="panel-heading"> Apagar a Conta </div>
                                <div class="panel-body">
                                   <div class="form-group">
@@ -170,10 +170,10 @@
                                           <%= button_to "Apagar a minha conta", registration_path(resource_name), :data => { :confirm => "Tens a certeza?" }, :method => :delete %>
                                       </div>
                                   </div>
-                                 
+
                               </div>
                           </div>
                       </section>
 
 
-</aside> 
+</aside>

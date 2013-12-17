@@ -20,7 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
      super
      session[:omniauth] = nil unless @user.new_record?
    end
-  
+
   private
       #omniauth
       def build_resource(*args)
@@ -29,7 +29,7 @@ class RegistrationsController < Devise::RegistrationsController
           @user.apply_omniauth(session[:omniauth])
           @user.valid?
         end
-      end 
+      end
 
 		def resolve_layout
 		    case action_name
@@ -60,5 +60,12 @@ class RegistrationsController < Devise::RegistrationsController
 					params[:user][:birthday] = nil
 				end
 			end
+		end
+
+
+	protected
+		#redireciona para a página de perfil depois de fazer edit ao perfil
+		def after_update_path_for(resource)
+      		user_path(resource)
 		end
 end

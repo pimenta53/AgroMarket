@@ -87,8 +87,12 @@ gem 'quiet_assets', :group => :development
 #gem para graficos
 gem "chartkick"
 
+
 #gem para jquery
 gem 'jquery-fileupload-rails'
+
+=======
+gem "font-awesome-rails"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

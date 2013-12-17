@@ -1,5 +1,6 @@
 class PriceTypesController < ApplicationController
   before_action :set_price_type, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :only => [:edit,:update,:show,:index]
 
   # GET /price_types
   # GET /price_types.json

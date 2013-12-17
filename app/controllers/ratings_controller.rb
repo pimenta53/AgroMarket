@@ -1,6 +1,7 @@
 #encoding: utf-8
 class RatingsController < ApplicationController
 	before_action :set_rating, only: [:show,:update,:edit]
+	load_and_authorize_resource :only => [:edit,:update,:show,:index]
 
 	def new
 		@rating = Rating.new
@@ -27,12 +28,13 @@ class RatingsController < ApplicationController
 	def create
 		@rating = Rating.new(rating_params)
 
+
 	end
 
 	def update
 		@rating.update(rating_params)
 		flash[:notice] = "Rating atribuído com sucesso"
-		redirect_to root_path,notice: 'Rating Atribuido com sucesso' 
+		redirect_to root_path,notice: 'Rating Atribuido com sucesso'
 	end
 
 	private

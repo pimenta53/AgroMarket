@@ -1,5 +1,6 @@
 #encoding: utf-8
 class MessagesController < ApplicationController
+  load_and_authorize_resource :only => [:edit,:update,:show,:index]
 
 
 	#caixa de entrada com todas mensagens
@@ -54,11 +55,12 @@ class MessagesController < ApplicationController
 
 	# create new message
 	def create
+
     @ad = Ad.find(params[:ad_id])
 
     # select all unclosed talks between both users and from this ad 
     @talk = Talk.where( "((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) and ad_id = ? and is_close != 1", current_user.id, params[:message][:user_id], params[:message][:user_id], current_user.id, @ad.id ).first
-    
+ 
     # if there is no talk between both users in this ad
     # => create a new one 
     # => and save it
@@ -72,8 +74,10 @@ class MessagesController < ApplicationController
 
     @talks = Talk.all_talk_ad(current_user , @ad)
 
+
     if @message.save
         @messages = @talk.messages
+        @message = Message.new
         render :partial => 'create.js.erb'
     end
 	end

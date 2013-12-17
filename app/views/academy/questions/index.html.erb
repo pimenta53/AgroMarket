@@ -1,228 +1,69 @@
 <div class="well well-sm">
-        <strong>Meter Filtros</strong>
-        <div class="btn-group">
-            <a href="#" id="list" class="btn btn-default btn-sm">
-              <span class="fa fa-th-list"></span>
-              Respondidas</a>
-              <a href="#" id="grid" class="btn btn-default btn-sm">
+    <strong>Filtrar por: </strong>
+    <div class="btn-group">
+        <a href="#" id="list" class="btn btn-default btn-sm">
+          <span class="fa fa-th-list"></span>
+          Respondidas</a>
+          <a href="#" id="grid" class="btn btn-default btn-sm">
 
-              <span class="fa fa-th"></span>Activas</a>
-              <a href="#" id="grid" class="btn btn-default btn-sm">
-              <span class="fa fa-truck"></span>Outras</a>
+          <span class="fa fa-th"></span>Activas</a>
+          <a href="#" id="grid" class="btn btn-default btn-sm">
+          <span class="fa fa-truck"></span>Outras</a>
 
-        </div>
+    </div>
  </div>
-<hr />
-<div class="panel-heading ">
-  <h4>Perguntas feitas:</h4>
-</div>
-
-<div class="panel panel-default">
-<%###  categoria | view counter | respostas | Titulo | utilizador | link para a pergunta |  ###%>
-<div id="questions">
-    <table>
-        <% @academy_questions.each do |academy_question| %>
-          <tr>
-            <td><%= academy_question.category.name %></td>
-            <td>view Counter</td>
-            <td><%= academy_question.answers.count %></td>
-            <td><%= academy_question.title %></td>
-            <td><%= academy_question.user.name %></td>
-            <td><%= link_to 'Show', academy_question %></td>
-          </tr>
-        <% end %>
-    </table>
-</div>
-</div>
-<br>
-
-
-
-<%= link_to 'Nova questão', new_academy_question_path %>
-<legend>Questoes em Thumbnails( meter isto direito) ISTO É so para testar e ver qual fica melhor e a barra lateral tb é so para testar </legend>
 
 <div class="row">
-
-      <% @academy_questions.each do |academy_question| %>
-            <div class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-
-                      <div class="col-xs-5 col-md-5"><%##  Avatar do user que fez a pergunta  ##%>
-                       <%= link_to (image_tag academy_question.user.avatar.url(:medium),:width => "100%",:class => "img-circle"), academy_question.user %>
-                    </div>
-
-                    <div class="col-xs-12 col-md-12 ">
-                      <%= link_to academy_question.title, academy_question %><%##  texto da pergunta  ##%>
-
-                    </div>
-
-                      <div class="caption">
-                            <span class="label label-info">
-                              <%= academy_question.category.name %>
-                          </span>
-
-                      <p><i class="fa fa-map-marker"></i> <%= academy_question.text %></p>
-                    </div>
-              </div>
-           </div>
-          <% end %>
-    </div>
-
-<div class="container">
-    <div class="row">
-        <div class="">
-            <div class="panel ">
-                <div class="panel-heading border-header">
-                    <span class="fa fa-comment"></span> Perguntas
-                    <div class="btn-group pull-right">
-                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                            <span class="fa fa-chevron-down"></span>
-                        </button>
-                        <ul class="dropdown-menu slidedown">
-                            <li><a href="#"><span class="fa fa-refresh">
-                            </span>Refresh</a></li>
-                            <li><a href="#"><span class="fa fa-ok-sign">
-                            </span>Available</a></li>
-                            <li><a href="#"><span class="fa fa-remove">
-                            </span>Busy</a></li>
-                            <li><a href="#"><span class="fa fa-time"></span>
-                                Away</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#"><span class="fa fa-off"></span>
-                                Sign Out</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="panel-body panel-bodyMessage">
-                    <ul class="chat">
-                        <div id="messages">
-                            <ul class="chat">
-                             <% @academy_questions.each do |academy_question| %>
-                                  <li class="left clearfix"><span class="chat-img pull-left">
-                                     <%= link_to (image_tag academy_question.user.avatar.url(:medium),:width => "100%",:class => "img-circle"), academy_question.user %>
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                              <strong class="primary-font">
-                                              <%= academy_question.user.name %>
-                                            </strong> 
-                                           
-                                        </div>
-                                        <p>
-                                           <%= link_to academy_question.title, academy_question %><%##  texto da pergunta  ##%>
-                                        </p>
-                                        <div class="pull-right">
-                                            about 1 minute ago
-                                        </div>
-                                        <div class="pull-right">
-                                            <span class="label label-info">
-                                                <%= academy_question.category.name %>
-                                            </span>
-                                        </div>
-                                    </div>
-                                  </li>
-                              <% end %>
-                          </ul>
-                        </div>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        </div>
-    </div> 
-
-
-<div class="row classifieds-table">
     <div class="col-lg-12">
-      <section class="panel">
+      <section class="panel" style="margin-right: 8px">
         <header class="panel-heading "><h3>Perguntas</h3></header>
         <div class="table-responsive">
-                    <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th>Pergunta</th>
-                          <th class="text-center">Views</th>
-                          <th class="text-center">Respostas</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="col-sm-8 col-md-6">
-                            <div class="media">
-                              <a class="thumbnail pull-left" href="#">
-                                <img class="media-object" src="http://placehold.it/72x72/e0e0e0" style="width: 72px; height: 72px;">
-                              </a>
-                              <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Pergunta name</a></h4>
-                                <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla adipiscing tempor ornare. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac ...</small></p>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;"><strong>110 </strong></td>
-                          <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;">76x</td>
-                        </tr>
-                        <tr>
-                          <td class="col-sm-8 col-md-6">
-                            <div class="media">
-                              <a class="thumbnail pull-left" href="#">
-                                <img class="media-object" src="http://placehold.it/72x72/e0e0e0" style="width: 72px; height: 72px;">
-                              </a>
-                              <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Pergunta name</a></h4>
-                                <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla adipiscing tempor ornare. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac ...</small></p>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;"><strong>110</strong></td>
-                          <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;">76x</td>
-                        </tr>
-                        <tr>
-                          <td class="col-sm-8 col-md-6">
-                            <div class="media">
-                              <a class="thumbnail pull-left" href="#">
-                                <img class="media-object" src="http://placehold.it/72x72/e0e0e0" style="width: 72px; height: 72px;">
-                              </a>
-                              <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Pergunta name</a></h4>
-                                <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla adipiscing tempor ornare. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac ...</small></p>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;"><strong>110 </strong></td>
-                          <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;">76x</td>
-                        </tr>
-                        <tr>
-                          <td class="col-sm-8 col-md-6">
-                            <div class="media">
-                              <a class="thumbnail pull-left" href="#">
-                                <img class="media-object" src="http://placehold.it/72x72/e0e0e0" style="width: 72px; height: 72px;">
-                              </a>
-                              <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Pergunta name</a></h4>
-                                <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla adipiscing tempor ornare. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac ...</small></p>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;"><strong>110 </strong></td>
-                          <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;">76x</td>
-                        </tr>
-                     
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="col-lg-12" style="text-align: center;">
-                    <ul class="pagination">
-                      <li class="disabled"><a href="#">«</a></li>
-                      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li><a href="#">»</a></li>
-                    </ul>
-                   
-                </div>
-               </section>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th class="">Categoria</th>
+                  <th class="text-center">Views</th>
+                  <th class="text-center">Respostas</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <% @academy_questions.each do |academy_question| %>
+                  <tr>
+                    <td class="col-sm-6 col-md-10">
+                      <div class="media">
+
+                         <%= link_to (image_tag academy_question.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circlethumbnail pull-left"), academy_question.user %>
+                        </a>
+                        <div class="media-body" style="padding:10px;"> 
+                          <h4 class="media-heading">
+                            <%= link_to academy_question.title, academy_question %>
+                          </h4>
+                          <p><small><%= academy_question.text.html_safe %></small></p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="label" style="background-color:#<%= academy_question.category.color %>">
+                      <%= academy_question.category.name %>
+                      </span>
+                    </td>
+                    <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;"><strong>110 </strong></td>
+                    <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;">76x</td>
+                  </tr>
+                <% end %>
+
+              </tbody>
+            </table>
+          </div>
+          <div class="col-lg-12" style="text-align: center;">
+            
+
         </div>
-      </div>
+       </section>
+</div>
+</div>
+
+<%= link_to 'Nova questão', new_academy_question_path,:class=> "btn btn-info" %>
+

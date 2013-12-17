@@ -35,6 +35,7 @@ class  Admin::CitiesController <  Admin::ApplicationController
         format.js{ render :js => "alert(\"coisa\")"}
         format.json { render action: 'show', status: :created, location: @city }
       else
+        @country = Country.all
         format.html { render action: 'new' }
         format.json { render json: @city.errors, status: :unprocessable_entity }
       end

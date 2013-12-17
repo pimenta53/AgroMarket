@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211223006) do
+ActiveRecord::Schema.define(version: 20131217142135) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -133,12 +133,12 @@ ActiveRecord::Schema.define(version: 20131211223006) do
 
   create_table "cities", force: true do |t|
     t.string   "city"
-    t.integer  "country_id"
+    t.integer  "district_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "countries", force: true do |t|
+  create_table "districts", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -165,6 +165,15 @@ ActiveRecord::Schema.define(version: 20131211223006) do
     t.integer  "rater_id"
     t.integer  "ad_id"
     t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sub_categories", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "color"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -214,9 +223,10 @@ ActiveRecord::Schema.define(version: 20131211223006) do
     t.datetime "birthday"
     t.string   "phone"
     t.integer  "city_id"
+    t.string   "ocupation"
+    t.integer  "user_type",              default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

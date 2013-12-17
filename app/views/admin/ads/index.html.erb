@@ -60,7 +60,7 @@
             <td><%= ad.is_active %></td>
             <td><%= ad.is_deleted %></td>
             <td><%= ad.city.city unless ad.city.blank? %></td>
-            <td><%= ad.user_id %> / <%= ad.user.name %></td>
+            <td><%= ad.user_id %> / <%= ad.user.name unless ad.user.blank?%></td>
             <td><strong><%= l ad.created_at , :format => :short%></strong>
             </td>
 

@@ -1,6 +1,8 @@
 #encoding: utf-8
 class Academy::WorkshopRegistrationsController < ApplicationController
   before_action :set_academy_workshop_registration, only: [:show, :edit, :update, :destroy]
+  #load_and_authorize_resource
+
 
   # GET /academy/workshop_registrations
   # GET /academy/workshop_registrations.json
@@ -29,7 +31,7 @@ class Academy::WorkshopRegistrationsController < ApplicationController
 
     respond_to do |format|
       if @academy_workshop_registration.save
-        format.html { redirect_to @academy_workshop_registration, notice: 'Workshop registration was successfully created.' }
+        format.html { redirect_to  @academy_workshop_registration.workshop, notice: 'Workshop registration was successfully created.' }
         format.json { render action: 'show', status: :created, location: @academy_workshop_registration }
       else
         format.html { render action: 'new' }

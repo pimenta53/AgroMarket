@@ -153,7 +153,7 @@ body {
 
     display: inline-block;
     zoom: 1;
-    display*: inline;
+    display: inline;
     
     width: 100%;
 
@@ -742,7 +742,7 @@ margin-right: 15%;
   border-radius: 5px 5px 5px 5px;
  }
 
- .plan-name-bronze,..plan-name-silver h2{
+ .plan-name-bronze,.plan-name-silver h2{
   color:#EA5B0C;
  }
   

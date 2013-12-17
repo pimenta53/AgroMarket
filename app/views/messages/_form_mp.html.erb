@@ -19,8 +19,8 @@
       <h6 class="pull-right" id="counter">144 characteres livres</h6>
     </div>
     <div class="field">
-      <%= m.label :user_two %><br>
-      <%= m.text_field :user_two, :value => user_receiver_id,:readonly => true %>
+      
+      <%= m.hidden_field :user_two, :value => user_receiver_id,:readonly => true %>
     </div>
 
     <div class="field">
@@ -29,6 +29,6 @@
 
 
 
-    <button class="btn btn-info" type="submit" id="cenas">Envie a nova mensagem</button>
+    <button class="btn btn-info" type="submit" id="cenas">Enviar</button>
 
   <% end %>

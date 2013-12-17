@@ -6,5 +6,6 @@ class CreateCategories < ActiveRecord::Migration
       t.string :color
       t.timestamps
     end
+
   end
 end

@@ -158,3 +158,47 @@
     <% end %>
 
 <% end %>
+
+<script>
+    $(function() {
+        function getLocation(){
+            if (navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else{ $('#city').text("Geolocation is not supported by this browser.");}
+        }
+
+        function showPosition(position){
+            var addresspicker = $( "#addresspicker" ).addresspicker();
+            var addresspickerMap = $( "#addresspicker_map" ).addresspicker({
+                regionBias: "de",
+                map:      "#map",
+                typeaheaddelay: 1000,
+                mapOptions: {
+                    zoom:9,
+                    center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+                }
+
+            });
+
+            addresspickerMap.on("addressChanged", function(evt, address) {
+                $('#coordX').text(address.geometry.location.lat());
+                $('#coordY').text(address.geometry.location.lng());
+                $('#city').text(address.address_components[2].long_name);
+            });
+
+            addresspickerMap.on("positionChanged", function(evt, markerPosition) {
+                markerPosition.getAddress( function(address) {
+                    if (address) {
+                        $( "#addresspicker_map").val(address.formatted_address);
+                    }
+                })
+            });
+        }
+
+        getLocation();
+
+
+
+    });
+</script>

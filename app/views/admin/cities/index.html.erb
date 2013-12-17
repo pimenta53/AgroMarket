@@ -16,10 +16,10 @@
     <% @cities.each do |city| %>
       <tr>
         <td><%= city.city %></td>
-        <td><%= city.country_id %></td>
+        <!--td><%#city.country_id %></td-->
         <!--td><%= link_to 'Ver', [:admin,city] %></td-->
         <td><%= link_to 'Editar', edit_admin_city_path(city) %></td>
-        <td><%= link_to 'Eliminar', [:admin,city], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eliminar', [:admin,city], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>

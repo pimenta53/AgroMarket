@@ -1,28 +1,6 @@
 var ready;
 ready = function() {
 
-
-  /******       New Tutorial VALIDATION     */
-  $('#new_academy_tutorial').validate({
-    errorElement: 'label',
-    errorClass: 'help-inline',
-    rules: {
-      "academy_tutorial[title]" : {required: true, maxlength: 255},
-      "academy_tutorial[rapid_description]" : {required: true, maxlength: 255}
-    },
-    messages: {
-        "academy_tutorial[rapid_description]": "Insira uma descrição, ela ajudará os utilizadores a identificarem melhor o que desejam"
-    },
-    highlight: function(element) {
-      $(element).closest('.control-group').removeClass('success').addClass('error');
-    },
-    success: function(element) {
-        element
-            .text('OK!').addClass('valid')
-            .closest('.control-group').removeClass('error').addClass('success');
-      }
-   });
-
   /******       New USER, CREATE ACCOUNT      */
   $('#new_user').validate({
     errorElement: 'label',
@@ -142,8 +120,8 @@ ready = function() {
         errorClass: 'help-inline',
         rules: {
             "academy_question[category_id]": {required: true},
-            "academy_question[title]": {minlength: 2, maxlength: 50, required: true },
-            "academy_question[text]": { minlength: 5, maxlength: 255, required: true }
+            "academy_question[title]": {minlength: 2, maxlength: 75, required: true },
+            "academy_question[text]": { minlength: 5, maxlength: 1500, required: true }
         },
         highlight: function(element) {
             $(element).closest('.control-group').removeClass('success').addClass('error');
@@ -174,6 +152,25 @@ ready = function() {
 
     });
 
+    /*****        NEW TUTORIAL                */
+    $('#tutorial-form').validate({
+        errorElement: 'label',
+        errorClass: 'help-inline',
+        rules: {
+            "academy_tutorial[category_id]": {required: true},
+            "academy_tutorial[title]": {minlength: 2, maxlength: 75, required: true },
+            "academy_tutorial[rapid_description]": { minlength: 5, maxlength: 200, required: true },
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+        },
+        success: function(element) {
+            element
+                .addClass('valid')
+                .closest('.control-group').removeClass('error').addClass('success');
+        }
+
+    });
 
     /*****        NEW AD                             */
   $('#ad-form').validate({

@@ -1,49 +1,61 @@
-<%= form_for(@academy_tutorial) do |f| %>
-  <% if @academy_tutorial.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@academy_tutorial.errors.count, "error") %> prohibited this academy_tutorial from being saved:</h2>
-
-      <ul>
-      <% @academy_tutorial.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for @academy_tutorial, :html => {:multipart => true,:id=>"tutorial-form"} do |f| %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Criar novo Tutorial</h3>
+      <% if controller.action_name == "edit" %>
+          <h3 class="panel-title">Editar Tutorial</h3>
+      <% else %>
+          <h3 class="panel-title">Novo Tutorial</h3>
+      <% end %>
     </div>
     <div class="panel-body">
-    <div class="control-group">
-      <h5> Quero inserir um anúncio na categoria:</h5>
-      <div class="controls">
-        <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria') unless @categories.blank? %>
+
+      <div class="control-group">
+        <label class="control-label"> Categoria:</label>
+        <div class="controls">
+          <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria') unless @categories.blank? %>
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_field :title ,:class => "form-control"%>
-    </div>
-    <div>
-      <%= f.label :rapid_description %><br>
-      <%= f.text_field :rapid_description ,:class => "form-control"%>
-    </div>
-    <div class="field" hidden="true">
-      <%= f.label :user_id %><br>
-      <%= f.text_field :user_id, :value => current_user.id %>
-    </div>
-    <div class="field" hidden="true">
-      <%= f.label :aproved %><br>
-      <%= f.number_field :aproved %>
-    </div>
-    <div class="tab-content">
-      <%= f.text_area :text ,:rows => "10",:id => "some-textarea", :class => "form-control" %>
-    </div>
-    <div class="actions">
+
+      <div class="control-group">
+        <%= f.label :title, "Título",:class=>"control-label" %>
+        <div class="controls">
+          <%= f.text_field :title,:placeholder => "Defina o título do tutorial" ,:class=>"form-control",:rel=>"tooltip",:title=>"Escolha um titulo apropriado.
+         Seja claro e sucinto." %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :rapid_description, "Descrição" ,:class=>"control-label" %>
+        <div class="controls">
+          <%= f.text_area :rapid_description,:placeholder => "Descreva o seu tutorial...",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
+        </div>
+      </div>
+
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :aproved %>
+
+      <div class="control-group">
+        <div class="controls">
+          <%= f.text_area :text,:placeholder => "Especifique todo o processo aqui...",:rows => "10",:id => "some-textarea",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
+        </div>
+      </div>
+
+    <div class="actions" style="float:right;margin-top:10px;margin-right: 3px">
       <%= f.submit 'Submeter Tutorial', :class => "btn btn-success dropdown-toggle" %>
     </div>
+
+      <% if @academy_tutorial.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@academy_tutorial.errors.count, "error") %> prohibited this academy_tutorial from being saved:</h2>
+
+            <ul>
+              <% @academy_tutorial.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
     </div>
   </div>
 <% end %>

@@ -23,5 +23,22 @@ module Agrosocial
     config.i18n.default_locale = "pt-PT"
     
     config.active_record.observers = :message_observer
+    
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :enable_starttls_auto => true,
+      :address              => "paca.arvixe.com",
+      :port                 => 465,
+      :authentication       => :login,
+      :domain               => 'paca.arvixe.com',
+      :user_name            => "no-reply@agrosocial.pt",
+      :password             => "que34almeida25",
+      :ssl                  => true,
+      :tls                  => true,
+    }
   end
+
+  
 end
