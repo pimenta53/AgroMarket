@@ -2,11 +2,14 @@
 class Admin::ApplicationController <  ActionController::Base
   layout "admin"
 
-  
+  before_filter :verify_admin
 
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :notice => exception.message
-  end
+
+private
+	def verify_admin
+		redirect_to root_url unless current_user.user_type == 2
+	end
+
 
 
 end
