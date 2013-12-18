@@ -12,10 +12,11 @@ class AdsController < ApplicationController
     if params[:search] != nil
       ads = Ad.arel_table
       
+      search_table = ads[:is_deleted].eq(false)
       search_table_title = nil
       search_table_description = nil
       search_params = params[:search].split
-      
+
       search_params.each { |parameter|
         if (search_table_title != nil)
           search_table_title = search_table_title.and(ads[:title].matches("%#{parameter}%"))
@@ -26,9 +27,9 @@ class AdsController < ApplicationController
         end
       }
       
-      @ads = Ad.where(search_table_title.or(search_table_description))
+      @ads = Ad.where(search_table.and(search_table_title.or(search_table_description)))
     else 
-      @ads = Ad.all
+      @ads = Ad.where("is_deleted = ?", false)
     end
     @categories = Category.all
     @cities = City.all
@@ -188,7 +189,7 @@ private
 
     # Load cities from database
     def load_stuff
-      @cities = City.order('city').all
+      @cities = City.order(:city).all
       @price_types = PriceType.all
       @categories = Category.all
 
