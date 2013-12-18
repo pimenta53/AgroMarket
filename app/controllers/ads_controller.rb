@@ -9,6 +9,12 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
+    #if params[:page] != nil
+    #  page = params[:page]
+    #else
+    #  page = 1
+    #end
+    
     if params[:search] != nil
       ads = Ad.arel_table
 
@@ -25,15 +31,19 @@ class AdsController < ApplicationController
           search_table_description  = ads[:description].matches("%#{parameter}%")
         end
       }
-
-      @ads = Ad.where(search_table_title.or(search_table_description))
-    else
-      @ads = Ad.all
+      
+      @ads = Ad.where(search_table.and(search_table_title.or(search_table_description))) #.paginate(:page => page, :per_page => 8)
+    else 
+      @ads = Ad.where("is_deleted = ?", false) #.paginate(:page => page, :per_page => 8)
     end
     @categories = Category.all
     @cities = City.all
-    params[:search]
+    
     #render :layout => "admin"
+    #respond_to do |format|
+    #  format.html
+    #  format.js
+    #end
   end
 
   # GET /ads/1
@@ -147,7 +157,6 @@ class AdsController < ApplicationController
   # Mark talk as closed
   # Create rated and rater entry in db
   def done_message
-    
     @ad = Ad.find(params[:id_ad])
 
     Talk.where("ad_id = ? and ((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?))", @ad.id, @ad.user_id, params[:user_id], params[:user_id], @ad.user_id).update_all(:is_close => 1)

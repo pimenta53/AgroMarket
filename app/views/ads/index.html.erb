@@ -12,14 +12,15 @@
  </ol>
 
 
-  <div class="row ads_index_section">
+  <div class="row ads_index_section.ads" id="ads">
     <%= render :partial => @ads %>
     <% if @ads.empty? %>
             Ainda não existem anuncios. Sê o primeiro a anunciar!
     <% end %>
   </div>
+  <p id="loading" style="visibility: hidden">A buscar mais anuncios</p>
 
-
+<% #= will_paginate @products %>
 
 
 

@@ -1,5 +1,7 @@
 <ol class="breadcrumb" id="breadcrumbAds">
-  <li class="active"><a class="url" href="<%= academy_workshops_path %>"><i class="fa fa-tags"></i> Workshops</a></li>
+  <li class="active">
+    <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a></li>
+    <a class="url" href="<%= academy_workshops_path %>"> > Workshops</a></li>
   <% if user_signed_in? %>
       <%= link_to 'Novo Workshop', new_academy_workshop_path,:class=> "url", style:"float:right"%>
   <% end %>
@@ -43,7 +45,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Workshop', new_academy_workshop_path %>
