@@ -41,9 +41,14 @@
         </div>
       </div>
 
-    <div class="actions" style="float:right;margin-top:10px;margin-right: 3px">
-      <%= f.submit 'Submeter Tutorial', :class => "btn btn-success dropdown-toggle" %>
-    </div>
+      <div class="fields">
+        <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_tutorials_path %>'">
+          <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
+        </button>
+        <div class="actions" style="float:right">
+          <%= f.submit "Publicar Tutorial", :class=>"btn btn-primary" %>
+        </div>
+      </div>
 
       <% if @academy_tutorial.errors.any? %>
           <div id="error_explanation">

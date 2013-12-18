@@ -1,3 +1,10 @@
+<ol class="breadcrumb" id="breadcrumbAds">
+  <li class="active"><a class="url" href="<%= academy_workshops_path %>"><i class="fa fa-tags"></i> Workshops</a></li>
+  <% if user_signed_in? %>
+      <%= link_to 'Novo Workshop', new_academy_workshop_path,:class=> "url", style:"float:right"%>
+  <% end %>
+</ol>
+
 <h1>Listing academy_workshops</h1>
 
 <table>

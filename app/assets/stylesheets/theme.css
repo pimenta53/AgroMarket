@@ -6,6 +6,14 @@
   color: #293a49;
 }
 
+/********LINKS********/
+.url:hover{
+    text-decoration: none;
+    color: black;
+}
+/************************/
+
+
 /********** HEADER **********/
 
 /*#header-bar{

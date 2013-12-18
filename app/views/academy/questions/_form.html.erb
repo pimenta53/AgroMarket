@@ -24,13 +24,21 @@
     </div>
 
   <%#  butao de submit, tanto para editar como criar respetivamente  %>
-  <div class="actions" style="float:right">
-    <% if controller.action_name == "edit" %>
-      <%= f.submit "Editar pergunta", :class=>"btn btn-primary" %>
-    <% else %>
-      <%= f.submit "Criar pergunta" , :class=>"btn btn-primary"%>
-    <% end %>
-  </div>
+    <div class="fields">
+      <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_questions_path %>'">
+        <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
+      </button>
+      <div class="actions" style="float:right">
+        <div class="actions" style="float:right">
+          <% if controller.action_name == "edit" %>
+              <%= f.submit "Editar pergunta", :class=>"btn btn-primary" %>
+          <% else %>
+              <%= f.submit "Criar pergunta" , :class=>"btn btn-primary"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
 
     <% if @academy_question.errors.any? %>
         <div id="error_explanation">
