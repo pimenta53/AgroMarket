@@ -66,7 +66,7 @@ class Academy::QuestionsController < ApplicationController
   end
 
   def get_categories
-    @categories = Category.all.order(:city)
+    @categories = Category.all
   end
 
   private
