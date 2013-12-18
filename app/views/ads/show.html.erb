@@ -4,6 +4,23 @@
 <% if flash[:error] %>
 <script> showNotify("<%= flash[:error] %>","error") </script>
 <% end %>
+
+<ol class="breadcrumb" id="breadcrumbAds">
+  <li class="active">
+    <a class="url" href="<%= ads_path %>"><i class="fa fa-tags"></i> Anúncios</a>
+    <a class="url" href="<%= ad_path(@ad.id) %>"> > <%= @ad.title %>></a>
+  </li>
+  <div style="float:right">
+    <% if user_signed_in? && current_user.id == @ad.user_id %>
+    <div class="ui-group-buttons">
+      <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_ad_path(@ad),:class=>"btn btn-info", :tile=> "Editar Anúncio" %>
+      <div class="or"></div>
+      <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @ad, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?s' } ,:class=>"btn btn-danger", :tile=> "Apagar Anúncio"%>
+    </div>
+    <% end %>
+  </div>
+</ol>
+
 <!--FACEBOOK SDK START -->
 <div id="fb-root"></div>
 <script>
@@ -118,33 +135,10 @@
       </div>
       <!-- Information ADS -->
       <div class="col-md-6">
-         <!-- PARA O UTILIZADOR DO DONO ANUNCIO -->
-         <% if user_signed_in? && current_user.id == @ad.user_id %>
-         <div class="pull-right">
-            <%#  Only the ad's owner can edit it  %>
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="ui-group-buttons">
-                        <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_ad_path(@ad),:class=>"btn btn-info", :tile=> "Editar Anúncio" %>
-                        <div class="or"></div>
-                        <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @ad, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?s' } ,:class=>"btn btn-danger", :tile=> "Apagar Anúncio"%>
-                     </div>
-                     <br>
-                     <span class="label label-info" >
-                        Este anúncio é meu!!
-                     </span>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <% end %>
-         <!-- [FIM] PARA O UTILIZADOR DO DONO ANUNCIO -->
          <h4 class = "ads_title">
             <%= @ad.title %>
          </h4>
-          
-         <br/>
+
          <div class = "ads_metainfo">
             <p>
                <strong>Categoria:</strong>
@@ -158,7 +152,9 @@
             </p>
             <p>
                <strong>Descricão:</strong>
-               <%= @ad.description %>
+                   <div class="alert alert-success">
+                   <%= @ad.description %>
+                   </div>
             </p>
          </div>
          <div class ="ads_description">

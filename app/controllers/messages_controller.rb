@@ -45,7 +45,7 @@ class MessagesController < ApplicationController
     @message.user_sender = current_user.id
 
     path = params[:message][:path]
-  
+
       if @message.save
         @messages = @talk.messages
          render :partial => 'create_mp.js.erb'
@@ -58,12 +58,14 @@ class MessagesController < ApplicationController
 
     @ad = Ad.find(params[:ad_id])
 
-    # select all unclosed talks between both users and from this ad 
-    @talk = Talk.where( "((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) and ad_id = ? and is_close != 1", current_user.id, params[:message][:user_id], params[:message][:user_id], current_user.id, @ad.id ).first
+
+    # select all unclosed talks between both users and from this ad
+    @talk = Talk.where( "((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) and ad_id = ? and is_close != 1", current_user.id, params[:message][:user_id].to_i, params[:message][:user_id].to_i, current_user.id, @ad.id ).first
+
     # if there is no talk between both users in this ad
-    # => create a new one 
+    # => create a new one
     # => and save it
-    if !@talk
+    if @talk.nil?
       @talk = Talk.new(:user_one => current_user.id, :user_two => @ad.user_id, :ad_id => @ad.id)
       @talk.save
     end
@@ -73,10 +75,10 @@ class MessagesController < ApplicationController
 
     @talks = Talk.all_talk_ad(current_user , @ad)
 
-
     if @message.save
         @messages = @talk.messages
         @message = Message.new
+        #render :partial => 'create.js.erb'
         redirect_to @ad
     end
 	end

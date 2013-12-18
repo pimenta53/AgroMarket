@@ -6,9 +6,9 @@ ready = function() {
   /*
   *  Cria um novo comentario na pagina de um anuncio
   */
-  
-  /*$('#comment_ad').submit(function() {
-    alert("ola")
+
+  /*$(document).on('submit', '#comment_ad', function() {
+
     var valuesToSubmit = $(this).serialize();
     $.ajax({
       url: $(this).attr('ajax_path'),

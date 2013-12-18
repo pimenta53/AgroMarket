@@ -26,10 +26,17 @@
   </div>
 </div>
 
-<div class="actions" style="float:right">
-  <% if controller.action_name != "edit" %>
-    <%= f.submit "Responder", :class => "btn btn-info" %>
-  <% else %>
-    <%= f.submit "Editar", :class => "btn btn-info" %>
-  <% end %>
+<div class="fields">
+  <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_answers_path %>'">
+    <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
+  </button>
+  <div class="actions" style="float:right">
+    <div class="actions" style="float:right">
+      <% if controller.action_name != "edit" %>
+          <%= f.submit "Responder", :class => "btn btn-info" %>
+      <% else %>
+          <%= f.submit "Editar", :class => "btn btn-info" %>
+      <% end %>
+    </div>
+  </div>
 </div>
