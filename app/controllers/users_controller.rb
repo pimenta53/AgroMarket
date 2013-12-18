@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1/myads
   # GET /users/1/myads.json
   def myads
-    @ads = @user.ads
+    @ads = @user.ads.where("is_deleted = ?", false)
     @categories = Category.all
   end
 

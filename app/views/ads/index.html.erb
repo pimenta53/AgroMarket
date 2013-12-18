@@ -13,36 +13,9 @@
 
 
   <div class="row ads_index_section">
-    <% @ads.each do |ad| %>
-
-      <div class="col-sm-6 col-md-3" id="painelAnuncios">
-          <div class="panel">
-          <div class="ads_index_img">
-            <div class="thumbnail">
-              <span class='price' ><%= ad.price %>€</span>
-                <div >
-                  <%= link_to ad_image( ad.ad_images.first ), ad %>
-                </div>
-            </div>
-          </div>
-          <div class="panel-body text-center">
-            <% if !ad.category.blank? %>
-              <div class="caption">
-                <% if ad.category.nil? %>
-                        <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
-                <% else %>
-                        <span class="label pro_title" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>  </span>
-                <% end %>
-              </div>
-            <% end %>
-            <div style="height:50px"><%= link_to ad.title, ad %></div>
-            <div style="height:50px"><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <%= render :partial => @ads %>
     <% if @ads.empty? %>
-      Ainda não existem anuncios. Sê o primeiro a anunciar!
+            Ainda não existem anuncios. Sê o primeiro a anunciar!
     <% end %>
   </div>
 
