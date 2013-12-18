@@ -20,6 +20,15 @@
           </div>
         </div>
 
+
+          <div class="control-group">
+              <%= f.label :city_id, "Concelho" %>
+              <div class="controls">
+              <%= f.collection_select(:city_id,@cities,:id,:city,:class=>"form-control", :include_blank => 'Selecione...') %>
+              </div>
+          </div>
+        
+
         <div class="control-group">
           <%= f.label :city_id, "Cidade",:class=>"control-label" %>
           <div class="controls">
