@@ -12,6 +12,7 @@ class AdsController < ApplicationController
     if params[:search] != nil
       ads = Ad.arel_table
       
+      search_table = ads[:is_deleted].eq(false)
       search_table_title = nil
       search_table_description = nil
       search_params = params[:search].split
@@ -26,9 +27,9 @@ class AdsController < ApplicationController
         end
       }
       
-      @ads = Ad.where(search_table_title.or(search_table_description))
+      @ads = Ad.where(search_table.and(search_table_title.or(search_table_description)))
     else 
-      @ads = Ad.all
+      @ads = Ad.where("is_deleted = ?", false)
     end
     @categories = Category.all
     @cities = City.all
