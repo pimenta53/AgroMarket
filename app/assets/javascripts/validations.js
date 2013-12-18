@@ -222,23 +222,23 @@ ready = function() {
   }, "Introduza um telefone válido!");
 
   jQuery.extend(jQuery.validator.messages, {
-    required: "<img src=\"../assets/error.png\" title=\"Obrigatório!\">",
-    remote: "<img src=\"../assets/error.png\" title=\"Please fix this field.\">",
-    email: "<img src=\"../assets/error.png\" title=\"Introduza um email válido.\">",
-    url: "<img src=\"../assets/error.png\" title=\"Please enter a valid URL.\">",
-    date: "<img src=\"../assets/error.png\" title=\"Introduza uma data válida.\">",
-    dateISO: "<img src=\"../assets/error.png\" title=\"Please enter a valid date (ISO).\">",
-    number: "<img src=\"../assets/error.png\" title=\"Introduza um número válido.\">",
-    digits: "<img src=\"../assets/error.png\" title=\"Please enter only digits.\">",
-    creditcard: "<img src=\"../assets/error.png\" title=\"Please enter a valid credit card number.\">",
-    equalTo: "<img src=\"../assets/error.png\" title=\"Please enter the same value again.\">",
-    accept: "<img src=\"../assets/error.png\" title=\"Insira um valor válido!\">",
-    maxlength: jQuery.validator.format("<img src=\"../assets/error.png\" title=\"Por favor insira menos de {0} caracteres.\">"),
-    minlength: jQuery.validator.format("<img src=\"../assets/error.png\" title=\"Por favor insira mais de {0} caracteres.\">"),
-    rangelength: jQuery.validator.format("<img src=\"../assets/error.png\" title=\"Please enter a value between {0} and {1} characters long.\">"),
-    range: jQuery.validator.format("<img src=\"../assets/error.png\" title=\"Please enter a value between {0} and {1}.\">"),
-    max: jQuery.validator.format("<img src=\"../assets/error.png\" title=\"Por favor introduza um valor menor ou igual {0}.\">"),
-    min: jQuery.validator.format("<img src=\"../assets/error.png\" title=\"Por favor introduza um valor maior ou igual a {0}.\">")
+    required: "<img src=\"../../assets/error.png\" title=\"Obrigatório!\">",
+    remote: "<img src=\"../../assets/error.png\" title=\"Please fix this field.\">",
+    email: "<img src=\"../../assets/error.png\" title=\"Introduza um email válido.\">",
+    url: "<img src=\"../../assets/error.png\" title=\"Please enter a valid URL.\">",
+    date: "<img src=\"../../assets/error.png\" title=\"Introduza uma data válida.\">",
+    dateISO: "<img src=\"../../assets/error.png\" title=\"Please enter a valid date (ISO).\">",
+    number: "<img src=\"../../assets/error.png\" title=\"Introduza um número válido.\">",
+    digits: "<img src=\"../../assets/error.png\" title=\"Please enter only digits.\">",
+    creditcard: "<img src=\"../../assets/error.png\" title=\"Please enter a valid credit card number.\">",
+    equalTo: "<img src=\"../../assets/error.png\" title=\"Please enter the same value again.\">",
+    accept: "<img src=\"../../assets/error.png\" title=\"Insira um valor válido!\">",
+    maxlength: jQuery.validator.format("<img src=\"../../assets/error.png\" title=\"Por favor insira menos de {0} caracteres.\">"),
+    minlength: jQuery.validator.format("<img src=\"../../assets/error.png\" title=\"Por favor insira mais de {0} caracteres.\">"),
+    rangelength: jQuery.validator.format("<img src=\"../../assets/error.png\" title=\"Please enter a value between {0} and {1} characters long.\">"),
+    range: jQuery.validator.format("<img src=\"../../assets/error.png\" title=\"Please enter a value between {0} and {1}.\">"),
+    max: jQuery.validator.format("<img src=\"../../assets/error.png\" title=\"Por favor introduza um valor menor ou igual {0}.\">"),
+    min: jQuery.validator.format("<img src=\"../../assets/error.png\" title=\"Por favor introduza um valor maior ou igual a {0}.\">")
   });
 };
 
