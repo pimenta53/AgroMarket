@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", :small => "50x50>" }, :default_url => "/assets/missing_photo.png"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", :small => "50x50>" , :tiny =>"25x25!"}, :default_url => "/assets/missing_photo.png"
 
   #validates :avatar, :attachment_presence => true
   #validates_with AttachmentPresenceValidator, :attributes => :avatar
