@@ -3,10 +3,11 @@ class Academy::QuestionsController < ApplicationController
   before_action :set_academy_question, only: [:show, :edit, :update]
   before_action :get_categories
   load_and_authorize_resource :only => [:edit,:update,:destroy]
+
   # GET /academy/questions
   # GET /academy/questions.json
   def index
-    @academy_questions = Academy::Question.search(params[:query],params[:category_id])#.where(:is_deleted => false)
+    @academy_questions = Academy::Question.search(params[:query],params[:category_id]).where(:is_deleted => false)
   end
 
   # GET /academy/questions/1
@@ -65,7 +66,7 @@ class Academy::QuestionsController < ApplicationController
   end
 
   def get_categories
-    @categories = Category.all
+    @categories = Category.all.order(:city)
   end
 
   private
