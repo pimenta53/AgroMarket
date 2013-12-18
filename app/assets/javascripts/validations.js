@@ -68,7 +68,7 @@ ready = function() {
         success: function(element) {
             element
                 .addClass('valid')
-                .closest('.control-group').removeClass('error').addClass('success');
+                .closest('.control-group').removeClass('error').addClass('success2');
         }
 
     });
