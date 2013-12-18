@@ -6,7 +6,7 @@ ready = function() {
   /*
   *  Cria um novo comentario na pagina de um anuncio
   */
-  $(document).on('submit', '#comment_ad', function() {
+  /*$(document).on('submit', '#comment_ad', function() {
     var valuesToSubmit = $(this).serialize();
     $.ajax({
       url: $(this).attr('ajax_path'),
@@ -23,7 +23,7 @@ ready = function() {
       }
     });
     return false;
-  });
+  });*/
 
   $("#cenas").click(function() {
     alert ( "Não foi possivel inserir o seu comentario!!" + error);

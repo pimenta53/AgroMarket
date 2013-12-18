@@ -7,11 +7,11 @@
     <%= form_for @message, :url => ad_new_messages_path(@ad.id),:html => {:id => "comment_ad",:ajax_path => ad_new_messages_path(@ad.id) } do |m| %>
 
       <div class="field">
-        <%= m.text_area :text,:id => "text_comment",:rows=>1,:class=> "form-control counted" ,:placeholder => "Responder"%>
+        <%= m.text_field :text,:id => "text_comment",:rows=>1,:class=> "form-control counted" ,:placeholder => "Responder"%>
         <h6 class="pull-right" id="counter">144 characters remaining</h6>
       </div>
 
-        <%= m.hidden_field :user_id, :value => @ad.id,:readonly => true %>
+        <%= m.hidden_field :user_id, :value => @ad.user.id,:readonly => true %>
 
       <%= m.submit "Enviar" %>
     <% end %>
@@ -31,14 +31,14 @@
 
           <%= link_to('<span style="float: right;" class="fa fa-times-circle"></span>'.html_safe, cancel_message_path(id_ad: @ad.id,user_id: t.user_receiver(current_user)), :data => { :confirm => "Tem a certeza que pertende eliminar a troca de mensagem com este utilizador?" }) if @ad.user_id == current_user.id  %>
         </h4>
-        
+
         <span class="label label-info" style="float: right;"><%= t.messages.count%></span>
       </div>
 
       <div id="<%= t.user_receiver(current_user) %>" class="panel-collapse collapse">
         <div class="panel-body " >
 
-          
+
           <%= render "messages/show" , :messages => t.messages, :talk => t.id %>
 
 
@@ -50,7 +50,7 @@
             </div>
 
             <%= m.hidden_field :user_id, :value => t.user_receiver(current_user.id),:readonly => true %>
-            
+
             <%= m.submit "Enviar", :class => "btn btn-info" %>
           <% end %>
         </div>
