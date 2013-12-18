@@ -17,7 +17,7 @@
       </div>
 
       <div class="control-group">
-        <%= f.label :title, "Título",:class=>"control-label" %>
+        <%= f.label :title, "Título",:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_tutorial_title"></label>
         <div class="controls">
           <%= f.text_field :title,:placeholder => "Defina o título do tutorial" ,:class=>"form-control",:rel=>"tooltip",:title=>"Escolha um titulo apropriado.
          Seja claro e sucinto." %>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="control-group">
-        <%= f.label :rapid_description, "Descrição" ,:class=>"control-label" %>
+        <%= f.label :rapid_description, "Descrição" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_tutorial_rapid_description"></label>
         <div class="controls">
           <%= f.text_area :rapid_description,:placeholder => "Descreva o seu tutorial...",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
         </div>
@@ -41,9 +41,14 @@
         </div>
       </div>
 
-    <div class="actions" style="float:right;margin-top:10px;margin-right: 3px">
-      <%= f.submit 'Submeter Tutorial', :class => "btn btn-success dropdown-toggle" %>
-    </div>
+      <div class="fields">
+        <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_tutorials_path %>'">
+          <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
+        </button>
+        <div class="actions" style="float:right">
+          <%= f.submit "Publicar Tutorial", :class=>"btn btn-primary" %>
+        </div>
+      </div>
 
       <% if @academy_tutorial.errors.any? %>
           <div id="error_explanation">

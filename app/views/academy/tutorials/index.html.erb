@@ -6,7 +6,10 @@
 <% end %>
 
  <ol class="breadcrumb" id="breadcrumbAds">
-    <li class="active"><a href="<%= academy_tutorials_path %>"><i class="fa fa-tags"></i> Tutorials</a></li>
+    <li class="active"><a class="url" href="<%= academy_tutorials_path %>"><i class="fa fa-tags"></i> Tutoriais</a></li>
+   <% if user_signed_in? %>
+       <%= link_to 'Novo Tutorial', new_academy_tutorial_path,:class=> "url", style:"float:right"%>
+   <% end %>
  </ol>
 
 
@@ -39,5 +42,3 @@
       <% end %>
     <% end %>
   </div>
-
-<%= link_to 'Criar tutorial', new_academy_tutorial_path %>

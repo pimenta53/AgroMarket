@@ -1,6 +1,15 @@
+<ol class="breadcrumb" id="breadcrumbAds">
+  <li class="active">
+    <a class="url" href="<%= academy_questions_path %>"><i class="fa fa-tags"></i> Perguntas</a>
+    <% if user_signed_in? %>
+        <%= link_to ' > Nova Pergunta', new_academy_question_path,:class=> "url"%>
+    <% end %>
+  </li>
+</ol>
+
 <div class="panel">
   <div class="panel-heading border-header">
-    <h3 class="panel-title">Nova Questão</h3>
+    <h3 class="panel-title">Nova Pergunta</h3>
   </div>
   <div class="panel-body">
 

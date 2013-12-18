@@ -161,7 +161,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" style="padding-top:9px; padding-bottom:9px;" data-toggle="dropdown" >
             <!--<% image_tag current_user.avatar.url%>-->
-            <span><%= image_tag current_user.avatar.url(:tiny) %></span>
+            <span><%= image_tag current_user.avatar.url(:medium), style:"height:35px; " %></span>
+            <!--<span><%= image_tag current_user.avatar.url(:tiny) %></span>-->
             <b class="caret" id="dropCarret"></b>
           </a>
 

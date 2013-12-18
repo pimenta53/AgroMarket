@@ -1,46 +1,16 @@
 
   <ol class="breadcrumb" id="breadcrumbAds">
-              <li class="active"><a href="<%= myads_user_path(current_user.id) %>"><i class="fa fa-tags"></i> Os meus anúncios</a></li>
- </ol>
+    <li class="active">
+      <a class="url" href="<%= ads_path %>"><i class="fa fa-tags"></i>Anúncios</a></li>
+      <% if user_signed_in? %>
+        <a class="url" href="<%= myads_user_path(current_user.id) %>"> > Os meus anúncios</a></li>
+        <%= link_to "Novo Anúncio", new_ad_path, class:"url", style:"float:right" %>
+      <% end %>
+  </ol>
 
   <div class="row ads_index_section">
-    <% @ads.each do |ad| %>
-
-      <% if !ad.is_deleted? %>
-
-        <li class="col-sm-6 col-md-3 thing <%= ad.category.name %>" id="painelAnuncios">
-          <div class="panel">
-            <div class="ads_index_img">
-              <div class="thumbnail">
-                <span class='price' ><%= ad.price %>€</span>
-                  <div >
-                    <%= link_to ad_image( ad.ad_images.first ), ad %>
-                  </div>
-              </div>
-            </div>
-            <div class="panel-body text-center">
-            <% if !ad.category.blank? %>
-              <div class="caption">
-                <% if ad.category.nil? %>
-                        <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
-                <% else %>
-                        <span class="label pro_title" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>  </span>
-                <% end %>
-              </div>
-            <% end %>
-            <div style="height:50px"><%= link_to ad.title, ad %></div>
-            <div style="height:50px"><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></div>
-          </div>
-
-          </div>
-        </li>
-      <% end %>
-    <% end %>
-
+    <%= render :partial => @ads %>
   </div>
-  
-  <!-- O link para criar novos ads só existirá se for a página do próprio utilizador -->
-  <% if @user.id == current_user.id %>
-    <%= link_to "Novo", new_ad_path %>
+  <% if @ads.empty? %>
+      Ainda não existem anúncios. Consulte os pacotes disponíveis!
   <% end %>
-</section>

@@ -3,34 +3,42 @@
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
     <div class="control-group">
-      <label class="control-label"> Categoria:</label>
+      <label class="control-label"> Categoria:</label><label class="help-inline" style="margin-left:10px" generated="true" for="academy_question_category_id"></label>
       <div class="controls">
         <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria',:title=>"Selecione a categoria que melhor se enquadra a sua questão.") unless @categories.blank?%>
       </div>
     </div>
 
     <div class="control-group">
-      <%= f.label :title, "Título:",:class=>"control-label" %>
+      <%= f.label :title, "Título",:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_question_title"></label>
       <div class="controls">
         <%= f.text_field :title,:placeholder => "Escreva a sua questão..." ,:class=>"form-control",:rel=>"tooltip",:title=>"Escreva de forma breve, clara e sucinta a sua questão." %>
       </div>
     </div>
 
     <div class="control-group">
-      <%= f.label :text, "Pergunta:",:class=>"control-label" %>
+      <%= f.label :text, "Pergunta:",:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_question_text"></label>
       <div class="controls">
         <%= f.text_area :text, :placeholder => "Defina a sua questão..." , :id => "some-textarea", :class=>"form-control",:rel=>"tooltip",:title=>"Explique de forma clara e sucinta a sua questão." %>
       </div>
     </div>
 
   <%#  butao de submit, tanto para editar como criar respetivamente  %>
-  <div class="actions" style="float:right">
-    <% if controller.action_name == "edit" %>
-      <%= f.submit "Editar pergunta", :class=>"btn btn-primary" %>
-    <% else %>
-      <%= f.submit "Criar pergunta" , :class=>"btn btn-primary"%>
-    <% end %>
-  </div>
+    <div class="fields">
+      <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_questions_path %>'">
+        <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
+      </button>
+      <div class="actions" style="float:right">
+        <div class="actions" style="float:right">
+          <% if controller.action_name == "edit" %>
+              <%= f.submit "Editar pergunta", :class=>"btn btn-primary" %>
+          <% else %>
+              <%= f.submit "Criar pergunta" , :class=>"btn btn-primary"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
 
     <% if @academy_question.errors.any? %>
         <div id="error_explanation">

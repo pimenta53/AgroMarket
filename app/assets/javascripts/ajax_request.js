@@ -6,7 +6,9 @@ ready = function() {
   /*
   *  Cria um novo comentario na pagina de um anuncio
   */
-  $(document).on('submit', '#comment_ad', function() {
+  
+  /*$('#comment_ad').submit(function() {
+    alert("ola")
     var valuesToSubmit = $(this).serialize();
     $.ajax({
       url: $(this).attr('ajax_path'),
@@ -16,14 +18,17 @@ ready = function() {
       type: "POST",
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       success: function(data){
+        alert ( data );
+
         $("#text_comment").val("");
       },
       error: function(request,error){
         alert ( "Não foi possivel inserir o seu comentario!!" + error);
       }
     });
+
     return false;
-  });
+  });*/
 
   $("#cenas").click(function() {
     alert ( "Não foi possivel inserir o seu comentario!!" + error);

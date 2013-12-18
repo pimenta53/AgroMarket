@@ -36,7 +36,9 @@ class Ability
         can :create, Academy::Answer
         can :new, Academy::Answer
         can :read, Academy::Answer
-
+        can :update, Academy::Answer, :user_id => user.id
+        can :edit, Academy::Answer, :user_id => user.id
+        can :destroy, Academy::Answer, :user_id => user.id
 
 
         can :read, Academy::Workshop
