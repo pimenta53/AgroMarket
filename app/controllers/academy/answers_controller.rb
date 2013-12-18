@@ -1,7 +1,7 @@
 #encoding: utf-8
 class Academy::AnswersController < ApplicationController
   before_action :set_academy_answer, only: [:show, :edit, :update, :destroy]
-  #load_and_authorize_resource
+  load_and_authorize_resource :only => [:edit,:update,:new]
 
   # GET /academy/answers
   # GET /academy/answers.json
@@ -21,11 +21,7 @@ class Academy::AnswersController < ApplicationController
 
   # GET /academy/answers/1/edit
   def edit
-
-    @academy_answer   = Academy::Answer.find(params[:id])
     @academy_question = @academy_answer.question
-
-
   end
 
   # POST /academy/answers
@@ -75,6 +71,6 @@ class Academy::AnswersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def academy_answer_params
-      params.require(:academy_answer).permit(:question_id, :user_id, :up, :down, :is_deleted, :text)
+      params.require(:academy_answer).permit(:question_id, :user_id, :text)
     end
 end

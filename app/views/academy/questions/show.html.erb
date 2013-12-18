@@ -1,8 +1,8 @@
 
-<%#  render da questão feita  %>
+<%##  render the question  %>
 <%= render 'question' %>
 
-<%#  Display all the answers  %>
+
 <%#  needed to load the new answers without the need to reload  %>
 <%# Verifica se existe uma melhor resposta %>
 <% if @best_answer != nil %>
@@ -62,15 +62,17 @@
     </div>
 <% end %>
 
+<%#  Display all the answers  %>
 <div id="answers">
   <%= render @academy_question.answers  %>
 </div>
 
-<button href="#" class="btn btn-info ir_para_form_resposta">Responder</button>
-
+<%#  if user is logged  %>
 <% if user_signed_in? %>
+<%#  show answer form  %>
   <%= render "academy/answers/form", :question => @academy_question %>
 <% else %>
+<%#  show indication to login or signup  %>
   <div class="col-lg-12">
     <section class="panel">
       <header class="panel-heading">
