@@ -6,13 +6,19 @@
   color: #293a49;
 }
 
+/********LINKS********/
+.url:hover{
+    text-decoration: none;
+    color: black;
+}
+/************************/
+
+
 /********** HEADER **********/
 
 /*#header-bar{
   width:250px;
 }*/
-
-
 
 
 #navbarToggle{
@@ -517,11 +523,13 @@ hr {
 
 /****** Validations *********/
 label.valid {
-    width: 24px;
-    height: 24px;
+    padding: 0;
+    margin: 0;
+    width: 20px;
+    height: 20px;
     background: url(valid.png) center center no-repeat;
-    display: inline-block;
-    text-indent: -9999px;
+    vertical-align: middle;
+
 }
 label.error {
     font-weight: bold;
@@ -551,7 +559,9 @@ legend+.control-group{margin-top:18px;-webkit-margin-top-collapse:separate;}
 
 .input-xlarge{width:270px;}
 
-
+.control-label{
+    margin-bottom: 10px;
+}
 
 /************* THUMBS for answers**********/
 .up_vote {color:green;}
@@ -589,9 +599,8 @@ border-color: #eff2f7;
   border-bottom: 2px solid #1c94c6;
 }
 
-
 .ui-group-buttons .or{position:relative;float:left;width:.3em;height:1.3em;z-index:3;font-size:12px}
-.ui-group-buttons .or:before{position:absolute;top:50%;left:50%;content:'or';background-color:#5a5a5a;margin-top:-.1em;margin-left:-.9em;width:1.8em;height:1.8em;line-height:1.55;color:#fff;font-style:normal;font-weight:400;text-align:center;border-radius:500px;-webkit-box-shadow:0 0 0 1px rgba(0,0,0,0.1);box-shadow:0 0 0 1px rgba(0,0,0,0.1);-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+.ui-group-buttons .or:before{position:absolute;top:50%;left:50%;content:'ou';background-color:#5a5a5a;margin-top:-.1em;margin-left:-.9em;width:1.8em;height:1.8em;line-height:1.55;color:#fff;font-style:normal;font-weight:400;text-align:center;border-radius:500px;-webkit-box-shadow:0 0 0 1px rgba(0,0,0,0.1);box-shadow:0 0 0 1px rgba(0,0,0,0.1);-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
 .ui-group-buttons .or:after{position:absolute;top:0;left:0;content:' ';width:.3em;height:2.84em;background-color:rgba(0,0,0,0);border-top:.6em solid #5a5a5a;border-bottom:.6em solid #5a5a5a}
 .ui-group-buttons .or.or-lg{height:1.3em;font-size:16px}
 .ui-group-buttons .or.or-lg:after{height:2.85em}
@@ -599,7 +608,10 @@ border-color: #eff2f7;
 .ui-group-buttons .or.or-sm:after{height:2.5em}
 .ui-group-buttons .or.or-xs{height:.25em}
 .ui-group-buttons .or.or-xs:after{height:1.84em;z-index:-1000}
-.ui-group-buttons{display:inline-block;vertical-align:middle}
+.ui-group-buttons{
+    margin-right:-14px;
+    margin-top:-7px;
+}
 .ui-group-buttons:after{content:".";display:block;height:0;clear:both;visibility:hidden}
 .ui-group-buttons .btn{float:left;border-radius:0}
 .ui-group-buttons .btn:first-child{margin-left:0;border-top-left-radius:.25em;border-bottom-left-radius:.25em;padding-right:15px}

@@ -7,56 +7,65 @@
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name) ,:html=>{:class=>"form", autocomplete: "off"}) do |f| %>
 
         <div class="control-group">
-          <%= f.label :name, "Nome",:class=>"control-label" %>
+          <%= f.label :name, "Nome",:class=>"control-label" %><label style="float: right" for="user_name" generated="true" class="help-inline"></label>
           <div class="controls">
             <%= f.text_field :name,:class=>"form-control", :autofocus => true %>
           </div>
         </div>
 
         <div class="control-group">
-          <%= f.label :avatar, "Imagem",:class=>"control-label" %>
+          <%= f.label :avatar, "Imagem",:class=>"control-label" %><label style="float: right" for="user_avatar" generated="true" class="help-inline"></label>
           <div class="controls">
             <%= f.file_field :avatar,:class=>"form-control" %>
           </div>
         </div>
 
+
+          <div class="control-group">
+              <%= f.label :city_id, "Concelho" %>
+              <div class="controls">
+              <%= f.collection_select(:city_id,@cities,:id,:city,:class=>"form-control", :include_blank => 'Selecione...') %>
+              </div>
+          </div>
+        
+
         <div class="control-group">
-          <%= f.label :city_id, "Cidade",:class=>"control-label" %>
+          <%= f.label :city_id, "Cidade",:class=>"control-label" %><label style="float: right" for="user_city_id" generated="true" class="help-inline"></label>
           <div class="controls">
             <%= f.collection_select(:city_id,@cities,:id,:city, {:include_blank =>"Escolha uma opção"} ,{:class=> "form-control"}) %>
           </div>
         </div>
 
         <div class="control-group">
-          <%= f.label :email, "Email",:class=>"control-label" %>
+          <%= f.label :email, "Email",:class=>"control-label" %><label style="float: right" for="user_email" generated="true" class="help-inline"></label>
           <div class="controls">
             <%= f.email_field :email, :class=>"form-control" %>
           </div>
         </div>
 
         <div class="control-group">
-          <%= f.label :password, "Password",:class=>"control-label" %>
+          <%= f.label :password, "Password",:class=>"control-label" %><label style="float: right" for="user_password" generated="true" class="help-inline"></label>
           <div class="controls">
             <%= f.password_field :password  , :class=>"form-control" %>
           </div>
         </div>
 
         <div class="control-group">
-          <%= f.label :password_confirmation, "Confirmar Password",:class=>"control-label" %>
+          <%= f.label :password_confirmation, "Confirmar Password",:class=>"control-label" %><label style="float: right" for="user_password_confirmation" generated="true" class="help-inline"></label>
           <div class="controls">
             <%= f.password_field :password_confirmation  , :class=>"form-control" %>
           </div>
         </div>
 
         <div class="control-group">
-          <%= f.label :birthday, "Data de Nascimento",:class=>"control-label" %>
+          <%= f.label :birthday, "Data de Nascimento",:class=>"control-label" %><label style="float: right" for="user_birthday" generated="true" class="help-inline"></label>
           <div class="controls">
             <%= f.text_field :birthday, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
           </div>
         </div>
 
         <div class="control-group">
-          <%= f.label :phone, "Telefone",:class=>"control-label" %>
+          <%= f.label :phone, "Telefone",:class=>"control-label" %><label style="float: right" for="user_phone" generated="true" class="help-inline"></label>
           <div class="controls">
             <%= f.text_field :phone , :class=>"form-control"  %>
           </div>

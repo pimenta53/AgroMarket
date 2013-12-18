@@ -1,14 +1,16 @@
 
   <ol class="breadcrumb" id="breadcrumbAds">
-              <li class="active"><a href="<%= myads_user_path(current_user.id) %>"><i class="fa fa-tags"></i> Os meus anúncios</a></li>
- </ol>
+    <li class="active">
+      <a class="url" href="<%= ads_path %>"><i class="fa fa-tags"></i>Anúncios</a></li>
+      <% if user_signed_in? %>
+        <a class="url" href="<%= myads_user_path(current_user.id) %>"> > Os meus anúncios</a></li>
+        <%= link_to "Novo Anúncio", new_ad_path, class:"url", style:"float:right" %>
+      <% end %>
+  </ol>
 
   <div class="row ads_index_section">
     <%= render :partial => @ads %>
   </div>
-  
-  <!-- O link para criar novos ads só existirá se for a página do próprio utilizador -->
-  <% if @user.id == current_user.id %>
-    <%= link_to "Novo", new_ad_path %>
+  <% if @ads.empty? %>
+      Ainda não existem anúncios. Consulte os pacotes disponíveis!
   <% end %>
-</section>

@@ -1,4 +1,10 @@
+<ol class="breadcrumb" id="breadcrumbAds">
+  <li class="active">
+    <a class="url" href="<%= academy_tutorials_path %>"><i class="fa fa-tags"></i> Tutoriais</a>
+    <% if user_signed_in? %>
+        <%= link_to ' > Novo Tutorial', new_academy_tutorial_path,:class=> "url"%>
+    <% end %>
+  </li>
+</ol>
 
 <%= render 'form' %>
-
-<%= link_to 'Voltar', academy_tutorials_path %>
