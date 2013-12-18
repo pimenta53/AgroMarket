@@ -147,7 +147,7 @@ class AdsController < ApplicationController
   # Mark talk as closed
   # Create rated and rater entry in db
   def done_message
-
+    
     @ad = Ad.find(params[:id_ad])
 
     Talk.where("ad_id = ? and ((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?))", @ad.id, @ad.user_id, params[:user_id], params[:user_id], @ad.user_id).update_all(:is_close => 1)

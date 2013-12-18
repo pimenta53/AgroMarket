@@ -82,14 +82,6 @@ class Admin::AdsController < Admin::ApplicationController
     end
   end
 
-  # Mark message as read
-  def done_message
-    @ad = Ad.find(params[:id_ad])
-
-    @ad.messages.where("receiver_id = ? OR sender_id = ?",params[:user_id],params[:user_id]).update_all(:is_close => 1)
-
-    redirect_to @ad,notice: 'A mensagem foi terminada com sucesso'
-  end
 
 private
     # Use callbacks to share common setup or constraints between actions.
