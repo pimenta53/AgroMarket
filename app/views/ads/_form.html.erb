@@ -1,28 +1,23 @@
 <%= form_for @ad, :html => {:multipart => true,:id=>"ad-form"} do |f| %>
     <div class="control-group">
-      <label class="control-label"> Categoria:</label>
+      <%= f.label :category_id, "Categoria",:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="ad_category_id"></label>
       <div class="controls">
         <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria') unless @categories.blank? %>
       </div>
     </div>
 
     <div class="control-group">
-      <%= f.label :title, "Título*",:class=>"control-label" %>
+      <%= f.label :title, "Título",:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="ad_title"></label>
       <div class="controls">
         <%= f.text_field :title,:placeholder => "Defina o título do anúncio" ,:class=>"form-control",:rel=>"tooltip",:title=>"Escolha um titulo apropriado.
          Seja claro e sucinto." %>
-
-        <label class="help-inline" id="help_ad_title"  for="ad_title"></label>
-
       </div>
     </div>
 
     <div class="control-group">
-      <%= f.label :description, "Descrição" ,:class=>"control-label" %>
+      <%= f.label :description, "Descrição" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="ad_description"></label>
       <div class="controls">
         <%= f.text_area :description,:placeholder => "Descreva o seu anúncio...",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
-
-        <label class="help-inline" id="help_ad_description"  for="ad_description"></label>
       </div>
     </div>
 
@@ -30,13 +25,12 @@
 
       <div class="col-md-6">
         <div class="control-group">
-          <%= f.label :price, "Preço" ,:class=>"control-label" %>
+          <%= f.label :price, "Preço" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="ad_price"></label>
           <div class="controls">
             <div class="input-group">
               <span class="input-group-addon">€</span>
               <%= f.text_field :price,:placeholder => "Preço" ,:class=>"form-control" %>
             </div>
-            <label class="help-inline" id="help_ad_price" for="ad_price"></label>
           </div>
         </div>
       </div>
@@ -51,7 +45,7 @@
 
       <div class="col-md-2">
         <div class="control-group">
-          <%= f.label :type_price_id, "Medida" ,:class=>"control-label" %>
+          <%= f.label :type_price_id, "Medida" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="ad_type_price_id"></label>
           <div class="controls">
             <%= f.collection_select(:type_price_id,@price_types,:id,:name,:class=>"form-control", :include_blank => 'Selecione...') %>
           </div>
@@ -60,7 +54,7 @@
 
       <div class="col-md-4">
         <div class="control-group">
-            <%= f.label :city_id, "Concelho" %>
+            <%= f.label :city_id, "Concelho" %><label class="help-inline" style="margin-left:10px" generated="true" for="ad_city_id"></label>
             <div class="controls">
             <%= f.collection_select(:city_id,@cities,:id,:city,:class=>"form-control", :include_blank => 'Selecione...') %>
             </div>
@@ -70,7 +64,7 @@
     </div>
 
     <div class="control-group">
-      <%= f.label :locatlion, "Localização da Venda" ,:class=>"control-label" %>
+      <%= f.label :locatlion, "Localização da Venda" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="addresspicker_map"></label>
       <div class="controls">
         <%= f.text_field :location,:placeholder =>"Localização da venda..." ,:class=>"form-control", :id=>"addresspicker_map",autocomplete: "off"%>
       </div>
@@ -94,7 +88,7 @@
 
       <% @ad.ad_images.each do |ad_image| %>
           <% if !ad_image.new_record? %>
-              <%= image_tag ad_image.image %><br/>
+              <%= image_tag ad_image.image %>
           <% end %>
       <% end %>
 
@@ -108,11 +102,12 @@
 
         <!--link para adicionar a primeira imagem, as outras estão com display:hide-->
         <input class="input" id="ad_ad_images_attributes_1_image" name="ad[ad_images_attributes][1][image]" style="display: true" type="file">
-
+        <label class="help-inline" style="margin-left:10px" generated="true" for="ad_ad_images_attributes_1_image"></label>
+        <% @i = 2; %>
         <%= f.fields_for :ad_images do |asset| %>
             <% if asset.object.new_record? %>
-                <%= asset.file_field :image, :style=>"display: none;", :class=>"input"%>
-
+                    <%= asset.file_field :image,id:"ad_ad_images_attributes_#{@i}_image", name: "ad[ad_images_attributes][#{@i}][image]", :style=>"display: none", :class=>"input"%>
+                <% @i = @i + 1; %>
             <% end %>
         <% end %>
       </div>
