@@ -51,10 +51,18 @@ class RegistrationsController < Devise::RegistrationsController
 
 		def date_convert
 			begin
-				params[:user][:birthday] = DateTime.strptime(params[:user][:birthday],'%d-%m-%Y')
+        if !params[:user][:birthday].empty?
+				  params[:user][:birthday] = DateTime.strptime(params[:user][:birthday],'%d-%m-%Y')
+        else
+          params[:user][:birthday] = nil
+        end
 			rescue
 				begin
-					params[:user][:birthday] = DateTime.strptime(params[:user][:birthday],'%d/%m/%Y')
+          if !params[:user][:birthday].empty?
+					  params[:user][:birthday] = DateTime.strptime(params[:user][:birthday],'%d/%m/%Y')
+          else
+            params[:user][:birthday] = nil
+          end
 				rescue
 				   @user.errors.add(:birthday, " has invalid format")
 					params[:user][:birthday] = nil

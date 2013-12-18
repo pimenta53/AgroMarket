@@ -37,6 +37,7 @@ class RatingsController < ApplicationController
 		redirect_to root_path,notice: 'Rating Atribuido com sucesso'
 	end
 
+
 	private
 		def rating_params
       		params.require(:rating).permit(:comment,:rate)
