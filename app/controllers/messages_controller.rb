@@ -60,7 +60,6 @@ class MessagesController < ApplicationController
 
     # select all unclosed talks between both users and from this ad 
     @talk = Talk.where( "((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) and ad_id = ? and is_close != 1", current_user.id, params[:message][:user_id], params[:message][:user_id], current_user.id, @ad.id ).first
- 
     # if there is no talk between both users in this ad
     # => create a new one 
     # => and save it
@@ -78,7 +77,7 @@ class MessagesController < ApplicationController
     if @message.save
         @messages = @talk.messages
         @message = Message.new
-        render :partial => 'create.js.erb'
+        redirect_to @ad
     end
 	end
 
