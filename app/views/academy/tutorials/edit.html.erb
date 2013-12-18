@@ -1,4 +1,9 @@
-<%= render 'form' %>
+<ol class="breadcrumb" id="breadcrumbAds">
+  <li class="active">
+    <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a>
+    <a class="url" href="<%= academy_tutorials_path %>"> > Tutoriais</a>
+    <a class="url" href="<%= academy_tutorial_path(@academy_tutorial.id) %>"> > <%= @academy_tutorial.title %></a>
+  </li>
+</ol>
 
-<%= link_to 'Ver', @academy_tutorial %> |
-<%= link_to 'Voltar', academy_tutorials_path %>
+<%= render 'form' %>
