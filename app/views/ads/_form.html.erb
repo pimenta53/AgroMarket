@@ -136,8 +136,13 @@
 
     </div>
 
-    <div class="actions" style="float:right">
-      <%= f.submit "Publicar Anúncio", :class=>"btn btn-primary" %>
+    <div class="fields">
+      <button type="button" class="btn btn-primary" onclick="location.href='<%= myads_user_path(current_user.id) %>'">
+        <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
+      </button>
+      <div class="actions" style="float:right">
+        <%= f.submit "Publicar Anúncio", :class=>"btn btn-primary" %>
+      </div>
     </div>
 
     <% if @ad.errors.any? %>

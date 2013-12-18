@@ -23,6 +23,8 @@ function scrollToPosition(id) {
     $obj.css('background-position', bgpos );
  
   }); 
+
+
   
   //função que cria popups
   function popupCenter(url, width, height, name) {

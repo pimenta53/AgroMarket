@@ -11,8 +11,7 @@ class AdsController < ApplicationController
   def index
     if params[:search] != nil
       ads = Ad.arel_table
-      
-      search_table = ads[:is_deleted].eq(false)
+
       search_table_title = nil
       search_table_description = nil
       search_params = params[:search].split
@@ -26,10 +25,10 @@ class AdsController < ApplicationController
           search_table_description  = ads[:description].matches("%#{parameter}%")
         end
       }
-      
-      @ads = Ad.where(search_table.and(search_table_title.or(search_table_description)))
-    else 
-      @ads = Ad.where("is_deleted = ?", false)
+
+      @ads = Ad.where(search_table_title.or(search_table_description))
+    else
+      @ads = Ad.all
     end
     @categories = Category.all
     @cities = City.all
@@ -148,7 +147,6 @@ class AdsController < ApplicationController
   # Mark talk as closed
   # Create rated and rater entry in db
   def done_message
-
     @ad = Ad.find(params[:id_ad])
 
     Talk.where("ad_id = ? and ((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?))", @ad.id, @ad.user_id, params[:user_id], params[:user_id], @ad.user_id).update_all(:is_close => 1)
@@ -163,7 +161,7 @@ class AdsController < ApplicationController
     # Create new entry, RATER current_user
     Rating.new(:ad_id => @ad.id,:rater_id => current_user.id ,:rated_id => params[:user_id]).save
 
-    redirect_to @ad,notice: 'A mensagem foi terminada com sucesso'
+    redirect_to ratings_path,notice: 'A mensagem foi terminada com sucesso'
   end
 
   ## ???  distinguir entre closed e deleted  ????
