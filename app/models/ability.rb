@@ -8,18 +8,30 @@ class Ability
         can :read, Ad
         can :create, Ad
         can :new, Ad
+        
         can :read, Rating
         can :create, Rating
         can :new, Rating
+        can :edit, Rating, :rater_id => user.id
+        can :update, Rating, :rater_id => user.id
+
         can :read, Message
         can :create, Message
         can :new, Message
+
         can :read, Academy::Tutorial
         can :create, Academy::Tutorial
         can :new, Academy::Tutorial
+        can :update, Academy::Tutorial, :user_id => user.id
+        can :edit, Academy::Tutorial, :user_id => user.id
+
         can :read, Academy::Question
         can :new, Academy::Question
         can :create, Academy::Question
+        can :update, Academy::Question, :user_id => user.id
+        can :edit, Academy::Question, :user_id => user.id
+        can :destroy, Academy::Question, :user_id => user.id
+
 
         can :create, Academy::Answer
         can :new, Academy::Answer
@@ -39,6 +51,8 @@ class Ability
         can :down_vote , Academy::Vote
 
         can :read, User
+        can :update, User
+        can :create, User
 
     elsif user.user_type == 2 #admin user
         can :manage, :all

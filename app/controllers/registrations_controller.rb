@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
   	end
 
   	def edit
-
+  		super
   	end
 
   	def update
@@ -46,7 +46,7 @@ class RegistrationsController < Devise::RegistrationsController
 
 
 		def load_cities
-			@cities = City.all
+			@cities = City.order('city ASC').all
 		end
 
 		def date_convert

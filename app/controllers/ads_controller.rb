@@ -16,7 +16,7 @@ class AdsController < ApplicationController
       search_table_title = nil
       search_table_description = nil
       search_params = params[:search].split
-      
+
       search_params.each { |parameter|
         if (search_table_title != nil)
           search_table_title = search_table_title.and(ads[:title].matches("%#{parameter}%"))
@@ -189,7 +189,7 @@ private
 
     # Load cities from database
     def load_stuff
-      @cities = City.order('city').all
+      @cities = City.order(:city).all
       @price_types = PriceType.all
       @categories = Category.all
 
