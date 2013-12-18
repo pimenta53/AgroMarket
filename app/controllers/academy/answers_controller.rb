@@ -21,11 +21,7 @@ class Academy::AnswersController < ApplicationController
 
   # GET /academy/answers/1/edit
   def edit
-
-    @academy_answer   = Academy::Answer.find(params[:id])
     @academy_question = @academy_answer.question
-
-
   end
 
   # POST /academy/answers
