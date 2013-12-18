@@ -18,7 +18,7 @@
           <% end %>
         </div>
       <% end %>
-      <div style="height:50px"><%= link_to ad.title, ad %></div>
+      <div  class="linkads" style="height:50px"><a><%= link_to ad.title, ad %></a></div>
       <div style="height:50px"><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></div>
     </div>
   </div>

@@ -10,7 +10,9 @@ body {
  
 }
 
-
+.linkads a:link{
+ color:black;
+}
 
 .ads_img_section{
   margin-left: -15px;
