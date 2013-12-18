@@ -91,7 +91,7 @@ gem "chartkick"
 #gem para jquery
 gem 'jquery-fileupload-rails'
 
-=======
+
 gem "font-awesome-rails"
 
 # Use ActiveModel has_secure_password
