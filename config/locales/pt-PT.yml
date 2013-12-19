@@ -12,3 +12,10 @@ pt-PT:
       time:   "%d/%m/%Y %H:%M:%S"
       us_date: "%b %d, %Y"
       mine: "%b %d"
+
+pt-PT:
+  date: #Throws an exception otherwise.
+    order:
+      - "year"
+      - "month"
+      - "day"

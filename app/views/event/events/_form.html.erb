@@ -1,0 +1,45 @@
+<%= form_for(@event_event) do |f| %>
+  <% if @event_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event_event.errors.count, "error") %> prohibited this event_event from being saved:</h2>
+
+      <ul>
+      <% @event_event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_day %><br>
+    <%= f.text_field :start_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
+
+    <%# f.date_select :start_day %>
+  </div>
+  <div class="field">
+    <%= f.label :end_day %><br>
+    <%= f.text_field :end_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
+
+   
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :aproved %><br>
+    <%= f.check_box :aproved %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

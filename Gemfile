@@ -93,6 +93,7 @@ gem 'jquery-fileupload-rails'
 
 
 gem "font-awesome-rails"
+gem 'rails-admin-scaffold'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
