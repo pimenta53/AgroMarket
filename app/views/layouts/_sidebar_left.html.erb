@@ -43,10 +43,10 @@
         <div id="collapseEventos" class="panel-collapse collapse">
           <div class="panel-body">
             <ul>
-              <li><%= link_to "Ver Todos".html_safe, ads_path %></li>
+              <li><%= link_to "Ver Todos".html_safe, event_events_path %></li>
             <% if user_signed_in? %>
-                <li><%= link_to "Os Meus Eventos".html_safe, ads_path %></li>
-                <li><%= link_to "Novo Evento".html_safe, ads_path %></li>
+                <li><%= link_to "Os Meus Eventos".html_safe, event_events_path %></li>
+                <li><%= link_to "Novo Evento".html_safe, new_event_event_path %></li>
             <% end %>
             </ul>
           </div>

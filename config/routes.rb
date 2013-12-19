@@ -1,4 +1,14 @@
 Agrosocial::Application.routes.draw do
+  namespace :admin do
+    namespace :event do
+      resources :events
+    end
+  end
+
+  namespace :event do
+    resources :events
+  end
+
   #facebook callback
   match '/auth/failure' => 'authentications#failure', via: :all
   match '/auth/:provider/callback' => 'authentications#create', via: :all
