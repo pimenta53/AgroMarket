@@ -12,10 +12,16 @@ class DashboardFacade
   	Ad.ads_per_category
   end
 
+  def users_per_district
+    User.users_per_district
+  end
+  
   # buscar os anuncios mais vistos
   def most_viewed( n )
     Ad.most_viewed( n )
   end
+
+
 
   
 
