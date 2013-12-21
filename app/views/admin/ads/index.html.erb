@@ -55,13 +55,13 @@
                   </span>
               <% end %>
             </td>
-            <td><%= l ad.expire_date, :format => :short %></td>
+            <td><%= t ad.expire_date, :format => :short %></td>
             <td><%= ad.location %></td>
             <td><%= ad.is_active %></td>
             <td><%= ad.is_deleted %></td>
             <td><%= ad.city.city unless ad.city.blank? %></td>
             <td><%= ad.user_id %> / <%= ad.user.name unless ad.user.blank?%></td>
-            <td><strong><%= l ad.created_at , :format => :short%></strong>
+            <td><strong><%= t ad.created_at , :format => :short%></strong>
             </td>
 
             <td><%= link_to 'Ver', [:admin,ad] %>

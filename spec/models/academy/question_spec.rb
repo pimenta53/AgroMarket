@@ -8,6 +8,7 @@
 #  title       :string(255)      not null
 #  text        :text
 #  is_deleted  :boolean          default(FALSE)
+#  image_url   :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
 #

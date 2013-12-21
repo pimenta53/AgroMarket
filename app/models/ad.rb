@@ -176,6 +176,11 @@ class Ad < ActiveRecord::Base
     	return results
     end
 
+    def self.today_ads_count
+    where("created_at > ?", Date.today).count
+    end
+
+
 	# private methods
 	private
 		#para criar friendly Url

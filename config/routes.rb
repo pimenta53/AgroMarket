@@ -64,6 +64,7 @@ Agrosocial::Application.routes.draw do
     resources :users
     namespace :academy do
       resources :tutorials
+      resources :questions
     end
 
     get 'cancel_message',  to: 'ads#cancel_message',              as: :cancel_message

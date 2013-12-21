@@ -1,0 +1,25 @@
+<h1>Listing admin_academy_questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_academy_questions.each do |admin_academy_question| %>
+      <tr>
+        <td><%= link_to 'Show', admin_academy_question %></td>
+        <td><%= link_to 'Edit', edit_admin_academy_question_path(admin_academy_question) %></td>
+        <td><%= link_to 'Destroy', admin_academy_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Question', new_admin_academy_question_path %>

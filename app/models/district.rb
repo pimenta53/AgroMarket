@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: countries
+# Table name: districts
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
