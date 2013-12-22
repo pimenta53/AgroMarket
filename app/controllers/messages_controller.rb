@@ -53,16 +53,16 @@ class MessagesController < ApplicationController
 
   end
 
-	# create new message
+	# create new message inside an ad
 	def create
 
+    #get the ad
     @ad = Ad.find(params[:ad_id])
 
-
-    # select all unclosed talks between both users and from this ad
+    # select the talk between the logged user and the owner from this ad, if any exists
     @talk = Talk.where( "((user_one = ? and user_two = ?) or (user_one = ? and user_two = ?)) and ad_id = ? and is_close != 1", current_user.id, params[:message][:user_id].to_i, params[:message][:user_id].to_i, current_user.id, @ad.id ).first
 
-    # if there is no talk between both users in this ad
+    # if there is no talk between the logged user and the owner from this ad
     # => create a new one
     # => and save it
     if @talk.nil?
@@ -70,11 +70,14 @@ class MessagesController < ApplicationController
       @talk.save
     end
 
+    #create the message
     @message = @talk.messages.new(ad_params)
+    #add the sender
     @message.user_sender = current_user.id
 
     @talks = Talk.all_talk_ad(current_user , @ad)
 
+    #save the new message
     if @message.save
         @messages = @talk.messages
         @message = Message.new

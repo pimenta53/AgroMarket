@@ -63,6 +63,7 @@ class User < ActiveRecord::Base
                                                 :source => 'user',
                                                 :foreign_key => 'following_id'
 
+  #belongs_to :district
   belongs_to :city
 
 
@@ -280,6 +281,19 @@ class User < ActiveRecord::Base
 
   def self.last_week
     find(:all, :conditions =>["created_at > ?", 1.week.ago])
+  end
+
+  #users count by district
+  def self.users_per_district
+    results = Hash.new
+    District.find(:all).each do |d|
+      results[d.name]=d.users.count
+    end
+    return results
+  end
+
+  def self.today_users_count
+    where('created_at > ?', Date.today).count
   end
 
 

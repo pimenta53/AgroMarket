@@ -68,6 +68,12 @@ class Talk < ActiveRecord::Base
   end
 
 
+
+  def self.closed_talks
+    where("is_close = ? ",1)
+  end
+
+
   # verifica para quem vai mandar a mensagem
   # verifica quem é o receiver
   def user_receiver( current_user )
