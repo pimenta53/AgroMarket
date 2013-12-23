@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>User#show</h1>
+<h1><%= @admin_user.name %></h1>
 
 <%= image_tag @admin_user.avatar.url(:medium), :width => "20%" %>
 
@@ -9,8 +9,11 @@
 <p>Cidade: <%= @admin_user.city.city %></p>
 <p>Aniversário: <%= @admin_user.birthday %> Falta o FORMAT</p>
 <p>Telefone: <%= @admin_user.phone %></p>
+<p>Ocupação: <%= @admin_user.ocupation %></p>
 <p>Criado em: <%= @admin_user.created_at %></p>
 <p>Último Login: <%= @admin_user.last_sign_in_at %></p>
+<p>Tipo : <% if @admin_user.user_type==2 %> Admin <% else %> User <%end%> </p>
+
 
 
 
