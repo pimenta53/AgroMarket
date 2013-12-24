@@ -67,6 +67,7 @@ Agrosocial::Application.routes.draw do
 
     namespace :academy do
       resources :tutorials
+      resources :questions
     end
 
 

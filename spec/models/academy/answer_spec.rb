@@ -8,6 +8,7 @@
 #  up          :integer          default(0)
 #  down        :integer          default(0)
 #  is_deleted  :boolean          default(FALSE)
+#  image_url   :string(255)
 #  text        :text
 #  created_at  :datetime
 #  updated_at  :datetime

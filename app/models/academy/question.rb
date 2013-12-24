@@ -8,6 +8,7 @@
 #  title       :string(255)      not null
 #  text        :text
 #  is_deleted  :boolean          default(FALSE)
+#  image_url   :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
 #
@@ -45,5 +46,13 @@ class Academy::Question < ActiveRecord::Base
 
     return answer
   end
+
+### STATISTIC ZONE #####
+def self.today_questions_count
+  where('created_at > ?', Date.today).count
+end
+
+
+
 
 end

@@ -1,9 +1,5 @@
 
-            <h1>Dashboard <small>Statistics Overview</small></h1>
-            <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
-            </ol>
-           
+            <h1>Dashboard <small>Statistics Overview</small></h1>           
           </div>
         </div><!-- /.row -->
 
@@ -13,19 +9,19 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-comments fa-5x"></i>
+                    <i class="fa fa-shopping-cart fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">456</p>
-                    <p class="announcement-text">New Mentions!</p>
+                    <p class="announcement-heading"><%= @dashboard.today_ads_count %></p>
+                    <p class="announcement-text">Novos Anúncios!</p>
                   </div>
                 </div>
               </div>
-              <a href="#">
+              <a href="<%= admin_ads_path %>">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      View Mentions
+                      Ver Anúncios
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -40,19 +36,19 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-check fa-5x"></i>
+                    <i class="fa fa-users fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">12</p>
-                    <p class="announcement-text">To-Do Items</p>
+                    <p class="announcement-heading"><%= @dashboard.today_users_count%></p>
+                    <p class="announcement-text">Novos Utilizadores!</p>
                   </div>
                 </div>
               </div>
-              <a href="#">
+              <a href="<%= admin_users_path %>">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      Complete Tasks
+                      Ver Utilizadores
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -67,19 +63,19 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-tasks fa-5x"></i>
+                    <i class="fa fa-question-circle fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">18</p>
-                    <p class="announcement-text">Crawl Errors</p>
+                    <p class="announcement-heading"><%= @dashboard.today_questions_count %></p>
+                    <p class="announcement-text">Novas Perguntas!</p>
                   </div>
                 </div>
               </div>
-              <a href="#">
+              <a href="<%= admin_academy_questions_path%>">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      Fix Issues
+                      Ver Perguntas
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -94,19 +90,19 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-comments fa-5x"></i>
+                    <i class="fa fa-calendar fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">56</p>
-                    <p class="announcement-text">New Orders!</p>
+                    <p class="announcement-heading"><%= @dashboard.today_events_count %></p>
+                    <p class="announcement-text">Novos Eventos!</p>
                   </div>
                 </div>
               </div>
-              <a href="#">
+              <a href="<%= admin_event_events_path%>">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      Complete Orders
+                      Ver Eventos
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -122,33 +118,78 @@
           <div class="col-lg-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Ultimos Anúncios </h3>
+                <h3 class="panel-title"><i class="fa fa-shopping-cart"></i> Últimos Anúncios</h3>
               </div>
               <div class="panel-body">
-
-                <div id="morris-chart-area"></div>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped tablesorter">
+                    <thead>
+                      <tr>
+                        <th>Anúncio #<i class="fa fa-sort"></i></th>
+                        <th>Título<i class="fa fa-sort"></i></th>
+                        <th>Vendedor <i class="fa fa-sort"></i></th>
+                        <th>Categoria <i class="fa fa-sort"></i></th>
+                        <th>Preço <i class="fa fa-sort"></i></th>
+                        <th>Data <i class="fa fa-sort"></i></th>
+                        <th>Hora <i class="fa fa-sort"></i></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                       <% @dashboard.last_ads.each do |a| %>
+                      <tr>
+                        <td><%= a.id %></td>
+                        <td><%= a.title %></td>
+                        <td><%= a.user_id %></td>
+                        <td><%= a.category.name %></td>
+                        <td><%= a.price %></td>
+                        <td><%= a.created_at %></td>
+                        <td><%= a.created_at %></td>
+                      </tr>
+                    <% end %>
+                
+                    </tbody>
+                  </table>
+                </div>
+                <div class="text-right">
+                  <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
               </div>
             </div>
           </div>
         </div><!-- /.row -->
 
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Stats Utilizadores</h3>
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Stats Anúncios</h3>
               </div>
               <div class="panel-body">
-                <% pie_chart( @dashboard.ads_per_category ) %>
-              <%= pie_chart({"Agricultores" => 20, "Pesca" => 5,"Caça" => 15}) %>
-               <% pie_chart User.group("name").count %>
+                <%= pie_chart( @dashboard.ads_per_category ) %>
                 <div class="text-right">
                   <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+
+          <div class="col-lg-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Stats Utilizadores</h3>
+              </div>
+              <div class="panel-body">
+                <%= pie_chart( @dashboard.users_per_district ) %>
+               <% pie_chart User.group("city").count %>
+                <div class="text-right">
+                  <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-clock-o"></i> Recent Activity</h3>
@@ -194,7 +235,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-money"></i> Negocios Fechados</h3>
@@ -204,61 +245,24 @@
                   <table class="table table-bordered table-hover table-striped tablesorter">
                     <thead>
                       <tr>
-                        <th>Order # <i class="fa fa-sort"></i></th>
-                        <th>Order Date <i class="fa fa-sort"></i></th>
-                        <th>Order Time <i class="fa fa-sort"></i></th>
-                        <th>Amount (USD) <i class="fa fa-sort"></i></th>
+                        <th>Anúncio # <i class="fa fa-sort"></i></th>
+                        <th>Vendedor <i class="fa fa-sort"></i></th>
+                        <th>Comprador <i class="fa fa-sort"></i></th>
+                        <th>Data <i class="fa fa-sort"></i></th>
+                        <th>Hora <i class="fa fa-sort"></i></th>
                       </tr>
                     </thead>
                     <tbody>
+                       <% @dashboard.closed_talks.each do |t| %>
                       <tr>
-                        <td>3326</td>
-                        <td>10/21/2013</td>
-                        <td>3:29 PM</td>
-                        <td>$321.33</td>
+                        <td><%= t.ad_id %></td>
+                        <td><%= t.user_one %></td>
+                        <td><%= t.user_two %></td>
+                        <td><%= t.created_at %></td>
+                        <td><%= t.created_at %></td>
                       </tr>
-                      <tr>
-                        <td>3325</td>
-                        <td>10/21/2013</td>
-                        <td>3:20 PM</td>
-                        <td>$234.34</td>
-                      </tr>
-                      <tr>
-                        <td>3324</td>
-                        <td>10/21/2013</td>
-                        <td>3:03 PM</td>
-                        <td>$724.17</td>
-                      </tr>
-                      <tr>
-                        <td>3323</td>
-                        <td>10/21/2013</td>
-                        <td>3:00 PM</td>
-                        <td>$23.71</td>
-                      </tr>
-                      <tr>
-                        <td>3322</td>
-                        <td>10/21/2013</td>
-                        <td>2:49 PM</td>
-                        <td>$8345.23</td>
-                      </tr>
-                      <tr>
-                        <td>3321</td>
-                        <td>10/21/2013</td>
-                        <td>2:23 PM</td>
-                        <td>$245.12</td>
-                      </tr>
-                      <tr>
-                        <td>3320</td>
-                        <td>10/21/2013</td>
-                        <td>2:15 PM</td>
-                        <td>$5663.54</td>
-                      </tr>
-                      <tr>
-                        <td>3319</td>
-                        <td>10/21/2013</td>
-                        <td>2:13 PM</td>
-                        <td>$943.45</td>
-                      </tr>
+                    <% end %>
+                
                     </tbody>
                   </table>
                 </div>

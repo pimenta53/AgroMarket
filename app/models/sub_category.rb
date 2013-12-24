@@ -6,6 +6,7 @@
 #  name        :string(255)
 #  description :string(255)
 #  color       :string(255)
+#  category_id :integer
 #  created_at  :datetime
 #  updated_at  :datetime
 #

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: countries
+# Table name: districts
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -10,5 +10,6 @@
 
 class District < ActiveRecord::Base
 	has_many :cities
+	has_many :users, through: :cities 
 	validates :name, presence: true
 end
