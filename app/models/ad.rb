@@ -96,6 +96,44 @@ class Ad < ActiveRecord::Base
   		end
   	end
 
+    #####################
+    # PREFERENCE SEARCH #
+    #####################
+    #so para teste enquanto não ha preferencias nos Utilizadores
+    @preferences_category_id = [1, 2]
+    @preferences_keyword = ["Batatas", "Doces"]
+    @preferences_location = ["Braga", "Porto"]
+
+
+    def self.search_by_preference( current_user )
+      #pesquisa por categoria
+      ads = search_by_category
+
+      #pesquisa por palavra-chave
+      #ads = ads.search_by_keyword
+
+      #pesquisa por localização
+      #ads = ads.search_by_location
+
+      #isto devolve os anuncios todos filtrados por preferencias do utilizador
+      return ads
+    end
+
+    #pesquisa por categoria
+    def self.search_by_category
+      ads = where(:category_id => @preferences_category_id)
+    end
+
+    #pesquisa por palavra chave
+    def self.search_by_keyword
+      #ads = where(:category_id => @preferences)
+    end
+
+    #pesquisa por localizacao
+    def self.search_by_location
+      #ads = where(:category_id => @preferences)
+    end
+
 
     ####################
   	# instance methods #
@@ -147,6 +185,14 @@ class Ad < ActiveRecord::Base
     return view_ads
   end
 
+  def first_image
+    if !self.ad_images.blank?
+       return self.ad_images.first.image
+   else
+     return "http://placehold.it/40x30"
+   end
+  
+  end
 	#######################
   ### STATISTIC ZONE ####
   #######################

@@ -102,7 +102,24 @@
 
             <hr>
       <!-- FIM ZONA DA ACADEMIA -->
-        
+
+
+      <!--ZONA Dos EVENTOS -->
+                 <a href="#events-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-quote-left"></i>Eventos</a>
+                  <ul id="events-menu" class="nav nav-list collapse">
+                      <li> 
+                       <%= link_to "<i class='fa fa-eye'></i>Ver Eventos".html_safe  , admin_event_events_path %>
+                      </li>
+
+                      <li> 
+                       <%= link_to "<i class='fa fa-eye'></i>Criar Eventos".html_safe  , new_admin_event_event_path %>
+                      </li>
+                      
+                  </ul>
+
+            <hr>
+      <!-- FIM ZONA Dos EVENTOS -->
+
 
             <a href="/" class="nav-header" >
               <span class="fa-stack fa-lg">

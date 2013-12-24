@@ -616,3 +616,13 @@ border-color: #eff2f7;
 .ui-group-buttons .btn{float:left;border-radius:0}
 .ui-group-buttons .btn:first-child{margin-left:0;border-top-left-radius:.25em;border-bottom-left-radius:.25em;padding-right:15px}
 .ui-group-buttons .btn:last-child{border-top-right-radius:.25em;border-bottom-right-radius:.25em;padding-left:15px}
+
+
+/******AUTOCOMPLETE**********/
+.typeahead_wrapper { display: block; height: 30px; }
+.typeahead_photo { float: left; max-width: 40px; max-height: 40px; margin-right: 5px; }
+.typeahead_labels { float: left; height: 30px; }
+.typeahead_primary { font-weight: bold; }
+.typeahead_secondary { font-size: .8em; margin-top: -5px; }
+
+
