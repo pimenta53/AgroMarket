@@ -50,6 +50,8 @@ Agrosocial::Application.routes.draw do
 
   resources :users, :login, :authentications
 
+  #SEARCH
+  get '/search' => 'search#search_for_all'
 
 
 
@@ -62,10 +64,12 @@ Agrosocial::Application.routes.draw do
     resources :dashboard
     resources :ads
     resources :users
+
     namespace :academy do
       resources :tutorials
       resources :questions
     end
+
 
     get 'cancel_message',  to: 'ads#cancel_message',              as: :cancel_message
     #get 'done_message',    to: 'ads#done_message',                as: :done_message

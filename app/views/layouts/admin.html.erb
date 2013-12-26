@@ -35,7 +35,7 @@
           
 
            
-            <a href="#ads_menu" class="nav-header" data-toggle="collapse"><i class="fa fa-legal"></i>Anúncios</a>
+            <a href="#ads_menu" class="nav-header" data-toggle="collapse"><i class="fa fa-shopping-cart"></i> Anúncios</a>
             <ul id="ads_menu" class="nav nav-list collapse">
                 <li> 
                  <%= link_to "<i class='fa fa-eye'></i>Anuncios".html_safe  , admin_ads_path %>
@@ -46,7 +46,7 @@
             </ul>
 
 
-            <a href="#Categorias-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-dashboard"></i>Categorias</a>
+            <a href="#Categorias-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-tags"></i> Categorias</a>
             <ul id="Categorias-menu" class="nav nav-list collapse">
                 <li> 
                  <%= link_to "<i class='fa fa-eye'></i> Categorias".html_safe  , admin_categories_path %>
@@ -58,7 +58,7 @@
                 
             </ul>
 
-            <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-briefcase"></i>Cidades<span class="label label-info">+3</span></a>
+            <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-briefcase"></i> Cidades<span class="label label-info">+3</span></a>
             <ul id="accounts-menu" class="nav nav-list collapse">
                 <li> 
                  <%= link_to "<i class='fa fa-eye'></i> Cidades".html_safe  , admin_cities_path %>
@@ -69,7 +69,7 @@
             </ul>
 
 
-            <a href="#users-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-eur"></i>Tipos de Preço</a>
+            <a href="#users-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-eur"></i> Tipos de Preço</a>
             <ul id="users-menu" class="nav nav-list collapse">
                 <li> 
                  <%= link_to "<i class='fa fa-eye'></i> Tipos de Preço".html_safe  , admin_price_types_path %>
@@ -81,7 +81,7 @@
 
 
             <hr>
-            <a href="#price_types-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-male"></i>Utilizadores</a>
+            <a href="#price_types-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-users"></i> Utilizadores</a>
             <ul id="price_types-menu" class="nav nav-list collapse">
                 <li> 
                  <%= link_to "<i class='fa fa-eye'></i> Utilizadores".html_safe  , admin_users_path %>
@@ -93,37 +93,40 @@
 
             <hr>
         <!--ZONA DA ACADEMIA -->
-                 <a href="#academy-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-quote-left"></i>Tutoriais</a>
+                 <a href="#academy-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-book"></i> Academia</a>
                   <ul id="academy-menu" class="nav nav-list collapse">
                       <li> 
                        <%= link_to "<i class='fa fa-eye'></i>Ver tutoriais".html_safe  , admin_academy_tutorials_path %>
+                      </li>
+                      <li> 
+                       <%= link_to "<i class='fa fa-eye'></i>Ver perguntas".html_safe  , admin_academy_questions_path %>
                       </li>
                   </ul>
 
             <hr>
       <!-- FIM ZONA DA ACADEMIA -->
-           <a href="#events-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-quote-left"></i>Eventos</a>
+
+
+      <!--ZONA Dos EVENTOS -->
+                 <a href="#events-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-quote-left"></i>Eventos</a>
                   <ul id="events-menu" class="nav nav-list collapse">
                       <li> 
-                       <%= link_to "<i class='fa fa-eye'></i>Ver eventos".html_safe  , admin_event_events_path %>
+                       <%= link_to "<i class='fa fa-eye'></i>Ver Eventos".html_safe  , admin_event_events_path %>
                       </li>
+
+                      <li> 
+                       <%= link_to "<i class='fa fa-eye'></i>Criar Eventos".html_safe  , new_admin_event_event_path %>
+                      </li>
+                      
                   </ul>
 
             <hr>
+      <!-- FIM ZONA Dos EVENTOS -->
 
-      <!-- ZONA DOS EVENTOS -->
-
-
-      <!-- FIM DA ZONA DOS EVENTOS -->
-        
 
             <a href="/" class="nav-header" >
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-user"></i>
-              </span>
-              User-zone
-            </a>
-            <a href="" class="nav-header" ><i class="fa fa-comment"></i>Faq</a>
+                <i class="fa fa-user"></i> User-zone</a>
+            <a href="" class="nav-header" ><i class="fa fa-comment"></i> Faq</a>
        </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">

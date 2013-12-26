@@ -53,11 +53,8 @@ ready = function() {
 
   $(".pick-a-color").pickAColor();
 
-  $('.typeahead').typeahead({
-    name: "cities",
-    local: ['couves', 'cenas', 'laranjas', 'coisass', 'anuncios', 'babes','boobs','big boobs','buceta']
-  });
 
+ 
 
   $('.tt-query').css('background-color','#fff');
 

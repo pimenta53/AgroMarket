@@ -13,9 +13,3 @@ pt-PT:
       us_date: "%b %d, %Y"
       mine: "%b %d"
 
-pt-PT:
-  date: #Throws an exception otherwise.
-    order:
-      - "year"
-      - "month"
-      - "day"

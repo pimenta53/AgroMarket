@@ -34,4 +34,5 @@ class AdImage < ActiveRecord::Base
 		:large => "600x600!"
 	}
 
+
 end
