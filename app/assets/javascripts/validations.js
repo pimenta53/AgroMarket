@@ -152,6 +152,28 @@ ready = function() {
 
     });
 
+    /*****        NEW WORKSHOP                */
+    $('#academy_workshop').validate({
+        errorElement: 'label',
+        errorClass: 'help-inline',
+        rules: {
+            "academy_workshop[available_slots]": { min: 0, required: true },
+            "academy_workshop[price]": { min: 0, maxlength: 6, number: true, required: true },
+            "academy_workshop[date]": {accept: "[\\d]{1}/[\\d]{2}/[\\d]{4}", required: true },
+            "academy_workshop[description]": { minlength: 2, maxlength: 255, required: true },
+            "academy_workshop[local]": { minlength:2, maxlength: 255, required: true }
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+        },
+        success: function(element) {
+            element
+                .addClass('valid')
+                .closest('.control-group').removeClass('error').addClass('success');
+        }
+
+    });
+
     /*****        NEW TUTORIAL                */
     $('#tutorial-form').validate({
         errorElement: 'label',
