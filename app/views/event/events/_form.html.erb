@@ -1,45 +1,87 @@
-<%= form_for(@event_event) do |f| %>
-  <% if @event_event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event_event.errors.count, "error") %> prohibited this event_event from being saved:</h2>
+<%= form_for@event_event, :html => {:multipart => true,:id=>"event_form"} do |f| %>
 
-      <ul>
-      <% @event_event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="control-group">
+      <%= f.label :title, "Título",:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="event_event_title"></label>
+      <div class="controls">
+        <%= f.text_field :title,:placeholder => "Defina o título do evento" ,:class=>"form-control",:rel=>"tooltip",:title=>"Escolha um titulo apropriado.
+         Seja claro e sucinto." %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :start_day %><br>
-    <%= f.text_field :start_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
+    <div class="row" style="margin-left: -10px; margin-right: -10px">
 
-    <%# f.date_select :start_day %>
-  </div>
-  <div class="field">
-    <%= f.label :end_day %><br>
-    <%= f.text_field :end_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
+      <div class="col-md-6">
+        <div class="control-group">
+          <%= f.label :start_day, "Data de Início",:class=>"control-label" %><label style="margin-left:10px" for="event_event_start_day" generated="true" class="help-inline"></label>
+          <div class="controls">
+            <%= f.text_field :start_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
+          </div>
+        </div>
+      </div>
 
-   
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :aproved %><br>
-    <%= f.check_box :aproved %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <div class="col-md-6">
+        <div class="control-group">
+          <%= f.label :end_day, "Data de Fim",:class=>"control-label" %><label style="margin-left:10px" for="event_event_end_day" generated="true" class="help-inline"></label>
+          <div class="controls">
+            <%= f.text_field :end_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="control-group">
+      <%= f.label :description, "Descrição" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="event_event_description"></label>
+      <div class="controls">
+        <%= f.text_area :description,:placeholder => "Descreva o evento...",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
+      </div>
+    </div>
+
+    <div class="fields">
+      <button type="button" class="btn btn-primary" onclick="location.href='<%= event_events_path %>'">
+        <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
+      </button>
+      <div class="actions" style="float:right">
+        <div class="actions" style="float:right">
+          <% if controller.action_name == "edit" %>
+              <%= f.submit "Editar Evento", :class=>"btn btn-primary" %>
+          <% else %>
+              <%= f.submit "Criar Evento" , :class=>"btn btn-primary"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <% if @event_event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@event_event.errors.count, "error") %> prohibited this event_event from being saved:</h2>
+
+          <ul>
+            <% @event_event.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
 <% end %>
+
+
+<script type="text/javascript">
+    var currentTime = new Date()  ;
+    var month = currentTime.getMonth() + 1   ;
+    var day = currentTime.getDate() ;
+    var year = currentTime.getFullYear() ;
+
+    $('.datepicker').datepicker({
+        todayBtn: true,
+        startView: 2,
+        format: "dd/mm/yyyy",
+        language: "pt",
+        autoclose: true,
+        todayHighlight: true,
+        calendarWeeks: true,
+        startDate: day + "/" + month + "/" + (year - 100)
+    })
+</script>
+
