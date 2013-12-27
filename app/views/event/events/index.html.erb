@@ -1,3 +1,11 @@
+<ol class="breadcrumb" id="breadcrumbAds">
+  <li class="active">
+    <a class="url" href="<%= event_events_path %>"><i class="fa fa-tags"></i> Eventos</a></li>
+  <% if user_signed_in? %>
+      <%= link_to 'Novo Evento', new_event_event_path,:class=> "url", style:"float:right"%>
+  <% end %>
+</ol>
+
 <h1>Listing event_events</h1>
 
 <table>
@@ -31,7 +39,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Event', new_event_event_path %>
