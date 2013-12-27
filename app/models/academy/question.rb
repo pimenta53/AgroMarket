@@ -44,6 +44,12 @@ class Academy::Question < ActiveRecord::Base
 
     answer = self.answers.order('up - down DESC').first
 
+    #verifica se melhor resposta tem algum voto
+    #se nao houver nenhum voto nao fica como melhor resposta
+    if !answer.nil? && answer.up == 0 && answer.down == 0
+      answer = nil
+    end
+    
     return answer
   end
 

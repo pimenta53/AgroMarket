@@ -28,9 +28,12 @@ class Academy::WorkshopRegistrationsController < ApplicationController
   # POST /academy/workshop_registrations.json
   def create
     @academy_workshop_registration = Academy::WorkshopRegistration.new(academy_workshop_registration_params)
-
     respond_to do |format|
       if @academy_workshop_registration.save
+
+        workshop = @academy_workshop_registration.workshop
+        workshop.add_inscription
+
         format.html { redirect_to  @academy_workshop_registration.workshop, notice: 'Workshop registration was successfully created.' }
         format.json { render action: 'show', status: :created, location: @academy_workshop_registration }
       else

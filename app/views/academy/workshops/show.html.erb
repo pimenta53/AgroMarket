@@ -46,26 +46,35 @@
 
 <%= render :partial =>"academy/workshop_registrations/inscriptions" %>
 
-<div class="text-center">
-      <button class="demo btn btn-primary" data-toggle="modal" href="#responsive">Inscrever-se no Workshop</button>
-</div>
+<!-- VERIFICA se workshop tem inscriçoes e se ainda tem inscriçoes-->
+<% if @academy_workshop.has_available_slots? == true && @academy_workshop.requires_registration? == true %>
+    <div class="text-center">
+          <button class="demo btn btn-primary" data-toggle="modal" href="#responsive">Inscrever-se no Workshop</button>
+    </div>
 
 
 
-<!-- MODAL -->
-<div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h4 class="modal-title"></h4>
-</div>
+    <!-- MODAL -->
+    <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+        <h4 class="modal-title">Inscrever-se no workshop</h4>
+    </div>
 
-  <div class="modal-body">
-           <div class="row" id="post-review-box" >
-                <div class="col-md-12">
-                    <%= render :partial =>"academy/workshop_registrations/form" %>
+      <div class="modal-body">
+               <div class="row" id="post-review-box" >
+                    <div class="col-md-12">
+                        <%= render :partial =>"academy/workshop_registrations/form" %>
+                    </div>
                 </div>
-            </div>
-  </div>
-  
-</div>
-<!-- FIM MODAL -->
+      </div>
+      
+    </div>
+    <!-- FIM MODAL -->
+
+  <% else %>
+
+   <div class="text-center">
+          <h2>Não há mais inscrições disponiveis</h2>
+   </div>
+<% end %>

@@ -51,6 +51,7 @@ class Academy::Answer < ActiveRecord::Base
     self.up - self.down
   end
 
+
   def vote_up_from_down
     self.down = self.down - 1
     self.up = self.up + 1
