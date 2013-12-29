@@ -11,6 +11,16 @@
     text-decoration: none;
     color: black;
 }
+
+/** LINK adminZONE **/
+.newItemLink{
+  text-align: right;
+}
+
+.newItemLink > a:hover {
+  color: #000;
+}
+
 /************************/
 
 

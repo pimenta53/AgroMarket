@@ -7,6 +7,7 @@ class  Admin::CitiesController <  Admin::ApplicationController
   # GET /cities.json
   def index
     @cities = City.all
+    @citiesAZ = City.alphabetically
   end
 
   # GET /cities/1

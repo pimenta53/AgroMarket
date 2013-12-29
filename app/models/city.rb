@@ -12,6 +12,8 @@
 class City < ActiveRecord::Base
 	belongs_to :district
 
+	scope :alphabetically, order("city ASC")
+
     has_many :users
     has_many :ads
 

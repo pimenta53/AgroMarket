@@ -1,38 +1,38 @@
 <h1>Lista de Perguntas</h1>
 
 <table class="table">
-    <tr>
-      <th>ID</th>
-      <th>Pergunta</th>
-      <th>ID Autor</th>
-      <th>Categoria</th>
-      <th>Criado em</th>
-    </tr>
+  <tr>
+    <th>ID</th>
+    <th>Pergunta</th>
+    <th>ID Autor</th>
+    <th>Categoria</th>
+    <th>Criado em</th>
+  </tr>
 
-    <% @admin_academy_questions.each do |admin_academy_question| %>
+  <% @admin_academy_questions.each do |admin_academy_question| %>
 
-      <tr>
-        <td><%= admin_academy_question.id %></td>
-        <td><%= admin_academy_question.title %></td>
-        <td><%= admin_academy_question.user_id %></td>
-        <td>
-              <% if admin_academy_question.category %>
-                <span class="label" style="background-color: #<%= admin_academy_question.category.color %>">
-                  <%= admin_academy_question.category.name %>
-                </span>
+  <tr>
+    <td><%= admin_academy_question.id %></td>
+    <td><%= admin_academy_question.title %></td>
+    <td><%= admin_academy_question.user_id %></td>
+    <td>
+      <% if admin_academy_question.category %>
+      <span class="label" style="background-color: #<%= admin_academy_question.category.color %>">
+        <%= admin_academy_question.category.name %>
+      </span>
 
-                <% else %>
-                   <span class="label label-default" >
-                    Sem Categoria
-                  </span>
-              <% end %>
-            </td>
-        <td><%= admin_academy_question.created_at %></td>
-        <td><%= link_to 'Ver', admin_academy_question %></td>
-        <td><%= link_to 'Editar', edit_admin_academy_question_path(admin_academy_question) %></td>
-        <td><%= link_to 'Apagar', admin_academy_question, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
-      </tr>
-    <% end %>
+      <% else %>
+      <span class="label label-default" >
+        Sem Categoria
+      </span>
+      <% end %>
+    </td>
+    <td><%= admin_academy_question.created_at %></td>
+    <td><%= link_to 'Ver', admin_academy_question %></td>
+    <td><%= link_to 'Editar', edit_admin_academy_question_path(admin_academy_question) %></td>
+    <td><%= link_to 'Apagar', admin_academy_question, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+  </tr>
+  <% end %>
 </table>
 
 <br>

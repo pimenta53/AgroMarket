@@ -1,5 +1,9 @@
 <section class="panel">
-  <header class="panel-heading"><h1>Lista de utilizadores</h1></header>
+  <header class="panel-heading"><h1>Lista de utilizadores</h1>
+    <div class="newItemLink">
+    <i class="fa fa-plus-circle"></i><%= link_to ' Novo Utilizador', new_admin_user_path %>
+  </div>
+  </header>
 <div class="table-responsive">
   <table class="table table-hover" >
       <thead>
@@ -36,9 +40,9 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
-<%= link_to 'Novo utilizador', new_admin_user_path %>
 </div>
 </section>
+    <i class="fa fa-plus-circle"></i><%= link_to ' Novo Utilizador', new_admin_user_path %>
+
+
