@@ -7,7 +7,27 @@ class Academy::TutorialsController < ApplicationController
   # GET /academy/tutorials
   # GET /academy/tutorials.json
   def index
-    @academy_tutorials = Academy::Tutorial.all
+    @categories = Category.all
+
+    ## 
+    if(params[:search] || params[:search_tutorials]) 
+
+      if(params[:search])
+        category_id = Category.find_by_name(params[:search])
+      else
+        category_id = Category.find_by_name(params[:search_tutorials])
+      end
+      
+      if category_id.nil?
+        redirect_to academy_tutorials_path,notice: 'Não foram encontrados quaisquer registos'
+      end
+
+      @academy_tutorials = Academy::Tutorial.where(:category_id => category_id)
+    else
+      @academy_tutorials = Academy::Tutorial.all
+    end
+
+
   end
 
   # GET /academy/tutorials/1

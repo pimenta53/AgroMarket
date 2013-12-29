@@ -53,6 +53,9 @@ Agrosocial::Application.routes.draw do
   #SEARCH
   get '/search' => 'search#search_for_all'
 
+  get '/search_tutorials' => 'search#search_tutorials'
+
+
 
 
   ### ADMIN ZONE ###
