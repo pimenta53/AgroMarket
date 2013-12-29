@@ -1,14 +1,21 @@
-<h1>Listing event_events</h1>
+<section class="panel">
+  <header class="panel-heading"><h1>Lista de Eventos</h1>
+  <div class="newItemLink">
+    <i class="fa fa-plus-circle"></i><%= link_to ' Novo Evento', new_admin_event_event_path %>
+  </div>
 
-<table>
+
+  </header>
+<div class="table-responsive">
+  <table class="table table-hover" >
   <thead>
     <tr>
-      <th>Start day</th>
-      <th>End day</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>User</th>
-      <th>Aproved</th>
+      <th>Início</th>
+      <th>Fim</th>
+      <th>Título</th>
+      <th>Descrição</th>
+      <th>Utilizador</th>
+      <th>Aprovado?</th>
       <th></th>
       <th></th>
       <th></th>
@@ -23,15 +30,15 @@
         <td><%= event_event.title %></td>
         <td><%= event_event.description %></td>
         <td><%= event_event.user_id %></td>
-        <td><%= event_event.aproved %></td>
-        <td><%= link_to 'Show', [:admin, event_event] %></td>
-        <td><%= link_to 'Edit', edit_admin_event_event_path(event_event) %></td>
-        <td><%= link_to 'Destroy', [:admin, event_event], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if event_event.aproved %> Sim <% else %> Não <% end %></td>
+        <td><%= link_to 'Ver', [:admin, event_event] %></td>
+        <td><%= link_to 'Editar', edit_admin_event_event_path(event_event) %></td>
+        <td><%= link_to 'Eliminar', [:admin, event_event], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</section>
 
-<br>
-
-<%= link_to 'New Event', new_admin_event_event_path %>
+<i class="fa fa-plus-circle"></i><%= link_to ' Novo Evento', new_admin_event_event_path %>

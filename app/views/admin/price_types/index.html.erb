@@ -1,5 +1,9 @@
 <section class="panel">
-  <header class="panel-heading"><h1>Lista de Tipos de Preço</h1></header>
+  <header class="panel-heading"><h1>Lista de Tipos de Preço</h1>
+  <div class="newItemLink">
+    <i class="fa fa-plus-circle"></i><%= link_to ' Novo Tipo de Preço', new_admin_price_type_path %>
+  </div>
+  </header>
 <div class="table-responsive">
   <table class="table table-hover" >
   <thead>
@@ -25,5 +29,5 @@
 </div>
 <br>
 
-<%= link_to 'Novo Tipo de Preço', new_admin_price_type_path %>
 </section>
+<i class="fa fa-plus-circle"></i><%= link_to ' Novo Tipo de Preço', new_admin_price_type_path %>
