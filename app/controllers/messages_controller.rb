@@ -83,7 +83,7 @@ class MessagesController < ApplicationController
         @message = Message.new
 
         ad_notify = Notification::Ad.new(:user_id => @talk.user_receiver(current_user.id), :ad_id => @ad.id)
-
+        ad_notify.save
         #render :partial => 'create.js.erb'
         redirect_to @ad
     end
