@@ -1,7 +1,9 @@
 <div style="margin-bottom: 40px;">
     <div class="input-append">
-      <input type="text" placeholder="Pesquisar..." class="form-control" style="float:left;width: 80%">
-      <button type="submit" class="btn btn-danger btn-sm btn-search" style="float:right;margin-left:1%;width: 19%"><i class="icon-search icon-white"></i></button>
+      <form name="input" method="get">
+        <input id="search_in_tutorials" type="text" name="search_tutorials" placeholder="Pesquisar..." class="form-control" style="float:left;width: 80%">
+        <input type="submit" value="Search" class="btn btn-danger btn-sm btn-search" style="float:right;margin-left:1%;width: 19%" >
+      </form>
     </div>
 </div>
 
@@ -12,9 +14,10 @@
     <div class="panel-body">
         <ul class="nav prod-cat">
           <% if !@categories.nil? %>
+              <a href="../.." class="active"><i class=" fa fa-angle-right"></i> Ver Todos</a>
               <% @categories.each do |cat| %>
                 <li>
-                    <a href="#" class="active"><i class=" fa fa-angle-right"></i> <%= cat.name%></a>
+                    <a href="?search=<%= cat.name %>" class="active"><i class=" fa fa-angle-right"></i> <%= cat.name%></a>
                     <ul class="nav">
                         <li class="active"><a href="#">- sub cat</a></li>
                         <li><a href="#">- sub cat</a></li>
@@ -25,6 +28,64 @@
         </ul>
     </div>
 </section>
+
+
+
+<!-- SCRIPT DE PESQUISA -->
+
+<script type="text/javascript">
+           $(function(){
+                //window.query_cache = {};
+                var labels = [];
+                var mapped = {}; 
+                $('#search_in_tutorials').typeahead({
+                  source: function (query, process) {
+                    labels = [];
+                    mapped = {};
+                     return $.ajax({
+                      url: "/search_tutorials",
+                      type: 'get',
+                      data: { query: query },
+                      dataType: 'json',
+                      success: function (result) {
+                        $.each(result, function (i, item) {
+                           mapped[item.name] = {
+                                id: item.id,
+                                name: item.name,
+                           }
+                           labels.push(item.name)
+
+                          //alert(item.id + item.title)
+
+                        });
+                        return process(labels);
+
+                      }
+                  });
+                },
+                 highlighter: function(item){
+                    var p = mapped[item];
+                    var itm = ''
+                             + "<div class='typeahead_wrapper'>"
+                             + "<div class='typeahead_labels'>"
+                             + "<div class='typeahead_primary'>" + p.name + "</div>"
+                             + "</div>"
+                             + "</div>";
+                    return itm;
+                },
+                 updater: function ( item ) {
+                    //save the id value into the hidden field
+                    $( "#IdControl" ).val( mapped[item].id );
+                    //return the string you want to go into the textbox (the name)
+                    //alert(item)
+                    return item;
+                }
+              }); 
+                 
+          });
+
+          
+      </script>
 
 
 
