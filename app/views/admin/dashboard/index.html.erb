@@ -3,14 +3,14 @@
         </div><!-- /.row -->
 
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-lg-4">
             <div class="panel panel-info">
               <div class="panel-heading">
                 <div class="row">
-                  <div class="col-xs-6">
+                  <div class="col-xs-5">
                     <i class="fa fa-shopping-cart fa-5x"></i>
                   </div>
-                  <div class="col-xs-6 text-right">
+                  <div class="col-xs-7 text-right">
                     <p class="announcement-heading"><%= @dashboard.today_ads_count %></p>
                     <p class="announcement-text">Novos Anúncios!</p>
                   </div>
@@ -30,24 +30,25 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-3">
-            <div class="panel panel-warning">
+
+          <div class="col-lg-4">
+            <div class="panel panel-info">
               <div class="panel-heading">
                 <div class="row">
-                  <div class="col-xs-6">
-                    <i class="fa fa-users fa-5x"></i>
+                  <div class="col-xs-5">
+                    <i class="fa fa-book fa-5x"></i>
                   </div>
-                  <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%= @dashboard.today_users_count%></p>
-                    <p class="announcement-text">Novos Utilizadores!</p>
+                  <div class="col-xs-7 text-right">
+                    <p class="announcement-heading"><%= @dashboard.today_tutorials_count %></p>
+                    <p class="announcement-text">Novos Tutoriais!</p>
                   </div>
                 </div>
               </div>
-              <a href="<%= admin_users_path %>">
+              <a href="<%= admin_academy_tutorials_path %>">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      Ver Utilizadores
+                      Ver Tutoriais
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -57,41 +58,15 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-3">
-            <div class="panel panel-danger">
-              <div class="panel-heading">
-                <div class="row">
-                  <div class="col-xs-6">
-                    <i class="fa fa-question-circle fa-5x"></i>
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%= @dashboard.today_questions_count %></p>
-                    <p class="announcement-text">Novas Perguntas!</p>
-                  </div>
-                </div>
-              </div>
-              <a href="<%= admin_academy_questions_path%>">
-                <div class="panel-footer announcement-bottom">
-                  <div class="row">
-                    <div class="col-xs-6">
-                      Ver Perguntas
-                    </div>
-                    <div class="col-xs-6 text-right">
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-3">
+
+            <div class="col-lg-4">
             <div class="panel panel-success">
               <div class="panel-heading">
                 <div class="row">
-                  <div class="col-xs-6">
+                  <div class="col-xs-5">
                     <i class="fa fa-calendar fa-5x"></i>
                   </div>
-                  <div class="col-xs-6 text-right">
+                  <div class="col-xs-7 text-right">
                     <p class="announcement-heading"><%= @dashboard.today_events_count %></p>
                     <p class="announcement-text">Novos Eventos!</p>
                   </div>
@@ -111,6 +86,97 @@
               </a>
             </div>
           </div>
+
+
+
+          <div class="col-lg-4">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-5">
+                    <i class="fa fa-users fa-5x"></i>
+                  </div>
+                  <div class="col-xs-7 text-right">
+                    <p class="announcement-heading"><%= @dashboard.today_users_count%></p>
+                    <p class="announcement-text">Novos Utilizadores!</p>
+                  </div>
+                </div>
+              </div>
+              <a href="<%= admin_users_path %>">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      Ver Utilizadores
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-arrow-circle-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-danger">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-5">
+                    <i class="fa fa-question-circle fa-5x"></i>
+                  </div>
+                  <div class="col-xs-7 text-right">
+                    <p class="announcement-heading"><%= @dashboard.today_questions_count %></p>
+                    <p class="announcement-text">Novas Perguntas!</p>
+                  </div>
+                </div>
+              </div>
+              <a href="<%= admin_academy_questions_path%>">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      Ver Perguntas
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-arrow-circle-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        
+
+
+                    <div class="col-lg-4">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-5">
+                    <i class="fa fa-check-circle-o fa-5x"></i>
+                  </div>
+                  <div class="col-xs-7 text-right">
+                    <p class="announcement-heading"><%= @dashboard.today_closed_talks_count %></p>
+                    <p class="announcement-text">Negócios concluídos!</p>
+                  </div>
+                </div>
+              </div>
+              <a href="<%= admin_ads_path %>">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      Ver Negócios
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-arrow-circle-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+
+
+
         </div><!-- /.row -->
 
         <div class="row">

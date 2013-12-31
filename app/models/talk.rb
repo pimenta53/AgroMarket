@@ -73,6 +73,10 @@ class Talk < ActiveRecord::Base
     where("is_close = ? ",1)
   end
 
+  def self.today_closed_talks_count
+    where("is_close = ? and updated_at > ?",1,Date.today).count
+  end
+
 
   # verifica para quem vai mandar a mensagem
   # verifica quem é o receiver

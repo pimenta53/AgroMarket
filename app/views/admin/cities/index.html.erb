@@ -1,7 +1,7 @@
 
 <section class="panel">
 
-  <header class="panel-heading"><h1>Lista de cidades</h1> 
+  <header class="panel-heading"><h1>Lista de cidades</h1><h5><%= @cities.count %> Cidades</h5> 
     <div class="newItemLink">
       <i class="fa fa-plus-circle"></i><%= link_to ' Nova cidade', new_admin_city_path %>
     </div>
@@ -14,6 +14,7 @@
           <th>Cidade</th>
           <th>Qt de Anúncios</th>
           <th>Qt de Utilizadores</th>
+          <th>Qt de Eventos</th>
 
           <!--th></th-->
           <th></th>
@@ -27,6 +28,7 @@
           <td><%= city.city %></td>
           <td><%= city.ads.count %></td>
           <td><%= city.users.count %></td>
+          <td></td>
 
           <!--td><%#city.country_id %></td-->
           <!--td><%= link_to 'Ver', [:admin,city] %></td-->

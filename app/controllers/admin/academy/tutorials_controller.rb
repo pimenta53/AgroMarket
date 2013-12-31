@@ -4,7 +4,9 @@ class Admin::Academy::TutorialsController < ApplicationController
 	before_action :set_academy_tutorial, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@aproved_tutorials = Academy::Tutorial.all
+		@aproved_tutorials = Academy::Tutorial.aproved_tutorials
+		@unaproved_tutorials = Academy::Tutorial.unaproved_tutorials
+		@tutorials = Academy::Tutorial.all
 		authorize! :read, @aproved_tutorials
 	end
 
@@ -18,10 +20,10 @@ class Admin::Academy::TutorialsController < ApplicationController
 
 	def aprove_tutorial
 		tutorial = Academy::Tutorial.find(params[:id_aprove])
-		tutorial.aproved = 1
+		tutorial.aproved = true
 		tutorial.save
 
-		redirect_to admin_dashboard_index_path,:notice => "Tutorial foi aprovado com sucesso"
+		redirect_to admin_academy_tutorials_path,:notice => "Tutorial foi aprovado com sucesso"
 	end
 
 	private

@@ -1,5 +1,5 @@
 <section class="panel">
-  <header class="panel-heading"><h1>Lista de Tipos de Preço</h1>
+  <header class="panel-heading"><h1>Lista de Tipos de Preço</h1><h5><%= @price_types.count %> Tipos</h5> 
   <div class="newItemLink">
     <i class="fa fa-plus-circle"></i><%= link_to ' Novo Tipo de Preço', new_admin_price_type_path %>
   </div>
@@ -8,8 +8,9 @@
   <table class="table table-hover" >
   <thead>
     <tr>
+    <th>ID</th>
       <th>Nome</th>
-      <th></th>
+      <!--th></th-->
       <th></th>
       <th></th>
     </tr>
@@ -18,6 +19,7 @@
   <tbody>
     <% @price_types.each do |price_type| %>
       <tr>
+      <td><%= price_type.id %></td>
         <td><%= price_type.name %></td>
         <!--td><%= link_to 'Show', admin_price_type_path(price_type) %></td-->
         <td><%= link_to 'Editar', edit_admin_price_type_path(price_type) %></td>

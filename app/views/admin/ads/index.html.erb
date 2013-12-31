@@ -1,5 +1,5 @@
 <section class="panel">
-  <header class="panel-heading"><h1>Lista de Anúncios</h1>
+  <header class="panel-heading"><h1>Lista de Anúncios</h1><h5><%= @ads.count %> Anúncios</h5> 
         <div class="newItemLink">
       <i class="fa fa-plus-circle"></i><%= link_to ' Novo Anúncio', new_admin_ad_path %>
     </div>
@@ -9,6 +9,7 @@
       <thead>
         <tr>
           <th></th>
+          <th>ID</th>
           <th>Imagem</th>
           <th>Título</th>
           <th>Categoria</th>
@@ -29,10 +30,11 @@
 
               <a href="#details<%= ad.id %>"  data-toggle="collapse"><span class="label label-info"><i class="fa fa-search"></i></a>
             </td>
+            <td><%= ad.id %></td>
             <td>
               <div class="img_table">
                 <!--HELPER helper/ads_helper -->
-               <%= ad_image( ad.ad_images.first )  %>
+               <%= ad_image_admin( ad.ad_images.first )  %>
               </div>
             </td>
             <td><%= ad.title %></td>
@@ -50,8 +52,8 @@
             </td>
             <td><%= t ad.expire_date, :format => :short %></td>
             <td><%= ad.location %></td>
-            <td><%= ad.is_active %></td>
-            <td><%= ad.is_deleted %></td>
+            <td><% if ad.is_active %>Sim<% else %>Não<% end %></td>
+            <td><% if ad.is_deleted %>Sim<% else %>Não<% end %></td>
             <td><%= ad.city.city unless ad.city.blank? %></td>
             <td><%= ad.user_id %> / <%= ad.user.name unless ad.user.blank?%></td>
 

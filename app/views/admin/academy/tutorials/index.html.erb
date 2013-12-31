@@ -1,25 +1,31 @@
 
 <section class="panel">
-  <header class="panel-heading"><h1>Tutoriais por aprovar</h1></header>
+  <header class="panel-heading"><h1>Tutoriais por aprovar</h1><h5><%= @unaproved_tutorials.count %> Tutoriais</h5> 
+  </header>
 <div class="table-responsive">
   <table class="table table-hover" >
 	<tr>
+		<th>ID</th>
 		<th>Autor</th>
 		<th>Título</th>
 		<th>Resumo</th>
-		<th>Ver</th>
-		<th>Aprovar</th>
+		<th></th>
+		<th></th>
+		<th></th>
 	</tr>
-	<% @aproved_tutorials.each do |ap_tutorials| %>
-		<% if !ap_tutorials.aproved? %>
+	<% @unaproved_tutorials.each do |uap_tutorial| %>
 			<tr>
-				<td><%= ap_tutorials.user.name %></td>
-				<td><%= ap_tutorials.title %></td>
-				<td><%= ap_tutorials.rapid_description %></td>
-				<td><%= link_to 'Ver', admin_academy_tutorial_path(ap_tutorials.id) %> </td>
-				<td><%= link_to 'Aprovar' , admin_aprove_tutorial_path(:id_aprove => ap_tutorials.id)%></td>
+				<td><%= uap_tutorial.id %></td>
+				<td><%= uap_tutorial.user.name %></td>
+				<td><%= uap_tutorial.title %></td>
+				<td><%= uap_tutorial.rapid_description %></td>
+				<td><%= link_to 'Ver', admin_academy_tutorial_path(uap_tutorial.id) %> </td>
+				<td><%= link_to 'Aprovar' , admin_aprove_tutorial_path(:id_aprove => uap_tutorial.id)%></td>
+				<td><%= link_to 'Apagar', ap_tutorials, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+
+				<td></td>
+
 			</tr>
-		<% end %>
 	<% end %>
 </table>
 </div>
@@ -27,26 +33,30 @@
 
 
 <section class="panel">
-  <header class="panel-heading"><h1>Tutoriais aprovados</h1></header>
+  <header class="panel-heading"><h1>Tutoriais aprovados</h1><h5><%= @aproved_tutorials.count %> Tutoriais</h5> 
+  </header>
 <div class="table-responsive">
   <table class="table table-hover" >
 	<tr>
+		<th>ID</th>
 		<th>Autor</th>
 		<th>Título</th>
 		<th>Resumo</th>
-		<th>Ver</th>
-		<th>Editar</th>
+		<th></th>
+		<th></th>
+		<th></th>
 	</tr>
-	<% @aproved_tutorials.each do |ap_tutorials| %>
-		<% if ap_tutorials.aproved? %>
+	<% @aproved_tutorials.each do |ap_tutorial| %>
 			<tr>
-				<td><%= ap_tutorials.user.name %></td>
-				<td><%= ap_tutorials.title %></td>
-				<td><%= ap_tutorials.rapid_description %></td>
-				<td><%= link_to 'Ver', admin_academy_tutorial_path(ap_tutorials.id) %> </td>
-				<td><%= link_to 'Editar',edit_admin_academy_tutorial_path(ap_tutorials.id) %> </td>
+				<td><%= ap_tutorial.id %></td>
+				<td><%= ap_tutorial.user.name %></td>
+				<td><%= ap_tutorial.title %></td>
+				<td><%= ap_tutorial.rapid_description %></td>
+				<td><%= link_to 'Ver', admin_academy_tutorial_path(ap_tutorial.id) %> </td>
+				<td><%= link_to 'Editar',edit_admin_academy_tutorial_path(ap_tutorial.id) %> </td>
+				 <td><%= link_to 'Apagar', ap_tutorial, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+
 			</tr>
-		<% end %>
 	<% end %>
 </table>
 </div>

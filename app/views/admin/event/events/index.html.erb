@@ -1,5 +1,5 @@
 <section class="panel">
-  <header class="panel-heading"><h1>Lista de Eventos</h1>
+  <header class="panel-heading"><h1>Lista de Eventos</h1><h5><%= @event_events.count %> Eventos</h5> 
   <div class="newItemLink">
     <i class="fa fa-plus-circle"></i><%= link_to ' Novo Evento', new_admin_event_event_path %>
   </div>
@@ -10,6 +10,7 @@
   <table class="table table-hover" >
   <thead>
     <tr>
+      <th>ID</th>
       <th>Início</th>
       <th>Fim</th>
       <th>Título</th>
@@ -25,6 +26,7 @@
   <tbody>
     <% @event_events.each do |event_event| %>
       <tr>
+        <td><%= event_event.id %></td>
         <td><%= event_event.start_day %></td>
         <td><%= event_event.end_day %></td>
         <td><%= event_event.title %></td>

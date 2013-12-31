@@ -45,6 +45,14 @@ class DashboardFacade
     Event::Event.today_events_count
   end
 
+  def today_closed_talks_count
+    Talk.today_closed_talks_count
+  end
+
+  def today_tutorials_count
+    Academy::Tutorial.today_tutorials_count
+  end
+
 
   
 

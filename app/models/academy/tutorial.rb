@@ -23,7 +23,18 @@ class Academy::Tutorial < ActiveRecord::Base
   		"#{id}-#{title.parameterize}"
   end
 
-  def is_delected
 
+  def self.aproved_tutorials
+  	where('aproved = ?',true)
   end
+
+  def self.unaproved_tutorials
+  	where('aproved= ?',false)
+  end
+
+### STATISTIC ZONE #####
+def self.today_tutorials_count
+  where('created_at > ?', Date.today).count
+end
+
 end

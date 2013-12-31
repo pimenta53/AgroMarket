@@ -1,5 +1,5 @@
 <section class="panel">
-  <header class="panel-heading"><h1>Lista de utilizadores</h1>
+  <header class="panel-heading"><h1>Lista de utilizadores</h1><h5><%= @admin_users.count %> Utilizadores</h5> 
     <div class="newItemLink">
     <i class="fa fa-plus-circle"></i><%= link_to ' Novo Utilizador', new_admin_user_path %>
   </div>
@@ -13,6 +13,7 @@
       <th>Nome</th>
       <th>Email</th>
       <th>Cidade</th>
+      <th>Qt Anúncios</th>
       <th>Tipo</th>
       <th></th>
       <th></th>
@@ -28,11 +29,8 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.city.city %></td>
-        <% if user.user_type==2 %>
-        <td>Admin</td>
-        <% else %>
-        <td>User</td>
-        <% end %>
+        <td><%= user.ads.count %></td>
+        <% if user.user_type==2 %><td>Admin</td><% else %><td>User</td><% end %>
         <td><%= link_to 'Ver', admin_user_path(user) %></td>
         <td><%= link_to 'Editar', edit_admin_user_path(user) %></td>
         <td><%= link_to 'Eliminar', admin_user_path(user), method: :delete, data: { confirm: 'Tem a certeza?' } %></td>

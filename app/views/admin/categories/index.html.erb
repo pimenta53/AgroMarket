@@ -1,18 +1,20 @@
 <section class="panel">
-  <header class="panel-heading"><h1>Lista de Categorias</h1></header>
+  <header class="panel-heading"><h1>Lista de Categorias</h1><h5><%= @categories.count %> Categorias</h5> 
   <div class="newItemLink">
   <i class="fa fa-plus-circle"></i><%= link_to ' Nova Categoria ', new_admin_category_path %>
   </div>
+  </header>
 
 
 <div class="table-responsive">
   <table class="table table-hover" >
       <thead>
         <tr>
+          <th>ID</th>
           <th>Nome</th>
           <th>Descrição</th>
           <th>Cor</th>
-          <th>Qt de anúncios</th>
+          <th>Anúncios</th>
           <th></th>
           <th></th>
           <th></th>
@@ -22,6 +24,7 @@
       <tbody>
         <% @categories.each do |category| %>
           <tr>
+            <td><%= category.id %></td>
             <td><%= category.name %></td>
             <td><%= category.description %></td>
             <td>

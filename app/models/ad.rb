@@ -226,6 +226,8 @@ class Ad < ActiveRecord::Base
     where("created_at > ?", Date.today).count
     end
 
+    
+
 
 	# private methods
 	private
