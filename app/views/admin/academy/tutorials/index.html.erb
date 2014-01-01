@@ -4,6 +4,7 @@
   </header>
 <div class="table-responsive">
   <table class="table table-hover" >
+  <thead>
 	<tr>
 		<th>ID</th>
 		<th>Autor</th>
@@ -13,6 +14,8 @@
 		<th></th>
 		<th></th>
 	</tr>
+	</thead>
+	<tbody>
 	<% @unaproved_tutorials.each do |uap_tutorial| %>
 			<tr>
 				<td><%= uap_tutorial.id %></td>
@@ -27,6 +30,7 @@
 
 			</tr>
 	<% end %>
+	</tbody>
 </table>
 </div>
 </section>
@@ -37,6 +41,8 @@
   </header>
 <div class="table-responsive">
   <table class="table table-hover" >
+    <thead>
+
 	<tr>
 		<th>ID</th>
 		<th>Autor</th>
@@ -46,6 +52,8 @@
 		<th></th>
 		<th></th>
 	</tr>
+		</thead>
+	<tbody>
 	<% @aproved_tutorials.each do |ap_tutorial| %>
 			<tr>
 				<td><%= ap_tutorial.id %></td>
@@ -58,6 +66,7 @@
 
 			</tr>
 	<% end %>
+	</tbody>
 </table>
 </div>
 </section>

@@ -1,21 +1,35 @@
-<p id="notice"><%= notice %></p>
+<section class="panel">
+  <header class="panel-heading"><h1>Perfil de Utilizador</h1>
+    <div class="newItemLink">
+    <i class="fa fa-pencil"></i><%= link_to ' Editar', edit_admin_user_path(@admin_user) %> |
+    <i class="fa fa-trash-o"></i><%= link_to ' Eliminar', [:admin,@admin_user], method: :delete, data: { confirm: 'Tem a certeza?' } %>
+  </div>
+  </header>
 
-<h1><%= @admin_user.name %></h1>
+<div class="col-md-3">
+<%= image_tag @admin_user.avatar.url(:medium), :width => "100%" %>
+</div>
 
-<%= image_tag @admin_user.avatar.url(:medium), :width => "20%" %>
+<div class="col-md-9">
 
+<p>ID: <%= @admin_user.id %> </p>
 <p>Nome: <%= @admin_user.name %></p>
 <p>Email: <%= @admin_user.email %></p>
 <p>Cidade: <%= @admin_user.city.city %></p>
 <p>Aniversário: <%= @admin_user.birthday %> Falta o FORMAT</p>
 <p>Telefone: <%= @admin_user.phone %></p>
 <p>Ocupação: <%= @admin_user.ocupation %></p>
-<p>Criado em: <%= @admin_user.created_at %></p>
+<p>Membro desde: <%= @admin_user.created_at %></p>
 <p>Último Login: <%= @admin_user.last_sign_in_at %></p>
+<p>Nr de Logins: <%= @admin_user.sign_in_count %></p>
 <p>Tipo : <% if @admin_user.user_type==2 %> Admin <% else %> User <%end%> </p>
 
+</div>
+ <i class="fa fa-reply"></i><%= link_to ' Voltar', admin_users_path %>
+</section>
+
+<p id="notice"><%= notice %></p>
 
 
 
-<%= link_to 'Editar', edit_admin_user_path(@admin_user) %> |
-<%= link_to 'Voltar', admin_users_path %>
+
