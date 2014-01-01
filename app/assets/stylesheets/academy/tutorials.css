@@ -1,0 +1,63 @@
+
+/********** index tutorial**********/
+
+.tutorial_table_head
+{
+	background-color: #00A75D;
+		
+}
+
+.tutorial_text_head{
+	color: black;
+}
+
+.tutorial_table_body{
+
+}
+
+.title_tutorial{
+	color:#EA5B0C;
+}
+
+
+
+
+/********** showtutorial **********/
+
+
+.title_show_tutorial{
+
+	color: #00A75D;
+	font-size: 36px;
+}
+
+.information_show_tutorial span{
+	color: #EA5B0C;
+	font-size: 16px;
+}
+
+.information_show_tutorial{
+
+	font-size: 12px;
+}
+
+.text_show_tutorial{
+	border: 1px solid black;
+	width: 100%;
+}
+
+.process_show_tutorial{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.process_show_tutorial span{
+	color: #EA5B0C;
+	font-size: 16px;
+}
+
+
+.button_back{
+	float: right;
+
+}
