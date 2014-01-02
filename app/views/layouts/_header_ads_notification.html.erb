@@ -1,12 +1,26 @@
+
 <% expired_ads=current_user.expired_ads %>
+
+
+<%#= @ad_notifications.length %>
+<%#= asdasd %>
+
+<% number_notifications_ads = @ad_notifications.length %>
+
+
 <li class="dropdown messages-dropdown">
-  <% if expired_ads.count >0 %>
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags" id="fa-tags"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret" id="dropCarret"></b></a>
+
+<%# place the number of notifications avaiable %>
+  <% if number_notifications_ads > 0 #expired_ads.count >0 %>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags" id="fa-tags"></i><span class="badge" id="custom-badge"><%= number_notifications_ads %></span><b class="caret" id="dropCarret"></b></a>
   <% else %>
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags" id="fa-tags"></i><b class="caret" id="dropCarret"></b></a>
   <% end %>
 
+<%# notifications from expired ads %>
+
   <ul class="dropdown-menu">
+
     <% if expired_ads.count > 0 %>
       <li class="dropdown-header"><%= expired_ads.count %> ads have expired</li>
         <% first_expired_ads = expired_ads.limit(5) %>
@@ -28,6 +42,34 @@
     <% else %>
       <li class="dropdown-header">Alertas do Mercado.</li>
     <% end %>
+
+<%# notifications from messages in ads %>
+
+    <% if @ad_notifications.length > 0 %>
+      <li class="dropdown-header"><%= @ad_notifications.length %> Novas mensagens</li>
+        <%# first_expired_ads = expired_ads.limit(5) %>
+        <% @ad_notifications.each do |notification| %>
+          <% ad = Ad.find(notification.ad_id) %><%# DEVERIA SER ASSIM => notification.ad.... %>
+          <li class="preview">
+            <a href="<%= ad_path(ad, :notification => notification) %>">
+              <% if ad.ad_images.count > 0 %>
+                <span class="avatar"><%= image_tag(ad.ad_images.first.image.url(:thumb), :alt => ad.title, :width => '50') %></span>
+              <% else %>
+                <span class="avatar"><img width="50" alt="50x50" src="http://placehold.it/50x50"></img></span>
+              <% end %>
+              <span class="name"><%= ad.title %></span>
+              <span class="message"><%= ad.limited_description(20) %></span>
+              <span class="time"><i class="icon-time"></i><abbr class="timeago" title="<%= ad.expire_date.getutc.iso8601 %>"> <%= ad.expire_date.to_s %> </abbr></span>
+            </a>
+          </li>
+        <% end %>
+      <li class="divider"></li>
+    <% else %>
+      <li class="dropdown-header">Alertas do Mercado.</li>
+    <% end %>
+
+
     <li><a href="<%= myads_user_path(current_user.id) %>"> Ver todos </a></li>
+
   </ul>
 </li>

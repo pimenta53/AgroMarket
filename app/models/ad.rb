@@ -30,6 +30,7 @@ class Ad < ActiveRecord::Base
 	has_many :ad_images, :dependent => :destroy
 	has_many :messages
 	has_many :talks
+  has_many :notification_ads
 
 	#scopes
 
@@ -191,7 +192,7 @@ class Ad < ActiveRecord::Base
    else
      return "http://placehold.it/40x30"
    end
-  
+
   end
 	#######################
   ### STATISTIC ZONE ####

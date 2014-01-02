@@ -63,6 +63,7 @@ class User < ActiveRecord::Base
                                                 :source => 'user',
                                                 :foreign_key => 'following_id'
 
+  has_many :notification_ads
   #belongs_to :district
   belongs_to :city
 
@@ -93,7 +94,7 @@ class User < ActiveRecord::Base
   #:size => { :in => 0..10.kilobytes }
 
   #instance methods
-  
+
   #verifica se utilizador é admin
   def isAdmin?
     if !self.blank?

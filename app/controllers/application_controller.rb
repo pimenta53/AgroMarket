@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :load_notifications
   helper_method :load_stuff_header
 
   protect_from_forgery with: :exception
@@ -10,9 +11,14 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :notice => exception.message
   end
-  
+
   def refresh_header
     render :partial => 'layouts/header'
+  end
+
+  def load_notifications
+    @ad_notifications = Notification::Ad.where(:user_id => current_user, :watched => false)
+
   end
 
   protected

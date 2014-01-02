@@ -14,7 +14,7 @@ class AdsController < ApplicationController
     #else
     #  page = 1
     #end
-    
+
     if params[:search] != nil
       ads = Ad.arel_table
 
@@ -31,14 +31,14 @@ class AdsController < ApplicationController
           search_table_description  = ads[:description].matches("%#{parameter}%")
         end
       }
-      
+
       @ads = Ad.where(search_table.and(search_table_title.or(search_table_description))) #.paginate(:page => page, :per_page => 8)
-    else 
+    else
       @ads = Ad.where("is_deleted = ?", false) #.paginate(:page => page, :per_page => 8)
     end
     @categories = Category.all
     @cities = City.all
-    
+
     #render :layout => "admin"
     #respond_to do |format|
     #  format.html
@@ -51,7 +51,6 @@ class AdsController < ApplicationController
   def show
     #actualiza o contador de vezes que o ad foi visto
     @ad.increment_page_view
-
 
     #devolve produtos parecidos
     @related_ads = @ad.related_ads
@@ -67,6 +66,11 @@ class AdsController < ApplicationController
 
     #devolve reviews do dono deste ad
     @reviews_user = @reviews.where("rated_id=?",@ad.user_id)
+
+#mark notification as watched, if params[:notification] is set
+    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
+      Notification::Ad.find(params[:notification]).update(:watched => true)
+    end
 
     if user_signed_in?
       @message = Message.new
