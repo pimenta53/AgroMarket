@@ -1,91 +1,62 @@
-<div style="margin-bottom: 40px;">
-    <div class="input-append">
-      <form name="input" method="get">
-        <input id="search_in_tutorials" type="text" name="search_tutorials" placeholder="Pesquisar..." class="form-control" style="float:left;width: 80%">
-        <input type="submit" value="Search" class="btn btn-danger btn-sm btn-search" style="float:right;margin-left:1%;width: 19%" >
-      </form>
+<%= form_tag academy_tutorials_path ,:method => :get do%>
+
+    <!-- Split button Categoria -->
+    <div class="btn-group" style="width: 100%; margin-bottom: 2px" >
+      <button type="button" class="btn btn-sm" style="width: 80%;text-align: left">Categoria</button>
+      <button type="button" class="btn btn-sm dropdown-toggle" style="width: 20%" data-toggle="dropdown">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Categoria</span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <% @categories.each do |cat| %>
+            <li>
+              <% if !params[:search].nil? %>
+                  <% if params[:search].include?("cat:" + "#{cat.id}") %>
+                      <%= check_box_tag "search[]","cat:#{cat.id}", "active" %>
+                  <%else%>
+                      <%= check_box_tag "search[]","cat:#{cat.id}" %>
+                  <% end %>
+              <% else %>
+                  <%= check_box_tag "search[]","cat:#{cat.id}" %>
+              <% end %>
+              <%= cat.name %>
+            </li>
+        <% end %>
+      </ul>
     </div>
-</div>
 
-<section class="panel">
-    <header class="panel-heading border-header">
-        Categorias
-    </header>
-    <div class="panel-body">
-        <ul class="nav prod-cat">
-          <% if !@categories.nil? %>
-              <a href="../.." class="active"><i class=" fa fa-angle-right"></i> Ver Todos</a>
-              <% @categories.each do |cat| %>
-                <li>
-                    <a href="?search=<%= cat.name %>" class="active"><i class=" fa fa-angle-right"></i> <%= cat.name%></a>
-                    <ul class="nav">
-                        <li class="active"><a href="#">- sub cat</a></li>
-                        <li><a href="#">- sub cat</a></li>
-                    </ul>
-                </li>
-               <% end %>
-           <% end %>
-        </ul>
+    <div class="btn-group" style="width: 100%; margin-bottom: 2px">
+      <button type="button" class="btn btn-sm" style="width: 80%;text-align: left">Cidade</button>
+      <button type="button" class="btn btn-sm dropdown-toggle" style="width: 20%" data-toggle="dropdown">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Cidade</span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <% @cities.each do |city| %>
+            <li>
+              <% if !params[:search].nil? %>
+                  <%  if params[:search].include?("city:" + "#{city.id}") %>
+                      <%= check_box_tag "search[]","city:#{city.id}", "active" %>
+                  <% else %>
+                      <%= check_box_tag "search[]","city:#{city.id}" %>
+                  <% end %>
+              <% else %>
+                  <%= check_box_tag "search[]","city:#{city.id}" %>
+              <% end %>
+              <%= city.city %>
+            </li>
+        <% end %>
+      </ul>
     </div>
-</section>
+
+    <%= submit_tag "Filtrar",class:"btn btn-default btn-sm",style:"width:100%" %>
+<% end %>
 
 
 
-<!-- SCRIPT DE PESQUISA -->
 
-<script type="text/javascript">
-           $(function(){
-                //window.query_cache = {};
-                var labels = [];
-                var mapped = {}; 
-                $('#search_in_tutorials').typeahead({
-                  source: function (query, process) {
-                    labels = [];
-                    mapped = {};
-                     return $.ajax({
-                      url: "/search_tutorials",
-                      type: 'get',
-                      data: { query: query },
-                      dataType: 'json',
-                      success: function (result) {
-                        $.each(result, function (i, item) {
-                           mapped[item.name] = {
-                                id: item.id,
-                                name: item.name,
-                           }
-                           labels.push(item.name)
 
-                          //alert(item.id + item.title)
 
-                        });
-                        return process(labels);
-
-                      }
-                  });
-                },
-                 highlighter: function(item){
-                    var p = mapped[item];
-                    var itm = ''
-                             + "<div class='typeahead_wrapper'>"
-                             + "<div class='typeahead_labels'>"
-                             + "<div class='typeahead_primary'>" + p.name + "</div>"
-                             + "</div>"
-                             + "</div>";
-                    return itm;
-                },
-                 updater: function ( item ) {
-                    //save the id value into the hidden field
-                    $( "#IdControl" ).val( mapped[item].id );
-                    //return the string you want to go into the textbox (the name)
-                    //alert(item)
-                    return item;
-                }
-              }); 
-                 
-          });
-
-          
-      </script>
 
 
 
