@@ -6,7 +6,7 @@ CREATE PROCEDURE \`expire_dates\`()
 BEGIN
   DECLARE ad, user INT;
   DECLARE done INT DEFAULT FALSE;
-  DECLARE ads CURSOR FOR SELECT id, user_id FROM ads where expire_date < CURRENT_TIMESTAMP and (id, user_id) not in (select ad_id, user_id from notification_ads);
+  DECLARE ads CURSOR FOR SELECT id, user_id FROM ads where expire_date < CURRENT_TIMESTAMP and (id, user_id) not in (select id_destination, user_id from notifications where notification_type == 2);
   DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
 
   OPEN ads;
@@ -16,7 +16,7 @@ BEGIN
       close ads;
       leave loop1;
     end if;
-    INSERT INTO notification_ads(user_id, ad_id, created_at, updated_at) VALUES(user, ad, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    INSERT INTO notifications(user_id, id_destination, notification_type, created_at, updated_at) VALUES(user, ad, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
   END LOOP loop1;
   COMMIT;
 END

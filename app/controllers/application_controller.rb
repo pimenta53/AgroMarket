@@ -20,6 +20,9 @@ class ApplicationController < ActionController::Base
     all_notifications = Notification.where(:user_id => current_user, :watched => false)
     @notifications_ad_messages  = all_notifications.where(:notification_type => 1)
     @notifications_ad_expired   = all_notifications.where(:notification_type => 2)
+
+    @notifications_new_answer   = all_notifications.where(:notification_type => 4)
+
   end
 
   protected

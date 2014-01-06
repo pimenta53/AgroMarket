@@ -14,6 +14,12 @@ class Academy::QuestionsController < ApplicationController
   # GET /academy/questions/1.json
   def show
     #@answers = Academy::Answer.where(:question_id => @academy_question.id)
+
+    #mark notification as watched, if params[:notification] is set
+    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
+      Notification.find(params[:notification]).update(:watched => true)
+    end
+
     @academy_answer = Academy::Answer.new
     @best_answer = @academy_question.best_answer
   end

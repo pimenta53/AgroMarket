@@ -32,6 +32,13 @@ class Academy::AnswersController < ApplicationController
     question_id = params[:academy_answer][:question_id]
 
     if @academy_answer.save
+      # create a notifications for the user that made the question
+      if current_user.id != @academy_answer.question.user_id
+        notify = Notification.new(:user_id => @academy_answer.question.user_id, :id_destination => @academy_answer.question.id)
+        notify.set_type(:new_answer)
+        notify.save
+      end
+
       @answers = Academy::Answer.where(:question_id => question_id)
       render :partial => 'create.js.erb'
     end
