@@ -15,10 +15,22 @@
 
 class Event::Event < ActiveRecord::Base
 
+	#scope
+    default_scope -> { order('created_at DESC') }
 
 
 	def self.today_events_count
 		where('created_at > ?', Date.today).count
 		
 	end
+
+	
+	def self.aproved_events
+  	  where('aproved = ?',true)
+    end
+
+    def self.unaproved_events
+  	  where('aproved= ?',false)
+    end
+    
 end

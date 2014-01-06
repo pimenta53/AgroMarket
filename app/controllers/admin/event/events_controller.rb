@@ -22,6 +22,14 @@ class Admin::Event::EventsController < ApplicationController
   def edit
   end
 
+  def aprove
+    event = Event::Event.find(params[:id])
+    event.aproved = true
+    event.save
+    
+    redirect_to admin_event_events_path,:notice => "Evento foi aprovado com sucesso"
+  end
+
   # POST /admin/event/events
   # POST /admin/event/events.json
   def create

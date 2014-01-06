@@ -245,7 +245,6 @@
               </div>
               <div class="panel-body">
                 <%= pie_chart( @dashboard.users_per_district ) %>
-               <% pie_chart User.group("city").count %>
                 <div class="text-right">
                   <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
                 </div>

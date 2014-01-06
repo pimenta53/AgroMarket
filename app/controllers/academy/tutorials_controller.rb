@@ -24,7 +24,7 @@ class Academy::TutorialsController < ApplicationController
 
       @academy_tutorials = Academy::Tutorial.where(:category_id => category_id)
     else
-      @academy_tutorials = Academy::Tutorial.all
+      @academy_tutorials = Academy::Tutorial.aproved_tutorials
     end
 
 
