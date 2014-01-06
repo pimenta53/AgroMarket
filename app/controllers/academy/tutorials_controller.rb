@@ -7,8 +7,6 @@ class Academy::TutorialsController < ApplicationController
   # GET /academy/tutorials
   # GET /academy/tutorials.json
   def index
-    @categories = Category.all
-    @cities = City.order('city ASC').all
     #@academy_tutorials = Academy::Tutorial.all
 
 
@@ -20,29 +18,31 @@ class Academy::TutorialsController < ApplicationController
     if params[:search] != nil
       academy_tutorials = Academy::Tutorial.arel_table
 
-      search_table_title = nil
-      search_table_description = nil
-      search_params = params[:search].split
+      search_table = academy_tutorials[:aproved].eq(true)
 
-      search_params.each { |parameter|
+
+      search_table_title = nil
+      #search_table_description = nil
+
+      params[:search].each { |parameter|
         if (search_table_title != nil)
-          search_table_title = search_table_title.and(academy_tutorials[:title].matches("%#{parameter}%"))
-          search_table_description  = search_table_description.and(academy_tutorials[:rapid_desciption].matches("%#{parameter}%"))
+          search_table_title = search_table_title.or(academy_tutorials[:category_id].matches("#{parameter}".split(":")[1]))
+          #search_table_description  = search_table_description.and(academy_tutorials[:rapid_description].matches("%#{parameter}%"))
           
         else
-          search_table_title = academy_tutorials[:title].matches("%#{parameter}%")
-          search_table_description  = academy_tutorials[:rapid_desciption].matches("%#{parameter}%")
+          search_table_title = academy_tutorials[:category_id].matches("#{parameter}".split(":")[1])
+          #search_table_description  = academy_tutorials[:rapid_description].matches("%#{parameter}%")
           
         end
       }
-      @academy_tutorials = Academy::Tutorial.where(search_table.and(search_table_title.or(search_table_description))) #.paginate(:page => page, :per_page => 8)
-      sdasdasdsdasdasd
+      @academy_tutorials = Academy::Tutorial.where(search_table.and(search_table_title)) #.paginate(:page => page, :per_page => 8)
     else 
-      @ads = Ad.where("is_deleted = ?", false) #.paginate(:page => page, :per_page => 8)
-      sdasdasd
+      @academy_tutorials = Academy::Tutorial.where(:aproved => 1) #.paginate(:page => page, :per_page => 8)
+      
     end
+
     @categories = Category.all
-    @cities = City.all
+    @cities = City.order('city ASC').all
 
 
   end
