@@ -74,13 +74,18 @@ class Admin::AdsController < Admin::ApplicationController
 
   # DELETE /ads/1
   # DELETE /ads/1.json
+  # MARK AS DELETED, DOES NOT ERASE FROM DATABASE
   def destroy
-    @ad.destroy
+    #@ad.destroy
+    @ad.is_deleted=true
+    @ad.is_active=false
+    @ad.save
     respond_to do |format|
       format.html { redirect_to admin_ads_url }
       format.json { head :no_content }
     end
   end
+
 
 
 private

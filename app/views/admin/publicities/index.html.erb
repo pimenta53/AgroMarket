@@ -1,0 +1,35 @@
+<h1>Listing admin_publicities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Expire date</th>
+      <th>Owner</th>
+      <th>Is deleted</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_publicities.each do |admin_publicity| %>
+      <tr>
+        <td><%= admin_publicity.title %></td>
+        <td><%= admin_publicity.description %></td>
+        <td><%= admin_publicity.expire_date %></td>
+        <td><%= admin_publicity.owner %></td>
+        <td><%= admin_publicity.is_deleted %></td>
+        <td><%= link_to 'Show', admin_publicity %></td>
+        <td><%= link_to 'Edit', edit_admin_publicity_path(admin_publicity) %></td>
+        <td><%= link_to 'Destroy', admin_publicity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Publicity', new_admin_publicity_path %>
