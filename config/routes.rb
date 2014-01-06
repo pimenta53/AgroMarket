@@ -9,6 +9,7 @@ Agrosocial::Application.routes.draw do
     resources :events
   end
 
+  get "/44", :to => "errors#not_found"
 
   get "/404", :to => "errors#not_found"
   
