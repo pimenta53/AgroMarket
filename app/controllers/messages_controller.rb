@@ -83,8 +83,8 @@ class MessagesController < ApplicationController
         @message = Message.new
 
         #create a notification for the other user and save it
-        ad_notify = Notification::Ad.new(:user_id => @talk.user_receiver(current_user.id), :ad_id => @ad.id)
-        ad_notify.set_type_message
+        ad_notify = Notification.new(:user_id => @talk.user_receiver(current_user.id), :id_destination => @ad.id)
+        ad_notify.set_type(:ad_message)
         ad_notify.save
 
         #render :partial => 'create.js.erb'

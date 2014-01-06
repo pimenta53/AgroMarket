@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
                                                 :source => 'user',
                                                 :foreign_key => 'following_id'
 
-  has_many :notification_ads
+  has_many :notification
   #belongs_to :district
   belongs_to :city
 

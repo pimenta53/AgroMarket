@@ -69,7 +69,7 @@ class AdsController < ApplicationController
 
 #mark notification as watched, if params[:notification] is set
     if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
-      Notification::Ad.find(params[:notification]).update(:watched => true)
+      Notification.find(params[:notification]).update(:watched => true)
     end
 
     if user_signed_in?

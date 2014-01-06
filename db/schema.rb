@@ -162,9 +162,18 @@ ActiveRecord::Schema.define(version: 20140102230630) do
     t.datetime "updated_at"
   end
 
-  create_table "notification_ads", force: true do |t|
+  create_table "notification", force: true do |t|
     t.integer  "user_id",                           null: false
-    t.integer  "ad_id",                             null: false
+    t.integer  "id_destination",                    null: false
+    t.boolean  "watched",           default: false
+    t.integer  "notification_type",                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "user_id",                           null: false
+    t.integer  "id_destination",                    null: false
     t.boolean  "watched",           default: false
     t.integer  "notification_type",                 null: false
     t.datetime "created_at"

@@ -17,8 +17,9 @@ class ApplicationController < ActionController::Base
   end
 
   def load_notifications
-    @ad_notifications_messages = Notification::Ad.where(:user_id => current_user, :watched => false, :notification_type => 1)
-    @ad_notifications_expire = Notification::Ad.where(:user_id => current_user, :watched => false, :notification_type => 2)
+    all_notifications = Notification.where(:user_id => current_user, :watched => false)
+    @notifications_ad_messages  = all_notifications.where(:notification_type => 1)
+    @notifications_ad_expired   = all_notifications.where(:notification_type => 2)
   end
 
   protected

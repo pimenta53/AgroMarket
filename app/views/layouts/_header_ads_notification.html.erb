@@ -5,13 +5,13 @@
 <%#= @ad_notifications_messages.length %>
 <%#= asdasd %>
 
-<% number_notifications_ads = @ad_notifications_messages.length %>
+<% number_notifications_ads = @notifications_ad_messages.length + @notifications_ad_expired.length %>
 
 
 <li class="dropdown messages-dropdown">
 
 <%# place the number of notifications avaiable %>
-  <% if number_notifications_ads > 0 #expired_ads.count >0 %>
+  <% if number_notifications_ads > 0 %>
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags" id="fa-tags"></i><span class="badge" id="custom-badge"><%= number_notifications_ads %></span><b class="caret" id="dropCarret"></b></a>
   <% else %>
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags" id="fa-tags"></i><b class="caret" id="dropCarret"></b></a>
@@ -22,7 +22,7 @@
   <ul class="dropdown-menu">
 
     <% if expired_ads.count > 0 %>
-      <li class="dropdown-header"><%= expired_ads.count %> ads have expired</li>
+      <li class="dropdown-header"><%= expired_ads.count %> Anuncios aspiraram</li>
         <% first_expired_ads = expired_ads.limit(5) %>
         <% first_expired_ads.each do |ad| %>
           <li class="preview">
@@ -39,17 +39,15 @@
           </li>
         <% end %>
       <li class="divider"></li>
-    <% else %>
-      <li class="dropdown-header">Alertas do Mercado.</li>
     <% end %>
 
 <%# notifications from messages in ads %>
 
-    <% if @ad_notifications_messages.length > 0 %>
-      <li class="dropdown-header"><%= @ad_notifications_messages.length %> Novas mensagens</li>
+    <% if @notifications_ad_messages.length > 0 %>
+      <li class="dropdown-header"><%= @notifications_ad_messages.length %> Novas mensagens</li>
         <%# first_expired_ads = expired_ads.limit(5) %>
-        <% @ad_notifications_messages.each do |notification| %>
-          <% ad = Ad.find(notification.ad_id) %><%# DEVERIA SER ASSIM => notification.ad.... %>
+        <% @notifications_ad_messages.each do |notification| %>
+          <% ad = Ad.find(notification.id_destination) %>
           <li class="preview">
             <a href="<%= ad_path(ad, :notification => notification) %>">
               <% if ad.ad_images.count > 0 %>
@@ -64,8 +62,6 @@
           </li>
         <% end %>
       <li class="divider"></li>
-    <% else %>
-      <li class="dropdown-header">Alertas do Mercado.</li>
     <% end %>
 
 
