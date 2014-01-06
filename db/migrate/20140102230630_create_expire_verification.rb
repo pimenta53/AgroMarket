@@ -6,7 +6,7 @@ CREATE PROCEDURE \`expire_dates\`()
 BEGIN
   DECLARE ad, user INT;
   DECLARE done INT DEFAULT FALSE;
-  DECLARE ads CURSOR FOR SELECT id, user_id FROM ads where expire_date < CURRENT_TIMESTAMP and (id, user_id) not in (select id_destination, user_id from notifications where notification_type == 2);
+  DECLARE ads CURSOR FOR SELECT id, user_id FROM ads where expire_date < CURRENT_TIMESTAMP and (id, user_id) not in (select id_destination, user_id from notifications where notification_type = 2);
   DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
 
   OPEN ads;

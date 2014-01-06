@@ -1,6 +1,23 @@
 class Notification < ActiveRecord::Base
 
   belongs_to :users
+  
+  def self.ads_notification
+    where(:notification_type => ["1", "2", "3"])
+  end
+
+  #get Ad of notification
+  def ad
+    Ad.find(self.id_destination)
+  end
+
+  def question
+    Academy::Question.find(self.id_destination)
+  end
+
+  def event
+    Event::Event.find(self.id_destination)
+  end
 
   def set_type(type)
     self.notification_type = case type
