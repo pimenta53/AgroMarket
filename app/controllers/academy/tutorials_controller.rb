@@ -10,9 +10,6 @@ class Academy::TutorialsController < ApplicationController
     #@academy_tutorials = Academy::Tutorial.all
 
 
-
-
-
 #################################################
 
     if params[:search] != nil
@@ -39,6 +36,7 @@ class Academy::TutorialsController < ApplicationController
     else 
       @academy_tutorials = Academy::Tutorial.where(:aproved => 1) #.paginate(:page => page, :per_page => 8)
       
+
     end
 
     @categories = Category.all

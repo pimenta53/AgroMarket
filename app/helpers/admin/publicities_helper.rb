@@ -1,0 +1,2 @@
+module Admin::PublicitiesHelper
+end

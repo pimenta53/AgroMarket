@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @admin_publicity.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @admin_publicity.description %>
+</p>
+
+<p>
+  <strong>Expire date:</strong>
+  <%= @admin_publicity.expire_date %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @admin_publicity.owner %>
+</p>
+
+
+<p>
+  <b>Image:</b>
+  <%= image_tag @admin_publicity.image.url %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @admin_publicity.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_admin_publicity_path(@admin_publicity) %> |
+<%= link_to 'Back', admin_publicities_path %>

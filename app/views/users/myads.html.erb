@@ -8,9 +8,12 @@
       <% end %>
   </ol>
 
+<%= will_paginate(@ads, :renderer => WillPaginate::ActionView::LinkRenderer, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
   <div class="row ads_index_section">
     <%= render :partial => @ads %>
   </div>
   <% if @ads.empty? %>
       Ainda não existem anúncios. Consulte os pacotes disponíveis!
   <% end %>
+<%= will_paginate(@ads, :renderer => WillPaginate::ActionView::LinkRenderer, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
+  
