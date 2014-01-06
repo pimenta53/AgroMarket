@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     else
       page = 1
     end
-    @my_events = Event::Event.where(:user_id => current_user.id).paginate(:page => page, :per_page => 12)
+    @my_events = Event::Event.where(:user_id => current_user.id).paginate(:page => page, :per_page => 8)
   end
 
   def show
