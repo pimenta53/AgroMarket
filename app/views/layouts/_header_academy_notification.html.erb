@@ -1,38 +1,33 @@
 
-        <% expired_ads=current_user.expired_ads %>
-        <li class="dropdown messages-dropdown">
+<% number_notifications_ads = @notifications_new_answer.length %>
+<li class="dropdown messages-dropdown">
 
-          <% if expired_ads.count > 0 %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book" id="fa-book"></i><span class="badge" id="custom-badge"><%= expired_ads.count %></span><b class="caret" id="dropCarret"></b></a>
-          <% else %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"  id="fa-book"></i><b class="caret" id="dropCarret"></b></a>
-          <% end %>
-          <ul class="dropdown-menu">
+  <% if number_notifications_ads > 0 %>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book" id="fa-book"></i><span class="badge" id="custom-badge"><%= number_notifications_ads %></span><b class="caret" id="dropCarret"></b></a>
+  <% else %>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"  id="fa-book"></i><b class="caret" id="dropCarret"></b></a>
+  <% end %>
 
-            <% if expired_ads.length > 0 %>
-              <li class="dropdown-header"><%= expired_ads.count %> ads have expired</li>
-              <% first_expired_ads = expired_ads.limit(5) %>
-              <% first_expired_ads.each do |ad| %>
-                <li class="preview">
-                  <a href="<%= ad_path(ad) %>">
-                    <% if ad.ad_images.count > 0 %>
-                      <span class="avatar"><%= image_tag(ad.ad_images.first.image.url(:thumb), :alt => ad.title, :width => '50') %></span>
-                    <% else %>
-                      <span class="avatar"><img width="50" alt="50x50" src="http://placehold.it/50x50"></img></span>
-                    <% end %>
-                    <span class="name"><%= ad.title %></span>
-                    <span class="message"><%= ad.limited_description(20) %></span>
-                    <span class="time"><i class="icon-time"></i>
-                    <abbr class="timeago" title="<%= ad.expire_date.getutc.iso8601 %>"> <%= ad.expire_date.to_s %> </abbr>
-                    </span>
-                  </a>
-                </li>
-                <li class="divider"></li>
-              <% end %>
-            <% else %>
-              <li class="dropdown-header">Alertas da Academia.</li>
-            <% end %>
-            <li><a href="<%= myads_user_path(current_user.id) %>"> Ver todos </a></li>
+  <ul class="dropdown-menu">
 
-          </ul>
+    <%# notifications new answers for your questions %>
+    <% if @notifications_new_answer.length > 0 %>
+      <li class="dropdown-header"><%= @notifications_new_answer.length %> Novas Respostas</li>
+      <% @notifications_new_answer.each do |notification| %>
+        <% question = Academy::Question.find(notification.id_destination) %>
+        <li class="preview">
+          <a href="<%= academy_question_path(question, :notification => notification) %>">
+            <span class="name"><%= question.title %></span>
+          </a>
         </li>
+      <% end %>
+      <li class="divider"></li>
+    <% end %>
+
+    <% if number_notifications_ads == 0 %>
+      <li class="dropdown-header">Sem novos alertas.</li>
+    <% end %>
+
+  </ul>
+</li>
+

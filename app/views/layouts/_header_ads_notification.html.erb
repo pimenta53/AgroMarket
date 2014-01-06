@@ -5,7 +5,7 @@
 <%#= @ad_notifications_messages.length %>
 <%#= asdasd %>
 
-<% number_notifications_ads = @notifications_ad_messages.length + @notifications_ad_expired.length + @notifications_new_answer.length %>
+<% number_notifications_ads = @notifications_ad_messages.length + @notifications_ad_expired.length %>
 
 
 <li class="dropdown messages-dropdown">
@@ -64,23 +64,9 @@
       <li class="divider"></li>
     <% end %>
 
-<%# notifications new answers for your questions %>
-    <% if @notifications_new_answer.length > 0 %>
-      <li class="dropdown-header"><%= @notifications_new_answer.length %> Novas Respostas</li>
-        <%# first_expired_ads = expired_ads.limit(5) %>
-        <% @notifications_new_answer.each do |notification| %>
-          <% question = Academy::Question.find(notification.id_destination) %>
-          <li class="preview">
-            <a href="<%= academy_question_path(question, :notification => notification) %>">
-              <span class="name"><%= question.title %></span>
-            </a>
-          </li>
-        <% end %>
-      <li class="divider"></li>
+    <% if number_notifications_ads == 0 %>
+      <li class="dropdown-header">Sem novos alertas.</li>
     <% end %>
-
-
-    <li><a href="<%= myads_user_path(current_user.id) %>"> Ver todos </a></li>
 
   </ul>
 </li>
