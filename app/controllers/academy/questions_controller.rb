@@ -7,12 +7,38 @@ class Academy::QuestionsController < ApplicationController
   # GET /academy/questions
   # GET /academy/questions.json
   def index
-    if params[:page] != nil
-      page = params[:page]
-    else
-      page = 1
+    #@academy_questions = Academy::Question.search(params[:query],params[:category_id]).where(:is_deleted => false)
+
+    if params[:search] != nil
+      academy_questions = Academy::Question.arel_table
+
+      search_table = academy_questions[:is_deleted].eq(false)
+
+
+      search_table_title = nil
+      #search_table_description = nil
+
+      params[:search].each { |parameter|
+        if (search_table_title != nil)
+          search_table_title = search_table_title.or(academy_questions[:category_id].matches("#{parameter}".split(":")[1]))
+          #search_table_description  = search_table_description.and(academy_tutorials[:rapid_description].matches("%#{parameter}%"))
+          
+        else
+          search_table_title = academy_questions[:category_id].matches("#{parameter}".split(":")[1])
+          #search_table_description  = academy_tutorials[:rapid_description].matches("%#{parameter}%")
+          
+        end
+      }
+      @academy_questions = Academy::Question.where(search_table.and(search_table_title)) #.paginate(:page => page, :per_page => 8)
+    else 
+      @academy_questions = Academy::Question.where(:is_deleted => 0) #.paginate(:page => page, :per_page => 8)
+      
+
     end
-    @academy_questions = Academy::Question.search(params[:query],params[:category_id]).where(:is_deleted => false).paginate(:page => page, :per_page => 8)
+
+    @categories = Category.all
+    @cities = City.order('city ASC').all
+
   end
 
   # GET /academy/questions/1

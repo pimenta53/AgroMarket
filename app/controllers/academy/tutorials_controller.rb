@@ -14,9 +14,6 @@ class Academy::TutorialsController < ApplicationController
       page = 1
     end
 
-
-#################################################
-
     if params[:search] != nil
       academy_tutorials = Academy::Tutorial.arel_table
 

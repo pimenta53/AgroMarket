@@ -7,6 +7,7 @@ class Academy::WorkshopsController < ApplicationController
   # GET /academy/workshops.json
   def index
     @academy_workshops = Academy::Workshop.all
+    @categories = Category.all
   end
 
   # GET /academy/workshops/1
@@ -31,6 +32,7 @@ class Academy::WorkshopsController < ApplicationController
     
     @academy_workshop = Academy::Workshop.new(academy_workshop_params)
     @academy_workshop.user_id = current_user.id
+    @academy_workshop.slots_taken = 0
     respond_to do |format|
       if @academy_workshop.save
         format.html { redirect_to @academy_workshop, notice: 'Workshop was successfully created.' }
