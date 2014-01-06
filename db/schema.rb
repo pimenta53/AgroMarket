@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140106152939) do
-=======
-ActiveRecord::Schema.define(version: 20140106142808) do
->>>>>>> 80e06f45a9429c68315ab3780c38d7597754e10f
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
