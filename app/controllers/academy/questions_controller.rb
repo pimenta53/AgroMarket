@@ -38,6 +38,7 @@ class Academy::QuestionsController < ApplicationController
 
     @categories = Category.all
     @cities = City.order('city ASC').all
+
   end
 
   # GET /academy/questions/1

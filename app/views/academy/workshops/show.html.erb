@@ -1,7 +1,11 @@
 <ol class="breadcrumb" id="breadcrumbAds">
   <li class="active">
     <a class="url" href="<%= academy_workshops_path %>"><i class="fa fa-tags"></i> Workshops</a>
+<<<<<<< HEAD
+    <a class="url" href="<%= event_event_path(@academy_workshop.id) %>"> <%= @academy_workshop.title %></a></li>
+=======
     <a class="url" href="<%= event_event_path(@academy_workshop.id) %>"> > <%= @academy_workshop %> #FALTA METER UM TITULO PARA O WORKSHOP NA BD</a></li>
+>>>>>>> 80e06f45a9429c68315ab3780c38d7597754e10f
   <div style="float:right">
     <% if user_signed_in? %>
         <%= link_to 'Novo Workshop', new_academy_workshop_path,:class=> "url"%>

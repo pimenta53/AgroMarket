@@ -62,7 +62,8 @@ gem 'yaml_db'
 
 #para fazer paginacao
 gem 'will_paginate', '~> 3.0.0'
-gem 'bootstrap-will_paginate'
+#gem 'bootstrap-will_paginate'
+gem 'will_paginate-bootstrap'
 
 #better errors
 group :development do

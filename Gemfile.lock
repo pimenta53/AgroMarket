@@ -31,7 +31,6 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
-    bcrypt-ruby (3.1.2-x86-mingw32)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -39,8 +38,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-datepicker-rails (1.1.1.11)
       railties (>= 3.0)
-    bootstrap-will_paginate (0.0.10)
-      will_paginate
     bootstrap-wysihtml5-rails (0.3.1.23)
       railties (>= 3.0)
     builder (3.1.4)
@@ -73,7 +70,6 @@ GEM
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     ffi (1.9.3)
-    ffi (1.9.3-x86-mingw32)
     font-awesome-rails (4.0.3.1)
       railties (>= 3.2, < 5.0)
     hashie (2.0.5)
@@ -224,18 +220,18 @@ GEM
       watir-webdriver
     websocket (1.0.7)
     will_paginate (3.0.5)
+    will_paginate-bootstrap (1.0.0)
+      will_paginate (>= 3.0.3)
     yaml_db (0.2.3)
 
 PLATFORMS
   ruby
-  x86-mingw32
 
 DEPENDENCIES
   annotate
   better_errors
   binding_of_caller
   bootstrap-datepicker-rails
-  bootstrap-will_paginate
   bootstrap-wysihtml5-rails
   cancan
   chartkick
@@ -265,4 +261,5 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   watir-webdriver-rails
   will_paginate (~> 3.0.0)
+  will_paginate-bootstrap
   yaml_db
