@@ -8,7 +8,7 @@
   </li>
 </ol>
 
-<div class="col-lg-12">
+
         <section class="panel">
 
             <header class="panel-heading border-header text-center">
@@ -20,7 +20,7 @@
                       <div class=" "><%##  texto da resposta  ##%>
                         <div class="">
 
-                            <div class="information_show_tutorial">
+                          <div class="information_show_tutorial">
                               <span>Autor: </span> <%= @academy_tutorial.user.name %>
 
                               <p><span>Categoria:</span> <span class="label" style="background-color: #<%= @academy_tutorial.category.color %> ; color: black; font-size:12px;">
@@ -28,7 +28,7 @@
                               </span>
                               </p>
 
-                                 <p>    <span>Tempo Criado: </span> 
+                                 <p> <span>Tempo Criado: </span> 
                                      <abbr class="timeago" title="<%=  @academy_tutorial.created_at.getutc.iso8601 %>">
                                            <%=  @academy_tutorial.created_at.to_s %>
                                     </abbr>
@@ -37,7 +37,7 @@
                                    <span>Descrição: </span> <%= @academy_tutorial.rapid_description %>
                                 </p>
 
-                            </div> 
+                          </div> 
                            
                            <div class="process_show_tutorial" >
                                 <span>Processo: </span> 
@@ -71,4 +71,4 @@
                   </div>
           </div>
       </section>
-</div>
+
