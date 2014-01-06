@@ -155,6 +155,7 @@ class AdsController < ApplicationController
     end
   end
 
+
   # Mark talk as closed
   # Create rated and rater entry in db
   def done_message

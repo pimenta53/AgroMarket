@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     @categories = Category.all
   end
 
+  def myevents
+    @my_events = Event::Event.where(:user_id => current_user.id)
+  end
+
   def show
 
     @message = Message.new

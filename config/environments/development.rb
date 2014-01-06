@@ -11,9 +11,9 @@ Agrosocial::Application.configure do
 
   # Show full error reports and disable caching.
   # Uncomment the next line 
-  #config.consider_all_requests_local       = true
+  config.consider_all_requests_local       = true
 
-  config.consider_all_requests_local       = false # and comment this one
+  #config.consider_all_requests_local       = false # and comment this one
 
   config.action_controller.perform_caching = false
 

@@ -10,6 +10,7 @@
     <tr>
     <th>ID</th>
       <th>Nome</th>
+      <th>Anúncios</th>
       <!--th></th-->
       <th></th>
       <th></th>
@@ -21,7 +22,8 @@
       <tr>
       <td><%= price_type.id %></td>
         <td><%= price_type.name %></td>
-        <!--td><%= link_to 'Show', admin_price_type_path(price_type) %></td-->
+        <td><%= price_type.ads.count %></td>
+        <!--td><%# link_to 'Show', admin_price_type_path(price_type) %></td-->
         <td><%= link_to 'Editar', edit_admin_price_type_path(price_type) %></td>
         <td><%= link_to 'Eliminar', admin_price_type_path(price_type), method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
       </tr>

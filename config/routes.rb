@@ -9,6 +9,7 @@ Agrosocial::Application.routes.draw do
     resources :events
   end
 
+  get "/44", :to => "errors#not_found"
 
   get "/404", :to => "errors#not_found"
   
@@ -44,6 +45,8 @@ Agrosocial::Application.routes.draw do
 
   #pagina myads do utilizador
   get "/users/:id/myads" => "users#myads", as: "myads_user"
+
+  get "/users/:id/myevents" => "users#myevents", as: "myevents"
 
   #accao follow do utilizador
   post '/users/:id/follow' => 'users#follow'
@@ -84,6 +87,7 @@ Agrosocial::Application.routes.draw do
     get 'cancel_message',  to: 'ads#cancel_message',              as: :cancel_message
     #get 'done_message',    to: 'ads#done_message',                as: :done_message
     get 'aprove_tutorial', to: 'academy/tutorials#aprove_tutorial', as: :aprove_tutorial
+    get 'aprove_event', to: 'event/events#aprove_event', as: :aprove_event
   end
 
   resources :ratings

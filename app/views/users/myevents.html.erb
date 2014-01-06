@@ -1,0 +1,41 @@
+<ol class="breadcrumb" id="breadcrumbAds">
+  <li class="active">
+    <a class="url" href="<%= event_events_path %>"><i class="fa fa-tags"></i> Eventos</a></li>
+  <% if user_signed_in? %>
+      <%= link_to 'Novo Evento', new_event_event_path,:class=> "url", style:"float:right"%>
+  <% end %>
+</ol>
+
+<!--<h1>Listing event_events</h1>-->
+
+<table>
+  <thead>
+    <tr>
+      <th>Inicio</th>
+      <th>Fim</th>
+      <th>Titulo</th>
+      <th>Descrição</th>
+      <th>Utilizador</th>
+      <th>Aprovado</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @my_events.each do |event_event| %>
+        <tr>
+          <td><%= event_event.start_day %></td>
+          <td><%= event_event.end_day %></td>
+          <td><%= event_event.title %></td>
+          <td><%= event_event.description %></td>
+          <td><%= event_event.user_id %></td>
+          <td><%= event_event.aproved %></td>
+          <td><%= link_to 'Show', event_event %></td>
+          <td><%= link_to 'Edit', edit_event_event_path(event_event) %></td>
+          <td><%= link_to 'Destroy', event_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
