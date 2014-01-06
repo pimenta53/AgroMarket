@@ -32,9 +32,9 @@ class AdsController < ApplicationController
         end
       }
       
-      @ads = Ad.where(search_table.and(search_table_title.or(search_table_description))).paginate(:page => page, :per_page => 8)
+      @ads = Ad.where(search_table.and(search_table_title.or(search_table_description))).paginate(:page => page, :per_page => 12)
     else 
-      @ads = Ad.where("is_deleted = ?", false).paginate(:page => page, :per_page => 8)
+      @ads = Ad.where("is_deleted = ?", false).paginate(:page => page, :per_page => 12)
     end
     @categories = Category.all
     @cities = City.all

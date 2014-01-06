@@ -20,12 +20,11 @@
   </div>
   <p id="loading" style="visibility: hidden">A buscar mais anuncios</p>
 
-<div href="<%= ads_path(:page => @ads.next_page)%>" class='load-more-ads'>
+<div href="<% if @ads.next_page %><%= ads_path(:page => @ads.next_page) %><% else %>#<% end %>" class='load-more-ads'>
   <% if @ads.next_page %>
     A buscar mais anuncios
   <% else %>
     Não existe mais anuncios
   <% end %>
 </div>
-<% #= link_to 'Load More Ads', ads_path(:page => @ads.next_page), :class => 'load-more-ads', :remote => true if @ads.next_page %>
 

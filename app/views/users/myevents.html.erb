@@ -8,6 +8,7 @@
 
 <!--<h1>Listing event_events</h1>-->
 
+<%= will_paginate(@my_events, :renderer => WillPaginate::ActionView::LinkRenderer, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
 <table>
   <thead>
     <tr>
@@ -39,3 +40,4 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate(@my_events, :renderer => WillPaginate::ActionView::LinkRenderer, :previous_label => 'Anterior', :next_label => 'Seguinte') %>

@@ -12,12 +12,22 @@ class UsersController < ApplicationController
   # GET /users/1/myads
   # GET /users/1/myads.json
   def myads
-    @ads = @user.ads.where("is_deleted = ?", false)
+    if params[:page] != nil
+      page = params[:page]
+    else
+      page = 1
+    end
+    @ads = @user.ads.where("is_deleted = ?", false).paginate(:page => page, :per_page => 8)
     @categories = Category.all
   end
 
   def myevents
-    @my_events = Event::Event.where(:user_id => current_user.id)
+    if params[:page] != nil
+      page = params[:page]
+    else
+      page = 1
+    end
+    @my_events = Event::Event.where(:user_id => current_user.id).paginate(:page => page, :per_page => 12)
   end
 
   def show
