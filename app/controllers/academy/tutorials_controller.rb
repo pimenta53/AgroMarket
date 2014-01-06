@@ -7,11 +7,6 @@ class Academy::TutorialsController < ApplicationController
   # GET /academy/tutorials
   # GET /academy/tutorials.json
   def index
-    #@academy_tutorials = Academy::Tutorial.all
-
-
-#################################################
-
     if params[:search] != nil
       academy_tutorials = Academy::Tutorial.arel_table
 

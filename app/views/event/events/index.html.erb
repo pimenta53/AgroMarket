@@ -7,6 +7,7 @@
 </ol>
 
 
+<%= will_paginate(@event_events, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
 <div class="row" style="margin-right:0px">
   <% @event_events.each do |event_event| %>
       <div class="col-md-6">
@@ -34,3 +35,4 @@
       </div>
   <% end %>
 </div>
+<%= will_paginate(@event_events, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
