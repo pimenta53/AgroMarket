@@ -38,8 +38,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-datepicker-rails (1.1.1.9)
       railties (>= 3.0)
-    bootstrap-will_paginate (0.0.9)
-      will_paginate
     bootstrap-wysihtml5-rails (0.3.1.23)
       railties (>= 3.0)
     builder (3.1.4)
@@ -220,6 +218,8 @@ GEM
       watir-webdriver
     websocket (1.0.7)
     will_paginate (3.0.4)
+    will_paginate-bootstrap (1.0.0)
+      will_paginate (>= 3.0.3)
     yaml_db (0.2.3)
 
 PLATFORMS
@@ -231,7 +231,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-datepicker-rails
-  bootstrap-will_paginate
   bootstrap-wysihtml5-rails
   cancan
   chartkick
@@ -261,4 +260,5 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   watir-webdriver-rails
   will_paginate (~> 3.0.0)
+  will_paginate-bootstrap
   yaml_db

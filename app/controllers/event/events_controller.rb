@@ -4,7 +4,12 @@ class Event::EventsController < ApplicationController
   # GET /event/events
   # GET /event/events.json
   def index
-    @event_events = Event::Event.all
+    if params[:page] != nil
+      page = params[:page]
+    else
+      page = 1
+    end
+    @event_events = Event::Event.all.paginate(:page => page, :per_page => 8)
   end
 
   # GET /event/events/1
