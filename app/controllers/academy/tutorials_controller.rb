@@ -7,25 +7,40 @@ class Academy::TutorialsController < ApplicationController
   # GET /academy/tutorials
   # GET /academy/tutorials.json
   def index
-    @categories = Category.all
+    #@academy_tutorials = Academy::Tutorial.all
 
-    ## 
-    if(params[:search] || params[:search_tutorials]) 
 
-      if(params[:search])
-        category_id = Category.find_by_name(params[:search])
-      else
-        category_id = Category.find_by_name(params[:search_tutorials])
-      end
+#################################################
+
+    if params[:search] != nil
+      academy_tutorials = Academy::Tutorial.arel_table
+
+      search_table = academy_tutorials[:aproved].eq(true)
+
+
+      search_table_title = nil
+      #search_table_description = nil
+
+      params[:search].each { |parameter|
+        if (search_table_title != nil)
+          search_table_title = search_table_title.or(academy_tutorials[:category_id].matches("#{parameter}".split(":")[1]))
+          #search_table_description  = search_table_description.and(academy_tutorials[:rapid_description].matches("%#{parameter}%"))
+          
+        else
+          search_table_title = academy_tutorials[:category_id].matches("#{parameter}".split(":")[1])
+          #search_table_description  = academy_tutorials[:rapid_description].matches("%#{parameter}%")
+          
+        end
+      }
+      @academy_tutorials = Academy::Tutorial.where(search_table.and(search_table_title)) #.paginate(:page => page, :per_page => 8)
+    else 
+      @academy_tutorials = Academy::Tutorial.where(:aproved => 1) #.paginate(:page => page, :per_page => 8)
       
-      if category_id.nil?
-        redirect_to academy_tutorials_path,notice: 'Não foram encontrados quaisquer registos'
-      end
 
-      @academy_tutorials = Academy::Tutorial.where(:category_id => category_id)
-    else
-      @academy_tutorials = Academy::Tutorial.all
     end
+
+    @categories = Category.all
+    @cities = City.order('city ASC').all
 
 
   end
@@ -92,6 +107,7 @@ class Academy::TutorialsController < ApplicationController
     def set_academy_tutorial
       @academy_tutorial = Academy::Tutorial.find(params[:id])
       @categories = Category.all
+      @cities = City.order('city ASC').all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
