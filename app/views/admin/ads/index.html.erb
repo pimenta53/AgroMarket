@@ -1,14 +1,13 @@
 <section class="panel">
   <header class="panel-heading"><h1>Lista de Anúncios</h1><h5><%= @ads.count %> Anúncios</h5> 
         <div class="newItemLink">
-      <i class="fa fa-plus-circle"></i><%= link_to ' Novo Anúncio', new_admin_ad_path %>
+      <!--i class="fa fa-plus-circle"></i--><%# link_to ' Novo Anúncio', new_admin_ad_path %>
     </div>
   </header>
   <div class="table-responsive">
     <table class="table table-hover" >
       <thead>
         <tr>
-          <th></th>
           <th>ID</th>
           <th>Imagem</th>
           <th>Título</th>
@@ -26,10 +25,6 @@
       <tbody>
         <% @ads.each do |ad| %>
           <tr>
-            <td>
-
-              <a href="#details<%= ad.id %>"  data-toggle="collapse"><span class="label label-info"><i class="fa fa-search"></i></a>
-            </td>
             <td><%= ad.id %></td>
             <td>
               <div class="img_table">
@@ -62,24 +57,6 @@
             <%= link_to 'Eliminar', [:admin,ad], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
           </tr>
 
-          <tr id="details<%= ad.id %>" class="collapse" data-toggle="collapse">
-             <td class="details" colspan="6">
-                <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">
-                   <tbody>
-                      <tr>
-                         <td>Data de criação:   <strong><%= t ad.created_at , :format => :short%></strong></td>
-                      </tr>
-                      <tr>
-                         <td>Preço: <%= ad.price %></td>
-                      </tr>
-                      <tr>
-                         <td>Descrição: <%= ad.description %></td>
-                      </tr>
-                   </tbody>
-                </table>
-             </td>
-          </tr>
-
         <% end %>
       </tbody>
     </table>
@@ -87,7 +64,7 @@
   <br>
 </section>
 
-<i class="fa fa-plus-circle"></i><%= link_to ' Novo Anúncio', new_admin_ad_path %>
+<!--i class="fa fa-plus-circle"></i--><%# link_to ' Novo Anúncio', new_admin_ad_path %>
 
 
 
