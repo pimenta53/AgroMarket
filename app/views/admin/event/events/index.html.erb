@@ -1,7 +1,7 @@
 <section class="panel">
-  <header class="panel-heading"><h1>Lista de Eventos</h1><h5><%= @event_events.count %> Eventos</h5> 
+  <header class="panel-heading"><h1>Eventos por Aprovar</h1><h5><%= @unaproved_events.count %> Eventos</h5> 
   <div class="newItemLink">
-    <i class="fa fa-plus-circle"></i><%= link_to ' Novo Evento', new_admin_event_event_path %>
+    <!--i class="fa fa-plus-circle"></i--><%# link_to ' Novo Evento', new_admin_event_event_path %>
   </div>
 
 
@@ -16,7 +16,6 @@
       <th>Título</th>
       <th>Descrição</th>
       <th>Utilizador</th>
-      <th>Aprovado?</th>
       <th></th>
       <th></th>
       <th></th>
@@ -24,18 +23,17 @@
   </thead>
 
   <tbody>
-    <% @event_events.each do |event_event| %>
+    <% @unaproved_events.each do |event| %>
       <tr>
-        <td><%= event_event.id %></td>
-        <td><%= event_event.start_day %></td>
-        <td><%= event_event.end_day %></td>
-        <td><%= event_event.title %></td>
-        <td><%= event_event.description %></td>
-        <td><%= event_event.user_id %></td>
-        <td><% if event_event.aproved %> Sim <% else %> Não <% end %></td>
-        <td><%= link_to 'Ver', [:admin, event_event] %></td>
-        <td><%= link_to 'Editar', edit_admin_event_event_path(event_event) %></td>
-        <td><%= link_to 'Eliminar', [:admin, event_event], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+        <td><%= event.id %></td>
+        <td><%= event.start_day %></td>
+        <td><%= event.end_day %></td>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td>
+        <td><%= event.user_id %></td>
+        <td><%= link_to 'Ver', [:admin, event] %></td>
+        <td><%= link_to 'Aprovar', admin_aprove_event_path(:id_aprove => event.id) %></td>
+        <td><%= link_to 'Eliminar', [:admin, event], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -43,4 +41,54 @@
 </div>
 </section>
 
-<i class="fa fa-plus-circle"></i><%= link_to ' Novo Evento', new_admin_event_event_path %>
+
+
+<section class="panel">
+  <header class="panel-heading"><h1>Eventos Aprovados</h1><h5><%= @aproved_events.count %> Eventos</h5> 
+  <div class="newItemLink">
+    <!--i class="fa fa-plus-circle"></i--><%# link_to ' Novo Evento', new_admin_event_event_path %>
+  </div>
+
+
+  </header>
+<div class="table-responsive">
+  <table class="table table-hover" >
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Início</th>
+      <th>Fim</th>
+      <th>Título</th>
+      <th>Descrição</th>
+      <th>Utilizador</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aproved_events.each do |event| %>
+      <tr>
+        <td><%= event.id %></td>
+        <td><%= event.start_day %></td>
+        <td><%= event.end_day %></td>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td>
+        <td><%= event.user_id %></td>
+        <td><%= link_to 'Ver', [:admin, event] %></td>
+        <td><%= link_to 'Editar', edit_admin_event_event_path(event) %></td>
+        <td><%= link_to 'Eliminar', [:admin, event], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</section>
+
+
+
+
+
+
+<!--i class="fa fa-plus-circle"></i--><%# link_to ' Novo Evento', new_admin_event_event_path %>

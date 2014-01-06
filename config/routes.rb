@@ -87,6 +87,7 @@ Agrosocial::Application.routes.draw do
     get 'cancel_message',  to: 'ads#cancel_message',              as: :cancel_message
     #get 'done_message',    to: 'ads#done_message',                as: :done_message
     get 'aprove_tutorial', to: 'academy/tutorials#aprove_tutorial', as: :aprove_tutorial
+    get 'aprove_event', to: 'event/events#aprove_event', as: :aprove_event
   end
 
   resources :ratings
