@@ -8,6 +8,11 @@ class Academy::TutorialsController < ApplicationController
   # GET /academy/tutorials.json
   def index
     #@academy_tutorials = Academy::Tutorial.all
+    if params[:page] != nil
+      page = params[:page]
+    else
+      page = 1
+    end
 
 
 #################################################
@@ -32,11 +37,9 @@ class Academy::TutorialsController < ApplicationController
           
         end
       }
-      @academy_tutorials = Academy::Tutorial.where(search_table.and(search_table_title)) #.paginate(:page => page, :per_page => 8)
+      @academy_tutorials = Academy::Tutorial.where(search_table.and(search_table_title)).paginate(:page => page, :per_page => 8)
     else 
-      @academy_tutorials = Academy::Tutorial.where(:aproved => 1) #.paginate(:page => page, :per_page => 8)
-      
-
+      @academy_tutorials = Academy::Tutorial.where(:aproved => 1).paginate(:page => page, :per_page => 8)
     end
 
     @categories = Category.all

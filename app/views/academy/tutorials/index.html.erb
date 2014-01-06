@@ -21,7 +21,8 @@
     
        
        <div class="panel">
-
+          <%= will_paginate(@academy_tutorials, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
+    
           <table class="table table-hover">
                <thead>
                     <tr class="tutorial_table_head">
@@ -75,6 +76,7 @@
          
 
           </table> 
+          <%= will_paginate(@academy_tutorials, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
 
 
        </div>
