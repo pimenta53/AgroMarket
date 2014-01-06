@@ -1,14 +1,24 @@
 
+<% expired_ads=current_user.expired_ads %>
+
+
+<%#= @ad_notifications_messages.length %>
+<%#= asdasd %>
+
 <% number_notifications_ads = @notifications_ad_messages.length + @notifications_ad_expired.length + @notifications_new_answer.length %>
+
 
 <li class="dropdown messages-dropdown">
 
-  <%# place the number of notifications avaiable %>
+<%# place the number of notifications avaiable %>
   <% if number_notifications_ads > 0 %>
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags" id="fa-tags"></i><span class="badge" id="custom-badge"><%= number_notifications_ads %></span><b class="caret" id="dropCarret"></b></a>
   <% else %>
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags" id="fa-tags"></i><b class="caret" id="dropCarret"></b></a>
   <% end %>
+
+
+  <ul class="dropdown-menu">
 
 <%# notifications expired ads %>
     <% if @notifications_ad_expired.length > 0 %>
