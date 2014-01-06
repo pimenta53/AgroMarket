@@ -2,10 +2,10 @@
 <% expired_ads=current_user.expired_ads %>
 
 
-<%#= @ad_notifications.length %>
+<%#= @ad_notifications_messages.length %>
 <%#= asdasd %>
 
-<% number_notifications_ads = @ad_notifications.length %>
+<% number_notifications_ads = @ad_notifications_messages.length %>
 
 
 <li class="dropdown messages-dropdown">
@@ -45,10 +45,10 @@
 
 <%# notifications from messages in ads %>
 
-    <% if @ad_notifications.length > 0 %>
-      <li class="dropdown-header"><%= @ad_notifications.length %> Novas mensagens</li>
+    <% if @ad_notifications_messages.length > 0 %>
+      <li class="dropdown-header"><%= @ad_notifications_messages.length %> Novas mensagens</li>
         <%# first_expired_ads = expired_ads.limit(5) %>
-        <% @ad_notifications.each do |notification| %>
+        <% @ad_notifications_messages.each do |notification| %>
           <% ad = Ad.find(notification.ad_id) %><%# DEVERIA SER ASSIM => notification.ad.... %>
           <li class="preview">
             <a href="<%= ad_path(ad, :notification => notification) %>">
