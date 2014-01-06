@@ -45,6 +45,8 @@ Agrosocial::Application.routes.draw do
   #pagina myads do utilizador
   get "/users/:id/myads" => "users#myads", as: "myads_user"
 
+  get "/users/:id/myevents" => "users#myevents", as: "myevents"
+
   #accao follow do utilizador
   post '/users/:id/follow' => 'users#follow'
 
