@@ -7,7 +7,11 @@ class Academy::QuestionsController < ApplicationController
   # GET /academy/questions
   # GET /academy/questions.json
   def index
-    #@academy_questions = Academy::Question.search(params[:query],params[:category_id]).where(:is_deleted => false)
+    if params[:page] != nil
+       page = params[:page]
+    else
+       page = 1
+    end
 
     if params[:search] != nil
       academy_questions = Academy::Question.arel_table
@@ -29,9 +33,9 @@ class Academy::QuestionsController < ApplicationController
           
         end
       }
-      @academy_questions = Academy::Question.where(search_table.and(search_table_title)) #.paginate(:page => page, :per_page => 8)
+      @academy_questions = Academy::Question.where(search_table.and(search_table_title)).paginate(:page => page, :per_page => 8)
     else 
-      @academy_questions = Academy::Question.where(:is_deleted => 0) #.paginate(:page => page, :per_page => 8)
+      @academy_questions = Academy::Question.where(:is_deleted => 0).paginate(:page => page, :per_page => 8)
       
 
     end
