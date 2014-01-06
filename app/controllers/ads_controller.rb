@@ -9,11 +9,11 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
-    #if params[:page] != nil
-    #  page = params[:page]
-    #else
-    #  page = 1
-    #end
+    if params[:page] != nil
+      page = params[:page]
+    else
+      page = 1
+    end
     
     if params[:search] != nil
       ads = Ad.arel_table
@@ -32,18 +32,19 @@ class AdsController < ApplicationController
         end
       }
       
-      @ads = Ad.where(search_table.and(search_table_title.or(search_table_description))) #.paginate(:page => page, :per_page => 8)
+      @ads = Ad.where(search_table.and(search_table_title.or(search_table_description))).paginate(:page => page, :per_page => 12)
     else 
-      @ads = Ad.where("is_deleted = ?", false) #.paginate(:page => page, :per_page => 8)
+      @ads = Ad.where("is_deleted = ?", false).paginate(:page => page, :per_page => 12)
     end
     @categories = Category.all
     @cities = City.all
     
     #render :layout => "admin"
-    #respond_to do |format|
-    #  format.html
-    #  format.js
-    #end
+    respond_to do |format|
+      format.html
+      format.json { render json: @ads }
+      format.js {render :layout => false}
+    end
   end
 
   # GET /ads/1

@@ -93,7 +93,6 @@ Agrosocial::Application.routes.draw do
     get 'aprove_tutorial', to: 'academy/tutorials#aprove_tutorial', as: :aprove_tutorial
 
     get 'aprove_event', to: 'event/events#aprove', as: :aprove_event
-
   end
 
   resources :ratings

@@ -639,3 +639,9 @@ border-color: #eff2f7;
 .typeahead_secondary { font-size: .8em; margin-top: -5px; }
 
 
+/***** EVENTO LIST ****************/
+.fa { margin-right:5px;}
+.section-box h2 { margin-top:0px;}
+.section-box h2 a { font-size:15px; }
+.separator { padding-right:5px;padding-left:5px; }
+.section-box hr {margin-top: 0;margin-bottom: 5px;border: 0;border-top: 1px solid rgb(199, 199, 199);}

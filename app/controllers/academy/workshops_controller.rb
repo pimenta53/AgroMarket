@@ -1,7 +1,8 @@
 #encoding: utf-8
 class Academy::WorkshopsController < ApplicationController
   before_action :set_academy_workshop, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  
+  load_and_authorize_resource :only => [:edit,:update,:show,:index]
   # GET /academy/workshops
   # GET /academy/workshops.json
   def index
@@ -27,8 +28,9 @@ class Academy::WorkshopsController < ApplicationController
   # POST /academy/workshops
   # POST /academy/workshops.json
   def create
-    @academy_workshop = Academy::Workshop.new(academy_workshop_params)
     
+    @academy_workshop = Academy::Workshop.new(academy_workshop_params)
+    @academy_workshop.user_id = current_user.id
     respond_to do |format|
       if @academy_workshop.save
         format.html { redirect_to @academy_workshop, notice: 'Workshop was successfully created.' }
@@ -72,6 +74,6 @@ class Academy::WorkshopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def academy_workshop_params
-      params.require(:academy_workshop).permit(:user_id, :available_slots, :slots_taken, :price, :local, :date, :description, :is_delected, :requires_registration)
+      params.require(:academy_workshop).permit(:user_id, :available_slots, :price, :local, :date, :description, :requires_registration)
     end
 end
