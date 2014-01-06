@@ -18,6 +18,8 @@ class AdsController < ApplicationController
     if params[:search] != nil
       ads = Ad.arel_table
 
+      search_table = ads[:is_deleted].eq(false)
+
       search_table_title = nil
       search_table_description = nil
       search_params = params[:search].split
@@ -37,7 +39,7 @@ class AdsController < ApplicationController
       @ads = Ad.where("is_deleted = ?", false).paginate(:page => page, :per_page => 12)
     end
     @categories = Category.all
-    @cities = City.all
+    @cities = City.order('city ASC').all
     
     #render :layout => "admin"
     respond_to do |format|
@@ -199,7 +201,7 @@ private
 
     # Load cities from database
     def load_stuff
-      @cities = City.order(:city).all
+      @cities = City.order('city ASC').all
       @price_types = PriceType.all
       @categories = Category.all
 

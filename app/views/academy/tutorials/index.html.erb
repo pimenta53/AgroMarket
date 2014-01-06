@@ -8,7 +8,11 @@
  <ol class="breadcrumb" id="breadcrumbAds">
     <li class="active"><a class="url" href="<%= academy_tutorials_path %>"><i class="fa fa-tags"></i> Tutoriais</a></li>
    <% if user_signed_in? %>
-       <%= link_to 'Novo Tutorial', new_academy_tutorial_path,:class=> "url", style:"float:right"%>
+      <div class="new_tutorial col-lg-2">
+
+        <%= link_to 'Novo Tutorial', new_academy_tutorial_path,:class=> "url", style:"float:right"%>
+        <i class="fa fa-plus"></i>
+      </div>
    <% end %>
  </ol>
 
@@ -31,7 +35,6 @@
               </thead>
  
               <% @academy_tutorials.each do |academy_tutorial| %>
-              <% if academy_tutorial.aproved? %>
 
              
              
@@ -51,7 +54,7 @@
                       </span>
                    </td>
                     <td>
-                     <h4><%= academy_tutorial.created_at %></h4>
+                     <h4><%= academy_tutorial.created_at.strftime("%F") %></h4>
                    </td>
                     <td>
                       <span><%= image_tag current_user.avatar.url(:medium), style:"height:35px; " %></span>
@@ -68,7 +71,6 @@
                  </tr>
               </tbody>
 
-              <% end %>
               <% end %>
          
 

@@ -24,6 +24,16 @@ class Admin::Event::EventsController < ApplicationController
   def edit
   end
 
+<<<<<<< HEAD
+  def aprove
+    event = Event::Event.find(params[:id])
+    event.aproved = true
+    event.save
+    
+    redirect_to admin_event_events_path,:notice => "Evento foi aprovado com sucesso"
+  end
+
+=======
 
   def aprove_event
     event = Event::Event.find(params[:id_aprove])
@@ -33,6 +43,7 @@ class Admin::Event::EventsController < ApplicationController
   end
 
 
+>>>>>>> b241b0a3a6a7200882fdf5d36e7edd00209c42f9
   # POST /admin/event/events
   # POST /admin/event/events.json
   def create

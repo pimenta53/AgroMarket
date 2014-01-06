@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131219002145) do
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20140106152939) do
+=======
+ActiveRecord::Schema.define(version: 20140106142808) do
+>>>>>>> 80e06f45a9429c68315ab3780c38d7597754e10f
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -82,6 +86,7 @@ ActiveRecord::Schema.define(version: 20131219002145) do
     t.integer  "requires_registration"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   create_table "ad_images", force: true do |t|
@@ -91,6 +96,20 @@ ActiveRecord::Schema.define(version: 20131219002145) do
     t.integer  "image_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "admin_publicities", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "expire_date"
+    t.string   "owner"
+    t.boolean  "is_deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "ads", force: true do |t|

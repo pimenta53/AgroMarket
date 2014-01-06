@@ -37,7 +37,7 @@ class SearchController < ApplicationController
 			tutorials = Academy::Tutorial.all
 
 			tutorials.each do |t|
-				@names << {:id => t.id, :title => t.title, :category => t.category.name,:tipo => "Tutorial"}
+				@names << {:id => t.id, :title => t.title, :category => t.category.name,:img => "http://placehold.it/40x30",:tipo => "Tutorial"}
 			end
 		end
 

@@ -9,7 +9,7 @@ class Event::EventsController < ApplicationController
     else
       page = 1
     end
-    @event_events = Event::Event.all.paginate(:page => page, :per_page => 8)
+    @event_events = Event::Event.aproved_events.paginate(:page => page, :per_page => 8)
   end
 
   # GET /event/events/1
@@ -31,7 +31,7 @@ class Event::EventsController < ApplicationController
   def create
     @event_event = Event::Event.new(event_event_params)
     @event_event.user_id = current_user.id
-
+    
     respond_to do |format|
       if @event_event.save
         format.html { redirect_to @event_event, notice: 'Event was successfully created.' }
