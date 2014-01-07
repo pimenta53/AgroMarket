@@ -6,6 +6,12 @@ class Notification < ActiveRecord::Base
     where(:notification_type => ["1", "2", "3"])
   end
 
+  #verify if a user has new notification
+  def self.new_notification?( current_user )
+    r = where(:user_id => current_user, :watched => false)
+    return r.blank? ? false : true
+  end
+  
   #get Ad of notification
   def ad
     Ad.find(self.id_destination)
@@ -44,5 +50,7 @@ class Notification < ActiveRecord::Base
           4
       end
   end
+
+
 
 end

@@ -68,7 +68,7 @@ ready = function() {
     return false;
   }
 
-  setInterval(refresh_header, 700000);
+  setInterval(refresh_header, 10000);
 
   /*
   *  Criar nova resposta para uma pergunta com AJAX
