@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140102230630) do
+ActiveRecord::Schema.define(version: 20140106142808) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -93,6 +93,20 @@ ActiveRecord::Schema.define(version: 20140102230630) do
     t.datetime "updated_at"
   end
 
+  create_table "admin_publicities", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "expire_date"
+    t.string   "owner"
+    t.boolean  "is_deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "ads", force: true do |t|
     t.string   "title"
     t.string   "description"
@@ -162,20 +176,12 @@ ActiveRecord::Schema.define(version: 20140102230630) do
     t.datetime "updated_at"
   end
 
-  create_table "notification", force: true do |t|
-    t.integer  "user_id",                           null: false
-    t.integer  "id_destination",                    null: false
-    t.boolean  "watched",           default: false
-    t.integer  "notification_type",                 null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "notifications", force: true do |t|
     t.integer  "user_id",                           null: false
     t.integer  "id_destination",                    null: false
     t.boolean  "watched",           default: false
     t.integer  "notification_type",                 null: false
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -214,6 +220,13 @@ ActiveRecord::Schema.define(version: 20140102230630) do
     t.datetime "updated_at"
   end
 
+  create_table "types", force: true do |t|
+    t.string   "name"
+    t.integer  "flag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_follows", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -243,10 +256,9 @@ ActiveRecord::Schema.define(version: 20140102230630) do
     t.datetime "birthday"
     t.string   "phone"
     t.integer  "city_id"
-    t.string   "ocupation"
-    t.integer  "user_type",              default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_type",              default: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

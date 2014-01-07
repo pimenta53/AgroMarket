@@ -18,7 +18,7 @@
       <li class="dropdown-header"><%= @notifications_ad_expired.length %> Anúncios expiraram</li>
         <%# first_expired_ads = expired_ads.limit(5) %>
         <% @notifications_ad_expired.each do |notification| %>
-          <% ad = Ad.find(notification.id_destination) %>
+          <% ad = notification.ad %>
           <li class="preview">
             <a href="<%= ad_path(ad, :notification => notification) %>">
               <% if ad.ad_images.count > 0 %>
@@ -40,7 +40,7 @@
       <li class="dropdown-header"><%= @notifications_ad_messages.length %> Novas mensagens</li>
         <%# first_expired_ads = expired_ads.limit(5) %>
         <% @notifications_ad_messages.each do |notification| %>
-          <% ad = Ad.find(notification.id_destination) %>
+          <% ad = notification.ad %>
           <li class="preview">
             <a href="<%= ad_path(ad, :notification => notification) %>">
               <% if ad.ad_images.count > 0 %>
@@ -56,6 +56,7 @@
         <% end %>
       <li class="divider"></li>
     <% end %>
+
 
     <% if number_notifications_ads == 0 %>
       <li class="dropdown-header">Sem novos alertas.</li>
