@@ -150,6 +150,11 @@ footer a:visited,footer li a:visited{
     color:white;
 }
 
+#footer-info li {
+  display: inline-block;
+  margin-right: 25px;
+}
+
 /******SIDEBAR LEFT**********/
 
 

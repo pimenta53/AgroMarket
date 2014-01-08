@@ -1,3 +1,12 @@
 // Place all the styles related to the Academy/Questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-question {
+	color: #666;
+}
+
+.new-question:hover {
+	text-decoration: none;
+	color: black;
+}
