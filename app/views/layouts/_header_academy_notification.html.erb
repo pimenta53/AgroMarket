@@ -1,9 +1,9 @@
 
-<% number_notifications_ads = @notifications_new_answer.length %>
+<% number_notifications_academy = @notifications_new_answer.length %>
 <li class="dropdown messages-dropdown">
 
-  <% if number_notifications_ads > 0 %>
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book" id="fa-book"></i><span class="badge" id="custom-badge"><%= number_notifications_ads %></span><b class="caret" id="dropCarret"></b></a>
+  <% if number_notifications_academy > 0 %>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book" id="fa-book"></i><span class="badge" id="custom-badge"><%= number_notifications_academy %></span><b class="caret" id="dropCarret"></b></a>
   <% else %>
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"  id="fa-book"></i><b class="caret" id="dropCarret"></b></a>
   <% end %>
@@ -14,7 +14,7 @@
     <% if @notifications_new_answer.length > 0 %>
       <li class="dropdown-header"><%= @notifications_new_answer.length %> Novas Respostas</li>
       <% @notifications_new_answer.each do |notification| %>
-        <% question = Academy::Question.find(notification.id_destination) %>
+        <% question = notification.question %>
         <li class="preview">
           <a href="<%= academy_question_path(question, :notification => notification) %>">
             <span class="name"><%= question.title %></span>
@@ -24,7 +24,7 @@
       <li class="divider"></li>
     <% end %>
 
-    <% if number_notifications_ads == 0 %>
+    <% if number_notifications_academy == 0 %>
       <li class="dropdown-header">Sem novos alertas.</li>
     <% end %>
 
