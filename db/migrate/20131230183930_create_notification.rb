@@ -8,7 +8,7 @@ class CreateNotification < ActiveRecord::Migration
                                                    # => 2 -> ad expired,
                                                    # => 3 -> ad deleted by admin
                                                    # => 4 -> new answer for your questions
-                                                   # => 5 ->
+                                                   # => 5 -> New registrations to the workshop
                                                    # => 6 ->
                                                    # => 7 ->
       t.text    :description
