@@ -5,12 +5,15 @@
     <div class="panel-body">
       <ul class="thumbnails list-unstyled">
         <% publicity_list.each do |publicity|  %>
+          <% if publicity.link %>
+          <a href="<%= publicity.link %>" >
+          <% end %>
           <li style="margin-bottom:-25px;">
             <div class="thumbnail" style="padding: 0">
               <div style="padding:4px">
                 <table>
                   <tr>
-                    <td> 
+                    <td rowspan="2" valign="top"> 
                       <%= image_tag(publicity.image.url(:thumb), :alt => publicity.title, :width => '100') %>
                     </td>
                     <td valign="top">
@@ -18,10 +21,18 @@
                       <h6><%= publicity.description %></h6>
                     </td>
                   </tr>
+                  <tr>
+                    <td valign="bottom">
+                      <h6><%= publicity.owner %></h6>
+                    </td>
+                  </tr>
                 </table>
               </div>
             </div>
           </li>
+          <% if publicity.link %>
+          </a>
+          <% end %>
         <% end %>
 
        </ul>

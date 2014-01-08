@@ -10,18 +10,22 @@ class Admin::Academy::TutorialsController < ApplicationController
 		authorize! :read, @aproved_tutorials
 	end
 
-	def show 
-		
+	def show
+
 	end
 
 	def edit
-		
+
 	end
 
 	def aprove_tutorial
 		tutorial = Academy::Tutorial.find(params[:id_aprove])
 		tutorial.aproved = true
 		tutorial.save
+
+		#cria notificação
+    Notification.create_notification( current_user , tutorial.id , 6 , "Tutorial Aprovado")
+
 		redirect_to admin_academy_tutorials_path,:notice => "Tutorial foi aprovado com sucesso"
 	end
 

@@ -23,9 +23,9 @@ module Agrosocial
     # config.i18n.default_locale = :de
     config.encoding = "utf-8"
     config.i18n.default_locale = "pt-PT"
-    
-    config.active_record.observers = :message_observer
-    
+
+    config.active_record.observers = :message_observer, :notification_observer
+
     config.action_mailer.perform_deliveries = true
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.delivery_method = :smtp
@@ -42,5 +42,5 @@ module Agrosocial
     }
   end
 
-  
+
 end

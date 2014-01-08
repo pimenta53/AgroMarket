@@ -4,7 +4,7 @@ describe "cities/show" do
   before(:each) do
     @city = assign(:city, stub_model(City,
       :city => "City",
-      :country_id => 1
+      :district_id => 1
     ))
   end
 

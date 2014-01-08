@@ -31,6 +31,7 @@ class Ad < ActiveRecord::Base
 	has_many :messages
 	has_many :talks
 
+
 	#scopes
 
 	# atributes
@@ -191,7 +192,7 @@ class Ad < ActiveRecord::Base
    else
      return "http://placehold.it/40x30"
    end
-  
+
   end
 	#######################
   ### STATISTIC ZONE ####

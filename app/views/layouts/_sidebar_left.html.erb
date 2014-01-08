@@ -10,7 +10,7 @@
             </a>
           </h4>
         </div>
-        <div id="collapseMercado" class="panel-collapse collapse">
+        <div id="collapseMercado" class="panel-collapse collapse <%= in_mercado? %>">
           <div class="panel-body">
             <ul>
               <li><%= link_to "Entrar no Mercado".html_safe , ads_path %></li>
@@ -40,7 +40,7 @@
             </a>
           </h4>
         </div>
-        <div id="collapseEventos" class="panel-collapse collapse">
+        <div id="collapseEventos" class="panel-collapse collapse <%= in_events? %>">
           <div class="panel-body">
             <ul>
               <li><%= link_to "Ver Todos".html_safe, event_events_path %></li>
@@ -72,7 +72,7 @@
             </a>
           </h4>
         </div>
-        <div id="collapseAcademia" class="panel-collapse collapse">
+        <div id="collapseAcademia" class="panel-collapse collapse <%= in_academy? %>">
           <div class="panel-body">
             <ul>
             <li><%= link_to "Entrar na Academia".html_safe, academy_path %></li>
@@ -88,9 +88,9 @@
       <div class="panel panel-default">
         <div class="panel-heading" style="background-color: #47a447;">
           <h4 class="panel-title">
-            
+
               <%= link_to "ACADEMIA".html_safe, academy_path  %>
-          
+
           </h4>
         </div>
       </div>

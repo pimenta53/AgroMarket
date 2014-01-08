@@ -8,67 +8,64 @@
   </li>
 </ol>
 
+<section class="panel">
+  <header class="panel-heading border-header text-center">
+    <div class="title_show_tutorial"><%= @academy_tutorial.title %></div>
+  </header>
 
-        <section class="panel">
+  <div class="panel-body">
+    <div class=" "><%##  texto da resposta  ##%>
+      <div class="">
+        <div class="information_show_tutorial">
+          <span>Autor: </span> <%= @academy_tutorial.user.name %>
+          <p>
+            <span>Categoria:</span> 
+            <span class="label" style="background-color: #<%= @academy_tutorial.category.color %> ; color: black; font-size:12px;">
+              <%= @academy_tutorial.category.name %>
+            </span>
+          </p>
 
-            <header class="panel-heading border-header text-center">
-               <div class="title_show_tutorial"><%= @academy_tutorial.title %></div>
-            </header>
+          <p> <span>Tempo Criado: </span> 
+           <abbr class="timeago" title="<%=  @academy_tutorial.created_at.getutc.iso8601 %>">
+             <%=  @academy_tutorial.created_at.to_s %>
+           </abbr>
+         </p>
+         <p>
+           <span>Descrição: </span> <%= @academy_tutorial.rapid_description %>
+         </p>
 
-            <div class="panel-body">
+       </div> 
+       
+       <div class="process_show_tutorial" >
+        <span>Processo: </span> 
+        <div class="text_show_tutorial">
 
-                      <div class=" "><%##  texto da resposta  ##%>
-                        <div class="">
+          <%= @academy_tutorial.text.html_safe %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-                          <div class="information_show_tutorial">
-                              <span>Autor: </span> <%= @academy_tutorial.user.name %>
+<div class="panel-footer">
+  <div class="fields">
 
-                              <p><span>Categoria:</span> <span class="label" style="background-color: #<%= @academy_tutorial.category.color %> ; color: black; font-size:12px;">
-                              <%= @academy_tutorial.category.name %>
-                              </span>
-                              </p>
 
-                                 <p> <span>Tempo Criado: </span> 
-                                     <abbr class="timeago" title="<%=  @academy_tutorial.created_at.getutc.iso8601 %>">
-                                           <%=  @academy_tutorial.created_at.to_s %>
-                                    </abbr>
-                                </p>
-                                <p>
-                                   <span>Descrição: </span> <%= @academy_tutorial.rapid_description %>
-                                </p>
+    <div class="button_back">
 
-                          </div> 
-                           
-                           <div class="process_show_tutorial" >
-                                <span>Processo: </span> 
-                      					  <div class="text_show_tutorial">
+     <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_tutorials_path %>'">
+       <span class="icon-arrow-left" style=""></span>Voltar
+     </button>
+   </div>
 
-                                    <%= @academy_tutorial.text.html_safe %>
-                      					  </div>
-                				   </div>
-                				</div>
-                      </div>
-            </div>
-
-            <div class="panel-footer">
-                  <div class="fields">
-    
-
-                        <div class="button_back">
-
-                             <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_tutorials_path %>'">
-                             <span class="icon-arrow-left" style=""></span>Voltar
-                             </button>
-                        </div>
-
-                        <% if user_signed_in? && current_user.id == @academy_tutorial.user_id %>
-                        <div class="ui-group-buttons">
-                          <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_academy_tutorial_path(@academy_tutorial),:class=>"btn btn-info", :tile=> "Editar Tutorial" %>
-                          <div class="or"></div>
-                          <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @academy_tutorial, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu tutorial?' } ,:class=>"btn btn-danger", :tile=> "Apagar Tutorial"%>
-                        </div>
-                    <% end %>
-                  </div>
-          </div>
-      </section>
+   <% if user_signed_in? && current_user.id == @academy_tutorial.user_id %>
+   <div class="ui-group-buttons">
+    <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_academy_tutorial_path(@academy_tutorial),:class=>"btn btn-info", :tile=> "Editar Tutorial" %>
+    <div class="or"></div>
+    <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @academy_tutorial, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu tutorial?' } ,:class=>"btn btn-danger", :tile=> "Apagar Tutorial"%>
+  </div>
+  <% end %>
+</div>
+</div>
+</section>
 

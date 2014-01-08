@@ -19,20 +19,9 @@
 	color:#EA5B0C;
 }
 
-.new_tutorial 
-{
-	background-color: #78CD51;
-	border-color: #78CD51;
-	color: #FFFFFF;
-	float: right;	
-	height: auto;
-	padding-right: 10px;
-	padding-left: 10px;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	vertical-align: center;
-	
-	
+.new-tutorial:hover {
+	text-decoration: none;
+	color: black;
 }
 
 

@@ -81,6 +81,14 @@ class MessagesController < ApplicationController
     if @message.save
         @messages = @talk.messages
         @message = Message.new
+
+        #if doesnt exist, create a notification for the other user and save it
+        if Notification.where(:user_id => @talk.user_receiver(current_user.id), :id_destination => @ad.id, :notification_type => 1, :watched => false).empty?
+          ad_notify = Notification.new(:user_id => @talk.user_receiver(current_user.id), :id_destination => @ad.id)
+          ad_notify.set_type(:ad_message)
+          ad_notify.save
+        end
+
         #render :partial => 'create.js.erb'
         redirect_to @ad
     end

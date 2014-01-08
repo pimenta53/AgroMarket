@@ -17,9 +17,10 @@
 /config/database.yml
 *~
 
-# Ignore user and ad images
+# Ignore user, ad and publicities images
 /public/system/ad_images/images/*
 /public/system/users/avatars/*
+/public/system/admin/publicities/images/*
 .DS_Store
 DS_Store
 

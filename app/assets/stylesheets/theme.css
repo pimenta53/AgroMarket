@@ -126,6 +126,7 @@ a:hover #dropCarret{
 
 #custom-badge{
   margin-left:-2px;
+  background-color: #2a3542;
 }
 
 
@@ -148,6 +149,11 @@ footer a{
 footer a:visited,footer li a:visited{
     text-decoration: none;
     color:white;
+}
+
+#footer-info li {
+  display: inline-block;
+  margin-right: 25px;
 }
 
 /******SIDEBAR LEFT**********/

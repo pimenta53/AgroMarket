@@ -4,7 +4,7 @@
       <a class="url" href="<%= ads_path %>"><i class="fa fa-tags"></i>Anúncios</a></li>
       <% if user_signed_in? %>
         <a class="url" href="<%= myads_user_path(current_user.id) %>"> > Os meus anúncios</a></li>
-        <%= link_to "Novo Anúncio", new_ad_path, class:"url", style:"float:right" %>
+        <%= link_to "<i class='fa fa-plus'></i>Novo Anúncio".html_safe, new_ad_path, class:"url", style:"float:right" %>
       <% end %>
   </ol>
 

@@ -1,93 +1,90 @@
 <% if flash[:notice] %>
-  <script> showNotify("<%= flash[:notice] %>","success") </script>
+<script> showNotify("<%= flash[:notice] %>","success") </script>
 <% end %>
 <% if flash[:error] %>
-  <script> showNotify("<%= flash[:error] %>","info") </script>
+<script> showNotify("<%= flash[:error] %>","info") </script>
 <% end %>
 
- <ol class="breadcrumb" id="breadcrumbAds">
-    <li class="active"><a class="url" href="<%= academy_tutorials_path %>"><i class="fa fa-tags"></i> Tutoriais</a></li>
-   <% if user_signed_in? %>
+<ol class="breadcrumb" id="breadcrumbAds">
+  <li class="active"><a class="url" href="<%= academy_tutorials_path %>"><i class="fa fa-tags"></i> Tutoriais</a></li>
+  <% if user_signed_in? %>
 
-      <div class="new_tutorial">
-
-        <%= link_to 'Novo Tutorial', new_academy_tutorial_path,:class=> "url", style:"float:right"%>
-        
-      </div>
-      
-   <% end %>
- </ol>
-
-
-  <div class="row">
-    
-       
-       <div class="panel">
-          <%= will_paginate(@academy_tutorials, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
-    
-          <table class="table table-hover">
-               <thead>
-                    <tr class="tutorial_table_head">
-                      <th class="tutorial_text_head">Titulo</th>
-                      <th class="tutorial_text_head">Descricao</th>
-                      <th class="tutorial_text_head">Categoria</th>
-                      <th class="tutorial_text_head">Criado em:</th>
-                      <th class="tutorial_text_head">Utilizador</th>
-                      <th class="tutorial_text_head">Opcões</th>
-                    </tr>
-              </thead>
- 
-              <% @academy_tutorials.each do |academy_tutorial| %>
-
-             
-             
-              <tbody>
-
-                
-                <tr class="tutorial_table_body">
-                   <td>
-                       <h3 class="title_tutorial"><%= academy_tutorial.title %></h3>
-                   </td>
-                   <td>
-                       <h4><%= academy_tutorial.rapid_description %></h4>
-                   </td>
-                   <td>
-                      <span class="label" style="background-color: #<%= academy_tutorial.category.color %>">
-                           <%= academy_tutorial.category.name %>
-                      </span>
-                   </td>
-                    <td>
-                     <h4><%= academy_tutorial.created_at.strftime("%F") %></h4>
-                   </td>
-                    <td>
-                      <span><%= image_tag current_user.avatar.url(:medium), style:"height:35px; " %></span>
-                      <p> <%= academy_tutorial.user.name %> </p>
-                   </td>
-
-                    <td>
-                     <% if current_user.id == academy_tutorial.user_id %>
-                            <%= link_to 'Editar', edit_academy_tutorial_path(academy_tutorial),:class => "label",:style => "background-color:#FFCC91" %>
-                     <% end %>
-                      <%= link_to 'Ver', academy_tutorial,:class => "label",:style => "background-color:#FFCC91" %>
-                   </td>
-
-                 </tr>
-              </tbody>
-
-              <% end %>
-         
-
-          </table> 
-          <%= will_paginate(@academy_tutorials, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
-
-
-       </div>
-
+  <div class="pull-right">
+    <%= link_to '<i class="fa fa-plus"></i>Novo Tutorial'.html_safe, new_academy_tutorial_path,:class=> "new-tutorial" %>
   </div>
 
+  <% end %>
+</ol>
+
+
+<div class="row">
+
+
+ <div class="panel">
+  <%= will_paginate(@academy_tutorials, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
+
+  <table class="table table-hover">
+   <thead>
+    <tr class="tutorial_table_head">
+      <th class="tutorial_text_head">Titulo</th>
+      <th class="tutorial_text_head">Descricao</th>
+      <th class="tutorial_text_head">Categoria</th>
+      <th class="tutorial_text_head">Criado em:</th>
+      <th class="tutorial_text_head">Utilizador</th>
+      <th class="tutorial_text_head">Opcões</th>
+    </tr>
+  </thead>
+
+  <% @academy_tutorials.each do |academy_tutorial| %>
+
+
+
+  <tbody>
+
+
+    <tr class="tutorial_table_body">
+     <td>
+       <h3 class="title_tutorial"><%= academy_tutorial.title %></h3>
+     </td>
+     <td>
+       <h4><%= academy_tutorial.rapid_description %></h4>
+     </td>
+     <td>
+      <span class="label" style="background-color: #<%= academy_tutorial.category.color %>">
+       <%= academy_tutorial.category.name %>
+     </span>
+   </td>
+   <td>
+     <h4><%= academy_tutorial.created_at.strftime("%F") %></h4>
+   </td>
+   <td>
+    <span><%= image_tag current_user.avatar.url(:medium), style:"height:35px; " %></span>
+    <p> <%= academy_tutorial.user.name %> </p>
+  </td>
+
+  <td>
+   <% if current_user.id == academy_tutorial.user_id %>
+   <%= link_to 'Editar', edit_academy_tutorial_path(academy_tutorial),:class => "label",:style => "background-color:#FFCC91" %>
+   <% end %>
+   <%= link_to 'Ver', academy_tutorial,:class => "label",:style => "background-color:#FFCC91" %>
+ </td>
+
+</tr>
+</tbody>
+
+<% end %>
+
+
+</table> 
+<%= will_paginate(@academy_tutorials, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
+
+
+</div>
+
+</div>
 
 
 
 
 
-  
+

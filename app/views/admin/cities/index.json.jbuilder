@@ -1,4 +1,4 @@
-json.array!(@cities) do |city|
-  json.extract! city, :city, :country_id
-  json.url city_url(city, format: :json)
+json.array!(@admin_cities) do |admin_city|
+  json.extract! admin_city, :id
+  json.url admin_city_url(admin_city, format: :json)
 end
