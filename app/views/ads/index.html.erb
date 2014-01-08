@@ -11,7 +11,7 @@
     <li class="active"><a href="<%= ads_path %>"><i class="fa fa-tags"></i> Anúncios</a></li>
  </ol>
 
-  <div class="row ads_index_section.ads" id="ads">
+  <div class="row ads_index_section.ads">
     <%= render :partial => @ads %>
     <% if @ads.empty? %>
       <p>Ainda não existem anúncios. Sê o primeiro a anunciar!</p>

@@ -18,6 +18,18 @@ body {
  color:black;
 }
 
+.no-effect {
+	text-decoration: none;
+	padding-left: 10px;
+	color: #666B74;
+}
+
+.no-effect:hover {
+	text-decoration: none;
+	padding-left: 10px;
+	color: black;
+}
+
 #ads p {
 	text-align: center;
 }
@@ -105,12 +117,12 @@ font-weight: 300;
 }
 /********** index ads **********/
 
-.ads_index_section{
+/*.ads_index_section{
 	margin-right: -15px;
 
 	width: auto;
 	height: auto;
-}
+}*/
 
 .ads_index_img{
 	position: relative;
