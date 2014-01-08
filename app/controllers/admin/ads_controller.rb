@@ -8,6 +8,8 @@ class Admin::AdsController < Admin::ApplicationController
   # GET /ads.json
   def index
     @ads = Ad.all
+    @activecolor = 'green'
+    @deletedcolor = 'red'
     authorize! :read, @ads
   end
 

@@ -22,7 +22,6 @@ class Admin::Academy::TutorialsController < ApplicationController
 		tutorial = Academy::Tutorial.find(params[:id_aprove])
 		tutorial.aproved = true
 		tutorial.save
-
 		redirect_to admin_academy_tutorials_path,:notice => "Tutorial foi aprovado com sucesso"
 	end
 

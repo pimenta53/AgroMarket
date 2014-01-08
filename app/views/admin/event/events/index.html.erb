@@ -15,6 +15,7 @@
       <th>Fim</th>
       <th>Título</th>
       <th>Descrição</th>
+      <th>Cidade</th>
       <th>Utilizador</th>
       <th></th>
       <th></th>
@@ -30,7 +31,8 @@
         <td><%= event.end_day %></td>
         <td><%= event.title %></td>
         <td><%= event.description %></td>
-        <td><%= event.user_id %></td>
+        <td><%= event.city.city %></td>
+        <td><%= event.user_id %> / <%= event.user.name %></td>
         <td><%= link_to 'Ver', [:admin, event] %></td>
         <td><%= link_to 'Aprovar', admin_aprove_event_path(:id_aprove => event.id) %></td>
         <td><%= link_to 'Eliminar', [:admin, event], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>

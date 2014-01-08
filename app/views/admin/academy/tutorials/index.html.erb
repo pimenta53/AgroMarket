@@ -24,7 +24,7 @@
 				<td><%= uap_tutorial.rapid_description %></td>
 				<td><%= link_to 'Ver', admin_academy_tutorial_path(uap_tutorial.id) %> </td>
 				<td><%= link_to 'Aprovar' , admin_aprove_tutorial_path(:id_aprove => uap_tutorial.id)%></td>
-				<td><%= link_to 'Apagar', ap_tutorials, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+				<td><%= link_to 'Apagar', uap_tutorial, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
 
 				<td></td>
 

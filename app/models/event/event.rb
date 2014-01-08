@@ -11,10 +11,14 @@
 #  aproved     :boolean          default(FALSE)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  city_id     :integer
 #
 
 class Event::Event < ActiveRecord::Base
 
+	belongs_to :city
+	belongs_to :user
+	
 	#scope
     default_scope -> { order('created_at DESC') }
     
