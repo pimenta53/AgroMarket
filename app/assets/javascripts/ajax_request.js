@@ -58,6 +58,7 @@ ready = function() {
     $.ajax({
       url: "/refresh_header",
       type: "GET",
+      async: true,
       success: function(result){
         $("#header").html(result);
       },
@@ -68,7 +69,7 @@ ready = function() {
     return false;
   }
 
-  setInterval(refresh_header, 10000);
+  setInterval(refresh_header, 100000);
 
   /*
   *  Criar nova resposta para uma pergunta com AJAX

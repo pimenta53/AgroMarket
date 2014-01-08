@@ -21,6 +21,9 @@ class Admin::Academy::TutorialsController < ApplicationController
 		tutorial.aproved = 1
 		tutorial.save
 
+		#cria notificação
+        Notification.create_notification( current_user , tutorial.id , 6 , "Tutorial Aprovado")
+        
 		redirect_to admin_dashboard_index_path,:notice => "Tutorial foi aprovado com sucesso"
 	end
 

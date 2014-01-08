@@ -6,10 +6,19 @@ class Notification < ActiveRecord::Base
     where(:notification_type => ["1", "2", "3"])
   end
 
+  def self.academy_notification
+    where(:notification_type => ["4", "5"])
+  end
+
   #verify if a user has new notification
   def self.new_notification?( current_user )
     r = where(:user_id => current_user, :watched => false)
     return r.blank? ? false : true
+  end
+
+  def self.create_notification( current_user , id_destination , notification_type , description )
+      n = Notification.new(:user_id => current_user.id, :id_destination => id_destination, :notification_type => notification_type, :description => description )
+      n.save
   end
   
   #get Ad of notification
@@ -19,6 +28,10 @@ class Notification < ActiveRecord::Base
 
   def question
     Academy::Question.find(self.id_destination)
+  end
+
+  def workshop
+    Academy::Workshop.find(self.id_destination)
   end
 
   def event

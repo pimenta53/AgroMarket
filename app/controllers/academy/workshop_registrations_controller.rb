@@ -34,6 +34,9 @@ class Academy::WorkshopRegistrationsController < ApplicationController
         workshop = @academy_workshop_registration.workshop
         workshop.add_inscription
 
+        #notify the owner of the Workshop
+        Notification.create_notification( current_user , workshop.id , 5 , "Nova Inscrição")
+
         format.html { redirect_to  @academy_workshop_registration.workshop, notice: 'Workshop registration was successfully created.' }
         format.json { render action: 'show', status: :created, location: @academy_workshop_registration }
       else
