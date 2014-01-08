@@ -2,6 +2,7 @@
   <li class="active">
     <a class="url" href="<%= event_events_path %>"><i class="fa fa-tags"></i> Eventos</a></li>
   <% if user_signed_in? %>
+      <a class="url" href="<%= myevents_path %>">> Os meus Eventos</a></li>
       <%= link_to 'Novo Evento', new_event_event_path,:class=> "url", style:"float:right"%>
   <% end %>
 </ol>
@@ -23,14 +24,22 @@
             </div>
             <div class="col-xs-9 col-md-9 section-box">
               <%= link_to event_event.title, event_event, class:"h2 url" %>
-              <div style="float:right"><%= link_to 'Editar', edit_event_event_path(event_event), class:"url" %> <%= link_to 'Eliminar', event_event, class:"url", method: :delete, data: { confirm: 'Are you sure?' } %> </div>
+              <div style="float:right">
+                <% if user_signed_in? && current_user.id == event_event.user_id %>
+                    <div class="ui-group-buttons">
+                      <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_event_event_path(@event_event),:class=>"btn btn-info", :tile=> "Editar Evento" %>
+                      <div class="or"></div>
+                      <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @event_event, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento ?' } ,:class=>"btn btn-danger", :tile=> "Apagar Evento"%>
+                    </div>
+                <% end %>
+              </div>
               <p><%= event_event.description %></p>
               <hr />
               <div class="row rating-desc">
                 <div class="col-md-12">
-                  <span class="fa fa-calendar"></span><%=event_event.start_day.day %>/<%=event_event.start_day.mon %>/<%=event_event.start_day.year %>
+                  <span class="fa fa-calendar" style="color:darkgreen;"></span><%=event_event.start_day.day %>/<%=event_event.start_day.mon %>/<%=event_event.start_day.year %>
                   <span class="separator">|</span>
-                  <span class="fa fa-calendar"></span><%=event_event.end_day.day %>/<%=event_event.end_day.mon %>/<%=event_event.end_day.year %>
+                  <span class="fa fa-calendar" style="color:#d43f3a"></span><%=event_event.end_day.day %>/<%=event_event.end_day.mon %>/<%=event_event.end_day.year %>
                 </div>
               </div>
             </div>

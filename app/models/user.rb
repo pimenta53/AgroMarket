@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
                               :primary_key => 'id',
                               :foreign_key => 'receiver_id'
   has_many :ads
+  has_many :events
   has_many :messages
 
   has_many :talks_user_one , :class_name => 'Talk',
