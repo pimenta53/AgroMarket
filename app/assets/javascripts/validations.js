@@ -183,7 +183,8 @@ ready = function() {
             "event_event[title]": {minlength: 2, maxlength: 50, required: true },
             "event_event[start_day]": {accept: "[\\d]{1}/[\\d]{2}/[\\d]{4}", required: true },
             "event_event[end_day]": {accept: "[\\d]{1}/[\\d]{2}/[\\d]{4}", required: true },
-            "event_event[description]": { minlength: 2, maxlength: 255, required: true }
+            "event_event[description]": { minlength: 2, maxlength: 255, required: true },
+            "event_event[city_id]":  { required: true }
         },
         highlight: function(element) {
             $(element).closest('.control-group').removeClass('success').addClass('error');

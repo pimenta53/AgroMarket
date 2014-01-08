@@ -73,6 +73,9 @@
           <%= link_to @event_event.user.name, @event_event.user, class:"url" %>
         </p>
         <p>
+          <strong>Cidade:</strong> <%= @event_event.city.city %>
+        </p>
+        <p>
           <strong><span class="label label-success">Início:</span></strong>
           <%= (@event_event.start_day + 1.week).strftime("%d - %m - %Y") %>
           <strong><span class="label label-danger">Fim:</span></strong>

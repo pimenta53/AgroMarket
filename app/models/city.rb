@@ -17,6 +17,7 @@ scope :alphabetically, order("city ASC")
 
 has_many :users
 has_many :ads
+has_many :events, class_name: "Event::Event", foreign_key: "city_id"
 
 validates :city, presence: true, uniqueness: true
 
