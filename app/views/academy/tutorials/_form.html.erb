@@ -37,7 +37,7 @@
 
       <div class="control-group">
         <div class="controls">
-          <%= f.text_area :text,:placeholder => "Especifique todo o processo aqui...",:rows => "10",:id => "some-textarea",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
+          <%= f.text_area :text,id:"text_tutorial",:placeholder => "Especifique todo o processo aqui...",:rows => "10",:id => "some-textarea",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
         </div>
       </div>
 
@@ -52,7 +52,7 @@
 
       <% if @academy_tutorial.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@academy_tutorial.errors.count, "error") %> prohibited this academy_tutorial from being saved:</h2>
+            <h2><%= pluralize(@academy_tutorial.errors.count, "erro") %> impediu o envio do formulario:</h2>
 
             <ul>
               <% @academy_tutorial.errors.full_messages.each do |msg| %>

@@ -19,6 +19,9 @@ class Academy::Tutorial < ActiveRecord::Base
   belongs_to :category
   has_many :tutorial_images
 
+  #validates
+  validates :text, presence: true
+
   def to_param
   		"#{id}-#{title.parameterize}"
   end
