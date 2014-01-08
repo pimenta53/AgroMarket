@@ -1,6 +1,5 @@
 class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource :only => [:edit,:update,:show,:index]
 
   # GET /cities
   # GET /cities.json
@@ -16,7 +15,6 @@ class CitiesController < ApplicationController
   # GET /cities/new
   def new
     @city = City.new
-    @country = Country.all
   end
 
   # GET /cities/1/edit
@@ -27,14 +25,12 @@ class CitiesController < ApplicationController
   # POST /cities.json
   def create
     @city = City.new(city_params)
-    
+
     respond_to do |format|
       if @city.save
-        flash[:notice] = "Cidade adicionada com sucesso".
-        format.html { redirect_to @city }
+        format.html { redirect_to @city, notice: 'Cidade criada com sucesso.' }
         format.json { render action: 'show', status: :created, location: @city }
       else
-        flash[:error] = "Erro ao adicionar cidade".
         format.html { render action: 'new' }
         format.json { render json: @city.errors, status: :unprocessable_entity }
       end
@@ -46,7 +42,7 @@ class CitiesController < ApplicationController
   def update
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to @city, notice: 'City was successfully updated.' }
+        format.html { redirect_to @city, notice: 'City alterada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -73,6 +69,6 @@ class CitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
-      params.require(:city).permit(:city, :country_id)
+      params.require(:city).permit(:city, :district_id)
     end
 end

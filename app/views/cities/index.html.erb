@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>City</th>
-      <th>Country</th>
+      <th>District</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,7 +15,7 @@
     <% @cities.each do |city| %>
       <tr>
         <td><%= city.city %></td>
-        <td><%= city.country_id %></td>
+        <td><%= city.district_id %></td>
         <td><%= link_to 'Show', city %></td>
         <td><%= link_to 'Edit', edit_city_path(city) %></td>
         <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
