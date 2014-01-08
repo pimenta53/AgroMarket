@@ -14,7 +14,7 @@
 #
 
 class Event::Event < ActiveRecord::Base
-
+     belongs_to :user
 	#scope
     default_scope -> { order('created_at DESC') }
     
