@@ -11,7 +11,6 @@
 #  updated_at  :datetime
 #
 
-
 class SubCategory < ActiveRecord::Base
 
   has_many :ads

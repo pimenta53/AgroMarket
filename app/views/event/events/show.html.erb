@@ -1,45 +1,95 @@
+ <ol class="breadcrumb" id="breadcrumbAds">
+<% if flash[:notice] %>
+    <script> showNotify("<%= flash[:notice] %>","success") </script>
+<% end %>
+<% if flash[:error] %>
+    <script> showNotify("<%= flash[:error] %>","error") </script>
+<% end %>
+
 <ol class="breadcrumb" id="breadcrumbAds">
   <li class="active">
-    <a class="url" href="<%= event_events_path %>"><i class="fa fa-tags"></i> Eventos</a>
-    <a class="url" href="<%= event_event_path(@event_event.id) %>"> > <%= @event_event.title %></a></li>
+    <a class="url" href="<%= event_events_path %>"><i class="fa fa-tags"></i> Eventos </a>
+    <a class="url" href="<%= event_event_path(@event_event.id) %>"> > <%= @event_event.title %></a>
+  </li>
   <div style="float:right">
-    <% if user_signed_in? %>
-        <%= link_to 'Novo Evento', new_event_event_path,:class=> "url"%>
+    <% if user_signed_in? && current_user.id == @event_event.user_id %>
+        <div class="ui-group-buttons">
+          <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_event_event_path(@event_event),:class=>"btn btn-info", :tile=> "Editar Evento" %>
+          <div class="or"></div>
+          <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @event_event, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento ?' } ,:class=>"btn btn-danger", :tile=> "Apagar Evento"%>
+        </div>
     <% end %>
   </div>
 </ol>
 
-<p id="notice"><%= notice %></p>
+<!--FACEBOOK SDK START -->
+<div id="fb-root"></div>
+<script>
+    // Load the SDK asynchronously
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_PT/all.js#xfbml=1&appId=547514635336381";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<!--FACEBOOK SDK END -->
+<!--TWITTER SDK START -->
+<script>
+    !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+        if(!d.getElementById(id)){
+            js=d.createElement(s);
+            js.id=id;
+            js.src=p+'://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js,fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+<!--TWITTER SDK END -->
 
-<p>
-  <strong>Start day:</strong>
-  <%= @event_event.start_day %>
-</p>
 
-<p>
-  <strong>End day:</strong>
-  <%= @event_event.end_day %>
-</p>
+<section class="panel">
+  <div class="panel-body">
+      <div class="col-xs-3 col-md-3 text-center">
+        <img src="http://images6.fanpop.com/image/photos/33400000/Cute-Cats-cats-33440930-1280-800.jpg" alt="bootsnipp"
+             class="img-rounded img-responsive" />
+      </div>
+    <!-- Information EVENT -->
+    <div class="col-md-9">
+      <h4>
+        aaa<%= @event_event.title %>
+      </h4>
+      <div class = "ads_metainfo">
+        <p>
+          <strong>Descricão:</strong>
+          <%= @event_event.description %>
+        </p>
+      </div>
+      <div class ="ads_description">
+        <p>
+          <strong>Utilizador:</strong>
+          <%= link_to @event_event.user.name, @event_event.user, class:"url" %>
+        </p>
+        <p>
+          <strong><span class="label label-success">Início:</span></strong>
+          <%= (@event_event.start_day + 1.week).strftime("%d - %m - %Y") %>
+          <strong><span class="label label-danger">Fim:</span></strong>
+          <%= (@event_event.end_day + 1.week).strftime("%d - %m - %Y") %>
+        </p>
+        <div class="fb-share-button sharebutton" data-href="http://teste94.di.uminho.pt/" data-type="button">
+        </div>
+        <div class="sharebutton">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event_event.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event_event.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @event_event.user_id %>
-</p>
-
-<p>
-  <strong>Aproved:</strong>
-  <%= @event_event.aproved %>
-</p>
-
-<%= link_to 'Edit', edit_event_event_path(@event_event) %> |
-<%= link_to 'Back', event_events_path %>
+<div class="fields">
+  <button type="button" class="btn btn-primary" onclick="location.href='<%= event_event_path %>'">
+    <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
+  </button>
+</div>

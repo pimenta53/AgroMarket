@@ -11,20 +11,20 @@
     <li class="active"><a href="<%= ads_path %>"><i class="fa fa-tags"></i> Anúncios</a></li>
  </ol>
 
-
-  <div class="row ads_index_section.ads" id="ads">
+  <div class="row ads_index_section.ads">
     <%= render :partial => @ads %>
     <% if @ads.empty? %>
-            Ainda não existem anuncios. Sê o primeiro a anunciar!
+      <p>Ainda não existem anúncios. Sê o primeiro a anunciar!</p>
+      <br>
+      <div id="empty-market"><%= image_tag 'empty_market.png', class: 'market-image' %></div>
     <% end %>
   </div>
   <p id="loading" style="visibility: hidden">A buscar mais anuncios</p>
 
 <div href="<% if @ads.next_page %><%= ads_path(:page => @ads.next_page) %><% else %>#<% end %>" class='load-more-ads'>
   <% if @ads.next_page %>
-    A buscar mais anuncios
+    A buscar mais anúncios
   <% else %>
-    Não existe mais anuncios
+    Não existem mais anúncios
   <% end %>
 </div>
-

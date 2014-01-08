@@ -1,13 +1,21 @@
-<h1>Listing admin_publicities</h1>
+<section class="panel">
+  <header class="panel-heading"><h1>Lista de Publicidades</h1><h5><%= @admin_publicities.count %> Publicidades</h5> 
+        <div class="newItemLink">
+      <i class="fa fa-plus-circle"></i><%= link_to 'Nova Publicidade', new_admin_publicity_path %>
+    </div>
+  </header>
 
-<table class="table">
+
+  <div class="table-responsive">
+    <table class="table table-hover" >
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Expire date</th>
-      <th>Owner</th>
-      <th>Is deleted</th>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Descrição</th>
+      <th>Validade</th>
+      <th>Dono</th>
+      <th>Apagado?</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,19 +25,21 @@
   <tbody>
     <% @admin_publicities.each do |admin_publicity| %>
       <tr>
+        <td>z%= admin_publicity.id %></td>
         <td><%= admin_publicity.title %></td>
         <td><%= admin_publicity.description %></td>
         <td><%= admin_publicity.expire_date %></td>
         <td><%= admin_publicity.owner %></td>
-        <td><%= admin_publicity.is_deleted %></td>
-        <td><%= link_to 'Show', admin_publicity %></td>
-        <td><%= link_to 'Edit', edit_admin_publicity_path(admin_publicity) %></td>
-        <td><%= link_to 'Destroy', admin_publicity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= if admin_publicity.is_deleted then 'Sim' else 'Não' end%></td>
+        <td><%= link_to 'Ver', admin_publicity %></td>
+        <td><%= link_to 'Editar', edit_admin_publicity_path(admin_publicity) %></td>
+        <td><%= link_to 'Eliminar', admin_publicity, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+  </div >
+  <br>
+</section>
 
-<br>
-
-<%= link_to 'New Publicity', new_admin_publicity_path %>
+<i class="fa fa-plus-circle"></i><%= link_to 'Nova Publicidade', new_admin_publicity_path %>

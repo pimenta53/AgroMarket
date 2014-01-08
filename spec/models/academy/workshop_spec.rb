@@ -14,6 +14,7 @@
 #  requires_registration :integer
 #  created_at            :datetime
 #  updated_at            :datetime
+#  title                 :string(255)
 #
 
 require 'spec_helper'
