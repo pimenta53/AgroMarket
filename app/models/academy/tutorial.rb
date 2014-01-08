@@ -20,7 +20,7 @@ class Academy::Tutorial < ActiveRecord::Base
   has_many :tutorial_images
 
   #validates
-  validates :text, presence: true
+  validates :text, presence:{ message: "O campo com o conteúdo do tutorial nao pode ser vazio! Explicíte cada passo do tutorial neste campo." }
 
   def to_param
   		"#{id}-#{title.parameterize}"

@@ -55,7 +55,7 @@
             <h2><%= pluralize(@academy_tutorial.errors.count, "erro") %> impediu o envio do formulario:</h2>
 
             <ul>
-              <% @academy_tutorial.errors.full_messages.each do |msg| %>
+              <% @academy_tutorial.errors.each do |attr, msg| %>
                   <li><%= msg %></li>
               <% end %>
             </ul>
