@@ -15,11 +15,13 @@ class Academy::WorkshopsController < ApplicationController
   def show
     @academy_workshop_registrations = @academy_workshop.workshop_registrations
     @academy_workshop_registration = Academy::WorkshopRegistration.new
+    
   end
 
   # GET /academy/workshops/new
   def new
     @academy_workshop = Academy::Workshop.new
+    @categories = Category.all
   end
 
   # GET /academy/workshops/1/edit
@@ -72,10 +74,12 @@ class Academy::WorkshopsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_academy_workshop
       @academy_workshop = Academy::Workshop.find(params[:id])
+      @categories = Category.all
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def academy_workshop_params
-      params.require(:academy_workshop).permit(:user_id, :available_slots, :price, :local, :date, :description, :requires_registration)
+      params.require(:academy_workshop).permit(:user_id, :available_slots, :price, :local, :date, :description, :requires_registration,:title)
     end
 end
