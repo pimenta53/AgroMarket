@@ -18,15 +18,20 @@ class ApplicationController < ActionController::Base
 
   def load_notifications
     all_notifications = Notification.where(:user_id => current_user, :watched => false)
+    
     @notifications_ad_messages  = all_notifications.where(:notification_type => 1)
     @notifications_ad_expired   = all_notifications.where(:notification_type => 2)
 
-    #notificações de academia
+    ########notificações de academia#################
     @notifications_new_answer   = all_notifications.where(:notification_type => 4)
 
     @notification_acmy_new_registration = all_notifications.where(:notification_type => 5 )
 
-    @number_notifications_academy = @notification_acmy_new_registration.length + @notifications_new_answer.length
+    @notification_acmy_aproved = all_notifications.where(:notification_type => [6,7] )
+
+    @number_notifications_academy = @notification_acmy_new_registration.length + @notifications_new_answer.length + @notification_acmy_aproved.length
+    ######## END notificações de academia#################
+
   end
 
   protected

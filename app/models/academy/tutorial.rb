@@ -1,3 +1,4 @@
+#encoding: utf-8
 # == Schema Information
 #
 # Table name: academy_tutorials
@@ -13,7 +14,6 @@
 #  created_at        :datetime
 #  updated_at        :datetime
 #
-
 class Academy::Tutorial < ActiveRecord::Base
   belongs_to :user
   belongs_to :category

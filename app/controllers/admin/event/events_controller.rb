@@ -29,6 +29,10 @@ class Admin::Event::EventsController < ApplicationController
     event = Event::Event.find(params[:id_aprove])
     event.aproved = true
     event.save
+
+    #cria notificação
+    Notification.create_notification( current_user , event.id , 7 , "Evento Aprovado")
+
     redirect_to admin_event_events_path,:notice => "Evento foi aprovado com sucesso"
   end
 

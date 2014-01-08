@@ -10,6 +10,11 @@ class Notification < ActiveRecord::Base
     where(:notification_type => ["4", "5"])
   end
 
+  #notificações de eventos e tutoriais aprovados
+  def self.aproved_academy_notifications
+    where(:notification_type => ["6", "7"])
+  end
+
   #verify if a user has new notification
   def self.new_notification?( current_user )
     r = where(:user_id => current_user, :watched => false)
@@ -36,6 +41,14 @@ class Notification < ActiveRecord::Base
 
   def event
     Event::Event.find(self.id_destination)
+  end
+
+  def type_notification
+    if self.notification_type == 6
+      Academy::Tutorial.find(self.id_destination)
+    elsif self.notification_type == 7
+      Event::Event.find(self.id_destination)
+    end
   end
 
   def set_type(type)
