@@ -223,6 +223,13 @@ ActiveRecord::Schema.define(version: 20140108152324) do
     t.datetime "updated_at"
   end
 
+  create_table "types", force: true do |t|
+    t.string   "name"
+    t.integer  "flag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_follows", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -252,10 +259,9 @@ ActiveRecord::Schema.define(version: 20140108152324) do
     t.datetime "birthday"
     t.string   "phone"
     t.integer  "city_id"
-    t.string   "ocupation"
-    t.integer  "user_type",              default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_type",              default: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
