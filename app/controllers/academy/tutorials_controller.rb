@@ -2,7 +2,7 @@
 class Academy::TutorialsController < ApplicationController
   before_action :set_academy_tutorial, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource :only => [:edit,:update,:show]
-
+  before_action :get_categories
 
   # GET /academy/tutorials
   # GET /academy/tutorials.json
@@ -100,6 +100,10 @@ class Academy::TutorialsController < ApplicationController
       format.html { redirect_to academy_tutorials_url }
       format.json { head :no_content }
     end
+  end
+
+  def get_categories
+    @categories = Category.all
   end
 
   private
