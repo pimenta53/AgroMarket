@@ -36,7 +36,7 @@ class Admin::Publicity < ActiveRecord::Base
 
    def self.get_publicity_with_offset(index, count)
    
-     list = Admin::Publicity.where("is_deleted = false").limit(count).offset(index)
+     list = Admin::Publicity.where("is_deleted = false and (expire_date is null or expire_date >= ?)", Date.today).limit(count).offset(index)
      
      new_offset = index + list.length
      
