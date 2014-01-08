@@ -8,6 +8,7 @@
     <table class="table table-hover" >
       <thead>
         <tr>
+          <th></th>
           <th>ID</th>
           <th>Imagem</th>
           <th>Título</th>
@@ -25,6 +26,11 @@
       <tbody>
         <% @ads.each do |ad| %>
           <tr>
+
+          <td>
+          <span class="label" style= "background-color: <%= if ad.is_active then @activecolor elsif ad.is_deleted then @deletedcolor else 'orange' end %>"> </span>
+
+          </td>
             <td><%= ad.id %></td>
             <td>
               <div class="img_table">

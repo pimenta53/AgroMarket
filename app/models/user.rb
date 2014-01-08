@@ -64,6 +64,7 @@ class User < ActiveRecord::Base
                                                 :source => 'user',
                                                 :foreign_key => 'following_id'
 
+
   #belongs_to :district
   belongs_to :city
 

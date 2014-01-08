@@ -10,7 +10,6 @@
 #  updated_at  :datetime
 #
 
-
 class Category < ActiveRecord::Base
 
   has_many :ads##################### talvez seja para sair
