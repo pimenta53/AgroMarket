@@ -40,7 +40,7 @@ class Academy::WorkshopRegistrationsController < ApplicationController
         format.html { redirect_to  @academy_workshop_registration.workshop, notice: 'Workshop registration was successfully created.' }
         format.json { render action: 'show', status: :created, location: @academy_workshop_registration }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to  @academy_workshop_registration.workshop, notice: 'Já se encontra registado no Workshop.' }
         format.json { render json: @academy_workshop_registration.errors, status: :unprocessable_entity }
       end
     end

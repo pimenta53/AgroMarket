@@ -13,4 +13,6 @@
 class Academy::WorkshopRegistration < ActiveRecord::Base
   belongs_to :workshop
   belongs_to :user
+
+  validates :user_id, :uniqueness => true
 end
