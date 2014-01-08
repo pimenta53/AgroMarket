@@ -1,4 +1,6 @@
 Agrosocial::Application.routes.draw do
+  resources :plams
+
   resources :cities
 
   namespace :admin do

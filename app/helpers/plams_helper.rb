@@ -1,0 +1,2 @@
+module PlamsHelper
+end
