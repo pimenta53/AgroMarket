@@ -1,8 +1,8 @@
 #encoding: utf-8
 class Academy::WorkshopsController < ApplicationController
   before_action :set_academy_workshop, only: [:show, :edit, :update, :destroy]
-  
   load_and_authorize_resource :only => [:edit,:update,:show,:index]
+
   # GET /academy/workshops
   # GET /academy/workshops.json
   def index
@@ -15,6 +15,13 @@ class Academy::WorkshopsController < ApplicationController
   def show
     @academy_workshop_registrations = @academy_workshop.workshop_registrations
     @academy_workshop_registration = Academy::WorkshopRegistration.new
+
+
+    #mark notification as watched, if params[:notification] is set
+    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
+      Notification.find(params[:notification]).update(:watched => true)
+    end
+
   end
 
   # GET /academy/workshops/new
@@ -29,10 +36,10 @@ class Academy::WorkshopsController < ApplicationController
   # POST /academy/workshops
   # POST /academy/workshops.json
   def create
-    
     @academy_workshop = Academy::Workshop.new(academy_workshop_params)
     @academy_workshop.user_id = current_user.id
     @academy_workshop.slots_taken = 0
+
     respond_to do |format|
       if @academy_workshop.save
         format.html { redirect_to @academy_workshop, notice: 'Workshop was successfully created.' }

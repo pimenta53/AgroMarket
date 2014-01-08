@@ -40,6 +40,7 @@ class Admin::Event::EventsController < ApplicationController
 
     respond_to do |format|
       if @event_event.save
+        
         format.html { redirect_to [:admin, @event_event], notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event_event }
       else
