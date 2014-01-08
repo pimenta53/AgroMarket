@@ -247,30 +247,6 @@ ActiveRecord::Schema.define(version: 20140108112922) do
     t.datetime "updated_at"
   end
 
-  create_table "testes", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tutorial_images", force: true do |t|
-    t.integer  "tutorial_id"
-    t.string   "url"
-    t.integer  "is_deleted"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tutorials", force: true do |t|
-    t.integer  "category_id"
-    t.integer  "user_id"
-    t.integer  "aproved"
-    t.string   "title"
-    t.string   "text"
-    t.integer  "is_delected"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "types", force: true do |t|
     t.string   "name"
     t.integer  "flag"
