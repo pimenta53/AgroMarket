@@ -3,7 +3,9 @@
     <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a> >
     <% if user_signed_in? %>
         <a class="url" href="<%= academy_questions_path %>">Perguntas</a> </li>
-        <%= link_to 'Nova Pergunta', new_academy_question_path,:class=> "url", style:"float:right"%>
+        <div class='pull-right'>
+          <%= link_to '<i class="fa fa-plus"></i>Nova Pergunta'.html_safe, new_academy_question_path,:class=> "new-question" %>
+        </div>
     <% end %>
 </ol>
 
