@@ -5,11 +5,11 @@ describe "cities/index" do
     assign(:cities, [
       stub_model(City,
         :city => "City",
-        :country_id => 1
+        :district_id => 1
       ),
       stub_model(City,
         :city => "City",
-        :country_id => 1
+        :district_id => 1
       )
     ])
   end

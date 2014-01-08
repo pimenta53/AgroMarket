@@ -15,6 +15,7 @@
 #  image_file_size    :integer
 #  image_updated_at   :datetime
 #
+
 class Admin::Publicity < ActiveRecord::Base
 	has_attached_file :image,:styles => {
 		:avatar => "50x50!",
