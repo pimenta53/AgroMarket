@@ -1,7 +1,10 @@
 <ol class="breadcrumb" id="breadcrumbAds">
   <li class="active">
     <a class="url" href="<%= academy_workshops_path %>"><i class="fa fa-tags"></i> Workshops</a>
-    <a class="url" href="<%= event_event_path(@academy_workshop.id) %>"> > <%= @academy_workshop %></a></li>
+    <a class="url" href="<%= academy_workshop_path(@academy_workshop.id) %>"> > <%= @academy_workshop.title %></a>
+  </li>
+
+
   <div style="float:right">
     <% if user_signed_in? %>
         <%= link_to 'Novo Workshop', new_academy_workshop_path,:class=> "url"%>
@@ -11,81 +14,125 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @academy_workshop.user_id %>
-</p>
-
-<p>
-  <strong>Available slots:</strong>
-  <%= @academy_workshop.available_slots %>
-</p>
-
-<p>
-  <strong>Slots taken:</strong>
-  <%= @academy_workshop.slots_taken %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @academy_workshop.price %>
-</p>
-
-<p>
-  <strong>Local:</strong>
-  <%= @academy_workshop.local %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @academy_workshop.date %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @academy_workshop.description %>
-</p>
 
 
-<p>
-  <strong>Requires registration:</strong>
-  <%= @academy_workshop.requires_registration %>
-</p>
+ <section class="panel">
 
-<%= link_to 'Edit', edit_academy_workshop_path(@academy_workshop) %> |
-<%= link_to 'Back', academy_workshops_path %>
+            <header class="panel-heading border-header text-center">
+               <div class="title_show_workshop"><%= @academy_workshop.title %></div>
+            </header>
+          
 
-<%= render :partial =>"academy/workshop_registrations/inscriptions" %>
 
-<!-- VERIFICA se workshop tem inscriçoes e se ainda tem inscriçoes-->
-<% if @academy_workshop.has_available_slots? == true && @academy_workshop.requires_registration? == true %>
-    <div class="text-center">
-          <button class="demo btn btn-primary" data-toggle="modal" href="#responsive">Inscrever-se no Workshop</button>
-    </div>
+            <div class="panel-body">
+
+                          <div class="information_workshop">
+
+                              <div class="information_title">
+                                Informações 
+                              </div>
+
+                              <div class="information_data"> 
+
+                                 <div class="information_left">
+                                       <span> <i class="fa fa-ticket"></i>Vagas: </span>  <%= @academy_workshop.available_slots %> 
+                                       <span> <i class="fa fa-unlock"></i>Vagas Disponiveis: </span>   <%= @academy_workshop.slots_taken %> 
+                                       <span> <i class="fa fa-money"></i>Preço: </span>    <%= @academy_workshop.price %> <i class="fa fa-eur"></i>
+                                       <span> <i class="fa fa-list-alt"></i>Numero minimo de Inscrições: </span>   <%= @academy_workshop.requires_registration %> 
+                                 </div>
+                                  
+                              </div>
+
+                          </div> 
+
+                           <div class="process_show_workshop" >
+                                <span>Processo: </span> 
+                                  <div class="text_show_workshop">
+                                    <%= @academy_workshop.description.html_safe %>
+                                  </div>
+                           </div>
+
+                          <%= render :partial =>"academy/workshop_registrations/inscriptions" %>
+
+                          <!-- VERIFICA se workshop tem inscriçoes e se ainda tem inscriçoes-->
+                              <% if @academy_workshop.has_available_slots? == true && @academy_workshop.requires_registration? == true %>
+                                  <div class="text-center">
+                                        <button class="demo btn btn-primary" data-toggle="modal" href="#responsive"> <i class="fa fa-plus"></i>Inscrever-se no Workshop</button>
+                                  </div>
 
 
 
-    <!-- MODAL -->
-    <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-        <h4 class="modal-title">Inscrever-se no workshop</h4>
-    </div>
+                                  <!-- MODAL -->
+                                  <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                      <h4 class="modal-title"> Inscrever-se no workshop</h4>
+                                  </div>
 
-      <div class="modal-body">
-               <div class="row" id="post-review-box" >
-                    <div class="col-md-12">
-                        <%= render :partial =>"academy/workshop_registrations/form" %>
-                    </div>
-                </div>
-      </div>
+                                    <div class="modal-body">
+                                             <div class="row" id="post-review-box" >
+                                                  <div class="col-md-12">
+                                                      <%= render :partial =>"academy/workshop_registrations/form" %>
+                                                  </div>
+                                              </div>
+                                    </div>
+                                    
+                                  </div>
+                                  <!-- FIM MODAL -->
 
-    </div>
-    <!-- FIM MODAL -->
+                                <% else %>
 
-  <% else %>
+                                 <div class="text-center  workshop_notinscription">
+                                        Não há mais inscrições disponiveis
+                                 </div>
+                              <% end %>
 
-   <div class="text-center">
-          <h2>Não há mais inscrições disponiveis</h2>
-   </div>
-<% end %>
+
+                           <div class="information_show_workshop">
+
+                              <div class="information_show_title">
+                                Informações Adicionais
+                              </div>
+
+                              <div class="information_show_data"> 
+
+                                 <div class="information_left_info">
+                                   <span><i class="fa fa-user"></i>Utilizador: </span>  <%= @academy_workshop.user.name %> 
+                                  <span> <i class="fa fa-map-marker"></i>Localidade: </span>  <%= @academy_workshop.local %> 
+                                    <span><i class="fa fa-calendar-o"></i>Data: </span>   <%= @academy_workshop.date %> 
+                                 </div>
+                                  
+                              </div>
+
+                          </div> 
+
+
+                    
+            </div>
+
+            <div class="panel-footer">
+                  <div class="fields_workshop">
+    
+
+                        <div class="button_back">
+
+                             <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_workshops_path %>'">
+                             <span class="icon-arrow-left" style=""></span>Voltar
+                             </button>
+                        </div>
+
+                        <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>
+                        <div class="ui-group-buttons">
+                          <%= link_to '<i class="fa  fa-edit"></i> edit'.html_safe, edit_academy_workshop_path(@academy_workshop),:class=>"", :tile=> "Editar Tutorial" %>
+                        </div>
+                    <% end %>
+
+                  </div>
+           </div>
+         
+        
+</section>
+
+
+
+

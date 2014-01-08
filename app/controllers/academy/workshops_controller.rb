@@ -17,6 +17,7 @@ class Academy::WorkshopsController < ApplicationController
     @academy_workshop_registration = Academy::WorkshopRegistration.new
 
 
+
     #mark notification as watched, if params[:notification] is set
     if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
       Notification.find(params[:notification]).update(:watched => true)
@@ -27,6 +28,7 @@ class Academy::WorkshopsController < ApplicationController
   # GET /academy/workshops/new
   def new
     @academy_workshop = Academy::Workshop.new
+    @categories = Category.all
   end
 
   # GET /academy/workshops/1/edit
@@ -79,10 +81,12 @@ class Academy::WorkshopsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_academy_workshop
       @academy_workshop = Academy::Workshop.find(params[:id])
+      @categories = Category.all
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def academy_workshop_params
-      params.require(:academy_workshop).permit(:user_id, :available_slots, :price, :local, :date, :description, :requires_registration)
+      params.require(:academy_workshop).permit(:user_id, :available_slots, :price, :local, :date, :description, :requires_registration,:title)
     end
 end
