@@ -8,6 +8,7 @@
 #  expire_date        :datetime
 #  owner              :string(255)
 #  is_deleted         :boolean
+#  link               :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
 #  image_file_name    :string(255)
@@ -23,6 +24,10 @@ class Admin::Publicity < ActiveRecord::Base
 		:ad_size => "1200x800!",
 		:large => "600x600!"
 	}
+
+   validates :image, presence: true
+   validates :title, presence: true
+   validates :owner, presence: true
 
    def self.get_publicity(index, count)
      self.get_publicity_with_offset(index, count)["list"]
