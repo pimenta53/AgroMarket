@@ -13,14 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20140108112922) do
 
-
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
     t.integer  "user_id",                     null: false
     t.integer  "up",          default: 0
     t.integer  "down",        default: 0
     t.boolean  "is_deleted",  default: false
-    t.string   "image_url"
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,7 +30,6 @@ ActiveRecord::Schema.define(version: 20140108112922) do
     t.string   "title",                       null: false
     t.text     "text"
     t.boolean  "is_deleted",  default: false
-    t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
