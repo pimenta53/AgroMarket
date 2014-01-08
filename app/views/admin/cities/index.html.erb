@@ -1,4 +1,3 @@
-
 <section class="panel">
 
   <header class="panel-heading"><h1>Lista de cidades</h1><h5><%= @cities.count %> Cidades</h5> 
@@ -23,16 +22,17 @@
       </thead>
 
       <tbody>
-        <% @citiesAZ.each do |city| %>
+        <%# @citiesAZ.each do |city| %>
+        <% @cities.each do |city| %>
+
         <tr>
           <td><%= city.city %></td>
           <td><%= city.ads.count %></td>
           <td><%= city.users.count %></td>
-          <td><%# city.events.count %></td>
+          <td><%= city.events.count %></td>
 
           <td></td>
 
-          <!--td><%#city.country_id %></td-->
           <td><%# link_to 'Ver', [:admin,city] %></td>
           <td><%= link_to 'Editar', edit_admin_city_path(city) %></td>
           <td><%= link_to 'Eliminar', [:admin,city], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>

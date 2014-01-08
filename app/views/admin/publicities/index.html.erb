@@ -13,6 +13,7 @@
       <th>ID</th>
       <th>Título</th>
       <th>Descrição</th>
+      <th>Link</th>
       <th>Validade</th>
       <th>Dono</th>
       <th>Apagado?</th>
@@ -25,9 +26,10 @@
   <tbody>
     <% @admin_publicities.each do |admin_publicity| %>
       <tr>
-        <td>z%= admin_publicity.id %></td>
+        <td><%= admin_publicity.id %></td>
         <td><%= admin_publicity.title %></td>
         <td><%= admin_publicity.description %></td>
+        <td><%= admin_publicity.link %></td>
         <td><%= admin_publicity.expire_date %></td>
         <td><%= admin_publicity.owner %></td>
         <td><%= if admin_publicity.is_deleted then 'Sim' else 'Não' end%></td>

@@ -1,17 +1,12 @@
 require 'spec_helper'
 
-describe "cities/show" do
+describe "admin/cities/show" do
   before(:each) do
-    @city = assign(:city, stub_model(City,
-      :city => "City",
-      :district_id => 1
-    ))
+    @admin_city = assign(:admin_city, stub_model(Admin::City))
   end
 
   it "renders attributes in <p>" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/City/)
-    rendered.should match(/1/)
   end
 end

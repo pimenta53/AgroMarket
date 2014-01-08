@@ -6,7 +6,7 @@ module ApplicationHelper
 
 
    #Publicity globals
-   $publicity_offset = 0
+   $publicity_offset = rand(0..(Admin::Publicity.where("is_deleted = false and (expire_date is null or expire_date >= ?)", Date.today).count-1))
 
    def get_publicity(count)
      fetch_result = Admin::Publicity.get_publicity_with_offset($publicity_offset, count)

@@ -69,6 +69,6 @@ class Admin::PublicitiesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_publicity_params
-      params.require(:admin_publicity).permit(:title, :description, :expire_date, :owner, :is_deleted, :image)
+      params.require(:admin_publicity).permit(:title, :description, :link, :expire_date, :owner, :is_deleted, :image)
     end
 end

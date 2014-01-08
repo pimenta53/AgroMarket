@@ -1,4 +1,6 @@
 Agrosocial::Application.routes.draw do
+  resources :cities
+
   namespace :admin do
     resources :publicities
   end

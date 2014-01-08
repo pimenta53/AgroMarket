@@ -1,53 +1,51 @@
 #encoding: utf-8
-class  Admin::CitiesController <  Admin::ApplicationController
-  layout "admin"
-  before_action :set_city, only: [:show, :edit, :update, :destroy]
+class Admin::CitiesController < Admin::ApplicationController
+  before_action :set_admin_city, only: [:show, :edit, :update, :destroy]
 
-  # GET /cities
-  # GET /cities.json
+  # GET /admin/cities
+  # GET /admin/cities.json
   def index
     @cities = City.all
     @citiesAZ = City.alphabetically
   end
 
-  # GET /cities/1
-  # GET /cities/1.json
+  # GET /admin/cities/1
+  # GET /admin/cities/1.json
   def show
   end
 
-  # GET /cities/new
+  # GET /admin/cities/new
   def new
     @city = City.new
-    @country = Country.all
+    @district = District.all
   end
 
-  # GET /cities/1/edit
+  # GET /admin/cities/1/edit
   def edit
+    @district = District.all
   end
 
-  # POST /cities
-  # POST /cities.json
+  # POST /admin/cities
+  # POST /admin/cities.json
   def create
-    @city = City.new(city_params)
+    @city = City.new(admin_city_params)
 
     respond_to do |format|
       if @city.save
         format.html { redirect_to [:admin,@city], notice: 'City was successfully created.' }
-        format.js{ render :js => "alert(\"coisa\")"}
         format.json { render action: 'show', status: :created, location: @city }
       else
-        @country = Country.all
         format.html { render action: 'new' }
         format.json { render json: @city.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /cities/1
-  # PATCH/PUT /cities/1.json
+  # PATCH/PUT /admin/cities/1
+  # PATCH/PUT /admin/cities/1.json
   def update
     respond_to do |format|
-      if @city.update(city_params)
+      if @city.update(admin_city_params)
         format.html { redirect_to [:admin,@city], notice: 'City was successfully updated.' }
         format.json { head :no_content }
       else
@@ -57,8 +55,8 @@ class  Admin::CitiesController <  Admin::ApplicationController
     end
   end
 
-  # DELETE /cities/1
-  # DELETE /cities/1.json
+  # DELETE /admin/cities/1
+  # DELETE /admin/cities/1.json
   def destroy
     @city.destroy
     respond_to do |format|
@@ -69,12 +67,12 @@ class  Admin::CitiesController <  Admin::ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_city
+    def set_admin_city
       @city = City.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def city_params
-      params.require(:city).permit(:city, :country_id)
+    def admin_city_params
+      params.require(:city).permit(:city, :district_id)
     end
 end

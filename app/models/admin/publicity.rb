@@ -8,6 +8,7 @@
 #  expire_date        :datetime
 #  owner              :string(255)
 #  is_deleted         :boolean
+#  link               :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
 #  image_file_name    :string(255)
@@ -15,6 +16,7 @@
 #  image_file_size    :integer
 #  image_updated_at   :datetime
 #
+
 class Admin::Publicity < ActiveRecord::Base
 	has_attached_file :image,:styles => {
 		:avatar => "50x50!",
@@ -24,13 +26,17 @@ class Admin::Publicity < ActiveRecord::Base
 		:large => "600x600!"
 	}
 
+   validates :image, presence: true
+   validates :title, presence: true
+   validates :owner, presence: true
+
    def self.get_publicity(index, count)
      self.get_publicity_with_offset(index, count)["list"]
    end
 
    def self.get_publicity_with_offset(index, count)
    
-     list = Admin::Publicity.where("is_deleted = false").limit(count).offset(index)
+     list = Admin::Publicity.where("is_deleted = false and (expire_date is null or expire_date >= ?)", Date.today).limit(count).offset(index)
      
      new_offset = index + list.length
      
