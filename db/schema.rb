@@ -188,7 +188,7 @@ ActiveRecord::Schema.define(version: 20140108184346) do
     t.datetime "updated_at"
   end
 
-  create_table "plams", force: true do |t|
+  create_table "plans", force: true do |t|
     t.string   "name",                    null: false
     t.integer  "duration",    default: 6
     t.float    "price",                   null: false
@@ -242,13 +242,6 @@ ActiveRecord::Schema.define(version: 20140108184346) do
   add_index "user_follows", ["following_id"], name: "index_user_follows_on_following_id", using: :btree
   add_index "user_follows", ["user_id"], name: "index_user_follows_on_user_id", using: :btree
 
-  create_table "user_plams", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "plam_id",    null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -274,6 +267,7 @@ ActiveRecord::Schema.define(version: 20140108184346) do
     t.datetime "updated_at"
     t.integer  "counter_ads"
     t.integer  "counter_events"
+    t.integer  "plan_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

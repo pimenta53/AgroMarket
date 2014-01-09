@@ -1,6 +1,6 @@
-class CreatePlams < ActiveRecord::Migration
+class CreatePlans < ActiveRecord::Migration
   def change
-    create_table :plams do |t|
+    create_table :plans do |t|
       t.string :name,         :null => false
       t.integer :duration,    :default => 6 #6 meses de duracao
       t.float :price,         :null => false

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "plams/show" do
+describe "plans/show" do
   before(:each) do
-    @plam = assign(:plam, stub_model(Plam,
+    @plan = assign(:plan, stub_model(Plan,
       :name => "Name",
       :duration => "",
       :price => 1.5,

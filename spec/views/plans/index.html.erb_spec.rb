@@ -1,16 +1,16 @@
 require 'spec_helper'
 
-describe "plams/index" do
+describe "plans/index" do
   before(:each) do
-    assign(:plams, [
-      stub_model(Plam,
+    assign(:plans, [
+      stub_model(Plan,
         :name => "Name",
         :duration => "",
         :price => 1.5,
         :ads_limit => "",
         :event_limit => ""
       ),
-      stub_model(Plam,
+      stub_model(Plan,
         :name => "Name",
         :duration => "",
         :price => 1.5,
@@ -20,7 +20,7 @@ describe "plams/index" do
     ])
   end
 
-  it "renders a list of plams" do
+  it "renders a list of plans" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Name".to_s, :count => 2
