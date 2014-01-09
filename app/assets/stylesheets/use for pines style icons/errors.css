@@ -1,0 +1,98 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+}
+
+
+
+
+
+
+/********** Login_Signup **********/
+
+.form-control { margin-bottom: 10px; }
+
+
+/********** Login**********/
+
+#errors_body
+{
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  background:url('/assets/Backgrounds/Dry_Land.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ 
+}
+
+.errors-title
+{
+
+    -webkit-text-shadow:1px 1px #000;
+    -moz-text-shadow:1px 1px #000;
+    text-shadow:1px 1px #000;
+    color: #00A75D;
+    font-size: 20px;
+}
+
+.errors-slogan{
+
+  
+  -webkit-text-shadow:1px 1px #000;
+  -moz-text-shadow:1px 1px #000;
+  text-shadow:1px 1px #000;
+  color: #EA5B0C;
+  font-size: 18px;
+
+
+}    
+
+.vert-text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.vert-text h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 4.5em;
+  font-weight: 700;
+}
+
+
+.col-slogan{
+
+    display: inline-block;
+    zoom: 1;
+    display: inline;
+    
+    width: 100%;
+
+
+    background-color: rgba(255,255,255,0.8);
+    -webkit-border-radius: 10px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+}
+.box{
+  width:45%;
+  height:30%;
+  margin-left:auto;
+  margin-right:auto;
+  background: rgba(204, 204, 204, 0.7);
+}
+
+
+
+
+
