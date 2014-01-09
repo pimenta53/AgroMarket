@@ -20,11 +20,11 @@ Agrosocial::Application.routes.draw do
   get "/44", :to => "errors#not_found"
 
   get "/404", :to => "errors#not_found"
-  
+
   get "/422", :to => "errors#unacceptable"
-  
+
   get "/500", :to => "errors#internal_error"
-  
+
   #facebook callback
   match '/auth/failure' => 'authentications#failure', via: :all
   match '/auth/:provider/callback' => 'authentications#create', via: :all
@@ -65,7 +65,7 @@ Agrosocial::Application.routes.draw do
   end 
 
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}
-  
+
 
   resources :users, :login, :authentications
 
@@ -116,7 +116,7 @@ Agrosocial::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  
+
   root 'welcome#index'
 
   # Example of regular route:
