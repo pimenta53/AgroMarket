@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plan.name %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @plan.duration %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @plan.price %>
+</p>
+
+<p>
+  <strong>Ads limit:</strong>
+  <%= @plan.ads_limit %>
+</p>
+
+<p>
+  <strong>Event limit:</strong>
+  <%= @plan.event_limit %>
+</p>
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>

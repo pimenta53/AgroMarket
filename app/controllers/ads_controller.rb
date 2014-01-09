@@ -1,6 +1,6 @@
 #encoding: utf-8
 class AdsController < ApplicationController
-  before_action :set_ad, only: [:show, :edit, :update, :destroy]
+  before_action :set_ad, only: [:show, :edit, :update, :destroy , :highlight]
   before_action :load_stuff, only: [:new,:create,:show,:edit,:update]
 
   load_and_authorize_resource :only => [:edit,:update,:show,:index]
@@ -88,6 +88,10 @@ class AdsController < ApplicationController
   def new
     @ad = Ad.new
     5.times {@ad.ad_images.build}
+
+    #conta o numero de slots que tem disponivel
+    @num_slots_ads = current_user.remaining_ads_slots 
+
   end
 
   # GET /ads/1/edit
@@ -193,6 +197,25 @@ class AdsController < ApplicationController
     redirect_to @ad, notice: 'A mensagem foi eliminada com sucesso'
 
   end
+
+  #para dar destaque ao anuncio 
+  #coloca-o como destacado
+  def highlight
+    @ad.highlight = 1
+
+    respond_to do |format|
+      if @ad.save
+        flash[:notice] = "Anúncio desyacado com sucesso."
+        format.html { redirect_to @ad }
+        format.json { render action: 'show', status: :created, location: @ad }
+      else
+        flash[:error] = "Erro ao Destacar anúncio."
+        format.html { redirect_to @ad }
+        format.json { render json: @ad.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
 private
     # Use callbacks to share common setup or constraints between actions.

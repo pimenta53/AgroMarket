@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108184346) do
+ActiveRecord::Schema.define(version: 20140109000741) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20140108184346) do
     t.boolean  "is_active",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "highlight",      default: 0
   end
 
   create_table "authentications", force: true do |t|
@@ -184,11 +185,22 @@ ActiveRecord::Schema.define(version: 20140108184346) do
     t.integer  "id_destination",                    null: false
     t.boolean  "watched",           default: false
     t.integer  "notification_type",                 null: false
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "plams", force: true do |t|
+    t.string   "name",                    null: false
+    t.integer  "duration",    default: 6
+    t.float    "price",                   null: false
+    t.integer  "ads_limit",               null: false
+    t.integer  "event_limit",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plans", force: true do |t|
     t.string   "name",                    null: false
     t.integer  "duration",    default: 6
     t.float    "price",                   null: false
@@ -232,6 +244,13 @@ ActiveRecord::Schema.define(version: 20140108184346) do
     t.datetime "updated_at"
   end
 
+  create_table "types", force: true do |t|
+    t.string   "name"
+    t.integer  "flag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_follows", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -268,12 +287,12 @@ ActiveRecord::Schema.define(version: 20140108184346) do
     t.datetime "birthday"
     t.string   "phone"
     t.integer  "city_id"
-    t.string   "ocupation"
-    t.integer  "user_type",              default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_type",              default: 1
     t.integer  "counter_ads"
     t.integer  "counter_events"
+    t.integer  "plan_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
