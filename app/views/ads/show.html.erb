@@ -136,9 +136,15 @@
       <!-- Information ADS -->
       <div class="col-md-6">
          <h4 class = "ads_title">
-            <%= @ad.title %>
+            <%= @ad.title %>asdasdadas sdasdasdasdasd asfd asfdaf sad asd asd
          </h4>
-          
+         <!--DAR DESTAQUE-->
+           <div class="pull-right">
+              <% if user_signed_in? && current_user.id == @ad.user_id %>
+                    <%= link_to '<i class="fa  fa-star"></i>Destacar '.html_safe, highlight_ad_path(@ad), :class=>"btn btn-success btn-sm ",:rel=>"tooltip_down",:title=>"Pode destacar o anúncio para ele ser mais visto!!" %>
+              <% end %>
+            </div>
+
          <br/>
          <div class = "ads_metainfo">
             <p>

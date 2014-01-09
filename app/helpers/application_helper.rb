@@ -27,5 +27,18 @@ module ApplicationHelper
 		controller.controller_name == "ads" || controller.controller_name == "users" ? 'in' : ''
 	end
 
+	def check_type_notification( notification )
+		if notification.notification_type == 6
+			return '<a href="<%= academy_workshop_path(workshop, :notification => notification) %>">
+	            <span class="name">'.html_safe + "sd" +'</span>
+	         </a>'.html_safe
+		elsif notification.notification_type == 7
+			return '<a href="<%= academy_workshop_path(workshop, :notification => notification) %>">
+	            <span class="name">'.html_safe + "dsd" +'</span>
+	         </a>'.html_safe
+		end
+	end
+	
+
 
 end

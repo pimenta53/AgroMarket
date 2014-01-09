@@ -4,7 +4,7 @@ class PlansController < ApplicationController
   # GET /plans
   # GET /plans.json
   def index
-    @plans = plan.all
+    @plans = Plan.all
   end
 
   # GET /plans/1
@@ -14,7 +14,7 @@ class PlansController < ApplicationController
 
   # GET /plans/new
   def new
-    @plan = plan.new
+    @plan = Plan.new
   end
 
   # GET /plans/1/edit
@@ -24,11 +24,11 @@ class PlansController < ApplicationController
   # POST /plans
   # POST /plans.json
   def create
-    @plan = plan.new(plan_params)
+    @plan = Plan.new(plan_params)
 
     respond_to do |format|
       if @plan.save
-        format.html { redirect_to @plan, notice: 'plan was successfully created.' }
+        format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
         format.json { render action: 'show', status: :created, location: @plan }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class PlansController < ApplicationController
   def update
     respond_to do |format|
       if @plan.update(plan_params)
-        format.html { redirect_to @plan, notice: 'plan was successfully updated.' }
+        format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -64,7 +64,7 @@ class PlansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_plan
-      @plan = plan.find(params[:id])
+      @plan = Plan.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

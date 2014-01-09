@@ -67,6 +67,8 @@ class User < ActiveRecord::Base
 
   has_many :notification
 
+  belongs_to :plan , :foreign_key => 'plan_id'
+
   #belongs_to :district
   belongs_to :city
 
@@ -103,6 +105,12 @@ class User < ActiveRecord::Base
     if !self.blank?
       return self.user_type == 2
     end
+  end
+
+  #conta o numero slots para anuncios que o utilizador restantes
+  def remaining_ads_slots 
+    #num de anuncios dos pacotes  - num de anuncios que possui  
+    self.plan.ads_limit - self.ads.count
   end
 
   #fica a seguir 'target'

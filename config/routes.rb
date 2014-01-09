@@ -58,10 +58,11 @@ Agrosocial::Application.routes.draw do
 
   #accao follow do utilizador
   post '/users/:id/follow' => 'users#follow'
+  get "highlight_ad/:id" => "ads#highlight" , as: "highlight_ad"
 
   resources :ads do
     post "new_messages" => "messages#create"
-  end
+  end 
 
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}
 

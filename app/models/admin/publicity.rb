@@ -40,7 +40,10 @@ class Admin::Publicity < ActiveRecord::Base
      if !list
       list = []
      end  
-     new_offset = index + list.length
+     if index.nil?
+      index = 0
+     end
+    new_offset = index + list.length
      
      if !(count == 0 || (list.length == 0 && index == 0))
        # se nao buscou publicidade suficiente

@@ -133,6 +133,12 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.0)
       mime-types
+    paypal-sdk-core (0.2.7)
+      multi_json (~> 1.0)
+      xml-simple
+    paypal-sdk-rest (0.6.0)
+      paypal-sdk-core (~> 0.2.4)
+      uuidtools (~> 2.1)
     pnotify-rails (1.2.2)
     polyglot (0.3.3)
     quiet_assets (1.0.2)
@@ -214,6 +220,7 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
     watir-webdriver (0.6.4)
@@ -224,6 +231,7 @@ GEM
     will_paginate (3.0.5)
     will_paginate-bootstrap (1.0.0)
       will_paginate (>= 3.0.3)
+    xml-simple (1.1.3)
     yaml_db (0.2.3)
 
 PLATFORMS
@@ -251,6 +259,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-twitter
   paperclip (= 3.5.0)
+  paypal-sdk-rest
   pnotify-rails
   quiet_assets
   rails (= 4.0.0)
