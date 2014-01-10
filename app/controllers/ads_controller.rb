@@ -231,6 +231,8 @@ private
     # Load cities from database
     def load_stuff
       @cities = City.order('city ASC').all
+      @districts = District.find(:all ,  :order => "name ASC" ,:include => :cities)
+
       @price_types = PriceType.all
       @categories = Category.all
 
