@@ -29,13 +29,9 @@ module ApplicationHelper
 
 	def check_type_notification( notification )
 		if notification.notification_type == 6
-			return '<a href="<%= academy_workshop_path(workshop, :notification => notification) %>">
-	            <span class="name">'.html_safe + "sd" +'</span>
-	         </a>'.html_safe
+			return link_to '<span class="name">'.html_safe + notification.description + '</span>'.html_safe , academy_tutorial_path(notification.id_destination ,  :notification => notification) 
 		elsif notification.notification_type == 7
-			return '<a href="<%= academy_workshop_path(workshop, :notification => notification) %>">
-	            <span class="name">'.html_safe + "dsd" +'</span>
-	         </a>'.html_safe
+			return link_to '<span class="name">'.html_safe + notification.description + '</span>'.html_safe , event_event_path(notification.id_destination ,  :notification => notification) 
 		end
 	end
 	

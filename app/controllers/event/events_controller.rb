@@ -15,6 +15,10 @@ class Event::EventsController < ApplicationController
   # GET /event/events/1
   # GET /event/events/1.json
   def show
+    #mark notification as watched, if params[:notification] is set
+    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
+      Notification.find(params[:notification]).update(:watched => true)
+    end
   end
 
   # GET /event/events/new
