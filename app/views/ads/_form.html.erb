@@ -56,12 +56,24 @@
         <div class="control-group">
             <%= f.label :city_id, "Concelho" %><label class="help-inline" style="margin-left:10px" generated="true" for="ad_city_id"></label>
             <div class="controls">
-            <%= f.collection_select(:city_id,@cities,:id,:city,:class=>"form-control", :include_blank => 'Selecione...') %>
+
+            <select id="ad_city_id" name="ad[city_id]">
+              <option value="">Selecione...</option>
+              <% @districts.each do |district| %>
+                <optgroup label="<%= district.name %>">
+                     <% district.cities.each do |city| %>
+                           <option value="<%= city.id %>"><%= city.city %></option>
+                     <% end %>
+                </optgroup>
+              <% end %>
+            </select>
             </div>
         </div>
       </div>
 
     </div>
+
+     
 
     <div class="control-group">
       <%= f.label :locatlion, "Localização da Venda" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="addresspicker_map"></label>

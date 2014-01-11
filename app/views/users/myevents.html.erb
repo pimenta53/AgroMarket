@@ -21,8 +21,15 @@
             <div class="col-xs-3 col-md-3 text-center">
               <img src="http://images6.fanpop.com/image/photos/33400000/Cute-Cats-cats-33440930-1280-800.jpg" alt="bootsnipp"
                    class="img-rounded img-responsive" />
+
             </div>
+             <%  if !event_event.is_aproved? %>
+               <span class="label label-warning">Não aprovado</span>
+             <% end %>
             <div class="col-xs-9 col-md-9 section-box">
+              <!--VErifica se esta aprovado -->
+             
+
               <%= link_to event_event.title, event_event, class:"h2 url" %>
               <div style="float:right">
                 <% if user_signed_in? && current_user.id == event_event.user_id %>
