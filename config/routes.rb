@@ -86,6 +86,7 @@ Agrosocial::Application.routes.draw do
     resources :dashboard
     resources :ads
     resources :users
+    resources :plans
 
     namespace :academy do
       resources :tutorials
