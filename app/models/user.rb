@@ -25,6 +25,9 @@
 #  user_type              :integer          default(1)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  counter_ads            :integer          default(0)
+#  counter_events         :integer          default(0)
+#  plan_id                :integer
 #
 
 class User < ActiveRecord::Base
@@ -72,6 +75,7 @@ class User < ActiveRecord::Base
   #belongs_to :district
   belongs_to :city
 
+  belongs_to :plan
 
 
   def talks
@@ -304,6 +308,7 @@ class User < ActiveRecord::Base
     return results
   end
 
+  # users registered today
   def self.today_users_count
     where('created_at > ?', Date.today).count
   end
