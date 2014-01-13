@@ -1,99 +1,99 @@
 <div class="panel-group" id="accordion" style="margin-bottom: 10px;">
 
-    <!-- MERCADO -->
-    <% if user_signed_in? %>
-      <div class="panel panel-info">
-        <div class="panel-heading" style="background-color: #39b3d7">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseMercado">
-                <span class="icon-tags" style="margin-right: 2px"></span>MERCADO
-            </a>
-          </h4>
-        </div>
-        <div id="collapseMercado" class="panel-collapse collapse <%= in_mercado? %>">
-          <div class="panel-body">
-            <ul>
-              <li><%= link_to "Entrar no Mercado".html_safe , ads_path %></li>
-                <li><%= link_to "Os Meus Anúncios".html_safe , myads_user_path(current_user.id) %></li>
-                <li><%= link_to "Novo Anúncio".html_safe , new_ad_path %></li>
-            </ul>
-          </div>
-        </div>
+  <!-- MERCADO -->
+  <% if user_signed_in? %>
+  <div class="panel panel-info">
+    <div class="panel-heading" style="background-color: #39b3d7">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseMercado">
+          <span class="icon-tags" style="margin-right: 2px"></span> MERCADO
+        </a>
+      </h4>
+    </div>
+    <div id="collapseMercado" class="panel-collapse collapse <%= in_mercado? %>">
+      <div class="panel-body">
+        <ul class="side-elems">
+          <li><%= link_to "Entrar no Mercado".html_safe , ads_path %></li>
+          <li><%= link_to "Os Meus Anúncios".html_safe , myads_user_path(current_user.id) %></li>
+          <li><%= link_to "Novo Anúncio".html_safe , new_ad_path %></li>
+        </ul>
       </div>
-      <% else %>
-      <div class="panel panel-info">
-        <div class="panel-heading" style="background-color: #39b3d7">
-          <h4 class="panel-title">
-              <%= link_to "MERCADO".html_safe, ads_path %>
-          </h4>
-        </div>
-      </div>
-      <% end %>
+    </div>
+  </div>
+  <% else %>
+  <div class="panel panel-info">
+    <div class="panel-heading" style="background-color: #39b3d7">
+      <h4 class="panel-title">
+        <%= link_to "MERCADO".html_safe, ads_path %>
+      </h4>
+    </div>
+  </div>
+  <% end %>
 
-    <!-- EVENTOS -->
-    <% if user_signed_in? %>
-      <div class="panel panel-warning">
-        <div class="panel-heading" style="background-color: #ed9c28">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseEventos">
-              <span class="icon-heart" style="margin-right: 2px"></span> EVENTOS
-            </a>
-          </h4>
-        </div>
-        <div id="collapseEventos" class="panel-collapse collapse <%= in_events? %>">
-          <div class="panel-body">
-            <ul>
-              <li><%= link_to "Ver Todos".html_safe, event_events_path %></li>
-            <% if user_signed_in? %>
-                <li><%= link_to "Os Meus Eventos".html_safe, myevents_path(current_user.id) %></li>
-                <li><%= link_to "Novo Evento".html_safe, new_event_event_path %></li>
-            <% end %>
-            </ul>
-          </div>
-        </div>
+  <!-- EVENTOS -->
+  <% if user_signed_in? %>
+  <div class="panel panel-warning">
+    <div class="panel-heading" style="background-color: #ed9c28">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseEventos">
+          <span class="icon-heart" style="margin-right: 2px"></span> EVENTOS
+        </a>
+      </h4>
+    </div>
+    <div id="collapseEventos" class="panel-collapse collapse <%= in_events? %>">
+      <div class="panel-body">
+        <ul class="side-elems">
+          <li><%= link_to "Ver Todos".html_safe, event_events_path %></li>
+          <% if user_signed_in? %>
+          <li><%= link_to "Os Meus Eventos".html_safe, myevents_path(current_user.id) %></li>
+          <li><%= link_to "Novo Evento".html_safe, new_event_event_path %></li>
+          <% end %>
+        </ul>
       </div>
-      <% else %>
-      <div class="panel panel-default">
-        <div class="panel-heading" style="background-color: #ed9c28">
-          <h4 class="panel-title">
-              <%= link_to "EVENTOS".html_safe, ads_path %>
-          </h4>
-        </div>
+    </div>
+  </div>
+  <% else %>
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color: #ed9c28">
+      <h4 class="panel-title">
+        <%= link_to "EVENTOS".html_safe, ads_path %>
+      </h4>
+    </div>
+  </div>
+  <% end %>
+
+  <!-- ACADEMIA -->
+  <% if user_signed_in? %>
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color: #47a447;">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseAcademia">
+          <span class="icon-book" style="margin-right: 2px"></span> ACADEMIA
+        </a>
+      </h4>
+    </div>
+    <div id="collapseAcademia" class="panel-collapse collapse <%= in_academy? %>">
+      <div class="panel-body">
+        <ul class="side-elems">
+          <li><%= link_to "Entrar na Academia".html_safe, academy_path %></li>
+          <li><%= link_to "Perguntas".html_safe, academy_questions_path %></li>
+          <li><%= link_to "Tutoriais".html_safe, academy_tutorials_path%></li>
+          <li><%= link_to "Workshops".html_safe, academy_workshops_path %></li>
+        </ul>
       </div>
-      <% end %>
+    </div>
+  </div>
 
-      <!-- ACADEMIA -->
-      <% if user_signed_in? %>
-      <div class="panel panel-default">
-        <div class="panel-heading" style="background-color: #47a447;">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseAcademia">
-              <span class="icon-book" style="margin-right: 2px"></span>  ACADEMIA
-            </a>
-          </h4>
-        </div>
-        <div id="collapseAcademia" class="panel-collapse collapse <%= in_academy? %>">
-          <div class="panel-body">
-            <ul>
-            <li><%= link_to "Entrar na Academia".html_safe, academy_path %></li>
-            <li><%= link_to "Perguntas".html_safe, academy_questions_path %></li>
-            <li><%= link_to "Tutoriais".html_safe, academy_tutorials_path%></li>
-            <li><%= link_to "Workshops".html_safe, academy_workshops_path %></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+  <% else %>
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color: #47a447;">
+      <h4 class="panel-title">
 
-      <% else %>
-      <div class="panel panel-default">
-        <div class="panel-heading" style="background-color: #47a447;">
-          <h4 class="panel-title">
+        <%= link_to "ACADEMIA".html_safe, academy_path  %>
 
-              <%= link_to "ACADEMIA".html_safe, academy_path  %>
-
-          </h4>
-        </div>
-      </div>
+      </h4>
+    </div>
+  </div>
 
   <% end %>
 
@@ -101,7 +101,7 @@
 
 <!-- Admin Acess-->
 <% if user_signed_in? && current_user.isAdmin? %>
-    <br>
+<br>
 <div class="panel panel-default">
   <div class="panel-heading" style="background-color: #d2322d">
     <h4 class="panel-title">
@@ -113,21 +113,21 @@
 
 
 <% if user_signed_in? %>
-    <!-- Painel de Filtros-->
-    <div class="panel panel-default">
-      <div class="panel-heading" style="background-color: rgb(237, 239, 240);">
-        <i class="icon-search"></i><span style="font-size:13px;margin-left:5px">Pesquisar por:</span>
-      </div>
-      <div class="panel-body">
+<!-- Painel de Filtros-->
+<div class="panel panel-default">
+  <div class="panel-heading" style="background-color: rgb(237, 239, 240);">
+    <i class="icon-search"></i><span style="font-size:13px;margin-left:5px">Pesquisar por:</span>
+  </div>
+  <div class="panel-body">
 
-        <% if controller_name=="ads"%>
-            <%= render "layouts/sidebar_left_ads" %>
-        <% end %>
+    <% if controller_name=="ads"%>
+    <%= render "layouts/sidebar_left_ads" %>
+    <% end %>
 
-        <% if academy? %>
-            <%= render "layouts/sidebar_left_academy" %>
-        <% end %>
+    <% if academy? %>
+    <%= render "layouts/sidebar_left_academy" %>
+    <% end %>
 
-      </div>
-    </div>
+  </div>
+</div>
 <% end %>
