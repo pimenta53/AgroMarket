@@ -111,10 +111,16 @@ class User < ActiveRecord::Base
     end
   end
 
-  #conta o numero slots para anuncios que o utilizador restantes
-  def remaining_ads_slots 
-    #num de anuncios dos pacotes  - num de anuncios que possui  
-    self.plan.ads_limit - self.ads.count
+  #conta o numero slots para anuncios que o utilizador tem restantes
+  def remaining_ads_slots
+    #num de anuncios dos pacotes  - num de anuncios que possui
+    3 + (self.plan != nil ? self.plan.ads_limit : 0) - self.ads.count
+  end
+
+  #conta o numero slots para eventos que o utilizador tem restantes
+  def remaining_events_slots
+    #num de anuncios dos pacotes  - num de anuncios que possui
+    1 + (self.plan != nil ? self.plan.event_limit : 0) - self.ads.count
   end
 
   #fica a seguir 'target'
