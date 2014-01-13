@@ -55,6 +55,16 @@ Agrosocial::Application.routes.draw do
   get "/users/:id/myads" => "users#myads", as: "myads_user"
 
   get "/users/:id/myevents" => "users#myevents", as: "myevents"
+  
+  get "/users/myrefpaypal" => "users#myrefpaypal", as: "myrefpaypal"
+
+
+  #payment routes
+
+  get "/payment/success_payment" => "payment#success_payment", as: "success_payment"
+
+  get "/payment/create_payment/:id" => "payment#create_payment", as: "create_payment"
+
 
   #accao follow do utilizador
   post '/users/:id/follow' => 'users#follow'
@@ -73,6 +83,8 @@ Agrosocial::Application.routes.draw do
   get '/search' => 'search#search_for_all'
 
   get '/search_tutorials' => 'search#search_tutorials'
+
+
 
 
 
@@ -99,6 +111,8 @@ Agrosocial::Application.routes.draw do
     get 'aprove_tutorial', to: 'academy/tutorials#aprove_tutorial', as: :aprove_tutorial
 
     get 'aprove_event', to: 'event/events#aprove_event', as: :aprove_event
+    get 'unaprove_event', to: 'event/events#unaprove_event', as: :unaprove_event
+
   end
 
   resources :ratings

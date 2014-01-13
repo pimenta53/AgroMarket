@@ -19,6 +19,9 @@ class RegistrationsController < Devise::RegistrationsController
    def create
      super
      session[:omniauth] = nil unless @user.new_record?
+     # => PlanUser(id: integer, user_id: integer, plan_id: integer, created_at: datetime, updated_at: datetime)
+     p = PlanUser.new(:user_id => @user.id, :plan_id => Plan.first.id)
+     p.save
    end
 
   private

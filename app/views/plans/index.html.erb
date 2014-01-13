@@ -1,35 +1,21 @@
-<h1>Listing plans</h1>
+<ol class="breadcrumb" id="breadcrumbAds">
+  <li class="active">
+    <a class="url" href="<%= plans_path %>"><i class="fa fa-tags"></i> Planos</a>
+  </li>
+</ol>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Duration</th>
-      <th>Price</th>
-      <th>Ads limit</th>
-      <th>Event limit</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="container" style="margin-top:10px">
+	<div class="row">
 
-  <tbody>
-    <% @plans.each do |plan| %>
-      <tr>
-        <td><%= plan.name %></td>
-        <td><%= plan.duration %></td>
-        <td><%= plan.price %></td>
-        <td><%= plan.ads_limit %></td>
-        <td><%= plan.event_limit %></td>
-        <td><%= link_to 'Show', plan %></td>
-        <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
-        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+		<% @plans.each do |plan_to_send| %>
+		    <%= render 'form', :plan => plan_to_send %>
+		<% end %>
+	</div>
 
-<br>
+</div>
 
-<%= link_to 'New Plan', new_plan_path %>
+<div class="fields">
+  <button type="button" class="btn btn-primary" onclick="location.href='<%= ads_path %>'">
+    <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
+  </button>
+</div>

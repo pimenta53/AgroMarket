@@ -14,22 +14,27 @@
         <div class="well well-sm">
           <div class="row">
             <div class="col-xs-3 col-md-3 text-center">
+              <div class="row">
               <img src="http://images6.fanpop.com/image/photos/33400000/Cute-Cats-cats-33440930-1280-800.jpg" alt="bootsnipp"
                    class="img-rounded img-responsive" />
+                </div>
             </div>
             <div class="col-xs-9 col-md-9 section-box">
-              <%= link_to event_event.title, event_event, class:"h2 url" %>
-              <div style="float:right">
+              <div class="row">
+                  <%= link_to event_event.title, event_event, class:"h2 url" %>
+                  <p><%= event_event.description %></p>
+              </div>
+              <div class="row">
+                <div style="float:right">
                 <% if user_signed_in? && current_user.id == event_event.user_id %>
                     <div class="ui-group-buttons">
-                      <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_event_event_path(@event_event),:class=>"btn btn-info", :tile=> "Editar Evento" %>
-                      <div class="or"></div>
-                      <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @event_event, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento ?' } ,:class=>"btn btn-danger", :tile=> "Apagar Evento"%>
+                      <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_event_event_path(@event_event),:class=>"btn btn-info btn-xs", :tile=> "Editar Evento" %>
+                      <div class="or or-xs"></div>
+                      <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @event_event, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento ?' } ,:class=>"btn btn-danger btn-xs", :tile=> "Apagar Evento"%>
                     </div>
                 <% end %>
+                  </div>
               </div>
-              <p><%= event_event.description %></p>
-              <hr />
               <div class="row rating-desc">
                 <div class="col-md-12">
                   <span class="fa fa-calendar" style="color:darkgreen;"></span><%=event_event.start_day.day %>/<%=event_event.start_day.mon %>/<%=event_event.start_day.year %>

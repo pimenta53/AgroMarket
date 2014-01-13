@@ -24,15 +24,9 @@
       </div>
 
       <div class="row">
-        <div style="float:right">
-          <% if user_signed_in? && current_user.id == event_event.user_id %>
-          <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_event_event_path(event_event), class:'no-effect', :tile=> "Editar Evento"%>
-          <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, event_event, class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento?' } ,:tile=> "Apagar Evento"%>
-          <% end %>
-        </div>
 
         <%  if !event_event.is_aproved? %>
-        <span class="label label-warning">Não aprovado</span>
+        <span class="label label-warning" style="float:right">Não aprovado</span>
         <% end %>
 
         <div class="col-xs-9 col-md-9 section-box">
@@ -50,6 +44,7 @@
               </div>
               <div style="float:right">
                 <span class="fa fa-calendar" style="color:#d43f3a"></span><%=event_event.end_day.day %>/<%=event_event.end_day.mon %>/<%=event_event.end_day.year %>
+
               </div>
             </div>
           </div>
