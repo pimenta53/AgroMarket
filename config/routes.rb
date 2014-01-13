@@ -63,6 +63,8 @@ Agrosocial::Application.routes.draw do
 
   get "/payment/success_payment" => "payment#success_payment", as: "success_payment"
 
+  get "/payment/create_payment/:id" => "payment#create_payment", as: "create_payment"
+
 
   #accao follow do utilizador
   post '/users/:id/follow' => 'users#follow'
@@ -81,6 +83,7 @@ Agrosocial::Application.routes.draw do
   get '/search' => 'search#search_for_all'
 
   get '/search_tutorials' => 'search#search_tutorials'
+
 
 
 
