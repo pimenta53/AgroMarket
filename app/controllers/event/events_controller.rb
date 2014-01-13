@@ -15,15 +15,21 @@ class Event::EventsController < ApplicationController
   # GET /event/events/1
   # GET /event/events/1.json
   def show
+    #mark notification as watched, if params[:notification] is set
+    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
+      Notification.find(params[:notification]).update(:watched => true)
+    end
   end
 
   # GET /event/events/new
   def new
     @event_event = Event::Event.new
+    @cities = City.all
   end
 
   # GET /event/events/1/edit
   def edit
+    @cities = City.all
   end
 
   # POST /event/events
@@ -75,6 +81,6 @@ class Event::EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_event_params
-      params.require(:event_event).permit(:start_day, :end_day, :title, :description, :user_id, :aproved)
+      params.require(:event_event).permit(:start_day, :end_day, :title,:city_id, :description, :user_id, :aproved)
     end
 end

@@ -34,5 +34,9 @@ class Event::Event < ActiveRecord::Base
     def self.unaproved_events
   	  where('aproved= ?',false)
     end
+
+    def is_aproved?
+    	self.aproved == true ? true : false
+    end
     
 end

@@ -1,6 +1,5 @@
 #encoding: utf-8
-class Admin::CitiesController < ApplicationController
-  layout "admin"
+class Admin::CitiesController < Admin::ApplicationController
   before_action :set_admin_city, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/cities
@@ -29,6 +28,7 @@ class Admin::CitiesController < ApplicationController
   # POST /admin/cities
   # POST /admin/cities.json
   def create
+    @district = District.all
     @city = City.new(admin_city_params)
 
     respond_to do |format|

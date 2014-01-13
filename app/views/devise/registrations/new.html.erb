@@ -23,7 +23,18 @@
         <div class="control-group">
           <%= f.label :city_id, "Cidade",:class=>"control-label" %><label style="float: right" for="user_city_id" generated="true" class="help-inline"></label>
           <div class="controls">
-            <%= f.collection_select(:city_id,@cities,:id,:city, {:include_blank =>"Escolha uma opção"} ,{:class=> "form-control"}) %>
+             
+             <select class="form-control" id="user_city_id" name="user[city_id]">
+              <option value="">Escolha uma opção...</option>
+              <% @districts.each do |district| %>
+                <optgroup label="<%= district.name %>">
+                     <% district.cities.each do |city| %>
+                           <option value="<%= city.id %>"><%= city.city %></option>
+                     <% end %>
+                </optgroup>
+              <% end %>
+            </select>
+            
           </div>
         </div>
 
@@ -51,7 +62,7 @@
         <div class="control-group">
           <%= f.label :birthday, "Data de Nascimento",:class=>"control-label" %><label style="float: right" for="user_birthday" generated="true" class="help-inline"></label>
           <div class="controls">
-            <%= f.text_field :birthday, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
+            <%= f.text_field :birthday, :value => (I18n.localize(@user.birthday) if (@user && @user.birthday)), :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
           </div>
         </div>
 

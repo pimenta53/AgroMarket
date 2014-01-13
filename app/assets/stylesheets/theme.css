@@ -31,7 +31,6 @@
   width:250px;
 }*/
 
-
 #navbarToggle{
   position:fixed;
   top:0;
@@ -208,6 +207,14 @@ background-color: #16ab84;
   padding: 15px 0px;
 }
 
+.market-icon {
+  width: 12px;
+}
+
+.side-elems li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 
 .sidebar-nav {
   position: fixed;
@@ -651,3 +658,18 @@ border-color: #eff2f7;
 .section-box h2 a { font-size:15px; }
 .separator { padding-right:5px;padding-left:5px; }
 .section-box hr {margin-top: 0;margin-bottom: 5px;border: 0;border-top: 1px solid rgb(199, 199, 199);}
+
+
+/**LINE on Alerts**/
+hr.message-inner-separator
+{
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 13px;
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}

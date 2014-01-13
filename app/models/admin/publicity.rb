@@ -8,13 +8,13 @@
 #  expire_date        :datetime
 #  owner              :string(255)
 #  is_deleted         :boolean
-#  link               :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
 #  image_file_name    :string(255)
 #  image_content_type :string(255)
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  link               :string(255)
 #
 
 class Admin::Publicity < ActiveRecord::Base
@@ -36,9 +36,14 @@ class Admin::Publicity < ActiveRecord::Base
 
    def self.get_publicity_with_offset(index, count)
    
-     list = Admin::Publicity.where("is_deleted = false").limit(count).offset(index)
-     
-     new_offset = index + list.length
+     list = Admin::Publicity.where("is_deleted = false and (expire_date is null or expire_date >= ?)", Date.today).limit(count).offset(index)
+     if !list
+      list = []
+     end  
+     if index.nil?
+      index = 0
+     end
+    new_offset = index + list.length
      
      if !(count == 0 || (list.length == 0 && index == 0))
        # se nao buscou publicidade suficiente

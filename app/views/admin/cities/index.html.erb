@@ -1,5 +1,4 @@
 <section class="panel">
-
   <header class="panel-heading"><h1>Lista de cidades</h1><h5><%= @cities.count %> Cidades</h5> 
     <div class="newItemLink">
       <i class="fa fa-plus-circle"></i><%= link_to ' Nova cidade', new_admin_city_path %>
@@ -7,9 +6,10 @@
   </header>
 
   <div class="table-responsive">
-    <table class="table table-hover" >
+  <table class="table table-hover tablesorter" id="orderTableCities" >
       <thead>
         <tr>
+          <th>ID</th>
           <th>Cidade</th>
           <th>Anúncios</th>
           <th>Utilizadores</th>
@@ -26,10 +26,11 @@
         <% @cities.each do |city| %>
 
         <tr>
+          <td><%= city.id %></td>
           <td><%= city.city %></td>
           <td><%= city.ads.count %></td>
           <td><%= city.users.count %></td>
-          <td><%# city.events.count %></td>
+          <td><%= city.events.count %></td>
 
           <td></td>
 

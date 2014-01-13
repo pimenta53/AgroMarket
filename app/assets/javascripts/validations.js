@@ -1,6 +1,15 @@
 var ready;
 ready = function() {
 
+  /*ordenador de colunas das tabelas*/
+  $("#orderTable").tablesorter(); 
+
+  $("#orderTableCities").tablesorter({ 
+        // ordena logo a coluna com o nome da cidade
+        sortList: [[1,0]] 
+    }); 
+
+
   /******       New USER, CREATE ACCOUNT      */
   $('#new_user').validate({
     errorElement: 'label',
@@ -183,7 +192,8 @@ ready = function() {
             "event_event[title]": {minlength: 2, maxlength: 50, required: true },
             "event_event[start_day]": {accept: "[\\d]{1}/[\\d]{2}/[\\d]{4}", required: true },
             "event_event[end_day]": {accept: "[\\d]{1}/[\\d]{2}/[\\d]{4}", required: true },
-            "event_event[description]": { minlength: 2, maxlength: 255, required: true }
+            "event_event[description]": { minlength: 2, maxlength: 255, required: true },
+            "event_event[city_id]":  { required: true }
         },
         highlight: function(element) {
             $(element).closest('.control-group').removeClass('success').addClass('error');

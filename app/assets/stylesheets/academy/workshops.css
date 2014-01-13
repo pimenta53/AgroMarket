@@ -9,7 +9,12 @@
 
 
 /********** showWorkshop **********/
-
+.tutorial_text_head {
+	color: black;
+	font-size: 16px;
+	height: 55px;
+	vertical-align: middle !important;
+}
 
 .title_show_workshop{
 

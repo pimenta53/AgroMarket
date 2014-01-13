@@ -1,22 +1,14 @@
 
 /********** index tutorial**********/
-
-.tutorial_table_head
-{
-	background-color: #00A75D;
-		
-}
-
-.tutorial_text_head{
+.tutorial_text_head {
 	color: black;
+	font-size: 16px;
+	height: 55px;
+	vertical-align: middle !important;
 }
 
-.tutorial_table_body{
-
-}
-
-.title_tutorial{
-	color:#EA5B0C;
+.title_tutorial {
+	color: #EA5B0C;
 }
 
 .new-tutorial:hover {
@@ -24,16 +16,31 @@
 	color: black;
 }
 
+.inactive-edit, .inactive-edit:hover {
+	text-decoration: none;
+	cursor: default;
+	color: #B8B8B8 !important;
+}
 
+#icon-color {
+	color: #B8B8B8;
+}
 
 
 /********** showtutorial **********/
 
 
 .title_show_tutorial{
-
 	color: #00A75D;
 	font-size: 36px;
+}
+
+.title-font {
+	font-size: 15px;
+}
+
+.title-font a:hover, .title-font a:visited {
+	color: black;
 }
 
 .information_show_tutorial span{

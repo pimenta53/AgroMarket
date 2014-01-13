@@ -43,6 +43,23 @@
     <% end %>
 
 
+       <%# notifications new answers for your questions %>
+    <% if @notification_acmy_aproved.length > 0 %>
+      <li class="dropdown-header"><%= @notification_acmy_aproved.length %> Aprovados</li>
+      <% @notification_acmy_aproved.each do |notification| %>
+        <% notyfication_type = notification.type_notification %>
+        <li class="preview">
+          <%= check_type_notification( notification ) %>
+        </li>
+      <% end %>
+      <li class="divider"></li>
+    <% end %>
+
+    <% if @number_notifications_academy == 0 %>
+      <li class="dropdown-header">Sem novos alertas.</li>
+    <% end %>
+
+
   </ul>
 </li>
 
