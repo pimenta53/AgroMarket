@@ -686,11 +686,15 @@ SubCategory.create :name => "Pescado", :category_id => aux.first.id
 aux = Category.where(:name => "Pesca")
 SubCategory.create :name => "Outros", :category_id => aux.first.id
 
-
-
 PriceType.delete_all
 PriceType.create(name: "€/Kg")
 PriceType.create(name: "€/L")
 PriceType.create(name: "€/Unidade")
 PriceType.create(name: "€ Total")
 PriceType.create(name: "€/Arroba")
+
+Plan.delete_all
+Plan.create(name: "Regular", duration: "-1", price: "0", ads_limit: 5, event_limit: 1)
+Plan.create(name: "Horta", duration: "6", price: "12,99", ads_limit: 10, event_limit: 5)
+Plan.create(name: "Quinta", duration: "6", price: "24,99", ads_limit: 20, event_limit: 10)
+Plan.create(name: "Herdade", duration: "6", price: "49,99", ads_limit: 50, event_limit: 15)
