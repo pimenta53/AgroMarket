@@ -3,7 +3,7 @@
     <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a></li>
     <a class="url" href="<%= academy_workshops_path %>"> > Workshops</a></li>
   <% if user_signed_in? %>
-      <%= link_to 'Novo Workshop', new_academy_workshop_path,:class=> "url", style:"float:right"%>
+      <%= link_to '<i class="fa fa-plus"></i>Novo Workshop'.html_safe, new_academy_workshop_path,:class=> "url", style:"float:right"%>
   <% end %>
 </ol>
 
