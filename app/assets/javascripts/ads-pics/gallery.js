@@ -56,7 +56,7 @@ ready = function() {
 			init			= function() {
 				
 				// (not necessary) preloading the images here...
-				$items.add('<img src="/assets/ajax-loader.gif"/><img src="/assets/black.png"/>').imagesLoaded( function() {
+				$items.add('<img src="/assets/ajax-loader.gif"><img src="/assets/black.png">').imagesLoaded( function() {
 					// add options
 					_addViewModes();
 					
@@ -129,7 +129,7 @@ ready = function() {
 				// adds the structure for the large image and the navigation buttons (if total items > 1)
 				// also initializes the navigation events
 				
-				$('#img-wrapper-tmpl').tmpl( {itemsCount : itemsCount} ).appendTo( $rgGallery );
+				/*$('#img-wrapper-tmpl').tmpl( {itemsCount : itemsCount} ).appendTo( $rgGallery );*/
 				
 				if( itemsCount > 1 ) {
 					// addNavigation
