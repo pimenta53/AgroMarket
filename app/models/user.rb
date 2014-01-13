@@ -79,7 +79,7 @@ class User < ActiveRecord::Base
 
   has_many :plan_users
   has_many :plans, :through => :plan_users
-
+  has_one :workshop_registration
 
   def talks
      talks_user_one + talks_user_two

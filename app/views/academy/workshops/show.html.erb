@@ -72,7 +72,7 @@
                               <% if @academy_workshop.has_available_slots? == true && @academy_workshop.requires_registration? == true %>
 
                         
-                                 <% if @academy_registed == 0 %>
+                                 <% if @academy_registed.blank? %>
 
 
                                  <% if user_signed_in? && current_user.id != @academy_workshop.user_id %>   
@@ -84,8 +84,7 @@
                                   <% else %>
 
                                      <div class="text-center">
-                                        
-                                        <%= link_to ' Desinscrever do Workshop', @academy_workshop_registration, method: :destroy,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Are you sure?' } %>
+                                        <%= link_to ' Desinscrever do Workshop', @academy_registed, method: :delete,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Are you sure?' } %>
                                     </div>
 
                                   <% end %>
