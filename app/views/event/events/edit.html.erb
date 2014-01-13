@@ -4,7 +4,7 @@
     <a class="url" href="<%= event_event_path(@event_event.id) %>"> > <%= @event_event.title %></a></li>
   <div style="float:right">
     <% if user_signed_in? %>
-        <%= link_to 'Novo Evento', new_event_event_path,:class=> "url"%>
+        <%= link_to '<i class="fa fa-plus"></i>Novo Evento'.html_safe, new_event_event_path,:class=> "url"%>
     <% end %>
   </div>
 </ol>

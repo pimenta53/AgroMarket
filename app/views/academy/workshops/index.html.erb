@@ -7,28 +7,29 @@
   <% end %>
 </ol>
 
-<h1>Listing academy_workshops</h1>
+<h1>Workshops Disponíveis</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Available slots</th>
-      <th>Slots taken</th>
-      <th>Price</th>
-      <th>Local</th>
-      <th>Date</th>
-      <th>Description</th>
-      <th>Is delected</th>
-      <th>Requires registration</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="panel">
+  <table class="table table-hover">
+    <thead class="tutorial_table_head">
+      <tr>
+        <th>User</th>
+        <th>Available slots</th>
+        <th>Slots taken</th>
+        <th>Price</th>
+        <th>Local</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Is delected</th>
+        <th>Requires registration</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @academy_workshops.each do |academy_workshop| %>
+    <tbody>
+      <% @academy_workshops.each do |academy_workshop| %>
       <tr>
         <td><%= academy_workshop.user_id %></td>
         <td><%= academy_workshop.available_slots %></td>
@@ -42,6 +43,7 @@
         <td><%= link_to 'Edit', edit_academy_workshop_path(academy_workshop) %></td>
         <td><%= link_to 'Destroy', academy_workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
+</div>
