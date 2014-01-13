@@ -1,59 +1,49 @@
-<%= form_for(@plan) do |f| %>
+<%= form_for plan, :url => create_payment_path(plan.id) do |f| %>
 
-      <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
-        <% if f.name == "Regular" %>
-            <div class="panel panel-primary">
-        <% elsif f.name == "Horta" %>
-            <div class="panel panel-sucess">
-        <% elsif f.name == "Quinta" %>
-            <div class="panel panel-info">
-        <% else %>
-            <div class="panel panel-danger">
+    <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
+      <% if plan.name == "Regular" %>
+          <div class="panel panel-primary">
+      <% elsif plan.name == "Horta" %>
+          <div class="panel panel-sucess">
+      <% elsif plan.name == "Quinta" %>
+          <div class="panel panel-info">
+      <% else %>
+          <div class="panel panel-danger">
+      <% end %>
+      <!-- fazer if para verificar se está subscrito -->
+      <div class="cnrflash">
+        <div class="cnrflash-inner">
+          <span class="cnrflash-label">SUBSCRITO</span>
+        </div>
+      </div>
+      <!-- end if -->
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= plan.name%></h3>
+      </div>
+      <div class="panel-body-plan">
+        <div class="the-price">
+          <h1><%= plan.price%> €</h1>
+          <small>Durante <%= plan.duration %> Meses</small>
+        </div>
+        <table class="table">
+          <tr>
+            <td><%= pluralize(plan.ads_limit, "Anúncio") %></td>
+          </tr>
+          <tr class="active">
+            <td><%= pluralize(plan.event_limit, "Evento") %></td>
+          </tr>
+          <tr>
+            <td>Acesso à Academia</td>
+          </tr>
+        </table>
+      </div>
+      <div class="panel-footer">
+        <% if plan.name != "Regular" %>
+            <%= f.submit "Comprar", :class=>"btn btn-primary" %>
         <% end %>
-        <!-- fazer if para verificar se está subscrito -->
-        <div class="cnrflash">
-          <div class="cnrflash-inner">
-            <span class="cnrflash-label">SUBSCRITO</span>
-          </div>
-        </div>
-        <!-- end if -->
-        <div class="panel-heading">
-          <h3 class="panel-title"><%= f.name%></h3>
-        </div>
-        <div class="panel-body-plan">
-          <div class="the-price">
-            <h1><%= f.price%> €</h1>
-            <small>Durante <%= f.duration %> Meses</small>
-          </div>
-          <table class="table">
-            <tr>
-              <td><%= pluralize(f.ads_limit, "Anúncio") %></td>
-            </tr>
-            <tr class="active">
-              <td><%= pluralize(f.event_limit, "Evento") %></td>
-            </tr>
-            <tr>
-              <td>Acesso à Academia</td>
-            </tr>
-          </table>
-        </div>
-        <div class="panel-footer">
-          <% if f.name != "Regular" %>
-              <%= f.submit "Comprar", :class=>"btn btn-primary" %>
-          <% end %>
-        </div>
+      </div>
 
-        <% if @plan.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
 
-              <ul>
-                <% @plan.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
-    </div>
-</div>
+      </div>
+      </div>
 <% end %>

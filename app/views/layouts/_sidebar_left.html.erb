@@ -6,7 +6,7 @@
     <div class="panel-heading" style="background-color: #39b3d7">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseMercado">
-          <%= fa_icon "eur", class:"market-icon" %> MERCADO
+          <%= fa_icon "tags", class:"market-icon" %> MERCADO
         </a>
       </h4>
     </div>
@@ -88,9 +88,7 @@
   <div class="panel panel-default">
     <div class="panel-heading" style="background-color: #47a447;">
       <h4 class="panel-title">
-
         <%= link_to "ACADEMIA".html_safe, academy_path  %>
-
       </h4>
     </div>
   </div>
@@ -103,9 +101,9 @@
 <% if user_signed_in? && current_user.isAdmin? %>
 <br>
 <div class="panel panel-default">
-  <div class="panel-heading" style="background-color: #d2322d">
+  <div class="panel-heading" style="background-color: #d2322d; border-radius: 4px 4px 4px 4px;">
     <h4 class="panel-title">
-      <span class="icon-lock" style="margin-right: 2px"></span><a href="/admin/ads">Danger-Zone</a>
+      <%= fa_icon "lock" %> <a href="/admin/ads"> Danger-Zone</a>
     </h4>
   </div>
 </div>

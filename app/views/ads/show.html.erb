@@ -51,77 +51,65 @@
 <section class="panel">
    <div class="panel-body">
       <div class="col-md-6">
-        <div class="container">
-          <!-- Image ADS -->
-          <noscript>
-            <style>
-              .es-carousel ul{
-                display:block;
-              }
-            </style>
-          </noscript>
-  
-          <script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">  
-            <div class="rg-image-wrapper">
-              {{if itemsCount > 1}}
-                <div class="rg-image-nav">
-                  <a href="#" class="rg-image-nav-prev">Previous Image</a>
-                  <a href="#" class="rg-image-nav-next">Next Image</a>
-                </div>
-              {{/if}}
-              <div class="rg-image"></div>
-              <div class="rg-loading"></div>
-                <div class="rg-caption" style="display:none;">
-                  <p></p>
-                </div>
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <% if num_img = 0 %>
+              <li data-target="#carousel-example-generic" data-slide-to="/assets/defaultAdPic.png" class="active"></li>
+            <% else %>
+              <% i=0 %>
+              <% while (i < num_img) do %>
+                <li data-target="#carousel-example-generic" data-slide-to="<%= @ad.ad_images[i].image.url %>"></li>
+                <% i+=1 %>
+              <% end %>
+            <% end %>
+
+            <!--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
+
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="..." alt="...">
+              <div class="carousel-caption">
+                <% if num_img = 0 %>
+                  <li data-target="#carousel-example-generic" data-slide-to="/assets/defaultAdPic.png" class="active"></li>
+                <% else %>
+                  <% i=0 %>
+                  <% while (i < num_img) do %>
+                    <li data-target="#carousel-example-generic" data-slide-to="<%= @ad.ad_images[i].image.url %>"></li>
+                    <% i+=1 %>
+                  <% end %>
+                <% end %>
               </div>
             </div>
-          </script>
+            ...
+          </div>
 
-          <div class="content">
-          <div id="rg-gallery" class="rg-gallery">
-            <div class="rg-thumbs">
-              <!-- Elastislide Carousel Thumbnail Viewer -->
-              <div class="es-carousel-wrapper">
-                <div class="es-nav">
-                  <span class="es-nav-prev">Previous</span>
-                  <span class="es-nav-next">Next</span>
-                </div>
-                <div class="es-carousel">
-                  <ul>
-                    <% if num_img = 0 %>
-                      <li><a href="#"><img src="/assets/defaultAdPic.png" data-large="/assets/defaultAdPic.png" alt="image"</a></li>
-                    <% else %>
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
 
-                      <% i=0 %>
-                      <% while (i < num_img) do %>
-                        <li><a href="#"><img src="<%= @ad.ad_images[i].image.url %>" data-large="<%= @ad.ad_images[i].image.url %>" alt="image01"</a></li>
-                        <% i+=1 %>
-                      <% end %>
-                    <% end %>
-                  </ul>
-                </div>
-              </div>
-              <!-- End Elastislide Carousel Thumbnail Viewer -->
-            </div><!-- rg-thumbs -->
-          </div><!-- rg-gallery -->
-          </div><!-- content -->
-        </div><!-- container -->
-        <!--  essencial-->
-        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
-        <!-- next prevuis -->  <script type="text/javascript" src="/assets/javascripts/jquery.elastislide.js"></script>
-        <!-- main --><script type="text/javascript" src="/assets/javascripts/gallery.js"></script>
+
+
+
 
       </div>
       <!-- Information ADS -->
       <div class="col-md-6">
          <h4 class = "ads_title">
-            <%= @ad.title %>asdasdadas sdasdasdasdasd asfd asfdaf sad asd asd
+            <%= @ad.title %>
          </h4>
          <!--DAR DESTAQUE-->
            <div class="pull-right">
               <% if user_signed_in? && current_user.id == @ad.user_id %>
-                    <%= link_to '<i class="fa  fa-star"></i>Destacar '.html_safe, highlight_ad_path(@ad), :class=>"btn btn-success btn-sm ",:rel=>"tooltip_down",:title=>"Pode destacar o anúncio para ele ser mais visto!!" %>
+                    <%= link_to '<i class="fa  fa-star"></i>Destacar '.html_safe, promove_ad_payment_path(@ad.id), :class=>"btn btn-success btn-sm ",:rel=>"tooltip_down",:title=>"Pode destacar o anúncio para ele ser mais visto!!" %>
               <% end %>
             </div>
 
