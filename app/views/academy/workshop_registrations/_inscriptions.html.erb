@@ -12,21 +12,17 @@
       <th>Workshop</th>
       <th>Utilizador</th>
       <th>Registo em:</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Opcões</th>
     </tr>
   </thead>
 
   <tbody>
     <% @academy_workshop_registrations.each do |academy_workshop_registration| %>
       <tr>
-        <td><%= academy_workshop_registration.workshop_id %></td>
-        <td><%= academy_workshop_registration.user_id %></td>
-        <td><%= academy_workshop_registration.is_deleted %></td>
-        <td><%= link_to 'Show', academy_workshop_registration %></td>
-        <td><%= link_to 'Edit', edit_academy_workshop_registration_path(academy_workshop_registration) %></td>
-        <td><%= link_to 'Destroy', academy_workshop_registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= @academy_workshop.title %></td>
+        <td><%= academy_workshop_registration.user.name %></td>
+        <td><%= academy_workshop_registration.created_at.strftime("%F") %></td>
+        <td><%= link_to 'Apagar Inscricao', academy_workshop_registration, method: :delete, data: { confirm: 'Tens a certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -35,7 +31,4 @@
 
 <br>
 
-<div class="">
 
-  <p> <i class="fa fa-plus"></i><%= link_to 'Regista te agora no Worskhop', new_academy_workshop_registration_path %> </p>
-</div>

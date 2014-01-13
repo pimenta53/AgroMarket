@@ -16,3 +16,10 @@
 	
 	background-color:#edeff0	
 }
+
+.workshop_form p{
+	font-family: "Oswald";
+  	 font-weight: normal;
+  	 font-size: 12px;
+  	 margin-bottom: 10%;
+}
