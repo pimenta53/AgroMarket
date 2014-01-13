@@ -121,7 +121,7 @@
          <!--DAR DESTAQUE-->
            <div class="pull-right">
               <% if user_signed_in? && current_user.id == @ad.user_id %>
-                    <%= link_to '<i class="fa  fa-star"></i>Destacar '.html_safe, highlight_ad_path(@ad), :class=>"btn btn-success btn-sm ",:rel=>"tooltip_down",:title=>"Pode destacar o anúncio para ele ser mais visto!!" %>
+                    <%= link_to '<i class="fa  fa-star"></i>Destacar '.html_safe, promove_ad_payment_path(@ad.id), :class=>"btn btn-success btn-sm ",:rel=>"tooltip_down",:title=>"Pode destacar o anúncio para ele ser mais visto!!" %>
               <% end %>
             </div>
 
