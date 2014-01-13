@@ -8,7 +8,10 @@
 <!-- Listagem de anúncios -->
 
  <ol class="breadcrumb" id="breadcrumbAds">
-    <li class="active"><a href="<%= ads_path %>"><i class="fa fa-tags"></i> Anúncios</a></li>
+    <li class="active"><a href="<%= ads_path %>" class="url"><i class="fa fa-tags"></i> Anúncios</a></li>
+    <% if user_signed_in? %>
+    <%= link_to "<i class='fa fa-plus'></i>Novo Anúncio".html_safe, new_ad_path, class:"url", style:"float:right" %>
+    <% end %>
  </ol>
 
   <div class="row ads_index_section.ads">

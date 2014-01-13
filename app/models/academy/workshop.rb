@@ -22,9 +22,16 @@ class Academy::Workshop < ActiveRecord::Base
   has_many :workshop_registrations
 
   def add_inscription
-  	self.slots_taken += 1
-  	self.save
+    self.slots_taken += 1
+    self.save
   end
+
+  def remove_inscription
+    self.slots_taken -= 1
+    self.save
+  end
+
+
   
   def has_available_slots?
   	self.slots_taken < available_slots ? true : false

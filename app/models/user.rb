@@ -111,10 +111,16 @@ class User < ActiveRecord::Base
     end
   end
 
-  #conta o numero slots para anuncios que o utilizador restantes
-  def remaining_ads_slots 
-    #num de anuncios dos pacotes  - num de anuncios que possui  
-    self.plan.ads_limit - self.ads.count
+  #conta o numero slots para anuncios que o utilizador tem restantes
+  def remaining_ads_slots
+    #num de anuncios dos pacotes  - num de anuncios que possui
+    3 + (self.plan != nil ? self.plan.ads_limit : 0) - self.ads.count
+  end
+
+  #conta o numero slots para eventos que o utilizador tem restantes
+  def remaining_events_slots
+    #num de anuncios dos pacotes  - num de anuncios que possui
+    1 + (self.plan != nil ? self.plan.event_limit : 0) - self.ads.count
   end
 
   #fica a seguir 'target'
@@ -212,14 +218,10 @@ class User < ActiveRecord::Base
 
       #Buscar info
       self.email = omniauth['info']['email']
-      self.name = omniauth['info']['first_name']
-
-      if omniauth['info']['last_name'].length > 0
-        self.name += ' ' + omniauth['info']['last_name']
-      end
+      self.name = omniauth['info']['name']
 
 
-      #location será composto por Cidade, Pais
+      #location é composto por "Cidade, Pais"
       if omniauth['info']['location'] != nil
         location = omniauth['info']['location'].split(", ")
       else
@@ -257,11 +259,19 @@ class User < ActiveRecord::Base
       #end
 
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+    elsif omniauth['provider'] == 'google_oauth2'
+      #Buscar info
+      self.email = omniauth['info']['email']
+      self.name = omniauth['info']['name']
+      
+      #Google não contem cidade
+      
+      authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
   end
 
   def has_provider(provider)
-    collection = User.first.authentications.where("provider = ?",provider)
+    collection = authentications.where("provider = ?",provider)
     collection.length > 0
   end
 

@@ -1,9 +1,8 @@
- <ol class="breadcrumb" id="breadcrumbAds">
 <% if flash[:notice] %>
-    <script> showNotify("<%= flash[:notice] %>","success") </script>
+<script> showNotify("<%= flash[:notice] %>","success") </script>
 <% end %>
 <% if flash[:error] %>
-    <script> showNotify("<%= flash[:error] %>","error") </script>
+<script> showNotify("<%= flash[:error] %>","error") </script>
 <% end %>
 
 <ol class="breadcrumb" id="breadcrumbAds">
@@ -11,13 +10,11 @@
     <a class="url" href="<%= event_events_path %>"><i class="fa fa-tags"></i> Eventos </a>
     <a class="url" href="<%= event_event_path(@event_event.id) %>"> > <%= @event_event.title %></a>
   </li>
+  
   <div style="float:right">
     <% if user_signed_in? && current_user.id == @event_event.user_id %>
-        <div class="ui-group-buttons">
-          <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_event_event_path(@event_event),:class=>"btn btn-info", :tile=> "Editar Evento" %>
-          <div class="or"></div>
-          <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @event_event, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento ?' } ,:class=>"btn btn-danger", :tile=> "Apagar Evento"%>
-        </div>
+    <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_event_event_path(@event_event), class:'no-effect', :tile=> "Editar Evento" %>
+    <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, @event_event, class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento?' } ,:tile=> "Apagar Evento"%>
     <% end %>
   </div>
 </ol>
