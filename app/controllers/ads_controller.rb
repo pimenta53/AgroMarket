@@ -10,17 +10,18 @@ class AdsController < ApplicationController
   # GET /ads.json
   def index
 
+   # ads = Ad.search_by_location( current_user )
     if params[:page] != nil
       page = params[:page]
     else
       page = 1
     end
 
-
-    if params[:search] != nil
       ads = Ad.arel_table
 
       search_table = ads[:is_deleted].eq(false)
+
+    if params[:search] != nil
 
       search_table_title = nil
       search_table_description = nil
@@ -36,12 +37,24 @@ class AdsController < ApplicationController
         end
       }
 
-      @ads = Ad.where(search_table.and(search_table_title.or(search_table_description))).paginate(:page => page, :per_page => 12)
-    else
-      @ads = Ad.where("is_deleted = ?", false).paginate(:page => page, :per_page => 12)
+
+
+      search_table = search_table.and(search_table_title.or(search_table_description))
+      
+      
     end
+    @ads = Ad.where(search_table)
+
+    if params[:cities] != nil
+      @ads =  @ads.where(city_id: params[:cities])
+    end
+
+    @ads = @ads.paginate(:page => page, :per_page => 12)
+
     @categories = Category.all
     @cities = City.order('city ASC').all
+    @districts = District.find(:all ,  :order => "name ASC" ,:include => :cities)
+
 
     #render :layout => "admin"
     respond_to do |format|

@@ -18,7 +18,8 @@
 #
 
 class Admin::Publicity < ActiveRecord::Base
-	has_attached_file :image,:styles => {
+	
+  has_attached_file :image,:styles => {
 		:avatar => "50x50!",
 		:thumb => "100x100!",
 		:small  => "300x300!",

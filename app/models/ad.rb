@@ -97,6 +97,7 @@ class Ad < ActiveRecord::Base
   		end
   	end
 
+
     #####################
     # PREFERENCE SEARCH #
     #####################
@@ -131,8 +132,12 @@ class Ad < ActiveRecord::Base
     end
 
     #pesquisa por localizacao
-    def self.search_by_location
-      #ads = where(:category_id => @preferences)
+    def self.search_by_location ( current_user )
+      ads = where(:city_id => current_user.city_id)
+      
+      if ads.length <= 10
+        ads << where(:city_id => [ current_user.city.district.cities.map{ |c| c.id } ] )
+      end
     end
 
 

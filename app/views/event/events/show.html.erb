@@ -53,13 +53,16 @@
 <section class="panel">
   <div class="panel-body">
       <div class="col-xs-3 col-md-3 text-center">
-        <img src="http://images6.fanpop.com/image/photos/33400000/Cute-Cats-cats-33440930-1280-800.jpg" alt="bootsnipp"
-             class="img-rounded img-responsive" />
+        <%= image_tag @event_event.image.url,:class=>"img-rounded img-responsive" %>
       </div>
     <!-- Information EVENT -->
     <div class="col-md-9">
       <h4>
         aaa<%= @event_event.title %>
+        <p>
+  <b>Image:</b>
+  
+</p>
       </h4>
       <div class = "ads_metainfo">
         <p>

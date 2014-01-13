@@ -1,9 +1,7 @@
 <%= form_for @ad, :html => {:multipart => true,:id=>"ad-form"} do |f| %>
     <div class="control-group">
       <%= f.label :category_id, "Categoria",:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="ad_category_id"></label>
-      <div class="controls">
         <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria') unless @categories.blank? %>
-      </div>
     </div>
 
     <div class="control-group">
@@ -62,11 +60,13 @@
               <% @districts.each do |district| %>
                 <optgroup label="<%= district.name %>">
                      <% district.cities.each do |city| %>
-                           <option value="<%= city.id %>"><%= city.city %></option>
+                           <option value="<%= city.id %>" <%= "selected" if current_user.city.city == city.city  %>><%= city.city %></option>
                      <% end %>
                 </optgroup>
               <% end %>
             </select>
+
+
             </div>
         </div>
       </div>
