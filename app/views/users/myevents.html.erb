@@ -15,44 +15,48 @@
 <%= will_paginate(@my_events, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
 <div class="row" style="margin-right:0px">
   <% @my_events.each do |event_event| %>
-      <div class="col-md-6">
-        <div class="well well-sm">
-          <div class="row">
-            <div class="col-xs-3 col-md-3 text-center">
-              <img src="http://images6.fanpop.com/image/photos/33400000/Cute-Cats-cats-33440930-1280-800.jpg" alt="bootsnipp"
-                   class="img-rounded img-responsive" />
+  <div class="col-md-6">
+    <div class="well well-sm">
 
-            </div>
-             <%  if !event_event.is_aproved? %>
-               <span class="label label-warning">Não aprovado</span>
-             <% end %>
-            <div class="col-xs-9 col-md-9 section-box">
-              <!--VErifica se esta aprovado -->
-             
+      <div class="col-xs-3 col-md-3 text-center">
+        <img src="http://images6.fanpop.com/image/photos/33400000/Cute-Cats-cats-33440930-1280-800.jpg" alt="bootsnipp"
+        class="img-rounded img-responsive" />
+      </div>
 
-              <%= link_to event_event.title, event_event, class:"h2 url" %>
-              <div style="float:right">
-                <% if user_signed_in? && current_user.id == event_event.user_id %>
-                    <div class="ui-group-buttons">
-                      <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_event_event_path(@event_event),:class=>"btn btn-info", :tile=> "Editar Evento" %>
-                      <div class="or"></div>
-                      <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @event_event, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento ?' } ,:class=>"btn btn-danger", :tile=> "Apagar Evento"%>
-                    </div>
-                <% end %>
+      <div class="row">
+        <div style="float:right">
+          <% if user_signed_in? && current_user.id == event_event.user_id %>
+          <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_event_event_path(event_event), class:'no-effect', :tile=> "Editar Evento"%>
+          <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, event_event, class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento?' } ,:tile=> "Apagar Evento"%>
+          <% end %>
+        </div>
+
+        <%  if !event_event.is_aproved? %>
+        <span class="label label-warning">Não aprovado</span>
+        <% end %>
+
+        <div class="col-xs-9 col-md-9 section-box">
+          <!--VErifica se esta aprovado -->
+          <br>
+          <%= link_to event_event.title, event_event, class:"h2 url" %>
+          <br>
+          <p><%= event_event.description %></p>
+          <br>
+          <hr>
+          <div class="row rating-desc">
+            <div class="col-md-12">
+              <div style="float:left">
+                <span class="fa fa-calendar" style="color:darkgreen;"></span><%=event_event.start_day.day %>/<%=event_event.start_day.mon %>/<%=event_event.start_day.year %>
               </div>
-              <p><%= event_event.description %></p>
-              <hr />
-              <div class="row rating-desc">
-                <div class="col-md-12">
-                  <span class="fa fa-calendar" style="color:darkgreen;"></span><%=event_event.start_day.day %>/<%=event_event.start_day.mon %>/<%=event_event.start_day.year %>
-                  <span class="separator">|</span>
-                  <span class="fa fa-calendar" style="color:#d43f3a"></span><%=event_event.end_day.day %>/<%=event_event.end_day.mon %>/<%=event_event.end_day.year %>
-                </div>
+              <div style="float:right">
+                <span class="fa fa-calendar" style="color:#d43f3a"></span><%=event_event.end_day.day %>/<%=event_event.end_day.mon %>/<%=event_event.end_day.year %>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
   <% end %>
 </div>
 

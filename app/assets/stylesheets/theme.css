@@ -31,7 +31,6 @@
   width:250px;
 }*/
 
-
 #navbarToggle{
   position:fixed;
   top:0;
@@ -208,6 +207,14 @@ background-color: #16ab84;
   padding: 15px 0px;
 }
 
+.market-icon {
+  width: 12px;
+}
+
+.side-elems li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 
 .sidebar-nav {
   position: fixed;
