@@ -6,16 +6,16 @@
     <div class="panel-heading" style="background-color: #39b3d7">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseMercado">
-          <span class="icon-tags" style="margin-right: 2px"></span> MERCADO
+          <%= fa_icon "tags", class:"market-icon" %> MERCADO
         </a>
       </h4>
     </div>
     <div id="collapseMercado" class="panel-collapse collapse <%= in_mercado? %>">
       <div class="panel-body">
         <ul class="side-elems">
-          <li><%= link_to "Entrar no Mercado".html_safe , ads_path %></li>
-          <li><%= link_to "Os Meus Anúncios".html_safe , myads_user_path(current_user.id) %></li>
-          <li><%= link_to "Novo Anúncio".html_safe , new_ad_path %></li>
+          <li><%= link_to "<i class='fa fa-angle-right'></i>Entrar no Mercado".html_safe , ads_path %></li>
+          <li><%= link_to "<i class='fa fa-angle-right'></i>Os Meus Anúncios".html_safe , myads_user_path(current_user.id) %></li>
+          <li><%= link_to "<i class='fa fa-angle-right'></i>Novo Anúncio".html_safe , new_ad_path %></li>
         </ul>
       </div>
     </div>
@@ -36,17 +36,17 @@
     <div class="panel-heading" style="background-color: #ed9c28">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseEventos">
-          <span class="icon-heart" style="margin-right: 2px"></span> EVENTOS
+          <%= fa_icon "calendar" %> EVENTOS
         </a>
       </h4>
     </div>
     <div id="collapseEventos" class="panel-collapse collapse <%= in_events? %>">
       <div class="panel-body">
         <ul class="side-elems">
-          <li><%= link_to "Ver Todos".html_safe, event_events_path %></li>
+          <li><%= link_to "<i class='fa fa-angle-right'></i>Ver Todos".html_safe, event_events_path %></li>
           <% if user_signed_in? %>
-          <li><%= link_to "Os Meus Eventos".html_safe, myevents_path(current_user.id) %></li>
-          <li><%= link_to "Novo Evento".html_safe, new_event_event_path %></li>
+          <li><%= link_to "<i class='fa fa-angle-right'></i>Os Meus Eventos".html_safe, myevents_path(current_user.id) %></li>
+          <li><%= link_to "<i class='fa fa-angle-right'></i>Novo Evento".html_safe, new_event_event_path %></li>
           <% end %>
         </ul>
       </div>
@@ -68,17 +68,17 @@
     <div class="panel-heading" style="background-color: #47a447;">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseAcademia">
-          <span class="icon-book" style="margin-right: 2px"></span> ACADEMIA
+          <%= fa_icon "book" %> ACADEMIA
         </a>
       </h4>
     </div>
     <div id="collapseAcademia" class="panel-collapse collapse <%= in_academy? %>">
       <div class="panel-body">
         <ul class="side-elems">
-          <li><%= link_to "Entrar na Academia".html_safe, academy_path %></li>
-          <li><%= link_to "Perguntas".html_safe, academy_questions_path %></li>
-          <li><%= link_to "Tutoriais".html_safe, academy_tutorials_path%></li>
-          <li><%= link_to "Workshops".html_safe, academy_workshops_path %></li>
+          <li><%= link_to "<i class='fa fa-angle-right'></i>Entrar na Academia".html_safe, academy_path %></li>
+          <li><%= link_to "<i class='fa fa-angle-right'></i>Perguntas".html_safe, academy_questions_path %></li>
+          <li><%= link_to "<i class='fa fa-angle-right'></i>Tutoriais".html_safe, academy_tutorials_path%></li>
+          <li><%= link_to "<i class='fa fa-angle-right'></i>Workshops".html_safe, academy_workshops_path %></li>
         </ul>
       </div>
     </div>
@@ -88,9 +88,7 @@
   <div class="panel panel-default">
     <div class="panel-heading" style="background-color: #47a447;">
       <h4 class="panel-title">
-
         <%= link_to "ACADEMIA".html_safe, academy_path  %>
-
       </h4>
     </div>
   </div>
@@ -103,9 +101,9 @@
 <% if user_signed_in? && current_user.isAdmin? %>
 <br>
 <div class="panel panel-default">
-  <div class="panel-heading" style="background-color: #d2322d">
+  <div class="panel-heading" style="background-color: #d2322d; border-radius: 4px 4px 4px 4px;">
     <h4 class="panel-title">
-      <span class="icon-lock" style="margin-right: 2px"></span><a href="/admin/ads">Danger-Zone</a>
+      <%= fa_icon "lock" %> <a href="/admin/ads"> Danger-Zone</a>
     </h4>
   </div>
 </div>

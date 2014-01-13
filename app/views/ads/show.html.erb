@@ -51,92 +51,72 @@
 <section class="panel">
    <div class="panel-body">
       <div class="col-md-6">
-         <!-- Image ADS -->
-         <% if num_img > 0 %>
-         <div class="ads_img_section">
-            <div id="imageCarousel" class="carousel-inner">
-               <% i=0 %>
-               <% while (i < num_img) do %>
-               <div class="<% if i>0 %>item<% else %>active item<% end %> ads_img">
-                  <table>
-                     <tr>
-                        <td>
-                           <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery_carousel]">
-                           <%= image_tag @ad.ad_images[i].image(:large), :width => "100%" %>
-                           </a>
-                        </td>
-                     </tr>
-                  </table>
-               </div>
-               <% i+=1 %>
-               <% end %>
-              <!--  
-               <ol class="carousel-indicators">
-                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                  <% i=1 %>
-                  <% while (i < num_img) do %>
-                  <li data-target="#myCarousel" data-slide-to="<%= i %>"></li>
-                  <% i+=1 %>
-                  <% end %>
-               </ol>
-               -->
-          <!--  <a class="carousel-control left" href="#imageCarousel" data-slide="prev" style="top: 50%">&lsaquo;</a> -->
-          <!--     <a class="carousel-control right" href="#imageCarousel" data-slide="next" style="top: 50%">&rsaquo;</a>-->
+        <div class="container">
+          <!-- Image ADS -->
+          <noscript>
+            <style>
+              .es-carousel ul{
+                display:block;
+              }
+            </style>
+          </noscript>
+  
+          <script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">  
+            <div class="rg-image-wrapper">
+              {{if itemsCount > 1}}
+                <div class="rg-image-nav">
+                  <a href="#" class="rg-image-nav-prev">Previous Image</a>
+                  <a href="#" class="rg-image-nav-next">Next Image</a>
+                </div>
+              {{/if}}
+              <div class="rg-image"></div>
+              <div class="rg-loading"></div>
+                <div class="rg-caption" style="display:none;">
+                  <p></p>
+                </div>
+              </div>
             </div>
-         </div>
-         <div class="ads_otherimg_section">
-            <% i=0 %>
-            <% while (i < (num_img-1)) do %>
-            <% if !i.odd? %>
-            <tr>
-               <td align="center">
-                  <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                  <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                  </a>
-               </td>
-            </tr>
-            <% else %>
-            <tr>
-               <td align="center">
-                  <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                  <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                  </a>
-               </td>
-            </tr>
-            <% end %>
-            <% i+=1 %>
-            <% end %>
-            <!-- Para centrar a ultima imagem caso o numero de imagens for impar -->
-            <% if !i.odd? %>
-            <tr>
-               <td colspan="2" align="center">
-                  <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                  <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                  </a>
-               </td>
-            </tr>
-            <% else %>
-            <tr>
-               <td align="center">
-                  <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                  <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                  </a>
-               </td>
-            </tr>
-            <% end %>
-         </div>
-         <% else %>
-         <div id="imageCarousel" class="carousel-inner">
-            <a class="ads_no_img">
-            <img class="no_image" src="http://placehold.it/250x200">
-            </a>
-         </div>
-         <% end %>
+          </script>
+
+          <div class="content">
+          <div id="rg-gallery" class="rg-gallery">
+            <div class="rg-thumbs">
+              <!-- Elastislide Carousel Thumbnail Viewer -->
+              <div class="es-carousel-wrapper">
+                <div class="es-nav">
+                  <span class="es-nav-prev">Previous</span>
+                  <span class="es-nav-next">Next</span>
+                </div>
+                <div class="es-carousel">
+                  <ul>
+                    <% if num_img = 0 %>
+                      <li><a href="#"><img src="/assets/defaultAdPic.png" data-large="/assets/defaultAdPic.png" alt="image"</a></li>
+                    <% else %>
+
+                      <% i=0 %>
+                      <% while (i < num_img) do %>
+                        <li><a href="#"><img src="<%= @ad.ad_images[i].image.url %>" data-large="<%= @ad.ad_images[i].image.url %>" alt="image01"</a></li>
+                        <% i+=1 %>
+                      <% end %>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+              <!-- End Elastislide Carousel Thumbnail Viewer -->
+            </div><!-- rg-thumbs -->
+          </div><!-- rg-gallery -->
+          </div><!-- content -->
+        </div><!-- container -->
+        <!--  essencial-->
+        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+        <!-- next prevuis -->  <script type="text/javascript" src="/assets/javascripts/jquery.elastislide.js"></script>
+        <!-- main --><script type="text/javascript" src="/assets/javascripts/gallery.js"></script>
+
       </div>
       <!-- Information ADS -->
       <div class="col-md-6">
          <h4 class = "ads_title">
-            <%= @ad.title %>asdasdadas sdasdasdasdasd asfd asfdaf sad asd asd
+            <%= @ad.title %>
          </h4>
          <!--DAR DESTAQUE-->
            <div class="pull-right">
