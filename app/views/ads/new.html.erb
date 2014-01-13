@@ -1,44 +1,32 @@
 <div>
   <ol class="breadcrumb" id="breadcrumbAds">
     <li class="active">
-      <a class="url" href="<%= ads_path %>"><i class="fa fa-tags"></i> Anúncios</a></li>
-      <% if user_signed_in? %>
-        <a class="url" href="<%= myads_user_path(current_user.id) %>"> > Os meus Anúncios</a></li> >
-        <%= link_to "Novo Anúncio", new_ad_path, class:"url" %>
-      <% end %>
+      <a class="url" href="<%= ads_path %>"><i class="fa fa-tags"></i> Anúncios</a>
+    </li>
+    <% if user_signed_in? %>
+      <a class="url" href="<%= myads_user_path(current_user.id) %>"> > Os meus Anúncios</a> >
+      <%= link_to "Novo Anúncio", new_ad_path, class:"url" %>
+    <% end %>
   </ol>
 </div>
 
-
-<!-- IF IS got one slot left for ads 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-14 col-md-14">
-            <div class="alert alert-info">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                    ×</button>
-                <span class="fa  fa-exclamation-circle"></span> <strong>Warning Message</strong>
-                <hr class="message-inner-separator">
-                <p>
-                    Best check yo self, you're not looking too good.</p>
-            </div>
-        </div>
-    </div>
-</div>-->
-
-<% if @num_slots_ads <= 1 %>
-  <script> 
-    showNotify("Apenas possui um anuncio restante!!Quer ter mais anuncios?Clique aqui!","info")  
+<% if current_user.remaining_ads_slots <= 1 %>
+  <script>
+    showNotify("Apenas possui um anuncio restante!!Quer ter mais anuncios?Clique aqui!","info")
   </script>
 <% end %>
 
-<div class="panel">
+<% if current_user.remaining_ads_slots > 0 %>
+  <div class="panel">
     <div class="panel-heading border-header">
-            <h3 class="panel-title">Novo Anúncio</h3>
-        </div>
+      <h3 class="panel-title">Novo Anúncio</h3>
+    </div>
     <div class="panel-body">
+      <%= render 'form' %>
+    </div>
+  </div>
+<% else %>
 
-	<%= render 'form' %>
+  <p>Já não tem mais slots para anuncios, compre mais <%= link_to "aqui" %></p>
 
-	</div>
-</div>
+<% end %>

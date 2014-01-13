@@ -17,9 +17,7 @@
 //= require bootstrap-datepicker
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
-//= require_directory .
-//= require_directory ./bootstrap-wysihtml5
-//= require_directory ./lib
+//= require_tree .
 //= require jquery.inview.min.js
 
 

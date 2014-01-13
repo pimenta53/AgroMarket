@@ -1,4 +1,4 @@
-<%= form_for(plan) do |f| %>
+<%= form_for plan, :url => create_payment_path(plan.id) do |f| %>
 
     <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
       <% if plan.name == "Regular" %>
