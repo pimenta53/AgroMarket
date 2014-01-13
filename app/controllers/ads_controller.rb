@@ -162,6 +162,7 @@ class AdsController < ApplicationController
     @ad.is_deleted=true
     @ad.is_active=false
     @ad.save
+    #remove 1 ad from the user counter
     current_user.remove_ad
     respond_to do |format|
       format.html { redirect_to ads_url }
