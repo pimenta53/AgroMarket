@@ -1,11 +1,11 @@
-<%= form_for(@plan) do |f| %>
+<%= form_for(plan) do |f| %>
 
       <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
-        <% if f.name == "Regular" %>
+        <% if plan.name == "Regular" %>
             <div class="panel panel-primary">
-        <% elsif f.name == "Horta" %>
+        <% elsif plan.name == "Horta" %>
             <div class="panel panel-sucess">
-        <% elsif f.name == "Quinta" %>
+        <% elsif plan.name == "Quinta" %>
             <div class="panel panel-info">
         <% else %>
             <div class="panel panel-danger">
@@ -18,19 +18,19 @@
         </div>
         <!-- end if -->
         <div class="panel-heading">
-          <h3 class="panel-title"><%= f.name%></h3>
+          <h3 class="panel-title"><%= plan.name%></h3>
         </div>
         <div class="panel-body-plan">
           <div class="the-price">
-            <h1><%= f.price%> €</h1>
-            <small>Durante <%= f.duration %> Meses</small>
+            <h1><%= plan.price%> €</h1>
+            <small>Durante <%= plan.duration %> Meses</small>
           </div>
           <table class="table">
             <tr>
-              <td><%= pluralize(f.ads_limit, "Anúncio") %></td>
+              <td><%= pluralize(plan.ads_limit, "Anúncio") %></td>
             </tr>
             <tr class="active">
-              <td><%= pluralize(f.event_limit, "Evento") %></td>
+              <td><%= pluralize(plan.event_limit, "Evento") %></td>
             </tr>
             <tr>
               <td>Acesso à Academia</td>
@@ -38,22 +38,12 @@
           </table>
         </div>
         <div class="panel-footer">
-          <% if f.name != "Regular" %>
+          <% if plan.name != "Regular" %>
               <%= f.submit "Comprar", :class=>"btn btn-primary" %>
           <% end %>
         </div>
 
-        <% if @plan.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
-
-              <ul>
-                <% @plan.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
+        
     </div>
 </div>
 <% end %>
