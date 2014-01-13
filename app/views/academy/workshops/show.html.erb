@@ -17,9 +17,19 @@
 
 
  <section class="panel">
+         <div class="button_back">
+              <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>   
+              
+               <%= link_to '<i class="fa fa fa-trash-o"></i> Delete'.html_safe, @academy_workshop, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu workshop?' } ,:class=>"link_back", :tile=> "Apagar Tutorial"%>
 
+                <% end %>
+        </div>
             <header class="panel-heading border-header text-center">
+
+
                <div class="title_show_workshop"><%= @academy_workshop.title %></div>
+
+
             </header>
           
 
@@ -62,7 +72,7 @@
                               <% if @academy_workshop.has_available_slots? == true && @academy_workshop.requires_registration? == true %>
 
                         
-                                 <% if @academy_registed == 0 %>
+                                 <% if @academy_registed.blank? %>
 
 
                                  <% if user_signed_in? && current_user.id != @academy_workshop.user_id %>   
@@ -74,8 +84,7 @@
                                   <% else %>
 
                                      <div class="text-center">
-                                        
-                                        <%= link_to ' Desinscrever do Workshop', @academy_workshop_registration, method: :destroy,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Are you sure?' } %>
+                                        <%= link_to ' Desinscrever do Workshop', @academy_registed, method: :delete,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Are you sure?' } %>
                                     </div>
 
                                   <% end %>
@@ -136,7 +145,7 @@
                         <div class="button_back">
 
                               <div class="ui-group-buttons">
-                                <%= link_to '<i class="icon-arrow-left"></i> Voltar'.html_safe, academy_workshops_path,:class=>"", :tile=> "Voltar" %>
+                                <%= link_to '<i class="icon-arrow-left"></i> Voltar'.html_safe, academy_workshops_path,:class=>"link_back", :tile=> "Voltar" %>
                               </div>
 
                         </div>
