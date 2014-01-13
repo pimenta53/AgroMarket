@@ -27,7 +27,8 @@
         <td><%= admin_plan.price %></td>
         <td><%= admin_plan.ads_limit %></td>
         <td><%= admin_plan.event_limit %></td>
-        <td><%= admin_plan.duration %> Meses</td>
+        <td> <% if admin_plan.duration < 0 %> Ilimitado <%else%> <%= admin_plan.duration %> Meses <% end %></td>
+        <td><%= admin_plan.active_plans_count %></td>
         <td><%= admin_plan.users.count%></td>
         <td></td>
         <td><%# link_to 'Ver', admin_plan %></td>
