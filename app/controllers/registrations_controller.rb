@@ -46,7 +46,7 @@ class RegistrationsController < Devise::RegistrationsController
 
 
 		def load_cities
-			@cities = City.order('city ASC').all
+      @districts = District.find(:all ,  :order => "name ASC" ,:include => :cities)
 		end
 
 		def date_convert

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agrosocial</title>
+
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
+  <%= stylesheet_link_tag "bootstrap","errors","data-turbolinks-track" => true %>
+
+  <%= javascript_include_tag "application","user" "data-turbolinks-track" => true %>  <!--Google Fonts -->
+
+
+  <link rel="shortcut icon" href="">
+  <!--Google Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+      <div id="header">
+        <%= render "layouts/header"%>
+      </div>
+
+          <div id="errors_body"  data-slide="1" class="bgParallax slide teste" data-speed="15">
+
+            <div class="vert-text">
+
+
+              <div class="col-slogan">
+      
+                <%= yield %>
+              </div>
+            
+             </div>
+      
+        </div>
+
+      <%= render 'layouts/footer' %>
+</body>
+</html>
