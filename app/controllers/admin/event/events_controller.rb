@@ -37,6 +37,17 @@ class Admin::Event::EventsController < ApplicationController
   end
 
 
+    def unaprove_event
+    event = Event::Event.find(params[:id_aprove])
+    event.aproved = false
+    event.save
+
+    redirect_to admin_event_events_path,:notice => "Evento foi desaprovado com sucesso"
+  end
+
+
+
+
   # POST /admin/event/events
   # POST /admin/event/events.json
   def create

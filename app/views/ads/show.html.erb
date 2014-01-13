@@ -89,10 +89,15 @@
                 </div>
                 <div class="es-carousel">
                   <ul>
-                    <% i=0 %>
-                    <% while (i < num_img) do %>
-                      <li><a href="#"><img src="<%= @ad.ad_images[i].image.url %>" data-large="<%= @ad.ad_images[i].image.url %>" alt="image01"</a></li>
-                      <% i+=1 %>
+                    <% if num_img = 0 %>
+                      <li><a href="#"><img src="/assets/defaultAdPic.png" data-large="/assets/defaultAdPic.png" alt="image"</a></li>
+                    <% else %>
+
+                      <% i=0 %>
+                      <% while (i < num_img) do %>
+                        <li><a href="#"><img src="<%= @ad.ad_images[i].image.url %>" data-large="<%= @ad.ad_images[i].image.url %>" alt="image01"</a></li>
+                        <% i+=1 %>
+                      <% end %>
                     <% end %>
                   </ul>
                 </div>
