@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140109000741) do
+ActiveRecord::Schema.define(version: 20140113135740) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -186,6 +186,21 @@ ActiveRecord::Schema.define(version: 20140109000741) do
     t.boolean  "watched",           default: false
     t.integer  "notification_type",                 null: false
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", force: true do |t|
+    t.string   "ref",                        null: false
+    t.integer  "user_id",                    null: false
+    t.boolean  "used",       default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plan_users", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "plan_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

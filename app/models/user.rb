@@ -68,14 +68,17 @@ class User < ActiveRecord::Base
                                                 :foreign_key => 'following_id'
 
 
-  has_many :notification
+  has_many :notifications
 
   belongs_to :plan , :foreign_key => 'plan_id'
 
   #belongs_to :district
   belongs_to :city
 
-  belongs_to :plan
+  belongs_to :payment
+
+  has_many :plan_users
+  has_many :plans, :through => :plan_users
 
 
   def talks

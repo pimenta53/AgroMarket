@@ -29,6 +29,10 @@ class DashboardFacade
     Ad.all.limit(10).reverse!
   end
 
+  def last_notifications
+    Notification.all.limit(10).reverse!
+  end
+
   def today_ads_count
     Ad.today_ads_count
   end

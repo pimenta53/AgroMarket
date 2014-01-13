@@ -80,8 +80,14 @@
 .information_show_data span{
 	
 }
+
+.information_left{
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
 .information_left span{
-	margin-left: 1%;
+	margin-left: 5%;
 }
 
 
@@ -120,12 +126,15 @@
 
 
 .button_back{
+
 	float: right;
+    margin-top: 1%;
+    margin-right: 2%;
 
 }
 
 .fields_workshop{
-	height: 30px;
+	height: 15px;
 	width: auto;
 }
 
