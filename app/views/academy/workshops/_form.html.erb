@@ -3,8 +3,7 @@
     <div class="row" style="margin-left: -10px; margin-right: -10px">
 
 
-
-      <div class="col-lg-12">
+     <div class="col-lg-12">
           <div class="control-group">
               <%= f.label :title, "Título",:class=>"control-label" %><label class="help-inline" style="" generated="true" for="academy_workshop_title"></label>
             <div class="controls">
@@ -16,7 +15,7 @@
      </div>
 
 
-      <div class="col-md-2">
+      <div class="col-md-4">
         <div class="control-group">
           <%= f.label :available_slots, "Vagas Disponíveis",:class=>"control-label" %><label class="help-inline"  generated="true" for="academy_workshop_available_slots"></label>
           <div class="controls">
@@ -26,7 +25,7 @@
       </div>
 
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="control-group">
         <%= f.label :price, "Preço" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_workshop_price"></label>
         <div class="controls">
@@ -81,8 +80,9 @@
     </div>
 
   <div class="field">
-    <%= f.label :requires_registration %><br>
-    <%= f.number_field :requires_registration %>
+    
+    <%= f.check_box :requires_registration  %>
+    <%= f.label "Registo Obrigatorio" %> 
   </div>
 
     <div class="fields">

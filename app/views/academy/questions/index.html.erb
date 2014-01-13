@@ -16,33 +16,35 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th class="tutorial_text_head">CATEGORIA</th>
-          <th class="tutorial_text_head">VISUALIZAÇÕES</th>
-          <th class="tutorial_text_head">RESPOSTAS</th>
+          <th width="10%" class="tutorial_text_head">UTILIZADOR</th>
+          <th width="60%" class="tutorial_text_head">PERGUNTA</th>
+          <th width="10%" class="tutorial_text_head">CATGEGORIA</th>
+          <th width="10%" class="tutorial_text_head">RESPOSTAS</th>
+          <th width="10%" class="tutorial_text_head">VISUALIZAÇÕES</th>
         </tr>
       </thead>
       <tbody>
 
         <% @academy_questions.each do |academy_question| %>
-        <tr>
-          <td class="col-sm-6 col-md-10">
-            <div class="media">
-                <%= link_to (image_tag academy_question.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), academy_question.user %>
-              <div class="media-body" style="padding:10px;"> 
-                <h4 class="media-heading">
-                  <%= link_to academy_question.title, academy_question %>
-                </h4>
-                <p><small><%= academy_question.text.html_safe %></small></p>
-              </div>
+        <tr class="tutorial_table_body">
+          <td style="vertical-align:middle;">
+            <div class="media" style="position:relative; left:50%; margin-left:-25px;">
+              <%= link_to (image_tag academy_question.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), academy_question.user %>
             </div>
           </td>
-          <td>
-            <span class="label" style="background-color:#<%= academy_question.category.color %>">
+          <td style="vertical-align:middle;">
+            <h4 class="media-heading" id="text-link">
+              <%= link_to academy_question.title, academy_question %>
+            </h4>
+            <p><small><%= academy_question.text.html_safe %></small></p>
+          </td>
+          <td style="vertical-align:middle;">
+            <span class="label" style="background-color:#<%= academy_question.category.color %>;">
               <%= academy_question.category.name %>
             </span>
           </td>
-          <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;"><strong>110 </strong></td>
-          <td class="col-sm-1 col-md-1 text-center" style="vertical-align: middle;">76x</td>
+          <td style="vertical-align: middle;"><strong>110 </strong></td>
+          <td style="vertical-align: middle;">76x</td>
         </tr>
         <% end %>
 

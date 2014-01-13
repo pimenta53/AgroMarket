@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113135740) do
+ActiveRecord::Schema.define(version: 20140113160529) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -196,6 +196,7 @@ ActiveRecord::Schema.define(version: 20140113135740) do
     t.boolean  "used",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "plan_id",                    null: false
   end
 
   create_table "plan_users", force: true do |t|
@@ -245,6 +246,13 @@ ActiveRecord::Schema.define(version: 20140113135740) do
     t.integer  "user_two",               null: false
     t.integer  "ad_id"
     t.integer  "is_close",   default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "types", force: true do |t|
+    t.string   "name"
+    t.integer  "flag"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

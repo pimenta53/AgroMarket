@@ -50,10 +50,22 @@ Agrosocial::Application.routes.draw do
   get "/users/:id/myads" => "users#myads", as: "myads_user"
 
   get "/users/:id/myevents" => "users#myevents", as: "myevents"
+  
+  get "/users/myrefpaypal" => "users#myrefpaypal", as: "myrefpaypal"
+
+
+  #payment routes
+
+  get "/payment/success_payment" => "payment#success_payment", as: "success_payment"
+  get "/payment/error_payment" => "payment#error_payment", as: "error_payment"
+
+  patch "/payment/:id/create_payment" => "payment#create_payment", as: "create_payment"
+
 
   #accao follow do utilizador
   post '/users/:id/follow' => 'users#follow'
-  get "highlight_ad/:id" => "ads#highlight" , as: "highlight_ad"
+  
+  get "payment/:id/promove_ad_payment" => "payment#promove_ad_payment" , as: "promove_ad_payment"
 
   resources :ads do
     post "new_messages" => "messages#create"
@@ -68,6 +80,8 @@ Agrosocial::Application.routes.draw do
   get '/search' => 'search#search_for_all'
 
   get '/search_tutorials' => 'search#search_tutorials'
+
+
 
 
 
