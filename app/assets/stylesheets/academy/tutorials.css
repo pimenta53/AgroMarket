@@ -26,13 +26,12 @@
 	color: #B8B8B8;
 }
 
-
 /********** showtutorial **********/
 
 
 .title_show_tutorial{
-	color: #00A75D;
-	font-size: 36px;
+	font-size: 30px;
+	text-align: left;
 }
 
 .title-font {
@@ -72,5 +71,9 @@
 .button_back{
 	float: right;
 
+}
+
+.tutorial_table_body a:hover{
+	color:black;
 }
 

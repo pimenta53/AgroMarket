@@ -79,7 +79,7 @@ class User < ActiveRecord::Base
 
   has_many :plan_users
   has_many :plans, :through => :plan_users
-
+  has_one :workshop_registration
 
   def talks
      talks_user_one + talks_user_two
@@ -114,16 +114,56 @@ class User < ActiveRecord::Base
     end
   end
 
-  #conta o numero slots para anuncios que o utilizador tem restantes
-  def remaining_ads_slots
-    #num de anuncios dos pacotes  - num de anuncios que possui
-    3 + (self.plan != nil ? self.plan.ads_limit : 0) - self.ads.count
+#devolve o maximo de anuncios que pode ter em simultaneo
+  def max_ads
+    self.plans.sum(:ads_limit)
   end
 
-  #conta o numero slots para eventos que o utilizador tem restantes
+#devolve o maximo de eventos que pode ter em simultaneo
+  def max_events
+    self.plans.sum(:event_limit)
+  end
+
+#devolve o numero de anuncios que o utilizador tem ativos
+  def active_ads_count
+    self.ads.where("expire_date >= ?", Date.today).count
+  end
+
+#devolve o numero de evento que o utilizador tem ativos
+  def active_events_count
+    self.events.where("end_day >= ?", Date.today).count
+  end
+
+#conta o numero slots para anuncios que o utilizador tem restantes
+  def remaining_ads_slots
+    #num de anuncios dos pacotes  - num de anuncios que possui ativos
+    self.max_ads - self.active_ads_count
+  end
+
+#conta o numero slots para eventos que o utilizador tem restantes
   def remaining_events_slots
-    #num de anuncios dos pacotes  - num de anuncios que possui
-    1 + (self.plan != nil ? self.plan.event_limit : 0) - self.ads.count
+    #num de eventos dos pacotes  - num de eventos que possui
+    self.max_events - self.active_events_count
+  end
+
+  def add_ad
+    self.counter_ads += 1
+    self.save
+  end
+
+  def remove_ad
+    self.counter_ads -= 1
+    self.save
+  end
+
+  def add_event
+    self.counter_events += 1
+    self.save
+  end
+
+  def remove_event
+    self.counter_events -= 1
+    self.save
   end
 
   #fica a seguir 'target'
@@ -266,9 +306,9 @@ class User < ActiveRecord::Base
       #Buscar info
       self.email = omniauth['info']['email']
       self.name = omniauth['info']['name']
-      
+
       #Google não contem cidade
-      
+
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
   end
