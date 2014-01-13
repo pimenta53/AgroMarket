@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field hidden">
     <%= f.label :workshop_id %><br>
     <%= f.number_field :workshop_id ,:value=> @academy_workshop.id %>
   </div>
@@ -19,9 +19,13 @@
     <%= f.hidden_field :user_id ,:value=> current_user.id %>
   </div>
 
-  <div class="actions pull-right">
-    <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+  <div class="actions text-center workshop_form">
+     <p>Tem a certeza que se quer inscrever?</p>
+
     
     <%= f.submit "Inscrever-se", :class=> "btn btn-primary"%>
+
+    <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+    
   </div>
 <% end %>

@@ -28,6 +28,7 @@ class Admin::CitiesController < Admin::ApplicationController
   # POST /admin/cities
   # POST /admin/cities.json
   def create
+    @district = District.all
     @city = City.new(admin_city_params)
 
     respond_to do |format|
