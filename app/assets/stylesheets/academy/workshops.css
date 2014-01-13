@@ -17,14 +17,16 @@
 }
 
 .title_show_workshop{
-
 	color: #00A75D;
 	font-size: 36px;
 	font-family: "Oswald";
-   font-weight: normal;
+	font-weight: normal;
 }
 
-
+#text-link a:hover {
+	text-decoration: none !important;
+	color: black !important;
+}
 
 .information_show_workshop span{
 	color: black;
