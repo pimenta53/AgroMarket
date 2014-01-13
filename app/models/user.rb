@@ -25,6 +25,9 @@
 #  user_type              :integer          default(1)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  counter_ads            :integer          default(0)
+#  counter_events         :integer          default(0)
+#  plan_id                :integer
 #
 
 class User < ActiveRecord::Base
@@ -65,14 +68,18 @@ class User < ActiveRecord::Base
                                                 :foreign_key => 'following_id'
 
 
-  has_many :notification
+  has_many :notifications
 
   belongs_to :plan , :foreign_key => 'plan_id'
 
   #belongs_to :district
   belongs_to :city
 
+  belongs_to :payment
 
+  has_many :plan_users
+  has_many :plans, :through => :plan_users
+  has_one :workshop_registration
 
   def talks
      talks_user_one + talks_user_two
@@ -107,10 +114,56 @@ class User < ActiveRecord::Base
     end
   end
 
-  #conta o numero slots para anuncios que o utilizador restantes
-  def remaining_ads_slots 
-    #num de anuncios dos pacotes  - num de anuncios que possui  
-    self.plan.ads_limit - self.ads.count
+#devolve o maximo de anuncios que pode ter em simultaneo
+  def max_ads
+    self.plans.sum(:ads_limit)
+  end
+
+#devolve o maximo de eventos que pode ter em simultaneo
+  def max_events
+    self.plans.sum(:event_limit)
+  end
+
+#devolve o numero de anuncios que o utilizador tem ativos
+  def active_ads_count
+    self.ads.where("expire_date >= ?", Date.today).where(:is_deleted => false, :is_active => true).count
+  end
+
+#devolve o numero de evento que o utilizador tem ativos
+  def active_events_count
+    self.events.where("end_day >= ?", Date.today).where(:is_deleted => false, :is_active => true).count
+  end
+
+#conta o numero slots para anuncios que o utilizador tem restantes
+  def remaining_ads_slots
+    #num de anuncios dos pacotes  - num de anuncios que possui ativos
+    self.max_ads - self.active_ads_count
+  end
+
+#conta o numero slots para eventos que o utilizador tem restantes
+  def remaining_events_slots
+    #num de eventos dos pacotes  - num de eventos que possui
+    self.max_events - self.active_events_count
+  end
+
+  def add_ad
+    self.counter_ads += 1
+    self.save
+  end
+
+  def remove_ad
+    self.counter_ads -= 1
+    self.save
+  end
+
+  def add_event
+    self.counter_events += 1
+    self.save
+  end
+
+  def remove_event
+    self.counter_events -= 1
+    self.save
   end
 
   #fica a seguir 'target'
@@ -208,14 +261,10 @@ class User < ActiveRecord::Base
 
       #Buscar info
       self.email = omniauth['info']['email']
-      self.name = omniauth['info']['first_name']
-
-      if omniauth['info']['last_name'].length > 0
-        self.name += ' ' + omniauth['info']['last_name']
-      end
+      self.name = omniauth['info']['name']
 
 
-      #location será composto por Cidade, Pais
+      #location é composto por "Cidade, Pais"
       if omniauth['info']['location'] != nil
         location = omniauth['info']['location'].split(", ")
       else
@@ -253,11 +302,19 @@ class User < ActiveRecord::Base
       #end
 
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+    elsif omniauth['provider'] == 'google_oauth2'
+      #Buscar info
+      self.email = omniauth['info']['email']
+      self.name = omniauth['info']['name']
+
+      #Google não contem cidade
+
+      authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
   end
 
   def has_provider(provider)
-    collection = User.first.authentications.where("provider = ?",provider)
+    collection = authentications.where("provider = ?",provider)
     collection.length > 0
   end
 
@@ -304,6 +361,7 @@ class User < ActiveRecord::Base
     return results
   end
 
+  # users registered today
   def self.today_users_count
     where('created_at > ?', Date.today).count
   end

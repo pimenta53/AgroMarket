@@ -1,3 +1,4 @@
+#encoding: utf-8
 # == Schema Information
 #
 # Table name: ads
@@ -18,6 +19,7 @@
 #  is_active      :boolean          default(FALSE)
 #  created_at     :datetime
 #  updated_at     :datetime
+#  highlight      :integer          default(0)
 #
 
 class Ad < ActiveRecord::Base
@@ -65,11 +67,10 @@ class Ad < ActiveRecord::Base
   			end
   			$i +=1
   		end while $i < params.length
-  		result = [categories,cities]
+  		[categories,cities]
   	end
 
   	def self.search(params)
-
       active_ads = where(is_active: true) #busca só os anúncios activos
   		if params
   			result = self.separateQuery(params) #separa as categorias e as cidades
@@ -123,7 +124,7 @@ class Ad < ActiveRecord::Base
 
     #pesquisa por categoria
     def self.search_by_category
-      ads = where(:category_id => @preferences_category_id)
+      where(:category_id => @preferences_category_id)
     end
 
     #pesquisa por palavra chave
@@ -168,9 +169,7 @@ class Ad < ActiveRecord::Base
 
   #devolve anuncios relacionados por categoria
   def related_ads
-    related_ads = Ad.where(:category_id => self.category_id)
-                    .where.not(id: self.id)
-                    .limit(4)
+    Ad.where(:category_id => self.category_id).where.not(id: self.id).limit(4)
   end
 
 
@@ -192,11 +191,11 @@ class Ad < ActiveRecord::Base
   end
 
   def first_image
-    if !self.ad_images.blank?
-       return self.ad_images.first.image
-   else
-     return "http://placehold.it/40x30"
-   end
+  if !self.ad_images.blank?
+    return self.ad_images.first.image
+  else
+    return "http://placehold.it/40x30"
+  end
 
   end
 	#######################
@@ -232,8 +231,22 @@ class Ad < ActiveRecord::Base
     where("created_at > ?", Date.today).count
     end
 
-    
-
+    def self.ads_highlight
+      results = Array.new
+      ids = Array.new
+      i = 0
+      myArray = where("highlight = ?", 1)
+      c = myArray.size
+      while i < 5 && c > 0
+        x = myArray.find(:first, :offset =>rand(c))
+        ids.push(x.id)
+        results.push(x)
+        myArray =  where("id not in (?) and highlight = ?",ids,1)
+        i = i+1
+        c = myArray.size
+      end
+      return results
+    end
 
 	# private methods
 	private
@@ -243,12 +256,12 @@ class Ad < ActiveRecord::Base
 		end
 
     def calculate_expire_date
-      self.expire_date = Time.now + 1.week
+      self.expire_date = Time.now + 2.week
     end
 
     #erro se a expire_date for no passado
 		def expire_date_cannot_be_in_the_past
-			errors.add(:expire_date, "can't be in the past") if
+			errors.add(:expire_date, "Não pode estar no passado") if
 			!expire_date.blank? and expire_date < Date.today
 		end
 

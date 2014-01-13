@@ -9,21 +9,31 @@
 
 
 /********** showWorkshop **********/
-
+.tutorial_text_head {
+	color: black;
+	font-size: 16px;
+	height: 55px;
+	vertical-align: middle !important;
+}
 
 .title_show_workshop{
-
 	color: #00A75D;
 	font-size: 36px;
 	font-family: "Oswald";
-   font-weight: normal;
+	font-weight: normal;
 }
 
-
+#text-link a:hover {
+	text-decoration: none !important;
+	color: black !important;
+}
 
 .information_show_workshop span{
-	color: #EA5B0C;
+	color: black;
 	font-size: 16px;
+	font-weight: bold;
+
+
 }
 
 .information_show_workshop{
@@ -75,8 +85,14 @@
 .information_show_data span{
 	
 }
+
+.information_left{
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
 .information_left span{
-	margin-left: 1%;
+	margin-left: 5%;
 }
 
 
@@ -105,8 +121,9 @@
 }
 
 .information_workshop span{
-	color: #EA5B0C;
-	font-size: 16px;
+	color: black;
+	font-size: 18px;
+	font-weight:bold;
 }
 
 .information_data span{
@@ -115,27 +132,49 @@
 
 
 .button_back{
+
 	float: right;
+    margin-top: 1%;
+    margin-right: 2%;
 
 }
 
 .fields_workshop{
-	height: 30px;
+	height: 15px;
 	width: auto;
 }
 
 .information_left_info span{
-	margin-left: 2%;
+	margin-left: 10%;
 }
-
+.information_left_info{
+	
+}
 
 .workshop_notinscription{
 	font-family: "Oswald";
   font-weight: normal;
-  color: black;
+  color: #00A75D;
 	font-size: 32px;
 	border:  2px solid #e5e5e5;
 }
+
+.workshop_table_head th{
+
+	font-family: "Oswald";
+  font-weight: normal;
+   color: #00A75D;
+	font-size: 16px;
+}
+
+.ui-group-buttons a:hover{
+	color: black;
+}
+
+.button_back a:hover{
+	color:black;
+}
+
 
 
 

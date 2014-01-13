@@ -5,7 +5,7 @@
   </div>
   </header>
 <div class="table-responsive">
-  <table class="table table-hover" >
+  <table class="table table-hover tablesorter" id="orderTable" >
       <thead>
     <tr>
       <th>ID</th>
@@ -15,6 +15,9 @@
       <th>Cidade</th>
       <th>Anúncios</th>
       <th>Eventos</th>
+      <% @plans.each do |p| %>
+       <th><%= p.name %></th> 
+       <%end%>
       <th>Tipo</th>
       <th></th>
       <!--th></th-->
@@ -31,8 +34,11 @@
         <td><%= user.email %></td>
         <td><%= user.city.city %></td>
         <td><%= user.ads.count %></td>
-        <td><%# user.events.count %></td>
-        <% if user.user_type==2 then 'Admin' else 'User' end%>
+        <td><%# user.event.count %></td>
+        <% @plans.each do |p| %>
+          <th><%= user.plans.where('plan_id=?',p.id).count %></th>
+        <% end %>
+        <td><%= if user.user_type==2 then 'Admin' else 'User' end%></td>
         <td><%= link_to 'Ver', admin_user_path(user) %></td>
         <!--td><%# link_to 'Editar', edit_admin_user_path(user) %></td-->
         <td><%= link_to 'Eliminar', admin_user_path(user), method: :delete, data: { confirm: 'Tem a certeza?' } %></td>

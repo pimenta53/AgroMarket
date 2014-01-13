@@ -1,37 +1,49 @@
-<%= form_for(@plan) do |f| %>
-  <% if @plan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
+<%= form_for plan, :url => create_payment_path(plan.id) do |f| %>
 
-      <ul>
-      <% @plan.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+    <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
+      <% if plan.name == "Regular" %>
+          <div class="panel panel-primary">
+      <% elsif plan.name == "Horta" %>
+          <div class="panel panel-sucess">
+      <% elsif plan.name == "Quinta" %>
+          <div class="panel panel-info">
+      <% else %>
+          <div class="panel panel-danger">
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <!-- fazer if para verificar se está subscrito -->
+      <div class="cnrflash">
+        <div class="cnrflash-inner">
+          <span class="cnrflash-label">SUBSCRITO</span>
+        </div>
+      </div>
+      <!-- end if -->
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= plan.name%></h3>
+      </div>
+      <div class="panel-body-plan">
+        <div class="the-price">
+          <h1><%= plan.price%> €</h1>
+          <small>Durante <%= plan.duration %> Meses</small>
+        </div>
+        <table class="table">
+          <tr>
+            <td><%= pluralize(plan.ads_limit, "Anúncio") %></td>
+          </tr>
+          <tr class="active">
+            <td><%= pluralize(plan.event_limit, "Evento") %></td>
+          </tr>
+          <tr>
+            <td>Acesso à Academia</td>
+          </tr>
+        </table>
+      </div>
+      <div class="panel-footer">
+        <% if plan.name != "Regular" %>
+            <%= f.submit "Comprar", :class=>"btn btn-primary" %>
+        <% end %>
+      </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :duration %><br>
-    <%= f.text_field :duration %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :ads_limit %><br>
-    <%= f.number_field :ads_limit %>
-  </div>
-  <div class="field">
-    <%= f.label :event_limit %><br>
-    <%= f.number_field :event_limit %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+      </div>
+      </div>
 <% end %>

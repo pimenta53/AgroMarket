@@ -99,11 +99,11 @@ class AdsController < ApplicationController
 
   # GET /ads/new
   def new
-    @ad = Ad.new
-    5.times {@ad.ad_images.build}
 
-    #conta o numero de slots que tem disponivel
-    @num_slots_ads = current_user.remaining_ads_slots 
+    if current_user.remaining_ads_slots > 0
+      @ad = Ad.new
+      5.times {@ad.ad_images.build}
+    end
 
   end
 
@@ -134,6 +134,7 @@ class AdsController < ApplicationController
     #http redirection, json render
     respond_to do |format|
       if @ad.save
+        User.find(current_user.id).add_ad
         flash[:notice] = "Anúncio criado com sucesso."
         format.html { redirect_to @ad }
         format.json { render action: 'show', status: :created, location: @ad }
@@ -174,6 +175,8 @@ class AdsController < ApplicationController
     @ad.is_deleted=true
     @ad.is_active=false
     @ad.save
+    #remove 1 ad from the user counter
+    current_user.remove_ad
     respond_to do |format|
       format.html { redirect_to ads_url }
       format.json { head :no_content }
@@ -211,7 +214,7 @@ class AdsController < ApplicationController
 
   end
 
-  #para dar destaque ao anuncio 
+  #para dar destaque ao anuncio
   #coloca-o como destacado
   def highlight
     @ad.highlight = 1

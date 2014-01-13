@@ -1,8 +1,9 @@
-            <h1>Dashboard <small>Statistics Overview</small></h1>           
-          </div>
-        </div><!-- /.row -->
+  <h1>Dashboard <small>Statistics Overview</small></h1>           
 
-        <div class="row">
+      <!--######## DAILY STATS ###########-->
+
+        <div class="row"> <!-- DAILY STATS ROW-->
+        <!-- ADS -->
           <div class="col-lg-4">
             <div class="panel panel-info">
               <div class="panel-heading">
@@ -30,7 +31,8 @@
               </a>
             </div>
           </div>
-
+        
+        <!-- TUTORIALS -->
           <div class="col-lg-4">
             <div class="panel panel-info">
               <div class="panel-heading">
@@ -59,6 +61,8 @@
             </div>
           </div>
 
+
+          <!-- EVENTS-->
             <div class="col-lg-4">
             <div class="panel panel-success">
               <div class="panel-heading">
@@ -88,7 +92,7 @@
           </div>
 
 
-
+        <!-- USERS -->
           <div class="col-lg-4">
             <div class="panel panel-warning">
               <div class="panel-heading">
@@ -116,6 +120,9 @@
               </a>
             </div>
           </div>
+
+
+        <!-- QUESTIONS -->
           <div class="col-lg-4">
             <div class="panel panel-danger">
               <div class="panel-heading">
@@ -145,8 +152,8 @@
           </div>
         
 
-
-                    <div class="col-lg-4">
+        <!-- CLOSED DEALS -->
+          <div class="col-lg-4">
             <div class="panel panel-info">
               <div class="panel-heading">
                 <div class="row">
@@ -175,10 +182,10 @@
           </div>
 
 
+        </div><!--#### END DAILY STATS ROW ######-->
 
 
-        </div><!-- /.row -->
-
+        <!-- LAST 10 ADS-->
         <div class="row">
           <div class="col-lg-12">
             <div class="panel panel-primary">
@@ -187,28 +194,26 @@
               </div>
               <div class="panel-body">
                 <div class="table-responsive">
-                  <table class="table table-bordered table-hover table-striped tablesorter">
+                  <table class="table table-bordered table-hover table-striped tablesorter" id="orderTable">
                     <thead>
                       <tr>
-                        <th>Anúncio #<i class="fa fa-sort"></i></th>
-                        <th>Título<i class="fa fa-sort"></i></th>
+                        <th>Anúncio <i class="fa fa-sort"></i></th>
+                        <th>Título <i class="fa fa-sort"></i></th>
                         <th>Vendedor <i class="fa fa-sort"></i></th>
                         <th>Categoria <i class="fa fa-sort"></i></th>
                         <th>Preço <i class="fa fa-sort"></i></th>
-                        <th>Data <i class="fa fa-sort"></i></th>
                         <th>Hora <i class="fa fa-sort"></i></th>
                       </tr>
                     </thead>
                     <tbody>
                        <% @dashboard.last_ads.each do |a| %>
                       <tr>
-                        <td><%= a.id %></td>
+                        <td>#<%= a.id %></td>
                         <td><%= a.title %></td>
-                        <td><%= a.user_id %></td>
+                        <td><%= a.user_id %>/<%= a.user.name %></td>
                         <td><%= a.category.name %></td>
-                        <td><%= a.price %></td>
-                        <td><%= a.created_at %></td>
-                        <td><%= a.created_at %></td>
+                        <td><%= a.price %> <%= a.price_type.name%></td>
+                        <td><abbr class="timeago" title="<%= a.created_at.getutc.iso8601 %>"> <%= a.created_at.to_s %> </abbr></td>
                       </tr>
                     <% end %>
                 
@@ -221,8 +226,10 @@
               </div>
             </div>
           </div>
-        </div><!-- /.row -->
+        </div><!-- END ROW LAST 10 ADS -->
 
+
+        <!-- ADS PER CATEGORY GRAPH -->
         <div class="row">
           <div class="col-lg-6">
             <div class="panel panel-primary">
@@ -236,8 +243,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div><!-- END ADS PER CATEGORY GRAPH -->
 
+
+          <!-- USERS PER DISTRICT GRAPH -->
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -250,80 +259,94 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div><!-- END USERS PER DISTRICT GRAPH -->
 
 
+          <!-- RECENT ACTIVITY -->
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-clock-o"></i> Recent Activity</h3>
+                <h3 class="panel-title"><i class="fa fa-clock-o"></i> Actividade Recente </h3>
               </div>
               <div class="panel-body">
                 <div class="list-group">
+
+                <% @dashboard.last_notifications.each do |n| %>
+
+                  <% if n.notification_type==1 %> <!-- MSG SEND TO AD -->
                   <a href="#" class="list-group-item">
-                    <span class="badge">just now</span>
-                    <i class="fa fa-calendar"></i> Calendar updated
-                  </a>
+                    <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
+                    <i class="fa fa-envelope-o "></i> Utilizador #<%= n.user_id %> recebeu mensagem para o anúncio #<%= n.id_destination %>
+
+                  <% elsif n.notification_type==2 %> <!-- AD EXPIRE -->
                   <a href="#" class="list-group-item">
-                    <span class="badge">4 minutes ago</span>
-                    <i class="fa fa-comment"></i> Commented on a post
-                  </a>
+                   <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
+                    <i class="fa fa-clock-o"></i> Anúncio #<%= n.id_destination %> do utilizador #<%= n.user_id %> expirou
+
+                    <% elsif n.notification_type==3 %> <!-- DELETED AD BY ADMIN -->
                   <a href="#" class="list-group-item">
-                    <span class="badge">23 minutes ago</span>
-                    <i class="fa fa-truck"></i> Order 392 shipped
-                  </a>
+                   <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
+                    <i class="fa fa-times"></i> Anúncio #<%= n.id_destination %> apagado por admin
+
+                    <% elsif n.notification_type==4 %> <!-- NEW QUESTION ANSWER -->
                   <a href="#" class="list-group-item">
-                    <span class="badge">46 minutes ago</span>
-                    <i class="fa fa-money"></i> Invoice 653 has been paid
-                  </a>
+                   <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
+                    <i class="fa fa-question"></i> Utilizador #<%= n.user_id %> respondeu à pergunta #<%= n.id_destination %>
+
+                    <% elsif n.notification_type==5 %> <!-- NEW WORKSHOP REGISTRATION -->
                   <a href="#" class="list-group-item">
-                    <span class="badge">1 hour ago</span>
-                    <i class="fa fa-user"></i> A new user has been added
-                  </a>
+                   <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
+                    <i class="fa fa-pencil"></i> Utilizador #<%= n.user_id %> registou-se no workshop #<%= n.id_destination %>
+
+                    <% elsif n.notification_type==6 %> <!-- APROVED TUTORIAL -->
                   <a href="#" class="list-group-item">
-                    <span class="badge">2 hours ago</span>
-                    <i class="fa fa-check"></i> Completed task: "pick up dry cleaning"
-                  </a>
+                   <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
+                    <i class="fa fa-check"></i> Tutorial #<%= n.id_destination %> aprovado
+                    
+                    <% elsif n.notification_type==7 %> <!-- APROVED EVENT -->
                   <a href="#" class="list-group-item">
-                    <span class="badge">yesterday</span>
-                    <i class="fa fa-globe"></i> Saved the world
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <span class="badge">two days ago</span>
-                    <i class="fa fa-check"></i> Completed task: "fix error on sales page"
-                  </a>
+                   <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
+                    <i class="fa fa-check"></i> Evento #<%= n.id_destination %> aprovado
+                  
+                  <% end %>
+                
+                <% end %>
+
                 </div>
+
                 <div class="text-right">
-                  <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="#">Ver toda a actividade <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div>
             </div>
-          </div>
+          </div><!-- END RECENT ACTIVITY -->
+
+
+          
+          <!-- CLOSED DEALS -->
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-money"></i> Negocios Fechados</h3>
+                <h3 class="panel-title"><i class="fa fa-money"></i> Negócios Fechados</h3>
               </div>
               <div class="panel-body">
                 <div class="table-responsive">
-                  <table class="table table-bordered table-hover table-striped tablesorter">
+                  <table class="table table-bordered table-hover table-striped tablesorter" id="orderTable">
                     <thead>
                       <tr>
-                        <th>Anúncio # <i class="fa fa-sort"></i></th>
+                        <th>Anúncio <i class="fa fa-sort"></i></th>
                         <th>Vendedor <i class="fa fa-sort"></i></th>
                         <th>Comprador <i class="fa fa-sort"></i></th>
-                        <th>Data <i class="fa fa-sort"></i></th>
                         <th>Hora <i class="fa fa-sort"></i></th>
                       </tr>
                     </thead>
                     <tbody>
                        <% @dashboard.closed_talks.each do |t| %>
                       <tr>
-                        <td><%= t.ad_id %></td>
-                        <td><%= t.user_one %></td>
-                        <td><%= t.user_two %></td>
-                        <td><%= t.created_at %></td>
-                        <td><%= t.created_at %></td>
+                        <td>#<%= t.ad_id %></td>
+                        <td><%= t.user_one %>/<%= t.user_1.name %></td>
+                        <td><%= t.user_two %>/<%= t.user_2.name %></td>
+                        <td><abbr class="timeago" title="<%= t.created_at.getutc.iso8601 %>"> <%= t.created_at.to_s %> </abbr></td>
                       </tr>
                     <% end %>
                 
@@ -331,8 +354,11 @@
                   </table>
                 </div>
                 <div class="text-right">
-                  <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="#">Ver todos os negócios fechados <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div>
             </div>
           </div>
+          <!-- END CLOSED DEALS-->
+
+

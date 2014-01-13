@@ -1,17 +1,11 @@
 Agrosocial::Application.routes.draw do
+
+  root 'welcome#index'
+
+  #get "/plans", :to => "plans#index"
   resources :plans
 
-  resources :cities
 
-  namespace :admin do
-    resources :publicities
-  end
-
-  namespace :admin do
-    namespace :event do
-      resources :events
-    end
-  end
 
   namespace :event do
     resources :events
@@ -34,6 +28,7 @@ Agrosocial::Application.routes.draw do
   post '/refresh', :to => redirect('/refresh.html')
 
   get "academy" => "academy#index"
+
   ### ACADEMY ZONE ###
   namespace :academy do
     resources :questions
@@ -55,10 +50,22 @@ Agrosocial::Application.routes.draw do
   get "/users/:id/myads" => "users#myads", as: "myads_user"
 
   get "/users/:id/myevents" => "users#myevents", as: "myevents"
+  
+  get "/users/myrefpaypal" => "users#myrefpaypal", as: "myrefpaypal"
+
+
+  #payment routes
+
+  get "/payment/success_payment" => "payment#success_payment", as: "success_payment"
+  get "/payment/error_payment" => "payment#error_payment", as: "error_payment"
+
+  patch "/payment/:id/create_payment" => "payment#create_payment", as: "create_payment"
+
 
   #accao follow do utilizador
   post '/users/:id/follow' => 'users#follow'
-  get "highlight_ad/:id" => "ads#highlight" , as: "highlight_ad"
+  
+  get "payment/:id/promove_ad_payment" => "payment#promove_ad_payment" , as: "promove_ad_payment"
 
   resources :ads do
     post "new_messages" => "messages#create"
@@ -77,6 +84,8 @@ Agrosocial::Application.routes.draw do
 
 
 
+
+
   ### ADMIN ZONE ###
   namespace :admin do
     resources :price_types
@@ -86,10 +95,16 @@ Agrosocial::Application.routes.draw do
     resources :dashboard
     resources :ads
     resources :users
+    resources :plans
+    resources :publicities
 
     namespace :academy do
       resources :tutorials
       resources :questions
+    end
+
+    namespace :event do
+      resources :events
     end
 
 
@@ -98,6 +113,8 @@ Agrosocial::Application.routes.draw do
     get 'aprove_tutorial', to: 'academy/tutorials#aprove_tutorial', as: :aprove_tutorial
 
     get 'aprove_event', to: 'event/events#aprove_event', as: :aprove_event
+    get 'unaprove_event', to: 'event/events#unaprove_event', as: :unaprove_event
+
   end
 
   resources :ratings
@@ -112,59 +129,5 @@ Agrosocial::Application.routes.draw do
   get "refresh_header" => "application#refresh_header"
 
   get "welcome/index"
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-
-  root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end

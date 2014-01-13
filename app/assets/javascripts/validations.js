@@ -1,6 +1,15 @@
 var ready;
 ready = function() {
 
+  /*ordenador de colunas das tabelas*/
+  $("#orderTable").tablesorter(); 
+
+  $("#orderTableCities").tablesorter({ 
+        // ordena logo a coluna com o nome da cidade
+        sortList: [[1,0]] 
+    }); 
+
+
   /******       New USER, CREATE ACCOUNT      */
   $('#new_user').validate({
     errorElement: 'label',

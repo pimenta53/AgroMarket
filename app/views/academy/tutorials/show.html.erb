@@ -10,12 +10,20 @@
 
 <section class="panel">
   <header class="panel-heading border-header text-center">
-    <div class="title_show_tutorial"><%= @academy_tutorial.title %></div>
+    <% if user_signed_in? && current_user.id == @academy_tutorial.user_id %>
+    <div class="pull-right">
+      <%= link_to '<i class="fa fa-pencil"></i>Editar '.html_safe, edit_academy_tutorial_path(@academy_tutorial),:class=>"no-effect", :tile=> "Editar Tutorial" %>
+      <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, @academy_tutorial, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu tutorial?' } ,:class=>"no-effect", :tile=> "Apagar Tutorial"%>
+    </div>
+    <br>
+    <div class="title_show_tutorial">
+      <%= @academy_tutorial.title %>
+    </div>
   </header>
 
   <div class="panel-body">
-    <div class=" "><%##  texto da resposta  ##%>
-      <div class="">
+    <div><%##  texto da resposta  ##%>
+      <div>
         <div class="information_show_tutorial">
           <span>Autor: </span> <%= @academy_tutorial.user.name %>
           <p>
@@ -25,7 +33,7 @@
             </span>
           </p>
 
-          <p> <span>Tempo Criado: </span> 
+          <p> <span>Data de Criação: </span> 
            <abbr class="timeago" title="<%=  @academy_tutorial.created_at.getutc.iso8601 %>">
              <%=  @academy_tutorial.created_at.to_s %>
            </abbr>
@@ -58,12 +66,7 @@
      </button>
    </div>
 
-   <% if user_signed_in? && current_user.id == @academy_tutorial.user_id %>
-   <div class="ui-group-buttons">
-    <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_academy_tutorial_path(@academy_tutorial),:class=>"btn btn-info", :tile=> "Editar Tutorial" %>
-    <div class="or"></div>
-    <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, @academy_tutorial, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu tutorial?' } ,:class=>"btn btn-danger", :tile=> "Apagar Tutorial"%>
-  </div>
+   
   <% end %>
 </div>
 </div>

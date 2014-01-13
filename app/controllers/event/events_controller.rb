@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Event::EventsController < ApplicationController
   before_action :set_event_event, only: [:show, :edit, :update, :destroy]
 

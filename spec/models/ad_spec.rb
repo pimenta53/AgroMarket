@@ -18,6 +18,7 @@
 #  is_active      :boolean          default(FALSE)
 #  created_at     :datetime
 #  updated_at     :datetime
+#  highlight      :integer          default(0)
 #
 
 require 'spec_helper'

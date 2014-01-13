@@ -25,6 +25,9 @@
 #  user_type              :integer          default(1)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  counter_ads            :integer          default(0)
+#  counter_events         :integer          default(0)
+#  plan_id                :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

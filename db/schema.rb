@@ -194,12 +194,28 @@ ActiveRecord::Schema.define(version: 20140113183904) do
     t.datetime "updated_at"
   end
 
+  create_table "payments", force: true do |t|
+    t.string   "ref",                        null: false
+    t.integer  "user_id",                    null: false
+    t.boolean  "used",       default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "plan_id",                    null: false
+  end
+
   create_table "plams", force: true do |t|
     t.string   "name",                    null: false
     t.integer  "duration",    default: 6
     t.float    "price",                   null: false
     t.integer  "ads_limit",               null: false
     t.integer  "event_limit",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plan_users", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "plan_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

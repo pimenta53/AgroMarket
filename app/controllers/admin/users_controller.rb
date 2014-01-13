@@ -8,6 +8,7 @@ class Admin::UsersController < Admin::ApplicationController
   def index
     @admin_users = User.all
     @cities = City.all
+    @plans = Plan.all
   end
 
   # GET /admin/users/1
@@ -79,5 +80,6 @@ class Admin::UsersController < Admin::ApplicationController
     def load_stuff_ads
       @cities = City.all
     end
+
 
 end

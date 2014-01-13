@@ -51,97 +51,68 @@
 <section class="panel">
    <div class="panel-body">
       <div class="col-md-6">
-         <!-- Image ADS -->
-         <% if num_img > 0 %>
-         <div class="ads_img_section">
-            <div id="imageCarousel" class="carousel-inner">
-               <% i=0 %>
-               <% while (i < num_img) do %>
-               <div class="<% if i>0 %>item<% else %>active item<% end %> ads_img">
-                  <table>
-                     <tr>
-                        <td>
-                           <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery_carousel]">
-                           <%= image_tag @ad.ad_images[i].image(:large), :width => "100%" %>
-                           </a>
-                        </td>
-                     </tr>
-                  </table>
-               </div>
-               <% i+=1 %>
-               <% end %>
-              <!--  
-               <ol class="carousel-indicators">
-                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                  <% i=1 %>
-                  <% while (i < num_img) do %>
-                  <li data-target="#myCarousel" data-slide-to="<%= i %>"></li>
-                  <% i+=1 %>
-                  <% end %>
-               </ol>
-               -->
-          <!--  <a class="carousel-control left" href="#imageCarousel" data-slide="prev" style="top: 50%">&lsaquo;</a> -->
-          <!--     <a class="carousel-control right" href="#imageCarousel" data-slide="next" style="top: 50%">&rsaquo;</a>-->
-            </div>
-         </div>
-         <div class="ads_otherimg_section">
-            <% i=0 %>
-            <% while (i < (num_img-1)) do %>
-            <% if !i.odd? %>
-            <tr>
-               <td align="center">
-                  <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                  <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                  </a>
-               </td>
-            </tr>
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <% if num_img > 1 %>
+              <% i=0 %>
+              <% while (i < num_img) do %>
+                <% if i == 0 %>
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <% else %>
+                  <li data-target="#carousel-example-generic" data-slide-to="<%i%>"></li>
+                <% end %>
+                <% i+=1 %>
+              <% end %>
+            <% end %>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+
+            <% if num_img == 0 %>
+              <div class="item active">
+                <img src="/assets/defaultAdPic.png" alt="...">
+              </div>
             <% else %>
-            <tr>
-               <td align="center">
-                  <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                  <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                  </a>
-               </td>
-            </tr>
+              <% i=0 %>
+              <% while (i < num_img) do %>
+                <% if i == 0 %>
+                  <div class="item active">
+                    <img src="<%= @ad.ad_images[i].image.url %>" alt="...">
+                  </div>
+                <% else %>
+                  <div class="item">
+                    <img src="<%= @ad.ad_images[i].image.url %>" alt="...">
+                  </div>
+                <% end %>
+                <% i+=1 %>
+              <% end %>
             <% end %>
-            <% i+=1 %>
-            <% end %>
-            <!-- Para centrar a ultima imagem caso o numero de imagens for impar -->
-            <% if !i.odd? %>
-            <tr>
-               <td colspan="2" align="center">
-                  <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                  <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                  </a>
-               </td>
-            </tr>
-            <% else %>
-            <tr>
-               <td align="center">
-                  <a href="<%= @ad.ad_images[i].image.url %>" rel="prettyPhoto[ad_gallery]">
-                  <%= image_tag @ad.ad_images[i].image(:thumb) %>
-                  </a>
-               </td>
-            </tr>
-            <% end %>
-         </div>
-         <% else %>
-         <div id="imageCarousel" class="carousel-inner">
-            <a class="ads_no_img">
-            <img class="no_image" src="http://placehold.it/250x200">
+          </div>
+
+          <!-- Controls -->
+          <% if num_img > 1 %>
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
-         </div>
-         <% end %>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          <% end %>
+        </div>
+
+
       </div>
       <!-- Information ADS -->
       <div class="col-md-6">
          <h4 class = "ads_title">
-            <%= @ad.title %>asdasdadas sdasdasdasdasd asfd asfdaf sad asd asd
+            <%= @ad.title %>
          </h4>
          <!--DAR DESTAQUE-->
            <div class="pull-right">
               <% if user_signed_in? && current_user.id == @ad.user_id %>
-                    <%= link_to '<i class="fa  fa-star"></i>Destacar '.html_safe, highlight_ad_path(@ad), :class=>"btn btn-success btn-sm ",:rel=>"tooltip_down",:title=>"Pode destacar o anúncio para ele ser mais visto!!" %>
+                    <%= link_to '<i class="fa  fa-star"></i>Destacar '.html_safe, promove_ad_payment_path(@ad.id), :class=>"btn btn-success btn-sm ",:rel=>"tooltip_down",:title=>"Pode destacar o anúncio para ele ser mais visto!!" %>
               <% end %>
             </div>
 

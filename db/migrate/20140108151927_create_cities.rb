@@ -1,6 +1,8 @@
 class CreateCities < ActiveRecord::Migration
   def change
-    drop_table :cities
+    if ActiveRecord::Base.connection.tables.include?(:cities)
+      drop_table :cities
+    end
 
     create_table :cities do |t|
       t.string :city

@@ -1,0 +1,45 @@
+<section class="panel">
+  <header class="panel-heading"><h1>Lista de Pacotes</h1><h5><%= @admin_plans.count %> Pacotes</h5> 
+    <div class="newItemLink">
+    <i class="fa fa-plus-circle"></i><%= link_to ' Novo Pacote', new_admin_plan_path %>
+  </div>
+  </header>
+<div class="table-responsive">
+  <table class="table table-hover tablesorter" id="orderTable" >
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Preco</th>
+      <th>Anúncios</th>
+      <th>Eventos</th>
+      <th>Validade</th>
+      <th>Activos</th>
+      <th>Vendidos</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_plans.each do |admin_plan| %>
+      <tr>
+        <td><%= admin_plan.id %></td>
+        <td><%= admin_plan.name %></td>
+        <td><%= admin_plan.price %></td>
+        <td><%= admin_plan.ads_limit %></td>
+        <td><%= admin_plan.event_limit %></td>
+        <td> <% if admin_plan.duration < 0 %> Ilimitado <%else%> <%= admin_plan.duration %> Meses <% end %></td>
+        <td><%= admin_plan.active_plans_count %></td>
+        <td><%= admin_plan.users.count%></td>
+        <td></td>
+        <td><%# link_to 'Ver', admin_plan %></td>
+        <td><%= link_to 'Editar', edit_admin_plan_path(admin_plan) %></td>
+        <td><%= link_to 'Eliminar', admin_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+</div>
+</section>
+
+    <i class="fa fa-plus-circle"></i><%= link_to ' Novo Pacote', new_admin_plan_path %>

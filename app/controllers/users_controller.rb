@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :follow, :myads]
   load_and_authorize_resource :only => [:edit,:update,:show,:index]
 
+
   def index
   	@user = User.all
     

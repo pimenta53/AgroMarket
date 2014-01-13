@@ -2,46 +2,44 @@
   <li class="active">
     <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a></li>
     <a class="url" href="<%= academy_workshops_path %>"> > Workshops</a></li>
-  <% if user_signed_in? %>
-      <%= link_to 'Novo Workshop', new_academy_workshop_path,:class=> "url", style:"float:right"%>
-  <% end %>
+    <% if user_signed_in? %>
+    <%= link_to '<i class="fa fa-plus"></i>Novo Workshop'.html_safe, new_academy_workshop_path,:class=> "url", style:"float:right"%>
+    <% end %>
 </ol>
 
-<h1>Listing academy_workshops</h1>
+<div class="row">
+  <div class="panel">
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Available slots</th>
-      <th>Slots taken</th>
-      <th>Price</th>
-      <th>Local</th>
-      <th>Date</th>
-      <th>Description</th>
-      <th>Is delected</th>
-      <th>Requires registration</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th width="10%" class="tutorial_text_head">UTILIZADOR</th>
+          <th width="30%" class="tutorial_text_head">WORKSHOP</th>
+          <th width="40%" class="tutorial_text_head">DESCRIÇÃO</th>
+          <th width="10%" class="tutorial_text_head">LOCAL</th>
+          <th width="10%" class="tutorial_text_head">DATA</th>
+        </tr>
+      </thead>
+      <tbody class="tutorial_table_body">
 
-  <tbody>
-    <% @academy_workshops.each do |academy_workshop| %>
-      <tr>
-        <td><%= academy_workshop.user_id %></td>
-        <td><%= academy_workshop.available_slots %></td>
-        <td><%= academy_workshop.slots_taken %></td>
-        <td><%= academy_workshop.price %></td>
-        <td><%= academy_workshop.local %></td>
-        <td><%= academy_workshop.date %></td>
-        <td><%= academy_workshop.description %></td>
-        <td><%= academy_workshop.requires_registration %></td>
-        <td><%= link_to 'Show', academy_workshop %></td>
-        <td><%= link_to 'Edit', edit_academy_workshop_path(academy_workshop) %></td>
-        <td><%= link_to 'Destroy', academy_workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <% @academy_workshops.each do |academy_workshop| %>
+        <tr class="tutorial_table_body">
+          <td style="vertical-align:middle;">
+            <div class="media" style="position:relative; left:50%; margin-left:-25px;">
+              <%= link_to (image_tag academy_workshop.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), academy_workshop.user %>
+            </div>
+          </td>
+          <td style="vertical-align:middle;">
+              <%= link_to  academy_workshop.title, academy_workshop %>
+          </td>
+          <td style="vertical-align:middle;"><%= academy_workshop.description %></td>
+          <td style="vertical-align:middle;"><%= academy_workshop.local %></td>
+          <td style="vertical-align:middle;"><%= academy_workshop.date %></td>
+        </tr>
+        <% end %>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>

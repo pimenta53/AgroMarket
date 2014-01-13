@@ -1,17 +1,25 @@
 development: &default
+  username: agro.social2-facilitator_api1.gmail.com
+  password: 1389029188
+  signature: ABD1raCJJwUbdn0bSZKBZGDyMTypAauEmm5xWYssPtqSgOxAmHFGC592
+  app_id: APP-2RX55952G68472502
+  http_timeout: 30
   mode: sandbox
-  client_id: AbzxIRD6SRsh8BvRwUTZmAsrEbwts7mgaUidEWT-4_i7NQZGvu_Lu9Re1kut
-  client_secret: EAaYUhCH99ofGNGn7MXfz7fF38SwMwA6pxy1IM6nGqkGGwEUpDta7-1z9QAv
+  sandbox_email_address: agro.social2-facilitator@gmail.com
+  # # with certificate
+  # cert_path: "config/cert_key.pem"
+  # # with token authentication
+  # token: ESTy2hio5WJQo1iixkH29I53RJxaS0Gvno1A6.YQXZgktxbY4I2Tdg
+  # token_secret: ZKPhUYuwJwYsfWdzorozWO2U9pI
   # # with Proxy
   # http_proxy: http://proxy-ipaddress:3129/
-  # # with CA File
-  # ssl_options:
-  #   ca_file: config/cacert.pem
-  # # Override Endpoint
-  # rest_endpoint: https://api.sandbox.paypal.com
+  # # with device ip address
+  # device_ipaddress: "127.0.0.1"
 test:
   <<: *default
 production:
   mode: live
-  client_id: AbzxIRD6SRsh8BvRwUTZmAsrEbwts7mgaUidEWT-4_i7NQZGvu_Lu9Re1kut
-  client_secret: EAaYUhCH99ofGNGn7MXfz7fF38SwMwA6pxy1IM6nGqkGGwEUpDta7-1z9QAv
+  username: USERNAME
+  password: PASSWORD
+  signature: SIGNATURE
+  app_id: APP_ID
