@@ -14,9 +14,11 @@ class Academy::WorkshopsController < ApplicationController
   # GET /academy/workshops/1.json
   def show
     @academy_workshop_registrations = @academy_workshop.workshop_registrations
+    
+
     @academy_workshop_registration = Academy::WorkshopRegistration.new
 
-    @academy_registed = Academy::WorkshopRegistration.where(:workshop_id => @academy_workshop.id , :user_id => current_user.id).count
+    @academy_registed = Academy::WorkshopRegistration.where(:workshop_id => @academy_workshop.id , :user_id => current_user.id).first
 
     #mark notification as watched, if params[:notification] is set
     if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)

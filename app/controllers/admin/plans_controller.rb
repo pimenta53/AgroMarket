@@ -5,6 +5,7 @@ class Admin::PlansController < Admin::ApplicationController
   # GET /admin/plans.json
   def index
     @admin_plans = Plan.all
+
   end
 
   # GET /admin/plans/1
@@ -71,4 +72,5 @@ class Admin::PlansController < Admin::ApplicationController
     def admin_plan_params
       params.require(:plan).permit(:name, :duration, :price, :ads_limit, :event_limit)
     end
+
 end
