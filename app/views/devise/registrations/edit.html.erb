@@ -151,7 +151,15 @@
                                         </div>
                                         <% else provider_count += 1 %>
                                         <% end %>
-                                        <% if !(provider_count < 2)%>
+                                        <% if !current_user.has_provider("google_oauth2")%>
+                                        <div class="row mg-btm" style="margin-top: 5px; margin-bottom: 10px">
+                                           <div class="col-lg-6">
+                                              <div class="col-md-12"><%= link_to "<i class=\"icon-google-plus\" style=\"margin-right: 5px; color: white;\"></i>Conetar com o Google+".html_safe , "/auth/google_oauth2" ,:class=>"popup btn btn-google btn-block" ,:style=>"color:white;" %></div>
+                                           </div>
+                                        </div>
+                                        <% else provider_count += 1 %>
+                                        <% end %>
+                                        <% if !(provider_count < 3)%>
                                            Não há mais connecções exteriores a adicionar.
                                         <% end %>
                                      </div>

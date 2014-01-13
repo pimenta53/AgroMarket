@@ -221,14 +221,10 @@ class User < ActiveRecord::Base
 
       #Buscar info
       self.email = omniauth['info']['email']
-      self.name = omniauth['info']['first_name']
-
-      if omniauth['info']['last_name'].length > 0
-        self.name += ' ' + omniauth['info']['last_name']
-      end
+      self.name = omniauth['info']['name']
 
 
-      #location será composto por Cidade, Pais
+      #location é composto por "Cidade, Pais"
       if omniauth['info']['location'] != nil
         location = omniauth['info']['location'].split(", ")
       else
@@ -266,11 +262,19 @@ class User < ActiveRecord::Base
       #end
 
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+    elsif omniauth['provider'] == 'google_oauth2'
+      #Buscar info
+      self.email = omniauth['info']['email']
+      self.name = omniauth['info']['name']
+      
+      #Google não contem cidade
+      
+      authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
   end
 
   def has_provider(provider)
-    collection = User.first.authentications.where("provider = ?",provider)
+    collection = authentications.where("provider = ?",provider)
     collection.length > 0
   end
 
