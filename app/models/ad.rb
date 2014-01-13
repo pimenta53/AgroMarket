@@ -229,7 +229,20 @@ class Ad < ActiveRecord::Base
     end
 
     def self.ads_highlight
-      where("highlight = ?",1).limit(5)
+      results = Array.new
+      ids = Array.new
+      i = 0
+      myArray = where("highlight = ?", 1)
+      c = myArray.size
+      while i < 5 && c > 0
+        x = myArray.find(:first, :offset =>rand(c))
+        ids.push(x.id)
+        results.push(x)
+        myArray =  where("id not in (?) and highlight = ?",ids,1)
+        i = i+1
+        c = myArray.size
+      end
+      return results
     end
     
 
