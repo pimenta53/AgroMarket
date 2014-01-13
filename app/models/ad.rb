@@ -228,6 +228,9 @@ class Ad < ActiveRecord::Base
     where("created_at > ?", Date.today).count
     end
 
+    def self.ads_highlight
+      where("highlight = ?",1).limit(5)
+    end
     
 
 
