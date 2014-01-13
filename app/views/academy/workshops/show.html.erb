@@ -17,9 +17,19 @@
 
 
  <section class="panel">
+         <div class="button_back">
+              <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>   
+              
+               <%= link_to '<i class="fa fa fa-trash-o"></i> Delete'.html_safe, @academy_workshop, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu workshop?' } ,:class=>"link_back", :tile=> "Apagar Tutorial"%>
 
+                <% end %>
+        </div>
             <header class="panel-heading border-header text-center">
+
+
                <div class="title_show_workshop"><%= @academy_workshop.title %></div>
+
+
             </header>
           
 
@@ -136,7 +146,7 @@
                         <div class="button_back">
 
                               <div class="ui-group-buttons">
-                                <%= link_to '<i class="icon-arrow-left"></i> Voltar'.html_safe, academy_workshops_path,:class=>"", :tile=> "Voltar" %>
+                                <%= link_to '<i class="icon-arrow-left"></i> Voltar'.html_safe, academy_workshops_path,:class=>"link_back", :tile=> "Voltar" %>
                               </div>
 
                         </div>
