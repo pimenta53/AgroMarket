@@ -14,7 +14,7 @@
 
 class Notification < ActiveRecord::Base
 
-  belongs_to :users
+  belongs_to :user
   
   def self.ads_notification
     where(:notification_type => ["1", "2", "3"])

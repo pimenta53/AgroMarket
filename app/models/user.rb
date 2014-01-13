@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
                                                 :foreign_key => 'following_id'
 
 
-  has_many :notification
+  has_many :notifications
 
   belongs_to :plan , :foreign_key => 'plan_id'
 
