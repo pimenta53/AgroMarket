@@ -99,6 +99,10 @@ gem 'rails-admin-scaffold'
 # paypal
 gem 'paypal-sdk-rest'
 
+gem 'rest-client'
+
+gem 'paypal-sdk-adaptivepayments'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
