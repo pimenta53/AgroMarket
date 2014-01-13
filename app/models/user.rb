@@ -75,7 +75,10 @@ class User < ActiveRecord::Base
   #belongs_to :district
   belongs_to :city
 
-  belongs_to :plan
+  belongs_to :payment
+
+  has_many :plan_users
+  has_many :plans, :through => :plan_users
 
 
   def talks
