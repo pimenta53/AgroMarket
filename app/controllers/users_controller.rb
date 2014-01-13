@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :follow, :myads]
   load_and_authorize_resource :only => [:edit,:update,:show,:index]
 
+
   def index
   	@user = User.all
     
@@ -28,6 +29,42 @@ class UsersController < ApplicationController
       page = 1
     end
     @my_events = Event::Event.where(:user_id => current_user.id).paginate(:page => page, :per_page => 8)
+  end
+
+  def myrefpaypal
+    @api = PayPal::SDK::AdaptivePayments.new
+
+    # Build request object
+    @pay = @api.build_pay({
+      :actionType => "PAY",
+      :cancelUrl => "http://localhost:3000/samples/adaptive_payments/pay",
+      :currencyCode => "EUR",
+      :feesPayer => "SENDER",
+      :ipnNotificationUrl => "http://localhost:3000/samples/adaptive_payments/ipn_notify",
+      :receiverList => {
+        :receiver => [{
+          :amount => 2.0,
+          :email => "platfo_1255612361_per@gmail.com" }] },
+      :returnUrl => "http://localhost:3000/samples/adaptive_payments/pay" })
+
+    # Make API call & get response
+    @response = @api.pay(@pay)
+
+    # Access response
+    if @response.success?
+      @response.payKey
+      url = @api.payment_url(@response)  # Url to complete payment
+      redirect_to url
+    else
+      @response.error[0].message
+    end
+
+    #params = {'cmd' => '_s-xclick','hosted_button_id' => 'ELMDQRCJHUKK8'}
+    #redirect_to 'https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ELMDQRCJHUKK8&return=http://localhost:3000/done_payment?id_payment=coisa'
+    #parameters = nil
+    #process("https://www.google.pt", "POST", parameters.merge!(:use_route => :my_engine_name) )
+    #redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr", :params => params , :method => :post
+
   end
 
   def show
