@@ -17,10 +17,18 @@
 
       <div class="col-md-4">
         <div class="control-group">
+          <span class="button-checkbox">
+            <button type="button" class="btn" data-color="primary">Pode ter inscrições?</button>
+            <%= f.check_box :requires_registration ,:class=>"hidden" %>
+          </span>
+
+          <div id="available_slots">
           <%= f.label :available_slots, "Vagas Disponíveis",:class=>"control-label" %><label class="help-inline"  generated="true" for="academy_workshop_available_slots"></label>
           <div class="controls">
             <%= f.number_field :available_slots,:class=>"form-control",:rel=>"tooltip",:title=>"Número máximo de inscrições para o workshop." %>
           </div>
+        </div>
+
         </div>
       </div>
 
@@ -79,11 +87,6 @@
       </div>
     </div>
 
-  <div class="field">
-    
-    <%= f.check_box :requires_registration  %>
-    <%= f.label "Registo Obrigatorio" %> 
-  </div>
 
     <div class="fields">
       <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_workshops_path %>'">

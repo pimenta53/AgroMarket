@@ -200,8 +200,12 @@ ready = function() {
 
 
 
-    $('.button-checkbox').each(function () {
 
+
+/***CHECKBOX BUTTON****/
+ $('.button-checkbox').each(function () {
+
+        $("#available_slots").hide();
         // Settings
         var $widget = $(this),
             $button = $widget.find('button'),
@@ -209,18 +213,18 @@ ready = function() {
             color = $button.data('color'),
             settings = {
                 on: {
-                    icon: 'glyphicon glyphicon-check'
+                    icon: 'fa  fa-check-square-o'
                 },
                 off: {
-                    icon: 'glyphicon glyphicon-unchecked'
+                    icon: 'fa  fa-times-circle'
                 }
             };
-
         // Event Handlers
         $button.on('click', function () {
             $checkbox.prop('checked', !$checkbox.is(':checked'));
             $checkbox.triggerHandler('change');
             updateDisplay();
+            $("#available_slots").toggle();
         });
         $checkbox.on('change', function () {
             updateDisplay();

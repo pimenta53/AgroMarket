@@ -43,7 +43,7 @@ class Academy::WorkshopsController < ApplicationController
     @academy_workshop = Academy::Workshop.new(academy_workshop_params)
     @academy_workshop.user_id = current_user.id
     @academy_workshop.slots_taken = 0
-    jhgf
+
     respond_to do |format|
       if @academy_workshop.save
         format.html { redirect_to @academy_workshop, notice: 'Workshop was successfully created.' }

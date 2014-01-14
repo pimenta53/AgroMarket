@@ -22,6 +22,8 @@ class Academy::AnswersController < ApplicationController
   # GET /academy/answers/1/edit
   def edit
     @academy_question = @academy_answer.question
+    @categories = Category.all
+    
   end
 
   # POST /academy/answers
