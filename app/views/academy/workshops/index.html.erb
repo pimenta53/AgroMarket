@@ -12,27 +12,29 @@
 
     <table class="table table-hover">
       <thead>
-        <tr>
+        <tr class="table-head-background">
           <th width="10%" class="tutorial_text_head">UTILIZADOR</th>
-          <th width="30%" class="tutorial_text_head">WORKSHOP</th>
-          <th width="40%" class="tutorial_text_head">DESCRIÇÃO</th>
-          <th width="10%" class="tutorial_text_head">LOCAL</th>
-          <th width="10%" class="tutorial_text_head">DATA</th>
+          <th width="25%" class="tutorial_text_head">WORKSHOP</th>
+          <th width="35%" class="tutorial_text_head">DESCRIÇÃO</th>
+          <th width="13%" class="tutorial_text_head">LOCAL</th>
+          <th width="17%" class="tutorial_text_head">DATA</th>
         </tr>
       </thead>
-      <tbody class="tutorial_table_body">
+
+      <tbody>
 
         <% @academy_workshops.each do |academy_workshop| %>
+
         <tr class="tutorial_table_body">
           <td style="vertical-align:middle;">
             <div class="media" style="position:relative; left:50%; margin-left:-25px;">
               <%= link_to (image_tag academy_workshop.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), academy_workshop.user %>
             </div>
           </td>
-          <td style="vertical-align:middle;"><%= academy_workshop.title %></td>
+          <td style="vertical-align:middle;" id="text-link"><%= link_to academy_workshop.title, academy_workshop %></td>
           <td style="vertical-align:middle;"><%= academy_workshop.description %></td>
           <td style="vertical-align:middle;"><%= academy_workshop.local %></td>
-          <td style="vertical-align:middle;"><%= academy_workshop.date %></td>
+          <td style="vertical-align:middle;"><%= academy_workshop.date.strftime('%d-%m-%Y') %></td>
         </tr>
         <% end %>
 

@@ -7,6 +7,18 @@
 	vertical-align: middle !important;
 }
 
+.table-head-background th {
+	background-color: #D8D8D8;
+}
+
+.table-head-background th:first-child {
+	border-radius: 4px 0 0 0;
+}
+
+.table-head-background th:last-child {
+	border-radius: 0 4px 0 0;
+}
+
 .title_tutorial {
 	color: #EA5B0C;
 }
@@ -27,13 +39,36 @@
 }
 
 /********** showtutorial **********/
-
-
 .title_show_tutorial{
 	font-size: 30px;
 	text-align: left;
+	margin-top: 10px;
+	color: black;
 }
 
+#tutorial-info {
+	margin: 0;
+	padding: 0;
+}
+
+#tutorial-info li:hover {
+	background-color: white;
+	text-decoration: none;
+}
+
+#tutorial-info li {
+	width: 49.8%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#category-label span {
+	vertical-align: middle;
+}
+
+#tutorial-date {
+	text-align: right;
+}
 .title-font {
 	font-size: 15px;
 }
@@ -43,18 +78,24 @@
 }
 
 .information_show_tutorial span{
-	color: #EA5B0C;
+	color: black;
 	font-size: 16px;
+	margin-bottom: 5px;
 }
 
-.information_show_tutorial{
-
+.information_show_tutorial {
+	font-family: "Oswald";
 	font-size: 12px;
+	margin: 10px 10px;
 }
 
 .text_show_tutorial{
-	border: 1px solid black;
+	text-align: justify;
 	width: 100%;
+}
+
+#process-separator {
+	color: #eff2f7;
 }
 
 .process_show_tutorial{
@@ -63,13 +104,19 @@
 }
 
 .process_show_tutorial span{
-	color: #EA5B0C;
 	font-size: 16px;
 }
 
+#tutorial-footer {
+	height: 55px;
+}
+
+#tutorial-footer div>div {
+	vertical-align: middle;
+}
 
 .button_back{
-	float: right;
-
+	margin: 0 !important;
+	float: left !important;
 }
 

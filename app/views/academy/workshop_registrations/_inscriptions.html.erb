@@ -1,17 +1,13 @@
-
 <div class="workshop_inscription_title">
-
-       <p> Lista de Registo do Workshop </p>
-
+  <p> Utilizadores Inscritos no Workshop:</p>
 </div> 
 
-
-<table class="table table-hover">
+<table id="workshop-inscriptions" class="table table-hover">
   <thead>
     <tr class="workshop_table_head">
       <th>Workshop</th>
       <th>Utilizador</th>
-      <th>Registo em:</th>
+      <th>Inscrito em</th>
       <th>Opcões</th>
     </tr>
   </thead>
@@ -21,12 +17,11 @@
       <tr>
         <td><%= @academy_workshop.title %></td>
         <td><%= academy_workshop_registration.user.name %></td>
-        <td><%= academy_workshop_registration.created_at.strftime("%F") %></td>
-        <td><%= link_to 'Apagar Inscricao', academy_workshop_registration, method: :delete, data: { confirm: 'Tens a certeza?' } %></td>
+        <td><%= academy_workshop_registration.created_at.strftime('%d-%m-%Y %H:%M') %></td>
+        <td><%= link_to 'Cancelar Inscricao', academy_workshop_registration, method: :delete, data: { confirm: 'Tem a certeza que pretende cancelar a inscrição?' } %></td>
       </tr>
     <% end %>
   </tbody>
-
 </table>
 
 <br>
