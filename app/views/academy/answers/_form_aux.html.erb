@@ -13,7 +13,7 @@
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
 <%##  Avatar do user  ##%>
-<div class="col-xs-2 col-md-2">
+<div class="col-xs-2 col-md-2" id="user-avatar">
   <%=link_to image_tag(current_user.avatar.url(:medium),:width => "70%",:class => "img-circle"), current_user %>
   <%= current_user.name %>
 </div>

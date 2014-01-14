@@ -15,12 +15,12 @@
     <%= will_paginate(@academy_questions, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
     <table class="table table-hover">
       <thead>
-        <tr>
+        <tr class="table-head-background">
           <th width="10%" class="tutorial_text_head">UTILIZADOR</th>
-          <th width="60%" class="tutorial_text_head">PERGUNTA</th>
-          <th width="10%" class="tutorial_text_head">CATGEGORIA</th>
+          <th width="50%" class="tutorial_text_head">PERGUNTA</th>
           <th width="10%" class="tutorial_text_head">RESPOSTAS</th>
-          <th width="10%" class="tutorial_text_head">VISUALIZAÇÕES</th>
+          <th width="13%" class="tutorial_text_head">CATGEGORIA</th>
+          <th width="17%" class="tutorial_text_head">VISUALIZAÇÕES</th>
         </tr>
       </thead>
       <tbody>
@@ -32,18 +32,18 @@
               <%= link_to (image_tag academy_question.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), academy_question.user %>
             </div>
           </td>
-          <td style="vertical-align:middle;">
-            <h4 class="media-heading" id="text-link">
+          <td>
+            <h4 class="media-heading" id="text-link" style="margin-top:10px;">
               <%= link_to academy_question.title, academy_question %>
             </h4>
             <p><small><%= academy_question.text.html_safe %></small></p>
           </td>
+          <td style="vertical-align: middle;"><strong>110 </strong></td>
           <td style="vertical-align:middle;">
             <span class="label" style="background-color:#<%= academy_question.category.color %>;">
               <%= academy_question.category.name %>
             </span>
           </td>
-          <td style="vertical-align: middle;"><strong>110 </strong></td>
           <td style="vertical-align: middle;">76x</td>
         </tr>
         <% end %>

@@ -6,7 +6,10 @@
 <% end %>
 
 <ol class="breadcrumb" id="breadcrumbAds">
-  <li class="active"><a class="url" href="<%= academy_tutorials_path %>"><i class="fa fa-tags"></i> Tutoriais</a></li>
+  <li class="active">
+    <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a></li>
+    <a class="url" href="<%= academy_tutorials_path %>"> > Tutoriais</a></li>
+  </li>
   <% if user_signed_in? %>
     <div class="pull-right">
       <%= link_to '<i class="fa fa-plus"></i>Novo Tutorial'.html_safe, new_academy_tutorial_path,:class=> "new-tutorial" %>
@@ -21,11 +24,11 @@
 
     <table class="table table-hover">
       <thead>
-        <tr>
+        <tr class="table-head-background">
           <th width="10%" class="tutorial_text_head">UTILIZADOR</th>
-          <th width="23%" class="tutorial_text_head">TUTORIAL</th>
-          <th width="40%" class="tutorial_text_head">DESCRIÇÃO</th>
-          <th width="10%" class="tutorial_text_head">CATEGORIA</th>
+          <th width="25%" class="tutorial_text_head">TUTORIAL</th>
+          <th width="35%" class="tutorial_text_head">DESCRIÇÃO</th>
+          <th width="13%" class="tutorial_text_head">CATEGORIA</th>
           <th width="17%" class="tutorial_text_head">DATA DE CRIAÇÃO</th>
         </tr>
       </thead>
@@ -36,7 +39,7 @@
 
         <tr class="tutorial_table_body">
           <td style="vertical-align:middle;">
-            <div class="media" style="position:relative; left:50%; margin-left:-25px;" id="text-link">
+            <div class="media" style="position:relative; left:50%; margin-left:-25px;">
               <%= link_to (image_tag academy_tutorial.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), academy_tutorial.user %>
             </div>
           </td>
@@ -55,9 +58,9 @@
             <%= academy_tutorial.created_at.strftime('%d-%m-%Y') %>
           </td>
         </tr>
-      </tbody>
       
       <% end %>
+      </tbody>
 
     </table> 
     

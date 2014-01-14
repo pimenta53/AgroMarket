@@ -1,5 +1,4 @@
 *{
-
   font-family: "Oswald";
   font-weight: normal;
   font-size: 34px;
@@ -16,11 +15,23 @@
 	vertical-align: middle !important;
 }
 
+.table-head-background th {
+	background-color: #D8D8D8;
+}
+
+.table-head-background th:first-child {
+	border-radius: 4px 0 0 0;
+}
+
+.table-head-background th:last-child {
+	border-radius: 0 4px 0 0;
+}
+
 .title_show_workshop{
-	color: #00A75D;
-	font-size: 36px;
-	font-family: "Oswald";
-	font-weight: normal;
+	font-size: 30px;
+	text-align: left;
+	margin-top: 10px;
+	color: black;
 }
 
 #text-link a:hover {
@@ -28,39 +39,39 @@
 	color: black !important;
 }
 
-.information_show_workshop span{
+.information_show_workshop span {
 	color: black;
 	font-size: 16px;
 	font-weight: bold;
-
-
 }
 
-.information_show_workshop{
+.information_show_workshop {
     margin-top: 2%;
 	font-size: 12px;
 }
 
-
-.process_show_workshop{
-	margin-top: 30px;
-	margin-bottom: 30px;
-
+#process-separator {
+	color: #eff2f7;
+	width: 100%;
 }
 
-.process_show_workshop span{
+.process_show_workshop {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.process_show_workshop span {
 	color: black;
 	font-size: 16px;
-
 }
 
-.text_show_workshop{
-	margin-top: 2%;
-	border: 2px solid #e5e5e5;
+.text_show_workshop {
 	width: 100%;
 	height: 100%;
-	padding-top:2%;
-	padding-bottom: 2%;
+	margin-top: 10px;
+	margin-bottom: 20px;
 	font-family: "Oswald";
     font-weight: normal;
     font-size: 13px;
@@ -74,69 +85,63 @@
     font-weight: normal;
 }
 
-.information_show_data{
-	padding-top:2%;
-	padding-bottom: 2%;
-	padding-left: 2%;
-	border: 2px solid #e5e5e5;
+.information_show_data {
+	margin-bottom: 5px;
+	padding-left: 7%;
+	padding-right: 7%;
 	font-family: "Oswald";
-    font-weight: normal;
-}
-.information_show_data span{
-	
 }
 
-.information_left{
-	padding-left: 2%;
-	padding-right: 2%;
+.information_show_data span {
+	margin-left: 13%;
 }
 
-.information_left span{
-	margin-left: 5%;
+.information_left {
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.information_left span {
+	margin-left: 7%;
 }
 
 
-.information_workshop{
-
+.information_workshop {
 	font-size: 12px;
-	margin-bottom: 2%;
+	margin-top: 10px;
 }
 
 .information_title{
 	font-family: "Oswald";
-  font-weight: normal;
+  	font-weight: normal;
 	color: black;
 	font-size: 16px;
 	margin-bottom: 2%;
 }
 
-.information_data{
-	padding-top:2%;
-	padding-bottom: 2%;
-	padding-left: 2%;
-	border: 2px solid #e5e5e5;
+.information_data {
+	margin: 10px 10px 10px 10px;
 	font-family: "Oswald";
     font-weight: normal;
     font-size: 12px;
 }
 
-.information_workshop span{
-	color: black;
-	font-size: 18px;
-	font-weight:bold;
+.information_workshop span {
+	font-size: 15px;
 }
 
-.information_data span{
-	font-size: 14px;
+.information_data span {
+	font-size: 15px;
 }
 
+#tutorial-footer {
+	height: 55px;
+}
 
 .button_back{
-
 	float: right;
     margin-top: 1%;
     margin-right: 2%;
-
 }
 
 .fields_workshop{
@@ -147,23 +152,30 @@
 .information_left_info span{
 	margin-left: 10%;
 }
-.information_left_info{
+
+.workshop_inscription_title p {
+	margin-top: 30px;
+	margin-left: 10px;
+}
+
+#workshop-inscriptions {
 	
 }
 
-.workshop_notinscription{
+.workshop_notinscription {
 	font-family: "Oswald";
-  font-weight: normal;
-  color: #00A75D;
-	font-size: 32px;
-	border:  2px solid #e5e5e5;
+  	font-weight: normal;
+  	color: #00A75D;
+	font-size: 22px;
+	padding-top: 10px;
+	margin-bottom: 10px;
+	border-top:  2px solid #e5e5e5;
 }
 
-.workshop_table_head th{
-
+.workshop_table_head th {
 	font-family: "Oswald";
-  font-weight: normal;
-   color: #00A75D;
+  	font-weight: normal;
+   	color: #00A75D;
 	font-size: 16px;
 }
 

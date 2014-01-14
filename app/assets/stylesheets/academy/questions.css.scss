@@ -2,6 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.table-head-background th {
+	background-color: #D8D8D8;
+}
+
+.table-head-background th:first-child {
+	border-radius: 4px 0 0 0;
+}
+
+.table-head-background th:last-child {
+	border-radius: 0 4px 0 0;
+}
+
+#panel-question {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 .new-question {
 	color: #666;
 }
@@ -14,4 +31,8 @@
 #text-link a:hover {
 	text-decoration: none;
 	color: black;
+}
+
+#user-avatar {
+	text-align: center;
 }

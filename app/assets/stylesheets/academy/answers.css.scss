@@ -1,3 +1,18 @@
 // Place all the styles related to the Academy/Answers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#user-avatar {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#panel-answer {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#form_message {
+	height: 300px;
+}
