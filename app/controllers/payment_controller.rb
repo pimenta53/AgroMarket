@@ -57,6 +57,7 @@ class PaymentController < ApplicationController
   	end
 
   	def promove_ad_payment
+  		
   		aklsdjajskldkas
   	end
 
