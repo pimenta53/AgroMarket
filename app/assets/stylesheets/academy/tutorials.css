@@ -120,3 +120,7 @@
 	float: left !important;
 }
 
+.tutorial_table_body a:hover{
+	color:black;
+}
+

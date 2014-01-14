@@ -54,50 +54,53 @@
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
           <ol class="carousel-indicators">
-            <% if num_img = 0 %>
-              <li data-target="#carousel-example-generic" data-slide-to="/assets/defaultAdPic.png" class="active"></li>
-            <% else %>
+            <% if num_img > 1 %>
               <% i=0 %>
               <% while (i < num_img) do %>
-                <li data-target="#carousel-example-generic" data-slide-to="<%= @ad.ad_images[i].image.url %>"></li>
+                <% if i == 0 %>
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <% else %>
+                  <li data-target="#carousel-example-generic" data-slide-to="<%i%>"></li>
+                <% end %>
                 <% i+=1 %>
               <% end %>
             <% end %>
-
-            <!--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
-
           </ol>
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
-            <div class="item active">
-              <img src="..." alt="...">
-              <div class="carousel-caption">
-                <% if num_img = 0 %>
-                  <li data-target="#carousel-example-generic" data-slide-to="/assets/defaultAdPic.png" class="active"></li>
-                <% else %>
-                  <% i=0 %>
-                  <% while (i < num_img) do %>
-                    <li data-target="#carousel-example-generic" data-slide-to="<%= @ad.ad_images[i].image.url %>"></li>
-                    <% i+=1 %>
-                  <% end %>
-                <% end %>
+
+            <% if num_img == 0 %>
+              <div class="item active">
+                <img src="/assets/defaultAdPic.png" alt="...">
               </div>
-            </div>
-            ...
+            <% else %>
+              <% i=0 %>
+              <% while (i < num_img) do %>
+                <% if i == 0 %>
+                  <div class="item active">
+                    <img src="<%= @ad.ad_images[i].image.url %>" alt="...">
+                  </div>
+                <% else %>
+                  <div class="item">
+                    <img src="<%= @ad.ad_images[i].image.url %>" alt="...">
+                  </div>
+                <% end %>
+                <% i+=1 %>
+              <% end %>
+            <% end %>
           </div>
 
           <!-- Controls -->
-          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-          </a>
-          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </a>
+          <% if num_img > 1 %>
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          <% end %>
         </div>
-
-
-
 
 
       </div>

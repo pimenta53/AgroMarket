@@ -63,6 +63,8 @@ class Academy::WorkshopRegistrationsController < ApplicationController
   # DELETE /academy/workshop_registrations/1
   # DELETE /academy/workshop_registrations/1.json
   def destroy
+
+    
     workshop = @academy_workshop_registration.workshop_id
     @academy_workshop_registration.destroy
     Academy::Workshop.find(workshop).remove_inscription

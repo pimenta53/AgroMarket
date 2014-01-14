@@ -45,6 +45,11 @@
         <%= f.text_area :description,:placeholder => "Descreva o evento...",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
       </div>
     </div>
+     
+      <p>
+        <%= f.label :image %><br />
+        <%= f.file_field :image %>
+      </p>
 
     <div class="fields">
       <button type="button" class="btn btn-primary" onclick="location.href='<%= event_events_path %>'">

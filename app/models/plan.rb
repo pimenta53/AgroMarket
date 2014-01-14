@@ -15,4 +15,9 @@
 class Plan < ActiveRecord::Base
   has_many :plan_users
   has_many :users, :through => :plan_users
+
+def active_plans_count
+	self.plan_users.where("created_at >= ?",Date.today - self.duration.month).count
+end
+
 end

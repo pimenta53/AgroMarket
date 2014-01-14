@@ -17,6 +17,8 @@ BEGIN
       leave loop1;
     end if;
     INSERT INTO notifications(user_id, id_destination, notification_type, created_at, updated_at) VALUES(user, ad, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+  UPDATE ads SET is_active = 0 WHERE id = ad;
+  UPDATE users SET counter_ads = counter_ads -1 WHERE id = user;
   END LOOP loop1;
   COMMIT;
 END

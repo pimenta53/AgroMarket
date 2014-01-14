@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Event::EventsController < ApplicationController
   before_action :set_event_event, only: [:show, :edit, :update, :destroy]
 
@@ -81,6 +82,6 @@ class Event::EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_event_params
-      params.require(:event_event).permit(:start_day, :end_day, :title,:city_id, :description, :user_id, :aproved)
+      params.require(:event_event).permit(:start_day, :end_day, :title,:city_id, :description, :user_id, :aproved , :image)
     end
 end

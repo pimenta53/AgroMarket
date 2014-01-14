@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113160529) do
+ActiveRecord::Schema.define(version: 20140113183904) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -162,13 +162,17 @@ ActiveRecord::Schema.define(version: 20140113160529) do
   create_table "event_events", force: true do |t|
     t.datetime "start_day"
     t.datetime "end_day"
-    t.string   "title",                       null: false
+    t.string   "title",                              null: false
     t.text     "description"
     t.integer  "user_id"
-    t.boolean  "aproved",     default: false
+    t.boolean  "aproved",            default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "city_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "messages", force: true do |t|
@@ -197,6 +201,16 @@ ActiveRecord::Schema.define(version: 20140113160529) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "plan_id",                    null: false
+  end
+
+  create_table "plams", force: true do |t|
+    t.string   "name",                    null: false
+    t.integer  "duration",    default: 6
+    t.float    "price",                   null: false
+    t.integer  "ads_limit",               null: false
+    t.integer  "event_limit",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "plan_users", force: true do |t|
@@ -260,6 +274,13 @@ ActiveRecord::Schema.define(version: 20140113160529) do
   add_index "user_follows", ["following_id"], name: "index_user_follows_on_following_id", using: :btree
   add_index "user_follows", ["user_id"], name: "index_user_follows_on_user_id", using: :btree
 
+  create_table "user_plams", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "plam_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -279,12 +300,11 @@ ActiveRecord::Schema.define(version: 20140113160529) do
     t.datetime "birthday"
     t.string   "phone"
     t.integer  "city_id"
-    t.string   "ocupation"
-    t.integer  "user_type",              default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "counter_ads",            default: 0
-    t.integer  "counter_events",         default: 0
+    t.integer  "user_type",              default: 1
+    t.integer  "counter_ads"
+    t.integer  "counter_events"
     t.integer  "plan_id"
   end
 
