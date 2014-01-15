@@ -15,24 +15,7 @@
      </div>
 
 
-      <div class="col-md-4">
-        <div class="control-group">
-          <span class="button-checkbox">
-            <button type="button" class="btn" data-color="primary">Pode ter inscrições?</button>
-            <%= f.check_box :requires_registration ,:class=>"hidden" %>
-          </span>
-
-          <div id="available_slots">
-          <%= f.label :available_slots, "Vagas Disponíveis",:class=>"control-label" %><label class="help-inline"  generated="true" for="academy_workshop_available_slots"></label>
-          <div class="controls">
-            <%= f.number_field :available_slots,:class=>"form-control",:rel=>"tooltip",:title=>"Número máximo de inscrições para o workshop." %>
-          </div>
-        </div>
-
-        </div>
-      </div>
-
-
+    
     <div class="col-md-4">
       <div class="control-group">
         <%= f.label :price, "Preço" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_workshop_price"></label>
@@ -59,9 +42,30 @@
           <%= f.text_field :date, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
         </div>
       </div>
-     </div>
+    </div>
+
+
+        <div class="col-md-3">
+                <div class="control-group">
+
+                   <%= f.label :available_slots, "Vagas Disponíveis",:class=>"control-label" %><label class="help-inline"  generated="true" for="academy_workshop_available_slots"></label>
+
+                 <div class="controls">  
+                      <div class="input-group">
+                          <span class="input-group-addon">
+                         
+                            <%= f.check_box :requires_registration ,:class=>"button-checkbox" %>
+
+                          </span>
+                           <%= f.number_field :available_slots,:class=>"form-control v_places",:rel=>"tooltip",:title=>"Número máximo de inscrições para o workshop.", :readonly => :false  %>
+                     </div>
+                 </div>
+                    
+                </div>
+          </div>
 
    </div>
+
 
     <div class="control-group">
       <%= f.label :description, "Descrição" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_workshop_description"></label>
@@ -88,7 +92,7 @@
     </div>
 
 
-    <div class="fields">
+    <div class="fields_newWorkshop">
       <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_workshops_path %>'">
         <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
       </button>
@@ -105,8 +109,7 @@
 
     <% if @academy_workshop.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@academy_workshop.errors.count, "error") %> prohibited this academy_workshop from being saved:</h2>
-
+          <h2>Os seguintes erros impediram o envio do formulário:</h2>
           <ul>
             <% @academy_workshop.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>

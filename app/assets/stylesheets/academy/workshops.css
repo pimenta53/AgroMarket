@@ -125,7 +125,7 @@
 }
 
 .information_workshop span {
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .information_data span {
@@ -190,4 +190,8 @@
 	margin-right: 10px;
 	margin-top: 10px;
 	margin-bottom: -10px;
+}
+
+.fields_newWorkshop{
+	margin-top: 4%;
 }
