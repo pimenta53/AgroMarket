@@ -41,7 +41,7 @@
       <% end %>
     </td>
     <td><%= admin_academy_question.answers.count %></td>
-    <td><%= admin_academy_question.created_at %></td>
+    <td><%= I18n.l admin_academy_question.created_at ,:format => :time %></td>
     <td><%= link_to 'Ver', admin_academy_question, :target => '_blank' %></td>
     <td><%# link_to 'Editar', edit_admin_academy_question_path(admin_academy_question) %></td>
     <td><%= link_to 'Apagar', admin_academy_question, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
