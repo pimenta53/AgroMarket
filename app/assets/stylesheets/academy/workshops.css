@@ -5,8 +5,6 @@
   color: #293a49;
 }
 
-
-
 /********** showWorkshop **********/
 .tutorial_text_head {
 	color: black;
@@ -187,7 +185,9 @@
 	color:black;
 }
 
-
-
-
-
+#edit-workshop {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: -10px;
+}
