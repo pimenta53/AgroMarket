@@ -2,7 +2,7 @@
     <div class="panel">
     <div class="ads_index_img">
       <div class="thumbnail">
-        <span class='price' ><%= ad.price %>€</span>
+        <span class='price' ><%= ad.price %><%= ad.price_type.name %></span>
           <div >
             <%= link_to ad_image( ad.ad_images.first ), ad %>
           </div>

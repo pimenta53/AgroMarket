@@ -38,11 +38,14 @@
           <div id="event-description">
             <p><%= event_event.description %></p>
           </div>
-          
+
           <hr>
 
           <div class="row rating-desc">
             <div class="col-md-12">
+              <div style="float:left">
+                <i class="fa fa-map-marker"></i><%= event_event.city.city %>
+              </div>
               <div style="float:right">
                 <span class="event-begin">
                   <span class="fa fa-calendar" style="color:darkgreen;"></span><%=event_event.start_day.day %>/<%=event_event.start_day.mon %>/<%=event_event.start_day.year %>
