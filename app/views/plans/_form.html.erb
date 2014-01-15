@@ -25,8 +25,8 @@
       </div>
       <div class="panel-body-plan">
         <div class="the-price">
-          <h1><%= plan.price%> €</h1>
-          <small><% if plan.name == "Regular" %>ILIMITADO<% else %> Durante <%= plan.duration %> Meses<% end %></small>
+          <b><h2><%= plan.price%>€</h2></b>
+          <small><% if plan.name == "Regular" %>ILIMITADO<% else %> Válido <%= plan.duration %> Meses<% end %></small>
         </div>
         <table class="table">
           <tr>
