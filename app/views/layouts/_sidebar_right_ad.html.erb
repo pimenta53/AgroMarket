@@ -12,7 +12,11 @@
           <% end %>
           <li style="margin-bottom:-25px;">
             <div class="thumbnail" style="padding: 0">
-              <div style="padding:4px">
+              <h5><%= publicity.title %></h5>
+              <%= image_tag(publicity.image.url(:thumb), :alt => publicity.title, :width => '100') %>
+              <h6><%= publicity.owner %></h6>
+
+              <!--<div style="padding:4px">
                 <table>
                   <tr>
                     <td rowspan="2" valign="top"> 
@@ -29,7 +33,9 @@
                     </td>
                   </tr>
                 </table>
-              </div>
+              </div>-->
+
+
             </div>
           </li>
           <% if publicity.link %>
