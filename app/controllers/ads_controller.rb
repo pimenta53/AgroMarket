@@ -49,7 +49,7 @@ class AdsController < ApplicationController
       @ads =  @ads.where(city_id: params[:cities])
     end
 
-    @ads = @ads.paginate(:page => page, :per_page => 12)
+    @ads = @ads.active_ads.paginate(:page => page, :per_page => 12)
 
     @categories = Category.all
     @cities = City.order('city ASC').all
