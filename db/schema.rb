@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113183904) do
+ActiveRecord::Schema.define(version: 20140115135028) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -211,11 +211,11 @@ ActiveRecord::Schema.define(version: 20140113183904) do
   end
 
   create_table "plans", force: true do |t|
-    t.string   "name",                    null: false
-    t.integer  "duration",    default: 6
-    t.float    "price",                   null: false
-    t.integer  "ads_limit",               null: false
-    t.integer  "event_limit",             null: false
+    t.string   "name",                                            null: false
+    t.integer  "duration",                            default: 6
+    t.decimal  "price",       precision: 5, scale: 2,             null: false
+    t.integer  "ads_limit",                                       null: false
+    t.integer  "event_limit",                                     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -250,13 +250,6 @@ ActiveRecord::Schema.define(version: 20140113183904) do
     t.integer  "user_two",               null: false
     t.integer  "ad_id"
     t.integer  "is_close",   default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "types", force: true do |t|
-    t.string   "name"
-    t.integer  "flag"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
