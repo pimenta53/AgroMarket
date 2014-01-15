@@ -18,7 +18,8 @@ class Academy::Answer < ActiveRecord::Base
   belongs_to :user
   has_many :votes
 
-  
+  #Validates
+  validates :text, presence: true
 
   #verifica se ultizador já votou
   def has_vote?(user)

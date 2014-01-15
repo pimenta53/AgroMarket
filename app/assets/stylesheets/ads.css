@@ -10,12 +10,25 @@ body {
  
 }
 
+.carousel-control.right {
+	background-image: none;
+}
+
+.carousel-control.left {
+	background-image: none;
+}
+
+#faAngle{
+	color: rgb(237, 156, 40);
+	font-size: 20px;
+}
+
 .linkads a:link{
- color:black;
+ 	color:black;
 }
 
 .linkads a:hover{
- color:black;
+ 	color:black;
 }
 
 .no-effect {

@@ -1,6 +1,14 @@
-<h1>Editar questão</h1>
+<ol class="breadcrumb" id="breadcrumbAds">
+  <li class="active">
+    <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a>
+    <a class="url" href="<%= academy_questions_path %>"> > Perguntas</a>
+    <a class="url" href="<%= academy_questions_path(@academy_question.id) %>"> > <%= @academy_question.title %></a>
+  </li>
+  <% if user_signed_in? %>
+    <div class="pull-right">
+      <%= link_to '<i class="fa fa-plus"></i>Nova Pergunta'.html_safe, new_academy_question_path,:class=> "new-question" %>
+    </div>
+  <% end %>
+</ol>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @academy_question %> |
-<%= link_to 'Back', academy_questions_path %>
