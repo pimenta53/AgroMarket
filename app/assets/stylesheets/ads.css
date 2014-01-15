@@ -10,12 +10,21 @@ body {
  
 }
 
+#divImg img {
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
 .carousel-control.right {
 	background-image: none;
 }
 
 .carousel-control.left {
 	background-image: none;
+}
+
+.carousel-control{
+	width: 25px;
 }
 
 #faAngle{
