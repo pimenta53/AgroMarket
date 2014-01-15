@@ -112,12 +112,11 @@
 
 <% if user_signed_in? %>
 <!-- Painel de Filtros-->
-<div class="panel panel-default">
-  <div class="panel-heading" style="background-color: rgb(237, 239, 240);">
+<div class="panel ">
+  <div class="panel-heading border-header">
     <i class="icon-search"></i><span style="font-size:13px;margin-left:5px">Pesquisar por:</span>
   </div>
   <div class="panel-body">
-
     <% if controller_name=="ads"%>
     <%= render "layouts/sidebar_left_ads" %>
     <% end %>

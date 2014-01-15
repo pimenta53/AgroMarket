@@ -13,9 +13,7 @@
               <% @ads_highlights.each do |highlight| %>
 
                   <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                      <img src="/assets/50x50.gif">
-                    </a>
+                      <%= link_to ad_image(highlight.ad_images.first), highlight, class:"pull-left thumb p-thumb", style:"width:30%"%>
                     <div class="media-body">
                       <a class="url" href="#" class=" p-head"><%= highlight.title %></a>
                       <p><%= truncate(highlight.description,:lenght=>35 ) %></p>
