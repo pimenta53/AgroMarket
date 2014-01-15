@@ -23,6 +23,7 @@ class Academy::Workshop < ActiveRecord::Base
 
 
 
+
   def add_inscription
     self.slots_taken += 1
     self.save
