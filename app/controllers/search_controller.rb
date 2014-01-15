@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
 	#ver um tipo de resposta standard
-	# { :id, :title, :tipo, :categoria}
+	# { :id, :title, :tipo, :categoria,:link}
 	def search_for_all
 		
 		@names = []
@@ -9,7 +9,7 @@ class SearchController < ApplicationController
 		search_in_tutorial #search in tuturias
 		search_in_workshops #search in workshop
 		search_in_questions #search in questons
-
+		search_users 
 		render json: @names
 	end
 
@@ -28,7 +28,7 @@ class SearchController < ApplicationController
 			ads = Ad.all
 
 			ads.each do |a|
-				@names << {:id => a.id, :title => a.title, :category => a.category.name, :img => a.first_image,:tipo => "Anuncio"}
+				@names << {:id => a.id, :title => a.title, :category => a.category.name, :img => a.first_image,:tipo => "Anuncio",:link => ad_path(a)}
 			end
 
 		end
@@ -37,19 +37,31 @@ class SearchController < ApplicationController
 			tutorials = Academy::Tutorial.all
 
 			tutorials.each do |t|
-				@names << {:id => t.id, :title => t.title, :category => t.category.name,:img => "http://placehold.it/40x30",:tipo => "Tutorial"}
+				@names << {:id => t.id, :title => t.title, :category => t.category.name,:img => "http://placehold.it/40x30",:tipo => "Tutorial",:link =>  academy_tutorial_path(t)}
 			end
 		end
 
 		def search_in_workshops
+			workshop = Academy::Workshop.all
 
+			workshop.each do |w|
+				@names << {:id => w.id, :title => w.description, :category => w.category.name, :img => "http://placehold.it/40x30",:tipo => "Pergunta",:link => academy_question_path(q)}
+			end
 		end
 
 		def search_in_questions
 			question = Academy::Question.all
 
 			question.each do |q|
-				@names << {:id => q.id, :title => q.title, :category => q.category.name, :img => "http://placehold.it/40x30",:tipo => "Pergunta"}
+				@names << {:id => q.id, :title => q.title, :category => "", :img => "http://placehold.it/40x30",:tipo => "Workshop",:link => academy_workshop_path(w)}
+			end
+		end
+
+		def search_users
+			users = User.all
+
+			users.each do |u|
+				@names << {:id => u.id, :title => u.name, :category => "",:img => u.avatar.url(:tiny),:tipo => "Utilizador",:link =>  user_path(u) }
 			end
 		end
 

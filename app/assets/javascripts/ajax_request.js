@@ -29,6 +29,9 @@ ready = function() {
 
     return false;
   });*/
+  
+  /* Pesquisa geral */
+
 
   $("#cenas").click(function() {
     alert ( "Não foi possivel inserir o seu comentario!!" + error);
@@ -92,6 +95,9 @@ ready = function() {
     });
     return false;
   });
+
+
+
 
 };
 
