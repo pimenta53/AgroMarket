@@ -7,13 +7,15 @@
   </li>
 </ol>
 
-<div class="panel">
-  <div class="panel-heading border-header">
-    <h3 class="panel-title">Novo Evento</h3>
+<% if current_user.remaining_events_slots > 0 %>
+  <div class="panel">
+    <div class="panel-heading border-header">
+      <h3 class="panel-title">Novo Evento</h3>
+    </div>
+    <div class="panel-body">
+      <%= render 'form' %>
+    </div>
   </div>
-  <div class="panel-body">
-
-    <%= render 'form' %>
-
-  </div>
-</div>
+<% else %>
+  <p>Já não tem mais slots para Eventos, compre mais <%= link_to "aqui", plans_path %></p>
+<% end %>
