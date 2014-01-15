@@ -75,7 +75,7 @@ class Academy::WorkshopsController < ApplicationController
   def destroy
     #@academy_workshop.destroy
     @academy_workshop.is_deleted=true
-    @academy_workshop.saves
+    @academy_workshop.save
     respond_to do |format|
       format.html { redirect_to academy_workshops_url }
       format.json { head :no_content }

@@ -82,6 +82,11 @@
 	color: black;
 }
 
+#tutorial-title-description {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eff2f7;
+}
+
 .information_show_tutorial span{
 	color: black;
 	font-size: 16px;

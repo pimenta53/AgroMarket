@@ -25,7 +25,7 @@
       </div>
       <% if user_signed_in? && current_user.id == @academy_tutorial.user_id %>
       <div class="pull-right" style="padding-bottom: 2px;">
-        <%= link_to '<i class="fa fa-pencil"></i>Editar '.html_safe, edit_academy_tutorial_path(@academy_tutorial),:class=>"no-effect", :tile=> "Editar Tutorial" %>
+        <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_academy_tutorial_path(@academy_tutorial),:class=>"no-effect", :tile=> "Editar Tutorial" %>
         <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, @academy_tutorial, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu tutorial?' } ,:class=>"no-effect", :tile=> "Apagar Tutorial"%>
       </div>
       <% end %>
@@ -39,7 +39,7 @@
   <div class="panel-body">
     <div><%##  texto da resposta  ##%>
       <div class="information_show_tutorial">
-        <div>
+        <div id="tutorial-title-description">
           <p>
             <ul id="tutorial-info">
               <li>
@@ -58,8 +58,6 @@
           </p>
         </div>
 
-        <hr id="process-separator">
-
         <div class="process_show_tutorial" >
           <div class="text_show_tutorial">
             <%= @academy_tutorial.text.html_safe %>
@@ -75,6 +73,7 @@
         <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_tutorials_path %>'">
           <span class="icon-arrow-left" style=""></span> Voltar
         </button>
-      </div>    </div>
+      </div>    
+    </div>
   </div>
 </section>

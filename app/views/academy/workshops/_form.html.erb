@@ -1,183 +1,180 @@
 <%= form_for @academy_workshop, :html => {:multipart => true,:id=>"academy_workshop"} do |f| %>
 
-    <div class="row" style="margin-left: -10px; margin-right: -10px">
+<div class="row" style="margin-left: -10px; margin-right: -10px">
 
-
-     <div class="col-lg-12">
-          <div class="control-group">
-              <%= f.label :title, "Título",:class=>"control-label" %><label class="help-inline" style="" generated="true" for="academy_workshop_title"></label>
-            <div class="controls">
-              <%= f.text_field :title,:placeholder => "Título do workshop..." ,:class=>"form-control",:rel=>"tooltip",:title=>"Escolha um titulo apropriado.
-             Seja claro e sucinto." %>
-            </div>
-            
-          </div>
-     </div>
-
-
-    
-    <div class="col-md-4">
-      <div class="control-group">
-        <%= f.label :price, "Preço" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_workshop_price"></label>
-        <div class="controls">
-          <div class="input-group">
-            <span class="input-group-addon">€</span>
-            <%= f.text_field :price,:placeholder => "Preço" ,:class=>"form-control" %>
-          </div>
-        </div>
-      </div>
-      <script>
-          $('#academy_workshop_price').on('input', function() {
-              var value = $("#academy_workshop_price").val();
-              value = value.replace(",", ".");
-              $("#academy_workshop_price").val(value);
-          })
-      </script>
-    </div>
-
-    <div class="col-md-4">
-      <div class="control-group">
-        <%= f.label :date, "Data",:class=>"control-label" %><label style="margin-left:10px" for="academy_workshop_date" generated="true" class="help-inline"></label>
-        <div class="controls">
-          <%= f.text_field :date, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
-        </div>
-      </div>
-    </div>
-
-
-        <div class="col-md-3">
-                <div class="control-group">
-
-                   <%= f.label :available_slots, "Vagas Disponíveis",:class=>"control-label" %><label class="help-inline"  generated="true" for="academy_workshop_available_slots"></label>
-
-                 <div class="controls">  
-                      <div class="input-group">
-                          <span class="input-group-addon">
-                         
-                            <%= f.check_box :requires_registration ,:class=>"button-checkbox" %>
-
-                          </span>
-                           <%= f.number_field :available_slots,:class=>"form-control v_places",:rel=>"tooltip",:title=>"Número máximo de inscrições para o workshop.", :readonly => :false  %>
-                     </div>
-                 </div>
-                    
-                </div>
-          </div>
-
-   </div>
-
-
+  <div class="col-lg-12">
     <div class="control-group">
-      <%= f.label :description, "Descrição" ,:class=>"control-label" %>
+      <%= f.label :title, "Título",:class=>"control-label" %><label class="help-inline" style="" generated="true" for="academy_workshop_title"></label>
       <div class="controls">
-        <%= f.text_area :description,:placeholder => "Descreva o workshop...",:class=>"form-control",:id => "some-textarea",:rows => "5", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
+        <%= f.text_field :title,:placeholder => "Título do workshop..." ,:class=>"form-control",:rel=>"tooltip",:title=>"Escolha um titulo apropriado.
+        Seja claro e sucinto." %>
       </div>
-    </div>
 
+    </div>
+  </div>
+
+  <div class="col-md-4">
     <div class="control-group">
-      <%= f.label :local, "Localização do Workshop" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="addresspicker_map"></label>
+      <%= f.label :price, "Preço" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_workshop_price"></label>
       <div class="controls">
-        <%= f.text_field :local,:placeholder =>"Localização da workshop..." ,:class=>"form-control", :id=>"addresspicker_map",autocomplete: "off"%>
-
-      </div>
-
-      <div style="width:100%;height:350px;margin-top:20px">
-        <div id="map" style="width:100%; height:100%"></div>
-        <div id="location" class=""></div>
-      </div>
-      <div style="float:right">
-        <span class="label label-danger" id="city">-</span>
-        <span class="label label-primary" id="coordX">X</span>
-        <span class="label label-primary" id="coordY">Y</span>
-      </div>
-    </div>
-
-
-    <div class="fields_newWorkshop">
-      <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_workshops_path %>'">
-        <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
-      </button>
-      <div class="actions" style="float:right">
-        <div class="actions" style="float:right">
-          <% if controller.action_name == "edit" %>
-              <%= f.submit "Editar Workshop", :class=>"btn btn-primary" %>
-          <% else %>
-              <%= f.submit "Criar Workshop" , :class=>"btn btn-primary"%>
-          <% end %>
+        <div class="input-group">
+          <span class="input-group-addon">€</span>
+          <%= f.text_field :price,:placeholder => "Preço" ,:class=>"form-control" %>
         </div>
       </div>
     </div>
+    <script>
+    $('#academy_workshop_price').on('input', function() {
+      var value = $("#academy_workshop_price").val();
+      value = value.replace(",", ".");
+      $("#academy_workshop_price").val(value);
+    })
+    </script>
+  </div>
 
-    <% if @academy_workshop.errors.any? %>
-        <div id="error_explanation">
-          <h2>Os seguintes erros impediram o envio do formulário:</h2>
-          <ul>
-            <% @academy_workshop.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
+  <div class="col-md-4">
+    <div class="control-group">
+      <%= f.label :date, "Data",:class=>"control-label" %><label style="margin-left:10px" for="academy_workshop_date" generated="true" class="help-inline"></label>
+      <div class="controls">
+        <%= f.text_field :date, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-3">
+    <div class="control-group">
+
+     <%= f.label :available_slots, "Vagas Disponíveis",:class=>"control-label" %><label class="help-inline"  generated="true" for="academy_workshop_available_slots"></label>
+
+      <div class="controls">  
+        <div class="input-group">
+          <span class="input-group-addon">
+
+            <%= f.check_box :requires_registration ,:class=>"button-checkbox" %>
+
+          </span>
+          <%= f.number_field :available_slots,:class=>"form-control v_places",:rel=>"tooltip",:title=>"Número máximo de inscrições para o workshop.", :readonly => :false  %>
         </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<div class="control-group">
+  <%= f.label :description, "Descrição" ,:class=>"control-label" %>
+  <div class="controls">
+    <%= f.text_area :description,:placeholder => "Descreva o workshop...",:class=>"form-control",:id => "some-textarea",:rows => "5", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :local, "Localização do Workshop" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="addresspicker_map"></label>
+  <div class="controls">
+    <%= f.text_field :local,:placeholder =>"Localização da workshop..." ,:class=>"form-control", :id=>"addresspicker_map",autocomplete: "off"%>
+
+  </div>
+
+  <div style="width:100%;height:350px;margin-top:20px">
+    <div id="map" style="width:100%; height:100%"></div>
+    <div id="location" class=""></div>
+  </div>
+  <div style="float:right">
+    <span class="label label-danger" id="city">-</span>
+    <span class="label label-primary" id="coordX">X</span>
+    <span class="label label-primary" id="coordY">Y</span>
+  </div>
+</div>
+
+
+<div class="fields_newWorkshop">
+  <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_workshops_path %>'">
+    <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
+  </button>
+  <div class="actions" style="float:right">
+    <div class="actions" style="float:right">
+      <% if controller.action_name == "edit" %>
+      <%= f.submit "Editar Workshop", :class=>"btn btn-primary" %>
+      <% else %>
+      <%= f.submit "Criar Workshop" , :class=>"btn btn-primary"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% if @academy_workshop.errors.any? %>
+<div id="error_explanation">
+  <h2>Os seguintes erros impediram o envio do formulário:</h2>
+  <ul>
+    <% @academy_workshop.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
     <% end %>
+  </ul>
+</div>
+<% end %>
 
 <% end %>
 
 
 <script type="text/javascript">
-    var currentTime = new Date()  ;
-    var month = currentTime.getMonth() + 1   ;
-    var day = currentTime.getDate() ;
-    var year = currentTime.getFullYear() ;
+var currentTime = new Date()  ;
+var month = currentTime.getMonth() + 1   ;
+var day = currentTime.getDate() ;
+var year = currentTime.getFullYear() ;
 
-    $('.datepicker').datepicker({
-        todayBtn: true,
-        startView: 2,
-        format: "dd/mm/yyyy",
-        language: "pt",
-        autoclose: true,
-        todayHighlight: true,
-        calendarWeeks: true,
-        startDate: day + "/" + month + "/" + (year - 100)
-    })
+$('.datepicker').datepicker({
+  todayBtn: true,
+  startView: 2,
+  format: "dd/mm/yyyy",
+  language: "pt",
+  autoclose: true,
+  todayHighlight: true,
+  calendarWeeks: true,
+  startDate: day + "/" + month + "/" + (year - 100)
+})
 </script>
 
 <script>
-    $(function() {
-        function getLocation(){
-            if (navigator.geolocation){
-                navigator.geolocation.getCurrentPosition(showPosition);
-            }
-            else{ $('#city').text("Geolocation is not supported by this browser.");}
-        }
+$(function() {
+  function getLocation(){
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else{ $('#city').text("Geolocation is not supported by this browser.");}
+  }
 
-        function showPosition(position){
-            var addresspicker = $( "#addresspicker" ).addresspicker();
-            var addresspickerMap = $( "#addresspicker_map" ).addresspicker({
-                regionBias: "de",
-                map:      "#map",
-                typeaheaddelay: 1000,
-                mapOptions: {
-                    zoom:9,
-                    center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
-                }
-
-            });
-
-            addresspickerMap.on("addressChanged", function(evt, address) {
-                $('#coordX').text(address.geometry.location.lat());
-                $('#coordY').text(address.geometry.location.lng());
-                $('#city').text(address.address_components[2].long_name);
-            });
-
-            addresspickerMap.on("positionChanged", function(evt, markerPosition) {
-                markerPosition.getAddress( function(address) {
-                    if (address) {
-                        $( "#addresspicker_map").val(address.formatted_address);
-                    }
-                })
-            });
-        }
-
-        getLocation();
+  function showPosition(position){
+    var addresspicker = $( "#addresspicker" ).addresspicker();
+    var addresspickerMap = $( "#addresspicker_map" ).addresspicker({
+      regionBias: "de",
+      map:      "#map",
+      typeaheaddelay: 1000,
+      mapOptions: {
+        zoom:9,
+        center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+      }
 
     });
+
+    addresspickerMap.on("addressChanged", function(evt, address) {
+      $('#coordX').text(address.geometry.location.lat());
+      $('#coordY').text(address.geometry.location.lng());
+      $('#city').text(address.address_components[2].long_name);
+    });
+
+    addresspickerMap.on("positionChanged", function(evt, markerPosition) {
+      markerPosition.getAddress( function(address) {
+        if (address) {
+          $( "#addresspicker_map").val(address.formatted_address);
+        }
+      })
+    });
+  }
+
+  getLocation();
+
+});
 </script>
