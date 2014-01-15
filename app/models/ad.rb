@@ -207,6 +207,11 @@ class Ad < ActiveRecord::Base
   end
 
   end
+
+  def highlight
+    self.highlight = 1
+    calculate_expire_date
+  end
   #######################
   ### STATISTIC ZONE ####
   #######################
