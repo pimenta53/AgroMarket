@@ -1,9 +1,18 @@
 <%= form_for(@academy_question,:html => {:multipart => true,:id=>"question_form"}) do |f| %>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <% if controller.action_name == "edit" %>
+          <h3 class="panel-title">Editar Pergunta</h3>
+      <% else %>
+          <h3 class="panel-title">Nova Pergunta</h3>
+      <% end %>
+    </div>
+    <div class="panel-body" id="edit-question">
 
     <div class="control-group">
-      <label class="control-label"> Categoria:</label><label class="help-inline" style="margin-left:10px" generated="true" for="academy_question_category_id"></label>
+      <label class="control-label"> Categoria</label><label class="help-inline" style="margin-left:10px" generated="true" for="academy_question_category_id"></label>
       <div class="controls">
         <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria',:title=>"Selecione a categoria que melhor se enquadra a sua questão.") unless @categories.blank?%>
       </div>
@@ -12,14 +21,14 @@
     <div class="control-group">
       <%= f.label :title, "Título",:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_question_title"></label>
       <div class="controls">
-        <%= f.text_field :title,:placeholder => "Escreva a sua questão..." ,:class=>"form-control",:rel=>"tooltip",:title=>"Escreva de forma breve, clara e sucinta a sua questão." %>
+        <%= f.text_field :title,:placeholder => "Título da pergunta..." ,:class=>"form-control",:rel=>"tooltip",:title=>"Escreva o título da sua pergunta..." %>
       </div>
     </div>
 
     <div class="control-group">
-      <%= f.label :text, "Pergunta:",:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_question_text"></label>
+      <%= f.label :text, "Pergunta",:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_question_text"></label>
       <div class="controls">
-        <%= f.text_area :text, :placeholder => "Defina a sua questão..." , :id => "some-textarea", :class=>"form-control",:rel=>"tooltip",:title=>"Explique de forma clara e sucinta a sua questão." %>
+        <%= f.text_area :text, :placeholder => "Escreva a sua pergunta..." , :id => "some-textarea", :class=>"form-control",:rel=>"tooltip",:title=>"Explique de forma clara e sucinta a sua pergunta..." %>
       </div>
     </div>
 
@@ -50,5 +59,6 @@
           </ul>
         </div>
     <% end %>
-
+    </div>
+  </div>
 <% end %>

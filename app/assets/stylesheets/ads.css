@@ -10,12 +10,34 @@ body {
  
 }
 
+#divImg img {
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.carousel-control.right {
+	background-image: none;
+}
+
+.carousel-control.left {
+	background-image: none;
+}
+
+.carousel-control{
+	width: 25px;
+}
+
+#faAngle{
+	color: rgb(237, 156, 40);
+	font-size: 20px;
+}
+
 .linkads a:link{
- color:black;
+ 	color:black;
 }
 
 .linkads a:hover{
- color:black;
+ 	color:black;
 }
 
 .no-effect {

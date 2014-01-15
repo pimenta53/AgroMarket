@@ -21,6 +21,10 @@ class Academy::Workshop < ActiveRecord::Base
   belongs_to :user
   has_many :workshop_registrations
 
+  ## validations ##
+  validates :description, :length => { :minimum => 50, too_short: "tem de ser composto no mínimo por 50 caracteres."}, :presence => "true"
+
+
   def add_inscription
     self.slots_taken += 1
     self.save
@@ -31,14 +35,19 @@ class Academy::Workshop < ActiveRecord::Base
     self.save
   end
 
-
-  
   def has_available_slots?
   	self.slots_taken < available_slots ? true : false
   end
 
   def requires_registration?
   	self.requires_registration == 1 ? true : false
+  end
 
+  def self.aproved_workshops
+    where('is_aproved = ?',true)
+  end
+
+  def self.unaproved_workshops
+    where('is_aproved = ?',false)
   end
 end

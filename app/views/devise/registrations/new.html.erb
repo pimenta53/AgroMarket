@@ -29,7 +29,7 @@
               <% @districts.each do |district| %>
                 <optgroup label="<%= district.name %>">
                      <% district.cities.each do |city| %>
-                           <option value="<%= city.id %>"><%= city.city %></option>
+                           <option value="<%= city.id %>" <% if (@user && @user.city_id == city.id) %>selected="selected"<% end %>><%= city.city %></option>
                      <% end %>
                 </optgroup>
               <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113183904) do
+ActiveRecord::Schema.define(version: 20140115140527) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20140113183904) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
+    t.boolean  "is_aproved",            default: false
   end
 
   create_table "ad_images", force: true do |t|
@@ -173,6 +174,7 @@ ActiveRecord::Schema.define(version: 20140113183904) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "deleted",            default: false
   end
 
   create_table "messages", force: true do |t|
@@ -195,12 +197,14 @@ ActiveRecord::Schema.define(version: 20140113183904) do
   end
 
   create_table "payments", force: true do |t|
-    t.string   "ref",                        null: false
-    t.integer  "user_id",                    null: false
-    t.boolean  "used",       default: false
+    t.string   "ref",                          null: false
+    t.integer  "user_id",                      null: false
+    t.boolean  "used",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "plan_id",                    null: false
+    t.integer  "plan_id",                      null: false
+    t.integer  "payment_type",                 null: false
+    t.integer  "ad_id"
   end
 
   create_table "plan_users", force: true do |t|
@@ -211,11 +215,11 @@ ActiveRecord::Schema.define(version: 20140113183904) do
   end
 
   create_table "plans", force: true do |t|
-    t.string   "name",                    null: false
-    t.integer  "duration",    default: 6
-    t.float    "price",                   null: false
-    t.integer  "ads_limit",               null: false
-    t.integer  "event_limit",             null: false
+    t.string   "name",                                            null: false
+    t.integer  "duration",                            default: 6
+    t.decimal  "price",       precision: 5, scale: 2,             null: false
+    t.integer  "ads_limit",                                       null: false
+    t.integer  "event_limit",                                     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -250,13 +254,6 @@ ActiveRecord::Schema.define(version: 20140113183904) do
     t.integer  "user_two",               null: false
     t.integer  "ad_id"
     t.integer  "is_close",   default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "types", force: true do |t|
-    t.string   "name"
-    t.integer  "flag"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

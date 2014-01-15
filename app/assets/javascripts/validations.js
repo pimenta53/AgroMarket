@@ -166,6 +166,7 @@ ready = function() {
         errorElement: 'label',
         errorClass: 'help-inline',
         rules: {
+            "academy_workshop[title]": {minlength: 2, maxlength: 50, required: true },
             "academy_workshop[available_slots]": { min: 0, required: true },
             "academy_workshop[price]": { min: 0, maxlength: 6, number: true, required: true },
             "academy_workshop[date]": {accept: "[\\d]{1}/[\\d]{2}/[\\d]{4}", required: true },

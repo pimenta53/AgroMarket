@@ -1,28 +1,30 @@
 class RegistrationsController < Devise::RegistrationsController
-    layout :resolve_layout
-  	before_action :load_cities, only: [:new, :create, :edit, :update]
-  	before_action :date_convert, only: [:create,:update]
+  layout :resolve_layout
+  before_action :load_cities, only: [:new, :create, :edit, :update]
+  before_action :date_convert, only: [:create,:update]
 
-  	def new
-  		super
-  	end
+  def new
+    super
+  end
 
-  	def edit
-  		super
-  	end
+  def edit
+    super
+  end
 
-  	def update
-      super
+  def update
+    super
+  end
+
+  #omniauth
+  def create
+    super
+    session[:omniauth] = nil unless @user.new_record?
+    # => PlanUser(id: integer, user_id: integer, plan_id: integer, created_at: datetime, updated_at: datetime)
+    if @user.id
+      p = PlanUser.new(:user_id => @user.id, :plan_id => Plan.first.id)
+      p.save
     end
-
-   #omniauth
-   def create
-     super
-     session[:omniauth] = nil unless @user.new_record?
-     # => PlanUser(id: integer, user_id: integer, plan_id: integer, created_at: datetime, updated_at: datetime)
-     p = PlanUser.new(:user_id => @user.id, :plan_id => Plan.first.id)
-     p.save
-   end
+  end
 
   private
       #omniauth
