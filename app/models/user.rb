@@ -126,12 +126,12 @@ class User < ActiveRecord::Base
 
 #devolve o numero de anuncios que o utilizador tem ativos
   def active_ads_count
-    self.ads.where("expire_date >= ?", Date.today).count
+    self.ads.where("expire_date >= ?", Date.today).where(:is_deleted => false, :is_active => true).count
   end
 
 #devolve o numero de evento que o utilizador tem ativos
   def active_events_count
-    self.events.where("end_day >= ?", Date.today).count
+    self.events.where("end_day >= ?", Date.today).where(:is_deleted => false, :is_active => true).count
   end
 
 #conta o numero slots para anuncios que o utilizador tem restantes

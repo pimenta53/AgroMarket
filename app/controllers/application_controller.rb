@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_notifications
   helper_method :load_stuff_header
+  before_action :load_highlights
 
   protect_from_forgery with: :exception
 
@@ -32,6 +33,10 @@ class ApplicationController < ActionController::Base
     @number_notifications_academy = @notification_acmy_new_registration.length + @notifications_new_answer.length + @notification_acmy_aproved.length
     ######## END notificações de academia#################
 
+  end
+
+  def load_highlights
+    @ads_highlights = Ad.ads_highlight
   end
 
   protected

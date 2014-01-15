@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113160529) do
+ActiveRecord::Schema.define(version: 20140113183904) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140113160529) do
   create_table "academy_workshops", force: true do |t|
     t.integer  "user_id",                               null: false
     t.integer  "available_slots"
-    t.integer  "slots_taken"
+    t.integer  "slots_taken" 
     t.float    "price"
     t.string   "local"
     t.datetime "date"
@@ -162,13 +162,17 @@ ActiveRecord::Schema.define(version: 20140113160529) do
   create_table "event_events", force: true do |t|
     t.datetime "start_day"
     t.datetime "end_day"
-    t.string   "title",                       null: false
+    t.string   "title",                              null: false
     t.text     "description"
     t.integer  "user_id"
-    t.boolean  "aproved",     default: false
+    t.boolean  "aproved",            default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "city_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "messages", force: true do |t|

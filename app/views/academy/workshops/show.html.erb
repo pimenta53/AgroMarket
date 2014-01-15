@@ -4,56 +4,52 @@
     <a class="url" href="<%= academy_workshop_path(@academy_workshop.id) %>"> > <%= @academy_workshop.title %></a>
   </li>
 
-
   <div style="float:right">
     <% if user_signed_in? %>
-        <%= link_to '<i class="fa fa-plus"></i>Novo Workshop'.html_safe, new_academy_workshop_path,:class=> "url"%>
+    <%= link_to '<i class="fa fa-plus"></i>Novo Workshop'.html_safe, new_academy_workshop_path,:class=> "url"%>
     <% end %>
   </div>
 </ol>
 
 <p id="notice"><%= notice %></p>
 
+<section class="panel">
+  <header class="panel-heading border-header text-center">
+    <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>   
+    <div class="pull-right" style="padding-bottom: 2px;">
+      <%= link_to '<i class="fa  fa-edit"></i>Editar '.html_safe, edit_academy_workshop_path(@academy_workshop),:class=>"no-effect", :tile=> "Editar Workshop" %>
+      <%= link_to '<i class="fa fa fa-trash-o"></i>Eliminar '.html_safe, @academy_workshop, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu workshop?' } ,:class=>"no-effect", :tile=> "Apagar Workshop"%>
+    </div>
+    <% end %>
+    <br>
+    <div class="title_show_workshop">
+      <%= @academy_workshop.title %>
+    </div>
+  </header>
 
-
- <section class="panel">
-         <div class="button_back">
-              <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>   
-              
-               <%= link_to '<i class="fa fa fa-trash-o"></i> Delete'.html_safe, @academy_workshop, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu workshop?' } ,:class=>"link_back", :tile=> "Apagar Tutorial"%>
-
-                <% end %>
+   <div class="panel-body">
+    <div class="information_workshop">
+      <div class="information_show_data"> 
+        <div class="information_left_info">
+          <span><i class="fa fa-user"></i>Criado por: </span><%= @academy_workshop.user.name %>
+          <span><i class="fa fa-map-marker"></i>Localidade: </span>  <%= @academy_workshop.local %> 
+          <span><i class="fa fa-calendar-o"></i>Data: </span>   <%= @academy_workshop.date.strftime('%d-%m-%Y %H:%M') %> 
         </div>
-            <header class="panel-heading border-header text-center">
+      </div>
+      <div class="information_data"> 
+        <div class="information_left">
+          <span><i class="fa fa-ticket"></i>Vagas: </span> <%= @academy_workshop.available_slots %>
+          <span><i class="fa fa-unlock"></i>Inscrições: </span>   <%= @academy_workshop.slots_taken %> 
+          <span><i class="fa fa-money"></i>Preço: </span>    <%= @academy_workshop.price %> <i class="fa fa-eur"></i>
+          <span><i class="fa fa-list-alt"></i>Mínimo de Inscrições: </span>   <%= @academy_workshop.requires_registration %> 
+        </div>
+      </div>
+    </div> 
 
+         
+      <div class="panel-body">
 
-               <div class="title_show_workshop"><%= @academy_workshop.title %></div>
-
-
-            </header>
-          
-
-
-            <div class="panel-body">
-
-                          <div class="information_workshop">
-
-                              <div class="information_title">
-                                Informações 
-                              </div>
-
-                              <div class="information_data"> 
-
-                                 <div class="information_left">
-                                       <span> <i class="fa fa-ticket"></i>Vagas: </span>  <%= @academy_workshop.available_slots %> 
-                                       <span> <i class="fa fa-unlock"></i>Vagas Disponiveis: </span>   <%= @academy_workshop.slots_taken %> 
-                                       <span> <i class="fa fa-money"></i>Preço: </span>    <%= @academy_workshop.price %> <i class="fa fa-eur"></i>
-                                       <span> <i class="fa fa-list-alt"></i>Numero minimo de Inscrições: </span>   <%= @academy_workshop.requires_registration %> 
-                                 </div>
-                                  
-                              </div>
-
-                          </div> 
+                         
 
                            <div class="process_show_workshop" >
                                 <span>Processo: </span> 
@@ -116,52 +112,19 @@
                               <% end %>
 
 
-                           <div class="information_show_workshop">
-
-                              <div class="information_show_title">
-                                Informações Adicionais
-                              </div>
-
-                              <div class="information_show_data"> 
-
-                                 <div class="information_left_info">
-                                   <span><i class="fa fa-user"></i>Utilizador: </span>  <%= @academy_workshop.user.name %> 
-                                  <span> <i class="fa fa-map-marker"></i>Localidade: </span>  <%= @academy_workshop.local %> 
-                                    <span><i class="fa fa-calendar-o"></i>Data: </span>   <%= @academy_workshop.date.strftime('%d-%m-%Y') %> 
-                                 </div>
-                                  
-                              </div>
-
-                          </div> 
+                            </div>
 
 
-                    
-            </div>
 
-            <div class="panel-footer">
-                  <div class="fields_workshop">
-    
+   
 
-                        <div class="button_back">
-
-                              <div class="ui-group-buttons">
-                                <%= link_to '<i class="icon-arrow-left"></i> Voltar'.html_safe, academy_workshops_path,:class=>"link_back", :tile=> "Voltar" %>
-                              </div>
-
-                        </div>
-
-                        <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>
-                        <div class="ui-group-buttons">
-                          <%= link_to '<i class="fa  fa-edit"></i> edit'.html_safe, edit_academy_workshop_path(@academy_workshop),:class=>"", :tile=> "Editar Tutorial" %>
-                        </div>
-                    <% end %>
-
-                  </div>
-           </div>
-         
-        
+  <div class="panel-footer" id="tutorial-footer">
+    <div class="fields_workshop">
+      <div class="button_back">
+        <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_tutorials_path %>'">
+          <span class="icon-arrow-left" style=""></span> Voltar
+        </button>
+      </div>
+    </div>
+  </div>
 </section>
-
-
-
-

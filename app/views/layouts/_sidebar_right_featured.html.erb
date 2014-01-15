@@ -10,42 +10,19 @@
     <section class="panel">
         <div class="panel-body">
             <div>
-                <article class="media">
+              <% @ads_highlights.each do |highlight| %>
+
+                  <article class="media">
                     <a class="pull-left thumb p-thumb">
-                        <img src="/assets/50x50.gif">
+                      <img src="/assets/50x50.gif">
                     </a>
                     <div class="media-body">
-                        <a href="#" class=" p-head">Item One Tittle</a>
-                        <p>Lorem ipsum dolor sit amet</p>
+                      <a class="url" href="#" class=" p-head"><%= highlight.title %></a>
+                      <p><%= truncate(highlight.description,:lenght=>35 ) %></p>
                     </div>
-                </article>
-                <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                       <img src="/assets/50x50.gif">
-                    </a>
-                    <div class="media-body">
-                        <a href="#" class=" p-head">Item Two Tittle</a>
-                        <p>Lorem ipsum dolor sit amet</p>
-                    </div>
-                </article>
-                <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                        <img src="/assets/50x50.gif">
-                    </a>
-                    <div class="media-body">
-                        <a href="#" class=" p-head">Item Three Tittle</a>
-                        <p>Lorem ipsum dolor sit amet</p>
-                    </div>
-                </article>
-                <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                        <img src="/assets/50x50.gif">
-                    </a>
-                    <div class="media-body">
-                        <a href="#" class=" p-head">Item Three Tittle</a>
-                        <p>Lorem ipsum dolor sit amet</p>
-                    </div>
-                </article>
+                  </article>
+
+                  <% end %>
             </div>
         </div>
     </section>

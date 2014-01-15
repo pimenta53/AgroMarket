@@ -16,6 +16,14 @@
 
 class Event::Event < ActiveRecord::Base
 
+	has_attached_file :image,:styles => {
+		:avatar => "50x50!",
+		:thumb => "100x100!",
+		:small  => "300x300!",
+		:ad_size => "1200x800!",
+		:large => "600x600!"
+		},
+	 	:default_url => "/assets/defaultAdPic.png"
 
 	belongs_to :city
 	belongs_to :user
