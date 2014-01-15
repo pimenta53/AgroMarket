@@ -30,36 +30,36 @@
   </div>
   <% end %>
 
-  <!-- EVENTOS -->
+<!-- EVENTOS -->
   <% if user_signed_in? %>
-  <div class="panel panel-warning">
-    <div class="panel-heading" style="background-color: #ed9c28">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseEventos">
-          <%= fa_icon "calendar" %> EVENTOS
-        </a>
-      </h4>
-    </div>
-    <div id="collapseEventos" class="panel-collapse collapse <%= in_events? %>">
-      <div class="panel-body">
-        <ul class="side-elems">
-          <li><%= link_to "<i class='fa fa-angle-right'></i>Ver Todos".html_safe, event_events_path %></li>
-          <% if user_signed_in? %>
-          <li><%= link_to "<i class='fa fa-angle-right'></i>Os Meus Eventos".html_safe, myevents_path(current_user.id) %></li>
-          <li><%= link_to "<i class='fa fa-angle-right'></i>Novo Evento".html_safe, new_event_event_path %></li>
-          <% end %>
-        </ul>
+    <div class="panel panel-warning">
+      <div class="panel-heading" style="background-color: #ed9c28">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseEventos">
+            <%= fa_icon "calendar" %> EVENTOS
+          </a>
+        </h4>
+      </div>
+      <div id="collapseEventos" class="panel-collapse collapse <%= in_events? %>">
+        <div class="panel-body">
+          <ul class="side-elems">
+            <li><%= link_to "<i class='fa fa-angle-right'></i>Ver Todos".html_safe, event_events_path %></li>
+            <% if user_signed_in? %>
+            <li><%= link_to "<i class='fa fa-angle-right'></i>Os Meus Eventos".html_safe, myevents_path(current_user.id) %></li>
+            <li><%= link_to "<i class='fa fa-angle-right'></i>Novo Evento".html_safe, new_event_event_path %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <% else %>
-  <div class="panel panel-default">
-    <div class="panel-heading" style="background-color: #ed9c28">
-      <h4 class="panel-title">
-        <%= link_to "EVENTOS".html_safe, ads_path %>
-      </h4>
+    <% else %>
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color: #ed9c28">
+        <h4 class="panel-title">
+          <%= link_to "EVENTOS".html_safe, ads_path %>
+        </h4>
+      </div>
     </div>
-  </div>
   <% end %>
 
   <!-- ACADEMIA -->
