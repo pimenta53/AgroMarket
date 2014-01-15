@@ -6,7 +6,7 @@ class Academy::WorkshopsController < ApplicationController
   # GET /academy/workshops
   # GET /academy/workshops.json
   def index
-    @academy_workshops = Academy::Workshop.all
+    @academy_workshops = Academy::Workshop.aproved_workshops
     @categories = Category.all
   end
 
@@ -72,7 +72,9 @@ class Academy::WorkshopsController < ApplicationController
   # DELETE /academy/workshops/1
   # DELETE /academy/workshops/1.json
   def destroy
-    @academy_workshop.destroy
+    #@academy_workshop.destroy
+    @academy_workshop.is_deleted=true
+    @academy_workshop.saves
     respond_to do |format|
       format.html { redirect_to academy_workshops_url }
       format.json { head :no_content }
