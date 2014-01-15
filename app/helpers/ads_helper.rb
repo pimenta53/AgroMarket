@@ -25,5 +25,4 @@ module AdsHelper
          end
     end
 
-
 end

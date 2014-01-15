@@ -8,6 +8,7 @@
 #  used       :boolean          default(FALSE)
 #  created_at :datetime
 #  updated_at :datetime
+#  plan_id    :integer          not null
 #
 
 class Payment < ActiveRecord::Base
