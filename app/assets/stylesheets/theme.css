@@ -336,6 +336,8 @@ color:  #293a49;
 
 #painelAnuncios{
   list-style-type: none;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 .h4{
