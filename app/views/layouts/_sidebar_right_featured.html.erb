@@ -12,7 +12,7 @@
             <div>
               <% @ads_highlights.each do |highlight| %>
 
-                  <article class="media">
+                  <article class="media hover">
                       <%= link_to ad_image(highlight.ad_images.first), highlight, class:"pull-left thumb p-thumb", style:"width:30%"%>
                     <div class="media-body">
                       <a class="url" href="#" class=" p-head"><%= highlight.title %></a>
