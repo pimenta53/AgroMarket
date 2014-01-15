@@ -80,7 +80,9 @@ class Admin::Academy::WorkshopsController < Admin::ApplicationController
   # DELETE /admin/academy/workshops/1
   # DELETE /admin/academy/workshops/1.json
   def destroy
-    @admin_academy_workshop.destroy
+    #@academy_workshop.destroy
+    @admin_academy_workshop.is_deleted=true
+    @admin_academy_workshop.save
     respond_to do |format|
       format.html { redirect_to admin_academy_workshops_url }
       format.json { head :no_content }
