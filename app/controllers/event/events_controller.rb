@@ -36,6 +36,7 @@ class Event::EventsController < ApplicationController
   # POST /event/events
   # POST /event/events.json
   def create
+    @cities = City.all
     @event_event = Event::Event.new(event_event_params)
     @event_event.user_id = current_user.id
     
