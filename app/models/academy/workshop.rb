@@ -21,11 +21,7 @@ class Academy::Workshop < ActiveRecord::Base
   belongs_to :user
   has_many :workshop_registrations
 
-  ## validations ##
-  validates :description, presence: true
-  validates :price, presence: true
-  validates :local, presence: true
-  validates :date, presence: true
+
 
   def add_inscription
     self.slots_taken += 1
