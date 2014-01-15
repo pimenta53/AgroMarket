@@ -15,6 +15,12 @@
   </button>
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!-- verifica se tem novas notificações e lanca alerta-->
+    <% if @total_new_notification > 0 %>
+      <script>
+      showNotify("Tem Novas Notificações!","info")
+      </script>
+    <% end %>
 
     <ul class="nav navbar-nav navbar-right">
         <%= form_tag "/ads", :method => "get",:class=>"navbar-form navbar-left input-group", :id => "search" do %>

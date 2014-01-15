@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
     @notifications_ad_messages  = all_notifications.where(:notification_type => 1)
     @notifications_ad_expired   = all_notifications.where(:notification_type => 2)
 
+    @number_notifications_ads = @notifications_ad_messages.size + @notifications_ad_expired.size
     ########notificações de academia#################
     @notifications_new_answer   = all_notifications.where(:notification_type => 4)
 
@@ -31,8 +32,13 @@ class ApplicationController < ActionController::Base
     @notification_acmy_aproved = all_notifications.where(:notification_type => [6,7,9] )
 
     @notification_messages = all_notifications.where(:notification_type => 8 )
+    
+    @number_notifications_academy = @notification_acmy_new_registration.size + @notifications_new_answer.size + @notification_acmy_aproved.size
 
-    @number_notifications_academy = @notification_acmy_new_registration.length + @notifications_new_answer.length + @notification_acmy_aproved.length
+    #total = notific-academia + notific-ads + notific-messages
+    @total_new_notification =  @number_notifications_academy +  @number_notifications_ads +  @notification_messages.size
+
+
     ######## END notificações de academia#################
 
   end
