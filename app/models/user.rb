@@ -36,7 +36,10 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
 
   #omniauth
-  has_many :authentications, :dependent => :destroy
+  has_many :omni_authentications, :class_name  => 'Authentication',
+                                  :primary_key => 'id',
+                                  :foreign_key => 'user_id',
+                                  :dependent => :destroy
 
   #Dependencies
   has_many :sent_messages,:class_name  => 'Message',
@@ -285,7 +288,7 @@ class User < ActiveRecord::Base
       #  self.avatar = URI.parse(omniauth['info']['image'])
       #end
 
-      authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+      omni_authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     elsif omniauth['provider'] == 'twitter'
       #Buscar info
       self.name = omniauth['info']['name']
@@ -301,7 +304,7 @@ class User < ActiveRecord::Base
       #  self.avatar = URI.parse(omniauth['info']['image'])
       #end
 
-      authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+      omni_authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     elsif omniauth['provider'] == 'google_oauth2'
       #Buscar info
       self.email = omniauth['info']['email']
@@ -309,12 +312,12 @@ class User < ActiveRecord::Base
 
       #Google não contem cidade
 
-      authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+      omni_authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
   end
 
   def has_provider(provider)
-    collection = authentications.where("provider = ?",provider)
+    collection = omni_authentications.where("provider = ?",provider)
     collection.length > 0
   end
 
@@ -336,7 +339,7 @@ class User < ActiveRecord::Base
   end
 
   def password_required?
-    (authentications.empty? || !password.blank?) && super
+    (omni_authentications.empty? || !password.blank?) && super
   end
 
   #######################

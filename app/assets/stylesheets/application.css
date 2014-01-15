@@ -121,7 +121,7 @@ fieldset[disabled] .btn-facebook.active {
 
 .btn-google {
   color: #ffffff;
-  background-color: #C4C4C4;
+  background-color: #BB3325;
   border-color: #46b8da;
 }
 
@@ -149,7 +149,7 @@ fieldset[disabled] .btn-google:active,
 .btn-google.disabled.active,
 .btn-google[disabled].active,
 fieldset[disabled] .btn-google.active {
-  background-color: #000064;
+  background-color: #BB3325;
   border-color: #46b8da;
 }
 
