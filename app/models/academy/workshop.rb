@@ -15,12 +15,16 @@
 #  created_at            :datetime
 #  updated_at            :datetime
 #  title                 :string(255)
+#  is_aproved            :boolean          default(FALSE)
 #
 
 class Academy::Workshop < ActiveRecord::Base
   belongs_to :user
   has_many :workshop_registrations
 
+
+  #scopes
+  default_scope -> { where('is_deleted = ?',false) } #Só apresenta os workshops que não foram apagados
 
 
 
@@ -42,6 +46,15 @@ class Academy::Workshop < ActiveRecord::Base
 
   def requires_registration?
   	self.requires_registration == 1 ? true : false
-
   end
+
+
+  def self.aproved_workshops
+    where('is_aproved = ?',true)
+  end
+
+  def self.unaproved_workshops
+    where('is_aproved = ?',false)
+  end
+
 end

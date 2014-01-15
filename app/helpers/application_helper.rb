@@ -23,12 +23,12 @@ module ApplicationHelper
 	end
 
 	def in_events?
-    #controller.controller_name == "users" ? 'in' : ''
-		controller.class.name.split("::").first == "Event" || action_name == "myevents" ? 'in' : ''
+     #controller.controller_name == "users" ? 'in' : ''
+	  (controller.class.name.split("::").first == "Event"  || action_name == "myevents") ? 'in' : '' 
 	end
 
 	def in_mercado?
-		controller.controller_name == "ads" || action_name == "myads" ? 'in' : ''
+	  (controller.controller_name == "ads" || action_name == "myads") ? 'in' : ''
 	end
 
 	def check_type_notification( notification )
