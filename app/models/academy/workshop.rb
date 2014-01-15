@@ -26,6 +26,7 @@ class Academy::Workshop < ActiveRecord::Base
   #scopes
   default_scope -> { where('is_deleted = ?',false) } #Só apresenta os workshops que não foram apagados
 
+
   def add_inscription
     self.slots_taken += 1
     self.save

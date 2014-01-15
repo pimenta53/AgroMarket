@@ -27,7 +27,7 @@
     </div>
   </header>
 
-  <div class="panel-body">
+   <div class="panel-body">
     <div class="information_workshop">
       <div class="information_show_data"> 
         <div class="information_left_info">
@@ -46,53 +46,77 @@
       </div>
     </div> 
 
-    <hr id="process-separator">
-    
-    <div class="process_show_workshop" >
-      <span>Descrição: </span> 
-      <div class="text_show_workshop">
-        <%= @academy_workshop.description.html_safe %>
-      </div>
-    </div>
+         
+      <div class="panel-body">
 
-    <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>   
-    <%= render :partial =>"academy/workshop_registrations/inscriptions" %>
-    <% end %>
+                         
 
-    <!-- VERIFICA se workshop tem inscriçoes e se ainda tem inscriçoes-->
-    <% if @academy_workshop.has_available_slots? == true && @academy_workshop.requires_registration? == true %>
-      <% if @academy_registed == 0 %>
-        <% if user_signed_in? && current_user.id != @academy_workshop.user_id %>   
-          <div class="text-center">
-            <button class="demo btn btn-primary" data-toggle="modal" href="#responsive"> <i class="fa fa-plus"></i>Inscrever-se no Workshop</button>
-          </div>
-        <% end %>
-      <% else %>
-        <div class="text-center">
-          <%= link_to ' Cancelar inscrição?', @academy_workshop_registration, method: :destroy,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Tem a certeza que pretende cancelar a inscriçao?' } %>
-        </div>
-      <% end %>
-      <!-- MODAL -->
-      <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-          <h4 class="modal-title"> Inscrição</h4>
-        </div>
-        <div class="modal-body">
-          <div class="row" id="post-review-box" >
-            <div class="col-md-12">
-              <%= render :partial =>"academy/workshop_registrations/form" %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- FIM MODAL -->
-    <% else %>
-      <div class="text-center workshop_notinscription">
-        Não há mais inscrições disponiveis
-      </div>
-    <% end %>
-  </div>
+                           <div class="process_show_workshop" >
+                                <span>Processo: </span> 
+                                  <div class="text_show_workshop">
+                                    <%= @academy_workshop.description.html_safe %>
+                                  </div>
+                           </div>
+
+                            <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>   
+
+                                 <%= render :partial =>"academy/workshop_registrations/inscriptions" %>
+
+                            <% end %>
+
+                          <!-- VERIFICA se workshop tem inscriçoes e se ainda tem inscriçoes-->
+                              <% if @academy_workshop.has_available_slots? == true && @academy_workshop.requires_registration? == true %>
+
+                        
+                                 <% if @academy_registed.blank? %>
+
+
+                                 <% if user_signed_in? && current_user.id != @academy_workshop.user_id %>   
+                                          <div class="text-center">
+                                                <button class="demo btn btn-primary" data-toggle="modal" href="#responsive"> <i class="fa fa-plus"></i>Inscrever-se no Workshop</button>
+                                          </div>
+                                  <% end %>
+
+                                  <% else %>
+
+                                     <div class="text-center">
+                                        <%= link_to ' Desinscrever do Workshop', @academy_registed, method: :delete,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Are you sure?' } %>
+                                    </div>
+
+                                  <% end %>
+
+                                  <!-- MODAL -->
+                                    <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+                                        <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                          <h4 class="modal-title"> Inscrição</h4>
+                                       </div>
+
+                                        <div class="modal-body">
+                                                 <div class="row" id="post-review-box" >
+                                                      <div class="col-md-12">
+                                                          <%= render :partial =>"academy/workshop_registrations/form" %>
+                                                      </div>
+                                                  </div>
+                                        </div>
+                                        
+                                    </div>
+                                  <!-- FIM MODAL -->
+                            
+
+                                <% else %>
+
+                                 <div class="text-center  workshop_notinscription">
+                                        Não há mais inscrições disponiveis
+                                 </div>
+                              <% end %>
+
+
+                            </div>
+
+
+
+   
 
   <div class="panel-footer" id="tutorial-footer">
     <div class="fields_workshop">

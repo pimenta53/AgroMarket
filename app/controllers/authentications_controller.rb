@@ -12,13 +12,13 @@ class AuthenticationsController < ApplicationController
       flash[:notice] = "Signed in successfully."
       sign_in_and_redirect(:user, authentication.user)
     elsif current_user
-      current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
+      current_user.omni_authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
       flash[:notice] = "Authentication successful."
       redirect_to refresh_url
     else
       user = User.match_omniauth(omniauth)
       if (user != nil)
-        user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
+        user.omni_authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
         sign_in_and_redirect(:user, user)
       else
         user = User.new
@@ -41,7 +41,7 @@ class AuthenticationsController < ApplicationController
   end
   
   def destroy
-    @authentication = current_user.authentications.find(params[:id])
+    @authentication = current_user.omni_authentications.find(params[:id])
     @authentication.destroy
     flash[:notice] = "Successfully destroyed authentication."
     redirect_to root_path

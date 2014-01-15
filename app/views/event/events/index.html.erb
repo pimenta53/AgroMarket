@@ -10,33 +10,41 @@
 <%= will_paginate(@event_events, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
 <div class="row" style="margin-right:0px">
   <% @event_events.each do |event_event| %>
-      <div class="col-md-6">
+      <div class="event-box"><!--class="col-md-6">-->
         <div class="well well-sm">
           <div class="row">
             <div class="col-xs-3 col-md-3 text-center">
             <%= link_to event_image( event_event.image ), event_event ,:class=>"img-rounded img-responsive" %>
             </div>
+
             <div class="col-xs-9 col-md-9 section-box">
-              <div class="row">
+              <% if user_signed_in? && current_user.id == event_event.user_id %>
+                <div style="float:right">
+                  <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_event_event_path(event_event), class:'no-effect', :tile=> "Editar Evento" %>
+                  <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, event_event, class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento?' } ,:tile=> "Apagar Evento"%>
+                </div>
+              <% end %>
+
+              <div id="event-title">
                   <%= link_to event_event.title, event_event, class:"h2 url" %>
+              </div>
+
+              <div id="event-description">
                   <p><%= event_event.description %></p>
               </div>
-              <div class="row">
-                <div style="float:right">
-                <% if user_signed_in? && current_user.id == event_event.user_id %>
-                    <div class="ui-group-buttons">
-                      <%= link_to '<i class="fa  fa-edit"></i>'.html_safe, edit_event_event_path(event_event),:class=>"btn btn-info btn-xs", :tile=> "Editar Evento" %>
-                      <div class="or or-xs"></div>
-                      <%= link_to '<i class="fa fa fa-trash-o"></i>'.html_safe, event_event, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento ?' } ,:class=>"btn btn-danger btn-xs", :tile=> "Apagar Evento"%>
-                    </div>
-                <% end %>
-                  </div>
-              </div>
+
+              <hr>
+              
               <div class="row rating-desc">
                 <div class="col-md-12">
-                  <span class="fa fa-calendar" style="color:darkgreen;"></span><%=event_event.start_day.day %>/<%=event_event.start_day.mon %>/<%=event_event.start_day.year %>
-                  <span class="separator">|</span>
-                  <span class="fa fa-calendar" style="color:#d43f3a"></span><%=event_event.end_day.day %>/<%=event_event.end_day.mon %>/<%=event_event.end_day.year %>
+                  <div style="float:right">
+                    <span class="event-begin">
+                      <span class="fa fa-calendar" style="color:darkgreen;"></span><%=event_event.start_day.day %>/<%=event_event.start_day.mon %>/<%=event_event.start_day.year %>
+                    </span>
+                    <span>
+                      <span class="fa fa-calendar" style="color:#d43f3a"></span><%=event_event.end_day.day %>/<%=event_event.end_day.mon %>/<%=event_event.end_day.year %>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

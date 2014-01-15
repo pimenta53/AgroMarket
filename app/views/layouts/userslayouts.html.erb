@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
   <title>Agrosocial</title>
 
@@ -47,7 +47,7 @@
               <%= link_to "Editar Perfil".html_safe , edit_user_registration_path(), :class => "fa fa-edit" %>
             </li>
             <li> 
-              <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(current_user.id), :class => "fa fa-calendar" %> <span class="label label-danger pull-right r-activity"><%= @user.ads.count %></span>
+              <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(current_user.id), :class => "fa fa-calendar" %> <span class="label label-danger pull-right r-activity"><%= @user.counter_ads %></span>
             </li>
           </ul>
         </section>
