@@ -20,7 +20,16 @@
                                   <div class="form-group">
                                       <label class="col-lg-2 control-label">Cidade</label>
                                       <div class="col-lg-6">
-                                     <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção')  %>
+                                       <select  id="user_city_id" name="user[city_id]">
+                                        <option value="">Escolha uma opção...</option>
+                                        <% @districts.each do |district| %>
+                                          <optgroup label="<%= district.name %>">
+                                               <% district.cities.each do |city| %>
+                                                     <option value="<%= city.id %>" <%= "selected" if current_user.city.id == city.id  %>><%= city.city %></option>
+                                               <% end %>
+                                          </optgroup>
+                                        <% end %>
+                                      </select>
                                       </div>
                                   </div>
                                   <div class="form-group">
