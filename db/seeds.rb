@@ -694,7 +694,6 @@ PriceType.create(name: "€ Total")
 PriceType.create(name: "€/Arroba")
 
 Plan.delete_all
-Plan.create(name: "Destaque", duration: "-1", price: "7", ads_limit: 0, event_limit: 0)
 Plan.create(name: "Regular", duration: "-1", price: "0", ads_limit: 5, event_limit: 1)
 Plan.create(name: "Horta", duration: "6", price: "12,99", ads_limit: 10, event_limit: 5)
 Plan.create(name: "Quinta", duration: "6", price: "24,99", ads_limit: 20, event_limit: 10)
