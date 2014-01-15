@@ -1,4 +1,14 @@
 <%= form_for @academy_workshop, :html => {:multipart => true,:id=>"academy_workshop"} do |f| %>
+    <% if @academy_workshop.errors.any? %>
+        <div id="error_explanation">
+          <h2>Os seguintes erros impediram o envio do formulário:</h2>
+          <ul>
+            <% @academy_workshop.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
     <div class="row" style="margin-left: -10px; margin-right: -10px">
 
@@ -107,17 +117,6 @@
         </div>
       </div>
     </div>
-
-    <% if @academy_workshop.errors.any? %>
-        <div id="error_explanation">
-          <h2>Os seguintes erros impediram o envio do formulário:</h2>
-          <ul>
-            <% @academy_workshop.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
 
 <% end %>
 
