@@ -10,7 +10,8 @@ class Event::EventsController < ApplicationController
     else
       page = 1
     end
-    @event_events = Event::Event.aproved_events.paginate(:page => page, :per_page => 8)
+    @event_events = Event::Event.aproved_undeleted.paginate(:page => page, :per_page => 8)
+
   end
 
   # GET /event/events/1
@@ -68,7 +69,9 @@ class Event::EventsController < ApplicationController
   # DELETE /event/events/1
   # DELETE /event/events/1.json
   def destroy
-    @event_event.destroy
+    #@event_event.destroy
+    @event_event.deleted = true
+    @event_event.save
     respond_to do |format|
       format.html { redirect_to event_events_url }
       format.json { head :no_content }
