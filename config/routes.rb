@@ -101,6 +101,7 @@ Agrosocial::Application.routes.draw do
     namespace :academy do
       resources :tutorials
       resources :questions
+      resources :workshops
     end
 
     namespace :event do
@@ -114,6 +115,10 @@ Agrosocial::Application.routes.draw do
 
     get 'aprove_event', to: 'event/events#aprove_event', as: :aprove_event
     get 'unaprove_event', to: 'event/events#unaprove_event', as: :unaprove_event
+
+    get 'aprove_workshop', to: 'academy/workshops#aprove_workshop', as: :aprove_workshop
+    get 'unaprove_workshop', to: 'academy/workshops#unaprove_workshop', as: :unaprove_workshop
+
 
   end
 

@@ -28,7 +28,7 @@
           <tr>
 
           <td>
-          <span class="label" style= "background-color: <%= if ad.is_active then @activecolor elsif ad.is_deleted then @deletedcolor else 'orange' end %>"> </span>
+          <span class="label" style= "background-color: <%= if ad.is_active then 'red' else 'orange' end %>"> </span>
 
           </td>
             <td><%= ad.id %></td>
