@@ -7,7 +7,7 @@
           <div class="control-group">
               <%= f.label :title, "Título",:class=>"control-label" %><label class="help-inline" style="" generated="true" for="academy_workshop_title"></label>
             <div class="controls">
-              <%= f.text_field :title,:placeholder => "Defina o título do tutorial" ,:class=>"form-control",:rel=>"tooltip",:title=>"Escolha um titulo apropriado.
+              <%= f.text_field :title,:placeholder => "Título do workshop..." ,:class=>"form-control",:rel=>"tooltip",:title=>"Escolha um titulo apropriado.
              Seja claro e sucinto." %>
             </div>
             
@@ -15,24 +15,7 @@
      </div>
 
 
-      <div class="col-md-4">
-        <div class="control-group">
-          <span class="button-checkbox">
-            <button type="button" class="btn" data-color="primary">Pode ter inscrições?</button>
-            <%= f.check_box :requires_registration ,:class=>"hidden" %>
-          </span>
-
-          <div id="available_slots">
-          <%= f.label :available_slots, "Vagas Disponíveis",:class=>"control-label" %><label class="help-inline"  generated="true" for="academy_workshop_available_slots"></label>
-          <div class="controls">
-            <%= f.number_field :available_slots,:class=>"form-control",:rel=>"tooltip",:title=>"Número máximo de inscrições para o workshop." %>
-          </div>
-        </div>
-
-        </div>
-      </div>
-
-
+    
     <div class="col-md-4">
       <div class="control-group">
         <%= f.label :price, "Preço" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_workshop_price"></label>
@@ -59,9 +42,30 @@
           <%= f.text_field :date, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
         </div>
       </div>
-     </div>
+    </div>
+
+
+        <div class="col-md-3">
+                <div class="control-group">
+
+                   <%= f.label :available_slots, "Vagas Disponíveis",:class=>"control-label" %><label class="help-inline"  generated="true" for="academy_workshop_available_slots"></label>
+
+                 <div class="controls">  
+                      <div class="input-group">
+                          <span class="input-group-addon">
+                         
+                            <%= f.check_box :requires_registration ,:class=>"button-checkbox" %>
+
+                          </span>
+                           <%= f.number_field :available_slots,:class=>"form-control v_places",:rel=>"tooltip",:title=>"Número máximo de inscrições para o workshop.", :readonly => :false  %>
+                     </div>
+                 </div>
+                    
+                </div>
+          </div>
 
    </div>
+
 
     <div class="control-group">
       <%= f.label :description, "Descrição" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_workshop_description"></label>
@@ -73,7 +77,11 @@
     <div class="control-group">
       <%= f.label :local, "Localização do Workshop" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="addresspicker_map"></label>
       <div class="controls">
+<<<<<<< HEAD
         <%= f.text_field :local,:placeholder =>"Localização do workshop..." ,:class=>"form-control", :id=>"addresspicker_map",autocomplete: "off"%>
+=======
+        <%= f.text_field :local,:placeholder =>"Localização da workshop..." ,:class=>"form-control", :id=>"addresspicker_map",autocomplete: "off"%>
+>>>>>>> 2edd220e458137238d8873f0f6cf3926b3e3eb17
       </div>
 
       <div style="width:100%;height:350px;margin-top:20px">
@@ -88,7 +96,7 @@
     </div>
 
 
-    <div class="fields">
+    <div class="fields_newWorkshop">
       <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_workshops_path %>'">
         <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
       </button>

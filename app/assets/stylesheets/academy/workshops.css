@@ -125,7 +125,7 @@
 }
 
 .information_workshop span {
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .information_data span {
@@ -154,10 +154,6 @@
 .workshop_inscription_title p {
 	margin-top: 30px;
 	margin-left: 10px;
-}
-
-#workshop-inscriptions {
-	
 }
 
 .workshop_notinscription {
@@ -190,4 +186,8 @@
 	margin-right: 10px;
 	margin-top: 10px;
 	margin-bottom: -10px;
+}
+
+.fields_newWorkshop{
+	margin-top: 4%;
 }

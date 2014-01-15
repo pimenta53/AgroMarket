@@ -1,3 +1,31 @@
 // Place all the styles related to the event/Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.event-box {
+	width: 100% !important;
+}
+
+#title-approval {
+	margin: 30px 0 5px 0;
+}
+
+#title-approval * {
+	vertical-align: middle;
+}
+
+#title-approval a {
+	margin-right: 5px;
+}
+
+#event-description {
+	margin: 5px 0 5px 10px;
+}
+
+#event-image {
+	margin-top: 5px;
+}
+
+.event-begin {
+	margin-right: 15px;
+}
