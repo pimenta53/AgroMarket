@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140115141307) do
+ActiveRecord::Schema.define(version: 20140115113024) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 20140115141307) do
 
   create_table "academy_workshops", force: true do |t|
     t.integer  "user_id",                               null: false
-    t.integer  "available_slots",       default: 0
-    t.integer  "slots_taken",           default: 0
+    t.integer  "available_slots"
+    t.integer  "slots_taken"
     t.float    "price"
     t.string   "local"
     t.datetime "date"
