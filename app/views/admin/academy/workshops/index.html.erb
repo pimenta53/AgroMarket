@@ -1,5 +1,5 @@
 <section class="panel">
-  <header class="panel-heading"><h1>Workshops por aprovar</h1><h5><%= @unaproved_workshops.count %> Workshops</h5> 
+  <header class="panel-heading"><h1>Workshops por aprovar</h1><h5><%= @unaproved_workshops.count %> Workshops</h5>
   </header>
 <div class="table-responsive">
   <table class="table table-hover tablesorter" id="orderTable" >
@@ -27,7 +27,7 @@
         <td><%= uap_workshop.available_slots %></td>
         <td><%= uap_workshop.slots_taken %></td>
         <td><%= I18n.l uap_workshop.date ,:format => :time %></td>
-        <td><%= link_to 'Ver', admin_academy_tutorial_path(uap_workshop.id) %> </td>
+        <td><%= link_to 'Ver', admin_academy_workshop_path(uap_workshop.id) %> </td>
         <td><%= link_to 'Aprovar' , admin_aprove_workshop_path(:id_aprove => uap_workshop.id)%></td>
         <td><%= link_to 'Apagar', uap_workshop, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
 
@@ -42,7 +42,7 @@
 
 
 <section class="panel">
-  <header class="panel-heading"><h1>Workshops aprovados</h1><h5><%= @aproved_workshops.count %> Workshops</h5> 
+  <header class="panel-heading"><h1>Workshops aprovados</h1><h5><%= @aproved_workshops.count %> Workshops</h5>
   </header>
 <div class="table-responsive">
   <table class="table table-hover tablesorter" id="orderTable" >
