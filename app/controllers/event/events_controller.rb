@@ -43,6 +43,7 @@ class Event::EventsController < ApplicationController
 
     respond_to do |format|
       if @event_event.save
+        User.find(current_user.id).add_event
         format.html { redirect_to @event_event, notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event_event }
       else
@@ -72,6 +73,7 @@ class Event::EventsController < ApplicationController
     #@event_event.destroy
     @event_event.deleted = true
     @event_event.save
+    User.find(current_user.id).remove_event
     respond_to do |format|
       format.html { redirect_to event_events_url }
       format.json { head :no_content }
