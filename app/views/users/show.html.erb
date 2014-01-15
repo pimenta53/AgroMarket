@@ -1,6 +1,6 @@
-
+ 
 <aside class="profile-info col-lg-9">
-    <section class="panel" style="margin-right:15px;">
+    <!--<section class="panel" style="margin-right:15px;">
         <form>
           <textarea placeholder="Em que estás a pensar?" rows="2" class="form-control input-lg p-text-area"></textarea>
         </form>
@@ -22,7 +22,7 @@
                 </li>
             </ul>
         </footer>
-    </section>
+    </section>-->
 
     <section class="panel" style="margin-right:15px;">
         <div class="panel-body bio-graph-info">
@@ -40,7 +40,7 @@
                 <div class="bio-row">
 
 
-                    <p><span>Ocupação</span>: <%= @user %></p>
+                    <p><span>Ocupação</span>: <%= @user.ocupation %></p>
 
                 </div>
                 <div class="bio-row">
@@ -57,6 +57,61 @@
     </section>
 
     <section class="panel" style="margin-right:15px;">
+        <div class="panel-body bio-graph-info">
+            <h1>Seguindo</h1>
+            <div class="row">
+                <% i = 0 %>
+                <% @user.following.each do |f| %>
+                    <div class="panel col-md-2" id="userPanel">
+                        <a href="/users/<%= f.id %>" >
+                            <div class="row">
+                                <%= image_tag f.avatar.url(:medium) %>
+                            </div>
+                            <div class="row">
+                                <%= f.name%>
+                            </div>
+                        </a>
+                    </div>
+
+                    <%i+1%>
+                    <% if i > 6 %>
+                        <%break%>
+                    <% end %>
+                <% end %>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="panel" style="margin-right:15px;">
+        <div class="panel-body bio-graph-info">
+            <h1>Seguidores</h1>
+            <div class="row">
+                <% i = 0 %>
+                <% @user.followers.each do |f| %>
+                    <div class="panel col-md-2" id="userPanel">
+                        <a href="/users/<%= f.id %>" >
+                            <div class="row">
+                                <%= image_tag f.avatar.url(:medium),:width => "120px"%>
+                            </div>
+                            <div class="row">
+                                <%= f.name%>
+                            </div>
+                        </a>
+                    </div>
+
+                    <%i+1%>
+                    <% if i > 6 %>
+                        <%break%>
+                    <% end %>
+                <% end %>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <!--<section class="panel" style="margin-right:15px;">
         <div class="row" style="margin-right:0px;">
             <div class="col-lg-6">
                 <div class="panel">
@@ -116,7 +171,7 @@
             </div>
 
         </div>
-    </section>
+    </section>-->
 </aside>
 
       

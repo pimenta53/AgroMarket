@@ -1,189 +1,192 @@
 <aside class="profile-info col-lg-9">
-          <section class="panel">
-                          <div class="panel-body bio-graph-info">
-                                <h1> Profile Info</h1>
-                        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put ,:class=>"form-horizontal"}) do |f| %>
-                           <%= devise_error_messages! %>
 
-                                  <div class="form-group">
-                                      <label class="col-lg-2 control-label">Descrição</label>
-                                      <div class="col-lg-10">
-                                          <textarea name="" id="" class="form-control" cols="30" rows="10"></textarea>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label class="col-lg-2 control-label">Nome</label>
-                                      <div class="col-lg-6">
-                                           <%= f.text_field :name ,:class=>"form-control"%>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label class="col-lg-2 control-label">Cidade</label>
-                                      <div class="col-lg-6">
-                                     <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Escolha uma opção')  %>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label class="col-lg-2 control-label">Data de Nascimento</label>
-                                      <div class="col-lg-6">
-                                          <%= f.text_field :birthday, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control", :value => I18n.localize(current_user.birthday) if current_user.birthday %>
-                                          <!--<%= f.text_field :birthday, :label => "Date",  :class => ['datepicker','form-control'] %>-->
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label class="col-lg-2 control-label">Ocupação</label>
-                                      <div class="col-lg-6">
-                                           <%= f.text_field :ocupation ,:class=>"form-control" %>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label class="col-lg-2 control-label">Email</label>
-                                      <div class="col-lg-6">
-                                          <%= f.email_field :email, :autofocus => true,:class => "form-control" %>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label class="col-lg-2 control-label">Telefone</label>
-                                      <div class="col-lg-6">
-                                           <%= f.text_field :phone ,:class=>"form-control" %>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label class="col-lg-2 control-label">URL do Website</label>
-                                      <div class="col-lg-6">
-                                          <input type="text" class="form-control" id="url" placeholder="http://www.demowebsite.com ">
-                                      </div>
-                                  </div>
+    <section class="panel">
+        <div class="panel-body bio-graph-info">
+            <h1> Profile Info</h1>
+            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put ,:class=>"form-horizontal"}) do |f| %>
+            <%= devise_error_messages! %>
 
-
-                          </div>
-          </section>
-
-
-
-
-                  <section>
-                          <div class="panel panel-primary">
-                              <div class="panel-heading"> Mudar a password e Avatar</div>
-                              <div class="panel-body">
-
-                                
-                                      <div class="form-group">
-                                          <label class="col-lg-2 control-label">Nova Password</label>
-                                          <div class="col-lg-6">
-
-                                              <%= f.password_field :password, :autocomplete => "off" ,:class=>"form-control",:id=>"n-pwd",:placeholder=>" " %>
-                                          </div>
-                                      </div>
-                                      <div class="form-group">
-                                          <label class="col-lg-2 control-label">Rescreva Nova Password</label>
-                                          <div class="col-lg-6">
-                                               <%= f.password_field :password_confirmation ,:class=>"form-control",:id=>"rt-pwd",:placeholder=>" " %>
-                                          </div>
-                                      </div>
-
-
-                                      <div class="form-group">
-                                          <label class="col-lg-2 control-label">Alterar Avatar</label>
-                                          <div class="col-lg-6">
-                                              <%= f.file_field :avatar ,:class=>"form-control file-pos"%>
-                                          </div>
-                                      </div>
-
-
-
-                              </div>
-                          </div>
-
-                      <section>
-                          <div class="panel panel-primary">
-
-                                <div class="panel-heading"> Salvar 
-
-                                </div>
-                                     <div class="panel-body">
-                                        <div class="form-group">
-                                                <label class="col-lg-2 control-label">Password atual</label>
-                                                <div class="col-lg-6">
-
-                                                     <%= f.password_field :current_password ,:class=>"form-control",:id=>"c-pwd",:placeholder=>" " %>
-                                                </div>
-                                        </div>
-
-                                            <div class="form-group">
-                                                <div class="col-lg-offset-2 col-lg-10">
-
-                                                    <%= f.submit "Salvar" ,:class=>"btn btn-success" %>
-                                                    <%= link_to "Cancelar", :back ,:class=>"btn btn-default" %>
-
-                                                </div>
-                                            </div>
-
-                                    </div>
-                              </div>
-                      </section>
-
-
-                          <% end %>
-                </section>
-
-                      <section>
-                          <div class="panel panel-primary">
-
-                          <div class="panel-heading"> Coneções exteriores </div>
-                               <div class="panel-body">
-                                  <div class="form-group">
-                                     <div class="social-box">
-                                        <% provider_count = 0 %>
-                                        <% if !current_user.has_provider("facebook")%>
-                                        <div class="row mg-btm">
-                                           <div class="col-lg-6">
-                                              <div class="col-md-12"><%= link_to "<i class=\"icon-facebook\" style=\"margin-right: 5px; color: white;\"></i>Conetar com o Facebook".html_safe , "/auth/facebook",:class=>"popup btn btn-facebook btn-block",:style=>"color:white;" %></div>
-                                           </div>
-                                        </div>
-                                        <% else provider_count += 1 %>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Descrição</label>
+                <div class="col-lg-10">
+                    <textarea name="" id="" class="form-control" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Nome</label>
+                <div class="col-lg-6">
+                     <%= f.text_field :name ,:class=>"form-control"%>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Cidade</label>
+                <div class="col-lg-6">
+                                       <select  id="user_city_id" name="user[city_id]">
+                                        <option value="">Escolha uma opção...</option>
+                                        <% @districts.each do |district| %>
+                                          <optgroup label="<%= district.name %>">
+                                               <% district.cities.each do |city| %>
+                                                     <option value="<%= city.id %>" <%= "selected" if current_user.city.id == city.id  %>><%= city.city %></option>
+                                               <% end %>
+                                          </optgroup>
                                         <% end %>
-                                        <% if !current_user.has_provider("twitter")%>
-                                        <div class="row mg-btm" style="margin-top: 5px; margin-bottom: 10px">
-                                           <div class="col-lg-6">
-                                              <div class="col-md-12"><%= link_to "<i class=\"icon-twitter\" style=\"margin-right: 5px; color: white;\"></i>Conetar com o Twitter".html_safe , "/auth/twitter" ,:class=>"popup btn btn-twitter btn-block" ,:style=>"color:white;" %></div>
-                                           </div>
-                                        </div>
-                                        <% else provider_count += 1 %>
-                                        <% end %>
-                                        <% if !current_user.has_provider("google_oauth2")%>
-                                        <div class="row mg-btm" style="margin-top: 5px; margin-bottom: 10px">
-                                           <div class="col-lg-6">
-                                              <div class="col-md-12"><%= link_to "<i class=\"icon-google-plus\" style=\"margin-right: 5px; color: white;\"></i>Conetar com o Google+".html_safe , "/auth/google_oauth2" ,:class=>"popup btn btn-google btn-block" ,:style=>"color:white;" %></div>
-                                           </div>
-                                        </div>
-                                        <% else provider_count += 1 %>
-                                        <% end %>
-                                        <% if !(provider_count < 3)%>
-                                           Não há mais connecções exteriores a adicionar.
-                                        <% end %>
-                                     </div>
-                                  </div>
-
-                              </div>
-                          </div>
-                      </section>
-
-                      <section>
-                          <div class="panel panel-primary">
-
-                          <div class="panel-heading"> Apagar a Conta </div>
-                               <div class="panel-body">
-                                  <div class="form-group">
-                                      <label class="col-lg-2 control-label">Deseja apagar a conta?</label>
-                                      <div class="col-lg-10">
-                                          <%= button_to "Apagar a minha conta", registration_path(resource_name), :data => { :confirm => "Tens a certeza?" }, :method => :delete %>
+                                      </select>
                                       </div>
-                                  </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Data de Nascimento</label>
+                <div class="col-lg-6">
+                    <%= f.text_field :birthday, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control", :value => (I18n.localize(current_user.birthday) if current_user.birthday) %>
+                    <!--<%= f.text_field :birthday, :label => "Date",  :class => ['datepicker','form-control'] %>-->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Ocupação</label>
+                <div class="col-lg-6">
+                     <%= f.text_field :ocupation ,:class=>"form-control" %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-6">
+                    <%= f.email_field :email, :autofocus => true,:class => "form-control" %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Telefone</label>
+                <div class="col-lg-6">
+                     <%= f.text_field :phone ,:class=>"form-control" %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">URL do Website</label>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control" id="url" placeholder="http://www.demowebsite.com ">
+                </div>
+            </div>
 
-                              </div>
-                          </div>
-                      </section>
+
+        </div>
+    </section>
 
 
+
+
+    <section>
+        <div class="panel panel-primary">
+            <div class="panel-heading"> Mudar a password e Avatar</div>
+            <div class="panel-body">
+                <div class="row" >
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Nova Password</label>
+                    <div class="col-lg-6">
+                        <%= f.password_field :password, :autocomplete => "off" ,:class=>"form-control",:id=>"n-pwd",:placeholder=>" " %>
+                    </div>
+                </div>
+                </div>
+                <div class="row" >
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Rescreva Nova Password</label>
+                    <div class="col-lg-6">
+                         <%= f.password_field :password_confirmation ,:class=>"form-control",:id=>"rt-pwd",:placeholder=>" " %>
+                    </div>
+                </div>
+                </div>
+                <div class="row" >
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Alterar Avatar</label>
+                    <div class="col-lg-6">
+                        <%= f.file_field :avatar ,:class=>"form-control file-pos"%>
+                    </div>
+                </div>
+                </div>
+                
+                
+            </div>
+        </div>
+
+        <section>
+            <div class="panel panel-primary">
+                <div class="panel-heading"> Salvar</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Password atual</label>
+                        <div class="col-lg-6">
+                             <%= f.password_field :current_password ,:class=>"form-control",:id=>"c-pwd",:placeholder=>" " %>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <%= f.submit "Salvar" ,:class=>"btn btn-success" %>
+                            <%= link_to "Cancelar", :back ,:class=>"btn btn-default" %>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <% end %>
+    </section>
+
+    <section>
+        <div class="panel panel-primary">
+
+        <div class="panel-heading"> Coneções exteriores </div>
+        <div class="panel-body">
+          <div class="form-group">
+             <div class="social-box">
+                <% provider_count = 0 %>
+                <% if !current_user.has_provider("facebook")%>
+                <div class="row mg-btm">
+                   <div class="col-lg-6">
+                      <div class="col-md-12"><%= link_to "<i class=\"icon-facebook\" style=\"margin-right: 5px; color: white;\"></i>Conetar com o Facebook".html_safe , "/auth/facebook",:class=>"popup btn btn-facebook btn-block",:style=>"color:white;" %></div>
+                   </div>
+                </div>
+                <% else provider_count += 1 %>
+                <% end %>
+                <% if !current_user.has_provider("twitter")%>
+                <div class="row mg-btm" style="margin-top: 5px; margin-bottom: 10px">
+                   <div class="col-lg-6">
+                      <div class="col-md-12"><%= link_to "<i class=\"icon-twitter\" style=\"margin-right: 5px; color: white;\"></i>Conetar com o Twitter".html_safe , "/auth/twitter" ,:class=>"popup btn btn-twitter btn-block" ,:style=>"color:white;" %></div>
+                   </div>
+                </div>
+                <% else provider_count += 1 %>
+                <% end %>
+                <% if !current_user.has_provider("google_oauth2")%>
+                <div class="row mg-btm" style="margin-top: 5px; margin-bottom: 10px">
+                   <div class="col-lg-6">
+                      <div class="col-md-12"><%= link_to "<i class=\"icon-google-plus\" style=\"margin-right: 5px; color: white;\"></i>Conetar com o Google+".html_safe , "/auth/google_oauth2" ,:class=>"popup btn btn-google btn-block" ,:style=>"color:white;" %></div>
+                   </div>
+                </div>
+                <% else provider_count += 1 %>
+                <% end %>
+                <% if !(provider_count < 3)%>
+                   Não há mais connecções exteriores a adicionar.
+                <% end %>
+             </div>
+          </div>
+
+        </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="panel panel-primary">
+
+        <div class="panel-heading"> Apagar a Conta </div>
+             <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Deseja apagar a conta?</label>
+                    <div class="col-lg-10">
+                        <%= button_to "Apagar a minha conta", registration_path(resource_name), :data => { :confirm => "Tens a certeza?" }, :method => :delete %>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 </aside>

@@ -14,7 +14,7 @@
         <div class="control-group">
           <%= f.label :start_day, "Data de Início",:class=>"control-label" %><label style="margin-left:10px" for="event_event_start_day" generated="true" class="help-inline"></label>
           <div class="controls">
-            <%= f.text_field :start_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
+            <%= f.text_field :start_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control", :value => (I18n.localize(@event_event.start_day) if (@event_event && @event_event.start_day)) %>
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
         <div class="control-group">
           <%= f.label :end_day, "Data de Fim",:class=>"control-label" %><label style="margin-left:10px" for="event_event_end_day" generated="true" class="help-inline"></label>
           <div class="controls">
-            <%= f.text_field :end_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control" %>
+            <%= f.text_field :end_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control", :value => (I18n.localize(@event_event.end_day) if (@event_event && @event_event.end_day)) %>
           </div>
         </div>
       </div>

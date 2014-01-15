@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113183904) do
+ActiveRecord::Schema.define(version: 20140115141307) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 20140113183904) do
 
   create_table "academy_workshops", force: true do |t|
     t.integer  "user_id",                               null: false
-    t.integer  "available_slots"
-    t.integer  "slots_taken"
+    t.integer  "available_slots",       default: 0
+    t.integer  "slots_taken",           default: 0
     t.float    "price"
     t.string   "local"
     t.datetime "date"
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(version: 20140113183904) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "deleted",            default: false
   end
 
   create_table "messages", force: true do |t|
@@ -250,6 +251,13 @@ ActiveRecord::Schema.define(version: 20140113183904) do
     t.integer  "user_two",               null: false
     t.integer  "ad_id"
     t.integer  "is_close",   default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "types", force: true do |t|
+    t.string   "name"
+    t.integer  "flag"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

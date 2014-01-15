@@ -79,7 +79,7 @@
         <td><%= event.title %></td>
         <td><%= event.description %></td>
         <td><%= event.city.city %></td>
-        <td><%= event.user_id %></td>
+        <td><%= event.user_id %> / <%= event.user.name %></td>
         <td><%= link_to 'Ver', [:admin, event] %></td>
         <td><%= link_to 'Desaprovar', admin_unaprove_event_path(:id_aprove => event.id) %></td>
         <td><%= link_to 'Eliminar', [:admin, event], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>

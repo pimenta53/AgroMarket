@@ -6,6 +6,13 @@
   color: #293a49;
 }
 
+#userPanel{
+    /*background-color: rgb(241, 242, 247);*/
+    border: 2px solid rgb(0, 167, 93);
+    padding: 10px;
+
+}
+
 /*user profile image */
 
 #user_profile{
