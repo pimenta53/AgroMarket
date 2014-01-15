@@ -15,6 +15,7 @@
 #  created_at            :datetime
 #  updated_at            :datetime
 #  title                 :string(255)
+#  is_aproved            :boolean          default(FALSE)
 #
 
 require 'spec_helper'

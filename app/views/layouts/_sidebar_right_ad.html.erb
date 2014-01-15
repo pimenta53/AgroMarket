@@ -1,7 +1,9 @@
+<% publicity_list = get_publicity(3) %>
+<% if (publicity_list && publicity_list.length>0) %>
 <div class="col-lg-12 col-md-12 col-sx-12 col-sm-6">
   <section class="panel">
     <header class="panel-heading">Publicidade</header>
-    <% publicity_list = get_publicity(3) %>
+    
     <div class="panel-body">
       <ul class="thumbnails list-unstyled">
         <% publicity_list.each do |publicity|  %>
@@ -39,3 +41,4 @@
     </div>
   </section>
 </div>
+<% end %>

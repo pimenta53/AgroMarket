@@ -3,23 +3,23 @@
 #
 # Table name: ads
 #
-#  id                 :integer             not null, primary key
-#  title             :string(255)
-#  description     :string(255)
-#  price             :float
-#  expire_date     :datetime
-#  location         :string(255)
-#  type_price_id  :integer             not null
-#  city_id          :integer             not null
-#  user_id          :integer             not null
+#  id             :integer          not null, primary key
+#  title          :string(255)
+#  description    :string(255)
+#  price          :float
+#  expire_date    :datetime
+#  location       :string(255)
+#  type_price_id  :integer          not null
+#  city_id        :integer          not null
+#  user_id        :integer          not null
 #  permanent_link :string(255)
-#  page_views      :integer             default(0)
-#  category_id     :integer             not null
-#  is_deleted      :boolean             default(FALSE)
-#  is_active        :boolean             default(FALSE)
-#  created_at      :datetime
-#  updated_at      :datetime
-#  highlight        :integer             default(0)
+#  page_views     :integer          default(0)
+#  category_id    :integer          not null
+#  is_deleted     :boolean          default(FALSE)
+#  is_active      :boolean          default(FALSE)
+#  created_at     :datetime
+#  updated_at     :datetime
+#  highlight      :integer          default(0)
 #
 
 class Ad < ActiveRecord::Base
@@ -35,6 +35,8 @@ class Ad < ActiveRecord::Base
 
 
   #scopes
+  default_scope -> { where('is_deleted = ?',false) } #Só apresenta os anúncios que não foram apagados
+
 
   # atributes
   accepts_nested_attributes_for :ad_images
@@ -259,6 +261,11 @@ class Ad < ActiveRecord::Base
         end
         return results
      end
+
+
+    def self.active_ads
+      where("is_active = ?",true)
+    end
 
   # private methods
   private
