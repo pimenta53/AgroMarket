@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140115113024) do
+ActiveRecord::Schema.define(version: 20140115140159) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -173,7 +173,7 @@ ActiveRecord::Schema.define(version: 20140115113024) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.boolean  "deleted"
+    t.boolean  "deleted",            default: false
   end
 
   create_table "messages", force: true do |t|
@@ -196,12 +196,14 @@ ActiveRecord::Schema.define(version: 20140115113024) do
   end
 
   create_table "payments", force: true do |t|
-    t.string   "ref",                        null: false
-    t.integer  "user_id",                    null: false
-    t.boolean  "used",       default: false
+    t.string   "ref",                          null: false
+    t.integer  "user_id",                      null: false
+    t.boolean  "used",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "plan_id",                    null: false
+    t.integer  "plan_id",                      null: false
+    t.integer  "payment_type",                 null: false
+    t.integer  "ad_id"
   end
 
   create_table "plan_users", force: true do |t|
