@@ -127,7 +127,7 @@
                                  <div class="information_left_info">
                                    <span><i class="fa fa-user"></i>Utilizador: </span>  <%= @academy_workshop.user.name %> 
                                   <span> <i class="fa fa-map-marker"></i>Localidade: </span>  <%= @academy_workshop.local %> 
-                                    <span><i class="fa fa-calendar-o"></i>Data: </span>   <%= @academy_workshop.date %> 
+                                    <span><i class="fa fa-calendar-o"></i>Data: </span>   <%= @academy_workshop.date.strftime('%d-%m-%Y') %> 
                                  </div>
                                   
                               </div>
