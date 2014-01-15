@@ -61,7 +61,7 @@
               <% @districts.each do |district| %>
                 <optgroup label="<%= district.name %>">
                      <% district.cities.each do |city| %>
-                           <option value="<%= city.id %>" <%= "selected" if current_user.city.city == city.city  %>><%= city.city %></option>
+                           <option value="<%= city.id %>" <%= "selected" if current_user.city.id == city.id  %>><%= city.city %></option>
                      <% end %>
                 </optgroup>
               <% end %>

@@ -4,6 +4,11 @@
     <a class="url" href="<%= academy_tutorials_path %>"> > Tutoriais</a>
     <a class="url" href="<%= academy_tutorial_path(@academy_tutorial.id) %>"> > <%= @academy_tutorial.title %></a>
   </li>
+  <% if user_signed_in? %>
+    <div class="pull-right">
+      <%= link_to '<i class="fa fa-plus"></i>Novo Tutorial'.html_safe, new_academy_tutorial_path,:class=> "new-tutorial" %>
+    </div>
+  <% end %>
 </ol>
 
 <%= render 'form' %>

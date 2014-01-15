@@ -10,13 +10,15 @@
       <% else %>
           <div class="panel panel-danger">
       <% end %>
-      <!-- fazer if para verificar se está subscrito -->
+
+      <% if @subscribed_plans.include? plan %>
       <div class="cnrflash">
         <div class="cnrflash-inner">
-          <span class="cnrflash-label">SUBSCRITO</span>
+          <span class="cnrflash-label">(<%= @subscribed_plans.where(:id => plan.id).count %>)</br>SUBSCRITO</span>
         </div>
       </div>
-      <!-- end if -->
+      <% end %>
+
       <div class="panel-heading">
         <h3 class="panel-title"><%= plan.name%></h3>
       </div>
