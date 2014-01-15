@@ -14,7 +14,8 @@
       <% if @subscribed_plans.include? plan %>
       <div class="cnrflash">
         <div class="cnrflash-inner">
-          <span class="cnrflash-label">(<%= @subscribed_plans.where(:id => plan.id).count %>)</br>SUBSCRITO</span>
+          <% contador = @subscribed_plans.where(:id => plan.id).count %>
+          <span class="cnrflash-label"><% if contador > 1%>(<%= contador %>)</br><% end %>SUBSCRITO</span>
         </div>
       </div>
       <% end %>
@@ -24,8 +25,8 @@
       </div>
       <div class="panel-body-plan">
         <div class="the-price">
-          <h1><%= plan.price%> €</h1>
-          <small><% if plan.name == "Regular" %>ILIMITADO<% else %> Durante <%= plan.duration %> Meses<% end %></small>
+          <b><h2><%= plan.price%>€</h2></b>
+          <small><% if plan.name == "Regular" %>ILIMITADO<% else %> Válido <%= plan.duration %> Meses<% end %></small>
         </div>
         <table class="table">
           <tr>
