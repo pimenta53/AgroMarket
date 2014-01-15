@@ -45,7 +45,7 @@ class SearchController < ApplicationController
 			workshop = Academy::Workshop.all
 
 			workshop.each do |w|
-				@names << {:id => w.id, :title => w.description, :category => w.category.name, :img => "http://placehold.it/40x30",:tipo => "Pergunta",:link => academy_question_path(q)}
+				@names << {:id => w.id, :title => w.description, :category => "", :img => "http://placehold.it/40x30",:tipo => "Pergunta",:link => academy_workshop_path(w)}
 			end
 		end
 
@@ -53,7 +53,7 @@ class SearchController < ApplicationController
 			question = Academy::Question.all
 
 			question.each do |q|
-				@names << {:id => q.id, :title => q.title, :category => "", :img => "http://placehold.it/40x30",:tipo => "Workshop",:link => academy_workshop_path(w)}
+				@names << {:id => q.id, :title => q.title, :category => q.category.name, :img => "http://placehold.it/40x30",:tipo => "Workshop",:link => academy_question_path(q)}
 			end
 		end
 

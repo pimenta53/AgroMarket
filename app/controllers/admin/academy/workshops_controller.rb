@@ -31,7 +31,7 @@ class Admin::Academy::WorkshopsController < Admin::ApplicationController
     workshop.save
 
     #cria notificação
-    #Notification.create_notification( current_user , event.id , 7 , "Workshop Aprovado")
+    Notification.create_notification( current_user , event.id , 8 , "Workshop Aprovado")
 
     redirect_to admin_academy_workshops_path,:notice => "Workshop foi aprovado com sucesso"
   end

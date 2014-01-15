@@ -19,7 +19,8 @@
 # => 6 -> Tutorial Aprovado
 # => 7 -> Evento Aprovado 
 # => 8 -> Nova Mensagem Privada
-#
+# => 9 -> Workshop Aproved
+# => 
 
 class Notification < ActiveRecord::Base
 
@@ -41,6 +42,12 @@ class Notification < ActiveRecord::Base
   #verify if a user has new notification
   def self.new_notification?( current_user )
     r = where(:user_id => current_user, :watched => false)
+    return r.blank? ? false : true
+  end
+
+  #verify if a user has new notification from message
+  def self.have_notification_message?( current_user , id_destination )
+    r = where(:user_id => current_user , :id_destination => id_destination, :watched => false)
     return r.blank? ? false : true
   end
 
@@ -71,6 +78,8 @@ class Notification < ActiveRecord::Base
       Academy::Tutorial.find(self.id_destination)
     elsif self.notification_type == 7
       Event::Event.find(self.id_destination)
+    else
+      Academy::Workshop.find(self.id_destination)
     end
   end
 

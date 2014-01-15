@@ -28,7 +28,9 @@ class ApplicationController < ActionController::Base
 
     @notification_acmy_new_registration = all_notifications.where(:notification_type => 5 )
 
-    @notification_acmy_aproved = all_notifications.where(:notification_type => [6,7] )
+    @notification_acmy_aproved = all_notifications.where(:notification_type => [6,7,9] )
+
+    @notification_messages = all_notifications.where(:notification_type => 8 )
 
     @number_notifications_academy = @notification_acmy_new_registration.length + @notifications_new_answer.length + @notification_acmy_aproved.length
     ######## END notificações de academia#################

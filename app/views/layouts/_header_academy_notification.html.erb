@@ -3,9 +3,9 @@
 <li class="dropdown messages-dropdown">
   
   <% if @number_notifications_academy > 0 %>
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book" id="fa-book"></i><span class="badge" id="custom-badge"><%= @number_notifications_academy %></span><b class="caret" id="dropCarret"></b></a>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Academia"><i class="fa fa-book" id="fa-book"></i><span class="badge" id="custom-badge" ><%= @number_notifications_academy %></span><b class="caret" id="dropCarret"></b></a>
   <% else %>
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"  id="fa-book"></i><b class="caret" id="dropCarret"></b></a>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Academia"><i class="fa fa-book"  id="fa-book"></i><b class="caret" id="dropCarret" ></b></a>
   <% end %>
 
   <ul class="dropdown-menu">
@@ -15,11 +15,15 @@
       <li class="dropdown-header"><%= @notifications_new_answer.length %> Novas Respostas</li>
       <% @notifications_new_answer.each do |notification| %>
         <% question = notification.question %>
-        <li class="preview">
+
+         <li class="preview">
           <a href="<%= academy_question_path(question, :notification => notification) %>">
-            <span class="name"><%= question.title %></span>
-          </a>
-        </li>
+                <small class="type"><%= notification.description %></small><br>
+                <span class="message"><%= question.title %></span>
+                <span class="time"><i class="icon-time"></i>4:59PM<% time_ago_in_words(notification.created_at) %></span>
+              </a>
+            </li>
+            <li class="divider"></li>
       <% end %>
       <li class="divider"></li>
     <% end %>
@@ -31,16 +35,16 @@
         <% workshop = notification.workshop %>
         <li class="preview">
           <a href="<%= academy_workshop_path(workshop, :notification => notification) %>">
-            <span class="name"><%= workshop %></span>
+            <small class="type"><%= notification.description %></small><br>
+            <span class="name"><%= workshop.description %></span>
+            <span class="time"><i class="icon-time"></i>4:59PM<% time_ago_in_words(notification.created_at) %></span>
           </a>
         </li>
       <% end %>
       <li class="divider"></li>
     <% end %>
 
-    <% if @number_notifications_academy == 0 %>
-      <li class="dropdown-header">Sem novos alertas.</li>
-    <% end %>
+
 
 
        <%# notifications new answers for your questions %>
@@ -49,14 +53,17 @@
       <% @notification_acmy_aproved.each do |notification| %>
         <% notyfication_type = notification.type_notification %>
         <li class="preview">
+          <small class="type"><%= notification.description %></small><br>
           <%= check_type_notification( notification ) %>
+          <span class="time"><i class="icon-time"></i>4:59PM<% time_ago_in_words(notification.created_at) %></span>
+
         </li>
       <% end %>
       <li class="divider"></li>
     <% end %>
 
     <% if @number_notifications_academy == 0 %>
-      <li class="dropdown-header">Sem novos alertas.</li>
+      <li class="dropdown-header">Sem novas notificações na Academia</li>
     <% end %>
 
 
