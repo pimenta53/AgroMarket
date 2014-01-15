@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113183904) do
+ActiveRecord::Schema.define(version: 20140115113024) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(version: 20140113183904) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "deleted"
   end
 
   create_table "messages", force: true do |t|

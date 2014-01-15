@@ -2,16 +2,21 @@
 #
 # Table name: event_events
 #
-#  id          :integer          not null, primary key
-#  start_day   :datetime
-#  end_day     :datetime
-#  title       :string(255)      not null
-#  description :text
-#  user_id     :integer
-#  aproved     :boolean          default(FALSE)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  city_id     :integer
+#  id                 :integer          not null, primary key
+#  start_day          :datetime
+#  end_day            :datetime
+#  title              :string(255)      not null
+#  description        :text
+#  user_id            :integer
+#  aproved            :boolean          default(FALSE)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  city_id            :integer
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#  deleted            :boolean
 #
 
 class Event::Event < ActiveRecord::Base
@@ -36,7 +41,9 @@ class Event::Event < ActiveRecord::Base
    validate :end_day_cannot_be_before_start_day
 	
 	#scope
+	default_scope -> { where('deleted = ?',false) } #Só apresenta os eventos que não foram apagados
     default_scope -> { order('created_at DESC') }
+
     
 	def self.today_events_count
 		where('created_at > ?', Date.today).count	
@@ -44,6 +51,10 @@ class Event::Event < ActiveRecord::Base
 		
 	def self.aproved_events
   	  where('aproved = ?',true)
+    end
+
+    def self.aproved_undeleted
+    	where('aproved = ? AND deleted = ?',true,false)
     end
 
     def self.unaproved_events
