@@ -1,13 +1,12 @@
 <%= form_tag ads_path ,:method => :get do%>
-  <section class="panel">
-      <header class="panel-heading">
-          Category
+
+      <header class="panel-heading border-header">
+          Categoria
       </header>
       <div class="panel-body">
           <ul class="nav prod-cat">
                <% @categories.each do |cat| %>
                   <li>
-                    <i class=" fa fa-angle-right"></i>
                     <% if !params[:search].nil? %>
                         <% if params[:search].include?("cat:" + "#{cat.id}") %>
                             <%= check_box_tag "search[]","cat:#{cat.id}", "active" %>
@@ -24,11 +23,11 @@
       </div>
 
     <header class="panel-heading border-header">
-      Category
+      Cidade
     </header>
 
     <div class="panel-body">
-    <select multiple name="cities[]" class="col-xs-12 col-md-13 col-lg-13" placeholder="sel. cidades">
+    <select multiple name="cities[]" class="col-xs-12 col-md-13 col-lg-13" placeholder="Procure por cidades...">
     <option value="">Selecione...</option>
     <% @districts.each do |district| %>
       <% !params[:cities].blank? ? (cities = params[:cities]) : (cities = [])%>
@@ -41,7 +40,7 @@
     <% end %>
     </select>
     </div>
-  </section>
+
      
   <%= submit_tag "Filtrar",class:"btn btn-default btn-sm",style:"width:100%" %>
 <% end %>
