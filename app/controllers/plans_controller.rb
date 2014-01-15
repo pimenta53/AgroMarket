@@ -5,6 +5,7 @@ class PlansController < ApplicationController
   # GET /plans.json
   def index
     @plans = Plan.all
+    @subscribed_plans = current_user.plans
   end
 
 

@@ -29,15 +29,17 @@
 
             <% if flash[:notice] || flash[:alert]  %>
               <div id="error_explanation">
-                <h2>Os seguintes erros impediram o envio do formulário:</h2>
-                <ul>
                   <% if flash[:notice] %>
+                   <ul>
                       <li><%= flash[:notice] %> </li>
+                    </ul>
                   <% end %>
                   <% if flash[:alert] %>
-                      <li><%= flash[:alert] %> </li>
+                      <h2>Os seguintes erros impediram o envio do formulário:</h2>
+                      <ul>
+                        <li><%= flash[:alert] %> </li>
+                      </ul>
                   <% end %>
-                </ul>
               </div>
               <% end %>
 
