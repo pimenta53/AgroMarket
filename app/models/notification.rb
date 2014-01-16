@@ -10,7 +10,17 @@
 #  description       :text
 #  created_at        :datetime
 #  updated_at        :datetime
-#
+# CODIGO NOTIFICACOES
+# => 1 -> ad message,
+# => 2 -> ad expired,
+# => 3 -> ad deleted by admin
+# => 4 -> new answer for your questions
+# => 5 -> New registrations to the workshop
+# => 6 -> Tutorial Aprovado
+# => 7 -> Evento Aprovado 
+# => 8 -> Nova Mensagem Privada
+# => 9 -> Workshop Aproved
+# => 
 
 class Notification < ActiveRecord::Base
 
@@ -21,7 +31,7 @@ class Notification < ActiveRecord::Base
   end
 
   def self.academy_notification
-    where(:notification_type => ["4", "5"])
+    where(:notification_type => ["4", "5","6"])
   end
 
   #notificações de eventos e tutoriais aprovados
@@ -32,6 +42,12 @@ class Notification < ActiveRecord::Base
   #verify if a user has new notification
   def self.new_notification?( current_user )
     r = where(:user_id => current_user, :watched => false)
+    return r.blank? ? false : true
+  end
+
+  #verify if a user has new notification from message
+  def self.have_notification_message?( current_user , id_destination )
+    r = where(:user_id => current_user , :id_destination => id_destination, :watched => false)
     return r.blank? ? false : true
   end
 
@@ -62,6 +78,8 @@ class Notification < ActiveRecord::Base
       Academy::Tutorial.find(self.id_destination)
     elsif self.notification_type == 7
       Event::Event.find(self.id_destination)
+    else
+      Academy::Workshop.find(self.id_destination)
     end
   end
 

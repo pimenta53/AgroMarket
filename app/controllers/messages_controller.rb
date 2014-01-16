@@ -18,6 +18,11 @@ class MessagesController < ApplicationController
     @messages = @talk.messages
 
     @message = Message.new
+
+    #mark notification as watched, if params[:notification] is set
+    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
+      Notification.find(params[:notification]).update(:watched => true)
+    end
   end
 
 
@@ -48,7 +53,13 @@ class MessagesController < ApplicationController
 
       if @message.save
         @messages = @talk.messages
-         render :partial => 'create_mp.js.erb'
+        #notify the owner of the Workshop
+        #verificar ja existe uma notificacao referente a esta conversacao
+        if Notification.have_notification_message?( current_user, @talk.id ) == false
+          Notification.create_notification( current_user , @talk.id , 8 , "Tem novas Mensagens")
+        end
+        
+        render :partial => 'create_mp.js.erb'
       end
 
   end

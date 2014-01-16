@@ -8,11 +8,11 @@
       </div>
     </div>
 
-    <div class="row" style="margin-left: -10px; margin-right: -10px">
+    <div class="row">
 
-      <div class="col-md-4">
+      <div class="col-md-4" id="event-begin-date">
         <div class="control-group">
-          <%= f.label :start_day, "Data de Início",:class=>"control-label" %><label style="margin-left:10px" for="event_event_start_day" generated="true" class="help-inline"></label>
+          <%= f.label :start_day, "Data de Início",:class=>"control-label" %><label for="event_event_start_day" generated="true" class="help-inline"></label>
           <div class="controls">
             <%= f.text_field :start_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control", :value => (I18n.localize(@event_event.start_day) if (@event_event && @event_event.start_day)) %>
           </div>
@@ -28,11 +28,11 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4" id="event-city">
         <div class="control-group">
-          <%= f.label :city_id, "Cidade" %><label class="help-inline" style="margin-left:10px" generated="true" for="event_event_city_id"></label>
-          <div class="controls">
-            <%= f.collection_select(:city_id,@cities,:id,:city,:class=>"form-control", :include_blank => 'Selecione...') %>
+          <%= f.label :city_id, "Cidade" %><label class="help-inline" generated="true" for="event_event_city_id"></label>
+          <div class="controls" style="margin-top: 4px;">
+            <%= f.collection_select(:city_id,@cities,:id,:city,:class=>"form-control", :id=>"event-cities", :include_blank => 'Selecione...') %>
           </div>
         </div>
       </div>

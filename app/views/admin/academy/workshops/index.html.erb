@@ -29,7 +29,7 @@
         <td><%= I18n.l uap_workshop.date ,:format => :time %></td>
         <td><%= link_to 'Ver', admin_academy_workshop_path(uap_workshop.id) %> </td>
         <td><%= link_to 'Aprovar' , admin_aprove_workshop_path(:id_aprove => uap_workshop.id)%></td>
-        <td><%= link_to 'Apagar', uap_workshop, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+        <td><%= link_to 'Apagar', admin_academy_workshop_path(id: uap_workshop.id), method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
 
         <td></td>
 
@@ -73,7 +73,7 @@
         <td><%= I18n.l ap_workshop.date ,:format => :time %></td>
         <td><%= link_to 'Ver', admin_academy_workshop_path(ap_workshop.id) %> </td>
         <td><%= link_to 'Desaprovar', admin_unaprove_workshop_path(:id_aprove => ap_workshop.id) %></td>
-         <td><%= link_to 'Apagar', ap_workshop, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+         <td><%= link_to 'Apagar', admin_academy_workshop_path(id: ap_workshop.id), method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
 
       </tr>
   <% end %>
