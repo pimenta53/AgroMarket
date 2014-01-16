@@ -1,11 +1,13 @@
 <div class="col-lg-12">
   <section class="panel <%=  is_mine?( answer.user.id ) %>">
-    <header class="panel-heading" style="height:40px;">
-      <div class="pull-right">
-        <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe , edit_academy_answer_path(answer), :class => 'no-effect' if answer.user.id == current_user.id %>
-        <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe , answer , method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'no-effect' if answer.user.id == current_user.id %>
-      </div>
-    </header>
+    <% if user_signed_in? %>
+      <header class="panel-heading" style="height:40px;">
+        <div class="pull-right">
+          <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe , edit_academy_answer_path(answer), :class => 'no-effect' if answer.user.id == current_user.id %>
+          <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe , answer , method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'no-effect' if answer.user.id == current_user.id %>
+        </div>
+      </header>
+    <% end %>
 
     <div class="panel-body" id="panel-answer">
       <div class="col-xs-2 col-md-2" id="user-avatar"><%##  Avatar do user que respondeu  ##%>
@@ -43,7 +45,6 @@
             </abbr>
           </div>
        </div>
-
 
   </section>
 </div>

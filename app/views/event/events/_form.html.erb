@@ -42,19 +42,22 @@
     <div class="control-group">
       <%= f.label :description, "Descrição" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="event_event_description"></label>
       <div class="controls">
-        <%= f.text_area :description,:placeholder => "Descreva o evento...",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
+        <%= f.text_area :description,:placeholder => "Descreva o evento...",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos.", rows: 4, style: "max-width: 100%;" %>
       </div>
     </div>
-     
+
       <p>
         <%= f.label :image %><br />
         <%= f.file_field :image %>
       </p>
 
     <div class="fields">
-      <button type="button" class="btn btn-primary" onclick="location.href='<%= event_events_path %>'">
-        <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
-      </button>
+      <% if action_name == "edit" %>
+        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, event_event_path(params[:id]), class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, myevents_path, class: "btn btn-primary" %>
+      <% end %>
+
       <div class="actions" style="float:right">
         <div class="actions" style="float:right">
           <% if controller.action_name == "edit" %>

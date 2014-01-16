@@ -43,9 +43,13 @@
       </div>
 
       <div class="fields">
-        <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_tutorials_path %>'">
-          <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
-        </button>
+
+        <% if action_name == "edit" %>
+          <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, academy_tutorial_path(params[:id]), class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, academy_tutorials_path, class: "btn btn-primary" %>
+        <% end %>
+
         <div class="actions" style="float:right">
           <%= f.submit "Publicar Tutorial", :class=>"btn btn-primary" %>
         </div>

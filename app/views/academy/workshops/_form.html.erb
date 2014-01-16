@@ -10,12 +10,12 @@
               <%= f.text_field :title,:placeholder => "Título do workshop..." ,:class=>"form-control",:rel=>"tooltip",:title=>"Escolha um titulo apropriado.
              Seja claro e sucinto." %>
             </div>
-            
+
           </div>
      </div>
 
 
-    
+
     <div class="col-md-4">
       <div class="control-group">
         <%= f.label :price, "Preço" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_workshop_price"></label>
@@ -50,17 +50,17 @@
 
                    <%= f.label :available_slots, "Vagas Disponíveis",:class=>"control-label" %><label class="help-inline"  generated="true" for="academy_workshop_available_slots"></label>
 
-                 <div class="controls">  
+                 <div class="controls">
                       <div class="input-group">
                           <span class="input-group-addon">
-                         
+
                             <%= f.check_box :requires_registration ,:class=>"button-checkbox" %>
 
                           </span>
                            <%= f.number_field :available_slots,:class=>"form-control v_places",:rel=>"tooltip",:title=>"Número máximo de inscrições para o workshop.", :readonly => :false  %>
                      </div>
                  </div>
-                    
+
                 </div>
           </div>
 
@@ -94,9 +94,13 @@
 
 
     <div class="fields_newWorkshop">
-      <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_workshops_path %>'">
-        <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
-      </button>
+
+      <% if action_name == "edit" %>
+        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, academy_workshop_path(params[:id]), class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, academy_workshxops_path, class: "btn btn-primary" %>
+      <% end %>
+
       <div class="actions" style="float:right">
         <div class="actions" style="float:right">
           <% if controller.action_name == "edit" %>
