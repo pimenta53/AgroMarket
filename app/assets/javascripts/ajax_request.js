@@ -29,6 +29,9 @@ ready = function() {
 
     return false;
   });*/
+  
+  /* Pesquisa geral */
+
 
   $("#cenas").click(function() {
     alert ( "Não foi possivel inserir o seu comentario!!" + error);
@@ -69,7 +72,7 @@ ready = function() {
     return false;
   }
 
-  setInterval(refresh_header, 900000);
+  setInterval(refresh_header, 100000);
 
   /*
   *  Criar nova resposta para uma pergunta com AJAX
@@ -92,6 +95,9 @@ ready = function() {
     });
     return false;
   });
+
+
+
 
 };
 

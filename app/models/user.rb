@@ -82,7 +82,10 @@ class User < ActiveRecord::Base
 
   has_many :plan_users
   has_many :plans, :through => :plan_users
+
   has_one :workshop_registration
+
+  has_many :events, :class_name => Event::Event , :foreign_key => 'user_id'
 
   def talks
      talks_user_one + talks_user_two
@@ -134,7 +137,7 @@ class User < ActiveRecord::Base
 
 #devolve o numero de evento que o utilizador tem ativos
   def active_events_count
-    self.events.where("end_day >= ?", Date.today).where(:is_deleted => false, :is_active => true).count
+    self.events.where("end_day >= ?", Date.today).where(:deleted => false).count
   end
 
 #conta o numero slots para anuncios que o utilizador tem restantes

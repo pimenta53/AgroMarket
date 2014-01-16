@@ -74,7 +74,7 @@
 
     </div>
 
-     
+
 
     <div class="control-group">
       <%= f.label :locatlion, "Localização da Venda" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="addresspicker_map"></label>
@@ -95,8 +95,8 @@
 
 
     <div class="field" style="margin-top:8px">
-            
-  
+
+
      <%= f.label :images, "Adicionar Imagens" %><br>
 
       <% @ad.ad_images.each do |ad_image| %>
@@ -108,7 +108,7 @@
 
 <div class="panel-body">
 
-     
+
 </div>
 
       <div class="newPaperclipFiles">
@@ -150,9 +150,11 @@
     </div>
 
     <div class="fields">
-      <button type="button" class="btn btn-primary" onclick="location.href='<%= myads_user_path(current_user.id) %>'">
-        <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
-      </button>
+      <% if action_name == "edit" %>
+      <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, ad_path(params[:id].split('-').first), class: "btn btn-primary" %>
+<% else %>
+<%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, myads_user_path(current_user.id), class: "btn btn-primary" %>
+<% end %>
       <div class="actions" style="float:right">
         <%= f.submit "Publicar Anúncio", :class=>"btn btn-primary" %>
       </div>
