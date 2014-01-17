@@ -1,6 +1,6 @@
 <ol class="breadcrumb" id="breadcrumbAds">
   <li class="active">
-    <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a></li>
+    <i class="fa fa-tags"></i> Academia</li>
     <a class="url" href="<%= academy_workshops_path %>"> > Workshops</a></li>
     <% if user_signed_in? %>
     <%= link_to '<i class="fa fa-plus"></i>Novo Workshop'.html_safe, new_academy_workshop_path,:class=> "url", style:"float:right"%>
@@ -25,17 +25,17 @@
 
         <% @academy_workshops.each do |academy_workshop| %>
 
-        <tr class="tutorial_table_body">
-          <td style="vertical-align:middle;">
-            <div class="media" style="position:relative; left:50%; margin-left:-25px;">
-              <%= link_to (image_tag academy_workshop.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), academy_workshop.user %>
-            </div>
-          </td>
-          <td style="vertical-align:middle;" id="text-link"><%= link_to academy_workshop.title, academy_workshop %></td>
-          <td style="vertical-align:middle;"><%= academy_workshop.description %></td>
-          <td style="vertical-align:middle;"><%= academy_workshop.local %></td>
-          <td style="vertical-align:middle;"><%= academy_workshop.date %></td>
-        </tr>
+          <tr class="tutorial_table_body">
+            <td style="vertical-align:middle;">
+              <div class="media" style="position:relative; left:50%; margin-left:-25px;">
+                <%= link_to (image_tag academy_workshop.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), academy_workshop.user %>
+              </div>
+            </td>
+            <td style="vertical-align:middle;" id="text-link"><%= link_to academy_workshop.title, academy_workshop %></td>
+            <td style="vertical-align:middle;"><%= academy_workshop.description %></td>
+            <td style="vertical-align:middle;"><%= academy_workshop.local %></td>
+            <td style="vertical-align:middle;"><%= academy_workshop.date %></td>
+          </tr>
         <% end %>
 
       </tbody>

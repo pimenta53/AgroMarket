@@ -7,7 +7,7 @@
 
 <ol class="breadcrumb" id="breadcrumbAds">
   <li class="active">
-    <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a></li>
+    <i class="fa fa-tags"></i> Academia</li>
     <a class="url" href="<%= academy_tutorials_path %>"> > Tutoriais</a></li>
   </li>
   <% if user_signed_in? %>
@@ -58,12 +58,12 @@
             <%= academy_tutorial.created_at.strftime('%d-%m-%Y') %>
           </td>
         </tr>
-      
+
       <% end %>
       </tbody>
 
-    </table> 
-    
+    </table>
+
     <%= will_paginate(@academy_tutorials, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
 
   </div>
