@@ -1,8 +1,8 @@
 <ol class="breadcrumb" id="breadcrumbAds">
   <li class="active">
-    <a class="url" href="<%= event_events_path %>"><i class="fa fa-tags"></i> Eventos</a></li>
+    <a class="url" href="<%= event_events_path %>"><i class="fa fa-tags"></i> Eventos</a> > </li>
   <% if user_signed_in? %>
-      <a class="url" href="<%= myevents_path %>">> Os meus Eventos</a></li>
+      <a class="url" href="<%= myevents_path(current_user.id) %>">Os meus Eventos</a></li>
       <%= link_to '<i class="fa fa-plus"></i>Novo Evento'.html_safe, new_event_event_path,:class=> "url", style:"float:right"%>
   <% end %>
 </ol>

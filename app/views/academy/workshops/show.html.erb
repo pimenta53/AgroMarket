@@ -1,7 +1,8 @@
 <ol class="breadcrumb" id="breadcrumbAds">
   <li class="active">
-    <a class="url" href="<%= academy_workshops_path %>"><i class="fa fa-tags"></i> Workshops</a>
-    <a class="url" href="<%= academy_workshop_path(@academy_workshop.id) %>"> > <%= @academy_workshop.title %></a>
+    <i class="fa fa-tags"></i> Academia >
+    <a class="url" href="<%= academy_workshops_path %>"><i class="fa fa-tags"></i> Workshops</a> >
+    <a class="url" href="<%= academy_workshop_path(@academy_workshop.id) %>"><%= @academy_workshop.title %></a>
   </li>
 
   <div style="float:right">

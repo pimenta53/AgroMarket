@@ -1,6 +1,6 @@
 <ol class="breadcrumb" id="breadcrumbAds">
   <li class="active">
-    <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a> >
+    <i class="fa fa-book"></i> Academia >
     <% if user_signed_in? %>
         <a class="url" href="<%= academy_questions_path %>">Perguntas</a> </li>
         <div class='pull-right'>
@@ -28,7 +28,7 @@
         <% @academy_questions.each do |academy_question| %>
         <tr class="tutorial_table_body">
           <td style="vertical-align:middle;">
-            <div class="media" style="position:relative; left:50%; margin-left:-25px;">
+            <div class="media" id="question-user-image" style="position:relative; left:50%; margin-left:-25px;">
               <%= link_to (image_tag academy_question.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), academy_question.user %>
             </div>
           </td>
@@ -36,7 +36,7 @@
             <h4 class="media-heading" id="text-link" style="margin-top:10px;">
               <%= link_to academy_question.title, academy_question %>
             </h4>
-            <p><small><%= academy_question.text.html_safe %></small></p>
+            <p id="text-link"><small><%= link_to academy_question.text.html_safe, academy_question %></small></p>
           </td>
           <td style="vertical-align: middle;"><strong>110 </strong></td>
           <td style="vertical-align:middle;">

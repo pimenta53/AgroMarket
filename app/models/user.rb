@@ -252,25 +252,20 @@ class User < ActiveRecord::Base
   end
 
   def generate_password
-    #password_length = 6
-    #password = Devise.friendly_token.first(password_length)
-    #self.password=password
-    #self.password_confirmation=password
-
-    self.password='1234567890'
-    self.password_confirmation='1234567890'
+    password_length = 6
+    password = Devise.friendly_token.first(password_length)
+    self.password=password
+    self.password_confirmation=password
+    password
   end
 
   #inserir dados pelo omniauth
   def apply_omniauth(omniauth)
-    self.generate_password
     if omniauth['provider'] == 'facebook'
-
 
       #Buscar info
       self.email = omniauth['info']['email']
       self.name = omniauth['info']['name']
-
 
       #location é composto por "Cidade, Pais"
       if omniauth['info']['location'] != nil
@@ -319,6 +314,7 @@ class User < ActiveRecord::Base
 
       omni_authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
+    
   end
 
   def has_provider(provider)
