@@ -71,6 +71,8 @@ class User < ActiveRecord::Base
                                                 :foreign_key => 'following_id'
 
 
+  has_many :reciver_feeds, :class_name => Feed, :foreign_key => :reciver_id
+
   has_many :notifications
 
   belongs_to :plan , :foreign_key => 'plan_id'

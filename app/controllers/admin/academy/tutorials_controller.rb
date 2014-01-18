@@ -27,6 +27,18 @@ class Admin::Academy::TutorialsController < ApplicationController
     	Notification.create_notification( current_user , tutorial.id , 6 , "Tutorial Aprovado")
 
 		redirect_to admin_academy_tutorials_path,:notice => "Tutorial foi aprovado com sucesso"
+
+		owner_user = User.find_by_id(tutorial.user_id)
+
+		owner_user.followers.each do | user|
+
+	        feed = Feed.new(params[:feed])
+	        feed.user_id = user.id
+	        feed.in = 3
+	        feed.id_content = tutorial.id
+	        feed.save
+
+        end
 	end
 
 	private
