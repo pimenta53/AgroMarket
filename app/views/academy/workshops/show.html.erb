@@ -1,7 +1,8 @@
 <ol class="breadcrumb" id="breadcrumbAds">
   <li class="active">
-    <a class="url" href="<%= academy_workshops_path %>"><i class="fa fa-tags"></i> Workshops</a>
-    <a class="url" href="<%= academy_workshop_path(@academy_workshop.id) %>"> > <%= @academy_workshop.title %></a>
+    <i class="fa fa-tags"></i> Academia >
+    <a class="url" href="<%= academy_workshops_path %>"><i class="fa fa-tags"></i> Workshops</a> >
+    <a class="url" href="<%= academy_workshop_path(@academy_workshop.id) %>"><%= @academy_workshop.title %></a>
   </li>
 
   <div style="float:right">
@@ -15,11 +16,11 @@
 
 <section class="panel">
   <header class="panel-heading border-header text-center">
-    <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>   
-    <div class="pull-right" style="padding-bottom: 2px;">
-      <%= link_to '<i class="fa  fa-edit"></i>Editar '.html_safe, edit_academy_workshop_path(@academy_workshop),:class=>"no-effect", :tile=> "Editar Workshop" %>
-      <%= link_to '<i class="fa fa fa-trash-o"></i>Eliminar '.html_safe, @academy_workshop, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu workshop?' } ,:class=>"no-effect", :tile=> "Apagar Workshop"%>
-    </div>
+    <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>
+      <div class="pull-right" style="padding-bottom: 2px;">
+        <%= link_to '<i class="fa  fa-edit"></i>Editar '.html_safe, edit_academy_workshop_path(@academy_workshop),:class=>"no-effect", :tile=> "Editar Workshop" %>
+        <%= link_to '<i class="fa fa fa-trash-o"></i>Eliminar '.html_safe, @academy_workshop, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu workshop?' } ,:class=>"no-effect", :tile=> "Apagar Workshop"%>
+      </div>
     <% end %>
     <br>
     <div class="title_show_workshop">
@@ -27,104 +28,82 @@
     </div>
   </header>
 
-   <div class="panel-body">
-    <div class="information_workshop">
-      <div class="information_show_data"> 
-        <div class="information_left_info">
-          <span><i class="fa fa-user"></i>Criado por: </span><%= @academy_workshop.user.name %>
-          <span><i class="fa fa-map-marker"></i>Localidade: </span>  <%= @academy_workshop.local %> 
-          <span><i class="fa fa-calendar-o"></i>Data: </span>   <%= @academy_workshop.date.strftime('%d-%m-%Y %H:%M') %> 
-        </div>
+  <div class="panel-body">
+    <div class="information_data"><!--class="information_workshop">-->
+      <div class="information_top">
+        <div><i class="fa fa-user"></i>Criado por: <%= @academy_workshop.user.name %></div>
+        <div><i class="fa fa-map-marker"></i>Localidade: <%= @academy_workshop.local %></div>
+        <div><i class="fa fa-calendar-o"></i>Data: <%= @academy_workshop.date.strftime('%d-%m-%Y %H:%M') %></div>
       </div>
-      <div class="information_data"> 
-        <div class="information_left">
-          <span><i class="fa fa-ticket"></i>Vagas: </span> <%= @academy_workshop.available_slots %>
-          <span><i class="fa fa-unlock"></i>Inscrições: </span>   <%= @academy_workshop.slots_taken %> 
-          <span><i class="fa fa-money"></i>Preço: </span>    <%= @academy_workshop.price %> <i class="fa fa-eur"></i>
-          <span><i class="fa fa-list-alt"></i>Mínimo de Inscrições: </span>   <%= @academy_workshop.requires_registration %> 
-        </div>
-      </div>
-    </div> 
-
-         
-      <div class="panel-body">
-
-                         
-
-                           <div class="process_show_workshop" >
-                                <span>Processo: </span> 
-                                  <div class="text_show_workshop">
-                                    <%= @academy_workshop.description.html_safe %>
-                                  </div>
-                           </div>
-
-                            <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>   
-
-                                 <%= render :partial =>"academy/workshop_registrations/inscriptions" %>
-
-                            <% end %>
-
-                          <!-- VERIFICA se workshop tem inscriçoes e se ainda tem inscriçoes-->
-                              <% if @academy_workshop.has_available_slots? == true && @academy_workshop.requires_registration? == true %>
-
-                        
-                                 <% if @academy_registed.blank? %>
-
-
-                                 <% if user_signed_in? && current_user.id != @academy_workshop.user_id %>   
-                                          <div class="text-center">
-                                                <button class="demo btn btn-primary" data-toggle="modal" href="#responsive"> <i class="fa fa-plus"></i>Inscrever-se no Workshop</button>
-                                          </div>
-                                  <% end %>
-
-                                  <% else %>
-
-                                     <div class="text-center">
-                                        <%= link_to ' Desinscrever do Workshop', @academy_registed, method: :delete,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Are you sure?' } %>
-                                    </div>
-
-                                  <% end %>
-
-                                  <!-- MODAL -->
-                                    <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
-                                        <div class="modal-header">
-                                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                          <h4 class="modal-title"> Inscrição</h4>
-                                       </div>
-
-                                        <div class="modal-body">
-                                                 <div class="row" id="post-review-box" >
-                                                      <div class="col-md-12">
-                                                          <%= render :partial =>"academy/workshop_registrations/form" %>
-                                                      </div>
-                                                  </div>
-                                        </div>
-                                        
-                                    </div>
-                                  <!-- FIM MODAL -->
-                            
-
-                                <% else %>
-
-                                 <div class="text-center  workshop_notinscription">
-                                        Não há mais inscrições disponiveis
-                                 </div>
-                              <% end %>
-
-
-                            </div>
-
-
-
-   
-
-  <div class="panel-footer" id="tutorial-footer">
-    <div class="fields_workshop">
-      <div class="button_back">
-        <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_tutorials_path %>'">
-          <span class="icon-arrow-left" style=""></span> Voltar
-        </button>
+      <div class="information_bottom">
+        <div><i class="fa fa-ticket"></i>Vagas: <%= @academy_workshop.available_slots %></div>
+        <div><i class="fa fa-unlock"></i>Inscrições: <%= @academy_workshop.slots_taken %></div>
+        <div><i class="fa fa-money"></i>Preço: <%= @academy_workshop.price %> <i class="fa fa-eur"></i></div>
+        <div><i class="fa fa-list-alt"></i>Mínimo de Inscrições: <%= @academy_workshop.requires_registration %></div>
       </div>
     </div>
+
+    <div class="panel-body">
+      <div class="process_show_workshop" >
+        <span>Processo: </span>
+        <div class="text_show_workshop">
+          <%= @academy_workshop.description.html_safe %>
+        </div>
+      </div>
+
+      <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>
+        <%= render :partial =>"academy/workshop_registrations/inscriptions" %>
+      <% end %>
+
+      <%# VERIFICA se workshop tem inscriçoes e se ainda tem inscriçoes %>
+      <% if @academy_workshop.has_available_slots? == true && @academy_workshop.requires_registration? == true %>
+
+        <% if @academy_registed.blank? %>
+
+          <% if user_signed_in? && current_user.id != @academy_workshop.user_id %>
+            <div class="text-center">
+              <button class="demo btn btn-primary" data-toggle="modal" href="#responsive"> <i class="fa fa-plus"></i>Inscrever-se no Workshop</button>
+            </div>
+          <% end %>
+
+        <% else %>
+          <div class="text-center">
+            <%= link_to ' Desinscrever do Workshop', @academy_registed, method: :delete,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
+
+        <%# MODAL %>
+        <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+            <h4 class="modal-title"> Inscrição</h4>
+          </div>
+
+          <div class="modal-body">
+            <div class="row" id="post-review-box" >
+              <div class="col-md-12">
+                <%= render :partial =>"academy/workshop_registrations/form" %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <%# FIM MODAL %>
+      <% else %>
+        <div class="text-center  workshop_notinscription">
+          Não há mais inscrições disponiveis
+        </div>
+      <% end %>
+
+    </div>
+
   </div>
+
+  <div class="panel-footer" id="workshop-footer">
+    <div class="button_back">
+      <%= link_to '<span class="icon-arrow-left" style=""></span> Voltar'.html_safe, academy_workshops_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+
 </section>

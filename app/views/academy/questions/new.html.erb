@@ -1,8 +1,9 @@
 <ol class="breadcrumb" id="breadcrumbAds">
   <li class="active">
-    <a class="url" href="<%= academy_questions_path %>"><i class="fa fa-tags"></i> Perguntas</a>
+    <i class="fa fa-book"></i> Academia</li> >
+    <a class="url" href="<%= academy_questions_path %>"> Perguntas</a> >
     <% if user_signed_in? %>
-    <%= link_to ' > Nova Pergunta', new_academy_question_path,:class=> "url"%>
+    <%= link_to ' Nova Pergunta', new_academy_question_path,:class=> "url"%>
     <% end %>
   </li>
 </ol>

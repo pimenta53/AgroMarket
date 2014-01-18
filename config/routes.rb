@@ -27,8 +27,6 @@ Agrosocial::Application.routes.draw do
   get '/refresh', :to => redirect('/refresh.html')
   post '/refresh', :to => redirect('/refresh.html')
 
-  get "academy" => "academy#index"
-
   ### ACADEMY ZONE ###
   namespace :academy do
     resources :questions
@@ -50,7 +48,7 @@ Agrosocial::Application.routes.draw do
   get "/users/:id/myads" => "users#myads", as: "myads_user"
 
   get "/users/:id/myevents" => "users#myevents", as: "myevents"
-  
+
   get "/users/myrefpaypal" => "users#myrefpaypal", as: "myrefpaypal"
 
 
@@ -64,12 +62,12 @@ Agrosocial::Application.routes.draw do
 
   #accao follow do utilizador
   post '/users/:id/follow' => 'users#follow'
-  
+
   get "payment/:id/promove_ad_payment" => "payment#promove_ad_payment" , as: "promove_ad_payment"
 
   resources :ads do
     post "new_messages" => "messages#create"
-  end 
+  end
 
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}
 

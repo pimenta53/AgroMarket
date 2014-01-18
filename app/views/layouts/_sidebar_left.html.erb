@@ -75,7 +75,6 @@
     <div id="collapseAcademia" class="panel-collapse collapse <%= in_academy? %>">
       <div class="panel-body">
         <ul class="side-elems">
-          <li><%= link_to "<i class='fa fa-angle-right'></i>Entrar na Academia".html_safe, academy_path %></li>
           <li><%= link_to "<i class='fa fa-angle-right'></i>Perguntas".html_safe, academy_questions_path %></li>
           <li><%= link_to "<i class='fa fa-angle-right'></i>Tutoriais".html_safe, academy_tutorials_path%></li>
           <li><%= link_to "<i class='fa fa-angle-right'></i>Workshops".html_safe, academy_workshops_path %></li>
@@ -103,7 +102,7 @@
 <div class="panel panel-default">
   <div class="panel-heading" style="background-color: #d2322d; border-radius: 4px 4px 4px 4px;">
     <h4 class="panel-title">
-      <%= fa_icon "lock" %> <a href="/admin/ads"> Danger-Zone</a>
+      <%= fa_icon "lock" %> <a href="/admin/dashboard"> Administração</a>
     </h4>
   </div>
 </div>

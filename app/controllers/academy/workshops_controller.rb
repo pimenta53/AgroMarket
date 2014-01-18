@@ -40,6 +40,7 @@ class Academy::WorkshopsController < ApplicationController
   # POST /academy/workshops
   # POST /academy/workshops.json
   def create
+    @categories = Category.all
     @academy_workshop = Academy::Workshop.new(academy_workshop_params)
     @academy_workshop.user_id = current_user.id
     @academy_workshop.slots_taken = 0

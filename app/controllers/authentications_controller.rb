@@ -24,8 +24,10 @@ class AuthenticationsController < ApplicationController
         user = User.new
         user.apply_omniauth(omniauth)
         if user.save
-          flash[:notice] = "Signed in successfully."
+          p = PlanUser.new(:user_id => user.id, :plan_id => Plan.first.id)
+          p.save
           
+          flash[:notice] = "Signed in successfully."
           #CORRIGEM OS SMTP SETTINGS PLZ
           #Dropbox\Agrosocial\business\mails\mail_conf_no_reply.png
           #

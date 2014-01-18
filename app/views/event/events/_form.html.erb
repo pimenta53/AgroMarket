@@ -8,11 +8,11 @@
       </div>
     </div>
 
-    <div class="row" style="margin-left: -10px; margin-right: -10px">
+    <div class="row">
 
-      <div class="col-md-4">
+      <div class="col-md-4" id="event-begin-date">
         <div class="control-group">
-          <%= f.label :start_day, "Data de Início",:class=>"control-label" %><label style="margin-left:10px" for="event_event_start_day" generated="true" class="help-inline"></label>
+          <%= f.label :start_day, "Data de Início",:class=>"control-label" %><label for="event_event_start_day" generated="true" class="help-inline"></label>
           <div class="controls">
             <%= f.text_field :start_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker form-control", :value => (I18n.localize(@event_event.start_day) if (@event_event && @event_event.start_day)) %>
           </div>
@@ -28,11 +28,11 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4" id="event-city">
         <div class="control-group">
-          <%= f.label :city_id, "Cidade" %><label class="help-inline" style="margin-left:10px" generated="true" for="event_event_city_id"></label>
-          <div class="controls">
-            <%= f.collection_select(:city_id,@cities,:id,:city,:class=>"form-control", :include_blank => 'Selecione...') %>
+          <%= f.label :city_id, "Cidade" %><label class="help-inline" generated="true" for="event_event_city_id"></label>
+          <div class="controls" style="margin-top: 4px;">
+            <%= f.collection_select(:city_id,@cities,:id,:city,:class=>"form-control", :id=>"event-cities", :include_blank => 'Selecione...') %>
           </div>
         </div>
       </div>
@@ -42,19 +42,22 @@
     <div class="control-group">
       <%= f.label :description, "Descrição" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="event_event_description"></label>
       <div class="controls">
-        <%= f.text_area :description,:placeholder => "Descreva o evento...",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos." %>
+        <%= f.text_area :description,:placeholder => "Descreva o evento...",:class=>"form-control", :rel=>"tooltip",:title=>"Escreva de forma clara e não utilize demasiada pontuação ou termos repetidos.", rows: 4, style: "max-width: 100%;" %>
       </div>
     </div>
-     
+
       <p>
         <%= f.label :image %><br />
         <%= f.file_field :image %>
       </p>
 
     <div class="fields">
-      <button type="button" class="btn btn-primary" onclick="location.href='<%= event_events_path %>'">
-        <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
-      </button>
+      <% if action_name == "edit" %>
+        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, event_event_path(params[:id]), class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, myevents_path(current_user.id), class: "btn btn-primary" %>
+      <% end %>
+
       <div class="actions" style="float:right">
         <div class="actions" style="float:right">
           <% if controller.action_name == "edit" %>

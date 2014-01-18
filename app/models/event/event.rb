@@ -1,3 +1,4 @@
+#encoding: utf-8
 # == Schema Information
 #
 # Table name: event_events
@@ -32,23 +33,31 @@ class Event::Event < ActiveRecord::Base
 
 	belongs_to :city
 	belongs_to :user
-	
-   validates :start_day, presence: true
-   validates :end_day, presence: true
-   validates :city, presence: true
-   validates :description, presence: true
-   validate :end_day_cannot_be_in_the_past
-   validate :end_day_cannot_be_before_start_day
-	
+
+  validates :start_day, presence: true
+  validates :end_day, presence: true
+  validates :city, presence: true
+  validates :description, presence: true
+  validate :end_day_cannot_be_in_the_past
+  validate :end_day_cannot_be_before_start_day
+  validate :event_limit_validation
+
+
+  def event_limit_validation
+     if User.find(user_id).remaining_events_slots == 0
+        errors.add(:title, "Não pode criar novos Eventos!")
+     end
+  end
+
 	#scope
 	default_scope -> { where('deleted = ?',false) } #Só apresenta os eventos que não foram apagados
     default_scope -> { order('created_at DESC') }
 
-    
+
 	def self.today_events_count
-		where('created_at > ?', Date.today).count	
+		where('created_at > ?', Date.today).count
 	end
-		
+
 	def self.aproved_events
   	  where('aproved = ?',true)
     end
@@ -64,7 +73,7 @@ class Event::Event < ActiveRecord::Base
     def is_aproved?
     	self.aproved == true ? true : false
     end
-    
+
   private
   #a data de fim não pode estar no passado
   def end_day_cannot_be_in_the_past
@@ -73,7 +82,7 @@ class Event::Event < ActiveRecord::Base
         end_day < Date.today
     end
   end
-  
+
   #a data de fim não pode ocorrer antes da data de inicio
   def end_day_cannot_be_before_start_day
     if (end_day != nil)

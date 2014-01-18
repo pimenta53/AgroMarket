@@ -69,19 +69,24 @@
 
 <%#  if user is logged  %>
 <% if user_signed_in? %>
-<%#  show answer form  %>
-<%= render "academy/answers/form", :question => @academy_question %>
+  <%#  show answer form  %>
+  <%= render "academy/answers/form", :question => @academy_question %>
 <% else %>
-<%#  show indication to login or signup  %>
-<div class="col-lg-12">
-  <section class="panel">
-    <header class="panel-heading">
-      <div>
-        <p>Inicie sessão para poder responder: <%= link_to "Iniciar Sessão", new_user_session_path %> ou <%= link_to "Registar", new_user_registration_path %></p>
-      </div>
-    </header>
-  </section>
-</div>
+  <%#  show indication to login or signup  %>
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading">
+        <div>
+          <p>Inicie sessão para poder responder: <%= link_to "Iniciar Sessão", new_user_session_path %> ou <%= link_to "Registar", new_user_registration_path %></p>
+        </div>
+      </header>
+    </section>
+  </div>
 <% end %>
 
-
+<%#  Back button for unloged users   %>
+<% unless user_signed_in? %>
+  <div class="col-lg-12">
+    <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, academy_questions_path, class: "btn btn-primary"%>
+  </div>
+<% end %>

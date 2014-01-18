@@ -45,10 +45,10 @@ class Academy::Question < ActiveRecord::Base
 
     #verifica se melhor resposta tem algum voto
     #se nao houver nenhum voto nao fica como melhor resposta
-    if !answer.nil? && answer.up == 0 && answer.down == 0
+    if !answer.nil? && (( answer.up == 0 && answer.down == 0) || self.answers.first == answer || self.answers.count == 1 )
       answer = nil
     end
-    
+
     return answer
   end
 

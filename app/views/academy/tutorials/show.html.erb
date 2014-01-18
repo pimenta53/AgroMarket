@@ -1,8 +1,8 @@
 <ol class="breadcrumb" id="breadcrumbAds">
   <li class="active">
-    <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a>
-    <a class="url" href="<%= academy_tutorials_path %>"> > Tutoriais</a>
-    <a class="url" href="<%= academy_tutorial_path(@academy_tutorial.id) %>"> > <%= @academy_tutorial.title %></a>
+    <i class="fa fa-tags"></i> Academia >
+    <a class="url" href="<%= academy_tutorials_path %>">Tutoriais</a> >
+    <a class="url" href="<%= academy_tutorial_path(@academy_tutorial.id) %>"><%= @academy_tutorial.title %></a>
   </li>
 
   <div style="float:right">
@@ -18,14 +18,14 @@
   <header class="panel-heading border-header text-center">
     <div style="display: inline-block; width: 100%;">
       <div id="category-label" style="float:left; width:30%; text-align:left;">
-        <span>Categoria: </span> 
+        <span>Categoria: </span>
         <span class="label" style="background-color: #<%= @academy_tutorial.category.color %> ; color: black; font-size:12px;">
           <%= @academy_tutorial.category.name %>
         </span>
       </div>
       <% if user_signed_in? && current_user.id == @academy_tutorial.user_id %>
       <div class="pull-right" style="padding-bottom: 2px;">
-        <%= link_to '<i class="fa fa-pencil"></i>Editar '.html_safe, edit_academy_tutorial_path(@academy_tutorial),:class=>"no-effect", :tile=> "Editar Tutorial" %>
+        <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_academy_tutorial_path(@academy_tutorial),:class=>"no-effect", :tile=> "Editar Tutorial" %>
         <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, @academy_tutorial, method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu tutorial?' } ,:class=>"no-effect", :tile=> "Apagar Tutorial"%>
       </div>
       <% end %>
@@ -39,14 +39,14 @@
   <div class="panel-body">
     <div><%##  texto da resposta  ##%>
       <div class="information_show_tutorial">
-        <div>
+        <div id="tutorial-title-description">
           <p>
             <ul id="tutorial-info">
               <li>
                 <span>Autor: </span> <%= @academy_tutorial.user.name %>
               </li>
               <li id="tutorial-date">
-                <span>Data de Criação: </span> 
+                <span>Data de Criação: </span>
                 <abbr class="timeago" title="<%=  @academy_tutorial.created_at.getutc.iso8601 %>">
                   <%=  @academy_tutorial.created_at.to_s %>
                 </abbr>
@@ -57,8 +57,6 @@
             <span>Descrição: </span> <%= @academy_tutorial.rapid_description %>
           </p>
         </div>
-
-        <hr id="process-separator">
 
         <div class="process_show_tutorial" >
           <div class="text_show_tutorial">
@@ -75,6 +73,7 @@
         <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_tutorials_path %>'">
           <span class="icon-arrow-left" style=""></span> Voltar
         </button>
-      </div>    </div>
+      </div>
+    </div>
   </div>
 </section>

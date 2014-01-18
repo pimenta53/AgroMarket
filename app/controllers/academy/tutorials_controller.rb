@@ -27,15 +27,15 @@ class Academy::TutorialsController < ApplicationController
         if (search_table_title != nil)
           search_table_title = search_table_title.or(academy_tutorials[:category_id].matches("#{parameter}".split(":")[1]))
           #search_table_description  = search_table_description.and(academy_tutorials[:rapid_description].matches("%#{parameter}%"))
-          
+
         else
           search_table_title = academy_tutorials[:category_id].matches("#{parameter}".split(":")[1])
           #search_table_description  = academy_tutorials[:rapid_description].matches("%#{parameter}%")
-          
+
         end
       }
       @academy_tutorials = Academy::Tutorial.where(search_table.and(search_table_title)).paginate(:page => page, :per_page => 8)
-    else 
+    else
       @academy_tutorials = Academy::Tutorial.where(:aproved => 1).paginate(:page => page, :per_page => 8)
     end
 
@@ -48,6 +48,10 @@ class Academy::TutorialsController < ApplicationController
   # GET /academy/tutorials/1
   # GET /academy/tutorials/1.json
   def show
+#mark notification as watched, if params[:notification] is set
+    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
+      Notification.find(params[:notification]).update(:watched => true)
+    end
   end
 
   # GET /academy/tutorials/new
