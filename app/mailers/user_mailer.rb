@@ -9,10 +9,13 @@ class UserMailer < ActionMailer::Base
   end
 
 
-  def send_message_ad(sender,ad,msg)
-  	@sender = sender
-  	@ad = ad
+        "para,nome_de_quem_envia,nome_do_anuncio,mensagem"
+
+  def send_message_ad(destination,name_sender,name_ad,msg)
+  	@destination = destination
+  	@name_sender = name_sender
+  	@name_ad = name_ad
   	@msg = msg
-  	mail(to: "paulo.4624@gmail.com", subject: 'AgroSocial - Resposta ao anúncio')
+  	mail(to: destination, subject: 'AgroSocial - Resposta ao anúncio')
   end
 end
