@@ -1,4 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_admin_academy_workshop_path(@admin_academy_workshop) %> |
-<%= link_to 'Back', admin_academy_workshops_path %>
+<p>
+  <strong>Título:</strong>
+  <%= @admin_academy_workshop.title %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @admin_academy_workshop.local %>
+</p>
+
+<p>
+  <strong>Preço:</strong>
+  <%= @admin_academy_workshop.price %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= I18n.l @admin_academy_workshop.date ,:format => :time  %>
+</p>
+
+<p>
+  <strong>Vagas:</strong>
+  <%= @admin_academy_workshop.available_slots %>
+</p>
+
+
+<p>
+  <strong>Inscritos:</strong>
+  <%= @admin_academy_workshop.slots_taken %>
+</p>
+
+<p>
+  <strong>Criado por:</strong>
+  <%= @admin_academy_workshop.user_id %> / <%= @admin_academy_workshop.user.name %>
+</p>
+
+
+
+
+<%= link_to 'Editar', edit_admin_academy_workshop_path(@admin_academy_workshop) %> |
+<%= link_to 'Voltar', admin_academy_workshops_path %>

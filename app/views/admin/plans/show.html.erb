@@ -1,4 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_admin_plan_path(@admin_plan) %> |
-<%= link_to 'Back', admin_plans_path %>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @admin_plan.name %>
+</p>
+
+<p>
+  <strong>Preço:</strong>
+  <%= @admin_plan.price %>
+</p>
+
+<p>
+  <strong>Duração:</strong>
+  <%= @admin_plan.duration %> meses
+</p>
+
+<p>
+  <strong>Limite de Anúncios:</strong>
+  <%= @admin_plan.ad_limit %>
+</p>
+
+<p>
+  <strong>Limite de Eventos:</strong>
+  <%= @admin_plan.events_limit %>
+</p>
+
+<p>
+  <strong>Criado em:</strong>
+  <%= I18n.l @admin_plan.created_at  ,:format => :time %>
+</p>
+
+<p>
+  <strong>Editado em:</strong>
+  <%= I18n.l @admin_plan.updated_at ,:format => :time %>
+</p>
+
+<%= link_to 'Editar', edit_admin_plan_path(@admin_plan) %> |
+<%= link_to 'Voltar', admin_plans_path %>

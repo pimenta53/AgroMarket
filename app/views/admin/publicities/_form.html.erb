@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :título %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :descrição %><br>
     <%= f.text_field :description %>
   </div>
   <div class="field">
@@ -24,20 +24,20 @@
     <%= f.text_field :link %>
   </div>
   <div class="field">
-    <%= f.label :expire_date %><br>
+    <%= f.label :data_de_expiração %><br>
   </div>
   <div class="field">
-    <%= f.label :owner %><br>
+    <%= f.label :dono %><br>
     <%= f.text_field :owner %>
   </div>
   
   <p>
-    <%= f.label :image %><br />
+    <%= f.label :imagem %><br />
     <%= f.file_field :image %>
   </p>
 
   <div class="field">
-    <%= f.label :is_deleted %><br>
+    <%= f.label :apagado? %><br>
     <%= f.check_box :is_deleted %>
   </div>
   <div class="actions">

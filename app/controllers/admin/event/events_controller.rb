@@ -22,6 +22,7 @@ class Admin::Event::EventsController < ApplicationController
 
   # GET /admin/event/events/1/edit
   def edit
+    @cities = City.all
   end
 
 
