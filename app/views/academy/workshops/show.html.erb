@@ -1,7 +1,7 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <i class="fa fa-tags"></i> Academia >
-    <a class="url" href="<%= academy_workshops_path %>"><i class="fa fa-tags"></i> Workshops</a> >
+    <i class="fa fa-book"></i> Academia</li> >
+    <a class="url" href="<%= academy_workshops_path %>"></i> Workshops</a> >
     <a class="url" href="<%= academy_workshop_path(@academy_workshop.id) %>"><%= @academy_workshop.title %></a>
   </li>
 
@@ -14,8 +14,8 @@
 
 <p id="notice"><%= notice %></p>
 
-<section class="panel">
-  <header class="panel-heading border-header text-center">
+<section class="panel" style="border: 1px solid #dddddd;">
+  <header class="panel-heading border-header text-center" style="background-color:#f5f5f5; border-bottom: 1px solid #dddddd;">
     <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>
       <div class="pull-right" style="padding-bottom: 2px;">
         <%= link_to '<i class="fa  fa-edit"></i>Editar '.html_safe, edit_academy_workshop_path(@academy_workshop),:class=>"no-effect", :tile=> "Editar Workshop" %>
@@ -61,13 +61,13 @@
         <% if @academy_registed.blank? %>
 
           <% if user_signed_in? && current_user.id != @academy_workshop.user_id %>
-            <div class="text-center">
-              <button class="demo btn btn-primary" data-toggle="modal" href="#responsive"> <i class="fa fa-plus"></i>Inscrever-se no Workshop</button>
+            <div class="text-center" style="margin-bottom: 10px;">
+              <button class="demo btn btn-primary" data-toggle="modal" href="#responsive"> <i class="fa fa-plus" style="color:white;"></i>Inscrever-se no Workshop</button>
             </div>
           <% end %>
 
         <% else %>
-          <div class="text-center">
+          <div class="text-center" style="margin-bottom: 10px;">
             <%= link_to ' Desinscrever do Workshop', @academy_registed, method: :delete,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Are you sure?' } %>
           </div>
         <% end %>
@@ -91,7 +91,7 @@
         </div>
         <%# FIM MODAL %>
       <% else %>
-        <div class="text-center  workshop_notinscription">
+        <div class="text-center  workshop_notinscription" style="margin-bottom: 10px;">
           Não há mais inscrições disponiveis
         </div>
       <% end %>
@@ -102,7 +102,7 @@
 
   <div class="panel-footer" id="workshop-footer">
     <div class="button_back">
-      <%= link_to '<span class="icon-arrow-left" style=""></span> Voltar'.html_safe, academy_workshops_path, class: "btn btn-primary" %>
+      <%= link_to '<span class="icon-arrow-left" style="color:white;"></span> Voltar'.html_safe, academy_workshops_path, class: "btn btn-primary" %>
     </div>
   </div>
 

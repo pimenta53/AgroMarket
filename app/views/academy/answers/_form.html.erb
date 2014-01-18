@@ -5,7 +5,7 @@
         <header class="panel-heading border-header" style="background-color:#f5f5f5; border-bottom:1px solid #dddddd;">
           Resposta
         </header>
-        <div class="panel-body">
+        <div class="panel-body" style="margin-bottom:50px;">
           <% if controller.action_name != "edit" %>
             <%= form_for @academy_answer ,:html => { :id => "academy_answer" , :ajax_path => academy_answers_new_path } do |f| %>
               <%= render 'academy/answers/form_aux', :f => f, :question => question %>

@@ -1,4 +1,4 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
     <i class="fa fa-book"></i> Academia >
     <% if user_signed_in? %>
@@ -13,7 +13,7 @@
   <div class="panel">
 
     <%= will_paginate(@academy_questions, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
-    <table class="table table-hover">
+    <table class="table table-hover" id="table-questions">
       <thead>
         <tr class="table-head-background">
           <th width="10%" class="tutorial_text_head">UTILIZADOR</th>

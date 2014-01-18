@@ -1,7 +1,7 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <i class="fa fa-tags"></i> Academia</li>
-    <a class="url" href="<%= academy_workshops_path %>"> > Workshops</a></li>
+    <i class="fa fa-book"></i> Academia</li> >
+    <a class="url" href="<%= academy_workshops_path %>"> Workshops</a></li>
     <% if user_signed_in? %>
     <%= link_to '<i class="fa fa-plus"></i>Novo Workshop'.html_safe, new_academy_workshop_path,:class=> "url", style:"float:right"%>
     <% end %>
@@ -34,7 +34,7 @@
             <td style="vertical-align:middle;" id="text-link"><%= link_to academy_workshop.title, academy_workshop %></td>
             <td style="vertical-align:middle;"><%= academy_workshop.description %></td>
             <td style="vertical-align:middle;"><%= academy_workshop.local %></td>
-            <td style="vertical-align:middle;"><%= academy_workshop.date %></td>
+            <td style="vertical-align:middle;"><%= academy_workshop.date.strftime('%d-%m-%Y %H:%M') %></td>
           </tr>
         <% end %>
 

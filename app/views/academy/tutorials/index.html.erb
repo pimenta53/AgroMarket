@@ -5,10 +5,10 @@
 <script> showNotify("<%= flash[:error] %>","info") </script>
 <% end %>
 
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <i class="fa fa-tags"></i> Academia</li>
-    <a class="url" href="<%= academy_tutorials_path %>"> > Tutoriais</a></li>
+    <i class="fa fa-book"></i> Academia ></li>
+    <a class="url" href="<%= academy_tutorials_path %>"> Tutoriais</a></li>
   </li>
   <% if user_signed_in? %>
     <div class="pull-right">

@@ -1,8 +1,9 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= academy_tutorials_path %>"><i class="fa fa-tags"></i> Tutoriais</a>
+    <i class="fa fa-book"></i> Academia >
+    <a class="url" href="<%= academy_tutorials_path %>"></i> Tutoriais</a> >
     <% if user_signed_in? %>
-        <%= link_to ' > Novo Tutorial', new_academy_tutorial_path,:class=> "url"%>
+        <%= link_to ' Novo Tutorial', new_academy_tutorial_path,:class=> "url"%>
     <% end %>
   </li>
 </ol>

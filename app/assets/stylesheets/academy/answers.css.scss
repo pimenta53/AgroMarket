@@ -14,10 +14,10 @@
 }
 
 #form_message {
-	height: 320px;
+	min-height: 320px;
 }
 
-#answer-footer {
+#buttons-answer {
 	position: absolute;
 	left: 16px;
 	right: 1px;
@@ -27,13 +27,13 @@
 	border-color: #dddddd;
 }
 
-#answer-footer a {
+#buttons-answer a {
 	height: 100%;
 	vertical-align: middle;
 	color: white !important;
 }
 
-#answer-footer div > div, #answer-footer {
+#buttons-answer div > div, #buttons-answer {
 	vertical-align: middle;
 }
 
