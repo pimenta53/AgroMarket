@@ -81,6 +81,7 @@ class MessagesController < ApplicationController
     if @message.save
         @messages = @talk.messages
         @message = Message.new
+        UserMailer.send_message_ad("De: Paulo Lima","Para: Agostinho","AD: ID").deliver
 
         #if doesnt exist, create a notification for the other user and save it
         if Notification.where(:user_id => @talk.user_receiver(current_user.id), :id_destination => @ad.id, :notification_type => 1, :watched => false).empty?
@@ -92,6 +93,8 @@ class MessagesController < ApplicationController
         #render :partial => 'create.js.erb'
         redirect_to @ad
     end
+
+
 	end
 
 

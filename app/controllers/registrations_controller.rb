@@ -24,6 +24,8 @@ class RegistrationsController < Devise::RegistrationsController
       p = PlanUser.new(:user_id => @user.id, :plan_id => Plan.first.id)
       p.save
     end
+    UserMailer.welcome_email(params[:user][:email],params[:user][:name]).deliver
+
   end
 
   private
