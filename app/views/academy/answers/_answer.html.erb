@@ -1,10 +1,10 @@
-<div class="col-lg-12">
-  <section class="panel <%=  is_mine?( answer.user.id ) %>">
+<div class="col-lg-12" style="padding-left: 0 !important; padding-right: 0 !important;">
+  <section class="panel <%=  is_mine?( answer.user.id ) %>" style="border: 1px solid #dddddd;">
     <% if user_signed_in? %>
       <% if !user_signed_in? || current_user.id == answer.user.id #if not logged or is the owner them cant vote %>
-        <header class="panel-heading" style="height:40px;">
+        <header class="panel-heading" style="height:40px; border-color: #dddddd !important;">
       <% else %>
-        <header class="panel-heading" style="height:40px; background-color:#f5f5f5; border-bottom: 1px solid #dddddd;">
+        <header class="panel-heading" style="height:40px; border-color: #dddddd !important; background-color: #f5f5f5;">
       <% end %>
       <div class="pull-right">
         <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe , edit_academy_answer_path(answer), :class => 'no-effect' if answer.user.id == current_user.id %>
@@ -13,33 +13,43 @@
     </header>
     <% end %>
 
-
     <div class="panel-body" id="panel-answer">
       <div class="col-xs-2 col-md-2" id="user-avatar"><%##  Avatar do user que respondeu  ##%>
         <%=link_to image_tag(answer.user.avatar.url(:medium),:width => "70%",:class => "img-circle"), answer.user %>
-
-        <%= answer.user.name %>
+        <span style="float:center;"><%= answer.user.name %></span>
       </div>
-
       <div class="col-xs-9 col-md-10 "><%##  texto da resposta  ##%>
         <%= answer.text.html_safe %>
       </div>
     </div>
 
-    <div class="panel-footer">
+    <div class="panel-footer" id="answer-footer-vote">
       <%###  answers votes  ###%>
       <%#  Verify if the user is logged or if is the answer's owner %>
       <% if !user_signed_in? || current_user.id == answer.user.id #if not logged or is the owner them cant vote %>
-      <label class="label label-default" syle="font-size:10px"><%= answer.up - answer.down %></label>
-      <label class="label label-info">Minha Resposta</label>
+        <% if answer.up - answer.down > 0 %>
+        <label class="label label-default" style="color: #468847; background-color: #DFF0D8; border: 1px solid #dddddd; font-size:15px;">+<%= answer.up - answer.down %></label>
+        <% elsif answer.up - answer.down < 0 %>
+        <label class="label label-default" style="color: #660000; background-color: #F0B2B2; border: 1px solid #dddddd; font-size:15px;"><%= answer.up - answer.down %></label>
+        <% else %>
+        <label class="label label-default" style="color: gray; background-color: #C0C0C0; border: 1px solid #dddddd; font-size:15px;"><%= answer.up - answer.down %></label>
+        <% end %>
       <% else %>
       <% vote = answer.which_vote?( current_user ) %>
       <!-- Answer Helper-->
 
-      <%= link_to '<i class="fa fa-thumbs-up  fa-2x '.html_safe + up_vote?( vote ) +'"></i>'.html_safe, academy_up_vote_path(:answer => answer), :title => "Dá mais um ponto a esta resposta!!" %>
-      <!-- HELPER -->
-      <%= total_result( answer.up - answer.down) %>
-      <%= link_to '<i class="fa fa-thumbs-o-down fa-2x '.html_safe + down_vote?( vote ) +'"></i>'.html_safe, academy_down_vote_path(:answer => answer), :title => "Dá menos um ponto a esta resposta!!"  %>
+      <span id="answer-votes">
+        <%= link_to '<i class="fa fa-thumbs-o-up fa-2x '.html_safe + up_vote?( vote ) +'"></i>'.html_safe, academy_up_vote_path(:answer => answer), :title => "Dá mais um ponto a esta resposta!!" %>
+        <!-- HELPER -->
+        <% if answer.up - answer.down > 0 %>
+          <span id="positive-count" style="color: #468847;">+<%= total_result( answer.up - answer.down) %></span>
+        <% elsif answer.up - answer.down < 0 %>
+          <span id="negative-count" style="color: #660000;"><%= total_result( answer.up - answer.down) %></span>
+        <% else %>
+          <span id="neutral-count" style="color: gray;"><%= total_result( answer.up - answer.down) %></span>
+        <% end %>
+        <%= link_to '<i class="fa fa-thumbs-o-down fa-2x '.html_safe + down_vote?( vote ) +'"></i>'.html_safe, academy_down_vote_path(:answer => answer), :title => "Dá menos um ponto a esta resposta!!"  %>
+      </span>
       <% end %>
       <%###  end of answers votes  ###%>
 
