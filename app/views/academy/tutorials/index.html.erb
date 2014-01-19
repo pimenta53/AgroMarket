@@ -7,13 +7,11 @@
 
 <ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <i class="fa fa-book"></i> Academia ></li>
-    <a class="url" href="<%= academy_tutorials_path %>"> Tutoriais</a></li>
+    <i class="fa fa-book"></i> Academia >
+    <a class="url" href="<%= academy_tutorials_path %>"> Tutoriais</a>
   </li>
   <% if user_signed_in? %>
-    <div class="pull-right">
-      <%= link_to '<i class="fa fa-plus"></i>Novo Tutorial'.html_safe, new_academy_tutorial_path,:class=> "new-tutorial" %>
-    </div>
+    <%= link_to '<i class="fa fa-plus"></i>Novo Tutorial'.html_safe, new_academy_tutorial_path,:class=> "new-tutorial", style:"float:right" %>
   <% end %>
 </ol>
 

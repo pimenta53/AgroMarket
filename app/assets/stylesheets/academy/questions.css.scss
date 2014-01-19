@@ -54,3 +54,15 @@
 #buttons-question div > div {
 	vertical-align: middle;
 }
+
+#answer-votes span {
+	position: relative;
+	bottom: 3px;
+}
+
+#positive-count, #negative-count, #neutral-count {
+	font-size: 15px !important;
+	font-weight: bold !important;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	padding: 5px 9px 5px 9px;
+}

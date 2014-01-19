@@ -2,9 +2,7 @@
   <li class="active">
     <i class="fa fa-book"></i> Academia >
     <a class="url" href="<%= academy_tutorials_path %>"></i> Tutoriais</a> >
-    <% if user_signed_in? %>
-        <%= link_to ' Novo Tutorial', new_academy_tutorial_path,:class=> "url"%>
-    <% end %>
+    <a class="url" href="<%= new_academy_tutorial_path %>"> Novo Tutorial</a>
   </li>
 </ol>
 

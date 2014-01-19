@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="panel-footer">
+    <div class="panel-footer" id="answer-footer-vote">
       <%###  @best_answers votes  ###%>
       <%#  Verify if the user is logged or if is the @best_answer's owner %>
       <% if !user_signed_in? || current_user.id == @best_answer.user.id #if not logged or is the owner them cant vote %>
@@ -34,12 +34,22 @@
       </label>
 
       <% else %>
-      <%= vote = @best_answer.which_vote?( current_user ) %>
+      <span style="visibility: hidden; position:absolute;"><%= vote = @best_answer.which_vote?( current_user ) %></span>
       <!-- Answer Helper-->
 
-      <%= link_to '<i class="fa fa-thumbs-up fa-2x '.html_safe + up_vote?( vote ) +'"></i>'.html_safe, academy_up_vote_path(:answer => @best_answer), :title => "Dá mais um ponto a esta resposta!!" %>
-      <label class="label label-success" syle="font-size:10px"><%= @best_answer.up - @best_answer.down %></label>
-      <%= link_to '<i class="fa fa-thumbs-o-down fa-2x '.html_safe + down_vote?( vote ) +'"></i>'.html_safe, academy_down_vote_path(:answer => @best_answer), :title => "Dá menos um ponto a esta resposta!!"  %>
+      <span id="answer-votes">
+        <%= link_to '<i id="up-vote" class="fa fa-thumbs-o-up fa-2x '.html_safe + up_vote?( vote ) +'"></i>'.html_safe, academy_up_vote_path(:answer => @best_answer), :title => "Dá mais um ponto a esta resposta." %>
+        <!-- HELPER -->
+        <% if @best_answer.up - @best_answer.down > 0 %>
+          <span id="positive-count" style="color: #468847;">+<%= @best_answer.up - @best_answer.down %></span>
+        <% elsif @best_answer.up - @best_answer.down < 0 %>
+          <span id="negative-count" style="color: #660000;"><%= @best_answer.up - @best_answer.down %></span>
+        <% else %>
+          <span id="neutral-count" style="color: gray;"><%= @best_answer.up - @best_answer.down %></span>
+        <% end %>
+
+        <%= link_to '<i id="down-vote" class="fa fa-thumbs-o-down fa-2x '.html_safe + down_vote?( vote ) +'"></i>'.html_safe, academy_down_vote_path(:answer => @best_answer), :title => "Dá menos um ponto a esta resposta."  %>
+      </span>
       <% end %>
       <%###  end of answers votes  ###%>
 

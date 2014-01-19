@@ -2,14 +2,11 @@
   <li class="active">
     <i class="fa fa-book"></i> Academia >
     <a class="url" href="<%= academy_tutorials_path %>">Tutoriais</a> >
-    <a class="url" href="<%= academy_tutorial_path(@academy_tutorial.id) %>"><%= @academy_tutorial.title %></a>
+    <a class="url" href="<%= academy_tutorial_path(@academy_tutorial.id) %>"> <%= @academy_tutorial.title %></a>
   </li>
-
-  <div style="float:right">
-    <% if user_signed_in? %>
-    <%= link_to '<i class="fa fa-plus"></i>Novo Tutorial'.html_safe, new_academy_tutorial_path,:class=> "url"%>
-    <% end %>
-  </div>
+  <% if user_signed_in? %>
+    <%= link_to '<i class="fa fa-plus"></i>Novo Tutorial'.html_safe, new_academy_tutorial_path,:class=> "url", style:"float:right" %>
+  <% end %>
 </ol>
 
 <p id="notice"><%= notice %></p>

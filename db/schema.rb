@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117010715) do
+ActiveRecord::Schema.define(version: 20140116010459) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -176,16 +176,6 @@ ActiveRecord::Schema.define(version: 20140117010715) do
     t.datetime "image_updated_at"
     t.boolean  "deleted",            default: false
   end
-
-  create_table "feeds", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "id_content"
-    t.integer  "in"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "feeds", ["user_id"], name: "index_feeds_on_user_id", using: :btree
 
   create_table "messages", force: true do |t|
     t.integer  "talk_id",     null: false

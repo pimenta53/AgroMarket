@@ -39,7 +39,7 @@
       <!-- Answer Helper-->
 
       <span id="answer-votes">
-        <%= link_to '<i class="fa fa-thumbs-o-up fa-2x '.html_safe + up_vote?( vote ) +'"></i>'.html_safe, academy_up_vote_path(:answer => answer), :title => "Dá mais um ponto a esta resposta!!" %>
+        <%= link_to '<i id="up-vote" class="fa fa-thumbs-o-up fa-2x '.html_safe + up_vote?( vote ) +'"></i>'.html_safe, academy_up_vote_path(:answer => answer), :title => "Dá mais um ponto a esta resposta." %>
         <!-- HELPER -->
         <% if answer.up - answer.down > 0 %>
           <span id="positive-count" style="color: #468847;">+<%= total_result( answer.up - answer.down) %></span>
@@ -48,7 +48,8 @@
         <% else %>
           <span id="neutral-count" style="color: gray;"><%= total_result( answer.up - answer.down) %></span>
         <% end %>
-        <%= link_to '<i class="fa fa-thumbs-o-down fa-2x '.html_safe + down_vote?( vote ) +'"></i>'.html_safe, academy_down_vote_path(:answer => answer), :title => "Dá menos um ponto a esta resposta!!"  %>
+
+        <%= link_to '<i id="down-vote" class="fa fa-thumbs-o-down fa-2x '.html_safe + down_vote?( vote ) +'"></i>'.html_safe, academy_down_vote_path(:answer => answer), :title => "Dá menos um ponto a esta resposta."  %>
       </span>
       <% end %>
       <%###  end of answers votes  ###%>
