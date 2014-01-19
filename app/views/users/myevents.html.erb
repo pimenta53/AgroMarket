@@ -30,11 +30,13 @@
           </div>
 
           <div id="title-approval">
-            <%= link_to event_event.title, event_event, class:"h2 url" %>
+            <%= link_to event_event.title, event_event, class:"h3 url" %>
             <% if !event_event.is_aproved? %>
               <span class="label label-warning">Não aprovado</span>
             <% end %>
           </div>
+
+          <hr>
 
           <div id="event-description">
             <p><%= event_event.description %></p>
@@ -42,8 +44,7 @@
 
           <hr>
 
-          <div class="row rating-desc">
-            <div class="col-md-12">
+          <div class="row rating-desc" style="margin-top: 10px;">
               <div style="float:left">
                 <i class="fa fa-map-marker"></i><%= event_event.city.city %>
               </div>
@@ -55,7 +56,6 @@
                   <span class="fa fa-calendar" style="color:#d43f3a"></span><%=event_event.end_day.day %>/<%=event_event.end_day.mon %>/<%=event_event.end_day.year %>
                 </span>
               </div>
-            </div>
           </div>
         </div>
       </div>

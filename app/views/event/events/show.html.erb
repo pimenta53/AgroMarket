@@ -62,14 +62,13 @@
         </div>
       </div>
       <br>
-      <div class = "ads_metainfo" style="margin-bottom:5px; padding: 0 10px 0 10px; ">
+      <div class = "ads_metainfo" style="margin-bottom:10px; padding: 0 10px 0 10px; ">
         <p>
-          <strong>Descricão:</strong>
           <%= @event_event.description %>
         </p>
       </div>
 
-      <div style="width:100%; height: 20px; padding: 0 10px 0 10px; margin-bottom: 10px;">
+      <div style="width:100%; height: 20px; margin-bottom: 15px;">
         <div style="float:left">
           <i class="fa fa-map-marker"></i><%= @event_event.city.city %>
         </div>
@@ -83,7 +82,7 @@
         </div>
       </div>
 
-      <div class ="ads_description" style="height: 20px; padding: 0 10px 0 10px; margin-bottom: 10px;">  
+      <div class ="ads_description" style="height: 20px; margin-bottom: 10px;">  
         <div style="float:left;">
           <strong>Criado Por:</strong>
           <%= link_to @event_event.user.name, @event_event.user, class:"url" %>
