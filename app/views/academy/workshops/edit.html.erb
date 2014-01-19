@@ -1,20 +1,18 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= academy_workshops_path %>"><i class="fa fa-tags"></i> Workshops</a>
-    <a class="url" href="<%= event_event_path(@academy_workshop.id) %>"> > <%= @academy_workshop.title %></a>
+    <i class="fa fa-book"></i> Workshops >
+    <a class="url" href="<%= event_event_path(@academy_workshop.id) %>"> <%= @academy_workshop.title %></a>
   </li>
-  <div style="float:right">
-    <% if user_signed_in? %>
-        <%= link_to '<i class="fa fa-plus"></i>Novo Workshop'.html_safe, new_academy_workshop_path,:class=> "url", style:"float:right"%>
-    <% end %>
-  </div>
+  <% if user_signed_in? %>
+      <%= link_to '<i class="fa fa-plus"></i>Novo Workshop'.html_safe, new_academy_workshop_path,:class=> "url", style:"float:right"%>
+  <% end %>
 </ol>
 
-<div class="panel panel-default">
+<div class="panel panel-default" style="min-height: 900px; margin-bottom:0;">
   <div class="panel-heading">
     <h3 class="panel-title">Editar Workshop</h3>
   </div>
-  <div class="panel-body" id="edit-workshop">
+  <div class="panel-body" id="edit-workshop" style="margin-bottom:65px;">
 
     <%= render 'form' %>
 
