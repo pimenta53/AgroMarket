@@ -1,6 +1,7 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= event_events_path %>"><i class="fa fa-tags"></i> Eventos</a> > </li>
+    <i class="fa fa-calendar"></i> <a class="url" href="<%= event_events_path %>">Eventos</a> > 
+  </li>
   <% if user_signed_in? %>
       <a class="url" href="<%= myevents_path(current_user.id) %>">Os meus Eventos</a></li>
       <%= link_to '<i class="fa fa-plus"></i>Novo Evento'.html_safe, new_event_event_path,:class=> "url", style:"float:right"%>
@@ -13,10 +14,10 @@
 <!--<h1>Listing event_events</h1>-->
 
 <%= will_paginate(@my_events, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
-<div class="row" style="margin-right:0px">
+<div class="row" style="margin-right:0px;">
   <% @my_events.each do |event_event| %>
   <div class="event-box"><!--class="col-md-6">-->
-    <div class="well well-sm">
+    <div class="panel" style="border: 1px solid #dddddd; padding: 10px 10px 10px 10px;">
       <div class="col-xs-3 col-md-3 text-center" id="event-image">
         <%= link_to event_image( event_event.image ), event_event %>
       </div>

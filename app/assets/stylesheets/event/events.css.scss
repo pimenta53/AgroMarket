@@ -52,3 +52,24 @@
 #event-cities {
 	height: 34px !important;
 }
+
+#event-footer {
+	position: absolute;
+	left: 16px;
+	right: 1px;
+	bottom: 1px;
+	height: 55px;
+	width: auto;
+	border-color: #dddddd;
+
+}
+
+#event-footer a {
+	height: 100%;
+	vertical-align: middle;
+	color: white !important;
+}
+
+#event-footer div>div {
+	vertical-align: middle;
+}

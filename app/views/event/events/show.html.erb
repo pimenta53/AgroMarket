@@ -5,18 +5,14 @@
 <script> showNotify("<%= flash[:error] %>","error") </script>
 <% end %>
 
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= event_events_path %>"><i class="fa fa-tags"></i> Eventos </a>
-    <a class="url" href="<%= event_event_path(@event_event.id) %>"> > <%= @event_event.title %></a>
+    <i class="fa fa-calendar"></i> <a class="url" href="<%= event_events_path %>">Eventos </a> >
+    <a class="url" href="<%= event_event_path(@event_event.id) %>"> <%= @event_event.title %></a>
   </li>
-  
-  <div style="float:right">
-    <% if user_signed_in? && current_user.id == @event_event.user_id %>
-    <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_event_event_path(@event_event), class:'no-effect', :tile=> "Editar Evento" %>
-    <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, @event_event, class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento?' } ,:tile=> "Apagar Evento"%>
-    <% end %>
-  </div>
+  <% if user_signed_in? %>
+    <%= link_to '<i class="fa fa-plus"></i>Novo Evento'.html_safe, new_event_event_path,:class=> "url", style:"float:right"%>
+  <% end %>
 </ol>
 
 <!--FACEBOOK SDK START -->
@@ -47,43 +43,56 @@
 <!--TWITTER SDK END -->
 
 
-<section class="panel">
+<section class="panel" style="border: 1px solid #dddddd;">
   <div class="panel-body">
-      <div class="col-xs-3 col-md-3 text-center">
-        <%= image_tag @event_event.image.url, :class=>"img-rounded img-responsive" %>
-      </div>
+    <div class="col-xs-3 col-md-3 text-center" style="margin-top:10px;">
+      <%= image_tag @event_event.image.url, :class=>"img-rounded img-responsive" %>
+    </div>
     <!-- Information EVENT -->
     <div class="col-md-9">
-      <h4>
-        <%= @event_event.title %>
-        <p>
-  
-</p>
-      </h4>
-      <div class = "ads_metainfo">
+      <div style="padding-bottom: 25px;">
+        <div style="width:100%; text-align:right; margin: 10px 10px 0 0;">
+          <% if user_signed_in? && current_user.id == @event_event.user_id %>
+          <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_event_event_path(@event_event), class:'no-effect', :tile=> "Editar Evento" %>
+          <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, @event_event, class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu evento?' } ,:tile=> "Apagar Evento"%>
+            <% end %>
+        </div>
+        <div style="float:left; width: 100%; margin-bottom: 10px;">
+          <h3><%= @event_event.title %></h3>
+        </div>
+      </div>
+      <br>
+      <div class = "ads_metainfo" style="margin-bottom:5px; padding: 0 10px 0 10px; ">
         <p>
           <strong>Descricão:</strong>
           <%= @event_event.description %>
         </p>
       </div>
-      <div class ="ads_description">
-        <p>
-          <strong>Utilizador:</strong>
-          <%= link_to @event_event.user.name, @event_event.user, class:"url" %>
-        </p>
-        <p>
-          <strong>Cidade:</strong> <%= @event_event.city.city %>
-        </p>
-        <p>
-          <strong><span class="label label-success">Início:</span></strong>
-          <%= (@event_event.start_day + 1.week).strftime("%d - %m - %Y") %>
-          <strong><span class="label label-danger">Fim:</span></strong>
-          <%= (@event_event.end_day + 1.week).strftime("%d - %m - %Y") %>
-        </p>
-        <div class="fb-share-button sharebutton" data-href="http://teste94.di.uminho.pt/" data-type="button">
+
+      <div style="width:100%; height: 20px; padding: 0 10px 0 10px; margin-bottom: 10px;">
+        <div style="float:left">
+          <i class="fa fa-map-marker"></i><%= @event_event.city.city %>
         </div>
-        <div class="sharebutton">
-          <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+        <div style="float:right">
+          <span class="event-begin">
+            <span class="fa fa-calendar" style="color:darkgreen;"></span><%= (@event_event.start_day + 1.week).strftime("%d - %m - %Y") %>
+          </span>
+          <span>
+            <span class="fa fa-calendar" style="color:#d43f3a"></span><%= (@event_event.end_day + 1.week).strftime("%d - %m - %Y") %>
+          </span>
+        </div>
+      </div>
+
+      <div class ="ads_description" style="height: 20px; padding: 0 10px 0 10px; margin-bottom: 10px;">  
+        <div style="float:left;">
+          <strong>Criado Por:</strong>
+          <%= link_to @event_event.user.name, @event_event.user, class:"url" %>
+        </div>
+        <div style="float:right;">
+          <div class="fb-share-button sharebutton" data-href="http://teste94.di.uminho.pt/" data-type="button"></div>
+          <div class="sharebutton">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+          </div>
         </div>
       </div>
     </div>
@@ -91,7 +100,7 @@
 </section>
 
 <div class="fields">
-  <button type="button" class="btn btn-primary" onclick="location.href='<%= event_event_path %>'">
-    <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
+  <button type="button" class="btn btn-primary" onclick="location.href='<%= myevents_path(current_user.id) %>'">
+    <span class="icon-arrow-left" style="margin-right: 5px; color:white;"></span>Voltar
   </button>
 </div>

@@ -1,13 +1,13 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= event_events_path %>"><i class="fa fa-tags"></i> Eventos</a>
+    <i class="fa fa-calendar"></i> <a class="url" href="<%= event_events_path %>">Eventos</a>
+  </li>
     <% if user_signed_in? %>
         <%= link_to ' > Novo Evento', new_event_event_path,:class=> "url"%>
     <% end %>
-  </li>
 </ol>
 
-<div class="panel panel-default">
+<div class="panel panel-default" style="padding-bottom:50px; margin-bottom:0; min-height:455px;">
   <div class="panel-heading border-header">
     <h3 class="panel-title">Novo Evento</h3>
   </div>
