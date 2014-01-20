@@ -23,15 +23,15 @@
     <% end %>
 
     <ul class="nav navbar-nav navbar-right">
-        <%= form_tag "/ads", :method => "get",:class=>"navbar-form navbar-left input-group", :id => "search" do %>
-              <%= text_field_tag :search, params[:search],:class => "form-control typeahead" ,:style=>"vertical-align: center;",:autocomplete => "off",:id=>"search_query",:placeholder=>"O que procura?"  %>
-             <input type="hidden" class="span1" name="IdControl" id="IdControl" value="" />
-               
-       <% end %>
-
+      <li style="width:400px;margin-right: 20px">
+      <%= form_tag "/ads", :method => "get",:class=>"navbar-form navbar-left input-group", style:"border-style: none; box-shadow: none; -webkit-box-shadow: none", :id => "search" do %>
+          <%= text_field_tag :search, params[:search],:class => "form-control typeahead" ,:style=>"vertical-align: center; width:400px;",:autocomplete => "off",:id=>"search_query",:placeholder=>"O que procura?"  %>
+          <input type="hidden" class="span1" name="IdControl" id="IdControl" value="" />
+      <% end %>
+      </li>
       <!-- NOTIFICACOES -->
       <% if user_signed_in? %>
-        <li class="dropdown messages-dropdown" >
+        <li class="dropdown messages-dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe" id="fa-globe"></i><span class="badge" id="custom-badge">3</span> <b class="caret" id="dropCarret"></b> </a>
           <ul class="dropdown-menu">
 
