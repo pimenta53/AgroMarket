@@ -168,7 +168,7 @@ ready = function() {
         rules: {
             "academy_workshop[title]": {minlength: 2, maxlength: 50, required: true },
             "academy_workshop[available_slots]": { min: 0, required: true },
-            "academy_workshop[price]": { min: 0, maxlength: 6, number: true, required: true },
+            "academy_workshop[price]": { preco: true, required: true },
             "academy_workshop[date]": {accept: "[\\d]{1}/[\\d]{2}/[\\d]{4}", required: true },
             "academy_workshop[description]": { minlength: 2, maxlength: 255, required: true },
             "academy_workshop[local]": { minlength:2, maxlength: 255, required: true }
@@ -237,7 +237,7 @@ ready = function() {
       "ad[category_id]": { required: true },
       "ad[title]": {minlength: 2, maxlength: 50, required: true },
       "ad[description]": { minlength: 5, maxlength: 255, required: true },
-      "ad[price]": { min: 0, maxlength: 6, number: true, required: true },
+      "ad[price]": { preco: true, required: true },
       "ad[expire_date]": { date: true, required: true },
       "ad[location]": { minlength:2, maxlength: 255, required: true },
       "ad[type_price_id]": { required: true },
@@ -270,13 +270,20 @@ ready = function() {
   //serve para validar select boxes
   jQuery.validator.addMethod('selectcheck', function (value) {
     return (value != '0');
-  }, "Categoria required");
+  }, "<img src=\"../../../assets/error.png\" title=\"Introduza uma categoria válida!\">");
 
   //VAlidar um nº de telefone com 9 digitos
   jQuery.validator.addMethod("telefone", function(phone_number, element) {
       phone_number = phone_number.replace(/\s+/g, "");
       return ((this.optional(element) || phone_number.length == 9 ) && $.isNumeric(phone_number) || phone_number.length == 0) ;
-  }, "Introduza um telefone válido!");
+  }, "<img src=\"../../../assets/error.png\" title=\"Introduza um telefone válido!\">");
+
+   //Validar preço
+   jQuery.validator.addMethod("preco", function(valor, element) {
+       var regex  = /^\d+(?:\.\d{0,2})?$/;
+       valor = valor.replace(/\s+/g, "");
+       return ((this.optional(element) || valor.length <= 15 ) && regex.test(valor)) ;
+   }, "<img src=\"../../../assets/error.png\" title=\"Introduza um preço válido!\">");
 
   jQuery.extend(jQuery.validator.messages, {
     required: "<img src=\"../../../assets/error.png\" title=\"Obrigatório!\">",

@@ -23,8 +23,8 @@ class RegistrationsController < Devise::RegistrationsController
     if @user.id
       p = PlanUser.new(:user_id => @user.id, :plan_id => Plan.first.id)
       p.save
+      UserMailer.welcome_email(params[:user][:email],params[:user][:name]).deliver
     end
-    UserMailer.welcome_email(params[:user][:email],params[:user][:name]).deliver
 
   end
 

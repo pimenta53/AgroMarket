@@ -26,7 +26,7 @@ class Academy::Workshop < ActiveRecord::Base
   default_scope -> { where('is_deleted = ?',false) } #Só apresenta os workshops que não foram apagados
 
   ## validations ##
-  validates :description, :length => { :minimum => 50, too_short: "tem de ser composto no mínimo por 50 caracteres."}, :presence => "true"
+  validates :description, :length => {:maximum => 255, too_long: "é demasiado longo!", :minimum => 50, too_short: "tem de ser composto no mínimo por 50 caracteres."}, :presence => "true"
 
 
   def add_inscription

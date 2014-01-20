@@ -7,7 +7,7 @@
 }
 
 #title-approval, #event-title {
-	margin: 30px 0 5px 0;
+	margin: 35px 0 10px 0;
 }
 
 #title-approval * {
@@ -19,7 +19,7 @@
 }
 
 #event-description {
-	margin: 5px 0 5px 10px;
+	margin: 10px 0 10px 10px;
 }
 
 #event-image {
@@ -51,4 +51,25 @@
 
 #event-cities {
 	height: 34px !important;
+}
+
+#event-footer {
+	position: absolute;
+	left: 16px;
+	right: 1px;
+	bottom: 1px;
+	height: 55px;
+	width: auto;
+	border-color: #dddddd;
+
+}
+
+#event-footer a {
+	height: 100%;
+	vertical-align: middle;
+	color: white !important;
+}
+
+#event-footer div>div {
+	vertical-align: middle;
 }

@@ -1,9 +1,29 @@
 # Versão pt
 
 pt-PT:
-  hello: "Olá mundo"
-
-pt-PT:
+  activerecord:
+  #Custom Errors, must be included in ALL locales
+    errors:
+      generic:
+        cannot_be_in_future: não pode estar no futuro
+      ad:
+        limit_reached: não pode criar novos anúncios
+  #Custom labels
+    models:
+      user: Utilizador
+    attributes:
+      user:
+        login: "login"
+        name: Nome
+        password: Password
+        email: E-mail
+        birthday: Data de Nascimento
+        city: Cidade
+        ocupation: Ocupação
+        phone: Telefone
+        plan: Plano
+        password_confirmation : Confirmar Password
+  #Date time format
   time:
     formats:
       default: "%d/%m/%Y"

@@ -1,12 +1,11 @@
 <ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
     <i class="fa fa-book"></i> Academia >
-    <% if user_signed_in? %>
-        <a class="url" href="<%= academy_questions_path %>">Perguntas</a> </li>
-        <div class='pull-right'>
-          <%= link_to '<i class="fa fa-plus"></i>Nova Pergunta'.html_safe, new_academy_question_path,:class=> "new-question" %>
-        </div>
-    <% end %>
+    <a class="url" href="<%= academy_questions_path %>"> Perguntas</a>
+  </li>
+  <% if user_signed_in? %>
+    <%= link_to '<i class="fa fa-plus"></i>Nova Pergunta'.html_safe, new_academy_question_path,:class=> "new-question", style:"float:right" %>
+  <% end %>
 </ol>
 
 <div class="row">

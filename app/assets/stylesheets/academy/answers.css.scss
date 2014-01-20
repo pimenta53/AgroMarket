@@ -52,6 +52,18 @@
 	bottom: 3px;
 }
 
+#up-vote, #down-vote {
+	color: #606060;
+}
+
+#up-vote:hover {
+	color: green;
+}
+
+#down-vote:hover {
+	color: red;
+}
+
 #positive-count, #negative-count, #neutral-count {
 	margin-bottom: 25px;
 	padding: 2px 9px 2px 9px;
@@ -62,7 +74,7 @@
 
 #positive-count label, #negative-count label, #neutral-count label {
 	font-size: 15px !important;
-	padding: 0;
+	padding: 5px 2px 5px 2px;
 	margin: 0;
 	background-color: transparent;
 }

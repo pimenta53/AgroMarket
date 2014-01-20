@@ -179,7 +179,7 @@
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-top: 10px;
-	margin-bottom: -10px;
+	margin-bottom: 10px;
 }
 
 .fields_newWorkshop a {
@@ -196,12 +196,12 @@
 	border-color: #dddddd;
 }
 
-#buttons-whorkshop a {
+#buttons-workshop a {
 	height: 100%;
 	vertical-align: middle;
 	color: white !important;
 }
 
-#buttons-whorkshop div > div {
+#buttons-workshop div > div {
 	vertical-align: middle;
 }

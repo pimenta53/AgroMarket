@@ -1,0 +1,42 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+}
+
+.box_feed{
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  background: rgba(255, 255, 255, 0.8);
+ 
+  min-width:375px;
+
+  border-style:double;
+  border-color:#FF9900;
+
+
+
+}
+
+
+#element1 {float:left;
+
+width:50%;
+height:100%;
+
+}
+#element2 {padding-left : 20px;float:left;
+
+width:50%;
+height:100%;
+
+margin-left:auto;
+margin-right:auto;
+
+margin-top:auto;
+margin-bottom:auto;
+}
+
+
