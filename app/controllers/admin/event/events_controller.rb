@@ -40,7 +40,7 @@ class Admin::Event::EventsController < ApplicationController
 
     owner_user.followers.each do | user|
 
-          feed = Feed.new(params[:feed])
+          feed = Feed.new
           feed.user_id = user.id
           feed.in = 4
           feed.id_content = event.id
