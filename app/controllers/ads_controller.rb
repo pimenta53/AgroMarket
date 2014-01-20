@@ -60,7 +60,7 @@ class AdsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @ads }
-      format.js {render :layout => false}
+      #format.js {render :layout => false} já não há infinite list em ads
     end
   end
 
@@ -188,6 +188,7 @@ class AdsController < ApplicationController
     dest = @ad.id
     type = [1,2] #ad_notifications_Code
     Notification.clear_notifications(type,dest)
+
     @ad.save
     #remove 1 ad from the user counter
     current_user.remove_ad

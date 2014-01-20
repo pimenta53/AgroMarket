@@ -110,7 +110,7 @@ a:hover #dropCarret{
   margin-left: 0%;
 }
 
-#fa-user, #fa-envelope-o, #fa-globe, #fa-book, #fa-bell-o, #fa-tags, #fa-folder-open-o, #fa-search, #userNick{
+#fa-user, #fa-envelope-o, #fa-globe, #fa-book, #fa-bell-o, #fa-tags, #fa-shopping-cart, #fa-folder-open-o, #fa-search, #userNick{
   color: #fff;
   font-size: 22px;
 }
@@ -136,13 +136,15 @@ a:hover #dropCarret{
 
 /****FOOTER****/
 footer {
+
   padding-top:10px;
   background-color: #00A75D;
-  bottom: 0;
-  position: fixed;
+  bottom: 0px;
+  position: relative;
   width: 100%;
   color: #fff;
   padding-left: 200px;
+  clear: both;
 }
 
 footer a{
@@ -348,7 +350,7 @@ color:  #293a49;
 
 .h4{
   margin-bottom: 25px;
-  
+
 }
 
 /******THUMBNAILS**********/
@@ -533,7 +535,7 @@ border-color: #eff2f7;
 .panel_without_bg
 {
   background-color: rgb(237, 239, 240);
-  
+
 }
 
 .tutorials_thumbnails

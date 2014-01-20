@@ -1,7 +1,0 @@
-$('#ads').append('<%= escape_javascript(render partial: @ads) %>');
-<% if @ads.next_page %> 
-  $('div.load-more-ads').attr('href', '<%= ads_path page: @ads.next_page %>');
-<% else %>
-  $('div.load-more-ads').attr('href', '#');
-  $('div.load-more-ads').text("Não existe mais anuncios");
-<% end %>

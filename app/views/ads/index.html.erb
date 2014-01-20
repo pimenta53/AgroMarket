@@ -6,15 +6,16 @@
 <% end %>
 
 <!-- Listagem de anúncios -->
-
  <ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
     <li class="active">
-      <i class="fa fa-tags"></i> <a href="<%= ads_path %>" class="url"> Anúncios</a>
+      <i class="fa fa-shopping-cart"></i> <a href="<%= ads_path %>" class="url"> Anúncios</a>
     </li>
     <% if user_signed_in? %>
       <%= link_to "<i class='fa fa-plus'></i>Novo Anúncio".html_safe, new_ad_path, class:"url", style:"float:right" %>
     <% end %>
  </ol>
+
+<%= will_paginate(@ads, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
 
   <div class="row ads_index_section.ads">
     <%= render :partial => @ads %>
@@ -22,12 +23,6 @@
       <p>Ainda não existem anúncios. Sê o primeiro a anunciar!</p>
     <% end %>
   </div>
-  <p id="loading" style="visibility: hidden">A buscar mais anuncios</p>
+  
+<%= will_paginate(@ads, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
 
-<div href="<% if @ads.next_page %><%= ads_path(:page => @ads.next_page) %><% else %>#<% end %>" class='load-more-ads'>
-  <% if @ads.next_page %>
-    A buscar mais anúncios
-  <% else %>
-    Não existem mais anúncios
-  <% end %>
-</div>
