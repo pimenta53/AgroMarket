@@ -33,9 +33,8 @@ class ApplicationController < ActionController::Base
     # notification from ads
     @notifications_ad_messages  = all_notifications.where(:notification_type => 1)
     @notifications_ad_expired   = all_notifications.where(:notification_type => 2)
-    @notifications_ad_deleted   = all_notifications.where(:notification_type => 3)
 
-    @number_notifications_ads   = @notifications_ad_messages.size + @notifications_ad_expired.size + @notifications_ad_deleted.size
+    @number_notifications_ads   = @notifications_ad_messages.size + @notifications_ad_expired.size
 
     ########notificações de academia#################
     @notifications_new_answer           = all_notifications.where(:notification_type => 4)
