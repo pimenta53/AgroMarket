@@ -8,7 +8,7 @@
 
 <ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <i class="fa fa-tags"></i> <a class="url" href="<%= ads_path %>"> Anúncios</a> >
+    <i class="fa fa-shopping-cart"></i> <a class="url" href="<%= ads_path %>"> Anúncios</a> >
     <a class="url" href="<%= ad_path(@ad.id) %>"> <%= @ad.title %></a>
   </li>
   <div style="float:right">
@@ -137,7 +137,7 @@
             <% end %>
           </div>
         </div>
-         
+
          <div class = "ads_metainfo">
             <p>
                <strong>Descricão:</strong>
@@ -145,7 +145,7 @@
             </p>
          </div>
          <div class ="ads_description">
-            <div style="width:100%; padding: 5px 0;"> 
+            <div style="width:100%; padding: 5px 0;">
               <div style="float:left;">
                  <strong>Vendedor:</strong>
                  <%= link_to @ad.user.name, @ad.user %>
@@ -234,7 +234,7 @@
       </div>
    </div>
 </section>
- 
+
 <section class="panel">
     <div class="panel-heading border-header">
       <h3 class="panel-title">Mensagens</h3>

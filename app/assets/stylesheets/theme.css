@@ -110,7 +110,7 @@ a:hover #dropCarret{
   margin-left: 0%;
 }
 
-#fa-user, #fa-envelope-o, #fa-globe, #fa-book, #fa-bell-o, #fa-tags, #fa-folder-open-o, #fa-search, #userNick{
+#fa-user, #fa-envelope-o, #fa-globe, #fa-book, #fa-bell-o, #fa-tags, #fa-shopping-cart, #fa-folder-open-o, #fa-search, #userNick{
   color: #fff;
   font-size: 22px;
 }
@@ -348,7 +348,7 @@ color:  #293a49;
 
 .h4{
   margin-bottom: 25px;
-  
+
 }
 
 /******THUMBNAILS**********/
@@ -533,7 +533,7 @@ border-color: #eff2f7;
 .panel_without_bg
 {
   background-color: rgb(237, 239, 240);
-  
+
 }
 
 .tutorials_thumbnails
