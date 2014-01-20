@@ -66,9 +66,12 @@ Agrosocial::Application.routes.draw do
   post '/users/:id/follow' => 'users#follow'
 
   get "payment/:id/promove_ad_payment" => "payment#promove_ad_payment" , as: "promove_ad_payment"
-
+  
+  #Denunciar anuncio
+  delete "ads/:id/report" => "ads#report", as: "report_ad"
   resources :ads do
     post "new_messages" => "messages#create"
+    
   end
 
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}
