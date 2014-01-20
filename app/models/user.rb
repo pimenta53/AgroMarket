@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
   validates :phone, format: /(^$|(\d{9,}\Z))/i
   validates :email, presence: true,format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
   validates :city, presence: true
-  validate :birthday_cannot_be_in_the_future
+  validate :birthday_cannot_be_in_the_future 
 
 
 
@@ -241,7 +241,7 @@ class User < ActiveRecord::Base
   #a data do nascimento não pode estar no futuro
   def birthday_cannot_be_in_the_future
     if (birthday != nil)
-      errors.add(:birthday, " cannot be in the future") if
+      errors.add(:birthday, I18n.t('activerecord.errors.generic.cannot_be_in_future')) if
         birthday > Date.today
     end
   end
