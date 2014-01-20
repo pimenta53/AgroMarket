@@ -2,6 +2,12 @@
 
 $(function() {
 
+            //select inputs
+            $("select").select2();
+
+            //
+            $('input.datepicker').datepicker({"format": "dd/mm/yyyy",autoclose: true});
+
 
             var panels = $('.user-infos');
             var panelsButton = $('.dropdown-user');
@@ -12,6 +18,7 @@ $(function() {
                 //get data-for attribute
                 var dataFor = $(this).attr('data-for');
                 var idFor = $(dataFor);
+
 
                 //current button
                 var currentButton = $(this);
@@ -35,7 +42,6 @@ $(function() {
                 e.preventDefault();
                 
             });
-
 
      });
 

@@ -3,6 +3,7 @@
 //// ==================================================== //
 var ready;
 ready = function() {
+  
   /*
   *  Cria um novo comentario na pagina de um anuncio
   */
@@ -72,7 +73,7 @@ ready = function() {
     return false;
   }
 
-  setInterval(refresh_header, 100000);
+  setInterval(refresh_header, 900000);
 
   /*
   *  Criar nova resposta para uma pergunta com AJAX

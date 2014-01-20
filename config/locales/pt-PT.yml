@@ -6,6 +6,8 @@ pt-PT:
     errors:
       generic:
         cannot_be_in_future: não pode estar no futuro
+      ad:
+        limit_reached: não pode criar novos anúncios
   #Custom labels
     models:
       user: Utilizador

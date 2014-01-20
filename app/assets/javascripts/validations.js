@@ -1,6 +1,6 @@
 var ready;
 ready = function() {
-
+  
   /*ordenador de colunas das tabelas*/
   $("#orderTable").tablesorter(); 
 
@@ -304,6 +304,7 @@ ready = function() {
     max: jQuery.validator.format("<img src=\"../../../assets/error.png\" title=\"Por favor introduza um valor menor ou igual {0}.\">"),
     min: jQuery.validator.format("<img src=\"../../../assets/error.png\" title=\"Por favor introduza um valor maior ou igual a {0}.\">")
   });
+
 };
 
 
