@@ -18,7 +18,4 @@ class UserMailer < ActionMailer::Base
   	@msg = msg
   	mail(to: destination, subject: 'AgroSocial - Resposta ao anúncio')
   end
-
-  handle_asynchronously :send_message_ad
-
 end

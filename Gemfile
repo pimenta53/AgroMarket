@@ -106,7 +106,7 @@ gem 'paypal-sdk-adaptivepayments'
 # DELAY JOB
 gem 'delayed_job_active_record'
 
-
+gem 'daemons'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
