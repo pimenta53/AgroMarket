@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140120121646) do
 
+
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
     t.integer  "user_id",                     null: false
@@ -71,19 +72,19 @@ ActiveRecord::Schema.define(version: 20140120121646) do
   end
 
   create_table "academy_workshops", force: true do |t|
-    t.integer  "user_id",                               null: false
-    t.integer  "available_slots",       default: 0
-    t.integer  "slots_taken",           default: 0
-    t.float    "price"
+    t.integer  "user_id",                                                        null: false
+    t.integer  "available_slots",                                default: 0
+    t.integer  "slots_taken",                                    default: 0
+    t.decimal  "price",                 precision: 10, scale: 2
     t.string   "local"
     t.datetime "date"
     t.text     "description"
-    t.boolean  "is_deleted",            default: false
+    t.boolean  "is_deleted",                                     default: false
     t.integer  "requires_registration"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.boolean  "is_aproved",            default: false
+    t.boolean  "is_aproved",                                     default: false
   end
 
   create_table "ad_images", force: true do |t|
@@ -113,20 +114,20 @@ ActiveRecord::Schema.define(version: 20140120121646) do
   create_table "ads", force: true do |t|
     t.string   "title"
     t.string   "description"
-    t.float    "price"
+    t.decimal  "price",          precision: 10, scale: 2
     t.datetime "expire_date"
     t.string   "location"
-    t.integer  "type_price_id",                  null: false
-    t.integer  "city_id",                        null: false
-    t.integer  "user_id",                        null: false
+    t.integer  "type_price_id",                                           null: false
+    t.integer  "city_id",                                                 null: false
+    t.integer  "user_id",                                                 null: false
     t.string   "permanent_link"
-    t.integer  "page_views",     default: 0
-    t.integer  "category_id",                    null: false
-    t.boolean  "is_deleted",     default: false
-    t.boolean  "is_active",      default: false
+    t.integer  "page_views",                              default: 0
+    t.integer  "category_id",                                             null: false
+    t.boolean  "is_deleted",                              default: false
+    t.boolean  "is_active",                               default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "highlight",      default: 0
+    t.integer  "highlight",                               default: 0
   end
 
   create_table "authentications", force: true do |t|
