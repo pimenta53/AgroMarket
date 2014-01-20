@@ -11,7 +11,7 @@ class FeedsController < ApplicationController
          
          
          
-				@feeds = Feed.where("user_id=?",current_user.id).order('created_at DESC').paginate(:page => page, :per_page => 3)
+				@feeds = Feed.where("user_id=?",current_user.id).order('created_at DESC').paginate(:page => page, :per_page => 10)
 
 				@elem_feed = Array.new
 				if !@feeds.blank? 
