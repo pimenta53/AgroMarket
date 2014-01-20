@@ -2,12 +2,12 @@
 
 <p>
   <strong>Dia de início:</strong>
-  <%= @event_event.start_day %>
+  <%= I18n.l @event_event.start_day ,:format => :time %>
 </p>
 
 <p>
   <strong>Dia de fim:</strong>
-  <%= @event_event.end_day %>
+  <%= I18n.l @event_event.end_day ,:format => :time %>
 </p>
 
 <p>
@@ -26,9 +26,8 @@
 </p>
 
 <p>
-  <strong>Aprovado?:</strong>
-  <%= @event_event.aproved %>
-</p>
+  <strong>Aprovado:</strong>
+<% if @event_event.aproved=true %>Sim<%else%>Não<%end%></p>
 
 <%= link_to 'Editar', edit_admin_event_event_path(@event_event) %> |
 <%= link_to 'Voltar', admin_event_events_path %>
