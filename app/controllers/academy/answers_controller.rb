@@ -36,7 +36,7 @@ class Academy::AnswersController < ApplicationController
     if @academy_answer.save
       # create a notifications for the user that made the question, if one doesnt exist already
       if current_user.id != @academy_answer.question.user_id && Notification.where(:user_id => @academy_answer.question.user_id, :id_destination => @academy_answer.question.id, :notification_type => 4, :watched => false).empty?
-        notify = Notification.new(:user_id => @academy_answer.question.user_id, :id_destination => @academy_answer.question.id)
+        notify = Notification.new(:user_id => @academy_answer.question.user_id, :id_destination => @academy_answer.question.id,:description => "Tem uma nova resposta")
         notify.set_type(:new_answer)
         notify.save
       end

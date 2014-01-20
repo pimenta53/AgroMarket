@@ -1,10 +1,11 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a></li>
-    <a class="url" href="<%= academy_workshops_path %>"> > Workshops</a></li>
-    <% if user_signed_in? %>
-    <%= link_to '<i class="fa fa-plus"></i>Novo Workshop'.html_safe, new_academy_workshop_path,:class=> "url", style:"float:right"%>
-    <% end %>
+    <i class="fa fa-book"></i> Academia >
+    <a class="url" href="<%= academy_workshops_path %>"> Workshops</a>
+  </li>
+  <% if user_signed_in? %>
+    <%= link_to '<i class="fa fa-plus"></i>Novo Workshop'.html_safe, new_academy_workshop_path,:class=> "url", style:"float:right" %>
+  <% end %>
 </ol>
 
 <div class="row">
@@ -25,17 +26,19 @@
 
         <% @academy_workshops.each do |academy_workshop| %>
 
-        <tr class="tutorial_table_body">
-          <td style="vertical-align:middle;">
-            <div class="media" style="position:relative; left:50%; margin-left:-25px;">
-              <%= link_to (image_tag academy_workshop.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), academy_workshop.user %>
-            </div>
-          </td>
-          <td style="vertical-align:middle;" id="text-link"><%= link_to academy_workshop.title, academy_workshop %></td>
-          <td style="vertical-align:middle;"><%= academy_workshop.description %></td>
-          <td style="vertical-align:middle;"><%= academy_workshop.local %></td>
-          <td style="vertical-align:middle;"><%= academy_workshop.date.strftime('%d-%m-%Y') %></td>
-        </tr>
+
+          <tr class="tutorial_table_body">
+            <td style="vertical-align:middle;">
+              <div class="media" style="position:relative; left:50%; margin-left:-25px;">
+                <%= link_to (image_tag academy_workshop.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), academy_workshop.user %>
+              </div>
+            </td>
+            <td style="vertical-align:middle;" onmouseover="this.style.cursor='pointer'" onclick="document.location='<%= academy_workshop_path(academy_workshop.id) %>'"><%= academy_workshop.title %></td>
+            <td style="vertical-align:middle;" onmouseover="this.style.cursor='pointer'" onclick="document.location='<%= academy_workshop_path(academy_workshop.id) %>'"><%= academy_workshop.description.html_safe %></td>
+            <td style="vertical-align:middle;" onmouseover="this.style.cursor='pointer'" onclick="document.location='<%= academy_workshop_path(academy_workshop.id) %>'"><%= academy_workshop.local %></td>
+            <td style="vertical-align:middle;" onmouseover="this.style.cursor='pointer'" onclick="document.location='<%= academy_workshop_path(academy_workshop.id) %>'"><%= academy_workshop.date.strftime('%d-%m-%Y %H:%M') %></td>
+          </tr>
+
         <% end %>
 
       </tbody>

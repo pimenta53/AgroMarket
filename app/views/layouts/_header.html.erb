@@ -15,35 +15,23 @@
   </button>
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!-- verifica se tem novas notificações e lanca alerta-->
+    <% if @total_new_notification > 0 %>
+      <script>
+      showNotify("Tem Novas Notificações!","info")
+      </script>
+    <% end %>
 
     <ul class="nav navbar-nav navbar-right">
-
-      <!-- SEARCH -->
-      <li class="dropdown messages-dropdown" >
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search" id="fa-search"></i><b class="caret" id="dropCarret"></b> </a>
-        <ul class="dropdown-menu">
-          <li class="container" id="searchBox" role="search">
-
-            <%= form_tag "/search", :method => "get",:html =>{ :class=>"input-group", :id => "input-groupBox"} do %>
-              <%= text_field_tag :search, params[:search],:class => "form-control typeahead" ,:style=>"vertical-align: center;",:autocomplete => "off"  %>
-             <input type="hidden" class="span1" name="IdControl" id="IdControl" value="" />
-
-              <span class="input-group-btn">
-                <input value="Pesquisar" type="hidden" class="btn btn-default" id="omnisearch-btn" >
-              </span>
-            <% end %>
-          </li>
-        </ul>
+      <li style="width:400px">
+      <%= form_tag "/ads", :method => "get",:class=>"navbar-form navbar-left input-group", :id => "search" do %>
+          <%= text_field_tag :search, params[:search],:class => "form-control typeahead" ,:style=>"vertical-align: center; width:400px;",:autocomplete => "off",:id=>"search_query",:placeholder=>"O que procura?"  %>
+          <input type="hidden" class="span1" name="IdControl" id="IdControl" value="" />
+      <% end %>
       </li>
-      <!-- END SEARCH -->
-
-      <!-- END SEARCH -->
-       
-
-
       <!-- NOTIFICACOES -->
       <% if user_signed_in? %>
-        <li class="dropdown messages-dropdown" >
+        <li class="dropdown messages-dropdown" style="margin-left: 20px">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe" id="fa-globe"></i><span class="badge" id="custom-badge">3</span> <b class="caret" id="dropCarret"></b> </a>
           <ul class="dropdown-menu">
 
@@ -92,12 +80,28 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" style="padding-top:9px; padding-bottom:9px;" data-toggle="dropdown" >
             <!--<% image_tag current_user.avatar.url%>-->
-            <span><%= image_tag current_user.avatar.url(:medium), style:"height:35px; " %></span>
+            <span><%= image_tag current_user.avatar.url(:medium), style:"height:35px; " %>
+              <% if @notification_messages.size > 0 %>
+                <span class="badge" id="custom-badge">1</span>
+              <% end %>
+            </span>
             <!--<span><%= image_tag current_user.avatar.url(:tiny) %></span>-->
+
             <b class="caret" id="dropCarret"></b>
           </a>
 
           <ul class="dropdown-menu">
+              <% @notification_messages.each do |notification| %>
+                
+                <li class="preview">
+                  <a href="<%= message_path(notification.id_destination, :notification => notification) %>">
+                    <small class="type"><%= notification.description %></small><br>
+                    <span class="name">Tem uma nova mensagem</span>
+                    <span class="time"><i class="icon-time"></i>4:59PM<% time_ago_in_words(notification.created_at) %></span>
+                  </a>
+                </li>
+              <% end %>
+              <li class="divider"></li>
 
             <!-- Messages -->
             <% if !@last_message.nil? %>
@@ -113,8 +117,9 @@
               <%end%>
               <li><a href="#">Ver Mais <span class="badge"><%= (@last_message.count - 3) %></span></a></li>
             <% else %>
-              <li class="preview"><span class="name"><i class="fa fa-envelope-o"></i>Sem Mensagens</span><br /></li>
-              <li class="divider"></li>
+              <li class="preview">
+                <span class="name"> &nbsp; <i class="fa fa-envelope-o"></i>  Sem Mensagens</span><br /></li>
+                <li class="divider"></li>
               <li>
                   <%= link_to "Caixa de Mensagens", messages_path %>
               </li>
@@ -133,8 +138,8 @@
 
 
       <% else %>
-        <li><%= link_to "Login".html_safe , new_user_session_path %></li>
-        <li><%= link_to "Registo", new_user_registration_path %></li>
+        <li><%= link_to "Login".html_safe , new_user_session_path, style:"color:white"%></li>
+        <li><%= link_to "Registo", new_user_registration_path, style:"color:white" %></li>
       <% end %>
       <!--END USER-->
 
@@ -167,7 +172,8 @@
                                 title: item.title,
                                 category: item.category,
                                 tipo: item.tipo,
-                                img: item.img
+                                img: item.img,
+                                link: item.link
                            }
                            labels.push(item.title)
 
@@ -194,9 +200,11 @@
                  updater: function ( item ) {
                     //save the id value into the hidden field
                     $( "#IdControl" ).val( mapped[item].id );
+                    //alert(mapped[item].id)
+                    window.location.href = mapped[item].link;
                     //return the string you want to go into the textbox (the name)
                     //alert(item)
-                    return item;
+                    //return item;
                 }
               });
 

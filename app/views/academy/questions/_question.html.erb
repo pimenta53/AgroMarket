@@ -1,54 +1,47 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a></li>
-    <a class="url" href="<%= academy_questions_path %>"> > Perguntas</a>
-  <a class="url" href="<%= academy_question_path(@academy_question.id) %>"> > <%= @academy_question.title %></a>
+    <i class="fa fa-book"></i> Academia >
+    <a class="url" href="<%= academy_questions_path %>">Perguntas</a> >
+    <a class="url" href="<%= academy_question_path(@academy_question.id) %>"><%= @academy_question.title %></a>
   </li>
   <% if user_signed_in? %>
-      <%= link_to '<i class="fa fa-plus"></i>Nova Pergunta'.html_safe, new_academy_question_path,:class=> "url", style:"float:right"%>
+    <%= link_to '<i class="fa fa-plus"></i>Nova Pergunta'.html_safe, new_academy_question_path,:class=> "url", style:"float:right"%>
   <% end %>
 </ol>
 
-<div class="col-lg-12">
-  <section class="panel">
+<section class="panel" style="border: 1px solid #dddddd;">
+  <header class="panel-heading border-header" style="vertical-align:middle; background-color:#f5f5f5; border-bottom: 1px solid #dddddd;">
+    <span class="label pull-left" style="background-color: #<%= @academy_question.category.color %>">
+      <%= @academy_question.category.name %>
+    </span>
+    <span style="float:right;">
+      <% if user_signed_in? && current_user.id == @academy_question.user_id %>
+      <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_academy_question_path(@academy_question), class:'no-effect', :tile=> "Editar Pergunta" %>
+      <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, @academy_question, class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer apagar a sua pergunta?' } ,:tile=> "Apagar Pergunta"%>
+      <% end %>
+    </span>
+    <br>
+    <h3>
+      <%= @academy_question.title %>
+    </h3>
+  </header>
 
-    <header class="panel-heading border-header" style="vertical-align:middle;">
-      <span style="float:right;">
-        <% if user_signed_in? && current_user.id == @academy_question.user_id %>
-        <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_academy_question_path(@academy_question), class:'no-effect', :tile=> "Editar Pergunta" %>
-        <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, @academy_question, class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer apagar a sua pergunta?' } ,:tile=> "Apagar Pergunta"%>
-        <% end %>
-      </span>
-      <br>
-      <h3> 
-        <%= @academy_question.title %>
-      </h3>
-    </header>
-
-    <div class="panel-body" id="panel-question">
-      <div class="col-xs-2 col-md-2" id="user-avatar"><%##  Avatar do user que fez a pergunta  ##%>
-        <%=link_to image_tag(@academy_question.user.avatar.url(:medium),:width => "70%",:class => "img-circle") , @academy_question.user %>
-        <%= @academy_question.user.name %>
-      </div>
-
-      <div class="col-xs-9 col-md-10 ">
-        <%= @academy_question.text.html_safe %><%##  texto da pergunta  ##%>
-      </div>
-
-
+  <div class="panel-body" id="panel-question">
+    <div class="col-xs-2 col-md-2" id="user-avatar"><%##  Avatar do user que fez a pergunta  ##%>
+      <%=link_to image_tag(@academy_question.user.avatar.url(:medium),:width => "70%",:class => "img-circle") , @academy_question.user %>
+      <span style="float:center;"><%= @academy_question.user.name %></span>
     </div>
-    <div class="panel-footer">
-        &nbsp;
-       <span class="label pull-left" style="background-color: #<%= @academy_question.category.color %>">
-        <%= @academy_question.category.name %>
-       </span>
-
-        <div class="pull-right">
-              <abbr class="timeago" title="<%= @academy_question.created_at.getutc.iso8601 %>">
-                <%= @academy_question.created_at.to_s(:db) %>
-              </abbr>
-        </div>
-
+    <div class="col-xs-9 col-md-10">
+      <%= @academy_question.text.html_safe %><%##  texto da pergunta  ##%>
     </div>
-  </section>
-</div>
+  </div>
+
+  <div class="panel-footer">
+    &nbsp;
+    <div class="pull-right">
+      <abbr class="timeago" title="<%= @academy_question.created_at.getutc.iso8601 %>">
+        <%= @academy_question.created_at.to_s(:db) %>
+      </abbr>
+    </div>
+  </div>
+</section>

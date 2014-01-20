@@ -1,4 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_admin_academy_question_path(@admin_academy_question) %> |
-<%= link_to 'Back', admin_academy_questions_path %>
+
+<p>
+  <strong>Título:</strong>
+  <%= @admin_academy_question.title %>
+</p>
+
+<p>
+  <strong>Texto:</strong>
+  <%= @admin_academy_question.text %>
+</p>
+
+<p>
+  <strong>Categoria:</strong>
+  <%= @admin_academy_question.category.name %>
+</p>
+
+<p>
+  <strong>Criada por:</strong>
+  <%= @admin_academy_question.user_id %> / <%= @admin_academy_question.user.name %>
+</p>
+
+
+<p>
+  <strong>Apagado?:</strong>
+  <%= @admin_academy_question.is_deleted %>
+</p>
+
+<p>
+  <strong>Criada em:</strong>
+  <%=  I18n.l @admin_academy_question.created_at ,:format => :time  %>
+</p>
+
+
+<%= link_to 'Editar', edit_admin_academy_question_path(@admin_academy_question) %> |
+<%= link_to 'Voltar', admin_academy_questions_path %>

@@ -30,7 +30,7 @@
         <td><%= admin_publicity.title %></td>
         <td><%= admin_publicity.description %></td>
         <td><%= admin_publicity.link %></td>
-        <td><%= admin_publicity.expire_date %></td>
+        <td><%= I18n.l admin_publicity.expire_date ,:format => :time %></td>
         <td><%= admin_publicity.owner %></td>
         <td><%= if admin_publicity.is_deleted then 'Sim' else 'Não' end%></td>
         <td><%= link_to 'Ver', admin_publicity %></td>

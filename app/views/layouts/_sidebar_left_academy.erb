@@ -2,7 +2,9 @@
 <% correct_path = nil %>
 <% if params[:controller] == "academy/tutorials" %>
   <% correct_path = academy_tutorials_path %>
-<% else %>
+<% elsif params[:controller] == "academy/workshops" %>
+        <% correct_path = academy_workshops_path %>
+<% else  %>
   <% correct_path = academy_questions_path %>
 <% end %>
 

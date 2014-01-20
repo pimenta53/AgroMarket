@@ -138,6 +138,17 @@ class AdsController < ApplicationController
         flash[:notice] = "Anúncio criado com sucesso."
         format.html { redirect_to @ad }
         format.json { render action: 'show', status: :created, location: @ad }
+
+        current_user.followers.each do | user|
+
+          feed = Feed.new
+          feed.user_id = user.id
+          feed.in = 1
+          feed.id_content = @ad.id
+          feed.save
+
+        end
+
       else
         flash[:error] = "Erro ao criar anúncio."
         format.html { render action: 'new' }

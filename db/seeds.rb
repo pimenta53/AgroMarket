@@ -692,6 +692,7 @@ PriceType.create(name: "€/L")
 PriceType.create(name: "€/Unidade")
 PriceType.create(name: "€ Total")
 PriceType.create(name: "€/Arroba")
+PriceType.create(name: "€/Saco")
 
 Plan.delete_all
 Plan.create(name: "Regular", duration: "-1", price: "0", ads_limit: 5, event_limit: 1)

@@ -82,6 +82,11 @@
 	color: black;
 }
 
+#tutorial-title-description {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eff2f7;
+}
+
 .information_show_tutorial span{
 	color: black;
 	font-size: 16px;
@@ -127,5 +132,25 @@
 
 .tutorial_table_body a:hover{
 	color:black;
+}
+
+#buttons-tutorial {
+	position: absolute;
+	left: 16px;
+	right: 1px;
+	bottom: 1px;
+	height: 55px;
+	width: auto;
+	border-color: #dddddd;
+}
+
+#buttons-tutorial a {
+	height: 100%;
+	vertical-align: middle;
+	color: white !important;
+}
+
+#buttons-tutorial div > div {
+	vertical-align: middle;
 }
 

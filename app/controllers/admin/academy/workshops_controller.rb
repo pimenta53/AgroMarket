@@ -31,9 +31,20 @@ class Admin::Academy::WorkshopsController < Admin::ApplicationController
     workshop.save
 
     #cria notificação
-    #Notification.create_notification( current_user , event.id , 7 , "Workshop Aprovado")
+    Notification.create_notification( current_user , workshop.id , 8 , "Workshop Aprovado")
 
     redirect_to admin_academy_workshops_path,:notice => "Workshop foi aprovado com sucesso"
+    owner_user = User.find_by_id(workshop.user_id)
+
+    owner_user.followers.each do | user|
+
+          feed = Feed.new
+          feed.user_id = user.id
+          feed.in = 5
+          feed.id_content = workshop.id
+          feed.save
+
+    end
   end
 
 
@@ -80,7 +91,9 @@ class Admin::Academy::WorkshopsController < Admin::ApplicationController
   # DELETE /admin/academy/workshops/1
   # DELETE /admin/academy/workshops/1.json
   def destroy
-    @admin_academy_workshop.destroy
+    #@academy_workshop.destroy
+    @admin_academy_workshop.is_deleted=true
+    @admin_academy_workshop.save
     respond_to do |format|
       format.html { redirect_to admin_academy_workshops_url }
       format.json { head :no_content }

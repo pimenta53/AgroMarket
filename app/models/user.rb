@@ -71,6 +71,8 @@ class User < ActiveRecord::Base
                                                 :foreign_key => 'following_id'
 
 
+  has_many :feeds
+
   has_many :notifications
 
   belongs_to :plan , :foreign_key => 'plan_id'
@@ -82,7 +84,10 @@ class User < ActiveRecord::Base
 
   has_many :plan_users
   has_many :plans, :through => :plan_users
+
   has_one :workshop_registration
+
+  has_many :events, :class_name => Event::Event , :foreign_key => 'user_id'
 
   def talks
      talks_user_one + talks_user_two
@@ -93,7 +98,7 @@ class User < ActiveRecord::Base
   validates :phone, format: /(^$|(\d{9,}\Z))/i
   validates :email, presence: true,format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
   validates :city, presence: true
-  validate :birthday_cannot_be_in_the_future
+  validate :birthday_cannot_be_in_the_future 
 
 
 
@@ -134,7 +139,7 @@ class User < ActiveRecord::Base
 
 #devolve o numero de evento que o utilizador tem ativos
   def active_events_count
-    self.events.where("end_day >= ?", Date.today).where(:is_deleted => false, :is_active => true).count
+    self.events.where("end_day >= ?", Date.today).where(:deleted => false).count
   end
 
 #conta o numero slots para anuncios que o utilizador tem restantes
@@ -236,7 +241,7 @@ class User < ActiveRecord::Base
   #a data do nascimento não pode estar no futuro
   def birthday_cannot_be_in_the_future
     if (birthday != nil)
-      errors.add(:birthday, " cannot be in the future") if
+      errors.add(:birthday, I18n.t('activerecord.errors.generic.cannot_be_in_future')) if
         birthday > Date.today
     end
   end
@@ -247,25 +252,20 @@ class User < ActiveRecord::Base
   end
 
   def generate_password
-    #password_length = 6
-    #password = Devise.friendly_token.first(password_length)
-    #self.password=password
-    #self.password_confirmation=password
-
-    self.password='1234567890'
-    self.password_confirmation='1234567890'
+    password_length = 6
+    password = Devise.friendly_token.first(password_length)
+    self.password=password
+    self.password_confirmation=password
+    password
   end
 
   #inserir dados pelo omniauth
   def apply_omniauth(omniauth)
-    self.generate_password
     if omniauth['provider'] == 'facebook'
-
 
       #Buscar info
       self.email = omniauth['info']['email']
       self.name = omniauth['info']['name']
-
 
       #location é composto por "Cidade, Pais"
       if omniauth['info']['location'] != nil
@@ -314,6 +314,7 @@ class User < ActiveRecord::Base
 
       omni_authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
+    
   end
 
   def has_provider(provider)

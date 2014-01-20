@@ -23,7 +23,7 @@
   </div>
 
     <div class="field">
-    <%= f.label :city_id, "Distrito" %><br>
+    <%= f.label :cidade, "Distrito" %><br>
     <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Selecione...') %>
   </div>
 
@@ -33,7 +33,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :user_type %><br>
+    <%= f.label :tipo_de_utilizador %><br>
     <%= f.select :user_type, options_for_select([["Utilizador Normal", "1"], ["Administrador", "2"]]) %>
 
   </div>

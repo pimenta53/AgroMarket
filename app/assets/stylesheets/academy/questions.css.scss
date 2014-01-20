@@ -2,17 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.table-head-background th {
-	background-color: #D8D8D8;
-}
-
-.table-head-background th:first-child {
-	border-radius: 4px 0 0 0;
-}
-
-.table-head-background th:last-child {
-	border-radius: 0 4px 0 0;
-}
 
 #panel-question {
 	margin-top: 10px;
@@ -39,4 +28,41 @@
 
 #edit-question {
 	margin: 10px 10px -10px 10px;
+	min-height: 300px;
+}
+
+#question-user-image {
+	width: 50px;
+}
+
+#buttons-question {
+	position: absolute;
+	left: 16px;
+	right: 1px;
+	bottom: 1px;
+	height: 55px;
+	width: auto;
+	border-color: #dddddd;
+}
+
+#buttons-question a {
+	height: 100%;
+	vertical-align: middle;
+	color: white !important;
+}
+
+#buttons-question div > div {
+	vertical-align: middle;
+}
+
+#answer-votes span {
+	position: relative;
+	bottom: 3px;
+}
+
+#positive-count, #negative-count, #neutral-count {
+	font-size: 15px !important;
+	font-weight: bold !important;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	padding: 5px 9px 5px 9px;
 }

@@ -15,7 +15,7 @@
 <%##  Avatar do user  ##%>
 <div class="col-xs-2 col-md-2" id="user-avatar">
   <%=link_to image_tag(current_user.avatar.url(:medium),:width => "70%",:class => "img-circle"), current_user %>
-  <%= current_user.name %>
+  <span style="float:center;"><%= current_user.name %></span>
 </div>
 
 <div class="col-xs-10 col-md-10">
@@ -26,13 +26,13 @@
   </div>
 </div>
 
-<div class="fields">
-  <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_answers_path %>'">
-    <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
-  </button>
-  <div class="actions" style="float:right">
+<div class="panel-footer" id="buttons-answer">
+  <div class="fields">
+    <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px; color: white;"></span>Voltar'.html_safe, academy_questions_path, class: "btn btn-primary"%>
     <div class="actions" style="float:right">
-          <%= f.submit "Publicar", :class => "btn btn-info" %>
+      <div class="actions" style="float:right">
+        <%= f.submit "Publicar", :class => "btn btn-primary", :id => "publish-button" %>
+      </div>
     </div>
   </div>
 </div>

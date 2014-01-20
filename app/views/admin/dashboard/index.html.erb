@@ -221,7 +221,7 @@
                   </table>
                 </div>
                 <div class="text-right">
-                  <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="<%= admin_ads_path %>">Ver Anúncios <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div>
             </div>
@@ -238,9 +238,9 @@
               </div>
               <div class="panel-body">
                 <%= pie_chart( @dashboard.ads_per_category ) %>
-                <div class="text-right">
+                <!--div class="text-right">
                   <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
+                </div-->
               </div>
             </div>
           </div><!-- END ADS PER CATEGORY GRAPH -->
@@ -254,15 +254,17 @@
               </div>
               <div class="panel-body">
                 <%= pie_chart( @dashboard.users_per_district ) %>
-                <div class="text-right">
+                <!--div class="text-right">
                   <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
+                </div-->
               </div>
             </div>
           </div><!-- END USERS PER DISTRICT GRAPH -->
+          </div>
 
 
           <!-- RECENT ACTIVITY -->
+          <div class="row">
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -276,37 +278,43 @@
                   <% if n.notification_type==1 %> <!-- MSG SEND TO AD -->
                   <a href="#" class="list-group-item">
                     <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
-                    <i class="fa fa-envelope-o "></i> Utilizador #<%= n.user_id %> recebeu mensagem para o anúncio #<%= n.id_destination %>
+                    <i class="fa fa-envelope-o "></i> Utilizador #<%= n.user_id %> recebeu mensagem para o anúncio #<%= n.id_destination %></a>
 
                   <% elsif n.notification_type==2 %> <!-- AD EXPIRE -->
                   <a href="#" class="list-group-item">
                    <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
-                    <i class="fa fa-clock-o"></i> Anúncio #<%= n.id_destination %> do utilizador #<%= n.user_id %> expirou
+                    <i class="fa fa-clock-o"></i> Anúncio #<%= n.id_destination %> do utilizador #<%= n.user_id %> expirou </a>
 
                     <% elsif n.notification_type==3 %> <!-- DELETED AD BY ADMIN -->
                   <a href="#" class="list-group-item">
                    <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
-                    <i class="fa fa-times"></i> Anúncio #<%= n.id_destination %> apagado por admin
+                    <i class="fa fa-times"></i> Anúncio #<%= n.id_destination %> apagado por admin </a>
 
                     <% elsif n.notification_type==4 %> <!-- NEW QUESTION ANSWER -->
                   <a href="#" class="list-group-item">
                    <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
-                    <i class="fa fa-question"></i> Utilizador #<%= n.user_id %> respondeu à pergunta #<%= n.id_destination %>
+                    <i class="fa fa-question"></i> Utilizador #<%= n.user_id %> respondeu à pergunta #<%= n.id_destination %> </a>
 
                     <% elsif n.notification_type==5 %> <!-- NEW WORKSHOP REGISTRATION -->
                   <a href="#" class="list-group-item">
                    <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
-                    <i class="fa fa-pencil"></i> Utilizador #<%= n.user_id %> registou-se no workshop #<%= n.id_destination %>
+                    <i class="fa fa-pencil"></i> Utilizador #<%= n.user_id %> registou-se no workshop #<%= n.id_destination %> </a>
 
                     <% elsif n.notification_type==6 %> <!-- APROVED TUTORIAL -->
                   <a href="#" class="list-group-item">
                    <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
-                    <i class="fa fa-check"></i> Tutorial #<%= n.id_destination %> aprovado
+                    <i class="fa fa-check"></i> Tutorial #<%= n.id_destination %> aprovado </a>
                     
                     <% elsif n.notification_type==7 %> <!-- APROVED EVENT -->
                   <a href="#" class="list-group-item">
                    <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
-                    <i class="fa fa-check"></i> Evento #<%= n.id_destination %> aprovado
+                    <i class="fa fa-check"></i> Evento #<%= n.id_destination %> aprovado </a>
+
+
+                    <% elsif n.notification_type==8 %> <!-- APROVED WORKSHOP -->
+                  <a href="#" class="list-group-item">
+                   <span class="badge"><abbr class="timeago" title="<%= n.created_at.getutc.iso8601 %>"> <%= n.created_at.to_s %> </abbr></span>
+                    <i class="fa fa-check"></i> Workshop #<%= n.id_destination %> aprovado </a>
                   
                   <% end %>
                 
@@ -315,7 +323,7 @@
                 </div>
 
                 <div class="text-right">
-                  <a href="#">Ver toda a actividade <i class="fa fa-arrow-circle-right"></i></a>
+                  <!--a href="#">Ver toda a actividade <i class="fa fa-arrow-circle-right"></i></a-->
                 </div>
               </div>
             </div>
@@ -353,11 +361,12 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="text-right">
+                <!--div class="text-right">
                   <a href="#">Ver todos os negócios fechados <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
+                </div-->
               </div>
             </div>
+          </div>
           </div>
           <!-- END CLOSED DEALS-->
 

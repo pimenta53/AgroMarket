@@ -5,15 +5,13 @@
 <script> showNotify("<%= flash[:error] %>","info") </script>
 <% end %>
 
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a></li>
-    <a class="url" href="<%= academy_tutorials_path %>"> > Tutoriais</a></li>
+    <i class="fa fa-book"></i> Academia >
+    <a class="url" href="<%= academy_tutorials_path %>"> Tutoriais</a>
   </li>
   <% if user_signed_in? %>
-    <div class="pull-right">
-      <%= link_to '<i class="fa fa-plus"></i>Novo Tutorial'.html_safe, new_academy_tutorial_path,:class=> "new-tutorial" %>
-    </div>
+    <%= link_to '<i class="fa fa-plus"></i>Novo Tutorial'.html_safe, new_academy_tutorial_path,:class=> "new-tutorial", style:"float:right" %>
   <% end %>
 </ol>
 
@@ -47,7 +45,7 @@
             <%= link_to academy_tutorial.title, academy_tutorial %>
           </td>
           <td style="vertical-align:middle;">
-            <%= academy_tutorial.rapid_description %>
+            <%= academy_tutorial.rapid_description.html_safe %>
           </td>
           <td style="vertical-align:middle;">
             <span class="label" style="background-color: #<%= academy_tutorial.category.color %>">
@@ -58,12 +56,12 @@
             <%= academy_tutorial.created_at.strftime('%d-%m-%Y') %>
           </td>
         </tr>
-      
+
       <% end %>
       </tbody>
 
-    </table> 
-    
+    </table>
+
     <%= will_paginate(@academy_tutorials, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
 
   </div>

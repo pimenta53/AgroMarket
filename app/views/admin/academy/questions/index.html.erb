@@ -14,7 +14,7 @@
   <tr>
     <th>ID</th>
     <th>Pergunta</th>
-    <th>ID Autor</th>
+    <th>Autor</th>
     <th>Categoria</th>
     <th>Respostas</th>
     <th>Criado em</th>
@@ -27,7 +27,7 @@
   <tr>
     <td><%= admin_academy_question.id %></td>
     <td><%= admin_academy_question.title %></td>
-    <td><%= admin_academy_question.user_id %></td>
+    <td><%= admin_academy_question.user_id %>/<%= admin_academy_question.user.name %></td>
     <td>
       <% if admin_academy_question.category %>
       <span class="label" style="background-color: #<%= admin_academy_question.category.color %>">
@@ -41,7 +41,7 @@
       <% end %>
     </td>
     <td><%= admin_academy_question.answers.count %></td>
-    <td><%= admin_academy_question.created_at %></td>
+    <td><%= I18n.l admin_academy_question.created_at ,:format => :time %></td>
     <td><%= link_to 'Ver', admin_academy_question, :target => '_blank' %></td>
     <td><%# link_to 'Editar', edit_admin_academy_question_path(admin_academy_question) %></td>
     <td><%= link_to 'Apagar', admin_academy_question, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>

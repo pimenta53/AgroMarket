@@ -1,10 +1,7 @@
 var ready;
 ready = function() {
 
-
-
-
-
+  
   $(window).scroll(function(){
         if ($(this).scrollTop() > 200) {
             $('.ir_para_form_resposta').fadeIn();
@@ -127,7 +124,8 @@ ready = function() {
           dataType: 'script',
           type: "POST",
           beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));}
-      });
+       });
+       location.reload();
      }
   );
 

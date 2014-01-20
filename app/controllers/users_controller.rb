@@ -6,9 +6,9 @@ class UsersController < ApplicationController
 
   def index
   	@user = User.all
-    
+
   end
-  
+
   #pagina sobre ads do user
   # GET /users/1/myads
   # GET /users/1/myads.json
@@ -51,14 +51,14 @@ class UsersController < ApplicationController
   end
 
 
-  private 
+  private
   	def set_user
   		@user = User.find(params[:id])
   	end
 
     def resolve_layout
         case action_name
-        when "show" 
+        when "show"
              "userslayouts"
         else
           "application"

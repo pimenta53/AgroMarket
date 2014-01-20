@@ -27,6 +27,7 @@
     <section class="panel" style="margin-right:15px;">
         <div class="panel-body bio-graph-info">
             <h1>Biografia</h1>
+            
             <div class="row">
                 <div class="bio-row">
                     <p><span>Nome </span>: <%= @user.name %></p>
@@ -56,6 +57,8 @@
         </div>
     </section>
 
+
+
     <section class="panel" style="margin-right:15px;">
         <div class="panel-body bio-graph-info">
             <h1>Seguindo</h1>
@@ -65,7 +68,7 @@
                     <div class="panel col-md-2" id="userPanel">
                         <a href="/users/<%= f.id %>" >
                             <div class="row">
-                                <%= image_tag f.avatar.url(:medium) %>
+                                <%= image_tag f.avatar.url(:medium),:width => "120px"%>
                             </div>
                             <div class="row">
                                 <%= f.name%>
@@ -193,11 +196,6 @@
 </div>
 
 
-<% if current_user != nil %>
-  <% if @user.id != current_user.id %>
-    <button class="followToggle" value="<%= @user.id %>"><% if current_user.is_following(@user) %>unfollow<% else %>follow<% end %></button>
-  <% end %>
-<% end %>
 
 <% if current_user!=@user %>
 <div class="text-center">

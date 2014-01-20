@@ -78,6 +78,16 @@ class Academy::QuestionsController < ApplicationController
       if @academy_question.save
         format.html { redirect_to @academy_question, notice: 'Question was successfully created.' }
         format.json { render action: 'show', status: :created, location: @academy_question }
+
+        current_user.followers.each do | user|
+
+          feed = Feed.new
+          feed.user_id = user.id
+          feed.in = 2
+          feed.id_content = @academy_question.id
+          feed.save
+
+        end
       else
         format.html { render action: 'new' }
         format.json { render json: @academy_question.errors, status: :unprocessable_entity }

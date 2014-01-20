@@ -1,19 +1,18 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= academy_path %>"><i class="fa fa-tags"></i> Academia</a> >
-    <% if user_signed_in? %>
-        <a class="url" href="<%= academy_questions_path %>">Perguntas</a> </li>
-        <div class='pull-right'>
-          <%= link_to '<i class="fa fa-plus"></i>Nova Pergunta'.html_safe, new_academy_question_path,:class=> "new-question" %>
-        </div>
-    <% end %>
+    <i class="fa fa-book"></i> Academia >
+    <a class="url" href="<%= academy_questions_path %>"> Perguntas</a>
+  </li>
+  <% if user_signed_in? %>
+    <%= link_to '<i class="fa fa-plus"></i>Nova Pergunta'.html_safe, new_academy_question_path,:class=> "new-question", style:"float:right" %>
+  <% end %>
 </ol>
 
 <div class="row">
   <div class="panel">
 
     <%= will_paginate(@academy_questions, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
-    <table class="table table-hover">
+    <table class="table table-hover" id="table-questions">
       <thead>
         <tr class="table-head-background">
           <th width="10%" class="tutorial_text_head">UTILIZADOR</th>
@@ -28,7 +27,7 @@
         <% @academy_questions.each do |academy_question| %>
         <tr class="tutorial_table_body">
           <td style="vertical-align:middle;">
-            <div class="media" style="position:relative; left:50%; margin-left:-25px;">
+            <div class="media" id="question-user-image" style="position:relative; left:50%; margin-left:-25px;">
               <%= link_to (image_tag academy_question.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), academy_question.user %>
             </div>
           </td>
@@ -36,7 +35,7 @@
             <h4 class="media-heading" id="text-link" style="margin-top:10px;">
               <%= link_to academy_question.title, academy_question %>
             </h4>
-            <p><small><%= academy_question.text.html_safe %></small></p>
+            <p id="text-link"><small><%= link_to academy_question.text.html_safe, academy_question %></small></p>
           </td>
           <td style="vertical-align: middle;"><strong>110 </strong></td>
           <td style="vertical-align:middle;">

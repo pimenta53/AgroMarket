@@ -1,3 +1,4 @@
+#encoding: utf-8
 # == Schema Information
 #
 # Table name: academy_workshops
@@ -15,17 +16,17 @@
 #  created_at            :datetime
 #  updated_at            :datetime
 #  title                 :string(255)
-#  is_aproved            :boolean          default(FALSE)
 #
 
 class Academy::Workshop < ActiveRecord::Base
   belongs_to :user
   has_many :workshop_registrations
 
-
-  #scopes
+  #scope
   default_scope -> { where('is_deleted = ?',false) } #Só apresenta os workshops que não foram apagados
 
+  ## validations ##
+  validates :description, :length => {:maximum => 255, too_long: "é demasiado longo!", :minimum => 50, too_short: "tem de ser composto no mínimo por 50 caracteres."}, :presence => "true"
 
 
   def add_inscription
@@ -38,8 +39,6 @@ class Academy::Workshop < ActiveRecord::Base
     self.save
   end
 
-
-  
   def has_available_slots?
   	self.slots_taken < available_slots ? true : false
   end
@@ -48,7 +47,6 @@ class Academy::Workshop < ActiveRecord::Base
   	self.requires_registration == 1 ? true : false
   end
 
-
   def self.aproved_workshops
     where('is_aproved = ?',true)
   end
@@ -56,5 +54,4 @@ class Academy::Workshop < ActiveRecord::Base
   def self.unaproved_workshops
     where('is_aproved = ?',false)
   end
-
 end

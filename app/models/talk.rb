@@ -96,6 +96,14 @@ class Talk < ActiveRecord::Base
     end
   end
 
+  def user_receiver_email( current_user )
+    if self.user_one == current_user
+      return User.find(self.user_two).email
+    else
+      return User.find(self.user_one).email
+    end
+  end
+
 
   private
           #verifica se sender é diferente de receiver

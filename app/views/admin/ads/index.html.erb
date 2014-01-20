@@ -15,8 +15,7 @@
           <th>Categoria</th>
           <th>Data de expiração</th>
           <th>Local</th>
-          <th>Activo?</th>
-          <th>Apagado?</th>
+          <th>Activo</th>
           <th>Cidade</th>
           <th>User_ID / Nome</th>
           <th></th>
@@ -28,7 +27,7 @@
           <tr>
 
           <td>
-          <span class="label" style= "background-color: <%= if ad.is_active then 'red' else 'orange' end %>"> </span>
+          <span class="label" style= "background-color: <%= if ad.is_active then 'green' else 'orange' end %>"> </span>
 
           </td>
             <td><%= ad.id %></td>
@@ -51,10 +50,9 @@
                   </span>
               <% end %>
             </td>
-            <td><%= t ad.expire_date, :format => :short %></td>
+            <td><%= I18n.l ad.expire_date ,:format => :time %></td>
             <td><%= ad.location %></td>
             <td><% if ad.is_active %>Sim<% else %>Não<% end %></td>
-            <td><% if ad.is_deleted %>Sim<% else %>Não<% end %></td>
             <td><%= ad.city.city unless ad.city.blank? %></td>
             <td><%= ad.user_id %> / <%= ad.user.name unless ad.user.blank?%></td>
 

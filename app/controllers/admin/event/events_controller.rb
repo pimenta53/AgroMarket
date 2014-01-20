@@ -22,6 +22,7 @@ class Admin::Event::EventsController < ApplicationController
 
   # GET /admin/event/events/1/edit
   def edit
+    @cities = City.all
   end
 
 
@@ -33,7 +34,21 @@ class Admin::Event::EventsController < ApplicationController
     #cria notificação
     Notification.create_notification( current_user , event.id , 7 , "Evento Aprovado")
 
+
+    owner_user = User.find_by_id(event.user_id)
+
+    owner_user.followers.each do | user|
+
+          feed = Feed.new
+          feed.user_id = user.id
+          feed.in = 4
+          feed.id_content = event.id
+          feed.save
+
+    end
+
     redirect_to admin_event_events_path,:notice => "Evento foi aprovado com sucesso"
+
   end
 
 

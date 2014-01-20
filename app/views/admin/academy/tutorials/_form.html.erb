@@ -23,19 +23,19 @@
       </div>
     </div>
     <div class="field">
-      <%= f.label :title %><br>
+      <%= f.label :título %><br>
       <%= f.text_field :title ,:class => "form-control"%>
     </div>
     <div>
-      <%= f.label :rapid_description %><br>
+      <%= f.label :descrição_rápida %><br>
       <%= f.text_field :rapid_description ,:class => "form-control"%>
     </div>
     <div class="field" hidden="true">
-      <%= f.label :user_id %><br>
+      <%= f.label :utilizador %><br>
       <%= f.text_field :user_id, :value => current_user.id %>
     </div>
     <div class="field" hidden="true">
-      <%= f.label :aproved %><br>
+      <%= f.label :aprovado? %><br>
       <%= f.number_field :aproved %>
     </div>
     <div class="tab-content">

@@ -1,34 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Start day:</strong>
-  <%= @event_event.start_day %>
+  <strong>Dia de início:</strong>
+  <%= I18n.l @event_event.start_day ,:format => :time %>
 </p>
 
 <p>
-  <strong>End day:</strong>
-  <%= @event_event.end_day %>
+  <strong>Dia de fim:</strong>
+  <%= I18n.l @event_event.end_day ,:format => :time %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Título:</strong>
   <%= @event_event.title %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descrição:</strong>
   <%= @event_event.description %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Utilizador:</strong>
   <%= @event_event.user_id %>
 </p>
 
 <p>
-  <strong>Aproved:</strong>
-  <%= @event_event.aproved %>
-</p>
+  <strong>Aprovado:</strong>
+<% if @event_event.aproved=true %>Sim<%else%>Não<%end%></p>
 
-<%= link_to 'Edit', edit_admin_event_event_path(@event_event) %> |
-<%= link_to 'Back', admin_event_events_path %>
+<%= link_to 'Editar', edit_admin_event_event_path(@event_event) %> |
+<%= link_to 'Voltar', admin_event_events_path %>
