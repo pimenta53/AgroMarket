@@ -1,6 +1,31 @@
  
 
 $(function() {
+  $(".followToggle").click(function(){
+       $id=$(this).val();
+       if ($(this).text() == "follow"){
+         $(this).text("unfollow");
+       }
+       else{
+         $(this).text("follow");
+       }
+       //$.post("./"+$id+"/follow");
+       $.ajax({
+          url: "./"+$id+"/follow",
+          async: true,
+          dataType: 'script',
+          type: "POST",
+          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));}
+       });
+       location.reload();
+     }
+  );
+
+            //select inputs
+            $("select").select2();
+
+            //
+            $('input.datepicker').datepicker({"format": "dd/mm/yyyy",autoclose: true});
 
 
             var panels = $('.user-infos');
@@ -12,6 +37,7 @@ $(function() {
                 //get data-for attribute
                 var dataFor = $(this).attr('data-for');
                 var idFor = $(dataFor);
+
 
                 //current button
                 var currentButton = $(this);
@@ -35,7 +61,6 @@ $(function() {
                 e.preventDefault();
                 
             });
-
 
      });
 

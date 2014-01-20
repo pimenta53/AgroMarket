@@ -78,7 +78,7 @@ class Event::Event < ActiveRecord::Base
   #a data de fim não pode estar no passado
   def end_day_cannot_be_in_the_past
     if (end_day != nil)
-      errors.add(:end_day, " não pode estar no passado") if
+      errors.add(:end_day, I18n.t('activerecord.errors.generic.cannot_be_in_past')) if
         end_day < Date.today
     end
   end
@@ -86,7 +86,7 @@ class Event::Event < ActiveRecord::Base
   #a data de fim não pode ocorrer antes da data de inicio
   def end_day_cannot_be_before_start_day
     if (end_day != nil)
-      errors.add(:end_day, " não pode ser antes de Start day") if
+      errors.add(:end_day, I18n.t('activerecord.errors.event.cannot_be_before_start_day')) if
         end_day < start_day
     end
   end

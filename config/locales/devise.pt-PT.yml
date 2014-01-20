@@ -40,6 +40,7 @@
       inactive: 'A sua conta ainda não foi activada.'
     sessions:
       signed_in: 'Autenticação efetuada com sucesso.'
+      failure: 'Ocorreu um erro na autenticação.'
       signed_out: 'Saiu da sessão com sucesso.'
     passwords:
       send_instructions: 'Dentro de alguns minutos irá receber um e-mail com instruções de reinicialização da palavra-passe.'

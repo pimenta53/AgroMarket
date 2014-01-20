@@ -25,8 +25,12 @@ en:
     errors:
       generic:
         cannot_be_in_future: cannot be in the future
+        cannot_be_in_past: cannot be in the past
+        cannot_exceed_one_week: can't exceed one week from today
       ad:
         limit_reached: cannot create more advertsements
+      event:
+        cannot_be_before_start_day: cannot be occur Start Day
     #Custom labels
     attributes:
       user:

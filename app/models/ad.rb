@@ -280,13 +280,13 @@ class Ad < ActiveRecord::Base
 
      #erro se a expire_date for no passado
     def expire_date_cannot_be_in_the_past
-      errors.add(:expire_date, "Não pode estar no passado") if
+      errors.add(:expire_date, I18n.t('activerecord.errors.generic.cannot_be_in_past')) if
       !expire_date.blank? and expire_date < Date.today
     end
 
         #erro se expire_date exceder 7 dias a partir de hoje
-    def expire_date_cannot_exceed_limit
-      errors.add(:expire_date, "can't exceed one week from today") if
+    def expire_date_cannot_exceed_limit 
+      errors.add(:expire_date, I18n.t('activerecord.errors.generic.cannot_exceed_one_week')) if
       !expire_date.blank? and (expire_date.change({:hour => 0 , :min => 0 , :sec => 0 }) - 1.week) > Date.today
     end
 
