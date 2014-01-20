@@ -42,12 +42,12 @@ class ApplicationController < ActionController::Base
     #@notification_acmy_aproved          = all_notifications.where(:notification_type => [6,7,8] )
     @notification_acmy_tutorial_aproved = all_notifications.where(:notification_type => 6 )
     @notification_acmy_event_aproved    = all_notifications.where(:notification_type => 7 )
-    @notification_acmy_workshop_aproved = all_notifications.where(:notification_type => 8 )
+    @notification_acmy_workshop_aproved = all_notifications.where(:notification_type => 9 )
 
     @number_notifications_academy = @notifications_new_answer.size + @notification_acmy_new_registration.size + @notification_acmy_tutorial_aproved.size +  @notification_acmy_event_aproved.size + @notification_acmy_workshop_aproved.size
 
     # notifications from personal messages
-    @notification_messages = all_notifications.where(:notification_type => 9 )
+    @notification_messages = all_notifications.where(:notification_type => 8 )
 
     #total = notific-academia + notific-ads + notific-messages
     @total_new_notification =  @number_notifications_academy +  @number_notifications_ads +  @notification_messages.size
