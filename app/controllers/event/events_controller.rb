@@ -74,6 +74,9 @@ class Event::EventsController < ApplicationController
   def destroy
     #@event_event.destroy
     @event_event.deleted = true
+    dest = @event_event.id
+    type = 7 #event_notifications_code
+    Notification.clear_notifications(type,dest)
     @event_event.save
     User.find(current_user.id).remove_event
     respond_to do |format|

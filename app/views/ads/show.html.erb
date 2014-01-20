@@ -6,19 +6,22 @@
 <% end %>
 
 
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= ads_path %>"><i class="fa fa-tags"></i> Anúncios</a>
-    <a class="url" href="<%= ad_path(@ad.id) %>"> > <%= @ad.title %></a>
+    <i class="fa fa-tags"></i> <a class="url" href="<%= ads_path %>"> Anúncios</a> >
+    <a class="url" href="<%= ad_path(@ad.id) %>"> <%= @ad.title %></a>
   </li>
   <div style="float:right">
     <% if user_signed_in? && current_user.id == @ad.user_id %>
           <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_ad_path(@ad), class:'no-effect', :tile=> "Editar Anúncio" %>
           <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, @ad, class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?' } ,:tile=> "Apagar Anúncio"%>
     <% else %>
-    <%= link_to '<i class="fa fa-flag"></i>Denunciar '.html_safe, report_ad_path(@ad), class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer denunciar este anúncio ?' } ,:tile=> "Denunciar Anúncio"%>
+          <%= link_to '<i class="fa fa-flag"></i>Denunciar '.html_safe, report_ad_path(@ad), class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer denunciar este anúncio ?' } ,:tile=> "Denunciar Anúncio"%>
     <% end %>
   </div>
+  <% if user_signed_in? %>
+    <%= link_to "<i class='fa fa-plus'></i>Novo Anúncio".html_safe, new_ad_path, class:"url", style:"float:right" %>
+  <% end %>
 </ol>
 
 
@@ -51,7 +54,7 @@
 
 <% num_img=@ad.ad_images.count %>
 <section class="panel">
-   <div class="panel-body">
+   <div class="panel-body" style="margin:10px 10px 10px 10px;">
       <div class="col-md-6">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
@@ -71,7 +74,6 @@
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
-
             <% if num_img == 0 %>
               <div class="item active" id="divImg">
                 <img src="/assets/defaultAdPic.png" alt="...">
@@ -103,73 +105,83 @@
             </a>
           <% end %>
         </div>
-
-
       </div>
+
       <!-- Information ADS -->
       <div class="col-md-6">
-         <h4 class = "ads_title">
-            <%= @ad.title %>
-         </h4>
-         <!--DAR DESTAQUE-->
-           <div class="pull-right">
-              <% if user_signed_in? && current_user.id == @ad.user_id %>
-                    <%= link_to '<i class="fa  fa-star"></i>Destacar '.html_safe, promove_ad_payment_path(@ad.id), :class=>"btn btn-success btn-sm ",:rel=>"tooltip_down",:title=>"Pode destacar o anúncio para ele ser mais visto!!" %>
-              <% end %>
-            </div>
-
-         <br/>
+        <div style="width: 100%; margin: 5px 0 5px 0; display: inline-block; vertical-align: middle;">
+          <!--DAR DESTAQUE-->
+          <% if @ad.category.blank? %>
+            <span class="label" style="background-color: #888888">Sem categoria</span>
+          <% else %>
+            <span class="label" style="background-color: #<%= @ad.category.color %>">
+              <%= @ad.category.name %>
+            </span>
+          <% end %>
+          <div style="float:right; height: 30px; vertical-align: middle;">
+            <% if user_signed_in? && current_user.id == @ad.user_id %>
+              <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_ad_path(@ad), class:'no-effect', :tile=> "Editar Anúncio" %>
+              <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, @ad, class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?' } ,:tile=> "Apagar Anúncio"%>
+            <% end %>
+          </div>
+        </div>
+        <div style="display:inline-block; width:100%; vertical-align:middle;">
+          <div style="float:left; max-width:250px;">
+            <h4 class="ads_title">
+              <%= @ad.title %>
+            </h4>
+          </div>
+          <div style="float:right; margin-top:7px;">
+            <% if user_signed_in? && current_user.id == @ad.user_id %>
+              <%= link_to '<i class="fa fa-star"></i>Destacar '.html_safe, promove_ad_payment_path(@ad.id), :class=>"btn btn-success btn-sm ",:rel=>"tooltip_down",:title=>"Pode destacar o anúncio para ele ser mais visto!!" %>
+            <% end %>
+          </div>
+        </div>
+         
          <div class = "ads_metainfo">
-            <p>
-               <strong>Categoria:</strong>
-               <% if @ad.category.blank? %>
-               <span class="label" style="background-color: #888888">Sem categoria</span>
-               <% else %>
-               <span class="label" style="background-color: #<%= @ad.category.color %>">
-               <%= @ad.category.name %>
-               </span>
-               <% end %>
-            </p>
             <p>
                <strong>Descricão:</strong>
                <%= @ad.description %>
             </p>
          </div>
          <div class ="ads_description">
-            <p>
-               <strong>Vendedor:</strong>
-               <%= link_to @ad.user.name, @ad.user %>
-            </p>
-            <p>
-               <strong>Preço:</strong>
-               <span class="label label-info" >
-                  <%= "#{@ad.price} #{@ad.price_type.name}" %>
-               </span>
-            </p>
-            <p>
-               <strong>Final do Anúncio:</strong>
-               <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
-            </p>
-            <p>
-               <strong>Cidade:</strong>
-               <%= @ad.city.city %>
-            </p>
-            <p>
-               <strong>Localização:</strong>
-               <%= @ad.location %>
-            </p>
-            <div class="fb-share-button sharebutton" data-href="http://teste94.di.uminho.pt/" data-type="button">
+            <div style="width:100%; padding: 5px 0;"> 
+              <div style="float:left;">
+                 <strong>Vendedor:</strong>
+                 <%= link_to @ad.user.name, @ad.user %>
+              </div>
+              <div style="float:right; text-align:right; min-width:150px;">
+                 <strong>Preço:</strong>
+                 <span class="label label-info" >
+                    <%= "#{@ad.price} #{@ad.price_type.name}" %>
+                 </span>
+              </div>
             </div>
-            <div class="sharebutton">
-               <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+            <br>
+            <div style="width:100%; display: inline-block;">
+              <div style="float: left;">
+                <i class="fa fa-map-marker"></i> <%= @ad.location %>
+              </div>
+              <div style="float:right; text-align:right; min-width:100px;">
+                 <strong>Termina em:</strong>
+                 <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
+              </div>
+            </div>
+            <br>
+            <div style="width: 100%; text-align: right; margin-top: 10px;">
+              <div class="fb-share-button sharebutton" data-href="http://teste94.di.uminho.pt/" data-type="button">
+              </div>
+              <div class="sharebutton">
+                 <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+              </div>
             </div>
          </div>
       </div>
    </div>
 </section>
-<section class="panel" style="background-color: rgba(255, 255, 255, 0);">
+<section class="panel" style="background-color: rgba(255, 255, 255, 0); border: 1px solid #dddddd;">
    <header class="header header_tab">
-      <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs" style="border-bottom: 1px solid #dddddd;">
          <li class="active">
             <a data-toggle="tab" href="#related" id="extraNavButton">
             Produtos na mesma Area
@@ -187,23 +199,23 @@
          </li>
       </ul>
    </header>
-   <div class="panel-body">
+   <div class="panel-body" style="margin-top:10px;">
    <div class="tab-content tasi-tab">
       <!-- produtos relacionados -->
-      <div id="related" class="tab-pane active">
-         <div class="row ads_index_section">
+      <div id="related" class="tab-pane active" style="margin:0; padding: 0;">
+         <div class="row ads_index_section" style="margin:0; padding: 0;">
             <%= render :partial => @related_ads %>
          </div>
       </div>
       <!-- ultimos visitados -->
-      <div id="last_viewed" class="tab-pane">
-         <div class="row ads_index_section">
+      <div id="last_viewed" class="tab-pane" style="margin:0; padding: 0;">
+         <div class="row ads_index_section" style="margin:0; padding: 0;">
             <%= render :partial => @last_viewed %>
          </div>
          <!-- </div> -->
       </div>
       <!-- reviews -->
-      <div id="reviews" class="tab-pane" style="background-color: white;">
+      <div id="reviews" class="tab-pane" style="background-color: white; margin:0; padding: 0;">
          <% @reviews_user.each do |review| %>
          <article class="media">
             <p class="pull-left thumb p-thumb">
@@ -225,13 +237,13 @@
  
 <section class="panel">
     <div class="panel-heading border-header">
-            <h3 class="panel-title">Mensagens</h3>
-        </div>
+      <h3 class="panel-title">Mensagens</h3>
+    </div>
    <div class="panel-body  panel_without_bg">
       <% if user_signed_in? %>
-      <div id="messages">
-         <%= render "messages/messages_ads" %>
-      </div>
+        <div id="messages">
+           <%= render "messages/messages_ads" %>
+        </div>
       <% end %>
    </div>
 </section>
@@ -239,6 +251,6 @@
 
 <div class="fields">
   <button type="button" class="btn btn-primary" onclick="location.href='<%= ads_path %>'">
-    <span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar
+    <span class="icon-arrow-left" style="margin-right: 5px; color: white;"></span>Voltar
   </button>
 </div>

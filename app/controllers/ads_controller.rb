@@ -185,6 +185,9 @@ class AdsController < ApplicationController
     #@ad.destroy
     @ad.is_deleted=true
     @ad.is_active=false
+    dest = @ad.id
+    type = [1,2] #ad_notifications_Code
+    Notification.clear_notifications(type,dest)
     @ad.save
     #remove 1 ad from the user counter
     current_user.remove_ad

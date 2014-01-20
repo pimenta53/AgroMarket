@@ -1,7 +1,7 @@
 <div>
-  <ol class="breadcrumb" id="breadcrumbAds">
+  <ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
     <li class="active">
-      <a class="url" href="<%= ads_path %>"><i class="fa fa-tags"></i> Anúncios</a>
+      <i class="fa fa-tags"></i> <a class="url" href="<%= ads_path %>">Anúncios</a>
     </li>
     <% if user_signed_in? %>
       <a class="url" href="<%= myads_user_path(current_user.id) %>"> > Os meus Anúncios</a> >
@@ -17,11 +17,11 @@
 <% end %>
 
 <% if current_user.remaining_ads_slots > 0 %>
-  <div class="panel">
+  <div class="panel panel-default" style="padding-bottom:50px; margin-bottom:0; min-height:980px;">
     <div class="panel-heading border-header">
       <h3 class="panel-title">Novo Anúncio</h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" style="margin: 10px 10px;">
       <%= render 'form' %>
     </div>
   </div>
