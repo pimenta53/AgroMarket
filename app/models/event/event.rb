@@ -40,7 +40,7 @@ class Event::Event < ActiveRecord::Base
   validates :description, presence: true
   validate :end_day_cannot_be_in_the_past
   validate :end_day_cannot_be_before_start_day
-  validate :event_limit_validation
+  validate :event_limit_validation, on: :create
 
 
   def event_limit_validation
@@ -50,8 +50,8 @@ class Event::Event < ActiveRecord::Base
   end
 
 	#scope
-	default_scope -> { where('deleted = ?',false) } #Só apresenta os eventos que não foram apagados
-    default_scope -> { order('created_at DESC') }
+	default_scope -> { where(deleted: false) } #Só apresenta os eventos que não foram apagados
+  default_scope -> { order('created_at DESC') }
 
 
 	def self.today_events_count
