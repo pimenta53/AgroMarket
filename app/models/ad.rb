@@ -56,7 +56,7 @@ class Ad < ActiveRecord::Base
 
   def ad_limit_validation
      if User.find(user_id).remaining_ads_slots == 0
-        errors.add(:title, "Não pode criar novos anúncios")
+        errors.add(:title, I18n.t('activerecord.errors.ad.limit_reached'))
      end
   end
 
