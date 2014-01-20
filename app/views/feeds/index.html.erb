@@ -2,9 +2,9 @@
 	 Não existe atividade recente das pessoas que segue.
 	 Poderar seguir outros utilizadores.
 <%else%>
-	 	<div class="box_feed" id="feeds">
-  <%= render "elem_feed" %>
-		 </div>
+	<div class="panel" id="mainFeedBox">
+      <%= render "elem_feed" %>
+	</div>
 	
   <div href="<% if @feeds.next_page %><%= feed_path(:page => @feeds.next_page) %><% else %>#<% end %>" class='load-more-feeds'>
     <% if @feeds.next_page %>
