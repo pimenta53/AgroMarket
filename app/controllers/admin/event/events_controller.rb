@@ -34,6 +34,7 @@ class Admin::Event::EventsController < Admin::ApplicationController
     Notification.create_notification( event.user_id , event.id , 7 , "Evento Aprovado")
 
 
+
     owner_user = User.find_by_id(event.user_id)
 
     owner_user.followers.each do | user|
@@ -66,9 +67,12 @@ class Admin::Event::EventsController < Admin::ApplicationController
   # POST /admin/event/events.json
   def create
     @event_event = Event::Event.new(event_event_params)
+    @event_event.user.add_event #incrementa o contador de eventos do user
+
 
     respond_to do |format|
       if @event_event.save
+        @event_event.user.add_event
 
         format.html { redirect_to [:admin, @event_event], notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event_event }
@@ -102,6 +106,7 @@ class Admin::Event::EventsController < Admin::ApplicationController
     type = 7 #event_notifications_code
     Notification.clear_notifications(type,dest)
     @event_event.save
+    @event_event.user.remove_event
     respond_to do |format|
       format.html { redirect_to admin_event_events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }

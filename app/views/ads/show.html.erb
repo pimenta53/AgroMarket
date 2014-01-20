@@ -11,6 +11,14 @@
     <i class="fa fa-tags"></i> <a class="url" href="<%= ads_path %>"> Anúncios</a> >
     <a class="url" href="<%= ad_path(@ad.id) %>"> <%= @ad.title %></a>
   </li>
+  <div style="float:right">
+    <% if user_signed_in? && current_user.id == @ad.user_id %>
+          <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_ad_path(@ad), class:'no-effect', :tile=> "Editar Anúncio" %>
+          <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, @ad, class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?' } ,:tile=> "Apagar Anúncio"%>
+    <% else %>
+          <%= link_to '<i class="fa fa-flag"></i>Denunciar '.html_safe, report_ad_path(@ad), class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer denunciar este anúncio ?' } ,:tile=> "Denunciar Anúncio"%>
+    <% end %>
+  </div>
   <% if user_signed_in? %>
     <%= link_to "<i class='fa fa-plus'></i>Novo Anúncio".html_safe, new_ad_path, class:"url", style:"float:right" %>
   <% end %>

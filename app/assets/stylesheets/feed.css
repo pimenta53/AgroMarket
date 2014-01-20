@@ -5,18 +5,24 @@ body {
   font-size: 100%;
 }
 
-.box_feed{
+#mainFeedBox{
   width:100%;
   margin-left:auto;
   margin-right:auto;
-  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  /*background: rgba(255, 255, 255, 0.8);
  
   min-width:375px;
 
-  border-style:double;
+  border-style:solid;
   border-color:#FF9900;
+  */
 
 
+}
+
+#firstRow{
+  vertical-align: center;
 
 }
 
