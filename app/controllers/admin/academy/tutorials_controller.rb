@@ -32,7 +32,7 @@ class Admin::Academy::TutorialsController < ApplicationController
 
 		owner_user.followers.each do | user|
 
-	        feed = Feed.new(params[:feed])
+	        feed = Feed.new
 	        feed.user_id = user.id
 	        feed.in = 3
 	        feed.id_content = tutorial.id
