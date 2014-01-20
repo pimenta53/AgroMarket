@@ -43,6 +43,7 @@ class Event::EventsController < ApplicationController
     @event_event = Event::Event.new(event_event_params)
     @event_event.user_id = current_user.id
 
+
     respond_to do |format|
       if @event_event.save
         User.find(current_user.id).add_event

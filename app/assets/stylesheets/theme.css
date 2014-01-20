@@ -136,13 +136,15 @@ a:hover #dropCarret{
 
 /****FOOTER****/
 footer {
+
   padding-top:10px;
   background-color: #00A75D;
-  bottom: 0;
-  position: fixed;
+  bottom: 0px;
+  position: relative;
   width: 100%;
   color: #fff;
   padding-left: 200px;
+  clear: both;
 }
 
 footer a{

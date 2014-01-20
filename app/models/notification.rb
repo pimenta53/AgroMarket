@@ -78,6 +78,10 @@ class Notification < ActiveRecord::Base
     Event::Event.find(self.id_destination)
   end
 
+  def tutorial
+    Academy::Tutorial.find(self.id_destination)
+  end
+
   def type_notification
     if self.notification_type == 6
       Academy::Tutorial.find(self.id_destination)
