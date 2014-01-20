@@ -23,7 +23,7 @@ class Admin::Academy::TutorialsController < Admin::ApplicationController
 		tutorial.save
 
 		#cria notificação
-		Notification.create_notification( current_user , tutorial.id , 6 , "Tutorial Aprovado")
+    Notification.create_notification( tutorial.user_id , tutorial.id , 6 , "Tutorial Aprovado")
 
 		redirect_to admin_academy_tutorials_path,:notice => "Tutorial foi aprovado com sucesso"
 
@@ -41,7 +41,7 @@ class Admin::Academy::TutorialsController < Admin::ApplicationController
 	end
 
 
-	def destroy
+  def destroy
     #@academy_tutorial.destroy
     dest = @academy_tutorial.id
     type = 6 #aproved_tutorial_code
@@ -49,10 +49,10 @@ class Admin::Academy::TutorialsController < Admin::ApplicationController
     @academy_tutorial.is_deleted = true
     @academy_tutorial.save
     respond_to do |format|
-    	format.html { redirect_to admin_academy_tutorials_url }
-    	format.json { head :no_content }
+      format.html { redirect_to admin_academy_tutorials_url }
+      format.json { head :no_content }
     end
-end
+  end
 
 private
 	    # Use callbacks to share common setup or constraints between actions.

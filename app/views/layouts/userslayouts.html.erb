@@ -41,16 +41,20 @@
             </p>
           </div>
           <ul class="nav nav-pills nav-stacked">
-            <li class="active">
-              <%= link_to "Perfil".html_safe , user_path(current_user.id), :class => "fa fa-user" %>
+            <% if action_name!="edit"%><li class="active"><%else%><li><%end%>
+              <%= link_to " Perfil".html_safe , user_path(current_user.id), :class => "fa fa-user" %>
             </li>
             <% if (current_user && @user.id == current_user.id) %>
-              <li>
-                <%= link_to "Editar Perfil".html_safe , edit_user_registration_path(), :class => "fa fa-edit" %>
+              <% if action_name=="edit"%><li class="active"><%else%><li><%end%>
+                <%= link_to " Editar Perfil".html_safe , edit_user_registration_path(), :class => "fa fa-edit" %>
               </li>
             <% end %>
-            <li> 
-              <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %> <span class="label label-danger pull-right r-activity"><%= @user.counter_ads %></span>
+            <li>
+              <% if current_user.id == @user.id %>
+                 <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %> <span class="label label-danger pull-right r-activity"><%= @user.counter_ads %></span>
+              <% else %>
+                  <%= link_to " Anúncios de #{@user.name}".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %> <span class="label label-danger pull-right r-activity"><%= @user.counter_ads %></span>
+              <% end %>
             </li>
           </ul>
         </section>
