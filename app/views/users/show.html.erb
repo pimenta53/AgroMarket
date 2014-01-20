@@ -68,7 +68,7 @@
                     <div class="panel col-md-2" id="userPanel">
                         <a href="/users/<%= f.id %>" >
                             <div class="row">
-                                <%= image_tag f.avatar.url(:medium) %>
+                                <%= image_tag f.avatar.url(:medium),:width => "120px"%>
                             </div>
                             <div class="row">
                                 <%= f.name%>
