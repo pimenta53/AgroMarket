@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140116010459) do
+ActiveRecord::Schema.define(version: 20140120112713) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -71,19 +71,19 @@ ActiveRecord::Schema.define(version: 20140116010459) do
   end
 
   create_table "academy_workshops", force: true do |t|
-    t.integer  "user_id",                               null: false
-    t.integer  "available_slots",       default: 0
-    t.integer  "slots_taken",           default: 0
-    t.float    "price"
+    t.integer  "user_id",                                                        null: false
+    t.integer  "available_slots",                                default: 0
+    t.integer  "slots_taken",                                    default: 0
+    t.decimal  "price",                 precision: 10, scale: 2
     t.string   "local"
     t.datetime "date"
     t.text     "description"
-    t.boolean  "is_deleted",            default: false
+    t.boolean  "is_deleted",                                     default: false
     t.integer  "requires_registration"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.boolean  "is_aproved",            default: false
+    t.boolean  "is_aproved",                                     default: false
   end
 
   create_table "ad_images", force: true do |t|
@@ -176,6 +176,16 @@ ActiveRecord::Schema.define(version: 20140116010459) do
     t.datetime "image_updated_at"
     t.boolean  "deleted",            default: false
   end
+
+  create_table "feeds", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "id_content"
+    t.integer  "in"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "feeds", ["user_id"], name: "index_feeds_on_user_id", using: :btree
 
   create_table "messages", force: true do |t|
     t.integer  "talk_id",     null: false

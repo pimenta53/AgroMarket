@@ -23,7 +23,7 @@
         <td><%= uap_workshop.id %></td>
         <td><%= uap_workshop.user.name %></td>
         <td><%= uap_workshop.title %></td>
-        <td><%= uap_workshop.description.truncate(25) %></td>
+        <td><%= uap_workshop.description.truncate(25).html_safe %></td>
         <td><%= uap_workshop.available_slots %></td>
         <td><%= uap_workshop.slots_taken %></td>
         <td><%= I18n.l uap_workshop.date ,:format => :time %></td>
@@ -67,7 +67,7 @@
         <td><%= ap_workshop.id %></td>
         <td><%= ap_workshop.user.name %></td>
         <td><%= ap_workshop.title %></td>
-        <td><%= ap_workshop.description.truncate(25) %></td>
+        <td><%= ap_workshop.description.truncate(25).html_safe %></td>
         <td><%= ap_workshop.available_slots %></td>
         <td><%= ap_workshop.slots_taken %></td>
         <td><%= I18n.l ap_workshop.date ,:format => :time %></td>
