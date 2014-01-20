@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140120112713) do
-=======
 ActiveRecord::Schema.define(version: 20140120120513) do
->>>>>>> 618629e42315306d62b4c5f68ef774fb8feb3282
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -117,22 +113,6 @@ ActiveRecord::Schema.define(version: 20140120120513) do
   create_table "ads", force: true do |t|
     t.string   "title"
     t.string   "description"
-<<<<<<< HEAD
-    t.float    "price"
-    t.datetime "expire_date"
-    t.string   "location"
-    t.integer  "type_price_id",                  null: false
-    t.integer  "city_id",                        null: false
-    t.integer  "user_id",                        null: false
-    t.string   "permanent_link"
-    t.integer  "page_views",     default: 0
-    t.integer  "category_id",                    null: false
-    t.boolean  "is_deleted",     default: false
-    t.boolean  "is_active",      default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "highlight",      default: 0
-=======
     t.decimal  "price",          precision: 10, scale: 2
     t.datetime "expire_date"
     t.string   "location"
@@ -147,7 +127,6 @@ ActiveRecord::Schema.define(version: 20140120120513) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "highlight",                               default: 0
->>>>>>> 618629e42315306d62b4c5f68ef774fb8feb3282
   end
 
   create_table "authentications", force: true do |t|
@@ -198,7 +177,6 @@ ActiveRecord::Schema.define(version: 20140120120513) do
     t.boolean  "deleted",            default: false
   end
 
-<<<<<<< HEAD
   create_table "feeds", force: true do |t|
     t.integer  "user_id"
     t.integer  "id_content"
@@ -209,8 +187,6 @@ ActiveRecord::Schema.define(version: 20140120120513) do
 
   add_index "feeds", ["user_id"], name: "index_feeds_on_user_id", using: :btree
 
-=======
->>>>>>> 618629e42315306d62b4c5f68ef774fb8feb3282
   create_table "messages", force: true do |t|
     t.integer  "talk_id",     null: false
     t.integer  "user_sender", null: false

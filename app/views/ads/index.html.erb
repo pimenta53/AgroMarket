@@ -20,8 +20,6 @@
     <%= render :partial => @ads %>
     <% if @ads.empty? %>
       <p>Ainda não existem anúncios. Sê o primeiro a anunciar!</p>
-      <br>
-      <div id="empty-market"><%= image_tag 'empty_market.png', class: 'market-image' %></div>
     <% end %>
   </div>
   <p id="loading" style="visibility: hidden">A buscar mais anuncios</p>
