@@ -1,7 +1,7 @@
 <%= form_for(@academy_question,:html => {:multipart => true,:id=>"question_form"}) do |f| %>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
-<div class="panel panel-default">
+<div class="panel panel-default" style="margin-bottom:0; min-height:400px;">
     <div class="panel-heading">
       <% if controller.action_name == "edit" %>
           <h3 class="panel-title">Editar Pergunta</h3>
@@ -9,7 +9,7 @@
           <h3 class="panel-title">Nova Pergunta</h3>
       <% end %>
     </div>
-    <div class="panel-body" id="edit-question">
+    <div class="panel-body" id="edit-question" style="margin-bottom: 50px;">
 
     <div class="control-group">
       <label class="control-label"> Categoria</label><label class="help-inline" style="margin-left:10px" generated="true" for="academy_question_category_id"></label>
@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div class="control-group">
+    <div class="control-group" style="margin-bottom: 20px;">
       <%= f.label :text, "Pergunta",:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="academy_question_text"></label>
       <div class="controls">
         <%= f.text_area :text, :placeholder => "Escreva a sua pergunta..." , :id => "some-textarea", :class=>"form-control",:rel=>"tooltip",:title=>"Explique de forma clara e sucinta a sua pergunta..." %>
@@ -33,23 +33,24 @@
     </div>
 
   <%#  butao de submit, tanto para editar como criar respetivamente  %>
-    <div class="fields">
-      <% if action_name == "edit" %>
-      <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, academy_question_path(params[:id]), class: "btn btn-primary" %>
-      <% else %>
-      <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, academy_questions_path, class: "btn btn-primary" %>
-      <% end %>
-      <div class="actions" style="float:right">
+    <div class="panel-footer" id="buttons-question">
+      <div class="fields">
+        <% if action_name == "edit" %>
+        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px; color: white;"></span>Voltar'.html_safe, academy_question_path(params[:id]), class: "btn btn-primary" %>
+        <% else %>
+        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px; color: white;"></span>Voltar'.html_safe, academy_questions_path, class: "btn btn-primary" %>
+        <% end %>
         <div class="actions" style="float:right">
-          <% if controller.action_name == "edit" %>
-              <%= f.submit "Editar pergunta", :class=>"btn btn-primary" %>
-          <% else %>
-              <%= f.submit "Criar pergunta" , :class=>"btn btn-primary"%>
-          <% end %>
+          <div class="actions" style="float:right">
+            <% if controller.action_name == "edit" %>
+                <%= f.submit "Editar Pergunta", :class=>"btn btn-primary" %>
+            <% else %>
+                <%= f.submit "Publicar Pergunta" , :class=>"btn btn-primary"%>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-
 
     <% if @academy_question.errors.any? %>
         <div id="error_explanation">

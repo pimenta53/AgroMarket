@@ -10,7 +10,7 @@
         </div>
     <% end %>
 
-  <div class="row" style="margin-left: -10px; margin-right: -10px">
+  <div class="row" style="margin-left: -15px; margin-right: -15px">
 
     <div class="col-lg-12">
       <div class="control-group">
@@ -74,7 +74,6 @@
   </div>
 
   <div class="control-group">
-
     <%= f.label :local, "Localização do Workshop" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="addresspicker_map"></label>
 
     <div class="controls">
@@ -92,26 +91,26 @@
       <span class="label label-primary" id="coordX">X</span>
       <span class="label label-primary" id="coordY">Y</span>
     </div>
-
   </div>
 
-  <div class="fields_newWorkshop">
+  <div class="panel-footer" id="buttons-workshop">
+    <div class="fields_newWorkshop">
+      <% if action_name == "edit" %>
+        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px; color:white;"></span>Voltar'.html_safe, academy_workshop_path(params[:id]), class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px; color:white;"></span>Voltar'.html_safe, academy_workshops_path, class: "btn btn-primary" %>
+      <% end %>
 
-    <% if action_name == "edit" %>
-      <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, academy_workshop_path(params[:id]), class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, academy_workshops_path, class: "btn btn-primary" %>
-    <% end %>
-
-    <div class="actions" style="float:right">
       <div class="actions" style="float:right">
-        <% if controller.action_name == "edit" %>
-        <%= f.submit "Editar Workshop", :class=>"btn btn-primary" %>
-        <% else %>
-        <%= f.submit "Criar Workshop" , :class=>"btn btn-primary"%>
-        <% end %>
+        <div class="actions" style="float:right">
+          <% if controller.action_name == "edit" %>
+          <%= f.submit "Editar Workshop", :class=>"btn btn-primary" %>
+          <% else %>
+          <%= f.submit "Criar Workshop" , :class=>"btn btn-primary"%>
+          <% end %>
+        </div>
       </div>
-    </div>
+   </div>
  </div>
 <% end %>
 
@@ -130,7 +129,7 @@
     autoclose: true,
     todayHighlight: true,
     calendarWeeks: true,
-    startDate: day + "/" + month + "/" + (year - 100)
+    startDate: day + "/" + month + "/" + year
   })
 </script>
 

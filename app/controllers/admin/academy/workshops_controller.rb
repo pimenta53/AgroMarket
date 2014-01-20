@@ -34,6 +34,17 @@ class Admin::Academy::WorkshopsController < Admin::ApplicationController
     Notification.create_notification( current_user , workshop.id , 8 , "Workshop Aprovado")
 
     redirect_to admin_academy_workshops_path,:notice => "Workshop foi aprovado com sucesso"
+    owner_user = User.find_by_id(workshop.user_id)
+
+    owner_user.followers.each do | user|
+
+          feed = Feed.new
+          feed.user_id = user.id
+          feed.in = 5
+          feed.id_content = workshop.id
+          feed.save
+
+    end
   end
 
 

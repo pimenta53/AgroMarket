@@ -159,6 +159,11 @@ footer a:visited,footer li a:visited{
   margin-right: 25px;
 }
 
+#footer-info li > a:hover {
+  color: #BBBBBB !important;
+  text-decoration: none !important;
+}
+
 /******SIDEBAR LEFT**********/
 
 

@@ -20,9 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-
-en:
+  activerecord:
+    #Custom Errors, must be included in ALL locales
+    errors:
+      generic:
+        cannot_be_in_future: cannot be in the future
+    #Custom labels
+    attributes:
+      user:
+        email: E-mail
+  #Date time format
   time:
     formats:
       default: "%d/%m/%Y"

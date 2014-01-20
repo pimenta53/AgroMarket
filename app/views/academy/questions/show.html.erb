@@ -1,54 +1,55 @@
-
 <%##  render the question  %>
 <%= render 'question' %>
-
 
 <%#  needed to load the new answers without the need to reload  %>
 <%# Verifica se existe uma melhor resposta %>
 <% if @best_answer != nil %>
-<div class="col-lg-12">
+<div class="col-lg-12" style="padding-left: 30px !important; padding-right: 0px !important;">
   <section class="panel panel-success">
-    <header class="panel-heading">
-      Melhor Reposta
+    <header class="panel-heading" style="border-color: #dddddd !important;">
+      <%= '<i class="fa fa-star"></i> Melhor Reposta'.html_safe %>
+      <div class="pull-right">
+        <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe , edit_academy_answer_path(@best_answer), :class => 'no-effect' if @best_answer.user.id == current_user.id %>
+        <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe , @best_answer, method: :delete, data: { confirm: 'Tem a certeza que pretende eliminar a sua resposta?' }, :class => 'no-effect' if @best_answer.user.id == current_user.id %>
+      </div>
     </header>
     <div class="panel-body" id="panel-question">
-      <div class="pull-right">
-        <%##  botão verde com o lapis para editar a resposta  ##%>
-        <%= link_to '<i class="fa fa-pencil"></i>'.html_safe , edit_academy_answer_path(@best_answer), :class => "btn btn-primary btn-xs" if @best_answer.user.id == current_user.id %>
-        <%##  botão vermelho com o caixote para eliminar a resposta  ##%>
-        <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe , edit_academy_answer_path(@best_answer), :class => "btn btn-danger btn-xs" if @best_answer.user.id == current_user.id %>
-      </div>
-
-
-      <div class="col-xs-2 col-md-2"><%##  Avatar do user que respondeu  ##%>
+      <div class="col-xs-2 col-md-2" id="user-avatar"><%##  Avatar do user que respondeu  ##%>
         <%=link_to image_tag(@best_answer.user.avatar.url(:medium),:width => "70%",:class => "img-circle"), @best_answer.user %>
-        <%= @best_answer.user.name %>
+        <span style="float:center;"><%= @best_answer.user.name %></span>
       </div>
 
       <div class="col-xs-9 col-md-10 "><%##  texto da resposta  ##%>
         <%= @best_answer.text.html_safe %>
-
       </div>
     </div>
 
-    <div class="panel-footer">
+    <div class="panel-footer" id="answer-footer-vote">
       <%###  @best_answers votes  ###%>
       <%#  Verify if the user is logged or if is the @best_answer's owner %>
       <% if !user_signed_in? || current_user.id == @best_answer.user.id #if not logged or is the owner them cant vote %>
 
-      <label class="label label-default" syle="font-size:10px">
-        <%= @best_answer.up - @best_answer.down %>
+      <label class="label label-default" style="color: #468847; background-color: #DFF0D8; border: 1px solid #dddddd; font-size:15px;">
+        +<%= @best_answer.up - @best_answer.down %>
       </label>
 
       <% else %>
-      <%= vote = @best_answer.which_vote?( current_user ) %>
+      <span style="visibility: hidden; position:absolute;"><%= vote = @best_answer.which_vote?( current_user ) %></span>
       <!-- Answer Helper-->
 
-      <%= link_to '<i class="fa fa-thumbs-up  fa-2x '.html_safe + up_vote?( vote ) +'"></i>'.html_safe, academy_up_vote_path(:answer => @best_answer), :title => "Dá mais um ponto a esta resposta!!" %>
-      <label class="label label-success" syle="font-size:10px"><%= @best_answer.up - @best_answer.down %></label>
-      <%= link_to '<i class="fa fa-thumbs-o-down fa-2x '.html_safe + down_vote?( vote ) +'"></i>'.html_safe, academy_down_vote_path(:answer => @best_answer), :title => "Dá menos um ponto a esta resposta!!"  %>
+      <span id="answer-votes">
+        <%= link_to '<i id="up-vote" class="fa fa-thumbs-o-up fa-2x '.html_safe + up_vote?( vote ) +'"></i>'.html_safe, academy_up_vote_path(:answer => @best_answer), :title => "Dá mais um ponto a esta resposta." %>
+        <!-- HELPER -->
+        <% if @best_answer.up - @best_answer.down > 0 %>
+          <span id="positive-count" style="color: #468847;">+<%= @best_answer.up - @best_answer.down %></span>
+        <% elsif @best_answer.up - @best_answer.down < 0 %>
+          <span id="negative-count" style="color: #660000;"><%= @best_answer.up - @best_answer.down %></span>
+        <% else %>
+          <span id="neutral-count" style="color: gray;"><%= @best_answer.up - @best_answer.down %></span>
+        <% end %>
 
-
+        <%= link_to '<i id="down-vote" class="fa fa-thumbs-o-down fa-2x '.html_safe + down_vote?( vote ) +'"></i>'.html_safe, academy_down_vote_path(:answer => @best_answer), :title => "Dá menos um ponto a esta resposta."  %>
+      </span>
       <% end %>
       <%###  end of answers votes  ###%>
 
@@ -63,30 +64,30 @@
 <% end %>
 
 <%#  Display all the answers  %>
-<div id="answers">
+<div id="answers" style="padding-left: 0 !important; padding-right: 30px !important;">
   <%= render @academy_question.answers  %>
 </div>
 
 <%#  if user is logged  %>
 <% if user_signed_in? %>
-  <%#  show answer form  %>
-  <%= render "academy/answers/form", :question => @academy_question %>
+<%#  show answer form  %>
+<%= render "academy/answers/form", :question => @academy_question %>
 <% else %>
-  <%#  show indication to login or signup  %>
-  <div class="col-lg-12">
-    <section class="panel">
-      <header class="panel-heading">
-        <div>
-          <p>Inicie sessão para poder responder: <%= link_to "Iniciar Sessão", new_user_session_path %> ou <%= link_to "Registar", new_user_registration_path %></p>
-        </div>
-      </header>
-    </section>
-  </div>
+<%#  show indication to login or signup  %>
+<div class="col-lg-12" style="padding-left: 0 !important; padding-right: 30px !important;">
+  <section class="panel">
+    <header class="panel-heading">
+      <div>
+        <p>Inicie sessão para poder responder: <%= link_to "Iniciar Sessão", new_user_session_path %> ou <%= link_to "Registar", new_user_registration_path %></p>
+      </div>
+    </header>
+  </section>
+</div>
 <% end %>
 
 <%#  Back button for unloged users   %>
 <% unless user_signed_in? %>
-  <div class="col-lg-12">
-    <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, academy_questions_path, class: "btn btn-primary"%>
-  </div>
+<div class="col-lg-12">
+  <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, academy_questions_path, class: "btn btn-primary"%>
+</div>
 <% end %>

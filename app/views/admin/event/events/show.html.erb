@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Start day:</strong>
+  <strong>Dia de início:</strong>
   <%= @event_event.start_day %>
 </p>
 
 <p>
-  <strong>End day:</strong>
+  <strong>Dia de fim:</strong>
   <%= @event_event.end_day %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Título:</strong>
   <%= @event_event.title %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descrição:</strong>
   <%= @event_event.description %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Utilizador:</strong>
   <%= @event_event.user_id %>
 </p>
 
 <p>
-  <strong>Aproved:</strong>
+  <strong>Aprovado?:</strong>
   <%= @event_event.aproved %>
 </p>
 
-<%= link_to 'Edit', edit_admin_event_event_path(@event_event) %> |
-<%= link_to 'Back', admin_event_events_path %>
+<%= link_to 'Editar', edit_admin_event_event_path(@event_event) %> |
+<%= link_to 'Voltar', admin_event_events_path %>

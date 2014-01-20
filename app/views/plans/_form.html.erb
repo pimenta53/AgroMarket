@@ -1,26 +1,25 @@
 <%= form_for plan, :url => create_payment_path(plan.id) do |f| %>
-
     <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
       <% if plan.name == "Regular" %>
-          <div class="panel panel-primary">
+        <div class="panel panel-primary" style="min-height:330px; border-color: #dddddd;">
       <% elsif plan.name == "Horta" %>
-          <div class="panel panel-sucess">
+        <div class="panel panel-sucess" style="min-height:330px; border-color: #dddddd;">
       <% elsif plan.name == "Quinta" %>
-          <div class="panel panel-info">
+        <div class="panel panel-info" style="min-height:330px; border-color: #dddddd;">
       <% else %>
-          <div class="panel panel-danger">
+        <div class="panel panel-danger" style="min-height:330px; border-color: #dddddd;">
       <% end %>
 
       <% if @subscribed_plans.include? plan %>
-      <div class="cnrflash">
-        <div class="cnrflash-inner">
-          <% contador = @subscribed_plans.where(:id => plan.id).count %>
-          <span class="cnrflash-label"><% if contador > 1%>(<%= contador %>)</br><% end %>SUBSCRITO</span>
+        <div class="cnrflash">
+          <div class="cnrflash-inner">
+            <% contador = @subscribed_plans.where(:id => plan.id).count %>
+            <span class="cnrflash-label"><% if contador > 1%>(<%= contador %>)</br><% end %>SUBSCRITO</span>
+          </div>
         </div>
-      </div>
       <% end %>
 
-      <div class="panel-heading">
+      <div class="panel-heading" style="border-bottom: 1px solid #dddddd;">
         <h3 class="panel-title"><%= plan.name%></h3>
       </div>
       <div class="panel-body-plan">
@@ -28,25 +27,25 @@
           <b><h2><%= plan.price%>€</h2></b>
           <small><% if plan.name == "Regular" %>ILIMITADO<% else %> Válido <%= plan.duration %> Meses<% end %></small>
         </div>
-        <table class="table">
+        <table class="table" style="margin: 0;">
           <tr>
             <td><%= pluralize(plan.ads_limit, "Anúncio") %></td>
           </tr>
           <tr class="active">
             <td><%= pluralize(plan.event_limit, "Evento") %></td>
           </tr>
-          <tr>
+          <tr style="height: 37px !important">
             <td>Acesso à Academia</td>
           </tr>
         </table>
       </div>
-      <div class="panel-footer">
+
+      <div class="panel-footer" id="buy-button" style="min-height:55px;">
         <% if plan.name != "Regular" %>
-            <%= f.submit "Comprar", :class=>"btn btn-primary" %>
+          <%= f.submit "Comprar", :class=>"btn btn-primary" %>
         <% end %>
       </div>
-
-
+      
       </div>
-      </div>
+    </div>
 <% end %>

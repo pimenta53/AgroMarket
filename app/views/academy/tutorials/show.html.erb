@@ -1,24 +1,20 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <i class="fa fa-tags"></i> Academia >
+    <i class="fa fa-book"></i> Academia >
     <a class="url" href="<%= academy_tutorials_path %>">Tutoriais</a> >
-    <a class="url" href="<%= academy_tutorial_path(@academy_tutorial.id) %>"><%= @academy_tutorial.title %></a>
+    <a class="url" href="<%= academy_tutorial_path(@academy_tutorial.id) %>"> <%= @academy_tutorial.title %></a>
   </li>
-
-  <div style="float:right">
-    <% if user_signed_in? %>
-    <%= link_to '<i class="fa fa-plus"></i>Novo Tutorial'.html_safe, new_academy_tutorial_path,:class=> "url"%>
-    <% end %>
-  </div>
+  <% if user_signed_in? %>
+    <%= link_to '<i class="fa fa-plus"></i>Novo Tutorial'.html_safe, new_academy_tutorial_path,:class=> "url", style:"float:right" %>
+  <% end %>
 </ol>
 
 <p id="notice"><%= notice %></p>
 
-<section class="panel">
-  <header class="panel-heading border-header text-center">
+<section class="panel" style="border: 1px solid #dddddd;">
+  <header class="panel-heading border-header text-center" style="background-color:#f5f5f5; border-bottom: 1px solid #dddddd;">
     <div style="display: inline-block; width: 100%;">
       <div id="category-label" style="float:left; width:30%; text-align:left;">
-        <span>Categoria: </span>
         <span class="label" style="background-color: #<%= @academy_tutorial.category.color %> ; color: black; font-size:12px;">
           <%= @academy_tutorial.category.name %>
         </span>
@@ -71,7 +67,7 @@
     <div class="fields">
       <div class="button_back">
         <button type="button" class="btn btn-primary" onclick="location.href='<%= academy_tutorials_path %>'">
-          <span class="icon-arrow-left" style=""></span> Voltar
+          <span class="icon-arrow-left" style="margin-right: 5px; color: white;"></span> Voltar
         </button>
       </div>
     </div>

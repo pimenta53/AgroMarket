@@ -134,3 +134,23 @@
 	color:black;
 }
 
+#buttons-tutorial {
+	position: absolute;
+	left: 16px;
+	right: 1px;
+	bottom: 1px;
+	height: 55px;
+	width: auto;
+	border-color: #dddddd;
+}
+
+#buttons-tutorial a {
+	height: 100%;
+	vertical-align: middle;
+	color: white !important;
+}
+
+#buttons-tutorial div > div {
+	vertical-align: middle;
+}
+

@@ -46,25 +46,28 @@
       </div>
     </div>
 
-      <p>
-        <%= f.label :image %><br />
-        <%= f.file_field :image %>
-      </p>
+    <p style="padding-bottom: 10px;">
+      <%= f.label :image %><br />
+      <%= f.file_field :image %>
+    </p>
 
-    <div class="fields">
-      <% if action_name == "edit" %>
-        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, event_event_path(params[:id]), class: "btn btn-primary" %>
-      <% else %>
-        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, myevents_path(current_user.id), class: "btn btn-primary" %>
-      <% end %>
 
-      <div class="actions" style="float:right">
+    <div class="panel-footer" id="event-footer">
+      <div class="fields">
+        <% if action_name == "edit" %>
+          <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px; color:white;"></span>Voltar'.html_safe, event_event_path(params[:id]), class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px; color:white;"></span>Voltar'.html_safe, myevents_path(current_user.id), class: "btn btn-primary" %>
+        <% end %>
+
         <div class="actions" style="float:right">
-          <% if controller.action_name == "edit" %>
-              <%= f.submit "Editar Evento", :class=>"btn btn-primary" %>
-          <% else %>
-              <%= f.submit "Criar Evento" , :class=>"btn btn-primary"%>
-          <% end %>
+          <div class="actions" style="float:right">
+            <% if controller.action_name == "edit" %>
+                <%= f.submit "Editar Evento", :class=>"btn btn-primary" %>
+            <% else %>
+                <%= f.submit "Criar Evento" , :class=>"btn btn-primary"%>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
@@ -98,7 +101,7 @@
         autoclose: true,
         todayHighlight: true,
         calendarWeeks: true,
-        startDate: day + "/" + month + "/" + (year - 100)
+        startDate: day + "/" + month + "/" + year
     })
 </script>
 

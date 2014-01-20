@@ -1,19 +1,18 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= event_events_path %>"><i class="fa fa-tags"></i> Eventos</a>
-    <a class="url" href="<%= event_event_path(@event_event.id) %>"> > <%= @event_event.title %></a></li>
-  <div style="float:right">
-    <% if user_signed_in? %>
-        <%= link_to '<i class="fa fa-plus"></i>Novo Evento'.html_safe, new_event_event_path,:class=> "url"%>
-    <% end %>
-  </div>
+    <i class="fa fa-calendar"></i> <a class="url" href="<%= event_events_path %>">Eventos</a> >
+    <a class="url" href="<%= event_event_path(@event_event.id) %>"> <%= @event_event.title %></a>
+  </li>
+  <% if user_signed_in? %>
+      <%= link_to '<i class="fa fa-plus"></i>Novo Evento'.html_safe, new_event_event_path,:class=> "url", style:"float:right;" %>
+  <% end %>
 </ol>
 
-<div class="panel">
+<div class="panel panel-default" style="padding-bottom:50px; margin-bottom:0; min-height:455px;">
   <div class="panel-heading border-header">
     <h3 class="panel-title">Editar Evento</h3>
   </div>
-  <div class="panel-body">
+  <div class="panel-body" id="edit-event">
 
     <%= render 'form' %>
 

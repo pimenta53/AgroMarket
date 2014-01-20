@@ -12,30 +12,49 @@
   <% end %>
 
   <div class="field">
-      <%= f.label :start_day %><br>
-    <%= f.date_select :start_day %>
+      <%= f.label :dia_de_início %><br>
+    <%= f.text_field :start_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker", :value => (I18n.localize(@event_event.start_day) if (@event_event && @event_event.start_day)) %>
     </div>
   <div class="field">
-      <%= f.label :end_day %><br>
-    <%= f.date_select :end_day %>
-    </div>
+      <%= f.label :dia_de_fim %><br>
+  <%= f.text_field :end_day, :placeholder=>"dd/mm/yyyy", :class=> "datepicker", :value => (I18n.localize(@event_event.end_day) if (@event_event && @event_event.end_day)) %> 
+  </div>
   <div class="field">
-      <%= f.label :title %><br>
+      <%= f.label :título %><br>
     <%= f.text_field :title %>
     </div>
   <div class="field">
-      <%= f.label :description %><br>
+      <%= f.label :descrição %><br>
     <%= f.text_area :description %>
     </div>
   <div class="field">
-      <%= f.label :user_id %><br>
+      <%= f.label :id_do_utilizador %><br>
     <%= f.number_field :user_id %>
     </div>
   <div class="field">
-      <%= f.label :aproved %><br>
+      <%= f.label :aprovado? %><br>
     <%= f.check_box :aproved %>
     </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+    var currentTime = new Date()  ;
+    var month = currentTime.getMonth() + 1   ;
+    var day = currentTime.getDate() ;
+    var year = currentTime.getFullYear() ;
+
+    $('.datepicker').datepicker({
+        todayBtn: true,
+        startView: 2,
+        format: "dd/mm/yyyy",
+        language: "pt",
+        autoclose: true,
+        todayHighlight: true,
+        calendarWeeks: true,
+        startDate: day + "/" + month + "/" + (year - 100)
+    })
+</script>

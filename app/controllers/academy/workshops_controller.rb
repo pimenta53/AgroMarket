@@ -35,6 +35,7 @@ class Academy::WorkshopsController < ApplicationController
 
   # GET /academy/workshops/1/edit
   def edit
+
   end
 
   # POST /academy/workshops
