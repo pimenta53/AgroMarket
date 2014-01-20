@@ -1,4 +1,23 @@
 $(function() {
+  $(".followToggle").click(function(){
+       $id=$(this).val();
+       if ($(this).text() == "follow"){
+         $(this).text("unfollow");
+       }
+       else{
+         $(this).text("follow");
+       }
+       //$.post("./"+$id+"/follow");
+       $.ajax({
+          url: "./"+$id+"/follow",
+          async: true,
+          dataType: 'script',
+          type: "POST",
+          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));}
+       });
+       location.reload();
+     }
+  );
 
             //select inputs
             $("select").select2();

@@ -35,27 +35,34 @@
 
       <aside class="profile-nav col-lg-3">
         <section class="panel">
-                  <div class="user-heading round">
-                        <a href="#"><%= image_tag @user.avatar.url(:medium),:width => "70%"%></a>
-                        <h1><%= @user.name %></h1>
-                        <p>
-                          <%= @user.email %>
-                        </p>
-                  </div>
-                  <ul class="nav nav-pills nav-stacked">
-                          <li class="">
-                            <%= link_to "Perfil".html_safe , user_path(current_user.id), :class => "fa fa-user" %>
-                          </li>
-                          <% if (current_user && @user.id == current_user.id) %>
-                            <li>
-                              <%= link_to "Editar Perfil".html_safe , edit_user_registration_path(), :class => "fa fa-edit" %>
-                            </li>
-                          <% end %>
-                          <li> 
-                            <span class="label  pull-right r-activity counter_ads"><%= @user.counter_ads %></span>
-                            <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(current_user.id), :class => "fa fa-calendar" %> 
-                          </li>
-                  </ul>
+
+          <div class="user-heading round">
+            <a href="#"><%= image_tag @user.avatar.url(:medium),:width => "70%"%></a>
+            <h1><%= @user.name %></h1>
+            <p>
+              <%= @user.email %>
+            </p>
+          </div>
+          <ul class="nav nav-pills nav-stacked">
+            <% if action_name!="edit"%><li class="active"><%else%><li><%end%>
+              <%= link_to " Perfil".html_safe , user_path(current_user.id), :class => "fa fa-user" %>
+            </li>
+            <% if (current_user && @user.id == current_user.id) %>
+              <% if action_name=="edit"%><li class="active"><%else%><li><%end%>
+                <%= link_to " Editar Perfil".html_safe , edit_user_registration_path(), :class => "fa fa-edit" %>
+              </li>
+            <% end %>
+            <li>
+              <% if current_user.id == @user.id %>
+                <span class="label  pull-right r-activity counter_ads"><%= @user.counter_ads %></span>
+                 <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %>
+              <% else %>
+                 <span class="label  pull-right r-activity counter_ads"><%= @user.counter_ads %></span>
+                  <%= link_to " Anúncios de #{@user.name}".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %> <span class="label label-danger pull-right r-activity"><%= @user.counter_ads %></span>
+              <% end %>
+            </li>
+          </ul>
+
         </section>
         
         <% if (current_user && @user.id != current_user.id) %>

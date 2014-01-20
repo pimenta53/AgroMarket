@@ -13,19 +13,19 @@
 # CODIGO NOTIFICACOES
 # => 1 -> ad message,
 # => 2 -> ad expired,
-# => 3 -> ad deleted by admin
+# => 3 ->
 # => 4 -> new answer for your questions
 # => 5 -> New registrations to the workshop
 # => 6 -> Tutorial Aprovado
-# => 7 -> Evento Aprovado 
-# => 8 -> Nova Mensagem Privada
-# => 9 -> Workshop Aproved
-# => 
+# => 7 -> Evento Aprovado
+# => 8 -> Workshop Aproved
+# => 9 -> Nova Mensagem Privada
+# =>
 
 class Notification < ActiveRecord::Base
 
   belongs_to :user
-  
+
   def self.ads_notification
     where(:notification_type => ["1", "2", "3"])
   end
@@ -51,11 +51,16 @@ class Notification < ActiveRecord::Base
     return r.blank? ? false : true
   end
 
-  def self.create_notification( current_user , id_destination , notification_type , description )
-      n = Notification.new(:user_id => current_user.id, :id_destination => id_destination, :notification_type => notification_type, :description => description )
+  def self.create_notification( user_id , id_destination , notification_type , description )
+      n = Notification.new(:user_id => user_id, :id_destination => id_destination, :notification_type => notification_type, :description => description )
       n.save
   end
-  
+
+  def self.clear_notifications(notif_type, id_dest)
+    notifications = where(notification_type: notif_type, id_destination: id_dest)
+    notifications.delete_all
+  end
+
   #get Ad of notification
   def ad
     Ad.find(self.id_destination)
@@ -71,6 +76,10 @@ class Notification < ActiveRecord::Base
 
   def event
     Event::Event.find(self.id_destination)
+  end
+
+  def tutorial
+    Academy::Tutorial.find(self.id_destination)
   end
 
   def type_notification
@@ -108,7 +117,5 @@ class Notification < ActiveRecord::Base
           4
       end
   end
-
-
 
 end

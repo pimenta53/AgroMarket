@@ -24,7 +24,7 @@
 				<td><%= uap_tutorial.rapid_description.truncate(25).html_safe %></td>
 				<td><%= link_to 'Ver', admin_academy_tutorial_path(uap_tutorial.id) %> </td>
 				<td><%= link_to 'Aprovar' , admin_aprove_tutorial_path(:id_aprove => uap_tutorial.id)%></td>
-				<td><%= link_to 'Apagar', uap_tutorial, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+				<td><%= link_to 'Eliminar', [:admin, uap_tutorial], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
 
 				<td></td>
 
@@ -62,7 +62,7 @@
 				<td><%= ap_tutorial.rapid_description.truncate(25).html_safe %></td>
 				<td><%= link_to 'Ver', admin_academy_tutorial_path(ap_tutorial.id) %> </td>
 				<td><%= link_to 'Editar',edit_admin_academy_tutorial_path(ap_tutorial.id) %> </td>
-				 <td><%= link_to 'Apagar', ap_tutorial, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+				<td><%= link_to 'Eliminar', [:admin, ap_tutorial], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
 
 			</tr>
 	<% end %>

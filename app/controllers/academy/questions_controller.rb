@@ -112,6 +112,9 @@ class Academy::QuestionsController < ApplicationController
   def destroy
     a = Academy::Question.find(params[:id].split('-')[0])
     a.update(:is_deleted => true)
+    dest = a.id
+    type = 4 #answer_question_code
+    Notification.clear_notifications(type,dest)
     a.save
     redirect_to academy_questions_path
   end

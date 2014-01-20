@@ -20,6 +20,10 @@ class Academy::Tutorial < ActiveRecord::Base
   belongs_to :category
   has_many :tutorial_images
 
+  #scopes
+  default_scope -> { where('is_deleted = ?',false) } #Só apresenta os tutoriais que não foram apagados
+
+
   #validates
   validates :text, presence:{ message: "O campo com o conteúdo do tutorial nao pode ser vazio! Explicíte cada passo do tutorial neste campo." }
 

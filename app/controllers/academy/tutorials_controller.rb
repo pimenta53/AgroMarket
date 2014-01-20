@@ -99,7 +99,12 @@ class Academy::TutorialsController < ApplicationController
   # DELETE /academy/tutorials/1
   # DELETE /academy/tutorials/1.json
   def destroy
-    @academy_tutorial.destroy
+    #@academy_tutorial.destroy
+    dest = @academy_tutorial.id
+    type = 6 #aproved_tutorial_code
+    Notification.clear_notifications(type ,dest)
+    @academy_tutorial.is_deleted = true
+    @academy_tutorial.save
     respond_to do |format|
       format.html { redirect_to academy_tutorials_url }
       format.json { head :no_content }
