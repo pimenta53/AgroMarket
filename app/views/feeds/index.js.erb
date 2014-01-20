@@ -1,10 +1,9 @@
-alert("omgod");
-alert(escape_javascript(render partial: "elem_feed"));
-$('#feeds').append('<%= escape_javascript(render partial: "elem_feed") %>');
+
+$('#mainFeedBox').append('<%= escape_javascript(render partial: "elem_feed") %>');
 
 <% if @feeds.next_page %> 
   $('div.load-more-feeds').attr('href', '<%= feed_path page: @feeds.next_page %>');
 <% else %>
   $('div.load-more-feeds').attr('href', '#');
-  $('div.load-more-feeds').text(");
+  $('div.load-more-feeds').text('');
 <% end %>
