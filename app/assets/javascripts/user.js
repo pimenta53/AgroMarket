@@ -4,6 +4,7 @@ $(function() {
             $("select").select2();
 
             //
+
             $('input.datepicker').datepicker({"format": "dd/mm/yyyy",autoclose: true});
 
 
@@ -13,6 +14,7 @@ $(function() {
 
             //Click dropdown
             panelsButton.click(function() {
+                 alert("ads");
                 //get data-for attribute
                 var dataFor = $(this).attr('data-for');
                 var idFor = $(dataFor);
@@ -21,6 +23,7 @@ $(function() {
                 //current button
                 var currentButton = $(this);
                 idFor.slideToggle(400, function() {
+
                     //Completed slidetoggle
                     if(idFor.is(':visible'))
                     {

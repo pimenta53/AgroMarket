@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140120121646) do
 
-
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
     t.integer  "user_id",                     null: false

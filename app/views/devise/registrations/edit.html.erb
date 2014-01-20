@@ -1,8 +1,16 @@
 <aside class="profile-info col-lg-9">
 
     <section class="panel">
-        <div class="panel-body bio-graph-info">
-            <h1> Profile Info</h1>
+
+         <div class="panel-default" style="">
+                    <div class="panel-heading border-header panel-default">
+                        <h3 class="panel-title">Informações do Utilizador</h3>
+                    </div>
+             </div>
+        <div class="panel-body bio-graph-info" style="margin-top:10px;">
+           
+           
+
             <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put ,:class=>"form-horizontal"}) do |f| %>
             <%= devise_error_messages! %>
 
@@ -71,15 +79,58 @@
         </div>
       </section>
 
+           <section>
+                    <div class="panel panel-default">
+                       
+                            <div class="panel-default" style="">
+                              <div class="panel-heading border-header panel-default">
+                                  <h3 class="panel-title">Mudar a password ou Imagem do Utilizador</h3>
+                              </div>
+                            </div>
+                        <div class="panel-body" style="margin-top:10px;">
+                            <div class="row" >
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Nova Password</label>
+                                <div class="col-lg-6">
+                                    <%= f.password_field :password, :autocomplete => "off" ,:class=>"form-control",:id=>"n-pwd",:placeholder=>" " %>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="row" >
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Rescreva Nova Password</label>
+                                <div class="col-lg-6">
+                                     <%= f.password_field :password_confirmation ,:class=>"form-control",:id=>"rt-pwd",:placeholder=>" " %>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="row" >
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Alterar Avatar</label>
+                                <div class="col-lg-6">
+                                    <%= f.file_field :avatar ,:class=>"form-control file-pos"%>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+      </section>
 
 
+                      <section>
+                            <div class="panel panel-default">
 
-   
+                              <div class="panel-default" style="">
+                              
+                                 <div class="panel-heading border-header panel-default">
+                                    <h3 class="panel-title">Salvar</h3>
+                                </div>
 
-                        <section>
-                            <div class="panel panel-primary">
-                                <div class="panel-heading"> Salvar</div>
-                                <div class="panel-body">
+                              </div>
+                                <div class="panel-body" style="margin-top:10px;">
                                     <div class="form-group">
                                         <label class="col-lg-2 control-label">Password atual</label>
                                         <div class="col-lg-6">
@@ -103,10 +154,16 @@
     
 
     <section>
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
 
-        <div class="panel-heading"> Coneções exteriores </div>
-        <div class="panel-body">
+          <div class="panel-default" style="">
+
+                   <div class="panel-heading border-header panel-default">
+                                              <h3 class="panel-title">Coneções exteriores</h3>
+                   </div>
+        </div>
+
+        <div class="panel-body" style="margin-top:10px;">
           <div class="form-group">
              <div class="social-box">
                 <% provider_count = 0 %>
@@ -145,10 +202,14 @@
     </section>
 
     <section>
-        <div class="panel panel-primary">
+        <div class="panel panel-default" style="margin-bottom:10px;">
 
-        <div class="panel-heading"> Apagar a Conta </div>
-             <div class="panel-body">
+          <div class="panel-default" style="">
+                <div class="panel-heading border-header panel-default">
+                                            <h3 class="panel-title">Apagar a Conta</h3>
+                 </div>
+        </div>
+             <div class="panel-body" style="margin-top:10px;">
                 <div class="form-group">
                     <label class="col-lg-2 control-label">Deseja apagar a conta?</label>
                     <div class="col-lg-10">
