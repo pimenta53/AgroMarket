@@ -11,6 +11,9 @@
     <i class="fa fa-tags"></i> <a class="url" href="<%= ads_path %>"> Anúncios</a> >
     <a class="url" href="<%= ad_path(@ad.id) %>"> <%= @ad.title %></a>
   </li>
+  <% if user_signed_in? %>
+    <%= link_to "<i class='fa fa-plus'></i>Novo Anúncio".html_safe, new_ad_path, class:"url", style:"float:right" %>
+  <% end %>
 </ol>
 
 
@@ -114,11 +117,13 @@
             <% end %>
           </div>
         </div>
-        <div class="ads_title">
-          <h4>
-            <%= @ad.title %>
-          </h4>
-          <div style="float:right">
+        <div style="display:inline-block; width:100%; vertical-align:middle;">
+          <div style="float:left;">
+            <h4 class="ads_title">
+              <%= @ad.title %>
+            </h4>
+          </div>
+          <div style="float:right; margin-top:7px;">
             <% if user_signed_in? && current_user.id == @ad.user_id %>
               <%= link_to '<i class="fa fa-star"></i>Destacar '.html_safe, promove_ad_payment_path(@ad.id), :class=>"btn btn-success btn-sm ",:rel=>"tooltip_down",:title=>"Pode destacar o anúncio para ele ser mais visto!!" %>
             <% end %>
@@ -132,28 +137,30 @@
             </p>
          </div>
          <div class ="ads_description">
-            <p>
-               <strong>Vendedor:</strong>
-               <%= link_to @ad.user.name, @ad.user %>
-            </p>
-            <p>
-               <strong>Preço:</strong>
-               <span class="label label-info" >
-                  <%= "#{@ad.price} #{@ad.price_type.name}" %>
-               </span>
-            </p>
-            <p>
-               <strong>Final do Anúncio:</strong>
-               <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
-            </p>
-            <p>
-               <strong>Cidade:</strong>
-               <%= @ad.city.city %>
-            </p>
-            <p>
-               <strong>Localização:</strong>
-               <%= @ad.location %>
-            </p>
+            <div style="width:100%; padding: 5px 0;"> 
+              <div style="float:left;">
+                 <strong>Vendedor:</strong>
+                 <%= link_to @ad.user.name, @ad.user %>
+              </div>
+              <div style="float:right; text-align:right; min-width:100px;">
+                 <strong>Preço:</strong>
+                 <span class="label label-info" >
+                    <%= "#{@ad.price} #{@ad.price_type.name}" %>
+                 </span>
+              </div>
+            </div>
+            <br>
+            <div style="width:100%;">
+              <div style="width:100%; padding: 5px 0;">
+                 <strong>Termina em:</strong>
+                 <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
+              </div>
+              <div style="float:right; text-align:right; min-width:100px;">
+                 <strong>Localização:</strong>
+                 <%= @ad.location %>
+              </div>
+            </div>
+            <br>
             <div class="fb-share-button sharebutton" data-href="http://teste94.di.uminho.pt/" data-type="button">
             </div>
             <div class="sharebutton">
