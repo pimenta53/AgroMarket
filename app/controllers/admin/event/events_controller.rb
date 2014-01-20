@@ -1,5 +1,4 @@
-class Admin::Event::EventsController < ApplicationController
-  layout "admin"
+class Admin::Event::EventsController < Admin::ApplicationController
   before_action :set_event_event, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/event/events
@@ -97,7 +96,12 @@ class Admin::Event::EventsController < ApplicationController
   # DELETE /admin/event/events/1
   # DELETE /admin/event/events/1.json
   def destroy
-    @event_event.destroy
+    #@event_event.destroy
+    @event_event.deleted = true
+    dest = @event_event.id
+    type = 7 #event_notifications_code
+    Notification.clear_notifications(type,dest)
+    @event_event.save
     respond_to do |format|
       format.html { redirect_to admin_event_events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }

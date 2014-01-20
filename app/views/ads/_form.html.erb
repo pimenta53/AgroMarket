@@ -1,7 +1,9 @@
 <%= form_for @ad, :html => {:multipart => true,:id=>"ad-form"} do |f| %>
     <div class="control-group">
-      <%= f.label :category_id, "Categoria",:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="ad_category_id"></label>
+      <label class="control-label"> Categoria</label>
+      <div class="controls">
         <%= f.collection_select(:category_id,@categories,:id,:name, :include_blank => 'Escolha uma categoria') unless @categories.blank? %>
+      </div>
     </div>
 
     <div class="control-group">
@@ -19,8 +21,7 @@
       </div>
     </div>
 
-    <div class="row">
-
+    <div class="row" style="margin: 0 -15px 0 -15px;">
       <div class="col-md-6">
         <div class="control-group">
           <%= f.label :price, "Preço" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="ad_price"></label>
@@ -127,8 +128,7 @@
 
 
       <!--Link para adicionar mais imagens (show/hide JQuery)-->
-      <br>
-      <a id='add' class="btn btn-info"><i class="fa fa-plus"></i> Adicionar outra</a>
+      <a id='add' class="btn btn-info"><i class="fa fa-plus" style="color:white;"></i> Adicionar outra</a>
 
       <div class="existingPaperclipFiles">
 
@@ -149,14 +149,16 @@
 
     </div>
 
-    <div class="fields">
-      <% if action_name == "edit" %>
-      <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, ad_path(params[:id].split('-').first), class: "btn btn-primary" %>
-<% else %>
-<%= link_to '<span class="icon-arrow-left" style="margin-right: 5px;"></span>Voltar'.html_safe, myads_user_path(current_user.id), class: "btn btn-primary" %>
-<% end %>
-      <div class="actions" style="float:right">
-        <%= f.submit "Publicar Anúncio", :class=>"btn btn-primary" %>
+    <div class="panel-footer" id="buttons-market">
+      <div class="fields">
+        <% if action_name == "edit" %>
+        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px; color:white;"></span>Voltar'.html_safe, ad_path(params[:id].split('-').first), class: "btn btn-primary" %>
+        <% else %>
+        <%= link_to '<span class="icon-arrow-left" style="margin-right: 5px; color:white;"></span>Voltar'.html_safe, myads_user_path(current_user.id), class: "btn btn-primary" %>
+        <% end %>
+        <div class="actions" style="float:right">
+          <%= f.submit "Publicar Anúncio", :class=>"btn btn-primary" %>
+        </div>
       </div>
     </div>
 

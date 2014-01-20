@@ -1,15 +1,18 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds"  style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= ads_path %>"><i class="fa fa-tags"></i> Anúncios</a>
-    <a class="url" href="<%= ad_path(@ad.id) %>"> > <%= @ad.title %></a>
+    <i class="fa fa-tags"></i> <a class="url" href="<%= ads_path %>">Anúncios</a> >
+    <a class="url" href="<%= ad_path(@ad.id) %>"> <%= @ad.title %></a>
   </li>
+  <% if user_signed_in? %>
+    <%= link_to "<i class='fa fa-plus'></i>Novo Anúncio".html_safe, new_ad_path, class:"url", style:"float:right" %>
+  <% end %>
 </ol>
 
-<div class="panel panel-default">
+<div class="panel panel-default" style="padding-bottom:50px; margin-bottom:0; min-height:1375px;">
   <div class="panel-heading">
     <h3 class="panel-title">Editar Anúncio</h3>
   </div>
-  <div class="panel-body">
+  <div class="panel-body" style="margin: 10px 10px;">
 
     <%= render 'form' %>
 

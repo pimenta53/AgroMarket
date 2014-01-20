@@ -1,4 +1,12 @@
-<h2>A tua caixa de entrada</h2>
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
+  <% if user_signed_in? %>
+  <li class="active">
+    <i class="fa fa-user"></i>
+    <a class="url" href="<%= user_path(current_user.id) %>"><%= current_user.name %></a> >
+    <a class="url" href="<%= messages_path %>">Mensagens</a>
+  </li>
+  <% end %>
+</ol>
 <% if @talks_privates.size == 0 %>
 Nenhuma mensagem na tua caixa de entrada
 <% end %>
