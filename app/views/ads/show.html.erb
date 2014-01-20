@@ -45,7 +45,7 @@
 <!--TWITTER SDK END -->
 
 <% num_img=@ad.ad_images.count %>
-<section class="panel">
+<section class="panel" style="border: 1px solid #dddddd;">
    <div class="panel-body" style="margin:10px 10px 10px 10px;">
       <div class="col-md-6">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -231,7 +231,7 @@
     <div class="panel-heading border-header">
       <h3 class="panel-title">Mensagens</h3>
     </div>
-   <div class="panel-body  panel_without_bg">
+   <div class="panel-body panel_without_bg">
       <% if user_signed_in? %>
         <div id="messages">
            <%= render "messages/messages_ads" %>

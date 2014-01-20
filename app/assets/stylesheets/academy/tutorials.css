@@ -62,18 +62,18 @@
 }
 
 #tutorial-info li {
-	width: 49.8%;
 	display: inline-block;
 	vertical-align: middle;
+}
+
+#tutorial-info li:last-child {
+	float: right;
 }
 
 #category-label span {
 	vertical-align: middle;
 }
 
-#tutorial-date {
-	text-align: right;
-}
 .title-font {
 	font-size: 15px;
 }

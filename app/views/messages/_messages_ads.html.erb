@@ -1,21 +1,26 @@
 <% if @talks.empty? %>
   <%#  if there is no messages for this user  %>
-  <p>"Não existem mensagens neste anuncio"</p>
-  <% if @ad.user_id != current_user.id %><%#  and if the logged user isn't the owner  %>
+  <div style="margin: 10px 10px;">
+    <p>"Não existem mensagens neste anúncio"</p>
+    <% if @ad.user_id != current_user.id %><%#  and if the logged user isn't the owner  %>
 
     <%#  create the message's form  %>
     <%= form_for @message, :url => ad_new_messages_path(@ad.id),:html => {:id => "comment_ad",:ajax_path => ad_new_messages_path(@ad.id) } do |m| %>
-
-      <div class="field">
+    <div style="display: inline-block; width:100%;">
+      <div class="field" style="width:100%;">
         <%= m.text_field :text,:id => "text_comment",:rows=>1,:class=> "form-control counted" ,:placeholder => "Responder"%>
-        <h6 class="pull-right" id="counter">144 characters remaining</h6>
+        <h6 id="counter" style="text-align:left;">144 characters remaining</h6>
       </div>
 
-        <%= m.hidden_field :user_id, :value => @ad.user.id,:readonly => true %>
+      <%= m.hidden_field :user_id, :value => @ad.user.id,:readonly => true %>
 
-      <%= m.submit "Enviar" %>
+      <div style="float:right; margin-top:-20px;">
+        <%= m.submit "Enviar", :class => "btn btn-info" %>
+      </div>
+    </div>
     <% end %>
-  <% end %>
+    <% end %>
+  </div>
 <% else %>
   <%#  there is messages for/from this user  %>
   <% @talks.each do |t| %>
