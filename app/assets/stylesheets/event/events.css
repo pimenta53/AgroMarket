@@ -1,0 +1,73 @@
+
+
+.event-box {
+	width: 100% !important;
+}
+
+#title-approval, #event-title {
+	margin: 35px 0 10px 0;
+}
+
+#title-approval * {
+	vertical-align: middle;
+}
+
+#title-approval a {
+	margin-right: 5px;
+}
+
+#event-description {
+	margin: 10px 0 10px 10px;
+}
+
+#event-image {
+	margin: 5px 0 5px 0;
+}
+
+.event-begin {
+	margin-right: 15px;
+}
+
+.sectin-box {
+	height: 100%;
+}
+
+#edit-event {
+	margin: 10px 10px -10px 10px;
+}
+
+#event-begin-date {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+#event-city {
+	margin-right: 0;
+	padding-right: 0;
+	height: 100%;
+}
+
+#event-cities {
+	height: 34px !important;
+}
+
+#event-footer {
+	position: absolute;
+	left: 16px;
+	right: 1px;
+	bottom: 1px;
+	height: 55px;
+	width: auto;
+	border-color: #dddddd;
+
+}
+
+#event-footer a {
+	height: 100%;
+	vertical-align: middle;
+	color: white !important;
+}
+
+#event-footer div>div {
+	vertical-align: middle;
+}
