@@ -56,15 +56,18 @@ class Ability
         can :update, User
         can :create, User
 
+
+        can :update, Ad, :user_id => user.id
+        can :update, Academy::Tutorial, :user_id => user.id
+
     elsif user.user_type == 2 #admin user
         can :manage, :all
     else
+        ajkdsjaklsdjasjkl
         can :read, :all
     end
 
-    can :update, Ad, :user_id => user.id
-    can :update, Academy::Tutorial, :user_id => user.id
-
+    
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
