@@ -51,7 +51,7 @@ class Ad < ActiveRecord::Base
   validates :type_price_id, presence: true
   validates :city_id, presence: true
   validates :category, presence: true
-  validate :ad_limit_validation
+  validate :ad_limit_validation, on: :create
 
 
   def ad_limit_validation
