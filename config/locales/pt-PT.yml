@@ -6,12 +6,51 @@ pt-PT:
     errors:
       generic:
         cannot_be_in_future: não pode estar no futuro
+        cannot_be_in_past: não pode estar no passado
+        cannot_exceed_one_week: não pode exceder uma semana desde hoje
       ad:
         limit_reached: não pode criar novos anúncios
+      event:
+        cannot_be_before_start_day: não pode ocorrer antes da Data de Inicio
   #Custom labels
     models:
+      ad: Anuncio
+      ad_image: Imagem de Anuncio
+      admin: Administrador
+      authentication: Autenticação
+      category: Categoria
+      city: Cidade
+      district: Distrito
+      message: Mensagem
+      message_observer: Observador da Imagem
+      notification: Notificação
+      notification_observer: Observador da Notificação
+      payment: Pagamento
+      plan: Plano
+      plan_user: Plano do Utilizador
+      price_type: Tipo de Preço
+      rating: Rating
+      sub_categoria: Subcategoria
+      talk: Conversa
       user: Utilizador
+      user_follow: Utilizadores a seguir
+      event/event: Evento
+      academy:
+        answer: Resposta
+        question: Pergunta
+        tutorial: Tutorial
+        tutorial_image: Imagem do Tutorial
+        vote: Voto
+        workshop: Workshop
+        
     attributes:
+      ad:
+        title: Título
+        expire_date: Data de Validade
+        price: Preço
+        location: Localidade
+        description: Descrição
+        permanent_link: Link Permanente
       user:
         login: "login"
         name: Nome
@@ -23,6 +62,24 @@ pt-PT:
         phone: Telefone
         plan: Plano
         password_confirmation : Confirmar Password
+      academy/workshop:
+        available_slots: Vagas Disponíveis
+        slots_taken: Vagas Alugadas
+        price: Preço
+        local: Localidade
+        date: Data
+        description: Descrição
+      event/event:
+        start_day: Data de Inicio
+        end_day: Data de Encerramento
+        title: Título
+      academy/question:
+        title: Título
+        text: Texto
+      academy/tutorial:
+        title: Título
+        text: Texto
+        rapid_description: Descrição Rápida
   #Date time format
   time:
     formats:
