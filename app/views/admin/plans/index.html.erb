@@ -33,7 +33,7 @@
         <td></td>
         <td><%# link_to 'Ver', admin_plan %></td>
         <td><%= link_to 'Editar', edit_admin_plan_path(admin_plan) %></td>
-        <td><%= link_to 'Eliminar', admin_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eliminar', [:admin,admin_plan], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -55,10 +55,10 @@ class MessagesController < ApplicationController
         @messages = @talk.messages
         #notify the owner of the Workshop
         #verificar ja existe uma notificacao referente a esta conversacao
-        if Notification.have_notification_message?( current_user, @talk.id ) == false
-          Notification.create_notification( current_user , @talk.id , 8 , "Tem novas Mensagens")
+        if Notification.have_notification_message?( @talk.user_receiver(current_user.id), @talk.id ) == false
+          Notification.create_notification( @talk.user_receiver(current_user.id) , @talk.id , 8 , "Tem novas Mensagens")
         end
-        
+
         render :partial => 'create_mp.js.erb'
       end
 
@@ -92,8 +92,9 @@ class MessagesController < ApplicationController
     if @message.save
         @messages = @talk.messages
         @message = Message.new
-        UserMailer.send_message_ad(@talk.user_receiver_email(current_user.id),current_user.name,@ad.title,params[:message][:text]).deliver
+        UserMailer.delay.send_message_ad(@talk.user_receiver_email(current_user.id),current_user.name,@ad.title,params[:message][:text])
 
+        
         #if doesnt exist, create a notification for the other user and save it
         if Notification.where(:user_id => @talk.user_receiver(current_user.id), :id_destination => @ad.id, :notification_type => 1, :watched => false).empty?
           ad_notify = Notification.new(:user_id => @talk.user_receiver(current_user.id), :id_destination => @ad.id)

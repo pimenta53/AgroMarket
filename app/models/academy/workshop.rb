@@ -27,7 +27,7 @@ class Academy::Workshop < ActiveRecord::Base
 
   ## validations ##
   validates :description, :length => {:maximum => 255, too_long: "é demasiado longo!", :minimum => 50, too_short: "tem de ser composto no mínimo por 50 caracteres."}, :presence => "true"
-
+  validates :available_slots, presence: true
 
   def add_inscription
     self.slots_taken += 1

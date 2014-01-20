@@ -99,16 +99,15 @@ body {
     display: inline-block;
 }
 
-.ads_title{
+.ads_title {
 	font-size: 24px;
-    margin-top: 0;
 }
 
-.ads_metainfo{
+.ads_metainfo {
 	border-top: 1px solid #eee;
 	border-bottom: 1px solid #eee;
-	padding: 10px 0;
-	margin: 15px 0;
+	padding: 10px 0 5px 0;
+	margin: 10px 0 10px 0;
 }
 
 .header_tab{
@@ -348,3 +347,23 @@ border-radius: 4px 4px 0 0;
 	opacity:0.7;
 }
 
+/* ------ FOOTER ------- */
+#buttons-market {
+	position: absolute;
+	left: 16px;
+	right: 1px;
+	bottom: 1px;
+	height: 55px;
+	width: auto;
+	border-color: #dddddd;
+}
+
+#buttons-market a {
+	height: 100%;
+	vertical-align: middle;
+	color: white !important;
+}
+
+#buttons-market div > div {
+	vertical-align: middle;
+}

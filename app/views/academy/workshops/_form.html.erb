@@ -52,13 +52,13 @@
 
     <div class="col-md-3">
       <div class="control-group">
-        <%= f.label :available_slots, "Vagas Disponíveis",:class=>"control-label" %><label class="help-inline"  generated="true" for="academy_workshop_available_slots"></label>
+        <%= f.label :available_slots, "Vagas Disponíveis",:class=>"control-label" %><label style="margin-left:10px" class="help-inline"  generated="true" for="academy_workshop_available_slots"></label>
         <div class="controls">
           <div class="input-group">
             <span class="input-group-addon">
               <%= f.check_box :requires_registration ,:class=>"button-checkbox" %>
             </span>
-            <%= f.number_field :available_slots,:class=>"form-control v_places",:rel=>"tooltip",:title=>"Número máximo de inscrições para o workshop.", :readonly => :false  %>
+            <%= f.number_field :available_slots,:class=>"form-control v_places",:rel=>"tooltip",:title=>"Número máximo de inscrições para o workshop.", :readonly => :false %>
           </div>
         </div>
       </div>

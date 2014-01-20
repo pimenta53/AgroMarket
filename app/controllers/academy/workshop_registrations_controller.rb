@@ -35,7 +35,7 @@ class Academy::WorkshopRegistrationsController < ApplicationController
         workshop.add_inscription
 
         #notify the owner of the Workshop
-        Notification.create_notification( current_user , workshop.id , 5 , "Tem uma Nova Inscrição")
+        Notification.create_notification( workshop.user_id , workshop.id , 5 , "Tem uma Nova Inscrição")
 
         format.html { redirect_to  @academy_workshop_registration.workshop, notice: 'Workshop registration was successfully created.' }
         format.json { render action: 'show', status: :created, location: @academy_workshop_registration }
@@ -64,7 +64,7 @@ class Academy::WorkshopRegistrationsController < ApplicationController
   # DELETE /academy/workshop_registrations/1.json
   def destroy
 
-    
+
     workshop = @academy_workshop_registration.workshop_id
     @academy_workshop_registration.destroy
     Academy::Workshop.find(workshop).remove_inscription
