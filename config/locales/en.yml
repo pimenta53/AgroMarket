@@ -25,6 +25,8 @@ en:
     errors:
       generic:
         cannot_be_in_future: cannot be in the future
+      ad:
+        limit_reached: cannot create more advertsements
     #Custom labels
     attributes:
       user:

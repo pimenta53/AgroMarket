@@ -1,7 +1,7 @@
 class AuthenticationsController < ApplicationController
   
   def failure
-    flash[:notice] = "Authentication failed."
+    flash[:notice] = I18n.t('devise.omniauth_callbacks.failure')
     redirect_to new_user_session_url
   end
   
@@ -9,11 +9,11 @@ class AuthenticationsController < ApplicationController
     omniauth = request.env["omniauth.auth"]
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
-      flash[:notice] = "Signed in successfully."
+      flash[:notice] = I18n.t('devise.omniauth_callbacks.success')
       sign_in_and_redirect(:user, authentication.user)
     elsif current_user
       current_user.omni_authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
-      flash[:notice] = "Authentication successful."
+      flash[:notice] = I18n.t('devise.omniauth_callbacks.success')
       redirect_to refresh_url
     else
       user = User.match_omniauth(omniauth)
@@ -27,7 +27,7 @@ class AuthenticationsController < ApplicationController
           p = PlanUser.new(:user_id => user.id, :plan_id => Plan.first.id)
           p.save
           
-          flash[:notice] = "Signed in successfully."
+          flash[:notice] = I18n.t('devise.omniauth_callbacks.success')
           #CORRIGEM OS SMTP SETTINGS PLZ
           #Dropbox\Agrosocial\business\mails\mail_conf_no_reply.png
           #
