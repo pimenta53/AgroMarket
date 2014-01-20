@@ -92,8 +92,9 @@ class MessagesController < ApplicationController
     if @message.save
         @messages = @talk.messages
         @message = Message.new
-        UserMailer.send_message_ad(@talk.user_receiver_email(current_user.id),current_user.name,@ad.title,params[:message][:text]).deliver
-
+        a = UserMailer.delay.send_message_ad(@talk.user_receiver_email(current_user.id),current_user.name,@ad.title,params[:message][:text])
+        a.deliver
+        
         #if doesnt exist, create a notification for the other user and save it
         if Notification.where(:user_id => @talk.user_receiver(current_user.id), :id_destination => @ad.id, :notification_type => 1, :watched => false).empty?
           ad_notify = Notification.new(:user_id => @talk.user_receiver(current_user.id), :id_destination => @ad.id)
