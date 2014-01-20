@@ -16,13 +16,13 @@
 <p>Nome: <%= @admin_user.name %></p>
 <p>Email: <%= @admin_user.email %></p>
 <p>Cidade: <%= @admin_user.city.city %></p>
-<p>Aniversário: <%= @admin_user.birthday %> Falta o FORMAT</p>
+<p>Aniversário: <%= I18n.l @admin_user.birthday %></p>
 <p>Telefone: <%= @admin_user.phone %></p>
 <p>Ocupação: <%= @admin_user.ocupation %></p>
-<p>Membro desde: <%= @admin_user.created_at %></p>
-<p>Último Login: <%= @admin_user.last_sign_in_at %></p>
+<p>Membro desde: <%= I18n.l @admin_user.created_at, format: :time %></p>
+<p>Último Login: <%= I18n.l @admin_user.last_sign_in_at, format: :time %></p>
 <p>Nr de Logins: <%= @admin_user.sign_in_count %></p>
-<p>Tipo : <% if @admin_user.user_type==2 %> Admin <% else %> User <%end%> </p>
+<p>Tipo : <% if @admin_user.user_type==2 %> Administrador <% else %> Utilizador normal <%end%> </p>
 
 </div>
  <i class="fa fa-reply"></i><%= link_to ' Voltar', admin_users_path %>
