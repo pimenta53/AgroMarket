@@ -129,7 +129,8 @@ a:hover #dropCarret{
 
 #custom-badge{
   margin-left:-10px;
-  background-color: #2a3542;
+  background-color: rgb(210, 50, 45);
+  color: rgb(255, 255, 255);
 }
 
 
