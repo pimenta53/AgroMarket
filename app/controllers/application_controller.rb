@@ -17,26 +17,35 @@ class ApplicationController < ActionController::Base
     render :partial => 'layouts/header'
   end
 
+  # Load all notifications
+  # => 1 -> new message in ad
+  # => 2 -> ad expired
+  # => 3 -> ad deleted by admin
+  # => 4 -> new answer for your question
+  # => 5 -> New registration in your workshop
+  # => 6 -> Aproved tutorial
+  # => 7 -> Aproved Event
+  # => 8 -> Aproved workshop
+  # => 9 -> new private message
   def load_notifications
     all_notifications = Notification.where(:user_id => current_user, :watched => false)
 
     # notification from ads
     @notifications_ad_messages  = all_notifications.where(:notification_type => 1)
     @notifications_ad_expired   = all_notifications.where(:notification_type => 2)
+    @notifications_ad_deleted   = all_notifications.where(:notification_type => 3)
 
-    @number_notifications_ads = @notifications_ad_messages.size + @notifications_ad_expired.size
+    @number_notifications_ads   = @notifications_ad_messages.size + @notifications_ad_expired.size + @notifications_ad_deleted.size
 
     ########notificações de academia#################
-    @notifications_new_answer   = all_notifications.where(:notification_type => 4)
-
+    @notifications_new_answer           = all_notifications.where(:notification_type => 4)
     @notification_acmy_new_registration = all_notifications.where(:notification_type => 5 )
+    @notification_acmy_aproved          = all_notifications.where(:notification_type => [6,7,8] )
 
-    @notification_acmy_aproved = all_notifications.where(:notification_type => [6,7,9] )
-
-    @number_notifications_academy = @notification_acmy_new_registration.size + @notifications_new_answer.size + @notification_acmy_aproved.size
+    @number_notifications_academy = @notifications_new_answer.size + @notification_acmy_new_registration.size + @notification_acmy_aproved.size
 
     # notifications from personal messages
-    @notification_messages = all_notifications.where(:notification_type => 8 )
+    @notification_messages = all_notifications.where(:notification_type => 9 )
 
     #total = notific-academia + notific-ads + notific-messages
     @total_new_notification =  @number_notifications_academy +  @number_notifications_ads +  @notification_messages.size
