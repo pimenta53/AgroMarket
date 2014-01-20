@@ -238,13 +238,14 @@
 
             var insertImage = function() {
                 var url = urlInput.val();
+                var alt = "COISA";
                 urlInput.val(initialValue);
                 self.editor.currentView.element.focus();
                 if (caretBookmark) {
                   self.editor.composer.selection.setBookmark(caretBookmark);
                   caretBookmark = null;
                 }
-                self.editor.composer.commands.exec("insertImage", url);
+                self.editor.composer.commands.exec("insertImage", url, alt);
             };
 
             urlInput.keypress(function(e) {

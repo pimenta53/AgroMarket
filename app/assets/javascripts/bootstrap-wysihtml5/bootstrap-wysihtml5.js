@@ -66,6 +66,7 @@
 
         "image": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
+
             return "<li>" +
               "<div class='bootstrap-wysihtml5-insert-image-modal modal hide fade'>" +
                 "<div class='modal-header'>" +
