@@ -1,10 +1,4 @@
-<ol class="breadcrumb">
-              <li ><a href="<%= ads_path %>"><i class="fa fa-dashboard"></i> Ads</a></li>
-              <li class="active"><i class="fa fa-bar-chart"></i><%= @ad.title %></li>
-</ol>
-
 <p id="notice"><%= notice %></p>
-
 
 <p>
   <strong>Categoria:</strong>
@@ -15,7 +9,6 @@
         <%= @ad.category.name %>
       </span>
     <% end %>
-
 
 <p>
   <strong>Título:</strong>
@@ -39,7 +32,7 @@
 
 <p>
   <strong>Data de expiração:</strong>
-  <%= @ad.expire_date %>
+  <%= I18n.l @ad.expire_date, format: :time %>
 </p>
 
 <p>
@@ -48,13 +41,13 @@
 </p>
 
 <p>
-  <strong>Activo?:</strong>
-  <%= @ad.is_active %>
+  <strong>Activo:</strong>
+  <% if @ad.is_active=true %>Sim<%else%>Não<%end%>
 </p>
 
 <p>
-  <strong>Apagado?:</strong>
-  <%= @ad.is_deleted %>
+  <strong>Apagado:</strong>
+  <% if @ad.is_deleted=true %>Sim<%else%>Não<%end%>
 </p>
 
 <p>
@@ -72,5 +65,5 @@
 <% end %>
 
 
-<% link_to 'Editar', edit_admin_ad_path(@ad) %> |
+<%# link_to 'Editar', edit_admin_ad_path(@ad) %>
 <%= link_to 'Voltar', admin_ads_path %>
