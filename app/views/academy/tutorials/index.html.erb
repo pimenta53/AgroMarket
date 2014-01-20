@@ -45,7 +45,7 @@
             <%= link_to academy_tutorial.title, academy_tutorial %>
           </td>
           <td style="vertical-align:middle;">
-            <%= academy_tutorial.rapid_description %>
+            <%= academy_tutorial.rapid_description.html_safe %>
           </td>
           <td style="vertical-align:middle;">
             <span class="label" style="background-color: #<%= academy_tutorial.category.color %>">
