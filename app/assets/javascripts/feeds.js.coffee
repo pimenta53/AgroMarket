@@ -6,7 +6,7 @@
     
         
 $ ->
-  $('div.load-more-ads').on 'inview', (e, visible) ->
+  $('div.load-more-feeds').on 'inview', (e, visible) ->
     return unless (visible && $(this).attr('href')!='#')
     
     $.getScript $(this).attr('href')

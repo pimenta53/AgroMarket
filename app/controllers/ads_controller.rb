@@ -1,7 +1,7 @@
 #encoding: utf-8
 class AdsController < ApplicationController
-  before_action :set_ad, only: [:show, :edit, :update, :destroy , :highlight]
-  before_action :load_stuff, only: [:new,:create,:show,:edit,:update]
+  before_action :set_ad, only: [:show, :edit, :update, :destroy , :highlight, :report]
+  before_action :load_stuff, only: [:new,:create,:show,:edit,:update, :report]
 
   load_and_authorize_resource :only => [:edit,:update,:show,:index]
   #load_and_authorize_resource :only => [:edit,:update,:show]
@@ -60,7 +60,7 @@ class AdsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @ads }
-      format.js {render :layout => false}
+      #format.js {render :layout => false} já não há infinite list em ads
     end
   end
 
@@ -185,11 +185,29 @@ class AdsController < ApplicationController
     #@ad.destroy
     @ad.is_deleted=true
     @ad.is_active=false
+    dest = @ad.id
+    type = [1,2] #ad_notifications_Code
+    Notification.clear_notifications(type,dest)
+
     @ad.save
     #remove 1 ad from the user counter
     current_user.remove_ad
     respond_to do |format|
       format.html { redirect_to ads_url }
+      format.json { head :no_content }
+    end
+  end
+
+  # DELETE /ads/1
+  # DELETE /ads/1.json
+  def report
+  
+    #reporting code
+    
+    flash[:notice] = "Anúncio reportado à administração."
+    
+    respond_to do |format|
+      format.html { redirect_to ad_path(@ad) }
       format.json { head :no_content }
     end
   end

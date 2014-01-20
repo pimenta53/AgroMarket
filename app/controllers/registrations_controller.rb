@@ -23,7 +23,7 @@ class RegistrationsController < Devise::RegistrationsController
     if @user.id
       p = PlanUser.new(:user_id => @user.id, :plan_id => Plan.first.id)
       p.save
-      UserMailer.welcome_email(params[:user][:email],params[:user][:name]).deliver
+      UserMailer.delay.welcome_email(params[:user][:email],params[:user][:name])
     end
 
   end
@@ -33,6 +33,7 @@ class RegistrationsController < Devise::RegistrationsController
       def build_resource(*args)
         super
         if session[:omniauth]
+
           @user.apply_omniauth(session[:omniauth])
           @user.valid?
         end

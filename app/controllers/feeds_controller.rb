@@ -3,13 +3,21 @@ class FeedsController < ApplicationController
 		if current_user.blank?
 			redirect_to user_session_path
 		else	
-				feed = Feed.where("user_id=?",current_user.id).order('created_at DESC')
+         if params[:page] != nil
+            page = params[:page]
+         else
+            page = 1
+         end
+         
+         
+         
+				@feeds = Feed.where("user_id=?",current_user.id).order('created_at DESC').paginate(:page => page, :per_page => 10)
 
 				@elem_feed = Array.new
-				if !feed.blank? 
+				if !@feeds.blank? 
 
 
-					feed.each do | f |
+					@feeds.each do | f |
 
 						require 'ostruct'
 						info = OpenStruct.new
@@ -35,7 +43,11 @@ class FeedsController < ApplicationController
 
 				end
 
-				render "index"
+				#render "index"
+    			respond_to do |format|
+    			  format.html
+     			  format.js {render :layout => false}
+    			end
 
 			end
 	end 
