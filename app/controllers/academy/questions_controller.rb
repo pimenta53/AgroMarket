@@ -81,7 +81,7 @@ class Academy::QuestionsController < ApplicationController
 
         current_user.followers.each do | user|
 
-          feed = Feed.new(params[:feed])
+          feed = Feed.new
           feed.user_id = user.id
           feed.in = 2
           feed.id_content = @academy_question.id

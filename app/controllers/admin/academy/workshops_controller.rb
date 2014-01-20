@@ -38,7 +38,7 @@ class Admin::Academy::WorkshopsController < Admin::ApplicationController
 
     owner_user.followers.each do | user|
 
-          feed = Feed.new(params[:feed])
+          feed = Feed.new
           feed.user_id = user.id
           feed.in = 5
           feed.id_content = workshop.id

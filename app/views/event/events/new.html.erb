@@ -7,13 +7,17 @@
     <% end %>
 </ol>
 
-<div class="panel panel-default" style="padding-bottom:50px; margin-bottom:0; min-height:455px;">
-  <div class="panel-heading border-header">
-    <h3 class="panel-title">Novo Evento</h3>
-  </div>
-  <div class="panel-body" id="edit-event">
+<% if current_user.remaining_events_slots > 0 %>
+  <div class="panel panel-default" style="padding-bottom:50px; margin-bottom:0; min-height:455px;">
+    <div class="panel-heading border-header">
+      <h3 class="panel-title">Novo Evento</h3>
+    </div>
+    <div class="panel-body" id="edit-event">
 
-    <%= render 'form' %>
+      <%= render 'form' %>
 
+    </div>
   </div>
-</div>
+<% else %>
+  <p>Já não tem mais slots para eventos, compre mais <%= link_to "aqui", plans_path %></p>
+<% end %>

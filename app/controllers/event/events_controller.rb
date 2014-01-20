@@ -1,7 +1,7 @@
 #encoding: utf-8
 class Event::EventsController < ApplicationController
   before_action :set_event_event, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_cities,  only: [:update]
   # GET /event/events
   # GET /event/events.json
   def index
@@ -25,8 +25,10 @@ class Event::EventsController < ApplicationController
 
   # GET /event/events/new
   def new
-    @event_event = Event::Event.new
-    @cities = City.all
+    if current_user.remaining_events_slots > 0
+      @event_event = Event::Event.new
+      @cities = City.all
+    end
   end
 
   # GET /event/events/1/edit
@@ -84,6 +86,10 @@ class Event::EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_event_event
       @event_event = Event::Event.find(params[:id])
+    end
+
+    def set_cities
+      @cities = City.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

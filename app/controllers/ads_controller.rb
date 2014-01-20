@@ -141,7 +141,7 @@ class AdsController < ApplicationController
 
         current_user.followers.each do | user|
 
-          feed = Feed.new(params[:feed])
+          feed = Feed.new
           feed.user_id = user.id
           feed.in = 1
           feed.id_content = @ad.id
