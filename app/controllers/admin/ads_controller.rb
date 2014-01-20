@@ -47,6 +47,7 @@ class Admin::AdsController < Admin::ApplicationController
     @ad.is_deleted = false
     respond_to do |format|
       if @ad.save
+       @ad.user.add_ad
         format.html { redirect_to [:admin,@ad], notice: 'Ad was successfully created.' }
         format.json { render action: 'show', status: :created, location: @ad }
       else
@@ -79,7 +80,12 @@ class Admin::AdsController < Admin::ApplicationController
     #@ad.destroy
     @ad.is_deleted=true
     @ad.is_active=false
+    dest = @ad.id
+    type = [1,2] #ad_notifications_Code
+    Notification.clear_notifications(type,dest)
     @ad.save
+    #remove 1 ad from the user counter
+    @ad.user.remove_ad
     respond_to do |format|
       format.html { redirect_to admin_ads_url }
       format.json { head :no_content }

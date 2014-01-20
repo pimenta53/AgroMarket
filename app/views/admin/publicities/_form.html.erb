@@ -25,6 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :data_de_expiração %><br>
+    <%= f.text_field :expire_date, :placeholder=>"dd/mm/yyyy", :class=> "datepicker", :value => (I18n.localize(@admin_publicity.expire_date) if (@admin_publicity && @admin_publicity.expire_date)) %> 
   </div>
   <div class="field">
     <%= f.label :dono %><br>
@@ -44,3 +45,22 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+    var currentTime = new Date()  ;
+    var month = currentTime.getMonth() + 1   ;
+    var day = currentTime.getDate() ;
+    var year = currentTime.getFullYear() ;
+
+    $('.datepicker').datepicker({
+        todayBtn: true,
+        startView: 2,
+        format: "dd/mm/yyyy",
+        language: "pt",
+        autoclose: true,
+        todayHighlight: true,
+        calendarWeeks: true,
+        startDate: day + "/" + month + "/" + (year - 100)
+    })
+</script>

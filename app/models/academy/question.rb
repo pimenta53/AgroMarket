@@ -17,6 +17,9 @@ class Academy::Question < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+  #scopes
+  default_scope -> { where('is_deleted = ?',false) } #Só apresenta as questões que não foram apagadas
+
 ## validations ##
   validates :title, presence: true
   validates :text, presence: true

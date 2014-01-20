@@ -1,5 +1,4 @@
-class Admin::Academy::QuestionsController < ApplicationController
-  layout "admin"
+class Admin::Academy::QuestionsController < Admin::ApplicationController
   before_action :set_admin_academy_question, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/academy/questions
@@ -55,7 +54,14 @@ class Admin::Academy::QuestionsController < ApplicationController
   # DELETE /admin/academy/questions/1
   # DELETE /admin/academy/questions/1.json
   def destroy
-    @admin_academy_question.destroy
+    #@admin_academy_question.destroy
+    a = Academy::Question.find(params[:id].split('-')[0])
+    a.update(:is_deleted => true)
+    dest = a.id
+    type = 4 #answer_question_code
+    Notification.clear_notifications(type,dest)
+    a.save
+
     respond_to do |format|
       format.html { redirect_to admin_academy_questions_url }
       format.json { head :no_content }

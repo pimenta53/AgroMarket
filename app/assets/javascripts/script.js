@@ -190,7 +190,7 @@ ready = function() {
       $('.v_places').removeAttr('readonly');
     } else {
      $('.v_places').attr('readonly',true);
-     $('.v_places').val('');
+     $('.v_places').val('0');
     }
 })
 

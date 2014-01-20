@@ -76,6 +76,9 @@ class Academy::WorkshopsController < ApplicationController
   def destroy
     #@academy_workshop.destroy
     @academy_workshop.is_deleted=true
+    dest = @academy_workshop.id
+    type = 8 #workshop_notifications_Code
+    Notification.clear_notifications(type,dest)
     @academy_workshop.save
     respond_to do |format|
       format.html { redirect_to academy_workshops_url }
