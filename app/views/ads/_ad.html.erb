@@ -1,7 +1,7 @@
 <div class="col-sm-6 col-md-3" id="painelAnuncios">
-    <div class="panel">
+    <div class="panel" style="border: 1px solid #dddddd;">
     <div class="ads_index_img">
-      <div class="thumbnail">
+      <div class="thumbnail" style="border: 0 ;">
         <span class='price' ><%= ad.price %><%= ad.price_type.name %></span>
           <div >
             <%= link_to ad_image( ad.ad_images.first ), ad %>
@@ -12,13 +12,13 @@
       <% if !ad.category.blank? %>
         <div class="caption">
           <% if ad.category.nil? %>
-                  <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
+            <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
           <% else %>
-                  <span class="label pro_title" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>  </span>
+            <span class="label pro_title" style="background-color: #<%= ad.category.color %>"><%= ad.category.name %>  </span>
           <% end %>
         </div>
       <% end %>
-      <div  class="linkads" style="height:50px"><a><%= link_to ad.title, ad %></a></div>
+      <div class="linkads" style="height:50px"><a><%= link_to ad.title, ad %></a></div>
       <div style="height:50px"><i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %></div>
     </div>
   </div>
