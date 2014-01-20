@@ -17,15 +17,15 @@
 # => 4 -> new answer for your questions
 # => 5 -> New registrations to the workshop
 # => 6 -> Tutorial Aprovado
-# => 7 -> Evento Aprovado 
+# => 7 -> Evento Aprovado
 # => 8 -> Nova Mensagem Privada
 # => 9 -> Workshop Aproved
-# => 
+# =>
 
 class Notification < ActiveRecord::Base
 
   belongs_to :user
-  
+
   def self.ads_notification
     where(:notification_type => ["1", "2", "3"])
   end
@@ -51,11 +51,11 @@ class Notification < ActiveRecord::Base
     return r.blank? ? false : true
   end
 
-  def self.create_notification( current_user , id_destination , notification_type , description )
-      n = Notification.new(:user_id => current_user.id, :id_destination => id_destination, :notification_type => notification_type, :description => description )
+  def self.create_notification( user_id , id_destination , notification_type , description )
+      n = Notification.new(:user_id => user_id, :id_destination => id_destination, :notification_type => notification_type, :description => description )
       n.save
   end
-  
+
   #get Ad of notification
   def ad
     Ad.find(self.id_destination)

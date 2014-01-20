@@ -32,7 +32,7 @@ class Admin::Event::EventsController < ApplicationController
     event.save
 
     #cria notificação
-    Notification.create_notification( current_user , event.id , 7 , "Evento Aprovado")
+    Notification.create_notification( event.user_id , event.id , 7 , "Evento Aprovado")
 
 
     owner_user = User.find_by_id(event.user_id)
@@ -70,7 +70,7 @@ class Admin::Event::EventsController < ApplicationController
 
     respond_to do |format|
       if @event_event.save
-        
+
         format.html { redirect_to [:admin, @event_event], notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event_event }
       else

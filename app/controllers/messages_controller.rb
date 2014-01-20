@@ -55,10 +55,10 @@ class MessagesController < ApplicationController
         @messages = @talk.messages
         #notify the owner of the Workshop
         #verificar ja existe uma notificacao referente a esta conversacao
-        if Notification.have_notification_message?( current_user, @talk.id ) == false
-          Notification.create_notification( current_user , @talk.id , 8 , "Tem novas Mensagens")
+        if Notification.have_notification_message?( @talk.user_receiver(current_user.id), @talk.id ) == false
+          Notification.create_notification( @talk.user_receiver(current_user.id) , @talk.id , 8 , "Tem novas Mensagens")
         end
-        
+
         render :partial => 'create_mp.js.erb'
       end
 
