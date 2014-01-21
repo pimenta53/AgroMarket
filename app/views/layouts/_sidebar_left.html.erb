@@ -2,7 +2,7 @@
 
   <% if user_signed_in? %>
     <div class="panel panel-default">
-      <div class="panel-heading" style="background-color: #9C9F84">
+      <div class="panel-heading" style="background-color: #68AC68"><!--style="background-color: #9C9F84">-->
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapseUser">
             <%= fa_icon "users" %> <%= current_user.name.upcase %>
@@ -13,6 +13,7 @@
         <div class="panel-body">
           <ul class="side-elems">
             <li><%= link_to "<i class='fa fa-angle-right'></i>Perfil".html_safe , user_path(current_user) %></li>
+            <li><%= link_to "<i class='fa fa-angle-right'></i>Mensagens".html_safe , messages_path %></li>
             <li><%= link_to "<i class='fa fa-angle-right'></i>Mural".html_safe , feed_path %></li>
           </ul>
         </div>
@@ -24,7 +25,7 @@
   <!-- MERCADO -->
   <% if user_signed_in? %>
     <div class="panel panel-default">
-      <div class="panel-heading" style="background-color: #39b3d7">
+      <div class="panel-heading" style="background-color: #7ECF7E"><!--style="background-color: #39b3d7">-->
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapseMercado">
             <%= fa_icon "shopping-cart", class:"market-icon" %> MERCADO
@@ -43,7 +44,7 @@
     </div>
     <% else %>
     <div class="panel panel-info">
-      <div class="panel-heading" style="background-color: #39b3d7">
+      <div class="panel-heading" style="background-color: #7ECF7E"><!--style="background-color: #39b3d7">-->
         <h4 class="panel-title">
           <%= link_to "MERCADO".html_safe, ads_path %>
         </h4>
@@ -54,7 +55,7 @@
 <!-- EVENTOS -->
   <% if user_signed_in? %>
     <div class="panel panel-default">
-      <div class="panel-heading" style="background-color: #ed9c28">
+      <div class="panel-heading" style="background-color: #A1D6A1"><!--style="background-color: #ed9c28">-->
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapseEventos">
             <%= fa_icon "calendar" %> EVENTOS
@@ -75,7 +76,7 @@
     </div>
     <% else %>
     <div class="panel panel-default">
-      <div class="panel-heading" style="background-color: #ed9c28">
+      <div class="panel-heading" style="background-color: #A1D6A1"><!--style="background-color: #ed9c28">-->
         <h4 class="panel-title">
           <%= link_to "EVENTOS".html_safe, ads_path %>
         </h4>
@@ -85,7 +86,7 @@
 
   <!-- ACADEMIA -->
   <div class="panel panel-default">
-    <div class="panel-heading" style="background-color: #47a447;">
+    <div class="panel-heading" style="background-color: #DBDCB8;"><!--style="background-color: #47a447;">-->
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseAcademia">
           <%= fa_icon "book" %> ACADEMIA
