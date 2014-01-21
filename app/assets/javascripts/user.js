@@ -41,10 +41,7 @@ $(function() {
 
             //$('[data-toggle="tooltip"]').tooltip();
 
-            $('button').click(function(e) {
-                e.preventDefault();
-                
-            });
+            
 
              $(".followToggle").click(function(){
                $id=$(this).val();
@@ -77,6 +74,7 @@ $(function() {
                   beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
                   success: function(data){
                     $("#text_comment").val("");
+                    $("#responsive").modal('toggle');
                   },
                   error: function(request,error){
                     alert ( "Não foi possivel inserir a tua resposta!!");
@@ -84,6 +82,10 @@ $(function() {
                 });
                 return false;
               });
+             
+            $('#save_btn').click(function(e) {
+                e.preventDefault();
+            });
 
      });
 
