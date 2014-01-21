@@ -5,10 +5,10 @@ class SearchController < ApplicationController
 	def search_for_all
 		
 		@names = []
-		#search_in_ads #search in ads
-		#search_in_tutorial #search in tuturias
-		#search_in_workshops #search in workshop
-		#search_in_questions #search in questons
+		search_in_ads #search in ads
+		search_in_tutorial #search in tuturias
+		search_in_workshops #search in workshop
+		search_in_questions #search in questons
 		search_users( params[:query] )
 		render json: @names
 	end

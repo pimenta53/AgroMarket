@@ -7,7 +7,6 @@ class MessagesController < ApplicationController
   def index
      @talks_privates = current_user.private_talks
      @talks_ads = current_user.ads_talks
-
   end
 
   def show
