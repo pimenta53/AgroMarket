@@ -10,7 +10,7 @@
           </a>
         </h4>
       </div>
-      <div id="collapseUser" class="panel-collapse collapse %>">
+      <div id="collapseUser" class="panel-collapse collapse <%= in_user? %>">
         <div class="panel-body">
           <ul class="side-elems">
             <li><%= link_to "<i class='fa fa-angle-right'></i>Perfil".html_safe , user_path(current_user
