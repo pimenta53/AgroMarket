@@ -66,5 +66,24 @@ $(function() {
              }
           );
 
+             $("#message_private").submit(function() {
+                var valuesToSubmit = $(this).serialize();
+                $.ajax({
+                  url: $(this).attr('ajax_path'),
+                  data: valuesToSubmit,
+                  async: true,
+                  dataType: 'script',
+                  type: "POST",
+                  beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                  success: function(data){
+                    $("#text_comment").val("");
+                  },
+                  error: function(request,error){
+                    alert ( "Não foi possivel inserir a tua resposta!!");
+                  }
+                });
+                return false;
+              });
+
      });
 
