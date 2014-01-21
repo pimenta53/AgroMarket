@@ -56,10 +56,10 @@ Agrosocial::Application.routes.draw do
 
   #payment routes
 
-  #get "/payment/success_payment" => "payment#success_payment", as: "success_payment"
-  #get "/payment/error_payment" => "payment#error_payment", as: "error_payment"
-  #patch "/payment/:id/create_payment" => "payment#create_payment", as: "create_payment"
-  #get "payment/:id/promove_ad_payment" => "payment#promove_ad_payment" , as: "promove_ad_payment"
+  get "/payment/success_payment" => "payment#success_payment", as: "success_payment"
+  get "/payment/error_payment" => "payment#error_payment", as: "error_payment"
+  patch "/payment/:id/create_payment" => "payment#create_payment", as: "create_payment"
+  get "payment/:id/promove_ad_payment" => "payment#promove_ad_payment" , as: "promove_ad_payment"
 
   #accao follow do utilizador
   post '/users/:id/follow' => 'users#follow'
