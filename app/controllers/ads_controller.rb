@@ -84,7 +84,6 @@ class AdsController < ApplicationController
 
     #devolve reviews do dono deste ad
     @reviews_user = @reviews.where("rated_id=?",@ad.user_id)
-
 #mark notification as watched, if params[:notification] is set
     if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
       Notification.find(params[:notification]).update(:watched => true)
