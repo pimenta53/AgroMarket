@@ -28,8 +28,12 @@
 
   <div class="panel-body" id="panel-question">
     <div class="col-xs-2 col-md-2" id="user-avatar"><%##  Avatar do user que fez a pergunta  ##%>
-      <%=link_to image_tag(@academy_question.user.avatar.url(:medium),:width => "70%",:class => "img-circle") , @academy_question.user %>
-      <span style="float:center;"><%= @academy_question.user.name %></span>
+      <div>
+        <%=link_to image_tag(@academy_question.user.avatar.url(:medium),:width => "70%",:class => "img-circle") , @academy_question.user %>
+      </div>
+      <div style="float:center;">
+        <%= @academy_question.user.name %>
+      </div>
     </div>
     <div class="col-xs-9 col-md-10">
       <%= @academy_question.text.html_safe %><%##  texto da pergunta  ##%>
