@@ -52,7 +52,8 @@ class Academy::AnswersController < ApplicationController
   def update
     respond_to do |format|
       if @academy_answer.update(academy_answer_params)
-        format.html { redirect_to @academy_answer.question, notice: 'Answer was successfully updated.' }
+        flash[:notice] = "Pergunta criada com sucesso."
+        format.html { redirect_to @academy_answer.question, notice: 'Pergunta criada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -67,6 +68,7 @@ class Academy::AnswersController < ApplicationController
     question = @academy_answer.question
     @academy_answer.destroy
     respond_to do |format|
+      flash[:notice] = "Pergunta foi destruido com sucesso."
       format.html { redirect_to academy_question_path(question) , notice: 'Answer was successfully deleted.'}
       format.json { head :no_content }
     end
