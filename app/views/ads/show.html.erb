@@ -201,13 +201,21 @@
       <!-- produtos relacionados -->
       <div id="related" class="tab-pane active" style="margin:0; padding: 0;">
          <div class="row ads_index_section" style="margin:0; padding: 0;">
-            <%= render :partial => @related_ads %>
+            <% if !@related_ads.blank? %>
+              <%= render :partial => @related_ads %>
+            <% else %>
+               <p>Não encontramos nenhmum produto relacionado! </p>
+            <% end %>
          </div>
       </div>
       <!-- ultimos visitados -->
       <div id="last_viewed" class="tab-pane" style="margin:0; padding: 0;">
          <div class="row ads_index_section" style="margin:0; padding: 0;">
-            <%= render :partial => @last_viewed %>
+            <% if !@last_viewed.blank?  %>
+             <%= render :partial => @last_viewed %>
+            <% else %>
+              <p> Apenas viu este anúncio ainda! </p>
+            <% end %>
          </div>
          <!-- </div> -->
       </div>
