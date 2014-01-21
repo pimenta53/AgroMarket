@@ -14,11 +14,11 @@ class PaymentController < ApplicationController
 	    # Build request object
 	    @pay = @api.build_pay({
 	      :actionType => "PAY",
-	      :cancelUrl => "http://localhost:3000/payment/error_payment",
+	      :cancelUrl => "http://teste94.di.uminho.pt/payment/error_payment",
 	      :currencyCode => "EUR",
 	      :feesPayer => "SENDER",
 	      :description => "Coisa para description" ,
-	      :ipnNotificationUrl => "http://localhost:3000/asdfajklaslkdpayment/success_payment?user=#{current_user.id}&code=#{payment_ref}",
+	      :ipnNotificationUrl => "http://teste94.di.uminho.pt/asdfajklaslkdpayment/success_payment?user=#{current_user.id}&code=#{payment_ref}",
 	      :receiverList => {
 	        :receiver => [{
 	          :amount => @plan.price,
