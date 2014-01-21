@@ -58,7 +58,7 @@
                  <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %>
               <% else %>
                  <span class="label  pull-right r-activity counter_ads"><%= @user.counter_ads %></span>
-                  <%= link_to " Anúncios de #{@user.name}".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %> <span class="label label-danger pull-right r-activity"><%= @user.counter_ads %></span>
+                  <%= link_to " Anúncios de #{@user.name}".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %> 
               <% end %>
             </li>
           </ul>
