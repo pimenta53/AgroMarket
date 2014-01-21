@@ -61,6 +61,14 @@
                   <%= link_to " Anúncios de #{@user.name}".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %> 
               <% end %>
             </li>
+            <% if (current_user && @user.id == current_user.id) %>
+              <li>
+                <%= link_to " Feeds".html_safe , feed_path, :class => "fa fa-list" %>
+              </li>
+            <% end %>
+            <li>
+                  <%= link_to " Rss de #{@user.name}".html_safe , rss_user_path(@user.id), :class => "fa fa-rss" %> 
+            </li>
           </ul>
 
         </section>
