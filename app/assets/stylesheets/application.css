@@ -21,12 +21,12 @@
 
 .icon_rating, .icon_rating-nocolor{
 	position: absolute;
-	background-repeat:no-repeat;
+	background-repeat: no-repeat;
 	background-position: center;
 	display: inline-block;
 	height: 40px;
 	width: 20px;
-
+  margin-left: 70px;
 }
 
 .icon_rating {

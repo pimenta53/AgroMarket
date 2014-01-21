@@ -18,8 +18,9 @@ development: &default
 test:
   <<: *default
 production:
-  mode: live
-  username: USERNAME
-  password: PASSWORD
-  signature: SIGNATURE
-  app_id: APP_ID
+  <<: *default
+  #mode: live
+  #username: USERNAME
+  #password: PASSWORD
+  #signature: SIGNATURE
+  #app_id: APP_ID

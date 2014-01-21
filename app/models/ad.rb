@@ -32,6 +32,7 @@ class Ad < ActiveRecord::Base
   has_many :ad_images, :dependent => :destroy
   has_many :messages
   has_many :talks
+  has_many :ratings
 
 
   #scopes
@@ -203,7 +204,7 @@ class Ad < ActiveRecord::Base
   if !self.ad_images.blank?
      return self.ad_images.first.image
   else
-     return "http://placehold.it/40x30"
+     return "/assets/defaultAdPic.png"
   end
 
   end

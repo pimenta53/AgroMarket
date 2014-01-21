@@ -60,7 +60,7 @@ class AdsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @ads }
-      format.js {render :layout => false}
+      #format.js {render :layout => false} já não há infinite list em ads
     end
   end
 
@@ -84,7 +84,6 @@ class AdsController < ApplicationController
 
     #devolve reviews do dono deste ad
     @reviews_user = @reviews.where("rated_id=?",@ad.user_id)
-
 #mark notification as watched, if params[:notification] is set
     if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
       Notification.find(params[:notification]).update(:watched => true)

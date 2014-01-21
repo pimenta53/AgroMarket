@@ -1,0 +1,154 @@
+	 <% @elem_feed.each do | f | %>
+	 		<div class="col-md-6" style="width:100%;">
+	 			<div class="panel" id="mainFeedBox" style="border: 1px solid #dddddd;">
+		 		
+				 	<div class="row" id="firstRow" style="width: 100%; min-height: 40px; padding-bottom: 15px; border-bottom: 1px solid #dddddd;">
+					 	<div style="float: left; width: 50px; height: 50px; margin-right: 15px;">
+					 		<%= link_to (image_tag f.content.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), f.content.user %>
+					 	</div>
+					 	<div style="padding-top: 15px; width: auto; text-align: left;"><%= link_to f.content.user.name, f.content.user, id:"feed-link" %>
+				 	<%case f.in%>
+					<%when 1    #ad %>
+						criou o seguinte anúncio:</div>
+						</div>
+						
+						<% ad = f.content %>
+							<div class="row" style="margin-top:20px; margin-bottom:-25px;">
+					    		<div class="col-md-6" id="element1">
+								    <div class="ads_index_img">
+								      <div class="thumbnail">
+								        <span class='price' ><%= ad.price %><%= ad.price_type.name %></span>
+								          <div >
+								            <%= link_to ad_image( ad.ad_images.first ), ad %>
+								          </div>
+								      </div>
+								    </div>
+							    </div>
+							    <div>
+								    <div class="panel-body text-center" style="padding:0;">
+								    	<div id="category-label" style="width:100%; text-align:right; padding-bottom:10px;">
+									        <span>Categoria: </span> 
+									        <span class="label" style="background-color: #<%= ad.category.color %> ; color: black; font-size:12px; margin-top: 20px;">
+									          <%= ad.category.name %>
+									        </span>
+								        </div>
+								      	<div class="h3 url" id="feed-link" style="height:30px; margin-top: 40px; margin-bottom: 20px;">
+								      		<%= link_to ad.title, ad, class:"h4 url" %>
+								      	</div>
+								      	<div style="height:70px; min-width: 150px;">
+								      		<span style="float:left; margin-left:40px;">
+								      			<i class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %>
+								      		</span>
+								      		<span style="float:right; margin-right:40px;">
+								      			<i class="fa fa-eur pro_title"></i> <%= ad.price %>
+								      		</span>
+								      	</div>
+								    </div>
+								</div>
+							</div>
+
+					<%when 2    #question%>
+						colocou a seguinte questão:</div>
+						</div>
+						
+						<% question = f.content %>
+						<div>
+							<div style="min-height:40px; width:100%; display: inline-block; margin:15px 0 15px 0;">
+								<div id="category-label" style="float: right; min-width: 200px; text-align: right; padding-top: 5px; padding-bottom:10px;">
+							        <span>Categoria: </span> 
+							        <span class="label" style="background-color: #<%= question.category.color %> ; color: black; font-size:12px; margin-top: 20px;">
+							          <%= question.category.name %>
+							        </span>
+						        </div>
+						        <%= link_to question.title, question, class:"h2 url",  id:"feed-link" %>
+						    </div>
+
+						    <div style="width: 100%; text-align: justify;">
+						        <%= question.text.html_safe %><%##  texto da pergunta  ##%>
+						    </div>
+					    </div>
+
+					<%when 3    #tutorial%>
+						criou o seguinte tutorial:</div>
+						</div>
+						
+						<% tutorial = f.content %>
+						<div>
+							<div style="min-height:40px; width:100%; display: inline-block; margin:15px 0 15px 0;">
+								<div id="category-label" style="float: right; min-width: 200px; text-align: right; padding-top: 5px; padding-bottom:10px;">
+								    <span>Categoria: </span> 
+								    <span class="label" style="background-color: #<%= tutorial.category.color %> ; color: black; font-size:12px; margin-top: 20px;">
+						  	            <%= tutorial.category.name %>
+								    </span>
+							    </div>
+							    <%= link_to tutorial.title, tutorial, class:"h2 url",  id:"feed-link" %>
+							</div>
+							<div style="width: 100%; text-align: justify;">
+							    <%= tutorial.rapid_description %><%##  texto da pergunta  ##%>
+							</div>
+						</div>
+
+
+					<%when 4    #event%>
+						criou o seguinte evento:</div>
+						</div>
+						
+						<% event = f.content %>
+						<div class="event-box_feed">
+					          	<div class="row">
+					            	<div class="col-xs-3 col-md-3 text-center" id="event-image" style="margin-top: 10px;">
+					            		<%= link_to event_image( event.image ), event ,:class=>"img-rounded img-responsive" %>
+					            	</div>
+					            	<div class="col-xs-9 col-md-9 section-box_feed">
+						              	<div style="margin-top: 15px;">
+						                  	<%= link_to event.title, event, class:"h2 url",  id:"feed-link" %>
+						              	</div>
+
+						              	<div id="event-description" style="border-bottom: 1px solid #dddddd; padding-bottom: 10px; text-align: justify;">
+						                  	<%= event.description %>
+						              	</div>
+						              
+						              	<div class="row rating-desc">
+						                	<div class="col-md-12">
+						                  		<div style="float:left">
+						                    		<i class="fa fa-map-marker"></i><%= event.city.city %>
+						                  		</div>
+							                  	<div style="float:right">
+							                    	<span class="event-begin">
+							                      		<span class="fa fa-calendar" style="color:darkgreen;"></span><%=event.start_day.day %>/<%=event.start_day.mon %>/<%=event.start_day.year %>
+							                    	</span>
+							                    	<span>
+							                      		<span class="fa fa-calendar" style="color:#d43f3a"></span><%=event.end_day.day %>/<%=event.end_day.mon %>/<%=event.end_day.year %>
+							                    	</span>
+							                  	</div>
+						                	</div>
+						              	</div>
+						        	</div>
+					    		</div>
+					    </div>
+
+					<%when 5    #WS%>
+						irá realizar o seguinte workshop</div>
+						</div>
+						
+						<% workshop = f.content %>
+						<br>
+					    <div class="title_show_workshop">
+					     <center><%= link_to workshop.title, workshop, class:"h2 url" %></center>
+					    </div>
+						<div class="information_data"><!--class="information_workshop">-->
+					      <div class="information_top">
+					        <div><i class="fa fa-map-marker"></i>Localidade: <%= workshop.local %></div>
+					        <div><i class="fa fa-calendar-o"></i>Data: <%= workshop.date.strftime('%d-%m-%Y %H:%M') %></div>
+					      </div>
+					      <div class="information_bottom">
+					        <div><i class="fa fa-ticket"></i>Vagas: <%= workshop.available_slots %></div>
+					        <div><i class="fa fa-unlock"></i>Inscrições: <%= workshop.slots_taken %></div>
+					        <div><i class="fa fa-money"></i>Preço: <%= workshop.price %> <i class="fa fa-eur"></i></div>
+					        <div><i class="fa fa-list-alt"></i>Mínimo de Inscrições: <%= workshop.requires_registration %></div>
+					      </div>
+					    </div>
+					<%end%>
+				</div>	<!-- close main feed row-->
+			</div>
+	<%end%>

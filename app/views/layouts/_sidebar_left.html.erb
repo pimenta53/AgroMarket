@@ -1,12 +1,35 @@
 <div class="panel-group" id="accordion" style="margin-bottom: 10px;">
 
+  <% if user_signed_in? %>
+
+    <div class="panel panel-info">
+      <div class="panel-heading" style="background-color: #39b3d7">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseUser">
+            <%= fa_icon "shopping-cart", class:"market-icon" %> <%= current_user.name %>
+          </a>
+        </h4>
+      </div>
+      <div id="collapseUser" class="panel-collapse collapse %>">
+        <div class="panel-body">
+          <ul class="side-elems">
+            <li><%= link_to "<i class='fa fa-angle-right'></i>Perfil".html_safe , user_path(current_user
+            ) %></li>
+            <li><%= link_to "<i class='fa fa-angle-right'></i>Feed".html_safe , feed_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
   <!-- MERCADO -->
   <% if user_signed_in? %>
   <div class="panel panel-info">
     <div class="panel-heading" style="background-color: #39b3d7">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseMercado">
-          <%= fa_icon "tags", class:"market-icon" %> MERCADO
+          <%= fa_icon "shopping-cart", class:"market-icon" %> MERCADO
         </a>
       </h4>
     </div>
