@@ -37,17 +37,14 @@ class AdsController < ApplicationController
         end
       }
 
-
-
       search_table = search_table.and(search_table_title.or(search_table_description))
       
       
     end
     @ads = Ad.where(search_table)
 
-    if params[:cities] != nil
-      @ads =  @ads.where(city_id: params[:cities])
-    end
+    @ads = Ad.search1(params[:cities],params[:search_category],@ads )
+    
 
     @ads = @ads.active_ads.paginate(:page => page, :per_page => 12)
 
