@@ -1,3 +1,12 @@
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
+  <% if user_signed_in? %>
+  <li class="active">
+    <i class="fa fa-users"></i>
+    <a class="url" href="<%= user_path(current_user.id) %>"><%= current_user.name %></a> >
+    <a class="url" href="<%= messages_path %>">Mensagens</a>
+  </li>
+  <% end %>
+</ol>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
