@@ -151,6 +151,19 @@ class Ad < ActiveRecord::Base
         end
      end
 
+     def self.search1( cities, categories, ads )
+      if cities != nil
+        ads =  ads.where(city_id: cities)
+      end
+
+      if  categories != nil
+        ads =  ads.where(category_id:  categories)
+      end
+
+      return ads
+
+     end
+
 
      ####################
      # instance methods #
