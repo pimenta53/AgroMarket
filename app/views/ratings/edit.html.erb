@@ -1,11 +1,18 @@
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
+  <li class="active">
+    <i class="fa fa-shopping-cart"></i> <a class="url" href="<%= ratings_path %>">Avaliações</a>
+  </li>
+</ol>
+
 <%= form_for @rating, :html => {:multipart => true} do |f| %>
 
 	<div class="container">
 		<div class="row">
-			<h2>Rater: <%= @rating.rater.name %> - Rated: <%= @rating.rated.name %></h2>
+			<h3 style="margin: 10px 0;">UTILIZADOR A AVALIAR</h3> 
+			<h4 style="margin: 15px 20px;"><%= @rating.rated.name %></h4>
 		</div>
-	    <div class="row lead">
-	        Tu deste um rating de <span id="count">0</span> cenoura(s)
+	    <div class="row lead" style="margin: 0 0 10px 68px;">
+	        <span id="count">0</span> cenoura(s)
 	        <div id="stars" class="starrr" onclick="javascript:send_rating()" value="5"></div>
 		</div>
 	</div>
@@ -15,17 +22,14 @@
 		<%= f.text_field :rate %>
 	</div>
 
-	<br>
-	<br><br><br><br><br>
-	<div id="comment_rating" class="field" hidden="true">
-	  <%= f.label :commet %><br>
+	<div id="comment_rating" class="field" style="margin-top: 50px;">
+	  <%= f.label :comentário %><br>
 	  <%= f.text_area :comment,:id => "text_comment_rating",:rows=>5,:class=> "form-control counted" ,:placeholder => "Escreve a tua mensagem"%>
-	  <h6 class="pull-right" id="counter">144 characteres livres</h6>
+	  <h6 class="pull-left" id="counter">144 characteres livres</h6>
+	</div>
 
-		</div>
-
-	<div class="actions">
-		<%= f.submit "Submeter" %>
+	<div class="actions" style="float: right;">
+		<%= f.submit "Submeter", :class=>"btn btn-primary" %>
 	</div>
 
 <% end %>

@@ -48,7 +48,8 @@ class Academy::WorkshopsController < ApplicationController
 
     respond_to do |format|
       if @academy_workshop.save
-        format.html { redirect_to @academy_workshop, notice: 'Workshop was successfully created.' }
+        flash[:notice] = "Workshop criado com sucesso."
+        #format.html { redirect_to @academy_workshop, notice: 'Workshop criado com sucesso.' }
         format.json { render action: 'show', status: :created, location: @academy_workshop }
       else
         format.html { render action: 'new' }
@@ -62,7 +63,8 @@ class Academy::WorkshopsController < ApplicationController
   def update
     respond_to do |format|
       if @academy_workshop.update(academy_workshop_params)
-        format.html { redirect_to @academy_workshop, notice: 'Workshop was successfully updated.' }
+        flash[:notice] = "Workshop actualizado com sucesso."
+        format.html { redirect_to @academy_workshop, notice: 'Workshop actualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -75,6 +77,7 @@ class Academy::WorkshopsController < ApplicationController
   # DELETE /academy/workshops/1.json
   def destroy
     #@academy_workshop.destroy
+    flash[:notice] = "Workshop destruido com sucesso."
     @academy_workshop.is_deleted=true
     dest = @academy_workshop.id
     type = 8 #workshop_notifications_Code

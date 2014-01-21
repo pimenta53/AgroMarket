@@ -21,4 +21,5 @@ class Rating < ActiveRecord::Base
                        :primary_key  => 'id',
                        :foreign_key  => 'rated_id'
 
+	belongs_to :ad
 end

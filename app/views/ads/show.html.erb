@@ -12,10 +12,7 @@
     <a class="url" href="<%= ad_path(@ad.id) %>"> <%= @ad.title %></a>
   </li>
   <div style="float:right">
-    <% if user_signed_in? && current_user.id == @ad.user_id %>
-          <%= link_to '<i class="fa fa-edit"></i>Editar '.html_safe, edit_ad_path(@ad), class:'no-effect', :tile=> "Editar Anúncio" %>
-          <%= link_to '<i class="fa fa-trash-o"></i>Eliminar '.html_safe, @ad, class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer apagar o seu anúncio ?' } ,:tile=> "Apagar Anúncio"%>
-    <% else %>
+    <% if user_signed_in? && current_user.id != @ad.user_id %>
           <%= link_to '<i class="fa fa-flag"></i>Denunciar '.html_safe, report_ad_path(@ad), class:'no-effect', method: :delete, data: { confirm: 'Tem a certeza que quer denunciar este anúncio ?' } ,:tile=> "Denunciar Anúncio"%>
     <% end %>
   </div>
@@ -53,7 +50,7 @@
 <!--TWITTER SDK END -->
 
 <% num_img=@ad.ad_images.count %>
-<section class="panel">
+<section class="panel" style="border: 1px solid #dddddd;">
    <div class="panel-body" style="margin:10px 10px 10px 10px;">
       <div class="col-md-6">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -126,7 +123,7 @@
           </div>
         </div>
         <div style="display:inline-block; width:100%; vertical-align:middle;">
-          <div style="float:left; max-width:250px;">
+          <div style="float:left; max-width:100%;">
             <h4 class="ads_title">
               <%= @ad.title %>
             </h4>
@@ -204,13 +201,21 @@
       <!-- produtos relacionados -->
       <div id="related" class="tab-pane active" style="margin:0; padding: 0;">
          <div class="row ads_index_section" style="margin:0; padding: 0;">
-            <%= render :partial => @related_ads %>
+            <% if !@related_ads.blank? %>
+              <%= render :partial => @related_ads %>
+            <% else %>
+               <p>Não encontramos nenhmum produto relacionado! </p>
+            <% end %>
          </div>
       </div>
       <!-- ultimos visitados -->
       <div id="last_viewed" class="tab-pane" style="margin:0; padding: 0;">
          <div class="row ads_index_section" style="margin:0; padding: 0;">
-            <%= render :partial => @last_viewed %>
+            <% if !@last_viewed.blank?  %>
+             <%= render :partial => @last_viewed %>
+            <% else %>
+              <p> Apenas viu este anúncio ainda! </p>
+            <% end %>
          </div>
          <!-- </div> -->
       </div>
@@ -239,7 +244,7 @@
     <div class="panel-heading border-header">
       <h3 class="panel-title">Mensagens</h3>
     </div>
-   <div class="panel-body  panel_without_bg">
+   <div class="panel-body panel_without_bg">
       <% if user_signed_in? %>
         <div id="messages">
            <%= render "messages/messages_ads" %>

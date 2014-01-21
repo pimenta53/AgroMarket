@@ -1,33 +1,18 @@
-<ol class="breadcrumb" id="breadcrumbAds">
+<ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <a class="url" href="<%= ratings_path %>"><i class="fa fa-shopping-cart"></i> Avaliações</a>
+    <i class="fa fa-shopping-cart"><a class="url" href="<%= ratings_path %>"></i> Avaliações</a>
   </li>
 </ol>
 
+<div style="margin-left: 10px;">
+	<h3>A MINHA AVALIAÇÃO</h3>
+</div>
 
-<% if @rating.count != 0 %>
-<table class="table">
-	<tr>
-		<th>Quem avalia</th>
-		<th>Quem vai ser avaliado</th>
-		<th>AD ID</th>
-		<th>SHOW</th>
-	</tr>
-		<% @rating.each do |r| %>
-			<% if r.rate.nil? %>
-				<%= render "show" , :rating => r %>
-			<% end %>
-		<% end %>
-</table>
-<% else %>
-	<center><h3>Não existem avaliações por atribuir</h3></center>
-<% end %>
-
-<div class="container">
-	<div class="row">
-		<h2>A minha avaliação <%= @myrate.to_f %></h2>
-	</div>
-    <div class="row lead">
+<div style="display: inline-block; width: 100%; margin: 0 10px 0 10px">
+    <div class="row lead" style="margin: 0 0 50px 0;">
+		<span style="position: absolute; left: 40px; font-size: 30px; vertical-align: middle;">
+			<%= @myrate.to_f %>
+		</span>
         <% (1..(@myrate.to_i)).each do |i| %>
 	        <span class="icon_rating" style="left: <%= i*30 %>px"></span>
 		<% end %>
@@ -42,25 +27,55 @@
 		<% end %>
 	</div>
 </div>
+
 <br>
 <br>
-<div class="container">
+
+<% if @rating.count != 0 %>
+<table class="table" style="margin-bottom: 30px;">
+	<tr style="background-color: white;">
+		<th width="30%">UTILIZADOR</th>
+		<th width="50%">ANÚNCIO</th>
+		<th width="20%">AVALIAR</th>
+	</tr>
+		<% @rating.each do |r| %>
+			<% if r.rate.nil? %>
+				<%= render "show" , :rating => r %>
+			<% end %>
+		<% end %>
+</table>
+<% else %>
+	<center><h3>Não existem avaliações por atribuir</h3></center>
+<% end %>
+
+<div>
 	<% @my_rate_feedback.each do |r| %>
 		<% if r.rate %>
 			<div class="panel panel-default">
 			    <div class="panel-heading">
-			      <h5 class="panel-title"><%= r.rater.name %></h5>
-			      <p><%= r.created_at %></p>
-			      <div class="pull-right">
-				      <% (1..(r.rate)).each do |k|%>
-				      	<small><span class="rating_color" style="left: <%= k*30 %>px"></span></small>
-				      <% end %>
-				      <% ((r.rate+1)..5).each do |l| %>
-				      	<span class="rating_nocolor" style="left: <%= l*30 %>px"></span>
-				      <% end %>
-				  </div>
+			      <div style="width:100%; display: inline-block; vertical-align: middle;">
+			      	<span style="font-size: 20px;">
+			      		<%= r.rater.name %>
+			      	</span> 
+			      	<span style="float: right; font-size: 15px;">
+			      		<%= r.created_at %>
+			      	</span>
+			  	  </div>
 			    </div>
-				<p><%= r.comment%><br></p>
+
+			    <div style="height: 40px; margin: 10px 10px; vertical-align: middle;">
+					<span style="margin-left: 5px;"><%= r.comment%></span>
+				    <span style="float:right;">
+				     	<% (1..(r.rate)).each do |k|%>
+					    <small>
+					    	<span class="rating_color" style="left: <%= k*30 %>px"></span>
+					    </small>
+					    <% end %>
+					    <% ((r.rate+1)..5).each do |l| %>
+					    <span class="rating_nocolor" style="left: <%= l*30 %>px"></span>
+					    <% end %>
+					</span>
+				</div>
 			</div>
 		<% end %>
 	<% end %>

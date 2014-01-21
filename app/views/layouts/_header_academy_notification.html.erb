@@ -66,7 +66,7 @@
       <% @notification_acmy_tutorial_aproved.each do |notification| %>
         <% tutorial = notification.tutorial %>
         <li class="preview">
-          <a href="<%= academy_workshop_path(tutorial, :notification => notification) %>">
+          <a href="<%= academy_tutorials_path(tutorial, :notification => notification) %>">
             <span class="name"><%= tutorial.title %></span>
             <span class="time"><i class="icon-time"></i></span>
             <abbr class="timeago" title="<%= notification.created_at.getutc.iso8601 %>"> <%= notification.created_at.to_s %> </abbr>
@@ -88,7 +88,7 @@
       <% @notification_acmy_event_aproved.each do |notification| %>
         <% event = notification.event %>
         <li class="preview">
-          <a href="<%= academy_workshop_path(event, :notification => notification) %>">
+          <a href="<%= event_event_path(event, :notification => notification) %>">
             <span class="name"><%= event.title %></span>
             <span class="time"><i class="icon-time"></i></span>
             <abbr class="timeago" title="<%= notification.created_at.getutc.iso8601 %>"> <%= notification.created_at.to_s %> </abbr>

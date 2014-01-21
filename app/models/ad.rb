@@ -32,6 +32,7 @@ class Ad < ActiveRecord::Base
   has_many :ad_images, :dependent => :destroy
   has_many :messages
   has_many :talks
+  has_many :ratings
 
 
   #scopes
@@ -150,6 +151,19 @@ class Ad < ActiveRecord::Base
         end
      end
 
+     def self.search1( cities, categories, ads )
+      if cities != nil
+        ads =  ads.where(city_id: cities)
+      end
+
+      if  categories != nil
+        ads =  ads.where(category_id:  categories)
+      end
+
+      return ads
+
+     end
+
 
      ####################
      # instance methods #
@@ -203,7 +217,7 @@ class Ad < ActiveRecord::Base
   if !self.ad_images.blank?
      return self.ad_images.first.image
   else
-     return "http://placehold.it/40x30"
+     return "/assets/defaultAdPic.png"
   end
 
   end

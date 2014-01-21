@@ -1,38 +1,59 @@
 <div class="panel-group" id="accordion" style="margin-bottom: 10px;">
 
-  <!-- MERCADO -->
   <% if user_signed_in? %>
-  <div class="panel panel-info">
-    <div class="panel-heading" style="background-color: #39b3d7">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseMercado">
-          <%= fa_icon "shopping-cart", class:"market-icon" %> MERCADO
-        </a>
-      </h4>
-    </div>
-    <div id="collapseMercado" class="panel-collapse collapse <%= in_mercado? %>">
-      <div class="panel-body">
-        <ul class="side-elems">
-          <li><%= link_to "<i class='fa fa-angle-right'></i>Entrar no Mercado".html_safe , ads_path %></li>
-          <li><%= link_to "<i class='fa fa-angle-right'></i>Os Meus Anúncios".html_safe , myads_user_path(current_user.id) %></li>
-          <li><%= link_to "<i class='fa fa-angle-right'></i>Novo Anúncio".html_safe , new_ad_path %></li>
-        </ul>
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color: #9C9F84">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseUser">
+            <%= fa_icon "users" %> <%= current_user.name.upcase %>
+          </a>
+        </h4>
+      </div>
+      <div id="collapseUser" class="panel-collapse collapse <%= in_user? %>">
+        <div class="panel-body">
+          <ul class="side-elems">
+            <li><%= link_to "<i class='fa fa-angle-right'></i>Perfil".html_safe , user_path(current_user) %></li>
+            <li><%= link_to "<i class='fa fa-angle-right'></i>Mural".html_safe , feed_path %></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <% else %>
-  <div class="panel panel-info">
-    <div class="panel-heading" style="background-color: #39b3d7">
-      <h4 class="panel-title">
-        <%= link_to "MERCADO".html_safe, ads_path %>
-      </h4>
+  <% end %>
+
+
+  <!-- MERCADO -->
+  <% if user_signed_in? %>
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color: #39b3d7">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseMercado">
+            <%= fa_icon "shopping-cart", class:"market-icon" %> MERCADO
+          </a>
+        </h4>
+      </div>
+      <div id="collapseMercado" class="panel-collapse collapse <%= in_mercado? %>">
+        <div class="panel-body">
+          <ul class="side-elems">
+            <li><%= link_to "<i class='fa fa-angle-right'></i>Entrar no Mercado".html_safe , ads_path %></li>
+            <li><%= link_to "<i class='fa fa-angle-right'></i>Os Meus Anúncios".html_safe , myads_user_path(current_user.id) %></li>
+            <li><%= link_to "<i class='fa fa-angle-right'></i>Novo Anúncio".html_safe , new_ad_path %></li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
+    <% else %>
+    <div class="panel panel-info">
+      <div class="panel-heading" style="background-color: #39b3d7">
+        <h4 class="panel-title">
+          <%= link_to "MERCADO".html_safe, ads_path %>
+        </h4>
+      </div>
+    </div>
   <% end %>
 
 <!-- EVENTOS -->
   <% if user_signed_in? %>
-    <div class="panel panel-warning">
+    <div class="panel panel-default">
       <div class="panel-heading" style="background-color: #ed9c28">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapseEventos">
@@ -90,7 +111,7 @@
 <div class="panel panel-default">
   <div class="panel-heading" style="background-color: #d2322d; border-radius: 4px 4px 4px 4px;">
     <h4 class="panel-title">
-      <%= fa_icon "lock" %> <a href="/admin/dashboard"> ADMINISTRAÇÃO</a>
+      <a href="/admin/dashboard"><%= fa_icon "lock" %> ADMINISTRAÇÃO</a>
     </h4>
   </div>
 </div>
@@ -99,7 +120,7 @@
 
 <% if user_signed_in? && (controller_name=="ads" || academy?) %>
 <!-- Painel de Filtros-->
-<div class="panel ">
+<div class="panel " style="border: 1px solid #dddddd;">
   <div class="panel-heading border-header">
     <i class="icon-search"></i><span style="font-size:13px;margin-left:5px">Pesquisar por:</span>
   </div>
