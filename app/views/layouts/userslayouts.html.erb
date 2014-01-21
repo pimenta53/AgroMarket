@@ -6,7 +6,9 @@
   <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
   <%= javascript_include_tag "jquery","jquery_ujs","jquery.fancybox","lib/jquery.pnotify.js","lib/jquery.validate.min","lib/jquery.tablesorter","lib/bootstrap-typeahead.min","bootstrap","select2","bootstrap-datepicker", "validations","user"%>  
+
 
 
   <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
@@ -33,6 +35,7 @@
 
       <aside class="profile-nav col-lg-3">
         <section class="panel">
+
           <div class="user-heading round">
             <a href="#"><%= image_tag @user.avatar.url(:medium),:width => "70%"%></a>
             <h1><%= @user.name %></h1>
@@ -51,12 +54,15 @@
             <% end %>
             <li>
               <% if current_user.id == @user.id %>
-                 <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %> <span class="label label-danger pull-right r-activity"><%= @user.counter_ads %></span>
+                <span class="label  pull-right r-activity counter_ads"><%= @user.counter_ads %></span>
+                 <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %>
               <% else %>
+                 <span class="label  pull-right r-activity counter_ads"><%= @user.counter_ads %></span>
                   <%= link_to " Anúncios de #{@user.name}".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %> <span class="label label-danger pull-right r-activity"><%= @user.counter_ads %></span>
               <% end %>
             </li>
           </ul>
+
         </section>
         
         <% if (current_user && @user.id != current_user.id) %>
@@ -64,19 +70,33 @@
             <button class="followToggle btn btn-primary" value="<%= @user.id %>"><% if current_user.is_following(@user) %>unfollow<% else %>follow<% end %></button>
     
         <% end %>
-      </aside>
+      
+
+    
+
+    </aside>
 
     <%= yield %>
+    
 
     </div>
 
 
-  </div>
 
-  <%= render 'layouts/footer' %>
+</div>
+
+<div class="footer">
+
+     <%= render 'layouts/footer' %>
 
 
+</div>
 
 
 </body>
+
+
+
+
+
 </html>

@@ -25,33 +25,40 @@
     </section>-->
 
     <section class="panel" style="margin-right:15px;">
-        <div class="panel-body bio-graph-info">
-            <h1>Biografia</h1>
+
+          <div class="panel-default" style="">
+                    <div class="panel-heading border-header panel-default">
+                        <h3 class="panel-title">Biografia</h3>
+                    </div>
+          </div>
+        <div class="panel-body bio-graph-info" style="margin-top:10px;">
+           
+         
             
             <div class="row">
                 <div class="bio-row">
-                    <p><span>Nome </span>: <%= @user.name %></p>
+                    <p><span>Nome: </span> <%= @user.name %></p>
                 </div>
                 <div class="bio-row">
-                    <p><span>Cidade </span>:<% if @user.city %> <%= @user.city.city %><% end %></p>
+                    <p><span>Cidade: </span><% if @user.city %> <%= @user.city.city %><% end %></p>
                 </div>
                 <div class="bio-row">
-                    <p><span>Data de Nascimento</span>:<%= I18n.localize(@user.birthday) if @user.birthday %></p>
+                    <p><span>Data de Nascimento:</span><%= I18n.localize(@user.birthday) if @user.birthday %></p>
                 </div>
                 <div class="bio-row">
 
 
-                    <p><span>Ocupação</span>: <%= @user.ocupation %></p>
+                    <p><span>Ocupação:</span> <%= @user.ocupation %></p>
 
                 </div>
                 <div class="bio-row">
-                    <p><span>Email </span>: <%= @user.email %></p>
+                    <p><span>Email: </span> <%= @user.email %></p>
                 </div>
                 <div class="bio-row">
-                    <p><span>Membro desde </span>: <%= I18n.localize(@user.created_at, :format => :time) %></p>
+                    <p><span>Membro desde: </span><%= I18n.localize(@user.created_at, :format => :time) %></p>
                 </div>
                 <div class="bio-row">
-                    <p><span>Telefone </span>: <% if @user.phone %><%= @user.phone %><% end %></p>
+                    <p><span>Telefone: </span> <% if @user.phone %><%= @user.phone %><% end %></p>
                 </div>
             </div>
         </div>
@@ -60,8 +67,13 @@
 
 
     <section class="panel" style="margin-right:15px;">
+        <div class="panel-default" style="">
+                    <div class="panel-heading border-header panel-default">
+                        <h3 class="panel-title">Seguindo</h3>
+                    </div>
+          </div>
+
         <div class="panel-body bio-graph-info">
-            <h1>Seguindo</h1>
             <div class="row">
                 <% i = 0 %>
                 <% @user.following.each do |f| %>
@@ -87,8 +99,13 @@
     </section>
 
     <section class="panel" style="margin-right:15px;">
+          <div class="panel-default" style="">
+                    <div class="panel-heading border-header panel-default">
+                        <h3 class="panel-title">Seguidores</h3>
+                    </div>
+          </div>
         <div class="panel-body bio-graph-info">
-            <h1>Seguidores</h1>
+            
             <div class="row">
                 <% i = 0 %>
                 <% @user.followers.each do |f| %>
@@ -175,6 +192,20 @@
 
         </div>
     </section>-->
+
+    <% if current_user!=@user %>
+      <div class="button_msg">
+                    <button class="btn btn-primary" data-toggle="modal" href="#responsive">Mandar Mensagem</button>
+        </div>
+
+    <% end %>
+
+      
+
+         <div class="button_back">
+              <%= link_to '<span class="icon-arrow-left" style="color:white;"></span> Voltar'.html_safe, root_path, class: "btn btn-primary" %>
+        </div>
+
 </aside>
 
       
@@ -197,8 +228,4 @@
 
 
 
-<% if current_user!=@user %>
-<div class="text-center">
-            <button class="demo btn btn-primary btn-lg" data-toggle="modal" href="#responsive">Mandar Mensagem</button>
-</div>
-<% end %>
+

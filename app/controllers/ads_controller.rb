@@ -60,7 +60,7 @@ class AdsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @ads }
-      format.js {render :layout => false}
+      #format.js {render :layout => false} já não há infinite list em ads
     end
   end
 
