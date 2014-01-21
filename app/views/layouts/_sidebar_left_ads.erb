@@ -7,14 +7,14 @@
           <ul class="nav prod-cat">
                <% @categories.each do |cat| %>
                   <li>
-                    <% if !params[:search].nil? %>
-                        <% if params[:search].include?("cat:" + "#{cat.id}") %>
-                            <%= check_box_tag "search[]","cat:#{cat.id}", "active" %>
+                    <% if !params[:search_category].nil? %>
+                        <% if params[:search_category].include?(cat.id.to_s) %>
+                            <%= check_box_tag "search_category[]",cat.id, "active" %>
                         <%else%>
-                            <%= check_box_tag "search[]","cat:#{cat.id}" %>
+                            <%= check_box_tag "search_category[]",cat.id %>
                         <% end %>
                     <% else %>
-                        <%= check_box_tag "search[]","cat:#{cat.id}" %>
+                        <%= check_box_tag "search_category[]",cat.id %>
                     <% end %>
                     <%= cat.name %>
                   </li>
