@@ -29,6 +29,7 @@
             <%= text_field_tag :search, params[:search],:class => "form-control typeahead" ,:style=>"vertical-align: center; width:400px;",:autocomplete => "off",:id=>"search_query",:placeholder=>"O que procura?"  %>
             <input type="hidden" class="span1" name="IdControl" id="IdControl" value="" />
         <% end %>
+   
       </li>
 
       <% if user_signed_in? %>
@@ -98,7 +99,7 @@
                              + "<img class='typeahead_photo' src='"+ p.img +"' />"
                              + "<div class='typeahead_labels'>"
                              + "<div class='typeahead_primary'>" + p.title + "</div>"
-                             + "<div class='typeahead_secondary'>" + p.category + " | "+ p.tipo +"</div>"
+                             + "<div class='typeahead_secondary'>" + p.category + " | <span class='typeahead_typo'> "+ p.tipo +"</span></div>"
                              + "</div>"
                              + "</div>";
                     return itm;
