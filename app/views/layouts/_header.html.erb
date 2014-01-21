@@ -24,9 +24,9 @@
 
     <ul class="nav navbar-nav navbar-right">
 
-      <li style="width:400px;margin-right: 20px">
-        <%= form_tag "/ads", :method => "get",:class=>"navbar-form navbar-left input-group", style:"border-style: none; box-shadow: none; -webkit-box-shadow: none", :id => "search" do %>
-            <%= text_field_tag :search, params[:search],:class => "form-control typeahead" ,:style=>"vertical-align: center; width:400px;",:autocomplete => "off",:id=>"search_query",:placeholder=>"O que procura?"  %>
+      <li style="width:400px;margin-right: 20px;">
+        <%= form_tag "/ads", :method => "get",:class=>"navbar-form navbar-left input-group", style:"box-shadow: none; -webkit-box-shadow: none", :id => "search" do %>
+            <%= text_field_tag :search, params[:search],:class => "form-control typeahead" ,:style=>"border: 1px solid #dddddd; border-radius: 3px 3px 3px 3px; vertical-align: center; width:400px;",:autocomplete => "off",:id=>"search_query",:placeholder=>"O que procura?"  %>
             <input type="hidden" class="span1" name="IdControl" id="IdControl" value="" />
         <% end %>
       </li>

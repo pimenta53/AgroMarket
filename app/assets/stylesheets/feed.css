@@ -28,4 +28,11 @@ body {
 
 }
 
+#feed-link, #feed-link a {
+  color: #666;
+}
 
+#feed-link:hover, #feed-link a:hover {
+  color: black;
+  text-decoration: none;
+}
