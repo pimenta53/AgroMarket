@@ -1,0 +1,60 @@
+<rss version="0.92">
+  <channel>
+    <title>AgroSocial: <%= @user.name %> Feeds</title>
+    <link><%= @user %></link>
+    <description><%= @user.name %> rss feeds from AgroSocial</description>
+    <lastBuildDate> <%= @pub_date %> </lastBuildDate>
+<% @elem_feed.each do | f | %>
+      <item>
+      
+				<% item = f.content %>
+				
+			 	<%case f.in%>
+				<%when 1    #ad %>
+				   <title><%= item.user.name %> anuncia: <%= item.title %></title>
+               <link> <%= root_url.chop + ad_path(item) %> </link>
+               <description><%= item.description %></description>
+               <% if item.ad_images.first %>
+                 <% image_data = item.ad_images.first %>
+                 <% image_url = root_url.chop + image_data.image.url(:small) %>
+                 <image><%= image_url %></image>
+                 <![CDATA[<img src="<%= image_url %>"/> ]]>
+               <% end %>
+               <category><%= item.category.name %></category>
+               
+				<%when 2    #question%>
+				   <title><%= item.user.name %> pergunta: <%= item.title %></title>
+               <link> <%= root_url.chop + academy_question_path(item) %> </link>
+               <description><%= item.text %></description>
+               <category><%= item.category.name %></category>
+               
+				<%when 3    #tutorial%>
+				   <title><%= item.user.name %> cria o tutorial: <%= item.title %></title>
+               <link> <%= root_url.chop + academy_tutorial_path(item) %> </link>
+               <description><%= item.text %></description>
+               <category><%= item.category.name %></category>
+
+				<%when 4    #event%>
+				   <title><%= item.user.name %> cria o evento: <%= item.title %></title>
+               <link> <%= root_url.chop + event_event_path(item) %> </link>
+               <description><%= item.description %></description>
+               <% if item.ad_images.first %>
+                 <% image_data = item %>
+                 <% image_url = root_url.chop + image_data.image.url(:small) %>
+                 <image><%= image_url %></image>
+                 <![CDATA[<img src="<%= image_url %>"/> ]]>
+               <% end %>
+
+				<%when 5    #WS%>
+				   <title><%= item.user.name %> abre o workshop: <%= item.title %></title>
+               <link> <%= root_url.chop + academy_workshop_path(item) %> </link>
+               <description><%= item.description %></description>
+               
+				<%end%>
+				<pubDate><%= item.created_at %></pubDate>
+            <author><%= item.user.email %></author>
+	  </item>
+	<%end%>
+	
+  </channel>
+</rss>

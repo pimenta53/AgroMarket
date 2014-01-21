@@ -48,6 +48,8 @@ Agrosocial::Application.routes.draw do
 
   #pagina myads do utilizador
   get "/users/:id/myads" => "users#myads", as: "myads_user"
+  
+  get "/users/:id/rss" => "users#rss", as: "rss_user", :defaults => { :format => 'rss' }
 
   get "/users/:id/myevents" => "users#myevents", as: "myevents"
 

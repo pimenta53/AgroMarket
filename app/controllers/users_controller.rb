@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   layout :resolve_layout
-  before_action :set_user, only: [:show, :follow, :myads]
+  before_action :set_user, only: [:show, :follow, :myads, :myevents, :rss]
   load_and_authorize_resource :only => [:edit,:update,:show,:index]
 
 
@@ -46,6 +46,44 @@ class UsersController < ApplicationController
       format.js {render :nothing => true}
     end
   end
+
+  # GET /users/1/rss
+  def rss
+    @feeds = Feed.where("user_id=?",@user.id).order('created_at DESC').limit(100)
+    
+    @elem_feed = Array.new
+	
+	 if !@feeds.blank? 
+      @feeds.each do | f |
+
+		  require 'ostruct'
+		  info = OpenStruct.new
+		  
+	     info.in = f.in	
+		  
+		  case f.in
+		     when 1    #ad
+				 info.content = Ad.find_by_id(f.id_content)
+			  when 2    #question
+				 info.content = Academy::Question.find_by_id(f.id_content)
+			  when 3    #tutorial
+				 info.content = Academy::Tutorial.find_by_id(f.id_content)
+			  when 4    #event
+				 info.content = Event::Event.find_by_id(f.id_content)
+			  when 5    #WS
+				 info.content = Academy::Workshop.find_by_id(f.id_content)
+						
+			end
+         @elem_feed.push(info)
+       end
+     end
+     @pub_date = @feeds.first.created_at
+
+     respond_to do |format|
+       format.rss { render :layout => false }
+       format.xml { render :layout => false }
+     end
+   end
 
   def new
   end
