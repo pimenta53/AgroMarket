@@ -27,13 +27,12 @@
     </header>
 
     <div class="panel-body">
-    <select multiple name="cities[]" class="col-xs-12 col-md-13 col-lg-13" placeholder="Procure por cidades...">
-    <option value="">Selecione...</option>
+    <select id="search-bar-ads" style="float:center; width:100%;" multiple name="cities[]" class="col-xs-12 col-md-13 col-lg-13" placeholder="Procure por cidades..." >
+    <option value="" style="border-radius: 3px !important;">Selecione...</option>
     <% @districts.each do |district| %>
       <% !params[:cities].blank? ? (cities = params[:cities]) : (cities = [])%>
       <optgroup label="<%= district.name %>">
            <% district.cities.each do |city| %>
-
                  <option value="<%= city.id %>" <%= 'selected' if cities.include?(city.id.to_s) %> ><%= city.city %></option>
            <% end %>
       </optgroup>
