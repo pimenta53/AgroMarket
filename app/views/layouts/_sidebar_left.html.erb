@@ -1,5 +1,33 @@
 <div class="panel-group" id="accordion" style="margin-bottom: 10px;">
 
+  <% if user_signed_in? %>
+    <div class="panel panel-info">
+      <div class="panel-heading" style="background-color: #39b3d7">
+        <h4 class="panel-title">
+          <a href= <%= user_path(current_user) %> >
+            <%= fa_icon "shopping-cart", class:"market-icon" %> Perfil
+          </a>
+        </h4>
+      </div>
+    </div>
+  <% end %>
+
+
+  <% if user_signed_in? %>
+    <div class="panel panel-info">
+      <div class="panel-heading" style="background-color: #39b3d7">
+        <h4 class="panel-title">
+          <a href= <%= feed_path %> >
+            <%= fa_icon "shopping-cart", class:"market-icon" %> Feed
+          </a>
+        </h4>
+      </div>
+    </div>
+  <% end %>
+
+
+
+
   <!-- MERCADO -->
   <% if user_signed_in? %>
   <div class="panel panel-info">
