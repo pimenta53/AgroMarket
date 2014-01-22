@@ -1,11 +1,11 @@
 <ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <li class="active">
-    <i class="fa fa-shopping-cart"><a class="url" href="<%= ratings_path %>"></i> Avaliações</a>
+    <i class="fa fa-shopping-cart"><a class="url" href="<%= ratings_path %>"></i> Reputações</a>
   </li>
 </ol>
 
 <div style="margin-left: 10px;">
-	<h3>A MINHA AVALIAÇÃO</h3>
+	<h3>A MINHA REPUTAÇÃO</h3>
 </div>
 
 <div style="display: inline-block; width: 100%; margin: 0 10px 0 10px">
@@ -36,7 +36,7 @@
 	<tr style="background-color: white;">
 		<th width="30%">UTILIZADOR</th>
 		<th width="50%">ANÚNCIO</th>
-		<th width="20%">AVALIAR</th>
+		<th width="20%">ATRIBUIR REPUTAÇÃO</th>
 	</tr>
 		<% @rating.each do |r| %>
 			<% if r.rate.nil? %>
