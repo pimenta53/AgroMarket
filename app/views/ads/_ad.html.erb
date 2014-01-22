@@ -8,9 +8,9 @@
           </div>
       </div>
     </div>
-    <div class="panel-body text-center" style="margin-top:-30px; min-width: 105px !important;">
+    <div class="panel-body text-center" style="margin-top:-30px; padding-bottom: auto; height: 175px; min-width: 105px !important;">
       <% if !ad.category.blank? %>
-        <div class="caption" style="margin-bottom:15px;">
+        <div class="caption" style="margin-bottom:25px;">
           <% if ad.category.nil? %>
             <span class="label pro_title" style="background-color: #888888">Desconhecido </span>
           <% else %>
@@ -18,11 +18,11 @@
           <% end %>
         </div>
       <% end %>
-      <div class="linkads" style="height:20px; margin-bottom: 10px;">
+      <div class="linkads" style="height:20px; margin-bottom: 15px;">
         <a><%= link_to ad.title, ad %></a>
       </div>
       <div>
-        <i style="height:20px; margin-bottom:15px; margin-top:15px;" class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %>
+        <i style="" class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %>
       </div>
     </div>
   </div>
