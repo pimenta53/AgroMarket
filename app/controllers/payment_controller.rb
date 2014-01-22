@@ -23,7 +23,7 @@ class PaymentController < ApplicationController
 	        :receiver => [{
 	          :amount => @plan.price,
 	          :email => "platfo_1255612361_per@gmail.com" }] },
-	      :returnUrl => "http://localhost:3000/payment/success_payment?user=#{current_user.id}&code=#{payment_ref.ref}" })
+	      :returnUrl => "http://teste94.di.uminho.pt/payment/success_payment?user=#{current_user.id}&code=#{payment_ref.ref}" })
 
 	    # Make API call & get response
 	    @response = @api.pay(@pay)
@@ -72,16 +72,16 @@ class PaymentController < ApplicationController
 	    # Build request object
 	    @pay = @api.build_pay({
 	      :actionType => "PAY",
-	      :cancelUrl => "http://localhost:3000/payment/error_payment",
+	      :cancelUrl => "http://teste94.di.uminho.pt/payment/error_payment",
 	      :currencyCode => "EUR",
 	      :feesPayer => "SENDER",
 	      :description => "Coisa para description" ,
-	      :ipnNotificationUrl => "http://localhost:3000/asdfajklaslkdpayment/success_payment?user=#{current_user.id}&code=#{payment_ref}",
+	      :ipnNotificationUrl => "http://teste94.di.uminho.pt/asdfajklaslkdpayment/success_payment?user=#{current_user.id}&code=#{payment_ref}",
 	      :receiverList => {
 	        :receiver => [{
 	          :amount => 2.50,
 	          :email => "platfo_1255612361_per@gmail.com" }] },
-	      :returnUrl => "http://localhost:3000/payment/success_payment?user=#{current_user.id}&code=#{payment_ref.ref}" })
+	      :returnUrl => "http://teste94.di.uminho.pt/payment/success_payment?user=#{current_user.id}&code=#{payment_ref.ref}" })
 
 	    # Make API call & get response
 	    @response = @api.pay(@pay)
