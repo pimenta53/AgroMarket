@@ -89,7 +89,11 @@ class UsersController < ApplicationController
          @elem_feed.push(info)
        end
      end
-     @pub_date = @feeds.first.created_at
+     if @feeds.first
+       @pub_date = @feeds.first.created_at
+     else
+       @pub_date = @user.created_at
+     end
 
      respond_to do |format|
        format.rss { render :layout => false }
