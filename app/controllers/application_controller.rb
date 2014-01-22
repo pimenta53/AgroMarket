@@ -29,14 +29,20 @@ class ApplicationController < ActionController::Base
   # => 9 -> new private message
   # => 10-> new follower
   # => 11-> deleted follower
+  # => 12-> closed ad
   def load_notifications
+    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
+      Notification.find(params[:notification]).update(:watched => true)
+    end
+
     all_notifications = Notification.where(:user_id => current_user, :watched => false)
 
     # notification from ads
     @notifications_ad_messages  = all_notifications.where(:notification_type => 1)
     @notifications_ad_expired   = all_notifications.where(:notification_type => 2)
+    @notifications_ad_closed    = all_notifications.where(:notification_type => 12)
 
-    @number_notifications_ads   = @notifications_ad_messages.size + @notifications_ad_expired.size
+    @number_notifications_ads   = @notifications_ad_messages.size + @notifications_ad_expired.size + @notifications_ad_closed.size
 
     ########notificações de academia#################
     @notifications_new_answer           = all_notifications.where(:notification_type => 4)
