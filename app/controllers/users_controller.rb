@@ -47,6 +47,7 @@ class UsersController < ApplicationController
     end
   end
 
+
   # GET /users/1/rss
   def rss
     @feeds = Feed.where("user_id=?",@user.id).order('created_at DESC').limit(100)

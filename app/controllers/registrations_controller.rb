@@ -28,7 +28,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   end
 
- 
+  def delete
+
+  end
 
   private
       #omniauth

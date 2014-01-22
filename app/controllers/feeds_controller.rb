@@ -37,8 +37,9 @@ class FeedsController < ApplicationController
 							info.content = Academy::Workshop.find_by_id(f.id_content)
 						
 						end
-
-						@elem_feed.push(info)
+						if !info.content.blank?
+							@elem_feed.push(info)
+						end
 					end
 
 				end
