@@ -28,6 +28,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   end
 
+ 
+
   private
       #omniauth
       def build_resource(*args)

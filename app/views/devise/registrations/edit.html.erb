@@ -213,7 +213,11 @@
                 <div class="form-group">
                     <label class="col-lg-2 control-label">Deseja apagar a conta?</label>
                     <div class="col-lg-10">
-                        <%= button_to "Apagar a minha conta", registration_path(resource_name), :data => { :confirm => "Tens a certeza?" }, :method => :delete %>
+                      <%= form_tag  controller: "registration", action: "delete_account" do  %>
+                        <%= password_field_tag :current_password %>
+                        <%= submit_tag "Apagar a minha conta", :method => :delete %>
+
+                      <% end %>
                     </div>
                 </div>
 
