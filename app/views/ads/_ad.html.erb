@@ -19,7 +19,7 @@
         </div>
       <% end %>
       <div class="linkads" style="height:20px; margin-bottom: 15px;">
-        <a><%= link_to ad.title, ad %></a>
+        <a><%= link_to ad.title.truncate(25), ad %></a>
       </div>
       <div>
         <i style="" class="fa fa-map-marker pro_title"></i> <%= ad.city.city unless ad.city.blank? %>
