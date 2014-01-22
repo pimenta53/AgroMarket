@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  name        :string(255)      not null
 #  duration    :integer          default(6)
-#  price       :float            not null
+#  price       :decimal(5, 2)    not null
 #  ads_limit   :integer          not null
 #  event_limit :integer          not null
 #  created_at  :datetime

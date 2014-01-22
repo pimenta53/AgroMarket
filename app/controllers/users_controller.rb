@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     # Verificar se preciso mesmo de duas querys?????
 
     @myrate = Rating.where(:rated_id => params[:id]).average(:rate)
-    if @my_rate.blank?
+    if @myrate.blank?
       @myrate = 0
     end
     
@@ -102,6 +102,19 @@ class UsersController < ApplicationController
    end
 
   def new
+  end
+
+
+    # DELETE /admin/users/1
+  # DELETE /admin/users/1.json
+  def destroy
+    #@admin_user.destroy
+    @user.deleted = true
+    @user.save
+    #respond_to do |format|
+    #  format.html { redirect_to admin_users_url }
+    #  format.json { head :no_content }
+    #end
   end
 
 

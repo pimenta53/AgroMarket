@@ -17,7 +17,7 @@
 #  image_content_type :string(255)
 #  image_file_size    :integer
 #  image_updated_at   :datetime
-#  deleted            :boolean
+#  deleted            :boolean          default(FALSE)
 #
 
 class Event::Event < ActiveRecord::Base

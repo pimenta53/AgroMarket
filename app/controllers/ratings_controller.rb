@@ -15,8 +15,7 @@ class RatingsController < ApplicationController
 		@rating = Rating.where(:rater_id => current_user.id)
 		# Verificar se preciso mesmo de duas querys?????
 		@myrate = Rating.where(:rated_id => current_user.id).average(:rate)
-
-		if @my_rate.blank?
+		if @myrate.blank?
 	      @myrate = 0
 	    end
 	    
