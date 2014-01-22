@@ -5,7 +5,7 @@
 
   <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag  "application", media: "all"%>
 
   <%= javascript_include_tag "jquery","jquery_ujs","jquery.fancybox","lib/jquery.pnotify.js","lib/jquery.validate.min","lib/jquery.tablesorter","lib/bootstrap-typeahead.min","bootstrap","select2","bootstrap-datepicker", "validations","user"%>  
 
@@ -44,42 +44,49 @@
             </p>
           </div>
           <ul class="nav nav-pills nav-stacked">
-            <% if action_name!="edit"%><li class="active"><%else%><li><%end%>
-              <%= link_to " Perfil".html_safe , user_path(current_user.id), :class => "fa fa-user" %>
-            </li>
-            <% if (current_user && @user.id == current_user.id) %>
-              <% if action_name=="edit"%><li class="active"><%else%><li><%end%>
-                <%= link_to " Editar Perfil".html_safe , edit_user_registration_path(), :class => "fa fa-edit" %>
-              </li>
+
+           
+                  <% if action_name!="edit"%><li class="active"><%else%><li><%end%>
+                    <%= link_to " Perfil".html_safe , user_path(@user.id), :class => "fa fa-user" %>
+                  </li>
+      
+
+            <% if (user_signed_in?  && current_user.id == @user.id) %>
+
+                 
+                    <% if action_name=="edit"%><li class="active"><%else%><li><%end%>
+                      <%= link_to " Editar Perfil".html_safe , edit_user_registration_path(), :class => "fa fa-edit" %>
+                    </li>
+          
             <% end %>
+
+
             <li>
-              <% if current_user.id == @user.id %>
+         
+
+              <% if  user_signed_in?  && current_user.id == @user.id %>
                 <span class="label  pull-right r-activity counter_ads"><%= @user.counter_ads %></span>
                  <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %>
               <% else %>
                  <span class="label  pull-right r-activity counter_ads"><%= @user.counter_ads %></span>
                   <%= link_to " Anúncios de #{@user.name}".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %> 
               <% end %>
-            </li>
-            <% if (current_user && @user.id == current_user.id) %>
-              <li>
-                <%= link_to " Feeds".html_safe , feed_path, :class => "fa fa-list" %>
-              </li>
-            <% end %>
-            <li>
-                  <%= link_to " Rss de #{@user.name}".html_safe , rss_user_path(@user.id), :class => "fa fa-rss" %> 
+
+         
             </li>
           </ul>
 
         </section>
         
-        <% if (current_user && @user.id != current_user.id) %>
-        
-            <button class="followToggle btn btn-primary" value="<%= @user.id %>"><% if current_user.is_following(@user) %>unfollow<% else %>follow<% end %></button>
-    
-        <% end %>
-      
 
+         <% if (user_signed_in?) %>   
+                <% if (current_user && @user.id != current_user.id) %>
+                
+                    <button class="followToggle btn btn-primary" value="<%= @user.id %>"><% if current_user.is_following(@user) %>Deixar de Seguir<% else %>Seguir<% end %></button>
+            
+                <% end %>
+      
+        <% end %>
     
 
     </aside>
