@@ -222,6 +222,8 @@ class AdsController < ApplicationController
     # Create new entry, RATER current_user
     Rating.new(:ad_id => @ad.id,:rater_id => current_user.id ,:rated_id => params[:user_id]).save
 
+    Notification.create_notification( params[:user_id], @ad.id , 12 , "Negócio Fechado" )
+
     redirect_to ratings_path,notice: 'A mensagem foi terminada com sucesso'
   end
 

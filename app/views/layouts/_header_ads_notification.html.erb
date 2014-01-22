@@ -53,6 +53,33 @@
       <li class="divider"></li>
     <% end %>
 
+<%# notifications from messages in ads %>
+    <% if @notifications_ad_closed.length > 0 %>
+      <li class="dropdown-header">
+        <% if @notifications_ad_closed.length == 1 %>
+          <%= @notifications_ad_closed.length %> Negócio Fechado
+        <% else %>
+          <%= @notifications_ad_closed.length %> Negócios Fechados
+        <% end %>
+      </li>
+
+        <%# first_expired_ads = expired_ads.limit(5) %>
+        <% @notifications_ad_closed.each do |notification| %>
+          <% ad = notification.ad %>
+          <li class="preview">
+            <a href="<%= ad_path(ad, :notification => notification) %>">
+              <% if ad.ad_images.count > 0 %>
+                <span class="avatar"><%= image_tag(ad.ad_images.first.image.url(:thumb), :alt => ad.title, :width => '50') %></span>
+              <% else %>
+                <span class="avatar"><img width="50" alt="50x50" src="http://placehold.it/50x50"></img></span>
+              <% end %>
+              <span class="name"><%= truncate(ad.title, length: 20) %></span>
+              <span class="time"><i class="icon-time"></i><abbr class="timeago" title="<%= ad.expire_date.getutc.iso8601 %>"> <%= ad.expire_date.to_s %> </abbr></span>
+            </a>
+          </li>
+        <% end %>
+      <li class="divider"></li>
+    <% end %>
 
     <% if @number_notifications_ads == 0 %>
       <li class="dropdown-header">Sem novos alertas.</li>
