@@ -231,6 +231,11 @@ class User < ActiveRecord::Base
     Talk.ads_talks(self.id)
   end
 
+  #Primeiro + Ultimo nome
+  def first_last_name
+    names = name.split
+    names.first + " " + names.last
+  end
 
   #idade do utilizador
   def age
