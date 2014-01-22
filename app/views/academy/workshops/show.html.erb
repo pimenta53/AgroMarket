@@ -18,7 +18,32 @@
     <% end %>
   </div>
 </ol>
-
+<!--FACEBOOK SDK START -->
+<div id="fb-root"></div>
+<script>
+   // Load the SDK asynchronously
+   (function(d, s, id) {
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) return;
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/pt_PT/all.js#xfbml=1&appId=547514635336381";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<!--FACEBOOK SDK END -->
+<!--TWITTER SDK START -->
+<script>
+   !function(d,s,id){
+     var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+     if(!d.getElementById(id)){
+       js=d.createElement(s);
+       js.id=id;
+       js.src=p+'://platform.twitter.com/widgets.js';
+       fjs.parentNode.insertBefore(js,fjs);
+     }
+   }(document, 'script', 'twitter-wjs');
+</script>
+<!--TWITTER SDK END -->
 <p id="notice"><%= notice %></p>
 
 <section class="panel" style="border: 1px solid #dddddd;">
@@ -56,6 +81,11 @@
         <div class="text_show_workshop">
           <%= @academy_workshop.description.html_safe %>
         </div>
+      </div>
+        
+      <div class="pull-right">
+        <div class="fb-share-button sharebutton" data-href="<%= academy_workshop_url(@academy_workshop) %>" data-type="button"></div>
+        <div class="sharebutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div>
       </div>
 
       <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>
