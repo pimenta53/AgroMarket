@@ -28,6 +28,7 @@
 #  counter_ads            :integer          default(0)
 #  counter_events         :integer          default(0)
 #  plan_id                :integer
+#  deleted                :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
