@@ -101,6 +101,19 @@ class UsersController < ApplicationController
   end
 
 
+    # DELETE /admin/users/1
+  # DELETE /admin/users/1.json
+  def destroy
+    #@admin_user.destroy
+    @user.deleted = true
+    @user.save
+    #respond_to do |format|
+    #  format.html { redirect_to admin_users_url }
+    #  format.json { head :no_content }
+    #end
+  end
+
+
   private
   	def set_user
   		@user = User.find(params[:id])
