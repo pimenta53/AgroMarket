@@ -2,9 +2,12 @@
 
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header" id="header-bar">
-    <a href="/"><img id="agrosocial_logo" src="/assets/logo_button.svg" alt="AgroSocial Logo" class="img-circle"></a>
-    <a class="navbar-brand" id="brandAgro" href="/">AgroSocial</a>
+    <a href="<% if user_signed_in? %> <%= feed_path %> <% else %> <%= ads_path %> <% end %>
+"><img id="agrosocial_logo" src="/assets/logo_button.svg" alt="AgroSocial Logo" class="img-circle"></a>
+    <a class="navbar-brand" id="brandAgro" href="<% if user_signed_in? %> <%= feed_path %> <% else %> <%= ads_path %> <% end %>
+">AgroSocial</a>
   </div>
+
 
   <button type="button" id="navbarToggle" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
     <span class="sr-only">Toggle navigation</span>
@@ -24,9 +27,9 @@
 
     <ul class="nav navbar-nav navbar-right">
 
-      <li style="width:400px;margin-right: 20px;">
+      <li style="width:300px;margin-right: 20px;">
         <%= form_tag "/ads", :method => "get",:class=>"navbar-form navbar-left input-group", style:"box-shadow: none; -webkit-box-shadow: none", :id => "search" do %>
-            <%= text_field_tag :search, params[:search],:class => "form-control typeahead" ,:style=>"border: 1px solid #dddddd; border-radius: 3px 3px 3px 3px; vertical-align: center; width:400px;",:autocomplete => "off",:id=>"search_query",:placeholder=>"O que procura?"  %>
+            <%= text_field_tag :search, params[:search],:class => "form-control typeahead" ,:style=>"border: 1px solid #dddddd; border-radius: 3px 3px 3px 3px; vertical-align: center; width:300px;",:autocomplete => "off",:id=>"search_query",:placeholder=>"O que procura?"  %>
             <input type="hidden" class="span1" name="IdControl" id="IdControl" value="" />
         <% end %>
    
