@@ -82,10 +82,6 @@ $(function() {
                 });
                 return false;
               });
-            
-            $('#save_btn').click(function(e) {
-                e.preventDefault();
-            });
 
      });
 
