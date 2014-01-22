@@ -352,8 +352,8 @@
                        <% @dashboard.closed_talks.each do |t| %>
                       <tr>
                         <td>#<%= t.ad_id %></td>
-                        <td><%= t.user_one %>/<%= t.user_1.name %></td>
                         <td><%= t.user_two %>/<%= t.user_2.name %></td>
+                        <td><%= t.user_one %>/<%= t.user_1.name %></td>
                         <td><abbr class="timeago" title="<%= t.created_at.getutc.iso8601 %>"> <%= t.created_at.to_s %> </abbr></td>
                       </tr>
                     <% end %>
