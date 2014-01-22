@@ -88,8 +88,10 @@
             <div class="row">
                 <% i = 0 %>
                 <% @user.following.each do |f| %>
-                  <div class="user-heading round">
-                    <a href="/users/<%= f.id %>"><%= image_tag f.avatar.url(:medium),:width => "120%"%></a>
+                  <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+                    <a href="/users/<%= f.id %>">
+                      <%= image_tag f.avatar.url(:medium),:width => "90", height:"90", class:"img-circle", title:"#{f.name}"%>
+                    </a>
                   </div>
 
                     <% i = i+1%>
@@ -113,12 +115,13 @@
             <div class="row">
                 <% i = 0 %>
                 <% @user.followers.each do |f| %>
-                  <div class="user-heading round">
-                    <a href="/users/<%= f.id %>"><%= image_tag f.avatar.url(:medium),:width => "120%"%></a>
+                  <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+                    <a href="/users/<%= f.id %>">
+                      <%= image_tag f.avatar.url(:medium),:width => "100", height:"100", class:"img-circle", title:"#{f.name}"%>
+                        </a>
                   </div>
-
                     <%i = i+1%>
-                    <% if i > 6 %>
+                    <% if i > 12 %>
                         <%break%>
                     <% end %>
                 <% end %>

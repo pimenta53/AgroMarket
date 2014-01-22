@@ -299,13 +299,6 @@ ActiveRecord::Schema.define(version: 20140122152532) do
     t.datetime "updated_at"
   end
 
-  create_table "types", force: true do |t|
-    t.string   "name"
-    t.integer  "flag"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "user_follows", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
