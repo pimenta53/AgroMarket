@@ -29,7 +29,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   end
 
- 
 
   private
       #omniauth

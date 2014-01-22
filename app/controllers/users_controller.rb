@@ -58,17 +58,17 @@ class UsersController < ApplicationController
   # GET /users/1/rss
   def rss
     @feeds = Feed.where("user_id=?",@user.id).order('created_at DESC').limit(100)
-    
+
     @elem_feed = Array.new
-	
-	 if !@feeds.blank? 
+
+	 if !@feeds.blank?
       @feeds.each do | f |
 
 		  require 'ostruct'
 		  info = OpenStruct.new
-		  
-	     info.in = f.in	
-		  
+
+	     info.in = f.in
+
 		  case f.in
 		     when 1    #ad
 				 info.content = Ad.find_by_id(f.id_content)
@@ -80,7 +80,7 @@ class UsersController < ApplicationController
 				 info.content = Event::Event.find_by_id(f.id_content)
 			  when 5    #WS
 				 info.content = Academy::Workshop.find_by_id(f.id_content)
-						
+
 			end
          @elem_feed.push(info)
        end
