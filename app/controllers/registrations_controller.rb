@@ -29,6 +29,10 @@ class RegistrationsController < Devise::RegistrationsController
 
   end
 
+  def delete_account
+    sdsd
+  end
+
 
   private
       #omniauth
