@@ -7,17 +7,11 @@
     <div class="panel-body">
       <ul class="thumbnails list-unstyled">
         <% publicity_list.each do |publicity|  %>
-          <% if publicity.link %>
-          <a href="<%= publicity.link %>" >
-          <% end %>
-          <li style="margin-bottom:-25px;">
+          <li style="margin-bottom:-25px;" onclick="document.location='<%= publicity.link %>'">
             <div class="thumbnail" style="padding: 5px">
               <img alt="Pub" id="pubAD" src=<%=publicity.image.url()%>>
             </div>
           </li>
-          <% if publicity.link %>
-          </a>
-          <% end %>
         <% end %>
 
        </ul>
