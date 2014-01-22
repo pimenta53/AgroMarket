@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
   validates :phone, format: /(^$|(\d{9,}\Z))/i
   validates :email, presence: true,format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\Z/i
   validates :city, presence: true
-  validate :birthday_cannot_be_in_the_future 
+  validate :birthday_cannot_be_in_the_future
 
 
 
@@ -198,11 +198,27 @@ class User < ActiveRecord::Base
   #target.class = user
   def toggle_follow(target)
     link = self.user_follows.where("following_id = ?",target.id).first
+    # => if user already following
+    # => unfollow
     if link != nil
       link.destroy
+      # => if has unseen notification 10
+      # => => remove it and dont create notification 11
+      if (n = Notification.where(user_id: target.id , id_destination: self.id, notification_type: 10, watched: false).first)
+        n.delete
+      else
+        Notification.create_notification( target.id , self.id, 11 , "Deixou de ser seguidor")
+      end
       false
+
+    # else follow
     else
       imperative_follow(target)
+      if (n = Notification.where(user_id: target.id , id_destination: self.id, notification_type: 11, watched: false).first)
+        n.delete
+      else
+        Notification.create_notification( target.id , self.id, 10 , "Tem um novo seguidor")
+      end
       true
     end
   end
@@ -319,7 +335,7 @@ class User < ActiveRecord::Base
 
       omni_authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
-    
+
   end
 
   def has_provider(provider)

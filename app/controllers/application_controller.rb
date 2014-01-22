@@ -27,6 +27,8 @@ class ApplicationController < ActionController::Base
   # => 7 -> Aproved Event
   # => 8 -> Aproved workshop
   # => 9 -> new private message
+  # => 10-> new follower
+  # => 11-> deleted follower
   def load_notifications
     all_notifications = Notification.where(:user_id => current_user, :watched => false)
 
@@ -45,6 +47,12 @@ class ApplicationController < ActionController::Base
     @notification_acmy_workshop_aproved = all_notifications.where(:notification_type => 8 )
 
     @number_notifications_academy = @notifications_new_answer.size + @notification_acmy_new_registration.size + @notification_acmy_tutorial_aproved.size +  @notification_acmy_event_aproved.size + @notification_acmy_workshop_aproved.size
+
+    # social notifications
+    @notification_new_followers = all_notifications.where(notification_type: 10)
+    @notification_del_followers = all_notifications.where(notification_type: 11)
+
+    @number_notifications_social = @notification_new_followers.size + @notification_del_followers.size
 
     # notifications from personal messages
     @notification_messages = all_notifications.where(:notification_type => 9 )

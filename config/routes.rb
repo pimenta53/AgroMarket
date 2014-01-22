@@ -48,7 +48,7 @@ Agrosocial::Application.routes.draw do
 
   #pagina myads do utilizador
   get "/users/:id/myads" => "users#myads", as: "myads_user"
-  
+
   get "/users/:id/rss" => "users#rss", as: "rss_user", :defaults => { :format => 'rss' }
 
   get "/users/:id/myevents" => "users#myevents", as: "myevents"
@@ -64,15 +64,15 @@ Agrosocial::Application.routes.draw do
   get "payment/:id/promove_ad_payment" => "payment#promove_ad_payment" , as: "promove_ad_payment"
 
   #accao follow do utilizador
-  post '/users/:id/follow' => 'users#follow'
+  post '/users/:id/follow' => 'users#follow', as: "follow"
 
-  
-  
+
+
   #Denunciar anuncio
   delete "ads/:id/report" => "ads#report", as: "report_ad"
   resources :ads do
     post "new_messages" => "messages#create"
-    
+
   end
 
   devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions',passwords: 'passwords'}

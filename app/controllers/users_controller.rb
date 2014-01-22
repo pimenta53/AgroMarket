@@ -38,9 +38,10 @@ class UsersController < ApplicationController
 
   end
 
-  # POST /users/1/follow
+  # POST /users/:id/follow
   def follow
     current_user.toggle_follow(@user)
+    #Notification.where()
     respond_to do |format|
       format.html {render :nothing => true}
       format.js {render :nothing => true}
