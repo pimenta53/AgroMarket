@@ -7,11 +7,13 @@
     <div class="panel-body">
       <ul class="thumbnails list-unstyled">
         <% publicity_list.each do |publicity|  %>
-          <li style="margin-bottom:-25px;" onclick="window.open('<%= publicity.link %>','_blank');">
+        <a href="http://<%= publicity.link %>" target="_blank">
+          <li style="margin-bottom:-25px;">
             <div class="thumbnail" style="padding: 5px">
               <img alt="Pub" id="pubAD" src=<%=publicity.image.url()%>>
             </div>
           </li>
+         </a>
         <% end %>
 
        </ul>
