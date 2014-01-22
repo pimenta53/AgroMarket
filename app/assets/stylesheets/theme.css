@@ -147,21 +147,25 @@ footer {
 }
 
 footer a{
+    z-index: 100;
     text-decoration: none;
     color:white;
 }
 
 footer a:visited,footer li a:visited{
+    z-index: 100;
     text-decoration: none;
     color:white;
 }
 
 #footer-info li {
+  z-index: 100;
   display: inline-block;
   margin-right: 25px;
 }
 
 #footer-info li > a:hover {
+  z-index: 100;
   color: #BBBBBB !important;
   text-decoration: none !important;
 }
