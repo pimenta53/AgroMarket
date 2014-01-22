@@ -16,6 +16,10 @@ class RatingsController < ApplicationController
 		# Verificar se preciso mesmo de duas querys?????
 		@myrate = Rating.where(:rated_id => current_user.id).average(:rate)
 
+		if @my_rate.blank?
+	      @myrate = 0
+	    end
+	    
 		@my_rate_feedback = Rating.where(:rated_id => current_user.id)
 		rate_perc = @myrate.to_f - @myrate.to_i
 		#Value when image init and end - 20 is image size

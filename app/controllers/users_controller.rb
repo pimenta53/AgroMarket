@@ -34,7 +34,11 @@ class UsersController < ApplicationController
   def show
     @rating = Rating.where(:rater_id => params[:id])
     # Verificar se preciso mesmo de duas querys?????
+
     @myrate = Rating.where(:rated_id => params[:id]).average(:rate)
+    if @my_rate.blank?
+      @myrate = 0
+    end
     
     @my_rate_feedback = Rating.where(:rated_id => params[:id])
     rate_perc = @myrate.to_f - @myrate.to_i
