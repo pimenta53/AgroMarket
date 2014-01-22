@@ -26,17 +26,17 @@ class Academy::QuestionsController < ApplicationController
         if (search_table_title != nil)
           search_table_title = search_table_title.or(academy_questions[:category_id].matches("#{parameter}".split(":")[1]))
           #search_table_description  = search_table_description.and(academy_tutorials[:rapid_description].matches("%#{parameter}%"))
-          
+
         else
           search_table_title = academy_questions[:category_id].matches("#{parameter}".split(":")[1])
           #search_table_description  = academy_tutorials[:rapid_description].matches("%#{parameter}%")
-          
+
         end
       }
       @academy_questions = Academy::Question.where(search_table.and(search_table_title)).paginate(:page => page, :per_page => 8)
-    else 
+    else
       @academy_questions = Academy::Question.where(:is_deleted => 0).paginate(:page => page, :per_page => 8)
-      
+
 
     end
 
@@ -49,11 +49,6 @@ class Academy::QuestionsController < ApplicationController
   # GET /academy/questions/1.json
   def show
     #@answers = Academy::Answer.where(:question_id => @academy_question.id)
-
-    #mark notification as watched, if params[:notification] is set
-    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
-      Notification.find(params[:notification]).update(:watched => true)
-    end
 
     @academy_answer = Academy::Answer.new
     @best_answer = @academy_question.best_answer

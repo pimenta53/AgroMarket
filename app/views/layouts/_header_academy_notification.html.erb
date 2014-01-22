@@ -23,7 +23,7 @@
         <% question = notification.question %>
         <li class="preview">
           <a href="<%= academy_question_path(question, :notification => notification) %>">
-            <span class="message"><%= question.title %></span>
+            <span class="message"><%= truncate(question.title, length: 20) %></span>
             <span class="time"><i class="icon-time"></i></span>
             <abbr class="timeago" title="<%= notification.created_at.getutc.iso8601 %>"> <%= notification.created_at.to_s %> </abbr>
           </a>
@@ -45,7 +45,7 @@
         <% workshop = notification.workshop %>
         <li class="preview">
           <a href="<%= academy_workshop_path(workshop, :notification => notification) %>">
-            <span class="name"><%= workshop.title %></span>
+            <span class="name"><%= truncate(workshop.title, length: 20) %></span>
             <span class="time"><i class="icon-time"></i></span>
             <abbr class="timeago" title="<%= notification.created_at.getutc.iso8601 %>"> <%= notification.created_at.to_s %> </abbr>
           </a>
@@ -67,7 +67,7 @@
         <% tutorial = notification.tutorial %>
         <li class="preview">
           <a href="<%= academy_tutorials_path(tutorial, :notification => notification) %>">
-            <span class="name"><%= tutorial.title %></span>
+            <span class="name"><%= truncate(tutorial.title, length: 20) %></span>
             <span class="time"><i class="icon-time"></i></span>
             <abbr class="timeago" title="<%= notification.created_at.getutc.iso8601 %>"> <%= notification.created_at.to_s %> </abbr>
           </a>
@@ -89,7 +89,7 @@
         <% event = notification.event %>
         <li class="preview">
           <a href="<%= event_event_path(event, :notification => notification) %>">
-            <span class="name"><%= event.title %></span>
+            <span class="name"><%= truncate(event.title, length: 20) %></span>
             <span class="time"><i class="icon-time"></i></span>
             <abbr class="timeago" title="<%= notification.created_at.getutc.iso8601 %>"> <%= notification.created_at.to_s %> </abbr>
           </a>
@@ -111,7 +111,7 @@
         <% workshop = notification.workshop %>
         <li class="preview">
           <a href="<%= academy_workshop_path(workshop, :notification => notification) %>">
-            <span class="name"><%= workshop.title %></span>
+            <span class="name"><%= truncate(workshop.title, length: 20) %></span>
             <span class="time"><i class="icon-time"></i></span>
             <abbr class="timeago" title="<%= notification.created_at.getutc.iso8601 %>"> <%= notification.created_at.to_s %> </abbr>
           </a>
@@ -121,7 +121,7 @@
     <% end %>
 
     <% if @number_notifications_academy == 0 %>
-      <li class="dropdown-header">Sem novas notificações na Academia</li>
+      <li class="dropdown-header">Sem novos alertas.</li>
     <% end %>
 
   </ul>

@@ -38,13 +38,13 @@ class AdsController < ApplicationController
       }
 
       search_table = search_table.and(search_table_title.or(search_table_description))
-      
-      
+
+
     end
     @ads = Ad.where(search_table)
 
     @ads = Ad.search1(params[:cities],params[:search_category],@ads )
-    
+
 
     @ads = @ads.active_ads.paginate(:page => page, :per_page => 12)
 
@@ -81,10 +81,6 @@ class AdsController < ApplicationController
 
     #devolve reviews do dono deste ad
     @reviews_user = @reviews.where("rated_id=?",@ad.user_id)
-#mark notification as watched, if params[:notification] is set
-    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
-      Notification.find(params[:notification]).update(:watched => true)
-    end
 
     if user_signed_in?
       @message = Message.new
@@ -197,11 +193,11 @@ class AdsController < ApplicationController
   # DELETE /ads/1
   # DELETE /ads/1.json
   def report
-  
+
     #reporting code
-    
+
     flash[:notice] = "Anúncio reportado à administração."
-    
+
     respond_to do |format|
       format.html { redirect_to ad_path(@ad) }
       format.json { head :no_content }

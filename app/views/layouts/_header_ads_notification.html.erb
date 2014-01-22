@@ -24,8 +24,7 @@
               <% else %>
                 <span class="avatar"><img width="50" alt="50x50" src="http://placehold.it/50x50"></img></span>
               <% end %>
-              <span class="name"><%= ad.title %></span>
-              <span class="message"><%= ad.limited_description(20) %></span>
+              <span class="name"><%= truncate(ad.title, length: 20) %></span>
               <span class="time"><i class="icon-time"></i><abbr class="timeago" title="<%= ad.expire_date.getutc.iso8601 %>"> <%= ad.expire_date.to_s %> </abbr></span>
             </a>
           </li>
@@ -46,8 +45,7 @@
               <% else %>
                 <span class="avatar"><img width="50" alt="50x50" src="http://placehold.it/50x50"></img></span>
               <% end %>
-              <span class="name"><%= ad.title %></span>
-              <span class="message"><%= ad.limited_description(20) %></span>
+              <span class="name"><%= truncate(ad.title, length: 20) %></span>
               <span class="time"><i class="icon-time"></i><abbr class="timeago" title="<%= ad.expire_date.getutc.iso8601 %>"> <%= ad.expire_date.to_s %> </abbr></span>
             </a>
           </li>

@@ -28,7 +28,7 @@
           <li class="preview">
             <a href="<%= user_path(user, :notification => notification) %>">
               <span class="avatar"><%= image_tag(user.avatar.url(:thumb), :alt => user.name, :width => '50') %></span>
-              <span class="name"><%= user.name %></span>
+              <span class="name"><%= truncate(user.name, length: 20) %></span>
               <abbr class="timeago" title="<%= notification.created_at.getutc.iso8601 %>"> <%= notification.created_at.to_s %> </abbr>
             </a>
           </li>
@@ -54,7 +54,7 @@
           <li class="preview">
             <a href="<%= user_path(user, :notification => notification) %>">
               <span class="avatar"><%= image_tag(user.avatar.url(:thumb), :alt => user.name, :width => '50') %></span>
-              <span class="name"><%= user.name %></span>
+              <span class="name"><%= truncate(user.name, length: 20) %></span>
               <abbr class="timeago" title="<%= notification.created_at.getutc.iso8601 %>"> <%= notification.created_at.to_s %> </abbr>
             </a>
           </li>
@@ -62,7 +62,7 @@
       <li class="divider"></li>
     <% end %>
 
-    <% if @number_notifications_ads == 0 %>
+    <% if @number_notifications_social == 0 %>
       <li class="dropdown-header">Sem novos alertas.</li>
     <% end %>
 

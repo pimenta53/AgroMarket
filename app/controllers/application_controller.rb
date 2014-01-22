@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
   # => 10-> new follower
   # => 11-> deleted follower
   def load_notifications
+    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
+      Notification.find(params[:notification]).update(:watched => true)
+    end
+
     all_notifications = Notification.where(:user_id => current_user, :watched => false)
 
     # notification from ads
