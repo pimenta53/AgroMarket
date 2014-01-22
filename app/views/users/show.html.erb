@@ -64,7 +64,44 @@
         </div>
     </section>
 
+    <section class="panel" style="margin-right:15px;">
+        <div class="panel-default" style="">
+            <div class="panel-heading border-header panel-default">
+                <h3 class="panel-title">Feedback</h3>
+            </div>
+        </div>
 
+        <div class="panel-body bio-graph-info">
+            <!--<a href="ratings_path"> -->
+            <div  class="row">
+                <div style="margin-left: 10px;">
+                    <h3>Avaliação de <%= @user.name %></h3>
+                </div>
+
+                <div style="display: inline-block; width: 100%; margin: 0 10px 0 10px">
+                    <div class="row lead" style="margin: 0 0 50px 0;">
+                        <span style="position: absolute; left: 40px; font-size: 30px; vertical-align: middle;">
+                            <%= @myrate.round(1).to_f %>
+                        </span>
+                        <% (1..(@myrate.to_i)).each do |i| %>
+                            <span class="icon_rating" style="left: <%= i*30 %>px"></span>
+                        <% end %>
+                        <% j = 1 %>
+                        <% if @rate_perc_init != 0 %>
+                            <span class="icon_rating" style="left: <%= (@myrate.to_i + 1)*30 %>px;clip: rect(0px,<%= @rate_perc_init %>px,40px,0px)"></span>
+                            <span class="icon_rating-nocolor" style="left: <%= (@myrate.to_i + 1)*30 %>px;clip: rect(0px,20px,40px,<%= @rate_perc_init %>px)"></span>
+                            <% j = 2 %>
+                        <% end %>
+                        <% ((@myrate.to_i + j)..5).each do |i| %>
+                            <span class="icon_rating-nocolor" style="left: <%= i*30 %>px"></span>
+                        <% end %>
+                    </div>
+                </div>
+                
+            </div>
+            <!--</a>-->
+        </div>
+    </section>
 
     <section class="panel" style="margin-right:15px;">
         <div class="panel-default" style="">
@@ -193,7 +230,7 @@
         </div>
     </section>-->
 
-    <% if current_user!=@user %>
+    <% if  user_signed_in? && current_user!=@user %>
       <div class="button_msg">
                     <button class="btn btn-primary" data-toggle="modal" href="#responsive">Mandar Mensagem</button>
         </div>
@@ -216,13 +253,15 @@
     <h4 class="modal-title">Mandar mensagem para <%= @user.name %></h4>
   </div>
 
-  <div class="modal-body">
-           <div class="row" id="post-review-box" >
-                <div class="col-md-12">
-                    <%= render :partial =>"messages/form_mp" ,:locals =>{ :path => user_path(@user),:user_receiver_id => @user.id }  %>
-                </div>
-            </div>
-  </div>
+ 
+          <div class="modal-body">
+                   <div class="row" id="post-review-box" >
+                        <div class="col-md-12">
+                            <%= render :partial =>"messages/form_mp" ,:locals =>{ :path => user_path(@user),:user_receiver_id => @user.id }  %>
+                        </div>
+                    </div>
+          </div>
+
 
 </div>
 

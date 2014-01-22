@@ -36,7 +36,7 @@ class Ad < ActiveRecord::Base
 
 
   #scopes
-  default_scope -> { where('is_deleted = ?',false) } #Só apresenta os anúncios que não foram apagados
+  default_scope -> { where('is_deleted = ?',false).order('created_at DESC') } #Só apresenta os anúncios que não foram apagados
 
 
   # atributes

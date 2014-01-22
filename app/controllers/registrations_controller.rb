@@ -9,6 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def edit
     super
+
   end
 
   def update
@@ -27,6 +28,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
   end
+
 
   private
       #omniauth
