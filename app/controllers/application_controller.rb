@@ -75,7 +75,8 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(User)
-      redirect_path
+      #redirect_path
+      feed_path
     else
       super
     end
