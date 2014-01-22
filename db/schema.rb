@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140120170831) do
+ActiveRecord::Schema.define(version: 20140122152532) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -299,13 +299,6 @@ ActiveRecord::Schema.define(version: 20140120170831) do
     t.datetime "updated_at"
   end
 
-  create_table "types", force: true do |t|
-    t.string   "name"
-    t.integer  "flag"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "user_follows", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -317,8 +310,8 @@ ActiveRecord::Schema.define(version: 20140120170831) do
   add_index "user_follows", ["user_id"], name: "index_user_follows_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -342,6 +335,7 @@ ActiveRecord::Schema.define(version: 20140120170831) do
     t.integer  "counter_ads",            default: 0
     t.integer  "counter_events",         default: 0
     t.integer  "plan_id"
+    t.boolean  "deleted",                default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

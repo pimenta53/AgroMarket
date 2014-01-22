@@ -5,7 +5,7 @@
 #  id             :integer          not null, primary key
 #  title          :string(255)
 #  description    :string(255)
-#  price          :float
+#  price          :decimal(10, 2)
 #  expire_date    :datetime
 #  location       :string(255)
 #  type_price_id  :integer          not null

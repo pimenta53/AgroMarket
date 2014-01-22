@@ -24,14 +24,13 @@ class AuthenticationsController < ApplicationController
         user = User.new
         user.apply_omniauth(omniauth)
         if user.save
+          password = user.generate_password
           p = PlanUser.new(:user_id => user.id, :plan_id => Plan.first.id)
           p.save
           
-          flash[:notice] = I18n.t('devise.sessions.signed_in')
-          #CORRIGEM OS SMTP SETTINGS PLZ
-          #Dropbox\Agrosocial\business\mails\mail_conf_no_reply.png
-          #
-          #UserMailer.new_user_email(user,user.password).deliver
+          #flash[:notice] = I18n.t('devise.sessions.signed_in')
+          flash[:notice] = password
+          UserMailer.delay.new_user_email(user.email, user.name, password)
           
           sign_in_and_redirect(:user, user)
         else

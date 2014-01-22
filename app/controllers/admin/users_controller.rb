@@ -58,7 +58,9 @@ class Admin::UsersController < Admin::ApplicationController
   # DELETE /admin/users/1
   # DELETE /admin/users/1.json
   def destroy
-    @admin_user.destroy
+   # @admin_user.destroy
+   @admin_user.deleted = true
+   @admin_user.save
     respond_to do |format|
       format.html { redirect_to admin_users_url }
       format.json { head :no_content }

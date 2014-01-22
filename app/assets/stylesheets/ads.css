@@ -367,3 +367,8 @@ border-radius: 4px 4px 0 0;
 #buttons-market div > div {
 	vertical-align: middle;
 }
+
+#pagination-top * {
+	margin-top: 0;
+	margin-bottom: 10px;
+}

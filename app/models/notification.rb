@@ -10,17 +10,7 @@
 #  description       :text
 #  created_at        :datetime
 #  updated_at        :datetime
-# CODIGO NOTIFICACOES
-# => 1 -> ad message,
-# => 2 -> ad expired,
-# => 3 ->
-# => 4 -> new answer for your questions
-# => 5 -> New registrations to the workshop
-# => 6 -> Tutorial Aprovado
-# => 7 -> Evento Aprovado
-# => 8 -> Workshop Aproved
-# => 9 -> Nova Mensagem Privada
-# =>
+#
 
 class Notification < ActiveRecord::Base
 

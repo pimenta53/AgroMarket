@@ -74,19 +74,23 @@
                       data: { query: query },
                       dataType: 'json',
                       success: function (result) {
+                        labels = [];
 
-
+                        //alert(result)
                         $.each(result, function (i, item) {
-                           mapped[item.title] = {
-                                id: item.id,
-                                title: item.title,
-                                category: item.category,
-                                tipo: item.tipo,
-                                img: item.img,
-                                link: item.link
-                           }
-                           labels.push(item.title)
-
+                           //evita repetidos
+                           if( !mapped.hasOwnProperty(i.title) ){
+                             mapped[item.title] = {
+                                  id: item.id,
+                                  title: item.title,
+                                  category: item.category,
+                                  tipo: item.tipo,
+                                  img: item.img,
+                                  link: item.link
+                             }
+                             
+                             labels.push(item.title)
+                          }
                           //alert(item.id + item.title)
 
                         });
