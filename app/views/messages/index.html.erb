@@ -1,7 +1,7 @@
 <ol class="breadcrumb" id="breadcrumbAds" style="border: 1px solid #dddddd;">
   <% if user_signed_in? %>
   <li class="active">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-users"></i>
     <a class="url" href="<%= user_path(current_user.id) %>"><%= current_user.name %></a> >
     <a class="url" href="<%= messages_path %>">Mensagens</a>
   </li>
@@ -18,34 +18,14 @@ Nenhuma mensagem na tua caixa de entrada
                 <div class="col-xs-12 col-sm-12 col-md-6" id="accordion">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <span class="fa fa-comment"></span> <%= link_to "Ver Conversa".html_safe  ,  message_path(talk) %>
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <span class="fa fa-chevron-down"></span>
-                                   
-                                </button>
-                                <ul class="dropdown-menu slidedown">
-                                    <li><a href="#"><span class="fa fa-refresh">
-                                    </span>Refresh</a></li>
-                                    <li><a href="#"><span class="fa fa-ok-sign">
-                                    </span>Available</a></li>
-                                    <li><a href="#"><span class="fa fa-remove">
-                                    </span>Busy</a></li>
-                                    <li><a href="#"><span class="fa fa-time"></span>
-                                        Away</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#"><span class="fa fa-off"></span>
-                                        Sign Out</a></li>
-
-                                    <li> <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">
-                                    <span class="fa fa-chevron-down"></span>
-                                  </button></li>
-                                </ul>
-                            </div>
+                            <% user_receiver = talk.user_receiver_object( current_user ) %>
+                          <span>
+                              <%= link_to (image_tag user_receiver.avatar.url(:tiny) , style:"height:40px;",:class=>"img-circle",:title => "Ver Perfil") + " " +user_receiver.name, user_receiver %>
+                          </span>
                         </div>
                         <div id="demo" class=" panel-body panel-bodyMessage panel-collapse collapse in">
                             <ul class="chat">
-                                <% talk.latest_messages.each do |message| %>
+                                <% talk.latest_messages.reverse!.each do |message| %>
                                   <% if message.user.id != current_user.id %>
                                     <li class="left clearfix"><span class="chat-img pull-left">
                                       <% if message.user.avatar != nil %>

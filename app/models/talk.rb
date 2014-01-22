@@ -24,7 +24,7 @@ class Talk < ActiveRecord::Base
   has_many :messages, :dependent => :destroy
 
   #para dar as ultimas mensagens
-  has_many :latest_messages, -> { order('created_at ASC').limit(5) },
+  has_many :latest_messages, -> { order('created_at DESC').limit(5)},
                              class_name: "Message"
 
   #validates
@@ -85,6 +85,14 @@ class Talk < ActiveRecord::Base
       return self.user_two
     else
       return self.user_one
+    end
+  end
+
+  def user_receiver_object( current_user )
+    if self.user_one == current_user.id
+      return User.find(self.user_two)
+    else
+      return User.find(self.user_one)
     end
   end
 

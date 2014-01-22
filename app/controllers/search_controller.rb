@@ -9,7 +9,7 @@ class SearchController < ApplicationController
 		search_in_tutorial #search in tuturias
 		search_in_workshops #search in workshop
 		search_in_questions #search in questons
-		search_users 
+		search_users( params[:query] )
 		render json: @names
 	end
 
@@ -57,8 +57,8 @@ class SearchController < ApplicationController
 			end
 		end
 
-		def search_users
-			users = User.all
+		def search_users( query )
+			users = User.where("name LIKE ?", "%#{query}%" )
 
 			users.each do |u|
 				@names << {:id => u.id, :title => u.name, :category => "",:img => u.avatar.url(:tiny),:tipo => "Utilizador",:link =>  user_path(u) }

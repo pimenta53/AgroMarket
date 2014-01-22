@@ -73,7 +73,8 @@ class Academy::TutorialsController < ApplicationController
 
     respond_to do |format|
       if @academy_tutorial.save
-        format.html { redirect_to @academy_tutorial, notice: 'Tutorial was successfully created.' }
+        flash[:notice] = "Tutorial criado com sucesso."
+        format.html { redirect_to @academy_tutorial, notice: 'Tutorial criado com sucesso created' }
         format.json { render action: 'show', status: :created, location: @academy_tutorial }
       else
         format.html { render action: 'new' }
@@ -87,7 +88,8 @@ class Academy::TutorialsController < ApplicationController
   def update
     respond_to do |format|
       if @academy_tutorial.update(academy_tutorial_params)
-        format.html { redirect_to @academy_tutorial, notice: 'Tutorial was successfully updated.' }
+        flash[:notice] = "Tutorial actualizado com sucesso."
+        format.html { redirect_to @academy_tutorial, notice: 'Tutorial actualizado com sucesso' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
