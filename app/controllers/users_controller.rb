@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     # Verificar se preciso mesmo de duas querys?????
 
     @myrate = Rating.where(:rated_id => params[:id]).average(:rate)
-    if @my_rate.blank?
+    if @myrate.blank?
       @myrate = 0
     end
     
