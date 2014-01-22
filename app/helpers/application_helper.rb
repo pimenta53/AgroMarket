@@ -32,7 +32,7 @@ module ApplicationHelper
   end
 
   def in_user?
-    (controller.controller_name == "feeds") ? 'in' : '   '
+    (controller.controller_name == "feeds" || controller.controller_name == "messages") ? 'in' : ''
   end
 
 	def check_type_notification( notification )

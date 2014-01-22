@@ -19,6 +19,7 @@ class Message < ActiveRecord::Base
                     :foreign_key => 'user_sender'
 
   #scope
+  #default_scope -> { order('created_at ASC') }
 
   #gets all message from a talk
   def self.get_messages( talk )

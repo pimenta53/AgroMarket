@@ -15,8 +15,12 @@
 
     <div class="panel-body" id="panel-answer">
       <div class="col-xs-2 col-md-2" id="user-avatar"><%##  Avatar do user que respondeu  ##%>
-        <%=link_to image_tag(answer.user.avatar.url(:medium),:width => "70%",:class => "img-circle"), answer.user %>
-        <span style="float:center;"><%= answer.user.name %></span>
+        <div>
+          <%=link_to image_tag(answer.user.avatar.url(:medium),:width => "70%",:class => "img-circle"), answer.user %>
+        </div>
+        <div style="float:center;">
+          <%= answer.user.name %>
+        </div>
       </div>
       <div class="col-xs-9 col-md-10 "><%##  texto da resposta  ##%>
         <%= answer.text.html_safe %>
