@@ -215,7 +215,7 @@ ready = function() {
         rules: {
             "academy_tutorial[category_id]": {required: true},
             "academy_tutorial[title]": {minlength: 2, maxlength: 75, required: true },
-            "academy_tutorial[rapid_description]": { minlength: 30, maxlength: 200, required: true },
+            "academy_tutorial[rapid_description]": { minlength: 15, maxlength: 200, required: true },
             "academy_tutorial[text]": { minlength: 30, maxlength: 200, required: true }
         },
         highlight: function(element) {
