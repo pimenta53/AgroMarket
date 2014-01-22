@@ -1,11 +1,11 @@
-Bem vindo a AgroSocial, <%= @user.name %>
+Caro(a), <%= @user %> seja bem vindo ao AgroSocial
 ===============================================
  
-A sua conta foi criada com sucesso.
-<% if @pass != nil %>
-A tua password é: <%= @pass %> 
+O seu login com <%= @name %> foi feito com sucesso
+<% if @password %>
+a sua password: <%= @password %> 
 <% end %>
  
-Para fazer login use este link: https://http://localhost:3000/users/sign_in
+To login to the site, just follow this link: <%= @url %>.
  
-Obrigado por registar e bom negócio!
+Thanks for joining and have a great day!

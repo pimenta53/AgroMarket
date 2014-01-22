@@ -14,9 +14,9 @@
   <tbody>
     <% @academy_workshop_registrations.each do |academy_workshop_registration| %>
       <tr>
-        <td><%= academy_workshop_registration.user.name %></td>
+        <td><%= link_to academy_workshop_registration.user.name, user_path, class: "url" %></td>
         <td><%= academy_workshop_registration.created_at.strftime('%d-%m-%Y %H:%M') %></td>
-        <td><%= link_to 'Cancelar Inscricao', academy_workshop_registration, method: :delete, data: { confirm: 'Tem a certeza que pretende cancelar a inscrição?' } %></td>
+        <td><%= link_to 'Cancelar Inscricao', academy_workshop_registration, class: "url", method: :delete, data: { confirm: 'Tem a certeza que pretende cancelar a inscrição?' } %></td>
       </tr>
     <% end %>
   </tbody>
