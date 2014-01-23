@@ -15,7 +15,7 @@
     <% end %>
  </ol>
 
-<%= will_paginate(@ads, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
+<span id="pagination-top"><%= will_paginate(@ads, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %></span>
 
   <div class="row ads_index_section.ads">
     <%= render :partial => @ads %>
@@ -24,5 +24,5 @@
     <% end %>
   </div>
   
-<%= will_paginate(@ads, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %>
+<span id="pagination-bottom"><%= will_paginate(@ads, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %></span>
 

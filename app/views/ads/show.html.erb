@@ -135,7 +135,7 @@
           </div>
         </div>
 
-         <div class = "ads_metainfo">
+         <div class = "ads_metainfo" style="text-align: justify;">
             <p>
                <strong>Descricão:</strong>
                <%= @ad.description %>
@@ -176,22 +176,36 @@
       </div>
    </div>
 </section>
+
+<section class="panel" style="border: 1px solid #ddd">
+    <div class="panel-heading border-header">
+      <h3 class="panel-title">Mensagens</h3>
+    </div>
+   <div class="panel-body panel_without_bg">
+      <% if user_signed_in? %>
+        <div id="messages">
+           <%= render "messages/messages_ads" %>
+        </div>
+      <% end %>
+   </div>
+</section>
+
 <section class="panel" style="background-color: rgba(255, 255, 255, 0); border: 1px solid #dddddd;">
    <header class="header header_tab">
       <ul class="nav nav-tabs" style="border-bottom: 1px solid #dddddd;">
          <li class="active">
             <a data-toggle="tab" href="#related" id="extraNavButton">
-            Produtos na mesma Area
+            Produtos na mesma área
             </a>
          </li>
          <li>
             <a data-toggle="tab" href="#last_viewed" id="extraNavButton">
-            Ultimos vistos
+            Últimos vistos
             </a>
          </li>
          <li>
             <a data-toggle="tab" href="#reviews" id="extraNavButton">
-            Review do vendedor
+            Avaliação do vendedor
             </a>
          </li>
       </ul>
@@ -234,25 +248,11 @@
          </article>
          <% end %>
          <% if @reviews_user.empty? %>
-         <p> Não existem reviews para este utilizador </p>
+         <p> Não existem avaliações para este utilizador </p>
          <% end %>
       </div>
    </div>
 </section>
-
-<section class="panel">
-    <div class="panel-heading border-header">
-      <h3 class="panel-title">Mensagens</h3>
-    </div>
-   <div class="panel-body panel_without_bg">
-      <% if user_signed_in? %>
-        <div id="messages">
-           <%= render "messages/messages_ads" %>
-        </div>
-      <% end %>
-   </div>
-</section>
-
 
 <div class="fields">
   <button type="button" class="btn btn-primary" onclick="location.href='<%= ads_path %>'">

@@ -87,6 +87,7 @@ Agrosocial::Application.configure do
 
 
   # email configuration
+  config.action_mailer.default_url_options = { host: "teste94.di.uminho.pt" }
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {

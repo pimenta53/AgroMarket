@@ -4,12 +4,12 @@
 #
 #  id                    :integer          not null, primary key
 #  user_id               :integer          not null
-#  available_slots       :integer
-#  slots_taken           :integer
-#  price                 :float
+#  available_slots       :integer          default(0)
+#  slots_taken           :integer          default(0)
+#  price                 :decimal(10, 2)
 #  local                 :string(255)
 #  date                  :datetime
-#  description           :string(255)
+#  description           :text
 #  is_deleted            :boolean          default(FALSE)
 #  requires_registration :integer
 #  created_at            :datetime

@@ -140,7 +140,7 @@
 
                                     <div class="form-group">
                                         <div class="col-lg-offset-2 col-lg-10">
-                                            <%= f.submit "Salvar" ,:class=>"btn btn-success",:id=>"save_btn" %>
+                                            <%= f.submit "Salvar" ,:class=>"btn btn-success" %>
                                             <%= link_to "Cancelar", :back ,:class=>"btn btn-default" %>
                                         </div>
                                     </div>
@@ -202,26 +202,16 @@
     </section>
 
     <section>
-        <div class="panel panel-default" style="margin-bottom:10px;">
+        <div class="panel panel-default" style="margin-bottom:100px;">
 
           <div class="panel-default" style="">
                 <div class="panel-heading border-header panel-default">
                                             <h3 class="panel-title">Apagar a Conta</h3>
                  </div>
-        </div>
-             <div class="panel-body" style="margin-top:10px;">
-                <div class="form-group">
-                    <label class="col-lg-2 control-label">Deseja apagar a conta?</label>
-                    <div class="col-lg-10">
-                      <%= form_tag  controller: "registration", action: "delete_account" do  %>
-                        <%= password_field_tag :current_password %>
-                        <%= submit_tag "Apagar a minha conta", :method => :delete %>
+          </div>
 
-                      <% end %>
-                    </div>
-                </div>
+                    <p>Deseja apagar a conta? <%= button_to "Cancelar a Minha Conta", registration_path(resource_name), :data => { :confirm => "Têm a certeza? Não voltará a ter acesso através desta conta." }, :method => :delete %></p>
 
-            </div>
         </div>
     </section>
 </aside>

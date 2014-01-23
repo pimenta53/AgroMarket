@@ -1,28 +1,5 @@
  
 <aside class="profile-info col-lg-9" style="margin-bottom: 40px;">
-    <!--<section class="panel" style="margin-right:15px;">
-        <form>
-          <textarea placeholder="Em que estás a pensar?" rows="2" class="form-control input-lg p-text-area"></textarea>
-        </form>
-
-        <footer class="panel-footer">
-            <button class="btn btn-danger pull-right">Post</button>
-            <ul class="nav nav-pills">
-                <li>
-                    <a href="#"><i class="fa fa-map-marker"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-camera"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class=" fa fa-film"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-microphone"></i></a>
-                </li>
-            </ul>
-        </footer>
-    </section>-->
 
     <section class="panel" style="margin-right:15px;">
 
@@ -64,7 +41,41 @@
         </div>
     </section>
 
+    <section class="panel" style="margin-right:15px;">
+        <div class="panel-default" style="">
+            <div class="panel-heading border-header panel-default">
+                <h3 class="panel-title">Avaliação de <%= @user.name %></h3>
+            </div>
+        </div>
 
+        <div class="panel-body bio-graph-info">
+            <!--<a href="ratings_path"> -->
+            <div  class="row">
+
+                <div style="display: inline-block; width: 100%; margin: 0 10px 0 10px">
+                    <div class="row lead" style="margin: 0 0 50px 0;">
+                        <span style="position: absolute; left: 40px; font-size: 30px; vertical-align: middle;">
+                            <%= @myrate.round(1).to_f %>
+                        </span>
+                        <% (1..(@myrate.to_i)).each do |i| %>
+                            <span class="icon_rating" style="left: <%= i*30 %>px"></span>
+                        <% end %>
+                        <% j = 1 %>
+                        <% if @rate_perc_init != 0 %>
+                            <span class="icon_rating" style="left: <%= (@myrate.to_i + 1)*30 %>px;clip: rect(0px,<%= @rate_perc_init %>px,40px,0px)"></span>
+                            <span class="icon_rating-nocolor" style="left: <%= (@myrate.to_i + 1)*30 %>px;clip: rect(0px,20px,40px,<%= @rate_perc_init %>px)"></span>
+                            <% j = 2 %>
+                        <% end %>
+                        <% ((@myrate.to_i + j)..5).each do |i| %>
+                            <span class="icon_rating-nocolor" style="left: <%= i*30 %>px"></span>
+                        <% end %>
+                    </div>
+                </div>
+                
+            </div>
+            <!--</a>-->
+        </div>
+    </section>
 
     <section class="panel" style="margin-right:15px;">
         <div class="panel-default" style="">
@@ -77,19 +88,14 @@
             <div class="row">
                 <% i = 0 %>
                 <% @user.following.each do |f| %>
-                    <div class="panel col-md-2" id="userPanel">
-                        <a href="/users/<%= f.id %>" >
-                            <div class="row">
-                                <%= image_tag f.avatar.url(:medium),:width => "120px"%>
-                            </div>
-                            <div class="row">
-                                <%= f.name%>
-                            </div>
-                        </a>
-                    </div>
+                  <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+                    <a href="/users/<%= f.id %>">
+                      <%= image_tag f.avatar.url(:medium),:width => "90", height:"90", class:"img-circle", title:"#{f.name}"%>
+                    </a>
+                  </div>
 
-                    <%i+1%>
-                    <% if i > 6 %>
+                    <% i = i+1%>
+                    <% if i > 12 %>
                         <%break%>
                     <% end %>
                 <% end %>
@@ -109,19 +115,13 @@
             <div class="row">
                 <% i = 0 %>
                 <% @user.followers.each do |f| %>
-                    <div class="panel col-md-2" id="userPanel">
-                        <a href="/users/<%= f.id %>" >
-                            <div class="row">
-                                <%= image_tag f.avatar.url(:medium),:width => "120px"%>
-                            </div>
-                            <div class="row">
-                                <%= f.name%>
-                            </div>
+                  <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+                    <a href="/users/<%= f.id %>">
+                      <%= image_tag f.avatar.url(:medium),:width => "90", height:"90", class:"img-circle", title:"#{f.name}"%>
                         </a>
-                    </div>
-
-                    <%i+1%>
-                    <% if i > 6 %>
+                  </div>
+                    <%i = i+1%>
+                    <% if i > 12 %>
                         <%break%>
                     <% end %>
                 <% end %>
@@ -130,70 +130,7 @@
         </div>
     </section>
 
-
-    <!--<section class="panel" style="margin-right:15px;">
-        <div class="row" style="margin-right:0px;">
-            <div class="col-lg-6">
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="bio-chart">
-                            <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="35" data-fgcolor="#e06b7d" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(224, 107, 125); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
-                        </div>
-                        <div class="bio-desk">
-                            <h4 class="red">Envato Website</h4>
-                            <p>Started : 15 July</p>
-                            <p>Deadline : 15 August</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="bio-chart">
-                            <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="63" data-fgcolor="#4CC5CD" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(76, 197, 205); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
-                        </div>
-                        <div class="bio-desk">
-                            <h4 class="terques">ThemeForest CMS </h4>
-                            <p>Started : 15 July</p>
-                            <p>Deadline : 15 August</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="bio-chart">
-                            <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="75" data-fgcolor="#96be4b" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(150, 190, 75); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
-                        </div>
-                        <div class="bio-desk">
-                            <h4 class="green">VectorLab Portfolio</h4>
-                            <p>Started : 15 July</p>
-                            <p>Deadline : 15 August</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="bio-chart">
-                            <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="50" data-fgcolor="#cba4db" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(203, 164, 219); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
-                        </div>
-                        <div class="bio-desk">
-                            <h4 class="purple">Adobe Muse Template</h4>
-                            <p>Started : 15 July</p>
-                            <p>Deadline : 15 August</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>-->
-
-    <% if current_user!=@user %>
+    <% if  user_signed_in? && current_user!=@user %>
       <div class="button_msg">
                     <button class="btn btn-primary" data-toggle="modal" href="#responsive">Mandar Mensagem</button>
         </div>
@@ -216,13 +153,15 @@
     <h4 class="modal-title">Mandar mensagem para <%= @user.name %></h4>
   </div>
 
-  <div class="modal-body">
-           <div class="row" id="post-review-box" >
-                <div class="col-md-12">
-                    <%= render :partial =>"messages/form_mp" ,:locals =>{ :path => user_path(@user),:user_receiver_id => @user.id }  %>
-                </div>
-            </div>
-  </div>
+ 
+          <div class="modal-body">
+                   <div class="row" id="post-review-box" >
+                        <div class="col-md-12">
+                            <%= render :partial =>"messages/form_mp" ,:locals =>{ :path => user_path(@user),:user_receiver_id => @user.id }  %>
+                        </div>
+                    </div>
+          </div>
+
 
 </div>
 

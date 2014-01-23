@@ -1,25 +1,19 @@
 <% publicity_list = get_publicity(3) %>
 <% if (publicity_list && publicity_list.length>0) %>
 <div class="col-lg-12 col-md-12 col-sx-12 col-sm-6">
-  <section class="panel">
+  <section class="panel" style="border: 1px solid #ddd;">
     <header class="panel-heading">Publicidade</header>
     
     <div class="panel-body">
       <ul class="thumbnails list-unstyled">
         <% publicity_list.each do |publicity|  %>
-          <% if publicity.link %>
-          <a href="<%= publicity.link %>" >
-          <% end %>
+        <a href="http://<%= publicity.link %>" target="_blank">
           <li style="margin-bottom:-25px;">
             <div class="thumbnail" style="padding: 5px">
-              <h5><%= publicity.title %></h5>
               <img alt="Pub" id="pubAD" src=<%=publicity.image.url()%>>
-              <h6 style="text-align: right"><%= publicity.owner %></h6>
             </div>
           </li>
-          <% if publicity.link %>
-          </a>
-          <% end %>
+         </a>
         <% end %>
 
        </ul>

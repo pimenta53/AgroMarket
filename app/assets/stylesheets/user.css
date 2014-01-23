@@ -17,7 +17,7 @@
 
 #user_profile{
 	width: 100%;
-	height: auto;
+	height: 100%;
 
 	
 	margin-top: 50px;
@@ -120,9 +120,10 @@
 
 /*features profile */
 
+.profile-info{
+background: #f1f2f7;
 
-
-
+}
 .profile-info .panel-footer {
     background-color:#f8f7f5 ;
     border-top: 1px solid #e7ebee;

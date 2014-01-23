@@ -28,6 +28,7 @@
 #  counter_ads            :integer          default(0)
 #  counter_events         :integer          default(0)
 #  plan_id                :integer
+#  deleted                :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -102,7 +103,7 @@ class User < ActiveRecord::Base
 
 
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", :small => "50x50>" , :tiny =>"25x25!"}, :default_url => "/assets/missing_photo.png"

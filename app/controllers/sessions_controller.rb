@@ -9,6 +9,17 @@ class SessionsController < Devise::SessionsController
 	end
 
 	def create
-	  super
+
+		if current_user.deleted 
+			sign_out current_user
+			flash[:notice] = "Erro, a sua conta foi apagada a sua reativação será possível em breve."
+			redirect_to user_session_path 
+		else
+			super
+
+	  	end
+		
+		
 	end
+
 end
