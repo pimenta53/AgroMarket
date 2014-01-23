@@ -15,14 +15,11 @@
     <% end %>
  </ol>
 
-<span id="pagination-top"><%= will_paginate(@ads, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %></span>
-
   <div class="row ads_index_section.ads">
     <%= render :partial => @ads %>
     <% if @ads.empty? %>
       <p>Ainda não existem anúncios. Sê o primeiro a anunciar!</p>
     <% end %>
   </div>
-  
-<span id="pagination-bottom"><%= will_paginate(@ads, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %></span>
 
+<span id="pagination-top"><%= will_paginate(@ads, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Seguinte') %></span>

@@ -369,11 +369,6 @@ border-radius: 4px 4px 0 0;
 }
 
 #pagination-top * {
-	margin-top: 0;
-	margin-bottom: 10px;
-}
-
-#pagination-bottom * {
-	margin-top: 5px;
+	margin-top: 10px;
 	margin-bottom: 0;
 }

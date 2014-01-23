@@ -7,6 +7,7 @@
 					 		<%= link_to (image_tag f.content.user.avatar.url(:medium), :width => '50', :height => '50',:class => "img-circle pull-left"), f.content.user %>
 					 	</div>
 					 	<div style="padding-top: 15px; width: auto; text-align: left;"><%= link_to f.content.user.name, f.content.user, id:"feed-link" %>
+						<div style="float:right;"><%= f.content.created_at.strftime("%d-%m-%Y %H:%M") %></div>
 				 	<%case f.in%>
 					<%when 1    #ad %>
 						criou o seguinte anúncio:</div>

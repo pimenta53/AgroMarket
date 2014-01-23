@@ -28,14 +28,22 @@ class ApplicationController < ActionController::Base
   # => 7 -> Aproved Event
   # => 8 -> Aproved workshop
   # => 9 -> new private message
+  # => 10-> new follower
+  # => 11-> deleted follower
+  # => 12-> closed ad
   def load_notifications
+    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
+      Notification.find(params[:notification]).update(:watched => true)
+    end
+
     all_notifications = Notification.where(:user_id => current_user, :watched => false)
 
     # notification from ads
     @notifications_ad_messages  = all_notifications.where(:notification_type => 1)
     @notifications_ad_expired   = all_notifications.where(:notification_type => 2)
+    @notifications_ad_closed    = all_notifications.where(:notification_type => 12)
 
-    @number_notifications_ads   = @notifications_ad_messages.size + @notifications_ad_expired.size
+    @number_notifications_ads   = @notifications_ad_messages.size + @notifications_ad_expired.size + @notifications_ad_closed.size
 
     ########notificações de academia#################
     @notifications_new_answer           = all_notifications.where(:notification_type => 4)
@@ -46,6 +54,12 @@ class ApplicationController < ActionController::Base
     @notification_acmy_workshop_aproved = all_notifications.where(:notification_type => 8 )
 
     @number_notifications_academy = @notifications_new_answer.size + @notification_acmy_new_registration.size + @notification_acmy_tutorial_aproved.size +  @notification_acmy_event_aproved.size + @notification_acmy_workshop_aproved.size
+
+    # social notifications
+    @notification_new_followers = all_notifications.where(notification_type: 10)
+    @notification_del_followers = all_notifications.where(notification_type: 11)
+
+    @number_notifications_social = @notification_new_followers.size + @notification_del_followers.size
 
     # notifications from personal messages
     @notification_messages = all_notifications.where(:notification_type => 9 )
@@ -76,7 +90,8 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(User)
-      redirect_path
+      #redirect_path
+      feed_path
     else
       super
     end

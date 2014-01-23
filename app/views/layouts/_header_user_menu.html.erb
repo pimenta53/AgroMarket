@@ -50,7 +50,7 @@
 
     <li><a href="/users/<%= current_user.id %>">Perfil</a></li>
     <li><%= link_to(ratings_path) do %>
-              <span>Avaliações por atribuir <span class="badge"><%= load_stuff_header %></span></span>
+              <span>Reputações por atribuir <span class="badge"><%= load_stuff_header %></span></span>
             <% end %></li>
     <li class="divider"></li>
     <li><%= link_to "Terminar Sessão",destroy_user_session_path, method: :delete %></li>

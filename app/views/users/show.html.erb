@@ -44,7 +44,7 @@
     <section class="panel" style="margin-right:15px;">
         <div class="panel-default" style="">
             <div class="panel-heading border-header panel-default">
-                <h3 class="panel-title">Avaliação de <%= @user.name %></h3>
+                <h3 class="panel-title">Reputação de <%= @user.name %></h3>
             </div>
         </div>
 
@@ -88,7 +88,7 @@
             <div class="row">
                 <% i = 0 %>
                 <% @user.following.each do |f| %>
-                  <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+                  <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
                     <a href="/users/<%= f.id %>">
                       <%= image_tag f.avatar.url(:medium),:width => "90", height:"90", class:"img-circle", title:"#{f.name}"%>
                     </a>
@@ -115,9 +115,9 @@
             <div class="row">
                 <% i = 0 %>
                 <% @user.followers.each do |f| %>
-                  <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+                  <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
                     <a href="/users/<%= f.id %>">
-                      <%= image_tag f.avatar.url(:medium),:width => "90", height:"90", class:"img-circle", title:"#{f.name}"%>
+                      <%= image_tag f.avatar.url(:medium),:width => "100", height:"100", class:"img-circle", title:"#{f.name}"%>
                         </a>
                   </div>
                     <%i = i+1%>

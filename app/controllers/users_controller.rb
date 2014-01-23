@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   def show
+
     @rating = Rating.where(:rater_id => params[:id])
     # Verificar se preciso mesmo de duas querys?????
 
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
     if @myrate.blank?
       @myrate = 0
     end
-    
+
     @my_rate_feedback = Rating.where(:rated_id => params[:id])
     rate_perc = @myrate.to_f - @myrate.to_i
     #Value when image init and end - 20 is image size
@@ -48,11 +49,14 @@ class UsersController < ApplicationController
     @message = Message.new
     @user_receiver = 1
 
+
+
   end
 
-  # POST /users/1/follow
+  # POST /users/:id/follow
   def follow
     current_user.toggle_follow(@user)
+    #Notification.where()
     respond_to do |format|
       format.html {render :nothing => true}
       format.js {render :nothing => true}

@@ -48,10 +48,6 @@ class Academy::TutorialsController < ApplicationController
   # GET /academy/tutorials/1
   # GET /academy/tutorials/1.json
   def show
-#mark notification as watched, if params[:notification] is set
-    if params.has_key?(:notification) && (Integer(params[:notification]) rescue nil)
-      Notification.find(params[:notification]).update(:watched => true)
-    end
   end
 
   # GET /academy/tutorials/new
