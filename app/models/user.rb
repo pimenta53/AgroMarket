@@ -36,6 +36,10 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
 
+#scopes
+  default_scope -> { where('deleted = ?',false) }
+
+
   #omniauth
   has_many :omni_authentications, :class_name  => 'Authentication',
                                   :primary_key => 'id',
