@@ -4,7 +4,7 @@
       <ul id='footer-info'>
         <li><%= link_to "Termos e condições", terms_and_condition_path %></li>
         <li><a href="#">Privacidade</a></li>
-        <li><a href="#">Contactos</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#modalContact" >Contactos</a></li>
       </ul>
     </div>
     <div style="float:right; min-width:375px; text-align:center;">
@@ -12,3 +12,53 @@
     </div>
   </div>
 </footer>
+
+
+<%# MODAL %>
+<div id="modalContact" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <h4 class="modal-title"><i class="fa fa-users"></i> Contacto</h4>
+  </div>
+  <div class="modal-body">
+
+    <div class="container">
+      <form >
+        <div class="row">
+          <div class="col-sm-3 col-md-3">
+            <label>First Name</label> <input class="span3 form-control" placeholder="Your First Name" type="text"> <label>Last Name</label>
+            <input class="span3 form-control" placeholder="Your Last Name" type="text">
+            <label>Email Address</label> <input class="span3 form-control" placeholder="Your email address" type="text"> <label>Subject</label>
+            <select class="span3" id="subject" name="subject">
+              <option selected="" value="na">
+                Choose One:
+              </option>
+
+              <option value="service">
+                General Customer Service
+              </option>
+
+              <option value="suggestions">
+                Suggestions
+              </option>
+
+              <option value="product">
+                Product Support
+              </option>
+            </select>
+          </div>
+
+          <div class="col-sm-5 col-md-5">
+            <label>Message</label>
+            <textarea class="input-xlarge span5" id="message" name="message" rows="10">    </textarea>
+          </div><button class="btn btn-primary pull-right" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+  </div>
+</div>
+<%# FIM MODAL %>
