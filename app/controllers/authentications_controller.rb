@@ -1,10 +1,10 @@
 class AuthenticationsController < ApplicationController
-  
+
   def failure
     flash[:notice] = I18n.t('devise.sessions.failure')
     redirect_to new_user_session_url
   end
-  
+
   def create
     omniauth = request.env["omniauth.auth"]
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
@@ -27,11 +27,11 @@ class AuthenticationsController < ApplicationController
           password = user.generate_password
           p = PlanUser.new(:user_id => user.id, :plan_id => Plan.first.id)
           p.save
-          
+
           #flash[:notice] = I18n.t('devise.sessions.signed_in')
           flash[:notice] = password
           UserMailer.delay.new_user_email(user.email, user.name, password)
-          
+
           sign_in_and_redirect(:user, user)
         else
           session[:omniauth] = omniauth.except('extra')
@@ -40,14 +40,14 @@ class AuthenticationsController < ApplicationController
       end
     end
   end
-  
+
   def destroy
     @authentication = current_user.omni_authentications.find(params[:id])
     @authentication.destroy
     flash[:notice] = "Successfully destroyed authentication."
     redirect_to root_path
   end
-  
+
   protected
   # This is necessary since Rails 3.0.4
   # See https://github.com/intridea/omniauth/issues/185
