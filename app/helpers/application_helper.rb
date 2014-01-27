@@ -4,7 +4,6 @@ module ApplicationHelper
 	    controller.class.name.split("::").first=="Academy"
 	end
 
-
    #Publicity globals
    $publicity_offset = rand(0..(Admin::Publicity.where("is_deleted = false and (expire_date is null or expire_date >= ?)", Date.today).count-1))
 
@@ -45,6 +44,11 @@ module ApplicationHelper
 
 		end
 	end
+
+  def get_first_last_name
+    name = current_user.name.split(' ')
+    return name.first + ' ' + name.last
+  end
 
 
 
