@@ -44,7 +44,7 @@ class Academy::WorkshopsController < ApplicationController
     respond_to do |format|
       if @academy_workshop.save
         flash[:notice] = "Workshop criado com sucesso."
-        #format.html { redirect_to @academy_workshop, notice: 'Workshop criado com sucesso.' }
+        format.html { redirect_to @academy_workshop, notice: 'Workshop criado com sucesso.' }
         format.json { render action: 'show', status: :created, location: @academy_workshop }
       else
         format.html { render action: 'new' }
@@ -75,8 +75,8 @@ class Academy::WorkshopsController < ApplicationController
     flash[:notice] = "Workshop destruido com sucesso."
     @academy_workshop.is_deleted=true
     dest = @academy_workshop.id
-    type = 8 #workshop_notifications_Code
-    Notification.clear_notifications(type,dest)
+    Notification.clear_notifications(8,dest) #Aproved_workshop_Code
+    Notification.clear_notifications(5,dest) #new_registration_in_your_workshop_code
     @academy_workshop.save
     respond_to do |format|
       format.html { redirect_to academy_workshops_url }

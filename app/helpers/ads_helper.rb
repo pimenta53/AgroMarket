@@ -2,7 +2,7 @@ module AdsHelper
 
 	def first_image( image )
 		 if !image.blank?
-             image_tag image.image(:small) ,:style => "width: 66q%; height: 40%;", :alt => "200x100"
+             image_tag image.image(:small) ,:style => "width: 66%; height: 40%;", :alt => "200x100"
          else
          	 image_tag "/assets/defaultAdPic.png" ,:style => "width: 66%; height: 40%;", :alt => "200x100"
          end
