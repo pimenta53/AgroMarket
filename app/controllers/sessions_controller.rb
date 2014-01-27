@@ -1,3 +1,4 @@
+#encoding: utf-8
 class SessionsController < Devise::SessionsController
 
 	layout "sessions"
@@ -9,6 +10,7 @@ class SessionsController < Devise::SessionsController
 	end
 
 	def create
+
 		if !current_user.nil?
 			if current_user.deleted 
 				sign_out current_user

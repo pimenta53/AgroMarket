@@ -61,7 +61,7 @@
           <p>
             <ul id="tutorial-info">
               <li id="tutorial-author">
-                <span>Autor: </span> <%= @academy_tutorial.user.name %>
+                <span>Autor: </span> <%= get_first_last_name(@academy_tutorial.user.name) %>
               </li>
               <li id="tutorial-date">
                 <span>Data de Criação: </span>

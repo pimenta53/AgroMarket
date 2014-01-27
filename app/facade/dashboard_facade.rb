@@ -8,14 +8,38 @@ class DashboardFacade
     Ad.ads_per_city
   end
 
+  def ads_per_district
+    Ad.ads_per_district
+  end
+
+  def users
+    User.all
+  end
+
   def ads_per_category
   	Ad.ads_per_category
+  end
+
+  def events_per_user
+    User.events_per_user
+  end
+
+  def ads_per_user
+    User.ads_per_user
   end
 
   def users_per_district
     User.users_per_district
   end
+
+  def users_last_month
+    User.users_per_day_last_month
+  end
   
+  def most_logged_users
+    User.most_logged_users
+  end
+
   # buscar os anuncios mais vistos
   def most_viewed( n )
     Ad.most_viewed( n )
@@ -27,6 +51,10 @@ class DashboardFacade
 
   def last_ads
     Ad.all.limit(10).reverse!
+  end
+
+  def most_viewed_ads
+    Ad.most_viewed_this_week
   end
 
   def last_notifications
@@ -57,7 +85,13 @@ class DashboardFacade
     Academy::Tutorial.today_tutorials_count
   end
 
+  def users_per_plan
+    Plan.users_per_plan
+  end
 
+  def users_per_age_group
+    User.users_per_age_group
+  end
   
 
 

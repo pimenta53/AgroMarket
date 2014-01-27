@@ -618,3 +618,16 @@ hr.message-inner-separator
 /***CHECKBOXES****/
 
 
+/****CALENDAR****/
+#calendar {
+    width: 100%; 
+    height: 50%;
+    padding-right: 10px;
+}
+
+#calendar * {
+    width: 100%;
+    height: 70%;
+}
+
+

@@ -5,7 +5,7 @@
       <div class="panel-heading" style="background-color: #68AC68"><!--style="background-color: #9C9F84">-->
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapseUser">
-            <%= fa_icon "users" %> <%= get_first_last_name.mb_chars.upcase %>
+            <%= fa_icon "users" %> <%= get_first_last_name(current_user.name).mb_chars.upcase %>
           </a>
         </h4>
       </div>
@@ -15,6 +15,7 @@
             <li><%= link_to "<i class='fa fa-angle-right'></i>Perfil".html_safe , user_path(current_user) %></li>
             <li><%= link_to "<i class='fa fa-angle-right'></i>Mensagens".html_safe , messages_path %></li>
             <li><%= link_to "<i class='fa fa-angle-right'></i>Mural".html_safe , feed_path %></li>
+            <li><%= link_to "<i class='fa fa-angle-right'></i>Calendário".html_safe , calendar_path %></li>
           </ul>
         </div>
       </div>
