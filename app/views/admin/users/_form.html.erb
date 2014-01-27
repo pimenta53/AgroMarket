@@ -22,6 +22,11 @@
     <%= f.text_field :email %>
   </div>
 
+  <div class="field">
+    <%= f.label :ocupação %><br>
+    <%= f.text_field :ocupation %>
+  </div>
+
     <div class="field">
     <%= f.label :cidade, "Distrito" %><br>
     <%= f.collection_select(:city_id,@cities,:id,:city, :include_blank => 'Selecione...') %>
