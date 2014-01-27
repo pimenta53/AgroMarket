@@ -71,7 +71,7 @@
   <div class="panel-body">
     <div class="information_data"><!--class="information_workshop">-->
       <div class="information_top">
-        <div><i class="fa fa-user"></i>Criado por: <%= @academy_workshop.user.name %></div>
+        <div><i class="fa fa-user"></i>Criado por: <%= get_first_last_name(@academy_workshop.user.name) %></div>
         <div><i class="fa fa-map-marker"></i>Localidade: <%= @academy_workshop.local %></div>
         <div><i class="fa fa-calendar-o"></i>Data: <%= @academy_workshop.date.strftime('%d-%m-%Y %H:%M') %></div>
       </div>

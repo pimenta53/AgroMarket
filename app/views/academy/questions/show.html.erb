@@ -27,7 +27,7 @@
           <%=link_to image_tag(@best_answer.user.avatar.url(:medium),:width => "70%",:class => "img-circle"), @best_answer.user %>
         </div>
         <div style="float:center;">
-          <%= @best_answer.user.name %>
+          <%= get_first_last_name(@best_answer.user.name) %>
         </div>
       </div>
 

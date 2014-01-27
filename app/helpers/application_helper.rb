@@ -45,9 +45,13 @@ module ApplicationHelper
 		end
 	end
 
-  def get_first_last_name
-    name = current_user.name.split(' ')
-    return name.first + ' ' + name.last
+  def get_first_last_name( user )
+    name = user.split(' ')
+    if(name.count > 1)
+      return name.first + ' ' + name.last
+    else
+      return name.first
+    end
   end
 
 
