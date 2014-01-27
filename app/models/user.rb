@@ -398,14 +398,14 @@ end
 
 
   #users by day last month
-  def self.users_per_day_last_month
+  def self.users_per_day_last_year
     results = Hash.new
-    this_month = where('created_at > ?',Time.now.beginning_of_month)
-    this_month.each do |d|
-      if results.has_key?(d.created_at.day)
-        results[d.created_at.day]+=1
+    this_year = where('created_at > ?',Time.now.beginning_of_year)
+    this_year.each do |d|
+      if results.has_key?(d.created_at.month)
+        results[d.created_at.month]+=1
       else
-        results[d.created_at.day]=0
+        results[d.created_at.month]=0
       end
     end
     return results
@@ -459,6 +459,7 @@ end
       end
 
     end
+    return results
   end
 
 
