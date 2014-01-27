@@ -5,7 +5,7 @@
       <div class="panel-heading" style="background-color: #68AC68"><!--style="background-color: #9C9F84">-->
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapseUser">
-            <%= fa_icon "users" %> <%= current_user.name.upcase %>
+            <%= fa_icon "users" %> <%= get_first_last_name.mb_chars.upcase %>
           </a>
         </h4>
       </div>

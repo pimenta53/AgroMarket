@@ -1,3 +1,10 @@
+<meta property="og:title" content="<%= @academy_question.title %>"/>
+<meta property="og:image" content="<%= root_url.chop + @academy_question.user.avatar.url %>"/>
+<meta property="og:site_name" content="AgroSocial"/>
+<meta property="og:description" content="<%= @academy_question.text %>"/>
+<meta property="og:url" content="<%= academy_question_url(@academy_question) %>"/>
+<meta property="og:locale" content="<% if params[:locale] %><%= params[:locale] %><% else %>pt_PT<% end %>"/>
+<meta property="fb:app_id" content="547514635336381"/>
 
 <%##  render the question  %>
 <%= render 'question' %>
