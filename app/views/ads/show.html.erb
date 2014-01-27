@@ -29,21 +29,21 @@
   <% end %>
   <meta property="og:image" content="http://teste94.di.uminho.pt/assets/defaultAdPic.png"/>
   <meta property="og:site_name" content="AgroSocial"/>
-  <meta property="og:description" content="<%= @ad.description %>"/>
+  <meta property="og:description" content="<%= @ad.description[0..70].gsub(/\s\w+\s*$/,'...') %>"/>
   <meta property="og:url" content="<%= ad_url(@ad) %>"/>
   <meta property="fb:app_id" content="547514635336381"/>
   <!-- Twitter -->
   <meta name="twitter:card" content="AgroSocial" />
   <meta name="twitter:title" content="<%= @ad.title %>" />
-  <meta name="twitter:description" content="<%= @ad.description %>" />
+  <meta name="twitter:description" content="<%= @ad.description[0..70].gsub(/\s\w+\s*$/,'...') %>" />
   <% @ad.ad_images.each do |img| %>
     <meta name="twitter:image" content="<%= root_url.chop + img.image.url %>"/>
   <% end %>
   <meta name="twitter:image" content="http://teste94.di.uminho.pt/assets/defaultAdPic.png"/>
   <!-- Google -->
-  <meta name="description" content="<%= @ad.description %>" />
+  <meta name="description" content="<%= @ad.description[0..70].gsub(/\s\w+\s*$/,'...') %>" />
   <meta name="keywords" content="Anuncio" />
-  <meta name="author" content="<%= @ad.description %>" />
+  <meta name="author" content="<%= @ad.user.name %>" />
   <meta name="copyright" content="© 2014 AGROSOCIAL. Todos os direitos reservados." />
   <meta name="application-name" content="AgroSocial" />
 <% end %>

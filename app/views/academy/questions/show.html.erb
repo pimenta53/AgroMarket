@@ -3,16 +3,16 @@
   <meta property="og:title" content="<%= @academy_question.title %>"/>
   <meta property="og:image" content="http://teste94.di.uminho.pt/assets/defaultQuestion.png"/>
   <meta property="og:site_name" content="AgroSocial"/>
-  <meta property="og:description" content="<%= @academy_question.text %>"/>
+  <meta property="og:description" content="<%= @academy_question.text[0..70].gsub(/\s\w+\s*$/,'...') %>"/>
   <meta property="og:url" content="<%= academy_question_url(@academy_question) %>"/>
   <meta property="fb:app_id" content="547514635336381"/>
   <!-- Twitter -->
   <meta name="twitter:card" content="AgroSocial" />
   <meta name="twitter:title" content="<%= @academy_question.title %>" />
-  <meta name="twitter:description" content="<%= @academy_question.text %>" />
+  <meta name="twitter:description" content="<%= @academy_question.text[0..70].gsub(/\s\w+\s*$/,'...') %>" />
   <meta name="twitter:image" content="http://teste94.di.uminho.pt/assets/defaultQuestion.png" />
   <!-- Google -->
-  <meta name="description" content="<%= @academy_question.text %>" />
+  <meta name="description" content="<%= @academy_question.text[0..70].gsub(/\s\w+\s*$/,'...') %>" />
   <meta name="keywords" content="Pergunta" />
   <meta name="author" content="<%= @academy_question.user.name %>" />
   <meta name="copyright" content="© 2014 AGROSOCIAL. Todos os direitos reservados." />
