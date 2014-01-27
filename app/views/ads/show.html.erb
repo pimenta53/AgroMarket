@@ -24,7 +24,10 @@
 <% content_for :head do %>
   <!-- Facebook -->
   <meta property="og:title" content="<%= @ad.title %>"/>
-  <meta property="og:image" content="<% if @ad.ad_images.first %><%= root_url.chop + @ad.ad_images.first.image.url %><% else %>http://teste94.di.uminho.pt/assets/defaultAdPic.png<% end %>"/>
+  <% @ad.ad_images.each do |img| %>
+    <meta property="og:image" content="<%= root_url.chop + img.image.url %>"/>
+  <% end %>
+  <meta property="og:image" content="http://teste94.di.uminho.pt/assets/defaultAdPic.png"/>
   <meta property="og:site_name" content="AgroSocial"/>
   <meta property="og:description" content="<%= @ad.description %>"/>
   <meta property="og:url" content="<%= ad_url(@ad) %>"/>
@@ -33,7 +36,10 @@
   <meta name="twitter:card" content="AgroSocial" />
   <meta name="twitter:title" content="<%= @ad.title %>" />
   <meta name="twitter:description" content="<%= @ad.description %>" />
-  <meta name="twitter:image" content="<% if @ad.ad_images.first %><%= root_url.chop + @ad.ad_images.first.image.url %><% else %>http://teste94.di.uminho.pt/assets/defaultAdPic.png<% end %>" />
+  <% @ad.ad_images.each do |img| %>
+    <meta name="twitter:image" content="<%= root_url.chop + img.image.url %>"/>
+  <% end %>
+  <meta name="twitter:image" content="http://teste94.di.uminho.pt/assets/defaultAdPic.png"/>
   <!-- Google -->
   <meta name="description" content="<%= @ad.description %>" />
   <meta name="keywords" content="Anuncio" />
