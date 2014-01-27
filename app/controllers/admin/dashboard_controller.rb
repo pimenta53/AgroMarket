@@ -5,4 +5,9 @@ class Admin::DashboardController < Admin::ApplicationController
 	def index
 		@dashboard = DashboardFacade.new
 	end
+
+	def stats
+		@dashboard = DashboardFacade.new
+	end
+
 end
