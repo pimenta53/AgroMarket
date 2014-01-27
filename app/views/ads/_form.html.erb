@@ -180,11 +180,10 @@
 <script>
     $(function() {
         function getLocation(){
-
-            navigator.geolocation.getCurrentPosition(showPosition);
+            showPosition("41.568197","-8.381935");
         }
 
-        function showPosition(position){
+        function showPosition(coordX,coordY){
             var addresspicker = $( "#addresspicker" ).addresspicker();
             var addresspickerMap = $( "#addresspicker_map" ).addresspicker({
                 regionBias: "de",
@@ -192,7 +191,7 @@
                 typeaheaddelay: 1000,
                 mapOptions: {
                     zoom:9,
-                    center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+                    center: new google.maps.LatLng(coordX, coordY)
                 }
 
             });
