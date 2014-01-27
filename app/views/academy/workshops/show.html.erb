@@ -44,6 +44,14 @@
    }(document, 'script', 'twitter-wjs');
 </script>
 <!--TWITTER SDK END -->
+<meta property="og:title" content="<%= @academy_workshop.title %>"/>
+<meta property="og:image" content="http://teste94.di.uminho.pt/assets/logo_button.svg"/>
+<meta property="og:site_name" content="AgroSocial"/>
+<meta property="og:description" content="<%= @academy_workshop.description %>"/>
+<meta property="og:url" content="<%= academy_workshop_url(@academy_workshop) %>"/>
+<meta property="og:locale" content="<% if params[:locale] %><%= params[:locale] %><% else %>pt_PT<% end %>"/>
+<meta property="fb:app_id" content="547514635336381"/>
+
 <p id="notice"><%= notice %></p>
 
 <section class="panel" style="border: 1px solid #dddddd;">
@@ -85,7 +93,9 @@
         
       <div class="pull-right">
         <div class="fb-share-button sharebutton" data-href="<%= academy_workshop_url(@academy_workshop) %>" data-type="button"></div>
-        <div class="sharebutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div>
+        <div class="sharebutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none"
+          data-text="<%= 'Workshop - ' + @academy_workshop.title + ' - ' + academy_workshop_url(@academy_workshop) + ' - #AgroSocial' %>"
+        >Tweet</a></div>
       </div>
 
       <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>

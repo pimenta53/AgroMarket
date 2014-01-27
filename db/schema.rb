@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140123002419) do
+ActiveRecord::Schema.define(version: 20140127115245) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -127,6 +127,8 @@ ActiveRecord::Schema.define(version: 20140123002419) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "highlight",                               default: 0
+    t.string   "coordX"
+    t.string   "coordY"
   end
 
   create_table "authentications", force: true do |t|

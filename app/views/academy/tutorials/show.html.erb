@@ -35,6 +35,13 @@
    }(document, 'script', 'twitter-wjs');
 </script>
 <!--TWITTER SDK END -->
+<meta property="og:title" content="<%= @academy_tutorial.title %>"/>
+<meta property="og:image" content="http://teste94.di.uminho.pt/assets/logo_button.svg"/>
+<meta property="og:site_name" content="AgroSocial"/>
+<meta property="og:description" content="<%= @academy_tutorial.text %>"/>
+<meta property="og:url" content="<%= academy_tutorial_url(@academy_tutorial) %>"/>
+<meta property="og:locale" content="<% if params[:locale] %><%= params[:locale] %><% else %>pt_PT<% end %>"/>
+<meta property="fb:app_id" content="547514635336381"/>
 
 <p id="notice"><%= notice %></p>
 
@@ -89,7 +96,9 @@
         
         <div class="pull-right">
           <div class="fb-share-button sharebutton" data-href="<%= academy_tutorial_url(@academy_tutorial) %>" data-type="button"></div>
-          <div class="sharebutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div>
+          <div class="sharebutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none"
+            data-text="<%= 'Tutorial - ' + @academy_tutorial.title + ' - ' + academy_tutorial_url(@academy_tutorial) + ' - #AgroSocial' %>"
+          >Tweet</a></div>
         </div>
       </div>
     </div>

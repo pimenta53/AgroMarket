@@ -103,11 +103,15 @@
                     },
                     highlighter: function(item){
                       var p = mapped[item];
+                      var title = p.title;
+                      if(title.length > 35){
+                        title = title.substring(0,32) + '...';
+                      }
                       var itm = ''
                       + "<div class='typeahead_wrapper'>"
                       + "<img class='typeahead_photo' src='"+ p.img +"' />"
                       + "<div class='typeahead_labels'>"
-                      + "<div class='typeahead_primary'>" + (p.title).substring(0,40) + "</div>"
+                      + "<div class='typeahead_primary'>" + title + "</div>"
                       + "<div class='typeahead_secondary'>" + p.category + " | <span class='typeahead_typo'> "+ p.tipo +"</span></div>"
                       + "</div>"
                       + "</div>";

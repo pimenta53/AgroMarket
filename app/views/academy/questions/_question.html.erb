@@ -70,7 +70,9 @@
   <div class="panel-footer">
     <div class="pull-left">
       <div class="fb-share-button sharebutton" data-href="<%= academy_question_url(@academy_question) %>" data-type="button"></div>
-      <div class="sharebutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div>
+      <div class="sharebutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none"
+        data-text="<%= 'Pergunta - ' + @academy_question.title + ' - ' + academy_question_url(@academy_question) + ' - #AgroSocial' %>"
+      >Tweet</a></div>
     </div>
     &nbsp;
     <div class="pull-right">
