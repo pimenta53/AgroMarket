@@ -92,7 +92,7 @@
       <div class ="ads_description" style="height: 20px; margin-bottom: 10px;">  
         <div style="float:left;">
           <strong>Criado Por:</strong>
-          <%= link_to @event_event.user.name, @event_event.user, class:"url" %>
+          <%= link_to get_first_last_name(@event_event.user.name), @event_event.user, class:"url" %>
         </div>
         <div style="float:right;">
           <div class="fb-share-button sharebutton" data-href="<%= event_event_url(@event_event) %>" data-type="button"></div>

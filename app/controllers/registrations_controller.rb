@@ -18,21 +18,23 @@ class RegistrationsController < Devise::RegistrationsController
 
   #omniauth
   def create
-    super
-    session[:omniauth] = nil unless @user.new_record?
-    # => PlanUser(id: integer, user_id: integer, plan_id: integer, created_at: datetime, updated_at: datetime)
-    if @user.id
-      p = PlanUser.new(:user_id => @user.id, :plan_id => Plan.first.id)
-      p.save
-      UserMailer.delay.welcome_email(params[:user][:email],params[:user][:name])
+    if !params[:terms_and_conditions].nil?
+      super
+        session[:omniauth] = nil unless @user.new_record?
+        # => PlanUser(id: integer, user_id: integer, plan_id: integer, created_at: datetime, updated_at: datetime)
+        if @user.id
+          p = PlanUser.new(:user_id => @user.id, :plan_id => Plan.first.id)
+          p.save
+          UserMailer.delay.welcome_email(params[:user][:email],params[:user][:name])
+        end
+    else
+      flash[:notice] = "Precisa de aceitar os termos e condições."
+      redirect_to new_user_registration_path
     end
 
   end
 
 
-  def destroy
-    asldlajksjdlkajslk
-  end
 
   private
       #omniauth

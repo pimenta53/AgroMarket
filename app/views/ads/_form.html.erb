@@ -81,8 +81,7 @@
       <%= f.label :locatlion, "Localização da Venda" ,:class=>"control-label" %><label class="help-inline" style="margin-left:10px" generated="true" for="addresspicker_map"></label>
       <div class="controls">
         <%= f.text_field :location,:placeholder =>"Localização da venda..." ,:class=>"form-control", :id=>"addresspicker_map",autocomplete: "off"%>
-        <%= f.hidden_field :coordX, id:"coordX" %>
-        <%= f.hidden_field :coordY, id:"coordY" %>
+        <% f.hidden_field :coordX %>
       </div>
 
       <div style="width:100%;height:350px;margin-top:20px">
@@ -91,6 +90,8 @@
       </div>
       <div style="float:right">
           <span class="label label-danger" id="city">-</span>
+          <span class="label label-primary" id="coordX" name="coordX">X</span>
+          <span class="label label-primary" id="coordY" name="coordY">Y</span>
       </div>
     </div>
 
@@ -179,10 +180,8 @@
 <script>
     $(function() {
         function getLocation(){
-            if (navigator.geolocation){
-                navigator.geolocation.getCurrentPosition(showPosition);
-            }
-            else{ $('#city').text("Geolocation is not supported by this browser.");}
+
+            navigator.geolocation.getCurrentPosition(showPosition);
         }
 
         function showPosition(position){
@@ -199,8 +198,8 @@
             });
 
             addresspickerMap.on("addressChanged", function(evt, address) {
-                $('#coordX').val(address.geometry.location.lat());
-                $('#coordY').val(address.geometry.location.lng());
+                $('#coordX').text(address.geometry.location.lat());
+                $('#coordY').text(address.geometry.location.lng());
                 $('#city').text(address.address_components[2].long_name);
             });
 
