@@ -397,6 +397,53 @@ class User < ActiveRecord::Base
   end
 
 
+  #users by day last month
+  def self.users_per_day_last_month
+    results = Hash.new
+    this_month = where('created_at > ?',Time.now.beginning_of_month)
+    this_month.each do |d|
+      if results.has_key?(d.created_at.day)
+        results[d.created_at.day]+=1
+      else
+        results[d.created_at.day]=0
+      end
+    end
+    return results
+  end
+
+  def self.most_logged_users
+    results = Hash.new
+    users = readonly.select(:sign_in_count,:name).order('sign_in_count desc').limit(10)
+    users.each do |u|
+        results[u.name]=u.sign_in_count
+    end
+    return results
+
+  end
+
+
+  def self.ads_per_user
+    results = Hash.new
+    users = readonly.select(:counter_ads,:name).order('counter_ads desc').limit(10)
+    users.each do |u|
+        results[u.name]=u.counter_ads
+    end
+    return results
+  end
+
+
+  def self.events_per_user
+    results = Hash.new
+    users = readonly.select(:counter_events,:name).order('counter_events desc').limit(10)
+    users.each do |u|
+        results[u.name]=u.counter_events
+    end
+    return results
+  end
+
+
+
+
   # private methods
   private
     def imperative_follow(target)

@@ -239,8 +239,22 @@ class Ad < ActiveRecord::Base
         return result
      end
 
+
+     def self.ads_per_district
+      results = Hash.new
+      District.find(:all).each do |d|
+      results[d.name]=d.ads.count
+      end
+      return results
+     end
+
      def self.most_viewed_this_week
-        where("created_at > ?", 1.week.ago).order('page_views').limit(10)
+        results = Hash.new
+        ads = where("created_at > ?", 1.week.ago).order('page_views').limit(10)
+        ads.each do |a|
+          results[a.title] = a.page_views
+        end
+        return results
      end
 
      def self.most_viewed( n )
