@@ -182,7 +182,10 @@
             if (navigator.geolocation){
                 navigator.geolocation.getCurrentPosition(showPosition);
             }
-            else{ $('#city').text("Geolocation is not supported by this browser.");}
+            else{
+                $('#city').text("Geolocation is not supported by this browser.");
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
         }
 
         function showPosition(position){
