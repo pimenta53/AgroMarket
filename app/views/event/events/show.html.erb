@@ -41,6 +41,13 @@
     }(document, 'script', 'twitter-wjs');
 </script>
 <!--TWITTER SDK END -->
+<meta property="og:title" content="<%= @event_event.title %>"/>
+<meta property="og:image" content="<%= root_url.chop + @event_event.image.url %>"/>
+<meta property="og:site_name" content="AgroSocial"/>
+<meta property="og:description" content="<%= @event_event.description %>"/>
+<meta property="og:url" content="<%= event_event_url(@event_event) %>"/>
+<meta property="og:locale" content="<% if params[:locale] %><%= params[:locale] %><% else %>pt_PT<% end %>"/>
+<meta property="fb:app_id" content="547514635336381"/>
 
 
 <section class="panel" style="border: 1px solid #dddddd;">
@@ -90,7 +97,9 @@
         <div style="float:right;">
           <div class="fb-share-button sharebutton" data-href="<%= event_event_url(@event_event) %>" data-type="button"></div>
           <div class="sharebutton">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-count="none"
+              data-text="<%= 'Event - ' + @event_event.title + ' - ' + event_event_url(@event_event) + ' - #AgroSocial' %>"
+            >Tweet</a>
           </div>
         </div>
       </div>

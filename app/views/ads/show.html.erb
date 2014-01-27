@@ -48,6 +48,14 @@
    }(document, 'script', 'twitter-wjs');
 </script>
 <!--TWITTER SDK END -->
+<meta property="og:title" content="<%= @ad.title %>"/>
+<meta property="og:image" content="<% if @ad.ad_images.first %><%= root_url.chop + @ad.ad_images.first.image.url %><% else %>http://teste94.di.uminho.pt/assets/logo_button.svg<% end %>"/>
+<meta property="og:site_name" content="AgroSocial"/>
+<meta property="og:description" content="<%= @ad.description %>"/>
+<meta property="og:url" content="<%= ad_url(@ad) %>"/>
+<meta property="og:locale" content="<% if params[:locale] %><%= params[:locale] %><% else %>pt_PT<% end %>"/>
+<meta property="fb:app_id" content="547514635336381"/>
+
 
 <% num_img=@ad.ad_images.count %>
 <section class="panel" style="border: 1px solid #dddddd;">
@@ -167,10 +175,11 @@
            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalMap"><i class="fa fa-plus-circle"></i>Ver no Mapa</button>
             <br>
             <div style="width: 100%; text-align: right; margin-top: 10px;">
-              <div class="fb-share-button sharebutton" data-href="<%= ad_url(@ad) %>" data-type="button">
-              </div>
+              <div class="fb-share-button sharebutton" data-href="<%= ad_url(@ad) %>" data-type="button"></div>
               <div class="sharebutton">
-                 <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+                 <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" 
+                   data-text="<%= 'Anuncio - ' + @ad.title + ' - ' + ad_url(@ad) + ' - #AgroSocial' %>"
+                 >Tweet</a>
               </div>
             </div>
          </div>

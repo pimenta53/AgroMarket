@@ -6,12 +6,11 @@
 
 <% if @elem_feed.blank? %>
 	 Não existe atividade recente das pessoas que segue.
-	 Poderar seguir outros utilizadores.
 <%else%>
 	<div id="feedBox">
       <%= render "elem_feed" %>
 	</div>
-	
+
   <div href="<% if @feeds.next_page %><%= feed_path(:page => @feeds.next_page) %><% else %>#<% end %>" class='load-more-feeds'>
     <% if @feeds.next_page %>
       A buscar mais feeds

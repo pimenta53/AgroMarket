@@ -38,12 +38,10 @@
 				   <title><%= item.user.name %> cria o evento: <%= item.title %></title>
                <link> <%= root_url.chop + event_event_path(item) %> </link>
                <description><%= item.description %></description>
-               <% if item.ad_images.first %>
-                 <% image_data = item %>
-                 <% image_url = root_url.chop + image_data.image.url(:small) %>
-                 <image><%= image_url %></image>
-                 <![CDATA[<img src="<%= image_url %>"/> ]]>
-               <% end %>
+               <% image_data = item %>
+               <% image_url = root_url.chop + image_data.image.url(:small) %>
+               <image><%= image_url %></image>
+               <![CDATA[<img src="<%= image_url %>"/> ]]>
 
 				<%when 5    #WS%>
 				   <title><%= item.user.name %> abre o workshop: <%= item.title %></title>
