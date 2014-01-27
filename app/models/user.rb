@@ -447,13 +447,15 @@ end
     users = User.all
     users.each do |u|
       results
-      age = Date.today.year - u.birthday.year
-      if age >= 15 && age <31
-        results[:'15-30']+=1
-      elsif age >30 && age <51
-        results[:'31-50']+=1
-      else 
-        results[:'51+']+=1
+      if u.birthday!=nil
+        age = Date.today.year - u.birthday.year
+        if age >= 15 && age <31
+          results[:'15-30']+=1
+        elsif age >30 && age <51
+          results[:'31-50']+=1
+        else 
+          results[:'51+']+=1
+        end
       end
 
     end
