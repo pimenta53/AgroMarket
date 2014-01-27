@@ -3,7 +3,7 @@
 //// ==================================================== //
 var ready;
 ready = function() {
-  
+
   /*
   *  Cria um novo comentario na pagina de um anuncio
   */
@@ -30,7 +30,7 @@ ready = function() {
 
     return false;
   });*/
-  
+
   /* Pesquisa geral */
 
 

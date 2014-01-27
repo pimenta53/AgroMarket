@@ -5,7 +5,7 @@ Agrosocial::Application.routes.draw do
   #get "/plans", :to => "plans#index"
   resources :plans
 
-
+  post "/set_session_question/:id", :to => "application#set_session_question"
 
   namespace :event do
     resources :events

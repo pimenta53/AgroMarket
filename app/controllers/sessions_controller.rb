@@ -9,7 +9,6 @@ class SessionsController < Devise::SessionsController
 	end
 
 	def create
-
 		if !current_user.nil?
 			if current_user.deleted
 				sign_out current_user
@@ -21,7 +20,6 @@ class SessionsController < Devise::SessionsController
 		else
 			super
 		end
-
 	end
 
 end
