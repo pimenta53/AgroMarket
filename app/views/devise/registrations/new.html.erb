@@ -72,10 +72,31 @@
             <%= f.text_field :phone , :class=>"form-control"  %>
           </div>
         </div>
+        
+        <div class="control-group"> 
+          <input type="checkbox" name="terms_and_conditions" value="1">Aceito os <%= link_to "termos e condições", terms_and_condition_path %><br>
+        </div>
 
         <div class="form-actions">
           <%= f.submit "Registar" ,:class=>"btn btn-lg btn-primary btn-block" %>
         </div>
+
+
+        <% if flash[:notice] || flash[:alert]  %>
+              <div id="error_explanation">
+                  <% if flash[:notice] %>
+                   <ul>
+                      <li><%= flash[:notice] %> </li>
+                    </ul>
+                  <% end %>
+                  <% if flash[:alert] %>
+                      <h2>Os seguintes erros impediram o envio do formulário:</h2>
+                      <ul>
+                        <li><%= flash[:alert] %> </li>
+                      </ul>
+                  <% end %>
+              </div>
+        <% end %>
 
         <% if @user.errors.any? %>
             <div id="error_explanation">
