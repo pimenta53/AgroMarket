@@ -17,12 +17,11 @@ module AdsHelper
          end
 	end
 
-        def ad_image_admin( image )
+    def ad_image_admin( image )
          if !image.blank?
              image_tag image.image(:avatar) , :style => "width: 100%; height: 100%;", :alt => "50x50"
          else
              image_tag "/assets/50x50.gif" ,:style => "width: 100%; height: 100%;", :alt => "50x50"
          end
     end
-
 end

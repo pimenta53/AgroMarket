@@ -52,7 +52,8 @@ ready = function() {
       "user[phone]": { telefone: true }
     },
     messages: {
-        "user[avatar]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg"
+        "user[avatar]": "O ficheiro que inseriu não é válido. Extensões válidas: gif|png|jpg|jpeg|pjpeg",
+        "terms_and_conditions" : "Termos e condiçõs"
     },
     highlight: function(element) {
       $(element).closest('.controls').removeClass('success').addClass('error');

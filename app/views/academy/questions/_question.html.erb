@@ -59,7 +59,7 @@
         <%=link_to image_tag(@academy_question.user.avatar.url(:medium),:width => "70%",:class => "img-circle") , @academy_question.user %>
       </div>
       <div style="float:center;">
-        <%= @academy_question.user.name %>
+        <%= get_first_last_name(@academy_question.user.name) %>
       </div>
     </div>
     <div class="col-xs-9 col-md-10">
