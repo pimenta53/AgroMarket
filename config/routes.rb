@@ -1,5 +1,6 @@
 Agrosocial::Application.routes.draw do
 
+  get "calendar" => "calendar#show"
   root 'welcome#index'
 
   #get "/plans", :to => "plans#index"
