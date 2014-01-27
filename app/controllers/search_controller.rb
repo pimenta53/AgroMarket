@@ -9,6 +9,7 @@ class SearchController < ApplicationController
 		search_in_tutorial #search in tuturias
 		search_in_workshops #search in workshop
 		search_in_questions #search in questons
+		search_in_events #search in events
 		search_users( params[:query] )
 		render json: @names
 	end
@@ -45,7 +46,7 @@ class SearchController < ApplicationController
 			workshop = Academy::Workshop.all
 
 			workshop.each do |w|
-				@names << {:id => w.id, :title => w.description, :category => "", :img => "http://placehold.it/40x30",:tipo => "Pergunta",:link => academy_workshop_path(w)}
+				@names << {:id => w.id, :title => w.description, :category => "", :img => "/assets/defaultWork.png",:tipo => "Workshop",:link => academy_workshop_path(w)}
 			end
 		end
 
@@ -53,10 +54,18 @@ class SearchController < ApplicationController
 			question = Academy::Question.all
 
 			question.each do |q|
-				@names << {:id => q.id, :title => q.title, :category => q.category.name, :img => "http://placehold.it/40x30",:tipo => "Workshop",:link => academy_question_path(q)}
+				@names << {:id => q.id, :title => q.title, :category => q.category.name, :img => "http://placehold.it/40x30",:tipo => "Pergunta",:link => academy_question_path(q)}
 			end
 		end
+		
+		def search_in_events
+			event = Event::Event.all
 
+			event.each do |e|
+				@names << {:id => e.id, :title => e.title, :category => "", :img => "/assets/defaultEvent.png",:tipo => "Evento",:link => event_event_path(e)}
+			end
+		end
+		
 		def search_users( query )
 			users = User.where("name LIKE ?", "%#{query}%" )
 
