@@ -85,7 +85,13 @@ class DashboardFacade
     Academy::Tutorial.today_tutorials_count
   end
 
+  def users_per_plan
+    Plan.users_per_plan
+  end
 
+  def users_per_age_group
+    User.users_per_age_group
+  end
   
 
 

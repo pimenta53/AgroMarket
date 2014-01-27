@@ -37,43 +37,43 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
 
 #scopes
-  default_scope -> { where('deleted = ?',false) }
+default_scope -> { where('deleted = ?',false) }
 
 
   #omniauth
   has_many :omni_authentications, :class_name  => 'Authentication',
-                                  :primary_key => 'id',
-                                  :foreign_key => 'user_id',
-                                  :dependent => :destroy
+  :primary_key => 'id',
+  :foreign_key => 'user_id',
+  :dependent => :destroy
 
   #Dependencies
   has_many :sent_messages,:class_name  => 'Message',
-                          :primary_key => 'id',
-                          :foreign_key => 'sender_id'
+  :primary_key => 'id',
+  :foreign_key => 'sender_id'
   has_many :received_messages,:class_name  => 'Message',
-                              :primary_key => 'id',
-                              :foreign_key => 'receiver_id'
+  :primary_key => 'id',
+  :foreign_key => 'receiver_id'
   has_many :ads
   has_many :events
   has_many :messages
 
   has_many :talks_user_one , :class_name => 'Talk',
-                             :foreign_key => 'user_one'
+  :foreign_key => 'user_one'
 
   has_many :talks_user_two , :class_name => 'Talk',
-                             :foreign_key => 'user_two'
+  :foreign_key => 'user_two'
 
   has_many :user_follows
   has_many :follows_user , :class_name => 'UserFollow',
-                           :foreign_key => 'following_id'
+  :foreign_key => 'following_id'
 
   #permite buscar os utilizadores que 'self' está a seguir
   has_many :following, through: :user_follows , :class_name => 'User',
-                                                :foreign_key => 'user_id'
+  :foreign_key => 'user_id'
   #permite buscar os utilizadores a seguirem 'self'
   has_many :followers, through: :follows_user , :class_name => 'User',
-                                                :source => 'user',
-                                                :foreign_key => 'following_id'
+  :source => 'user',
+  :foreign_key => 'following_id'
 
 
   has_many :feeds
@@ -95,8 +95,8 @@ class User < ActiveRecord::Base
   has_many :events, :class_name => Event::Event , :foreign_key => 'user_id'
 
   def talks
-     talks_user_one + talks_user_two
-  end
+   talks_user_one + talks_user_two
+ end
 
   #validates
   validates :name, presence: true
@@ -108,7 +108,7 @@ class User < ActiveRecord::Base
 
 
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", :small => "50x50>" , :tiny =>"25x25!"}, :default_url => "/assets/missing_photo.png"
 
@@ -128,33 +128,33 @@ class User < ActiveRecord::Base
   end
 
 #devolve o maximo de anuncios que pode ter em simultaneo
-  def max_ads
-    self.plans.sum(:ads_limit)
-  end
+def max_ads
+  self.plans.sum(:ads_limit)
+end
 
 #devolve o maximo de eventos que pode ter em simultaneo
-  def max_events
-    self.plans.sum(:event_limit)
-  end
+def max_events
+  self.plans.sum(:event_limit)
+end
 
 #devolve o numero de anuncios que o utilizador tem ativos
-  def active_ads_count
-    self.ads.where("expire_date >= ?", Date.today).where(:is_deleted => false, :is_active => true).count
-  end
+def active_ads_count
+  self.ads.where("expire_date >= ?", Date.today).where(:is_deleted => false, :is_active => true).count
+end
 
 #devolve o numero de evento que o utilizador tem ativos
-  def active_events_count
-    self.events.where("end_day >= ?", Date.today).where(:deleted => false).count
-  end
+def active_events_count
+  self.events.where("end_day >= ?", Date.today).where(:deleted => false).count
+end
 
 #conta o numero slots para anuncios que o utilizador tem restantes
-  def remaining_ads_slots
+def remaining_ads_slots
     #num de anuncios dos pacotes  - num de anuncios que possui ativos
     self.max_ads - self.active_ads_count
   end
 
 #conta o numero slots para eventos que o utilizador tem restantes
-  def remaining_events_slots
+def remaining_events_slots
     #num de eventos dos pacotes  - num de eventos que possui
     self.max_events - self.active_events_count
   end
@@ -217,16 +217,16 @@ class User < ActiveRecord::Base
       false
 
     # else follow
+  else
+    imperative_follow(target)
+    if (n = Notification.where(user_id: target.id , id_destination: self.id, notification_type: 11, watched: false).first)
+      n.delete
     else
-      imperative_follow(target)
-      if (n = Notification.where(user_id: target.id , id_destination: self.id, notification_type: 11, watched: false).first)
-        n.delete
-      else
-        Notification.create_notification( target.id , self.id, 10 , "Tem um novo seguidor")
-      end
-      true
+      Notification.create_notification( target.id , self.id, 10 , "Tem um novo seguidor")
     end
+    true
   end
+end
 
   #se o utilizador está a seguir 'target'
   #target.class = user
@@ -268,7 +268,7 @@ class User < ActiveRecord::Base
   def birthday_cannot_be_in_the_future
     if (birthday != nil)
       errors.add(:birthday, I18n.t('activerecord.errors.generic.cannot_be_in_future')) if
-        birthday > Date.today
+      birthday > Date.today
     end
   end
 
@@ -415,7 +415,7 @@ class User < ActiveRecord::Base
     results = Hash.new
     users = readonly.select(:sign_in_count,:name).order('sign_in_count desc').limit(10)
     users.each do |u|
-        results[u.name]=u.sign_in_count
+      results[u.name]=u.sign_in_count
     end
     return results
 
@@ -426,7 +426,7 @@ class User < ActiveRecord::Base
     results = Hash.new
     users = readonly.select(:counter_ads,:name).order('counter_ads desc').limit(10)
     users.each do |u|
-        results[u.name]=u.counter_ads
+      results[u.name]=u.counter_ads
     end
     return results
   end
@@ -436,21 +436,38 @@ class User < ActiveRecord::Base
     results = Hash.new
     users = readonly.select(:counter_events,:name).order('counter_events desc').limit(10)
     users.each do |u|
-        results[u.name]=u.counter_events
+      results[u.name]=u.counter_events
     end
     return results
   end
 
+  def self.users_per_age_group
+    results = Hash.new
+    results = {:"15-30" => 0, :"31-50" => 0, :'51+' => 0}
+    users = User.all
+    users.each do |u|
+      results
+      age = Date.today.year - u.birthday.year
+      if age >= 15 && age <31
+        results[:'15-30']+=1
+      elsif age >30 && age <51
+        results[:'31-50']+=1
+      else 
+        results[:'51+']+=1
+      end
+
+    end
+  end
 
 
 
   # private methods
   private
-    def imperative_follow(target)
-      link = UserFollow.create
-      link.user = self
-      link.following = target
-      link.save
-    end
+  def imperative_follow(target)
+    link = UserFollow.create
+    link.user = self
+    link.following = target
+    link.save
+  end
 
 end

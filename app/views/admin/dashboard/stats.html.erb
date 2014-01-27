@@ -9,8 +9,8 @@
                 <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Utilizadores no último mês</h3>
               </div>
               <div class="panel-body">
-              <%# column_chart @dashboard.users_last_month %>
-               <%= line_chart @dashboard.users.group_by_day(:created_at).count %>
+              <%= line_chart @dashboard.users_last_month %>
+               <%# line_chart @dashboard.users.group_by_month(:created_at).count %>
 
                 <!--div class="text-right">
                   <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
@@ -21,7 +21,6 @@
 
 
           <!-- ADS PER CATEGORY GRAPH -->
-        <div class="row">
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -38,7 +37,6 @@
 
 
                     <!-- ADS PER CATEGORY GRAPH -->
-        <div class="row">
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -55,7 +53,6 @@
 
 
         <!-- ADS PER CITY GRAPH -->
-        <div class="row">
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -73,7 +70,6 @@
 
 
         <!-- ADS PER CITY GRAPH -->
-        <div class="row">
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -91,7 +87,6 @@
 
 
                   <!-- ADS PER CITY GRAPH -->
-        <div class="row">
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -108,7 +103,6 @@
 
 
  <!-- ADS PER CATEGORY GRAPH -->
-        <div class="row">
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -132,7 +126,33 @@
               </div>
             </div>
           </div><!-- END USERS PER DISTRICT GRAPH -->
-          </div>
 
+
+                    <!-- USERS PER DISTRICT GRAPH -->
+          <div class="col-lg-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Utilizadores por plano</h3>
+              </div>
+              <div class="panel-body">
+                <%= bar_chart( @dashboard.users_per_plan ) %>       
+              </div>
+            </div>
+          </div><!-- END USERS PER DISTRICT GRAPH -->
+
+
+
+                    <!-- USERS PER DISTRICT GRAPH -->
+          <div class="col-lg-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Utilizadores por faixa etária</h3>
+              </div>
+              <div class="panel-body">
+                <%= pie_chart( @dashboard.users_per_age_group ) %>       
+              </div>
+            </div>
+          </div><!-- END USERS PER DISTRICT GRAPH -->
+          </div>
 
 
