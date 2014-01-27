@@ -38,12 +38,17 @@
               <li>
                 <% if user_signed_in? && current_user.id == @user.id %>
                   <span class="label  pull-right r-activity counter_ads"><%= @user.counter_ads %></span>
-                  <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %>
+                  <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(@user.id), :class => "fa fa-tags" %>
                 <% else %>
                   <span class="label  pull-right r-activity counter_ads"><%= @user.counter_ads %></span>
-                  <%= link_to " Anúncios de #{@user.name}".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %>
+                  <%= link_to " Anúncios de #{get_first_last_name(@user.name)}".html_safe , myads_user_path(@user.id), :class => "fa fa-tags" %>
                 <% end %>
               </li>
+              <% if (current_user && @user.id == current_user.id) %>
+                <li>
+                  <%= link_to " Calendar".html_safe , calendar_path, :class => "fa fa-calendar" %>
+                </li>
+              <% end %>
 
 
               <% if (current_user && @user.id == current_user.id) %>
@@ -52,7 +57,7 @@
                 </li>
               <% end %>
               <li>
-                <%= link_to " Rss de #{@user.name}".html_safe , rss_user_path(@user.id), :class => "fa fa-rss" %>
+                <%= link_to " Rss de #{get_first_last_name(@user.name)}".html_safe , rss_user_path(@user.id), :class => "fa fa-rss" %>
               </li>
             </ul>
           </section>
