@@ -15,40 +15,27 @@
   <% end %>
 </ol>
 
-<!--FACEBOOK SDK START -->
-<div id="fb-root"></div>
-<script>
-    // Load the SDK asynchronously
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/pt_PT/all.js#xfbml=1&appId=547514635336381";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-<!--FACEBOOK SDK END -->
-<!--TWITTER SDK START -->
-<script>
-    !function(d,s,id){
-        var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-        if(!d.getElementById(id)){
-            js=d.createElement(s);
-            js.id=id;
-            js.src=p+'://platform.twitter.com/widgets.js';
-            fjs.parentNode.insertBefore(js,fjs);
-        }
-    }(document, 'script', 'twitter-wjs');
-</script>
-<!--TWITTER SDK END -->
-<meta property="og:title" content="<%= @event_event.title %>"/>
-<meta property="og:image" content="<%= root_url.chop + @event_event.image.url %>"/>
-<meta property="og:site_name" content="AgroSocial"/>
-<meta property="og:description" content="<%= @event_event.description %>"/>
-<meta property="og:url" content="<%= event_event_url(@event_event) %>"/>
-<meta property="og:locale" content="<% if params[:locale] %><%= params[:locale] %><% else %>pt_PT<% end %>"/>
-<meta property="fb:app_id" content="547514635336381"/>
-
+<% content_for :head do %>
+  <!-- Facebook -->
+  <meta property="og:title" content="<%= @event_event.title %>"/>
+  <meta property="og:image" content="<%= root_url.chop + @event_event.image.url %>"/>
+  <meta property="og:site_name" content="AgroSocial"/>
+  <meta property="og:description" content="<%= @event_event.description %>"/>
+  <meta property="og:url" content="<%= event_event_url(@event_event) %>"/>
+  <meta property="og:locale" content="<% if params[:locale] %><%= params[:locale] %><% else %>pt_PT<% end %>"/>
+  <meta property="fb:app_id" content="547514635336381"/>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="AgroSocial" />
+  <meta name="twitter:title" content="<%= @event_event.title %>" />
+  <meta name="twitter:description" content="<%= @event_event.description %>" />
+  <meta name="twitter:image" content="<%= root_url.chop + @event_event.image.url %>" />
+  <!-- Google -->
+  <meta name="description" content="<%= @event_event.description %>" />
+  <meta name="keywords" content="Event" />
+  <meta name="author" content="<%= @event_event.user.name %>" />
+  <meta name="copyright" content="© 2014 AGROSOCIAL. Todos os direitos reservados." />
+  <meta name="application-name" content="AgroSocial" />
+<% end %>
 
 <section class="panel" style="border: 1px solid #dddddd;">
   <div class="panel-body">
@@ -98,7 +85,9 @@
           <div class="fb-share-button sharebutton" data-href="<%= event_event_url(@event_event) %>" data-type="button"></div>
           <div class="sharebutton">
             <a href="https://twitter.com/share" class="twitter-share-button" data-count="none"
-              data-text="<%= 'Event - ' + @event_event.title + ' - ' + event_event_url(@event_event) + ' - #AgroSocial' %>"
+              data-url="<%= event_event_url(@event_event) %>"
+              data-hashtags="AgroSocial"
+              data-text="<%= 'Event - ' + @event_event.title%>"
             >Tweet</a>
           </div>
         </div>
