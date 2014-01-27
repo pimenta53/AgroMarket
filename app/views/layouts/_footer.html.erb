@@ -13,27 +13,4 @@
   </div>
 </footer>
 
-
-<%# MODAL %>
-<div id="modalContact" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-    <h4 class="modal-title"><i class="fa fa-users"></i> Contacto</h4>
-  </div>
-  <div class="modal-body">
-
-    <div class="container">
-      <div class="row">
-        <input class="form-control" id="name" placeholder="Nome...">
-        <input type="email" class="form-control" id="email" placeholder="Email...">
-        <input class="form-control" id="subject" placeholder="Assunto...">
-        <textarea class="form-control" id="description" rows="3" placeholder="Descrição"></textarea>
-      </div>
-    </div>
-
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-  </div>
-</div>
-<%# FIM MODAL %>
+<%= render "contact/new" %>
