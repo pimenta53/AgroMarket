@@ -33,7 +33,7 @@ class DashboardFacade
   end
 
   def users_last_year
-    User.users_per_day_last_year
+    User.users_per_month_last_year
   end
   
   def most_logged_users

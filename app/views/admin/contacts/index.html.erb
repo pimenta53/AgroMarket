@@ -1,12 +1,16 @@
-<h1>Listing contacts</h1>
+<section class="panel">
+  <header class="panel-heading"><h1>Lista de Contactos</h1><h5><%= @contacts.count %> Contactos</h5> 
+  </header>
 
-<table class="table">
+  <div class="table-responsive">
+  <table class="table table-hover tablesorter" id="orderTable" >
   <thead>
     <tr>
-      <th>Name</th>
+      <th>ID</th>
+      <th>Nome</th>
       <th>Email</th>
-      <th>Subject</th>
-      <th>Text</th>
+      <th>Assunto</th>
+      <th>Texto</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,18 +20,18 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
+        <td><%= contact.id %></td>
         <td><%= contact.name %></td>
         <td><%= contact.email %></td>
         <td><%= contact.subject %></td>
         <td><%= contact.text %></td>
-        <td><%= link_to 'Show', [:admin, contact] %></td>
-        <td><%= link_to 'Edit', edit_admin_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', [:admin, contact], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <td><%= link_to 'Ver', [:admin, contact] %></td>
+        <td><%= link_to 'Editar', edit_admin_contact_path(contact) %></td>
+        <td><%= link_to 'Apagar', [:admin, contact], method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <br>
 
-<br>
-
-<%= link_to 'New Contact', new_admin_contact_path %>
+</section>
