@@ -38,7 +38,7 @@ class SearchController < ApplicationController
 			tutorials = Academy::Tutorial.all
 
 			tutorials.each do |t|
-				@names << {:id => t.id, :title => t.title, :category => t.category.name,:img => "http://placehold.it/40x30",:tipo => "Tutorial",:link =>  academy_tutorial_path(t)}
+				@names << {:id => t.id, :title => t.title, :category => t.category.name,:img => "/assets/defaultTutorial.png",:tipo => "Tutorial",:link =>  academy_tutorial_path(t)}
 			end
 		end
 
@@ -54,7 +54,7 @@ class SearchController < ApplicationController
 			question = Academy::Question.all
 
 			question.each do |q|
-				@names << {:id => q.id, :title => q.title, :category => q.category.name, :img => "http://placehold.it/40x30",:tipo => "Pergunta",:link => academy_question_path(q)}
+				@names << {:id => q.id, :title => q.title, :category => q.category.name, :img =>"/assets/defaultQuestion.png",:tipo => "Pergunta",:link => academy_question_path(q)}
 			end
 		end
 		

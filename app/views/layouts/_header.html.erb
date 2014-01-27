@@ -75,21 +75,23 @@
                       dataType: 'json',
                       success: function (result) {
                         labels = [];
+                        var ids = [];
 
-                        //alert(result)
+                        
                         $.each(result, function (i, item) {
                            //evita repetidos
-                           if( !mapped.hasOwnProperty(i.title) ){
-                             mapped[item.title] = {
-                              id: item.id,
-                              title: item.title,
-                              category: item.category,
-                              tipo: item.tipo,
-                              img: item.img,
-                              link: item.link
-                            }
-
-                            labels.push(item.title)
+                           // alert(item.id)
+                            if (jQuery.inArray( item.id, ids ) == -1 ){
+                               mapped[item.title] = {
+                                id: item.id,
+                                title: item.title,
+                                category: item.category,
+                                tipo: item.tipo,
+                                img: item.img,
+                                link: item.link
+                              }
+                              ids.push(item.id)
+                              labels.push(item.title)
                           }
                           //alert(item.id + item.title)
 
@@ -105,7 +107,7 @@
                       + "<div class='typeahead_wrapper'>"
                       + "<img class='typeahead_photo' src='"+ p.img +"' />"
                       + "<div class='typeahead_labels'>"
-                      + "<div class='typeahead_primary'>" + (p.title).substring(0,50) + "</div>"
+                      + "<div class='typeahead_primary'>" + (p.title).substring(0,40) + "</div>"
                       + "<div class='typeahead_secondary'>" + p.category + " | <span class='typeahead_typo'> "+ p.tipo +"</span></div>"
                       + "</div>"
                       + "</div>";
