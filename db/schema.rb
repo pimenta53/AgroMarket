@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140123002419) do
+ActiveRecord::Schema.define(version: 20140123195931) do
 
   create_table "academy_answers", force: true do |t|
     t.integer  "question_id",                 null: false
@@ -299,13 +299,6 @@ ActiveRecord::Schema.define(version: 20140123002419) do
     t.datetime "updated_at"
   end
 
-  create_table "types", force: true do |t|
-    t.string   "name"
-    t.integer  "flag"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "user_follows", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -347,6 +340,7 @@ ActiveRecord::Schema.define(version: 20140123002419) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.boolean  "terms_and_conditions",   default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

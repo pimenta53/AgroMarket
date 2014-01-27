@@ -139,4 +139,10 @@ Agrosocial::Application.routes.draw do
 
   get "welcome/index"
 
+
+
+  ####
+  # STATIC PAGES
+  get '/terms_and_conditions' => 'pages#terms_and_condition', as: 'terms_and_condition'
+
 end
