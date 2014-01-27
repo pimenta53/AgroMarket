@@ -18,39 +18,26 @@
     <% end %>
   </div>
 </ol>
-<!--FACEBOOK SDK START -->
-<div id="fb-root"></div>
-<script>
-   // Load the SDK asynchronously
-   (function(d, s, id) {
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) return;
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/pt_PT/all.js#xfbml=1&appId=547514635336381";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-<!--FACEBOOK SDK END -->
-<!--TWITTER SDK START -->
-<script>
-   !function(d,s,id){
-     var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-     if(!d.getElementById(id)){
-       js=d.createElement(s);
-       js.id=id;
-       js.src=p+'://platform.twitter.com/widgets.js';
-       fjs.parentNode.insertBefore(js,fjs);
-     }
-   }(document, 'script', 'twitter-wjs');
-</script>
-<!--TWITTER SDK END -->
-<meta property="og:title" content="<%= @academy_workshop.title %>"/>
-<meta property="og:image" content="http://teste94.di.uminho.pt/assets/logo_button.svg"/>
-<meta property="og:site_name" content="AgroSocial"/>
-<meta property="og:description" content="<%= @academy_workshop.description %>"/>
-<meta property="og:url" content="<%= academy_workshop_url(@academy_workshop) %>"/>
-<meta property="og:locale" content="<% if params[:locale] %><%= params[:locale] %><% else %>pt_PT<% end %>"/>
-<meta property="fb:app_id" content="547514635336381"/>
+<% content_for :head do %>
+  <!-- Facebook -->
+  <meta property="og:title" content="<%= @academy_workshop.title %>"/>
+  <meta property="og:image" content="http://teste94.di.uminho.pt/assets/defaultWork.png"/>
+  <meta property="og:site_name" content="AgroSocial"/>
+  <meta property="og:description" content="<%= @academy_workshop.description[0..70].gsub(/\s\w+\s*$/,'...') %>"/>
+  <meta property="og:url" content="<%= academy_workshop_url(@academy_workshop) %>"/>
+  <meta property="fb:app_id" content="547514635336381"/>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="AgroSocial" />
+  <meta name="twitter:title" content="<%= @academy_workshop.title %>" />
+  <meta name="twitter:description" content="<%= @academy_workshop.description[0..70].gsub(/\s\w+\s*$/,'...') %>" />
+  <meta name="twitter:image" content="http://teste94.di.uminho.pt/assets/defaultWork.png" />
+  <!-- Google -->
+  <meta name="description" content="<%= @academy_workshop.description[0..70].gsub(/\s\w+\s*$/,'...') %>" />
+  <meta name="keywords" content="Workshop" />
+  <meta name="author" content="<%= @academy_workshop.user.name %>" />
+  <meta name="copyright" content="© 2014 AGROSOCIAL. Todos os direitos reservados." />
+  <meta name="application-name" content="AgroSocial" />
+<% end %>
 
 <p id="notice"><%= notice %></p>
 
@@ -94,7 +81,9 @@
       <div class="pull-right">
         <div class="fb-share-button sharebutton" data-href="<%= academy_workshop_url(@academy_workshop) %>" data-type="button"></div>
         <div class="sharebutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none"
-          data-text="<%= 'Workshop - ' + @academy_workshop.title + ' - ' + academy_workshop_url(@academy_workshop) + ' - #AgroSocial' %>"
+          data-url="<%= academy_workshop_url(@academy_workshop) %>"
+          data-hashtags="AgroSocial"
+          data-text="<%= 'Workshop - ' + @academy_workshop.title %>"
         >Tweet</a></div>
       </div>
 

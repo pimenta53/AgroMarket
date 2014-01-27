@@ -9,7 +9,7 @@
       <thead>
     <tr>
       <th>ID</th>
-      <th>Avatar</th>
+      <!--th>Avatar</th-->
       <th>Nome</th>
       <th>Email</th>
       <th>Cidade</th>
@@ -29,7 +29,7 @@
     <% @admin_users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
-        <td> <%=link_to image_tag(user.avatar.url(:tiny),:class => "img-circle"), user %></td>
+        <!--td> <%=link_to image_tag(user.avatar.url(:tiny),:class => "img-circle"), user %></td-->
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.city.city %></td>
