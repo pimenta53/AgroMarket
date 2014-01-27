@@ -11,8 +11,37 @@
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
     <%= csrf_meta_tags %>
+    
+
+    <%= content_for?(:head) ? yield(:head) : '' %>
   </head>
   <body>
+<!--FACEBOOK SDK START -->
+<div id="fb-root"></div>
+<script>
+   // Load the SDK asynchronously
+   (function(d, s, id) {
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) return;
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/pt_PT/all.js#xfbml=1&appId=547514635336381";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<!--FACEBOOK SDK END -->
+<!--TWITTER SDK START -->
+<script>
+   !function(d,s,id){
+     var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+     if(!d.getElementById(id)){
+       js=d.createElement(s);
+       js.id=id;
+       js.src=p+'://platform.twitter.com/widgets.js';
+       fjs.parentNode.insertBefore(js,fjs);
+     }
+   }(document, 'script', 'twitter-wjs');
+</script>
+<!--TWITTER SDK END -->  
     <div id="header">
       <%= render "layouts/header"%>
     </div>
@@ -38,21 +67,26 @@
               <li>
                 <% if user_signed_in? && current_user.id == @user.id %>
                   <span class="label  pull-right r-activity counter_ads"><%= @user.counter_ads %></span>
-                  <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %>
+                  <%= link_to " Os Meus Anúncios".html_safe , myads_user_path(@user.id), :class => "fa fa-tags" %>
                 <% else %>
                   <span class="label  pull-right r-activity counter_ads"><%= @user.counter_ads %></span>
-                  <%= link_to " Anúncios de #{@user.name}".html_safe , myads_user_path(@user.id), :class => "fa fa-calendar" %>
+                  <%= link_to " Anúncios de #{get_first_last_name(@user.name)}".html_safe , myads_user_path(@user.id), :class => "fa fa-tags" %>
                 <% end %>
               </li>
+              <% if (current_user && @user.id == current_user.id) %>
+                <li>
+                  <%= link_to " Calendar".html_safe , calendar_path, :class => "fa fa-calendar" %>
+                </li>
+              <% end %>
 
 
               <% if (current_user && @user.id == current_user.id) %>
                 <li>
-                  <%= link_to " Feeds".html_safe , feed_path, :class => "fa fa-list" %>
+                  <%= link_to " Mural".html_safe , feed_path, :class => "fa fa-list" %>
                 </li>
               <% end %>
               <li>
-                <%= link_to " Rss de #{@user.name}".html_safe , rss_user_path(@user.id), :class => "fa fa-rss" %>
+                <%= link_to " Rss de #{get_first_last_name(@user.name)}".html_safe , rss_user_path(@user.id), :class => "fa fa-rss" %>
               </li>
             </ul>
           </section>

@@ -74,6 +74,7 @@ class ApplicationController < ActionController::Base
 
   def load_highlights
     @ads_highlights = Ad.ads_highlight
+    @contact = Contact.new
   end
 
   protected
