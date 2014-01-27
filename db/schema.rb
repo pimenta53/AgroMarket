@@ -11,8 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140127115245) do
 
+  create_table "academy_answers", force: true do |t|
+    t.integer  "question_id",                 null: false
+    t.integer  "user_id",                     null: false
+    t.integer  "up",          default: 0
+    t.integer  "down",        default: 0
+    t.boolean  "is_deleted",  default: false
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "academy_questions", force: true do |t|
+    t.integer  "user_id",                     null: false
+    t.integer  "category_id",                 null: false
+    t.string   "title",                       null: false
+    t.text     "text"
+    t.boolean  "is_deleted",  default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "academy_tutorial_images", force: true do |t|
     t.integer  "tutorial_id",                 null: false
@@ -281,13 +301,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at"
   end
 
-  create_table "types", force: true do |t|
-    t.string   "name"
-    t.integer  "flag"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "user_follows", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -329,11 +342,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.boolean  "terms_and_conditions",   default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
 
 end
