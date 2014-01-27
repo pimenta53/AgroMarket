@@ -163,18 +163,20 @@
               </div>
             </div>
             <br>
-            <div style="width:100%; display: inline-block;">
-              <div style="float: left;">
+            <div style="width:100%; display: inline-block; margin-top: 5px;">
+              <div style="float: left; height: 30px; padding-top: 5px;">
                 <i class="fa fa-map-marker"></i> <%= @ad.location %>
               </div>
               <div style="float:right; text-align:right; min-width:100px;">
-                 <strong>Termina em:</strong>
-                 <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
+                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalMap"><i class="fa fa-plus-circle"></i>Ver no Mapa</button>
               </div>
             </div>
-           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalMap"><i class="fa fa-plus-circle"></i>Ver no Mapa</button>
             <br>
             <div style="width: 100%; text-align: right; margin-top: 10px;">
+              <div style="float:left;">
+                <strong>Termina em:</strong>
+                <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
+              </div>
               <div class="fb-share-button sharebutton" data-href="<%= ad_url(@ad) %>" data-type="button"></div>
               <div class="sharebutton">
                  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" 
