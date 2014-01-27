@@ -88,8 +88,6 @@ Agrosocial::Application.routes.draw do
 
 
 
-
-
   ### ADMIN ZONE ###
   namespace :admin do
     resources :price_types
@@ -122,6 +120,8 @@ Agrosocial::Application.routes.draw do
 
     get 'aprove_workshop', to: 'academy/workshops#aprove_workshop', as: :aprove_workshop
     get 'unaprove_workshop', to: 'academy/workshops#unaprove_workshop', as: :unaprove_workshop
+
+    get 'stats', to: 'dashboard#stats', as: :stats
 
 
   end

@@ -108,6 +108,9 @@ gem 'delayed_job_active_record'
 
 gem 'daemons'
 
+## dates for chartkick
+gem 'groupdate'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
