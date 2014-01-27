@@ -64,10 +64,12 @@
                 //window.query_cache = {};
                 var labels = [];
                 var mapped = {};
+                var ids = [];
                 $('.typeahead').typeahead({
                   source: function (query, process) {
                     labels = [];
                     mapped = {};
+
                     return $.ajax({
                       url: "/search",
                       type: 'get',
@@ -75,13 +77,14 @@
                       dataType: 'json',
                       success: function (result) {
                         labels = [];
-                        var ids = [];
+                        ids = [];
 
                         
                         $.each(result, function (i, item) {
                            //evita repetidos
-                           // alert(item.id)
-                            if (jQuery.inArray( item.id, ids ) == -1 ){
+                           
+                            //console.log(item.tipo + " "+item.id+ " "+item.title)
+                            if (jQuery.inArray( item.id + "-"+ item.title, ids ) == -1 ){
                                mapped[item.title] = {
                                 id: item.id,
                                 title: item.title,
@@ -90,9 +93,10 @@
                                 img: item.img,
                                 link: item.link
                               }
-                              ids.push(item.id)
+                              ids.push(item.id + "-"+ item.title)
                               labels.push(item.title)
                           }
+                    
                           //alert(item.id + item.title)
 
                         });
