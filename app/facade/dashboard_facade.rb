@@ -32,8 +32,8 @@ class DashboardFacade
     User.users_per_district
   end
 
-  def users_last_month
-    User.users_per_day_last_month
+  def users_last_year
+    User.users_per_day_last_year
   end
   
   def most_logged_users
