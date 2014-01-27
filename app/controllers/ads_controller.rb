@@ -9,6 +9,7 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
+    @contact = Contact.new
 
    # ads = Ad.search_by_location( current_user )
     if params[:page] != nil
