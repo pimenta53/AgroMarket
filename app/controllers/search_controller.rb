@@ -26,16 +26,15 @@ class SearchController < ApplicationController
 
 	private 
 		def search_in_ads
-			ads = Ad.all
+			ads = Ad.where("is_active = ?", 1 )
 
 			ads.each do |a|
 				@names << {:id => a.id, :title => a.title, :category => a.category.name, :img => a.first_image,:tipo => "Anuncio",:link => ad_path(a)}
 			end
-
 		end
 
 		def search_in_tutorial
-			tutorials = Academy::Tutorial.all
+			tutorials = Academy::Tutorial.aproved_tutorials
 
 			tutorials.each do |t|
 				@names << {:id => t.id, :title => t.title, :category => t.category.name,:img => "/assets/defaultTutorial.png",:tipo => "Tutorial",:link =>  academy_tutorial_path(t)}
@@ -43,7 +42,7 @@ class SearchController < ApplicationController
 		end
 
 		def search_in_workshops
-			workshop = Academy::Workshop.all
+			workshop = Academy::Workshop.aproved_workshops
 
 			workshop.each do |w|
 				@names << {:id => w.id, :title => w.description, :category => "", :img => "/assets/defaultWork.png",:tipo => "Workshop",:link => academy_workshop_path(w)}
@@ -88,7 +87,5 @@ class SearchController < ApplicationController
 			categories.each do |c|
 				@names << {:id => c.id, :name => c.name}
 			end
-
-
 		end
 end
