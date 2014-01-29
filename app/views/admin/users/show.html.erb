@@ -16,7 +16,7 @@
 <p>Nome: <%= @admin_user.name %></p>
 <p>Email: <%= @admin_user.email %></p>
 <p>Cidade: <%= @admin_user.city.city %></p>
-<p>Aniversário: <%= I18n.l @admin_user.birthday %></p>
+<p>Aniversário: <%= I18n.l @admin_user.birthday if @user.birthday %></p>
 <p>Telefone: <%= @admin_user.phone %></p>
 <p>Ocupação: <%= @admin_user.ocupation %></p>
 <p>Membro desde: <%= I18n.l @admin_user.created_at, format: :time %></p>
