@@ -39,6 +39,7 @@
   <meta name="application-name" content="AgroSocial" />
   <link rel="canonical" href="<%= academy_workshop_url(@academy_workshop) %>">
 <% end %>
+<img src="<%= root_url %>assets/defaultWork.png" style="display:none;visibility:hidden"></img>
 
 <p id="notice"><%= notice %></p>
 
@@ -103,18 +104,20 @@
       <%# VERIFICA se workshop tem inscriçoes e se ainda tem inscriçoes %>
       <% if @academy_workshop.has_available_slots? == true && @academy_workshop.requires_registration? == true %>
 
-        <% if @academy_registed.blank? %>
+        <% if user_signed_in? %>
+          <% if @academy_registed.blank? %>
 
-          <% if user_signed_in? && current_user.id != @academy_workshop.user_id %>
+            <% if user_signed_in? && current_user.id != @academy_workshop.user_id %>
+              <div class="text-center" style="margin-bottom: 10px;">
+                <button class="demo btn btn-primary" data-toggle="modal" href="#responsive"> <i class="fa fa-plus" style="color:white;"></i>Inscrever-se no Workshop</button>
+              </div>
+            <% end %>
+
+          <% else %>
             <div class="text-center" style="margin-bottom: 10px;">
-              <button class="demo btn btn-primary" data-toggle="modal" href="#responsive"> <i class="fa fa-plus" style="color:white;"></i>Inscrever-se no Workshop</button>
+              <%= link_to ' Remover inscrição do Workshop', @academy_registed, method: :delete,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Are you sure?' } %>
             </div>
           <% end %>
-
-        <% else %>
-          <div class="text-center" style="margin-bottom: 10px;">
-            <%= link_to ' Remover inscrição do Workshop', @academy_registed, method: :delete,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Are you sure?' } %>
-          </div>
         <% end %>
 
         <%# MODAL %>

@@ -48,7 +48,10 @@
   <meta name="application-name" content="AgroSocial" />
   <link rel="canonical" href="<%= ad_url(@ad) %>">
 <% end %>
-
+<% @ad.ad_images.each do |img| %>
+  <img src="<%= root_url.chop + img.image.url %>" style="display:none;visibility:hidden"></img>
+<% end %>
+<img src="<%= root_url %>assets/defaultAdPic.png" style="display:none;visibility:hidden"></img>
 
 <% num_img=@ad.ad_images.count %>
 <section class="panel" style="border: 1px solid #dddddd;">
