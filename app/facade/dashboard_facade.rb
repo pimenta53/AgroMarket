@@ -32,8 +32,8 @@ class DashboardFacade
     User.users_per_district
   end
 
-  def users_last_month
-    User.users_per_day_last_month
+  def users_last_year
+    User.users_per_month_last_year
   end
   
   def most_logged_users
@@ -85,7 +85,13 @@ class DashboardFacade
     Academy::Tutorial.today_tutorials_count
   end
 
+  def users_per_plan
+    Plan.users_per_plan
+  end
 
+  def users_per_age_group
+    User.users_per_age_group
+  end
   
 
 

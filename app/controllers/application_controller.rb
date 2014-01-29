@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :load_notifications
+  before_action :configure_permitted_parameters, except: [:set_session_question], if: :devise_controller?
+  before_action :load_notifications, except: [:set_session_question]
   helper_method :load_stuff_header
-  before_action :load_highlights
+  before_action :load_highlights, except: [:set_session_question]
 
   protect_from_forgery with: :exception
 
@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :notice => exception.message
 
+  end
+
+  def set_session_question
+    session[:login_return_to] = academy_question_path(params[:id])
+    #puts session[:login_return_to]
+    #puts params[:id]
+    puts "________________________________________"
+    #head :ok
   end
 
   def refresh_header
@@ -74,6 +82,7 @@ class ApplicationController < ActionController::Base
 
   def load_highlights
     @ads_highlights = Ad.ads_highlight
+    @contact = Contact.new
   end
 
   protected
@@ -90,11 +99,8 @@ class ApplicationController < ActionController::Base
   	end
 
   def after_sign_in_path_for(resource_or_scope)
-    if resource_or_scope.is_a?(User)
-      #redirect_path
-      feed_path
-    else
-      super
-    end
+    puts session[:login_return_to]
+    puts "-----------------------------"
+    session[:login_return_to] || feed_path
   end
 end

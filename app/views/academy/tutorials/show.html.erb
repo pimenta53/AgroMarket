@@ -9,39 +9,28 @@
   <% end %>
 </ol>
 
-<!--FACEBOOK SDK START -->
-<div id="fb-root"></div>
-<script>
-   // Load the SDK asynchronously
-   (function(d, s, id) {
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) return;
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/pt_PT/all.js#xfbml=1&appId=547514635336381";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-<!--FACEBOOK SDK END -->
-<!--TWITTER SDK START -->
-<script>
-   !function(d,s,id){
-     var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-     if(!d.getElementById(id)){
-       js=d.createElement(s);
-       js.id=id;
-       js.src=p+'://platform.twitter.com/widgets.js';
-       fjs.parentNode.insertBefore(js,fjs);
-     }
-   }(document, 'script', 'twitter-wjs');
-</script>
-<!--TWITTER SDK END -->
-<meta property="og:title" content="<%= @academy_tutorial.title %>"/>
-<meta property="og:image" content="http://teste94.di.uminho.pt/assets/logo_button.svg"/>
-<meta property="og:site_name" content="AgroSocial"/>
-<meta property="og:description" content="<%= @academy_tutorial.text %>"/>
-<meta property="og:url" content="<%= academy_tutorial_url(@academy_tutorial) %>"/>
-<meta property="og:locale" content="<% if params[:locale] %><%= params[:locale] %><% else %>pt_PT<% end %>"/>
-<meta property="fb:app_id" content="547514635336381"/>
+<% content_for :head do %>
+  <!-- Facebook -->
+  <meta property="og:title" content="<%= @academy_tutorial.title %>"/>
+  <meta property="og:image" content="<%= root_url %>assets/defaultTutorial.png"/>
+  <meta property="og:site_name" content="AgroSocial"/>
+  <meta property="og:description" content="<%= @academy_tutorial.text[0..70].gsub(/\s\w+\s*$/,'...') %>"/>
+  <meta property="og:url" content="<%= academy_tutorial_url(@academy_tutorial) %>"/>
+  <meta property="fb:app_id" content="547514635336381"/>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="AgroSocial" />
+  <meta name="twitter:title" content="<%= @academy_tutorial.title %>" />
+  <meta name="twitter:description" content="<%= @academy_tutorial.text[0..70].gsub(/\s\w+\s*$/,'...') %>" />
+  <meta name="twitter:image" content="<%= root_url %>assets/defaultTutorial.png" />
+  <!-- Google -->
+  <meta name="description" content="<%= @academy_tutorial.text[0..70].gsub(/\s\w+\s*$/,'...') %>" />
+  <meta name="keywords" content="Tutorial" />
+  <meta name="author" content="<%= @academy_tutorial.user.name %>" />
+  <meta name="copyright" content="© 2014 AGROSOCIAL. Todos os direitos reservados." />
+  <meta name="application-name" content="AgroSocial" />
+  <link rel="canonical" href="<%= academy_tutorial_url(@academy_tutorial) %>">
+<% end %>
+<img src="<%= root_url %>assets/defaultTutorial.png" style="display:none;visibility:hidden"></img>
 
 <p id="notice"><%= notice %></p>
 
@@ -73,7 +62,7 @@
           <p>
             <ul id="tutorial-info">
               <li id="tutorial-author">
-                <span>Autor: </span> <%= @academy_tutorial.user.name %>
+                <span>Autor: </span> <%= get_first_last_name(@academy_tutorial.user.name) %>
               </li>
               <li id="tutorial-date">
                 <span>Data de Criação: </span>
@@ -97,8 +86,18 @@
         <div class="pull-right">
           <div class="fb-share-button sharebutton" data-href="<%= academy_tutorial_url(@academy_tutorial) %>" data-type="button"></div>
           <div class="sharebutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none"
-            data-text="<%= 'Tutorial - ' + @academy_tutorial.title + ' - ' + academy_tutorial_url(@academy_tutorial) + ' - #AgroSocial' %>"
+            data-url="<%= academy_tutorial_url(@academy_tutorial) %>"
+            data-hashtags="AgroSocial"
+            data-text="<%= 'Tutorial - ' + @academy_tutorial.title %>"
           >Tweet</a></div>
+          <div class="g-plus" data-action="share" data-annotation="none"></div>
+          <script type="text/javascript">
+            (function() {
+              var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+              po.src = 'https://apis.google.com/js/platform.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+          </script>
         </div>
       </div>
     </div>

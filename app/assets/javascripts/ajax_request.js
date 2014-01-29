@@ -3,7 +3,7 @@
 //// ==================================================== //
 var ready;
 ready = function() {
-  
+
   /*
   *  Cria um novo comentario na pagina de um anuncio
   */
@@ -30,7 +30,7 @@ ready = function() {
 
     return false;
   });*/
-  
+
   /* Pesquisa geral */
 
 
@@ -92,6 +92,27 @@ ready = function() {
       },
       error: function(request,error){
         alert ( "Não foi possivel inserir a tua resposta!!");
+      }
+    });
+    return false;
+  });
+
+  $("#form_contact").submit(function() {
+
+    var valuesToSubmit = $(this).serialize();
+    $.ajax({
+      url: $(this).attr('ajax_path'),
+      data: valuesToSubmit,
+      async: true,
+      dataType: 'script',
+      type: "POST",
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      success: function(data){
+        $("#form_contact")[0].reset();
+        $("#modalContact").modal('toggle');
+      },
+      error: function(request,error){
+        alert ( "Não foi possivel!!");
       }
     });
     return false;

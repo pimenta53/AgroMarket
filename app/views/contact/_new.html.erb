@@ -1,0 +1,37 @@
+<%# MODAL %>
+<div id="modalContact" class="modal fade" tabindex="-1" data-width="760" style="display:none; margin-bottom:60%; position:absolute;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <h4 class="modal-title"><i class="fa fa-users"></i> Contacto</h4>
+  </div>
+  <div class="modal-body">
+
+    <div class="container">
+
+      </div>
+        <%= form_for @contact, :url => contact_form_path, :html => {:method => :post,
+           :id => "form_contact",
+           :ajax_path => contact_form_path } do |f| %>
+
+          <div class="field">
+            <%= f.text_field :name ,:class=> "form-control",:placeholder => "Nome..."%>
+            </div>
+          <div class="field">
+            <%= f.text_field :email ,:class=> "form-control",:placeholder => "Email..."%>
+            </div>
+          <div class="field">
+            <%= f.text_field :subject ,:class=> "form-control",:placeholder =>"Assunto..."%>
+            </div>
+          <div class="field">
+            <%= f.text_area :text ,:class=> "form-control",:placeholder =>"Descrição",:row=>3%>
+            </div>
+    </div>
+
+   <div class="modal-footer">
+      <%= f.submit "Enviar",:class=>"btn btn-primary" %>
+          
+      <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+    </div>
+<% end %>
+</div>
+<%# FIM MODAL %>

@@ -17,6 +17,10 @@ class Event::EventsController < ApplicationController
   # GET /event/events/1
   # GET /event/events/1.json
   def show
+    if !user_signed_in?
+      session[:login_return_to] = event_event_path(params[:id])
+      redirect_to new_user_session_path()
+    end
   end
 
   # GET /event/events/new
