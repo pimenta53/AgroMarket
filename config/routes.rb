@@ -153,5 +153,6 @@ Agrosocial::Application.routes.draw do
   ####
   # STATIC PAGES
   get '/terms_and_conditions' => 'pages#terms_and_condition', as: 'terms_and_condition'
+  get '/privacy' => 'pages#privacy', as: 'privacy'
 
 end
