@@ -29,7 +29,9 @@
 
                 </div>
                 <div class="bio-row">
-                    <p><span>Email: </span> <%= @user.email %></p>
+                    <%if user_signed_in? %>
+                        <p><span>Email: </span> <%= @user.email %></p>
+                    <% end %>
                 </div>
                 <div class="bio-row">
                     <p><span>Membro desde: </span><%= I18n.localize(@user.created_at, :format => :time) %></p>
