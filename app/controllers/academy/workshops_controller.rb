@@ -17,9 +17,9 @@ class Academy::WorkshopsController < ApplicationController
 
 
     @academy_workshop_registration = Academy::WorkshopRegistration.new
-
-    @academy_registed = Academy::WorkshopRegistration.where(:workshop_id => @academy_workshop.id , :user_id => current_user.id).first
-
+    if user_signed_in?
+      @academy_registed = Academy::WorkshopRegistration.where(:workshop_id => @academy_workshop.id , :user_id => current_user.id).first
+    end
   end
 
   # GET /academy/workshops/new
