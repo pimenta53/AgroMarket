@@ -85,6 +85,9 @@ Agrosocial::Application.configure do
                              "fontawesome-webfont.svg",
                              "fontawesome-webfont.woff"]
 
+  # set the relative root, because we're deploying to /myrailsapp
+  config.action_controller.relative_url_root  = "/agrosocial"
+
 
   # email configuration
   config.action_mailer.default_url_options = { host: "teste94.di.uminho.pt" }
