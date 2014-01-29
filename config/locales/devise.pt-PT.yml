@@ -38,6 +38,8 @@
       invalid_token: 'O "token" de autenticação é inválido.'
       timeout: 'A sua sessão expirou, por favor autentique-se novamente para continuar.'
       inactive: 'A sua conta ainda não foi activada.'
+      user:
+        not_found_in_database: 'O utilizador não existe'
     sessions:
       signed_in: 'Autenticação efetuada com sucesso.'
       failure: 'Ocorreu um erro na autenticação.'

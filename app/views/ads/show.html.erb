@@ -19,7 +19,7 @@
   <% if user_signed_in? %>
     <%= link_to "<i class='fa fa-plus'></i>Novo Anúncio".html_safe, new_ad_path, class:"url", style:"float:right" %>
   <% end %>
-</ol>
+</ol> 
 
 <% content_for :head do %>
   <!-- Facebook -->
@@ -27,7 +27,7 @@
   <% @ad.ad_images.each do |img| %>
     <meta property="og:image" content="<%= root_url.chop + img.image.url %>"/>
   <% end %>
-  <meta property="og:image" content="http://teste94.di.uminho.pt/assets/defaultAdPic.png"/>
+  <meta property="og:image" content="<%= root_url %>assets/defaultAdPic.png"/>
   <meta property="og:site_name" content="AgroSocial"/>
   <meta property="og:description" content="<%= @ad.description[0..70].gsub(/\s\w+\s*$/,'...') %>"/>
   <meta property="og:url" content="<%= ad_url(@ad) %>"/>
@@ -39,15 +39,19 @@
   <% @ad.ad_images.each do |img| %>
     <meta name="twitter:image" content="<%= root_url.chop + img.image.url %>"/>
   <% end %>
-  <meta name="twitter:image" content="http://teste94.di.uminho.pt/assets/defaultAdPic.png"/>
+  <meta name="twitter:image" content="<%= root_url %>assets/defaultAdPic.png"/>
   <!-- Google -->
   <meta name="description" content="<%= @ad.description[0..70].gsub(/\s\w+\s*$/,'...') %>" />
   <meta name="keywords" content="Anuncio" />
   <meta name="author" content="<%= @ad.user.name %>" />
   <meta name="copyright" content="© 2014 AGROSOCIAL. Todos os direitos reservados." />
   <meta name="application-name" content="AgroSocial" />
+  <link rel="canonical" href="<%= ad_url(@ad) %>">
 <% end %>
-
+<% @ad.ad_images.each do |img| %>
+  <img src="<%= root_url.chop + img.image.url %>" style="display:none;visibility:hidden"></img>
+<% end %>
+<img src="<%= root_url %>assets/defaultAdPic.png" style="display:none;visibility:hidden"></img>
 
 <% num_img=@ad.ad_images.count %>
 <section class="panel" style="border: 1px solid #dddddd;">
@@ -169,6 +173,7 @@
                 <strong>Termina em:</strong>
                 <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
               </div>
+              <!-- Share buttons -->
               <div class="fb-share-button sharebutton" data-href="<%= ad_url(@ad) %>" data-type="button"></div>
               <div class="sharebutton">
                  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" 
@@ -177,6 +182,14 @@
                    data-text="<%= 'Anuncio - ' + @ad.title %>"
                  >Tweet</a>
               </div>
+              <div class="g-plus" data-action="share" data-annotation="none"></div>
+              <script type="text/javascript">
+                (function() {
+                  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                  po.src = 'https://apis.google.com/js/platform.js';
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                })();
+              </script>
             </div>
          </div>
       </div>

@@ -49,6 +49,14 @@
         data-hashtags="AgroSocial"
         data-text="<%= 'Pergunta - ' + @academy_question.title %>"
       >Tweet</a></div>
+      <div class="g-plus" data-action="share" data-annotation="none"></div>
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
     </div>
     &nbsp;
     <div class="pull-right">

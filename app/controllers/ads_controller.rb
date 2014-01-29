@@ -193,11 +193,12 @@ class AdsController < ApplicationController
   # DELETE /ads/1
   # DELETE /ads/1.json
   def report
-
-    #reporting code
-
-    flash[:notice] = "Anúncio reportado à administração."
-
+  
+    if (current_user)
+      UserMailer.delay.report_email(@ad.user, current_user, @ad)
+      flash[:notice] = "Anúncio reportado à administração."
+    end
+    
     respond_to do |format|
       format.html { redirect_to ad_path(@ad) }
       format.json { head :no_content }
