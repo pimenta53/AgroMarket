@@ -21,7 +21,7 @@
 <% content_for :head do %>
   <!-- Facebook -->
   <meta property="og:title" content="<%= @academy_workshop.title %>"/>
-  <meta property="og:image" content="http://teste94.di.uminho.pt/assets/defaultWork.png"/>
+  <meta property="og:image" content="<%= root_url %>assets/defaultWork.png"/>
   <meta property="og:site_name" content="AgroSocial"/>
   <meta property="og:description" content="<%= @academy_workshop.description[0..70].gsub(/\s\w+\s*$/,'...') %>"/>
   <meta property="og:url" content="<%= academy_workshop_url(@academy_workshop) %>"/>
@@ -30,13 +30,14 @@
   <meta name="twitter:card" content="AgroSocial" />
   <meta name="twitter:title" content="<%= @academy_workshop.title %>" />
   <meta name="twitter:description" content="<%= @academy_workshop.description[0..70].gsub(/\s\w+\s*$/,'...') %>" />
-  <meta name="twitter:image" content="http://teste94.di.uminho.pt/assets/defaultWork.png" />
+  <meta name="twitter:image" content="<%= root_url %>assets/defaultWork.png" />
   <!-- Google -->
   <meta name="description" content="<%= @academy_workshop.description[0..70].gsub(/\s\w+\s*$/,'...') %>" />
   <meta name="keywords" content="Workshop" />
   <meta name="author" content="<%= @academy_workshop.user.name %>" />
   <meta name="copyright" content="© 2014 AGROSOCIAL. Todos os direitos reservados." />
   <meta name="application-name" content="AgroSocial" />
+  <link rel="canonical" href="<%= academy_workshop_url(@academy_workshop) %>">
 <% end %>
 
 <p id="notice"><%= notice %></p>
@@ -85,6 +86,14 @@
           data-hashtags="AgroSocial"
           data-text="<%= 'Workshop - ' + @academy_workshop.title %>"
         >Tweet</a></div>
+        <div class="g-plus" data-action="share" data-annotation="none"></div>
+        <script type="text/javascript">
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>
       </div>
 
       <% if user_signed_in? && current_user.id == @academy_workshop.user_id %>
@@ -94,18 +103,20 @@
       <%# VERIFICA se workshop tem inscriçoes e se ainda tem inscriçoes %>
       <% if @academy_workshop.has_available_slots? == true && @academy_workshop.requires_registration? == true %>
 
-        <% if @academy_registed.blank? %>
+        <% if user_signed_in? %>
+          <% if @academy_registed.blank? %>
 
-          <% if user_signed_in? && current_user.id != @academy_workshop.user_id %>
+            <% if user_signed_in? && current_user.id != @academy_workshop.user_id %>
+              <div class="text-center" style="margin-bottom: 10px;">
+                <button class="demo btn btn-primary" data-toggle="modal" href="#responsive"> <i class="fa fa-plus" style="color:white;"></i>Inscrever-se no Workshop</button>
+              </div>
+            <% end %>
+
+          <% else %>
             <div class="text-center" style="margin-bottom: 10px;">
-              <button class="demo btn btn-primary" data-toggle="modal" href="#responsive"> <i class="fa fa-plus" style="color:white;"></i>Inscrever-se no Workshop</button>
+              <%= link_to ' Remover inscrição do Workshop', @academy_registed, method: :delete,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Are you sure?' } %>
             </div>
           <% end %>
-
-        <% else %>
-          <div class="text-center" style="margin-bottom: 10px;">
-            <%= link_to ' Remover inscrição do Workshop', @academy_registed, method: :delete,:class=>"fa fa-minus demo btn btn-primary", data: { confirm: 'Are you sure?' } %>
-          </div>
         <% end %>
 
         <%# MODAL %>
