@@ -36,6 +36,7 @@
   <meta name="application-name" content="AgroSocial" />
   <link rel="canonical" href="<%= event_event_url(@event_event) %>">
 <% end %>
+<img src="<%= root_url.chop + @event_event.image.url %>" style="display:none;visibility:hidden"></img>
 
 <section class="panel" style="border: 1px solid #dddddd;">
   <div class="panel-body">
