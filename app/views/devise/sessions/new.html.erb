@@ -26,9 +26,7 @@
                </div>
 
                <div><%= f.submit "Iniciar Sessão", :class=>"btn btn-lg btn-primary btn-block" %></div>
-<%= "-------------------------------------" %>
-<%= session[:login_return_to] %>
-<%= "-------------------------------------" %>
+
             <% if flash[:notice] || flash[:alert]  %>
               <div id="error_explanation">
                   <% if flash[:notice] %>

@@ -7,6 +7,7 @@
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+<br>
   <%= link_to "Não recebeu o email de confirmação?", new_user_confirmation_path(resource_name) %>
 <% end -%>
 
