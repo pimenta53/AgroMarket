@@ -174,7 +174,9 @@
                 <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
               </div>
               <!-- Share buttons -->
-              <div class="fb-share-button sharebutton" data-href="<%= ad_url(@ad) %>" data-type="button"></div>
+              <div class="fb-share-button sharebutton" data-href="<%= ad_url(@ad) %>" data-type="button">
+
+              </div>
               <div class="sharebutton">
                  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" 
                    data-url="<%= ad_url(@ad) %>"
@@ -183,13 +185,13 @@
                  >Tweet</a>
               </div>
               <div class="g-plus" data-action="share" data-annotation="none"></div>
-              <script type="text/javascript">
-                (function() {
-                  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                  po.src = 'https://apis.google.com/js/platform.js';
-                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                })();
-              </script>
+                      <script type="text/javascript">
+                        (function() {
+                          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                          po.src = 'https://apis.google.com/js/platform.js';
+                          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                        })();
+                      </script>
             </div>
          </div>
       </div>
@@ -280,7 +282,7 @@
 </div>
 
 <%# MODAL %>
-<div id="modalMap" class="modal fade" tabindex="-1" data-width="760" style="display: none; margin-top:-30%;">
+<div id="modalMap" class="modal fade" tabindex="-1" data-width="760" style="display: none; top:10%; position:fixed;">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
     <h4 class="modal-title"><i class="fa fa-map-marker"></i> Localização do Anúncio</h4>
