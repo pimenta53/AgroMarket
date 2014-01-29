@@ -15,6 +15,7 @@
       <th>Cidade</th>
       <th>Anúncios</th>
       <th>Eventos</th>
+      <th>Membro há</th>
       <% @plans.each do |p| %>
        <th><%= p.name %></th> 
        <%end%>
@@ -35,6 +36,7 @@
         <td><%= user.city.city %></td>
         <td><%= user.counter_ads %></td>
         <td><%= user.counter_events %></td>
+        <td><%= time_ago_in_words(user.created_at) %></td>
         <% @plans.each do |p| %>
           <th><%= user.plans.where('plan_id=?',p.id).count %></th>
         <% end %>
