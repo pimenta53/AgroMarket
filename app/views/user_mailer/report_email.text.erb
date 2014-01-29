@@ -1,0 +1,17 @@
+Denuncia de Anuncio: <%= @ad.title %>
+===============================================
+Denunciante: <%= @reporter.id %>: <%= @reporter.name %>
+Denunciado: <%= @user.id %>: <%= @user.name %>
+
+Anuncio: <%= @ad.title %>
+<%= @root + ad_path(@ad) %>
+
+Conteudo:
+<%= @ad.description %>
+
+<% if @ad.ad_images.first %>
+  Imagens:
+  <% @ad.ad_images.each do |img| %>
+    "<%= @root + img.image.url %>"
+  <% end %>
+<% end %>
