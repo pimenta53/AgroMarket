@@ -32,6 +32,6 @@ class UserMailer < ActionMailer::Base
     @ad = ad
     @root = "http://teste94.di.uminho.pt"
     
-  	 mail(to: report_email_repository, subject: 'Denuncia - ' + @ad.title)
+  	 mail(to: report_email_repository, subject: 'AgroSocial:System: Denuncia - ' + @ad.title)
   end
 end
