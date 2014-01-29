@@ -89,4 +89,9 @@ pt-PT:
       time:   "%d/%m/%Y %H:%M:%S"
       us_date: "%b %d, %Y"
       mine: "%b %d"
+  datetime:
+    distance_in_words:
+      x_days:
+        one: "1 dia"
+        other: "%{count} dias"
 

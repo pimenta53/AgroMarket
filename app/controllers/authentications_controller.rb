@@ -14,7 +14,8 @@ class AuthenticationsController < ApplicationController
     elsif current_user
       current_user.omni_authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
       flash[:notice] = I18n.t('devise.sessions.signed_in')
-      redirect_to refresh_url
+      #redirect_to refresh_url
+      redirect_to edit_user_registration_path
     else
       user = User.match_omniauth(omniauth)
       if (user != nil)

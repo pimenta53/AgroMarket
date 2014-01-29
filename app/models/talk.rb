@@ -64,7 +64,7 @@ class Talk < ActiveRecord::Base
 
   #get all unclosed talks of ads from the current_user
   def self.all_talk_ad( current_user , ad)
-    where("(user_one = ? or user_two = ?) and ad_id = ? and is_close != 1", current_user.id, current_user.id, ad.id)
+    where("(user_one = ? or user_two = ?) and ad_id = ?", current_user.id, current_user.id, ad.id)
   end
 
 
