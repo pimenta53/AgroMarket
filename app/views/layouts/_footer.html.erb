@@ -2,9 +2,9 @@
   <div style="width:100%; display:inline-block;">
     <div style="float:left; min-width:375px;">
       <ul id='footer-info'>
-        <li><a href="#">Termos e Condições</a></li>
+        <li><%= link_to "Termos e condições", terms_and_condition_path %></li>
         <li><a href="#">Privacidade</a></li>
-        <li><a href="#">Contactos</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#modalContact" >Contactos</a></li>
       </ul>
     </div>
     <div style="float:right; min-width:375px; text-align:center;">
@@ -12,3 +12,7 @@
     </div>
   </div>
 </footer>
+
+
+
+<%# FIM MODAL %>
