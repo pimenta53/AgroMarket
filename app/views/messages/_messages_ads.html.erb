@@ -34,11 +34,11 @@
           <% if t.is_close == 0 %>
           <%= link_to "Fechar Negócio", done_message_path(id_ad: @ad.id, user_id: t.user_receiver(current_user)), :data => { :confirm => "Tem a certeza que pertende fechar este negócio?" }, :class => "btn btn-primary ", :style => ""  if @ad.user_id == current_user.id %>
 
-          <%= link_to('<span style="float: right;" class="fa fa-times-circle"></span>'.html_safe, cancel_message_path(id_ad: @ad.id,user_id: t.user_receiver(current_user)), :data => { :confirm => "Tem a certeza que pertende eliminar a troca de mensagem com este utilizador?" }) if @ad.user_id == current_user.id  %>
+          <%= link_to "Fechar Conversa", cancel_message_path(id_ad: @ad.id,user_id: t.user_receiver(current_user)), :data => { :confirm => "Tem a certeza que pertende eliminar a troca de mensagem com este utilizador?" }, :class => "btn btn-primary pull-right", :style => ""  if @ad.user_id == current_user.id %>
           <% end %>
         </h4>
 
-        <span class="label label-info" style="float: right;"><%= t.messages.count%></span>
+        <span class="label label-info" style="margin-top: 5px; float: right;"><%= t.messages.count%></span>
       </div>
 
       <div id="<%= t.user_receiver(current_user) %>" class="panel-collapse collapse">
