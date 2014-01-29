@@ -1,23 +1,23 @@
 <% content_for :head do %>
   <!-- Facebook -->
   <meta property="og:title" content="<%= @academy_question.title %>"/>
-  <meta property="og:image" content="<%= root_url.chop + @academy_question.user.avatar.url %>"/>
+  <meta property="og:image" content="<%= root_url %>assets/defaultQuestion.png"/>
   <meta property="og:site_name" content="AgroSocial"/>
-  <meta property="og:description" content="<%= @academy_question.text %>"/>
+  <meta property="og:description" content="<%= @academy_question.text[0..70].gsub(/\s\w+\s*$/,'...') %>"/>
   <meta property="og:url" content="<%= academy_question_url(@academy_question) %>"/>
-  <meta property="og:locale" content="<% if params[:locale] %><%= params[:locale] %><% else %>pt_PT<% end %>"/>
   <meta property="fb:app_id" content="547514635336381"/>
   <!-- Twitter -->
   <meta name="twitter:card" content="AgroSocial" />
   <meta name="twitter:title" content="<%= @academy_question.title %>" />
-  <meta name="twitter:description" content="<%= @academy_question.text %>" />
-  <meta name="twitter:image" content="http://teste94.di.uminho.pt/assets/defaultQuestion.png" />
+  <meta name="twitter:description" content="<%= @academy_question.text[0..70].gsub(/\s\w+\s*$/,'...') %>" />
+  <meta name="twitter:image" content="<%= root_url %>assets/defaultQuestion.png" />
   <!-- Google -->
-  <meta name="description" content="<%= @academy_question.text %>" />
+  <meta name="description" content="<%= @academy_question.text[0..70].gsub(/\s\w+\s*$/,'...') %>" />
   <meta name="keywords" content="Pergunta" />
   <meta name="author" content="<%= @academy_question.user.name %>" />
   <meta name="copyright" content="© 2014 AGROSOCIAL. Todos os direitos reservados." />
   <meta name="application-name" content="AgroSocial" />
+  <link rel="canonical" href="<%= academy_question_url(@academy_question) %>">
 <% end %>
 
 <%##  render the question  %>
@@ -104,11 +104,23 @@
   <section class="panel">
     <header class="panel-heading">
       <div>
-        <p>Inicie sessão para poder responder: <%= link_to "Iniciar Sessão", new_user_session_path, class:"url" %> ou <%= link_to "Registar", new_user_registration_path, class:"url" %></p>
+        <p>Inicie sessão para poder responder: <%= link_to "Iniciar Sessão", new_user_session_path, class:"url", id: "question_log_in" %> ou <%= link_to "Registar", new_user_registration_path, class:"url" %></p>
       </div>
     </header>
   </section>
 </div>
+<script type="text/javascript">
+  $(function(){
+    $("#question_log_in").click(function(){
+      $.ajax({
+        url: '/set_session_question/<%= @academy_question.id %>',
+        dataType: 'script',
+        type: "POST"
+      });
+    })
+  })
+</script>
+
 <% end %>
 
 <%#  Back button for unloged users   %>

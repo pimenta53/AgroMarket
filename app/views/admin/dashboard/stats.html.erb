@@ -6,11 +6,11 @@
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Utilizadores no último mês</h3>
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Novos utilizadores por mês</h3>
               </div>
               <div class="panel-body">
-              <%= line_chart @dashboard.users_last_month %>
-               <%# line_chart @dashboard.users.group_by_month(:created_at).count %>
+              <%= column_chart @dashboard.users_last_year %>
+               <%# line_chart @dashboard.users.group_by_day_of_week(:created_at).count %>
 
                 <!--div class="text-right">
                   <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
@@ -149,7 +149,7 @@
                 <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Utilizadores por faixa etária</h3>
               </div>
               <div class="panel-body">
-                <%= pie_chart( @dashboard.users_per_age_group ) %>       
+                <%= bar_chart( @dashboard.users_per_age_group ) %>       
               </div>
             </div>
           </div><!-- END USERS PER DISTRICT GRAPH -->

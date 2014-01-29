@@ -6,7 +6,7 @@
               <div class="social-box">
                 <div class="row mg-btm">
                   <div class="col-md-12"><%= link_to "<i class=\"icon-facebook\" style=\"margin-right: 5px; color: white;\"></i>Entrar com o Facebook".html_safe , "/auth/facebook",:class=>"popup btn btn-facebook btn-block",:style=>"color:white;" %></div>
-                  
+
                 </div>
                 <div class="row" style="margin-top: 5px; margin-bottom: 10px">
                     <div class="col-md-12"><%= link_to "<i class=\"icon-twitter\" style=\"margin-right: 5px; color: white;\"></i>Entrar com o Twitter".html_safe , "/auth/twitter" ,:class=>"popup btn btn-twitter btn-block" ,:style=>"color:white;" %></div>
@@ -24,9 +24,11 @@
                 <%= f.label :password %><br />
                  <%= f.password_field :password ,:class=>"form-control",:placeholder=> "Password" %>
                </div>
-               
-               <div><%= f.submit "Iniciar Sessão", :class=>"btn btn-lg btn-primary btn-block" %></div>
 
+               <div><%= f.submit "Iniciar Sessão", :class=>"btn btn-lg btn-primary btn-block" %></div>
+<%= "-------------------------------------" %>
+<%= session[:login_return_to] %>
+<%= "-------------------------------------" %>
             <% if flash[:notice] || flash[:alert]  %>
               <div id="error_explanation">
                   <% if flash[:notice] %>
@@ -50,7 +52,7 @@
                        <label>
                          <input type="checkbox"> Manter Sessão Iniciada
                        </label>
-                       
+
 
                              <div class="right-section links">
                                     <a>

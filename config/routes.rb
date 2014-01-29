@@ -1,12 +1,20 @@
 Agrosocial::Application.routes.draw do
 
+  get "contact/new"
+  
+  post "contact_form" => "contact#create"
+
+  namespace :admin do
+    resources :contacts
+  end
+
   get "calendar" => "calendar#show"
   root 'welcome#index'
 
   #get "/plans", :to => "plans#index"
   resources :plans
 
-
+  post "/set_session_question/:id", :to => "application#set_session_question"
 
   namespace :event do
     resources :events

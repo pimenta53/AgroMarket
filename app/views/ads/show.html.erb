@@ -19,28 +19,34 @@
   <% if user_signed_in? %>
     <%= link_to "<i class='fa fa-plus'></i>Novo Anúncio".html_safe, new_ad_path, class:"url", style:"float:right" %>
   <% end %>
-</ol>
+</ol> 
 
 <% content_for :head do %>
   <!-- Facebook -->
   <meta property="og:title" content="<%= @ad.title %>"/>
-  <meta property="og:image" content="<% if @ad.ad_images.first %><%= root_url.chop + @ad.ad_images.first.image.url %><% else %>http://teste94.di.uminho.pt/assets/defaultAdPic.png<% end %>"/>
+  <% @ad.ad_images.each do |img| %>
+    <meta property="og:image" content="<%= root_url.chop + img.image.url %>"/>
+  <% end %>
+  <meta property="og:image" content="<%= root_url %>assets/defaultAdPic.png"/>
   <meta property="og:site_name" content="AgroSocial"/>
-  <meta property="og:description" content="<%= @ad.description %>"/>
+  <meta property="og:description" content="<%= @ad.description[0..70].gsub(/\s\w+\s*$/,'...') %>"/>
   <meta property="og:url" content="<%= ad_url(@ad) %>"/>
-  <meta property="og:locale" content="<% if params[:locale] %><%= params[:locale] %><% else %>pt_PT<% end %>"/>
   <meta property="fb:app_id" content="547514635336381"/>
   <!-- Twitter -->
   <meta name="twitter:card" content="AgroSocial" />
   <meta name="twitter:title" content="<%= @ad.title %>" />
-  <meta name="twitter:description" content="<%= @ad.description %>" />
-  <meta name="twitter:image" content="<% if @ad.ad_images.first %><%= root_url.chop + @ad.ad_images.first.image.url %><% else %>http://teste94.di.uminho.pt/assets/defaultAdPic.png<% end %>" />
+  <meta name="twitter:description" content="<%= @ad.description[0..70].gsub(/\s\w+\s*$/,'...') %>" />
+  <% @ad.ad_images.each do |img| %>
+    <meta name="twitter:image" content="<%= root_url.chop + img.image.url %>"/>
+  <% end %>
+  <meta name="twitter:image" content="<%= root_url %>assets/defaultAdPic.png"/>
   <!-- Google -->
-  <meta name="description" content="<%= @ad.description %>" />
+  <meta name="description" content="<%= @ad.description[0..70].gsub(/\s\w+\s*$/,'...') %>" />
   <meta name="keywords" content="Anuncio" />
-  <meta name="author" content="<%= @ad.description %>" />
+  <meta name="author" content="<%= @ad.user.name %>" />
   <meta name="copyright" content="© 2014 AGROSOCIAL. Todos os direitos reservados." />
   <meta name="application-name" content="AgroSocial" />
+  <link rel="canonical" href="<%= ad_url(@ad) %>">
 <% end %>
 
 
@@ -164,6 +170,7 @@
                 <strong>Termina em:</strong>
                 <%= (@ad.created_at + 1.week).strftime("%d - %m - %Y") %>
               </div>
+              <!-- Share buttons -->
               <div class="fb-share-button sharebutton" data-href="<%= ad_url(@ad) %>" data-type="button"></div>
               <div class="sharebutton">
                  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" 
@@ -172,6 +179,14 @@
                    data-text="<%= 'Anuncio - ' + @ad.title %>"
                  >Tweet</a>
               </div>
+              <div class="g-plus" data-action="share" data-annotation="none"></div>
+              <script type="text/javascript">
+                (function() {
+                  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                  po.src = 'https://apis.google.com/js/platform.js';
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                })();
+              </script>
             </div>
          </div>
       </div>

@@ -20,21 +20,21 @@
   <meta property="og:title" content="<%= @event_event.title %>"/>
   <meta property="og:image" content="<%= root_url.chop + @event_event.image.url %>"/>
   <meta property="og:site_name" content="AgroSocial"/>
-  <meta property="og:description" content="<%= @event_event.description %>"/>
+  <meta property="og:description" content="<%= @event_event.description[0..70].gsub(/\s\w+\s*$/,'...') %>"/>
   <meta property="og:url" content="<%= event_event_url(@event_event) %>"/>
-  <meta property="og:locale" content="<% if params[:locale] %><%= params[:locale] %><% else %>pt_PT<% end %>"/>
   <meta property="fb:app_id" content="547514635336381"/>
   <!-- Twitter -->
   <meta name="twitter:card" content="AgroSocial" />
   <meta name="twitter:title" content="<%= @event_event.title %>" />
-  <meta name="twitter:description" content="<%= @event_event.description %>" />
+  <meta name="twitter:description" content="<%= @event_event.description[0..70].gsub(/\s\w+\s*$/,'...') %>" />
   <meta name="twitter:image" content="<%= root_url.chop + @event_event.image.url %>" />
   <!-- Google -->
-  <meta name="description" content="<%= @event_event.description %>" />
+  <meta name="description" content="<%= @event_event.description[0..70].gsub(/\s\w+\s*$/,'...') %>" />
   <meta name="keywords" content="Event" />
   <meta name="author" content="<%= @event_event.user.name %>" />
   <meta name="copyright" content="© 2014 AGROSOCIAL. Todos os direitos reservados." />
   <meta name="application-name" content="AgroSocial" />
+  <link rel="canonical" href="<%= event_event_url(@event_event) %>">
 <% end %>
 
 <section class="panel" style="border: 1px solid #dddddd;">
@@ -76,12 +76,13 @@
         </div>
       </div>
 
-      <div class ="ads_description" style="height: 20px; margin-bottom: 10px;">  
+      <div class ="ads_description" style="height: 20px; margin-bottom: 10px;">
         <div style="float:left;">
           <strong>Criado Por:</strong>
           <%= link_to get_first_last_name(@event_event.user.name), @event_event.user, class:"url" %>
         </div>
         <div style="float:right;">
+          <!-- Share buttons -->
           <div class="fb-share-button sharebutton" data-href="<%= event_event_url(@event_event) %>" data-type="button"></div>
           <div class="sharebutton">
             <a href="https://twitter.com/share" class="twitter-share-button" data-count="none"
@@ -90,6 +91,14 @@
               data-text="<%= 'Event - ' + @event_event.title%>"
             >Tweet</a>
           </div>
+          <div class="g-plus" data-action="share" data-annotation="none"></div>
+          <script type="text/javascript">
+            (function() {
+              var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+              po.src = 'https://apis.google.com/js/platform.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+          </script>
         </div>
       </div>
     </div>
