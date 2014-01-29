@@ -31,10 +31,11 @@
         <h4 class="panel-title">
           <span class="fa fa-comment"></span>
           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" style="color:black" href="#<%= t.user_receiver(current_user) %>">Mensagens do Utilizador: <%= t.user_receiver_name(current_user) %></a>
-
+          <% if t.is_close == 0 %>
           <%= link_to "Fechar Negócio", done_message_path(id_ad: @ad.id, user_id: t.user_receiver(current_user)), :data => { :confirm => "Tem a certeza que pertende fechar este negócio?" }, :class => "btn btn-primary ", :style => ""  if @ad.user_id == current_user.id %>
 
           <%= link_to('<span style="float: right;" class="fa fa-times-circle"></span>'.html_safe, cancel_message_path(id_ad: @ad.id,user_id: t.user_receiver(current_user)), :data => { :confirm => "Tem a certeza que pertende eliminar a troca de mensagem com este utilizador?" }) if @ad.user_id == current_user.id  %>
+          <% end %>
         </h4>
 
         <span class="label label-info" style="float: right;"><%= t.messages.count%></span>
