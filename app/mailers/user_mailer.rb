@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def welcome_email(email,user)
     @user = user
     @email = email
-  	@url = "http://teste94.di.uminho.pt" + ads_path
+  	 @url = "http://teste94.di.uminho.pt" + ads_path
     mail(to: email, subject: 'Bem vindo ao AgroSocial')
   end
 
@@ -22,5 +22,16 @@ class UserMailer < ActionMailer::Base
   	@password = password
   	@url = "http://teste94.di.uminho.pt" + ads_path
   	mail(to: destination, subject: 'Bem vindo ao AgroSocial')
+  end
+  
+  def report_email(user, reporter, ad)
+    report_email_repository = 'agro.social2@gmail.com'
+    
+    @user = user
+    @reporter = reporter
+    @ad = ad
+    @root = "http://teste94.di.uminho.pt"
+    
+  	 mail(to: report_email_repository, subject: 'AgroSocial:System: Denuncia - ' + @ad.title)
   end
 end

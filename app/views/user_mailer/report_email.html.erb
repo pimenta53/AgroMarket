@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>
+      Denuncia de Anuncio: <%= @ad.title %>
+    </h1>
+    <br/>
+    <p>
+      Denunciante: <%= @reporter.id %>: <%= @reporter.name %>
+    </p>
+    <p>
+      Denunciado: <%= @user.id %>: <%= @user.name %>
+    </p>
+    <h2>
+      <a href="<%= @root + ad_path(@ad) %>">Anuncio: <%= @ad.title %></a>
+    </h2>
+    <p>
+      <%= @ad.description %>
+    </p>
+    <% @ad.ad_images.each do |img| %>
+      <img src="<%= @root + img.image.url %>"></img>
+    <% end %>
+  </body>
+</html>
